@@ -1,0 +1,33 @@
+{
+  "name": "ui-thing",
+  "license": "MIT",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --host",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "clean": "rm -rf .nuxt dist .output node_modules yarn.lock package-lock.json && yarn"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "0.8.2",
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "@samk-dev/nuxt-vcalendar": "^1.0.0",
+    "@types/prettier": "^3.0.0",
+    "@types/typescript": "^2.0.0",
+    "nuxt": "^3.7.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@types/date-fns": "^2.6.0",
+    "@vueuse/nuxt": "^10.4.1",
+    "date-fns": "2.30.0",
+    "nuxt-icon": "^0.5.0",
+    "radix-vue": "^0.1.29",
+    "tailwind-variants": "^0.1.14",
+    "vue-command-palette": "^0.2.0"
+  }
+}
