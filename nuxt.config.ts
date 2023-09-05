@@ -1,27 +1,12 @@
-import { existsSync, readFileSync } from "node:fs";
-
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  vite: {
-    vue: {
-      script: {
-        fs: {
-          fileExists(file: string) {
-            return existsSync(file);
-          },
-          readFile(file: string) {
-            return readFileSync(file, "utf-8");
-          },
-        },
-      },
-    },
-  },
   modules: [
     "@vueuse/nuxt",
     "@nuxtjs/tailwindcss",
     "radix-vue/nuxt",
     "nuxt-icon",
     "@samk-dev/nuxt-vcalendar",
+    "@vee-validate/nuxt",
   ],
   imports: {
     // Add tv and VariantProps to the set of auto imported modules

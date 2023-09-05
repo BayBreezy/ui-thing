@@ -56,9 +56,9 @@
     {
       position: "popper",
       side: "bottom",
-      sideOffset: 8,
+      sideOffset: 0,
       align: "start",
-      alignOffset: -4,
+      alignOffset: 0,
       avoidCollisions: true,
       collisionBoundary: () => [],
       collisionPadding: 0,

@@ -16,6 +16,6 @@
   }>();
 
   const styles = tv({
-    base: "data-[state=open]:animate-collapse-down data-[state=closed]:animate-collapse-up overflow-auto transition-all",
+    base: "transition-all data-[state=closed]:animate-collapse-up data-[state=open]:animate-collapse-down data-[state=closed]:overflow-hidden data-[state=open]:overflow-hidden",
   });
 </script>

@@ -18,18 +18,23 @@
 
 <script lang="ts" setup>
   import { type RadioGroupRootProps, type RadioGroupRootEmits } from "radix-vue/dist/RadioGroup";
-  const props = defineProps<{
-    modelValue?: RadioGroupRootProps["modelValue"];
-    defaultValue?: RadioGroupRootProps["defaultValue"];
-    disabled?: RadioGroupRootProps["disabled"];
-    name?: RadioGroupRootProps["name"];
-    required?: RadioGroupRootProps["required"];
-    orientation?: RadioGroupRootProps["orientation"];
-    dir?: RadioGroupRootProps["dir"];
-    loop?: RadioGroupRootProps["loop"];
-    asChild?: RadioGroupRootProps["asChild"];
-    class?: any;
-  }>();
+  const props = withDefaults(
+    defineProps<{
+      modelValue?: RadioGroupRootProps["modelValue"];
+      defaultValue?: RadioGroupRootProps["defaultValue"];
+      disabled?: RadioGroupRootProps["disabled"];
+      name?: RadioGroupRootProps["name"];
+      required?: RadioGroupRootProps["required"];
+      orientation?: RadioGroupRootProps["orientation"];
+      dir?: RadioGroupRootProps["dir"];
+      loop?: RadioGroupRootProps["loop"];
+      asChild?: RadioGroupRootProps["asChild"];
+      class?: any;
+    }>(),
+    {
+      orientation: "vertical",
+    }
+  );
 
   const emits = defineEmits<{
     "update:modelValue": RadioGroupRootEmits["update:modelValue"];

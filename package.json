@@ -23,11 +23,15 @@
   },
   "dependencies": {
     "@types/date-fns": "^2.6.0",
+    "@types/yup": "^0.32.0",
+    "@vee-validate/nuxt": "^4.11.3",
+    "@vee-validate/yup": "^4.11.3",
     "@vueuse/nuxt": "^10.4.1",
     "date-fns": "2.30.0",
     "nuxt-icon": "^0.5.0",
-    "radix-vue": "^0.1.29",
+    "radix-vue": "^0.1.30",
     "tailwind-variants": "^0.1.14",
-    "vue-command-palette": "^0.2.0"
+    "vue-command-palette": "^0.2.0",
+    "yup": "^1.2.0"
   }
 }

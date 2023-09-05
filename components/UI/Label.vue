@@ -8,10 +8,10 @@
   const props = defineProps<{
     asChild?: boolean;
     for?: string;
-    class?: string;
+    class?: any;
   }>();
 
   const styles = tv({
-    base: "text-sm font-medium leading-none hover:cursor-pointer peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+    base: "inline-block text-sm font-medium leading-none hover:cursor-pointer peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
   });
 </script>

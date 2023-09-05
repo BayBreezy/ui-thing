@@ -9,7 +9,7 @@
     <p class="mb-4 font-semibold">Value {{ sliderValue }}</p>
     <UISlider v-model="sliderValue" />
     <p class="my-4 font-semibold">Range {{ rangeValue }}</p>
-    <UISlider v-model="rangeValue" />
+    <UISlider v-model="rangeValue" :max="250" />
   </div>
 </template>
 
