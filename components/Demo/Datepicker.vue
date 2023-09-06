@@ -13,7 +13,7 @@
         </template>
       </UIDatepicker>
 
-      <VDatePicker v-model="date">
+      <UIDatepicker v-model="date">
         <template #default="{ togglePopover }">
           <UIButton
             variant="outline"
@@ -24,13 +24,13 @@
             {{ date ? format(date, "MMMM dd, yyyy") : "Select a date" }}
           </UIButton>
         </template>
-      </VDatePicker>
+      </UIDatepicker>
 
-      <VDatePicker v-model="date">
+      <UIDatepicker v-model="date">
         <template #default="{ inputValue, inputEvents }">
           <UIInput placeholder="DD/MM/YYYY" :value="inputValue" v-on="inputEvents" />
         </template>
-      </VDatePicker>
+      </UIDatepicker>
     </div>
   </div>
 </template>

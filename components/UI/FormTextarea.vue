@@ -9,20 +9,16 @@
           <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground" />
         </span>
       </slot>
-      <UISelect
-        :disabled="disabled"
-        :required="required"
-        :name="name"
+      <UITextarea
+        :rows="rows"
         v-model="value"
+        @blur="handleBlur"
+        :id="inputId"
+        :name="name"
         v-bind="$attrs"
-      >
-        <slot>
-          <slot name="trigger">
-            <UISelectTrigger :placeholder="placeholder" :id="inputId" />
-          </slot>
-          <slot name="content"></slot>
-        </slot>
-      </UISelect>
+        :class="[hasIcon && 'pl-8']"
+        :placeholder="placeholder"
+      />
     </div>
     <p
       class="mt-1 text-[13px] text-muted-foreground animate-in fade-in"
@@ -47,22 +43,25 @@
     rules?: any;
     validateOnMount?: boolean;
     placeholder?: string;
-    disabled?: boolean;
-    required?: boolean;
+    rows?: number;
   }>();
 
   defineOptions({ inheritAttrs: false });
 
   const inputId = computed(
-    () => props.id || `select-${Math.random().toString(36).substring(2, 9)}`
+    () => props.id || `textarea-${Math.random().toString(36).substring(2, 9)}`
   );
 
   const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));
 
-  const { errorMessage, value } = useField(() => props.name || inputId.value, props.rules, {
-    initialValue: props.modelValue,
-    label: props.label,
-    validateOnMount: props.validateOnMount,
-    syncVModel: true,
-  });
+  const { errorMessage, value, handleBlur } = useField(
+    () => props.name || inputId.value,
+    props.rules,
+    {
+      initialValue: props.modelValue,
+      label: props.label,
+      validateOnMount: props.validateOnMount,
+      syncVModel: true,
+    }
+  );
 </script>

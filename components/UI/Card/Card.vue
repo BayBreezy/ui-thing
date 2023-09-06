@@ -1,14 +1,19 @@
 <template>
   <div :class="styles({ class: props.class })">
     <slot>
-      <UICardHeader>
-        <slot name="title">
-          <UICardTitle v-if="title || $slots.title" :title="title" />
-        </slot>
-        <slot name="description">
-          <UICardDescription v-if="description || $slots.description" :description="description" />
-        </slot>
-      </UICardHeader>
+      <slot name="header">
+        <UICardHeader>
+          <slot name="title">
+            <UICardTitle v-if="title || $slots.title" :title="title" />
+          </slot>
+          <slot name="description">
+            <UICardDescription
+              v-if="description || $slots.description"
+              :description="description"
+            />
+          </slot>
+        </UICardHeader>
+      </slot>
       <slot name="content" v-if="content || $slots.content">
         <UICardContent>
           <div v-html="content"></div>

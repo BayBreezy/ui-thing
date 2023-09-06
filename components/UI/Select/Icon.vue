@@ -1,7 +1,7 @@
 <template>
   <SelectIcon :as-child="asChild || true">
     <slot>
-      <Icon :class="styles({ class: props.class })" :name="icon || 'lucide:chevron-down'" />
+      <Icon :class="styles({ class: props.class })" :name="icon || 'lucide:chevrons-up-down'" />
     </slot>
   </SelectIcon>
 </template>
@@ -14,6 +14,6 @@
   }>();
 
   const styles = tv({
-    base: "h-4 w-4 opacity-50",
+    base: "h-4 w-4 shrink-0 text-muted-foreground opacity-70",
   });
 </script>
