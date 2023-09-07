@@ -10,7 +10,7 @@
     "clean": "rm -rf .nuxt dist .output node_modules yarn.lock package-lock.json && yarn"
   },
   "devDependencies": {
-    "@nuxt/devtools": "0.8.2",
+    "@nuxt/devtools": "0.8.3",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@samk-dev/nuxt-vcalendar": "^1.0.0",
     "@types/prettier": "^3.0.0",
