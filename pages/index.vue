@@ -37,6 +37,7 @@
     <DemoTextarea />
     <DemoSheet />
     <DemoTooltip />
+    <DemoDataTable />
   </div>
 </template>
 

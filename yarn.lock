@@ -5737,10 +5737,10 @@ queue-tick@^1.0.1:
   resolved "https://registry.npmjs.org/queue-tick/-/queue-tick-1.0.1.tgz"
   integrity sha512-kJt5qhMxoszgU/62PLP1CJytzd2NKetjSRnyuj31fDd3Rlcz3fzlFdFLD1SItunPwyqEOkca6GbV612BWfaBag==
 
-radix-vue@^0.1.30:
-  version "0.1.30"
-  resolved "https://registry.npmjs.org/radix-vue/-/radix-vue-0.1.30.tgz"
-  integrity sha512-RS+etP0ePL3MhPsfmr/BCGviTtWSegOWEgfUxM4j8oeNm2kzj8sYC+3TbSm9WaaimgFUqiy123tJhvGgVrL+qw==
+radix-vue@^0.1.32:
+  version "0.1.32"
+  resolved "https://registry.yarnpkg.com/radix-vue/-/radix-vue-0.1.32.tgz#d04d86cabc58b754815839053c1f3dc9226a1efa"
+  integrity sha512-z6vlBDT0GuVP2vu2LKJjWnyQB8jDWwE0eGqgO3IlrpeLOq5zpDA+ReaOJyJjf8m1We539fy+9wubKaBnHfBalw==
   dependencies:
     "@floating-ui/dom" "^1.4.2"
     "@floating-ui/vue" "^1.0.1"
