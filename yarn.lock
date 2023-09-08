@@ -1378,6 +1378,18 @@
     "@sigstore/protobuf-specs" "^0.2.1"
     tuf-js "^2.1.0"
 
+"@tanstack/table-core@8.9.7":
+  version "8.9.7"
+  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.9.7.tgz#54c08abf10b98070efb1cd760db3859669b802a3"
+  integrity sha512-lkhVcGDxa9GSoDFPkplPDvzsiUACPZrxT3U1edPs0DCMKFhBDgZ7d1DPd7cqHH0JoybfbQ/qiTQYOQBg8sinJg==
+
+"@tanstack/vue-table@^8.9.7":
+  version "8.9.7"
+  resolved "https://registry.yarnpkg.com/@tanstack/vue-table/-/vue-table-8.9.7.tgz#5e5b384bcd2d41fea73dd6128008a850d1b450db"
+  integrity sha512-wPuspBjGxIjbSB/ks9w4KyXNyxx58mjjo2sOzeKsLAb1+142oUMU7PHVsAeXRV461N0VsyUjtN7AqjgU9Bs+Cg==
+  dependencies:
+    "@tanstack/table-core" "8.9.7"
+
 "@tootallnate/once@2":
   version "2.0.0"
   resolved "https://registry.npmjs.org/@tootallnate/once/-/once-2.0.0.tgz"

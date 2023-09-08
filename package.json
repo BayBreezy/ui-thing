@@ -22,6 +22,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@tanstack/vue-table": "^8.9.7",
     "@types/date-fns": "^2.6.0",
     "@types/yup": "^0.32.0",
     "@vee-validate/nuxt": "^4.11.3",
