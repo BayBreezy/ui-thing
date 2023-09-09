@@ -17,6 +17,7 @@
     <DemoDatepicker />
     <DemoDialog />
     <DemoDropdownMenu />
+    <DemoDropfile />
     <DemoHoverCard />
     <DemoKbd />
     <DemoLabel />
