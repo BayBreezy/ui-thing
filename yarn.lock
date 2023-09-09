@@ -1570,22 +1570,22 @@
     hookable "^5.5.3"
     unhead "1.5.3"
 
-"@vee-validate/nuxt@^4.11.4":
-  version "4.11.4"
-  resolved "https://registry.yarnpkg.com/@vee-validate/nuxt/-/nuxt-4.11.4.tgz#b71abb01cfe5808c8781c876572e7c5dfc20039b"
-  integrity sha512-IB4GkJCKlDOSkrMqHtc9lNE0+J214p38z1d2+gvoHfhfq9TGWbhLsACo2tYx2hsZx+x/Y3PoKYGkCaveI+0mYA==
+"@vee-validate/nuxt@^4.11.5":
+  version "4.11.5"
+  resolved "https://registry.yarnpkg.com/@vee-validate/nuxt/-/nuxt-4.11.5.tgz#513fdcc3ea2ab4a8adcacdd1d807f6ac974f4f5b"
+  integrity sha512-RHjBL2WYea+Q/JWJmU585sJkc4r505i4TxC7xDx/1A/Vvmvn23nu+oQB72lCMxbBFzFT5VNziTJfZ+lWYPJ/Xg==
   dependencies:
     "@nuxt/kit" "^3.6.5"
     local-pkg "^0.4.3"
-    vee-validate "4.11.4"
+    vee-validate "4.11.5"
 
-"@vee-validate/yup@^4.11.4":
-  version "4.11.4"
-  resolved "https://registry.yarnpkg.com/@vee-validate/yup/-/yup-4.11.4.tgz#bbde1fdf955cfe42654148a448e876a711b6835c"
-  integrity sha512-JtTWHdnJxwA13vabOhyI071WCcO/TE9STX32v4MPsei0dCY2zo/fDCq4yCvS33nkprjfVCBHwbJTQFS2Kxu0iQ==
+"@vee-validate/yup@^4.11.5":
+  version "4.11.5"
+  resolved "https://registry.yarnpkg.com/@vee-validate/yup/-/yup-4.11.5.tgz#3f50d0c01c3fbaa3c70a9cf0728ff2ccd4b2c851"
+  integrity sha512-kBfnBkO3dPa3Txm/KXfbaF1nS7Yhqvp/IABLp3skXkkxCX6rkg1vJT0HqzW6pySXtcXhtzwD6yknoZKIzskHOQ==
   dependencies:
     type-fest "^4.2.0"
-    vee-validate "4.11.4"
+    vee-validate "4.11.5"
     yup "^1.2.0"
 
 "@vercel/nft@^0.23.1":
@@ -6849,10 +6849,10 @@ vary@^1.1.2:
   resolved "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
-vee-validate@4.11.4:
-  version "4.11.4"
-  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-4.11.4.tgz#4db6add766ec198e0d268477b2ed4e7ebd3ad754"
-  integrity sha512-N9mbxxRomXOLUVMz++1i2AnqTjU11f6cSYyv/4CK6vfA7mublmVqTVkeCtk+QtMu6yAr9tOOcJEFrnHC7/E4lg==
+vee-validate@4.11.5:
+  version "4.11.5"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-4.11.5.tgz#f18404f3532e974ddca2300fded892003fa88328"
+  integrity sha512-p54JwcOmGoe03FCEfzVhyvMt9h5/UZFj5OOIgdVfR8wo0zC0YTcrOYY2yGzB5hljezeyaR4UNEYPM182YiJuVA==
   dependencies:
     "@vue/devtools-api" "^6.5.0"
     type-fest "^4.2.0"
