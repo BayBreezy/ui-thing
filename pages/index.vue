@@ -7,6 +7,7 @@
     <DemoAspectRatio />
     <DemoAvatar />
     <DemoBadge />
+    <DemoBreadcrumbs />
     <DemoCalendar />
     <DemoCard />
     <DemoCheckbox />

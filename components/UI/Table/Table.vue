@@ -10,6 +10,6 @@
   }>();
 
   const styles = tv({
-    base: "w-full caption-bottom text-sm",
+    base: "w-full caption-bottom border-collapse text-sm",
   });
 </script>

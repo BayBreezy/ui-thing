@@ -10,6 +10,6 @@
   }>();
 
   const styles = tv({
-    base: "p-4 align-middle [&:has([role=checkbox])]:pr-0",
+    base: "whitespace-nowrap p-4 align-middle",
   });
 </script>

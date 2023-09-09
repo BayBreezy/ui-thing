@@ -5,14 +5,58 @@
       subtext="Powerful table and datagrids built using TanStack Table."
     />
 
-    <UIDataTable v-model="selected" :data="data" :columns="columns" class="mt-5" />
+    <div class="flex flex-col justify-between gap-5 md:flex-row md:items-center">
+      <UIInput type="search" v-model="search" placeholder="Search" class="w-full md:w-96" />
+      <UIDropdownMenu>
+        <UIDropdownMenuTrigger as-child>
+          <UIButton variant="outline">
+            <span>View</span>
+            <Icon name="lucide:chevron-down" class="h-4 w-4" />
+          </UIButton>
+        </UIDropdownMenuTrigger>
+        <UIDropdownMenuContent :side-offset="10" align="start" class="w-[300px] md:w-[200px]">
+          <UIDropdownMenuLabel> Toggle Columns </UIDropdownMenuLabel>
+          <UIDropdownMenuSeparator />
+          <UIDropdownMenuGroup>
+            <UIDropdownMenuCheckboxItem
+              v-for="column in table?.getAllColumns().filter((column) => column.getCanHide())"
+              :key="column.id"
+              :checked="column.getIsVisible()"
+              @update:checked="tableRef?.toggleColumnVisibility(column)"
+            >
+              <span class="text-sm capitalize">{{ column?.id }}</span>
+            </UIDropdownMenuCheckboxItem>
+          </UIDropdownMenuGroup>
+        </UIDropdownMenuContent>
+      </UIDropdownMenu>
+    </div>
+
+    <UIDataTable
+      @ready="table = $event"
+      ref="tableRef"
+      show-select
+      :search="search"
+      :data="data"
+      :columns="columns"
+      class="mt-5 rounded-md border"
+    >
+      <template #empty>
+        <div class="flex w-full flex-col items-center justify-center gap-5 py-5">
+          <Icon name="lucide:database" class="h-12 w-12 text-muted-foreground" />
+          <span class="mt-2">No data available.</span>
+        </div>
+      </template>
+    </UIDataTable>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import { ColumnDef } from "@tanstack/vue-table";
+  import { ColumnDef, Table } from "@tanstack/vue-table";
 
   const selected = ref([]);
+  const tableRef = ref();
+  const table = ref<Table<Payment> | null>(null);
+  const search = ref("");
 
   type Payment = {
     id: string;
@@ -52,13 +96,34 @@
       status: "failed",
       email: "carmella@hotmail.com",
     },
+    {
+      id: "5kma53ae",
+      amount: 874,
+      status: "success",
+      email: "ujmovto@tezotu.bb",
+    },
+    {
+      id: "bhqecj4p",
+      amount: 721,
+      status: "failed",
+      email: "gi@po.tz",
+    },
   ];
 
   const columns: ColumnDef<Payment>[] = [
-    { accessorKey: "id", header: "ID" },
-    { accessorKey: "amount", header: "Amount" },
-    { accessorKey: "status", header: "Status" },
-    { accessorKey: "email", header: "Email" },
+    { accessorKey: "id", header: "ID", enableHiding: true },
+    { accessorKey: "amount", header: "Amount", enableHiding: true },
+    {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ row }) => {
+        return h(resolveComponent("UIBadge"), { variant: "outline", class: "capitalize" }, () => [
+          row.original.status,
+        ]);
+      },
+      enableHiding: true,
+    },
+    { accessorKey: "email", header: "Email", enableHiding: true },
     {
       accessorKey: "actions",
       header: "",

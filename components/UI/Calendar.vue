@@ -33,7 +33,7 @@
   .vc-dark {
     --vc-bg: theme("colors.background");
     --vc-border: theme("colors.border");
-    --vc-focus-ring: 0 0 0 3px theme("colors.ring");
+    --vc-focus-ring: 0 0 0 3px hsl(var(--primary) / 30%);
     --vc-weekday-color: theme("colors.muted.foreground");
     --vc-popover-content-color: theme("colors.muted.foreground");
     --vc-popover-content-bg: theme("colors.background");
@@ -56,7 +56,7 @@
   }
 
   .vc-blue {
-    --vc-accent-200: theme("colors.secondary.DEFAULT");
+    --vc-accent-200: theme("colors.primary.DEFAULT / 20%");
     --vc-accent-400: theme("colors.primary.DEFAULT");
     --vc-accent-500: theme("colors.primary.DEFAULT");
     --vc-accent-600: theme("colors.primary.DEFAULT / 70%");
@@ -64,7 +64,7 @@
 
   .dark {
     .vc-blue {
-      --vc-accent-200: theme("colors.secondary.DEFAULT");
+      --vc-accent-200: theme("colors.primary.DEFAULT / 20%");
       --vc-accent-400: theme("colors.primary.DEFAULT");
       --vc-accent-500: theme("colors.primary.DEFAULT / 70%");
     }
