@@ -5,12 +5,12 @@
     }}</UILabel>
     <div class="relative">
       <slot name="icon">
-        <span v-if="hasIcon" class="absolute left-3 top-3 flex items-center justify-center">
-          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />
+        <span v-if="hasIcon" lass="absolute inset-y-0 left-3 flex items-center justify-center">
+          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground" />
         </span>
       </slot>
-      <UITextarea
-        :rows="rows"
+      <UINativeSelect
+        :trailingIcon="trailingIcon"
         v-model="value"
         @blur="handleBlur"
         :id="inputId"
@@ -18,7 +18,9 @@
         v-bind="$attrs"
         :class="[hasIcon && 'pl-9']"
         :placeholder="placeholder"
-      />
+      >
+        <slot></slot>
+      </UINativeSelect>
     </div>
     <p
       class="mt-1 text-[13px] text-muted-foreground animate-in fade-in"
@@ -42,14 +44,15 @@
     id?: string;
     rules?: any;
     validateOnMount?: boolean;
+    type?: string;
     placeholder?: string;
-    rows?: number;
+    trailingIcon?: string;
   }>();
 
   defineOptions({ inheritAttrs: false });
 
   const inputId = computed(
-    () => props.id || `textarea-${Math.random().toString(36).substring(2, 9)}`
+    () => props.id || `native-select-${Math.random().toString(36).substring(2, 9)}`
   );
 
   const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));

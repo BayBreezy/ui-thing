@@ -29,6 +29,7 @@
     <DemoScrollArea />
     <DemoSeparator />
     <DemoSelect />
+    <DemoNativeSelect />
     <DemoSlider />
     <DemoSwitch />
     <DemoInput />

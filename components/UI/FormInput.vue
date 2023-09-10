@@ -5,8 +5,8 @@
     }}</UILabel>
     <div class="relative">
       <slot name="icon">
-        <span v-if="hasIcon" class="absolute">
-          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground" />
+        <span v-if="hasIcon" class="absolute inset-y-0 left-3 flex items-center justify-center">
+          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />
         </span>
       </slot>
       <UIInput
@@ -16,7 +16,7 @@
         :id="inputId"
         :name="name"
         v-bind="$attrs"
-        :class="[hasIcon && 'pl-8']"
+        :class="[hasIcon && 'pl-9']"
         :placeholder="placeholder"
       />
     </div>

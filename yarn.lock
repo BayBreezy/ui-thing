@@ -1378,17 +1378,17 @@
     "@sigstore/protobuf-specs" "^0.2.1"
     tuf-js "^2.1.0"
 
-"@tanstack/table-core@8.9.7":
-  version "8.9.7"
-  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.9.7.tgz#54c08abf10b98070efb1cd760db3859669b802a3"
-  integrity sha512-lkhVcGDxa9GSoDFPkplPDvzsiUACPZrxT3U1edPs0DCMKFhBDgZ7d1DPd7cqHH0JoybfbQ/qiTQYOQBg8sinJg==
+"@tanstack/table-core@8.9.8":
+  version "8.9.8"
+  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.9.8.tgz#26e7e085fdc71030da643a3e0ac454f0e1088f3d"
+  integrity sha512-f2Y/BcJy3IBkdDxWEk6WX6zJSmCDBI5iS0icr5DyeSbWsbnfaBtOIaeBjfnTEedt9Kk3xPmfciA6uSNOQ1BEXA==
 
-"@tanstack/vue-table@^8.9.7":
-  version "8.9.7"
-  resolved "https://registry.yarnpkg.com/@tanstack/vue-table/-/vue-table-8.9.7.tgz#5e5b384bcd2d41fea73dd6128008a850d1b450db"
-  integrity sha512-wPuspBjGxIjbSB/ks9w4KyXNyxx58mjjo2sOzeKsLAb1+142oUMU7PHVsAeXRV461N0VsyUjtN7AqjgU9Bs+Cg==
+"@tanstack/vue-table@^8.9.8":
+  version "8.9.8"
+  resolved "https://registry.yarnpkg.com/@tanstack/vue-table/-/vue-table-8.9.8.tgz#98328b21113ca92a80716aa19668f64c8e37d5c6"
+  integrity sha512-xHhwelXxSAZ/A5JRNmFXydSGPgBOLEFcHWMlUF1jh6z8kfuc2CsrKhwxV3SyLMvQyUpJGP+/ODEojBnyywOngA==
   dependencies:
-    "@tanstack/table-core" "8.9.7"
+    "@tanstack/table-core" "8.9.8"
 
 "@tootallnate/once@2":
   version "2.0.0"
@@ -1570,22 +1570,22 @@
     hookable "^5.5.3"
     unhead "1.5.3"
 
-"@vee-validate/nuxt@^4.11.5":
-  version "4.11.5"
-  resolved "https://registry.yarnpkg.com/@vee-validate/nuxt/-/nuxt-4.11.5.tgz#513fdcc3ea2ab4a8adcacdd1d807f6ac974f4f5b"
-  integrity sha512-RHjBL2WYea+Q/JWJmU585sJkc4r505i4TxC7xDx/1A/Vvmvn23nu+oQB72lCMxbBFzFT5VNziTJfZ+lWYPJ/Xg==
+"@vee-validate/nuxt@^4.11.6":
+  version "4.11.6"
+  resolved "https://registry.yarnpkg.com/@vee-validate/nuxt/-/nuxt-4.11.6.tgz#bda4147b0641c56489c4d0d2258e3bafe01cbf02"
+  integrity sha512-XUcmRnk3K0rHLCGVcStA5UzZC8JQ+MAL/t5avw9rx+5IB4enHdGgOk7ToyNs8uPe+jdaO+L66C1sWl01TzDlkQ==
   dependencies:
     "@nuxt/kit" "^3.6.5"
     local-pkg "^0.4.3"
-    vee-validate "4.11.5"
+    vee-validate "4.11.6"
 
-"@vee-validate/yup@^4.11.5":
-  version "4.11.5"
-  resolved "https://registry.yarnpkg.com/@vee-validate/yup/-/yup-4.11.5.tgz#3f50d0c01c3fbaa3c70a9cf0728ff2ccd4b2c851"
-  integrity sha512-kBfnBkO3dPa3Txm/KXfbaF1nS7Yhqvp/IABLp3skXkkxCX6rkg1vJT0HqzW6pySXtcXhtzwD6yknoZKIzskHOQ==
+"@vee-validate/yup@^4.11.6":
+  version "4.11.6"
+  resolved "https://registry.yarnpkg.com/@vee-validate/yup/-/yup-4.11.6.tgz#1752285c7dccb9b7ebf3eeaaa27ad9a747b0355c"
+  integrity sha512-sJ//YQPIZk4N/NdCNmYoSwdq6+HNEvcWC9NqGrvXsFXNKgDQ7ChBwu4A1vdQixMPvimWV/VOuD9PRhIAXvouuQ==
   dependencies:
     type-fest "^4.2.0"
-    vee-validate "4.11.5"
+    vee-validate "4.11.6"
     yup "^1.2.0"
 
 "@vercel/nft@^0.23.1":
@@ -6849,10 +6849,10 @@ vary@^1.1.2:
   resolved "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
-vee-validate@4.11.5:
-  version "4.11.5"
-  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-4.11.5.tgz#f18404f3532e974ddca2300fded892003fa88328"
-  integrity sha512-p54JwcOmGoe03FCEfzVhyvMt9h5/UZFj5OOIgdVfR8wo0zC0YTcrOYY2yGzB5hljezeyaR4UNEYPM182YiJuVA==
+vee-validate@4.11.6:
+  version "4.11.6"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-4.11.6.tgz#4494a6898d25f93369bfbd93895958915c4f5bc3"
+  integrity sha512-DwmNRqYVwX/CrH2ai8RRE1Y0ETmMFkS6X+8JxzC9rmE5cMqBxMiHRiqRABRvtJAbgHFG7LeSzVkPcr/mG5BiSQ==
   dependencies:
     "@vue/devtools-api" "^6.5.0"
     type-fest "^4.2.0"
