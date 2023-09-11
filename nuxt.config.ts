@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@samk-dev/nuxt-vcalendar",
     "@vee-validate/nuxt",
   ],
+  typescript: { shim: false },
   imports: {
     // Add tv and VariantProps to the set of auto imported modules
     imports: [
