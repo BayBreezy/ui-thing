@@ -22,11 +22,11 @@
                     <p class="text-sm text-muted-foreground">{{ p.email }}</p>
                   </div>
                 </div>
-                <UISelect default-value="Can Edit">
+                <UISelect :default-value="p.model" v-model="p.model">
                   <UISelectTrigger placeholder="Select" class="ml-auto w-[110px]" />
                   <UISelectContent>
-                    <UISelectItem value="Can Edit" text="Can Edit" />
-                    <UISelectItem value="Can View" text="Can View" />
+                    <UISelectItem value="edit" text="Can Edit" />
+                    <UISelectItem value="view" text="Can View" />
                   </UISelectContent>
                 </UISelect>
               </div>
@@ -39,24 +39,27 @@
 </template>
 
 <script lang="ts" setup>
-  const people = [
+  const people = ref([
     {
       name: "Olivia Martin",
       email: "o@example.com",
       avatar: "https://avatar.vercel.sh/oliviamartin",
       fallback: "OM",
+      model: ref("edit"),
     },
     {
       name: "Isabella Nguyen",
       email: "i@example.com",
       avatar: "https://avatar.vercel.sh/isabellanguyen",
       fallback: "IG",
+      mdoel: ref("view"),
     },
     {
       name: "Sofia Davis",
       email: "s@example.com",
       avatar: "https://avatar.vercel.sh/sofiadavis",
       fallback: "SD",
+      model: ref("view"),
     },
-  ];
+  ]);
 </script>
