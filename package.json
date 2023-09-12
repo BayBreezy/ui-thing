@@ -25,6 +25,7 @@
     "@tanstack/vue-table": "^8.9.8",
     "@types/date-fns": "^2.6.0",
     "@types/yup": "^0.32.0",
+    "@unovis/ts": "^1.2.1",
     "@vee-validate/nuxt": "^4.11.6",
     "@vee-validate/yup": "^4.11.6",
     "@vueuse/nuxt": "^10.4.1",

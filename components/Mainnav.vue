@@ -22,6 +22,11 @@
                   >Cards</NuxtLink
                 >
               </UIDropdownMenuItem>
+              <UIDropdownMenuItem as-child>
+                <NuxtLink class="cursor-pointer hover:bg-muted" to="/examples/dashboard"
+                  >Dashboard</NuxtLink
+                >
+              </UIDropdownMenuItem>
             </UIDropdownMenuContent>
           </UIDropdownMenu>
         </nav>

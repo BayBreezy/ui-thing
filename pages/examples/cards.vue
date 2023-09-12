@@ -34,4 +34,6 @@
   definePageMeta({
     layout: "examples",
   });
+
+  useSeoMeta({ title: "Cards" });
 </script>
