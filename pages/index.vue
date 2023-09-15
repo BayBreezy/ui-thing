@@ -12,6 +12,7 @@
     <DemoCard />
     <DemoCheckbox />
     <DemoCollapsible />
+    <DemoCombobox />
     <DemoCommand />
     <DemoContextMenu />
     <DemoDatepicker />
