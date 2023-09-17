@@ -1,31 +1,29 @@
 <template>
-  <UIComboboxPortal :to="to">
-    <ComboboxContent
-      v-bind="$attrs"
-      :position="position"
-      :bodyLock="bodyLock"
-      :disableOutsidePointerEvents="disableOutsidePointerEvents"
-      :side="side"
-      :sideOffset="sideOffset"
-      :align="align"
-      :alignOffset="alignOffset"
-      :avoidCollisions="avoidCollisions"
-      :collisionBoundary="collisionBoundary"
-      :collisionPadding="collisionPadding"
-      :arrowPadding="arrowPadding"
-      :sticky="sticky"
-      :hideWhenDetached="hideWhenDetached"
-      :asChild="asChild"
-      @closeAutoFocus="($event) => emits('closeAutoFocus', $event)"
-      @escapeKeyDown="($event) => emits('escapeKeyDown', $event)"
-      @pointerDownOutside="($event) => emits('pointerDownOutside', $event)"
-      :class="styles({ class: props.class })"
-    >
-      <UIComboboxViewport>
-        <slot></slot>
-      </UIComboboxViewport>
-    </ComboboxContent>
-  </UIComboboxPortal>
+  <ComboboxContent
+    v-bind="$attrs"
+    :position="position"
+    :bodyLock="bodyLock"
+    :disableOutsidePointerEvents="disableOutsidePointerEvents"
+    :side="side"
+    :sideOffset="sideOffset"
+    :align="align"
+    :alignOffset="alignOffset"
+    :avoidCollisions="avoidCollisions"
+    :collisionBoundary="collisionBoundary"
+    :collisionPadding="collisionPadding"
+    :arrowPadding="arrowPadding"
+    :sticky="sticky"
+    :hideWhenDetached="hideWhenDetached"
+    :asChild="asChild"
+    @closeAutoFocus="($event) => emits('closeAutoFocus', $event)"
+    @escapeKeyDown="($event) => emits('escapeKeyDown', $event)"
+    @pointerDownOutside="($event) => emits('pointerDownOutside', $event)"
+    :class="styles({ class: props.class })"
+  >
+    <UIComboboxViewport>
+      <slot></slot>
+    </UIComboboxViewport>
+  </ComboboxContent>
 </template>
 
 <script lang="ts" setup>
@@ -33,7 +31,6 @@
   defineOptions({ inheritAttrs: false });
   const props = withDefaults(
     defineProps<{
-      to?: string | HTMLElement;
       position?: ComboboxContentProps["position"];
       bodyLock?: ComboboxContentProps["bodyLock"];
       disableOutsidePointerEvents?: ComboboxContentProps["disableOutsidePointerEvents"];

@@ -1,6 +1,6 @@
 <template>
   <ComboboxLabel :as-child="asChild" :class="styles({ class: props.class })">
-    <slot></slot>
+    <slot>{{ label }}</slot>
   </ComboboxLabel>
 </template>
 
@@ -8,9 +8,10 @@
   const props = defineProps<{
     asChild?: boolean;
     class?: any;
+    label?: any;
   }>();
 
   const styles = tv({
-    base: "px-2 py-1.5 pl-9 text-sm font-medium text-muted-foreground",
+    base: "px-2 py-1.5 text-xs font-medium text-muted-foreground",
   });
 </script>

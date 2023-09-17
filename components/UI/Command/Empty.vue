@@ -1,24 +1,16 @@
 <template>
-  <Command.Empty>
-    <slot>{{ text }}</slot>
-  </Command.Empty>
+  <ComboboxEmpty :as-child="asChild" :class="styles({ class: props.class })">
+    <slot></slot>
+  </ComboboxEmpty>
 </template>
 
 <script lang="ts" setup>
-  import { Command } from "vue-command-palette";
+  const props = defineProps<{
+    asChild?: boolean;
+    class?: any;
+  }>();
 
-  const props = withDefaults(
-    defineProps<{
-      text?: string;
-    }>(),
-    {
-      text: "No results found",
-    }
-  );
+  const styles = tv({
+    base: "py-6 text-center text-sm",
+  });
 </script>
-
-<style>
-  [command-empty=""] {
-    @apply py-6 text-center text-sm;
-  }
-</style>

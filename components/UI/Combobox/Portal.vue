@@ -1,5 +1,5 @@
 <template>
-  <ComboboxPortal v-bind="props">
+  <ComboboxPortal :to="to">
     <slot></slot>
   </ComboboxPortal>
 </template>

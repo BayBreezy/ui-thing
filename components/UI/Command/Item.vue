@@ -1,33 +1,29 @@
 <template>
-  <Command.Item
-    @select="emits('select', $event)"
-    :data-value="label"
+  <ComboboxItem
+    :value="value"
+    :disabled="disabled"
+    :as-child="asChild"
     :class="styles({ class: props.class })"
-    @click="perform?.()"
+    @select="($event) => emits('select', $event)"
   >
-    <slot>
-      <Icon :name="icon" class="h-4 w-4" v-if="icon" />
-      <span>{{ label }}</span>
-      <UICommandShortcut :shortcut="shortcut" />
-    </slot>
-  </Command.Item>
+    <slot></slot>
+  </ComboboxItem>
 </template>
 
 <script lang="ts" setup>
-  import { Command } from "vue-command-palette";
+  import { ComboboxItemProps, ComboboxItemEmits } from "radix-vue";
   const props = defineProps<{
-    label: string;
-    shortcut?: string;
-    perform?: () => void;
-    icon?: string;
+    value: ComboboxItemProps["value"];
+    disabled?: ComboboxItemProps["disabled"];
+    asChild?: boolean;
     class?: any;
   }>();
 
-  const emits = defineEmits<{
-    select: [any];
-  }>();
-
   const styles = tv({
-    base: "relative flex cursor-default select-none items-center gap-3 rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground aria-selected:bg-accent aria-selected:text-accent-foreground",
+    base: "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
   });
+
+  const emits = defineEmits<{
+    select: ComboboxItemEmits["select"];
+  }>();
 </script>

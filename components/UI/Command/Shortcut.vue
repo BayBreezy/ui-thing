@@ -6,10 +6,9 @@
 
 <script lang="ts" setup>
   const props = defineProps<{
-    shortcut?: string;
     class?: any;
+    shortcut?: any;
   }>();
-
   const styles = tv({
     base: "ml-auto text-xs tracking-widest text-muted-foreground",
   });

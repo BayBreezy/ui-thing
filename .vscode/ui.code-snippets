@@ -41,5 +41,10 @@
     "scope": "typescript",
     "prefix": "styles",
     "body": ["const styles = tv({", "\tbase: \"$0\"", "})"]
+  },
+  "Create binded class": {
+    "scope": "html, vue",
+    "prefix": "class",
+    "body": [":class=\"styles({ class: props.class })\""]
   }
 }

@@ -1,9 +1,17 @@
 <template>
-  <ComboboxInput :class="styles({ class: props.class })" />
+  <ComboboxInput
+    :type="type || 'text'"
+    :disabled="disabled"
+    :autoFocus="autoFocus"
+    :class="styles({ class: props.class })"
+  />
 </template>
 
 <script lang="ts" setup>
   const props = defineProps<{
+    type?: string;
+    disabled?: boolean;
+    autoFocus?: boolean;
     class?: any;
   }>();
 
