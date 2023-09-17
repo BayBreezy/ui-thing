@@ -52,7 +52,7 @@
       side: "bottom",
       sideOffset: 8,
       align: "start",
-      alignOffset: -4,
+      alignOffset: 0,
       avoidCollisions: true,
       collisionBoundary: () => [],
       collisionPadding: 0,

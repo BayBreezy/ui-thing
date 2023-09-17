@@ -6,7 +6,7 @@
       radix-link="https://www.radix-vue.com/components/combobox.html"
     />
 
-    <UIPopover v-model:open="open">
+    <UIPopover v-model="open">
       <UIPopoverTrigger as-child>
         <UIButton
           variant="outline"

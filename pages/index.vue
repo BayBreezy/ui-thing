@@ -13,7 +13,7 @@
     <DemoCheckbox />
     <DemoCollapsible />
     <DemoCombobox />
-    <DemoCommand />
+    <!-- <DemoCommand /> -->
     <DemoContextMenu />
     <DemoDatepicker />
     <DemoDialog />
