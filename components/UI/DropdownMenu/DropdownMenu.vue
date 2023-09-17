@@ -3,7 +3,7 @@
     :open="open"
     :default-open="defaultOpen"
     @update:open="emit('update:open', $event)"
-    :modal="modal"
+    :modal="modal || true"
     :dir="dir"
   >
     <slot></slot>

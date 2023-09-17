@@ -65,9 +65,9 @@
       alignOffset: 0,
       avoidCollisions: true,
       collisionBoundary: () => [],
-      collisionPadding: 8,
-      sideOffset: 0,
+      collisionPadding: 0,
       arrowPadding: 0,
+      sideOffset: 0,
       sticky: "partial",
     }
   );

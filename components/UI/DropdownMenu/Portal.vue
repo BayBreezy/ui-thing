@@ -1,5 +1,5 @@
 <template>
-  <DropdownMenuPortal v-bind="props">
+  <DropdownMenuPortal :to="to || 'body'">
     <slot></slot>
   </DropdownMenuPortal>
 </template>
