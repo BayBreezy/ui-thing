@@ -1452,17 +1452,17 @@
     "@sigstore/protobuf-specs" "^0.2.1"
     tuf-js "^2.1.0"
 
-"@tanstack/table-core@8.9.11":
-  version "8.9.11"
-  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.9.11.tgz#d448325bb8c1fd2364fd40c46deae0e9833f6396"
-  integrity sha512-TkMu0xA4ZxDXwFQUt9GAna3RGPH+yRJ7YqpeJAhUzSjaJNQjIsypG/s6t4EW6t5Q8cQJIZ9CzusqrQ0dXayGRQ==
+"@tanstack/table-core@8.10.0":
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.10.0.tgz#d6e88157f536f7f29009670b207e60462c84be7f"
+  integrity sha512-e701yAJ18aGDP6mzVworlFAmQ+gi3Wtqx5mGZUe2BUv4W4D80dJxUfkHdtEGJ6GryAnlCCNTej7eaJiYmPhyYg==
 
-"@tanstack/vue-table@^8.9.11":
-  version "8.9.11"
-  resolved "https://registry.yarnpkg.com/@tanstack/vue-table/-/vue-table-8.9.11.tgz#fed073834b123f2cedcfd901750a874a51e3a113"
-  integrity sha512-6R5WwVInuwBO0LnppWvcrvfrthFmYWFj/1XqfUXGATOYXoiMeVkdDiMjTXixTRqOBgqVQJOPKK4LIPrKxDLS7Q==
+"@tanstack/vue-table@^8.10.0":
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/vue-table/-/vue-table-8.10.0.tgz#4d6764ee7a1c3505abf10ef80550ce78a200ba26"
+  integrity sha512-6P5MzVPHep3lI//CVM9yBIE6Ij/rljG7y0YGydx6yOiX5OASNfVPkIvu0458DNRqoaQ5nmIqRlcJVzKyzroT1A==
   dependencies:
-    "@tanstack/table-core" "8.9.11"
+    "@tanstack/table-core" "8.10.0"
 
 "@tootallnate/once@2":
   version "2.0.0"
