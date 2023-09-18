@@ -24,6 +24,7 @@
     <DemoLabel />
     <DemoMenubar />
     <DemoNavigationMenu />
+    <DemoOTP />
     <DemoPopover />
     <DemoProgress />
     <DemoRadioGroup />
