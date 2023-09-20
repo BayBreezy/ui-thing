@@ -1,9 +1,7 @@
 <template>
-  <ClientOnly>
-    <PopoverTrigger v-bind="$attrs" :as-child="asChild">
-      <slot></slot>
-    </PopoverTrigger>
-  </ClientOnly>
+  <PopoverTrigger v-bind="$attrs" :as-child="asChild">
+    <slot></slot>
+  </PopoverTrigger>
 </template>
 
 <script lang="ts" setup>

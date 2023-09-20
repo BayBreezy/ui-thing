@@ -1,9 +1,7 @@
 <template>
-  <ClientOnly>
-    <TooltipTrigger v-bind="$attrs" :as-child="asChild">
-      <slot></slot>
-    </TooltipTrigger>
-  </ClientOnly>
+  <TooltipTrigger v-bind="$attrs" :as-child="asChild">
+    <slot></slot>
+  </TooltipTrigger>
 </template>
 
 <script lang="ts" setup>

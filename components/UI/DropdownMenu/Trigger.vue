@@ -1,9 +1,7 @@
 <template>
-  <ClientOnly>
-    <DropdownMenuTrigger v-bind="$attrs" :as-child="asChild">
-      <slot></slot>
-    </DropdownMenuTrigger>
-  </ClientOnly>
+  <DropdownMenuTrigger v-bind="$attrs" :as-child="asChild">
+    <slot></slot>
+  </DropdownMenuTrigger>
 </template>
 
 <script lang="ts" setup>

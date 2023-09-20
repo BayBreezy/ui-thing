@@ -1,9 +1,7 @@
 <template>
-  <ClientOnly>
-    <HoverCardTrigger v-bind="$attrs" :as-child="asChild">
-      <slot></slot>
-    </HoverCardTrigger>
-  </ClientOnly>
+  <HoverCardTrigger v-bind="$attrs" :as-child="asChild">
+    <slot></slot>
+  </HoverCardTrigger>
 </template>
 
 <script lang="ts" setup>

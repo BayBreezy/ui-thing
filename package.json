@@ -10,7 +10,7 @@
     "clean": "rm -rf .nuxt dist .output node_modules yarn.lock package-lock.json && yarn"
   },
   "devDependencies": {
-    "@nuxt/devtools": "0.8.3",
+    "@nuxt/devtools": "0.8.4",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@samk-dev/nuxt-vcalendar": "^1.0.0",
     "@types/prettier": "^3.0.0",
@@ -22,7 +22,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@tanstack/vue-table": "^8.10.0",
+    "@tanstack/vue-table": "^8.10.1",
     "@types/date-fns": "^2.6.0",
     "@types/yup": "^0.32.0",
     "@unovis/ts": "^1.2.1",
@@ -31,7 +31,7 @@
     "@vueuse/nuxt": "^10.4.1",
     "date-fns": "2.30.0",
     "nuxt-icon": "^0.5.0",
-    "radix-vue": "^0.2.2",
+    "radix-vue": "^0.2.3",
     "tailwind-variants": "^0.1.14",
     "vue3-otp-input": "^0.4.1",
     "yup": "^1.2.0"

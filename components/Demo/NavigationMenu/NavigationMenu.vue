@@ -6,68 +6,66 @@
       radix-link="https://www.radix-vue.com/components/navigation-menu.html"
     />
 
-    <ClientOnly>
-      <UINavigationMenu>
-        <UINavigationMenuList>
-          <UINavigationMenuItem>
-            <UINavigationMenuTrigger title="Beach day" />
-            <UINavigationMenuContent>
-              <div class="grid w-[600px] grid-cols-2 gap-5 p-4">
-                <img
-                  src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"
-                  alt="Beach"
-                  class="h-full w-full rounded-md object-cover"
-                />
-                <ul class="flex flex-col gap-2">
-                  <li
-                    v-for="(item, i) in beachAmenities"
-                    :key="i"
-                    class="rounded-md p-3 text-sm hover:bg-muted"
-                  >
-                    <p class="mb-1 font-semibold leading-none text-foreground">{{ item.title }}</p>
-                    <p class="line-clamp-2 text-muted-foreground">{{ item.description }}</p>
-                  </li>
-                </ul>
-              </div>
-            </UINavigationMenuContent>
-          </UINavigationMenuItem>
-          <UINavigationMenuItem>
-            <UINavigationMenuTrigger title="Components" />
-            <UINavigationMenuContent>
-              <ul class="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                <DemoNavigationMenuListItem
-                  v-for="item in components"
-                  :key="item.title"
-                  :title="item.title"
-                  :href="item.href"
+    <UINavigationMenu>
+      <UINavigationMenuList>
+        <UINavigationMenuItem>
+          <UINavigationMenuTrigger title="Beach day" />
+          <UINavigationMenuContent>
+            <div class="grid w-[600px] grid-cols-2 gap-5 p-4">
+              <img
+                src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"
+                alt="Beach"
+                class="h-full w-full rounded-md object-cover"
+              />
+              <ul class="flex flex-col gap-2">
+                <li
+                  v-for="(item, i) in beachAmenities"
+                  :key="i"
+                  class="rounded-md p-3 text-sm hover:bg-muted"
                 >
-                  {{ item.description }}
-                </DemoNavigationMenuListItem>
+                  <p class="mb-1 font-semibold leading-none text-foreground">{{ item.title }}</p>
+                  <p class="line-clamp-2 text-muted-foreground">{{ item.description }}</p>
+                </li>
               </ul>
-            </UINavigationMenuContent>
-          </UINavigationMenuItem>
-          <UINavigationMenuItem>
-            <UINavigationMenuTrigger title="Learn more" />
-            <UINavigationMenuContent>
-              <div class="grid w-[500px] grid-cols-2 place-items-center gap-5 p-3">
-                <img
-                  src="https://www.radix-vue.com/logo.svg"
-                  alt="Radix Vue Logo"
-                  class="h-full w-full"
-                />
-                <div>
-                  <p class="text-lg font-semibold text-foreground">Radix Vue</p>
-                  <p class="mt-2 text-muted-foreground">
-                    Unstyled, accessible components for building high-quality design systems and web
-                    apps in Vue.
-                  </p>
-                </div>
+            </div>
+          </UINavigationMenuContent>
+        </UINavigationMenuItem>
+        <UINavigationMenuItem>
+          <UINavigationMenuTrigger title="Components" />
+          <UINavigationMenuContent>
+            <ul class="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              <DemoNavigationMenuListItem
+                v-for="item in components"
+                :key="item.title"
+                :title="item.title"
+                :href="item.href"
+              >
+                {{ item.description }}
+              </DemoNavigationMenuListItem>
+            </ul>
+          </UINavigationMenuContent>
+        </UINavigationMenuItem>
+        <UINavigationMenuItem>
+          <UINavigationMenuTrigger title="Learn more" />
+          <UINavigationMenuContent>
+            <div class="grid w-[500px] grid-cols-2 place-items-center gap-5 p-3">
+              <img
+                src="https://www.radix-vue.com/logo.svg"
+                alt="Radix Vue Logo"
+                class="h-full w-full"
+              />
+              <div>
+                <p class="text-lg font-semibold text-foreground">Radix Vue</p>
+                <p class="mt-2 text-muted-foreground">
+                  Unstyled, accessible components for building high-quality design systems and web
+                  apps in Vue.
+                </p>
               </div>
-            </UINavigationMenuContent>
-          </UINavigationMenuItem>
-        </UINavigationMenuList>
-      </UINavigationMenu>
-    </ClientOnly>
+            </div>
+          </UINavigationMenuContent>
+        </UINavigationMenuItem>
+      </UINavigationMenuList>
+    </UINavigationMenu>
   </div>
 </template>
 

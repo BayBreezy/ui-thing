@@ -1,9 +1,7 @@
 <template>
-  <ClientOnly>
-    <ComboboxHeader v-bind="$attrs" :as-child="asChild">
-      <slot></slot>
-    </ComboboxHeader>
-  </ClientOnly>
+  <ComboboxHeader v-bind="$attrs" :as-child="asChild">
+    <slot></slot>
+  </ComboboxHeader>
 </template>
 
 <script lang="ts" setup>
