@@ -25,6 +25,7 @@
     <DemoMenubar />
     <DemoNavigationMenu />
     <DemoOTP />
+    <DemoPagination />
     <DemoPopover />
     <DemoProgress />
     <DemoRadioGroup />
