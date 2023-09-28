@@ -37,6 +37,7 @@
     <DemoSwitch />
     <DemoInput />
     <DemoTabs />
+    <DemoToast />
     <DemoToggle />
     <DemoSkeleton />
     <DemoTable />
