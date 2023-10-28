@@ -15,6 +15,7 @@
 
 <script lang="ts" setup>
   import { type NavigationMenuContentEmits } from "radix-vue/dist/NavigationMenu/NavigationMenuContent";
+
   const props = defineProps<{
     asChild?: boolean;
     disableOutsidePointerEvents?: boolean;

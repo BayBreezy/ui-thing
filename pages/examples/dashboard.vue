@@ -98,6 +98,7 @@
 <script lang="ts" setup>
   import { _colors } from "#tailwind-config/theme";
   import { addDays, format } from "date-fns";
+
   definePageMeta({ layout: "examples" });
   useSeoMeta({ title: "Dashboard" });
 

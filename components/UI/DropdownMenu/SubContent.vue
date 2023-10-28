@@ -24,11 +24,11 @@
 </template>
 
 <script lang="ts" setup>
-  import type { DropdownMenuSubContentProps } from "radix-vue";
   import {
     FocusOutsideEvent,
     PointerDownOutsideEvent,
   } from "radix-vue/dist/DismissableLayer/utils";
+  import type { DropdownMenuSubContentProps } from "radix-vue";
 
   defineOptions({ inheritAttrs: false });
   const props = withDefaults(

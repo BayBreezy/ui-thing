@@ -6,6 +6,7 @@
 
 <script lang="ts" setup>
   import { type MenubarTriggerProps } from "radix-vue";
+
   const props = defineProps<{
     asChild?: MenubarTriggerProps["asChild"];
     class?: any;

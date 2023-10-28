@@ -30,8 +30,8 @@
 
 <script lang="ts" setup>
   import {
-    type SelectContentProps,
     type SelectContentEmits,
+    type SelectContentProps,
   } from "radix-vue/dist/Select/SelectContent";
 
   defineOptions({ inheritAttrs: false });

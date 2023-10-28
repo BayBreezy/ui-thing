@@ -28,7 +28,15 @@
 </template>
 
 <script setup lang="ts">
-  import { type AccordionRootProps, AccordionRootEmits } from "radix-vue";
+  import { type AccordionRootEmits, type AccordionRootProps } from "radix-vue";
+
+  type AccordionItem = {
+    title?: string;
+    content?: string;
+    value: string;
+    disabled?: boolean;
+    icon?: string;
+  };
 
   const props = withDefaults(
     defineProps<{

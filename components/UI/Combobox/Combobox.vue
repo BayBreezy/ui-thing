@@ -18,7 +18,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { ComboboxRootProps, ComboboxRootEmits } from "radix-vue";
+  import { ComboboxRootEmits, ComboboxRootProps } from "radix-vue";
+
   const props = defineProps<{
     defaultValue?: ComboboxRootProps["defaultValue"];
     modelValue?: ComboboxRootProps["modelValue"];

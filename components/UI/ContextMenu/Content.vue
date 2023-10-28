@@ -7,11 +7,11 @@
 </template>
 
 <script lang="ts" setup>
-  import type { ContextMenuContentProps } from "radix-vue";
   import {
     FocusOutsideEvent,
     PointerDownOutsideEvent,
   } from "radix-vue/dist/DismissableLayer/utils";
+  import type { ContextMenuContentProps } from "radix-vue";
 
   defineOptions({ inheritAttrs: false });
   const props = withDefaults(

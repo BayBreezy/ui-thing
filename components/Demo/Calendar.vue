@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { addDays, startOfMonth, startOfToday, endOfMonth } from "date-fns";
+  import { addDays, endOfMonth, startOfMonth, startOfToday } from "date-fns";
 
   const attributes = ref([
     {

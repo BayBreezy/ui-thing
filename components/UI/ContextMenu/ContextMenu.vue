@@ -6,6 +6,7 @@
 
 <script lang="ts" setup>
   import type { ContextMenuRootProps } from "radix-vue";
+
   const props = defineProps<{
     modal?: boolean;
     dir?: ContextMenuRootProps["dir"];

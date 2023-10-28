@@ -27,7 +27,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { ComboboxContentProps, ComboboxContentEmits } from "radix-vue";
+  import { ComboboxContentEmits, ComboboxContentProps } from "radix-vue";
+
   defineOptions({ inheritAttrs: false });
   const props = withDefaults(
     defineProps<{

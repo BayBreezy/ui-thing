@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import type { DropdownMenuRootProps } from "radix-vue";
+
   const props = defineProps<{
     modal?: boolean;
     dir?: DropdownMenuRootProps["dir"];

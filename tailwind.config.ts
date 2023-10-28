@@ -1,7 +1,7 @@
 import { type Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
 // @ts-ignore
 import twAnimate from "tailwindcss-animate";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default <Partial<Config>>{
   darkMode: "class",

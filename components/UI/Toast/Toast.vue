@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ToastRootProps, ToastRootEmits } from "radix-vue";
+  import { ToastRootEmits, ToastRootProps } from "radix-vue";
 
   const props = withDefaults(
     defineProps<{

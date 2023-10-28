@@ -9,6 +9,6 @@
   }>();
 
   const styles = tv({
-    base: "data-[state=open]:animate-fadeIn data-[state=closed]:animate-fadeOut fixed inset-0 z-50 bg-background/80 backdrop-blur-sm",
+    base: "fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=closed]:animate-fadeOut data-[state=open]:animate-fadeIn",
   });
 </script>

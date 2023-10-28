@@ -33,6 +33,7 @@
     PointerDownOutsideEvent,
   } from "radix-vue/dist/DismissableLayer/utils";
   import { type MenubarContentProps } from "radix-vue/dist/Menubar/MenubarContent";
+
   defineOptions({ inheritAttrs: false });
 
   const props = withDefaults(

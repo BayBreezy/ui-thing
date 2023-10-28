@@ -6,6 +6,7 @@
 
 <script lang="ts" setup>
   import { type MenubarPortalProps } from "radix-vue";
+
   const props = defineProps<{
     to?: MenubarPortalProps["to"];
   }>();

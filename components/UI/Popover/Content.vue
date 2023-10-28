@@ -26,8 +26,8 @@
 
 <script lang="ts" setup>
   import {
-    type PopoverContentProps,
     type PopoverContentEmits,
+    type PopoverContentProps,
   } from "radix-vue/dist/Popover/PopoverContent";
 
   defineOptions({ inheritAttrs: false });

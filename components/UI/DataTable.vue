@@ -145,19 +145,17 @@
 </template>
 
 <script lang="ts" setup generic="T">
+  import CheckBox from "@/components/UI/Checkbox/Checkbox.vue";
   import {
     FlexRender,
-    useVueTable,
     getCoreRowModel,
     getFilteredRowModel,
-    getSortedRowModel,
     getPaginationRowModel,
-    type SortingState,
-    type ColumnDef,
+    getSortedRowModel,
     Table,
+    useVueTable,
   } from "@tanstack/vue-table";
-
-  import CheckBox from "@/components/UI/Checkbox/Checkbox.vue";
+  import type { ColumnDef, SortingState } from "@tanstack/vue-table";
 
   const props = withDefaults(
     defineProps<{

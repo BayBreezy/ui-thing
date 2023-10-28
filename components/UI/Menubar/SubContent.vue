@@ -24,11 +24,11 @@
 </template>
 
 <script lang="ts" setup>
-  import type { MenubarSubContentProps } from "radix-vue";
   import {
     FocusOutsideEvent,
     PointerDownOutsideEvent,
   } from "radix-vue/dist/DismissableLayer/utils";
+  import type { MenubarSubContentProps } from "radix-vue";
 
   defineOptions({ inheritAttrs: false });
   const props = withDefaults(

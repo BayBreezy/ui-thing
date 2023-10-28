@@ -11,7 +11,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { type MenubarRootProps, type MenubarRootEmits } from "radix-vue/dist/Menubar/MenubarRoot";
+  import { type MenubarRootEmits, type MenubarRootProps } from "radix-vue/dist/Menubar/MenubarRoot";
+
   const props = withDefaults(
     defineProps<{
       defaultValue?: MenubarRootProps["defaultValue"];

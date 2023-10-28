@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { format, addDays, startOfMonth } from "date-fns";
+  import { addDays, format, startOfMonth } from "date-fns";
 
   const date = ref({
     start: startOfMonth(new Date()),
