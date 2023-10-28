@@ -17,6 +17,7 @@
     "@types/prettier": "^3.0.0",
     "@types/typescript": "^2.0.0",
     "nuxt": "^3.8.0",
+    "nuxt-lodash": "^2.5.3",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.6",
     "tailwindcss-animate": "^1.0.7",

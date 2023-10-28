@@ -1,13 +1,5 @@
 <template>
-  <AccordionRoot
-    @update:model-value="emits('update:modelValue', $event)"
-    :type="type"
-    :collapsible="collapsible"
-    :disabled="disabled"
-    :as="as"
-    :as-child="asChild"
-    :default-value="defaultValue"
-  >
+  <AccordionRoot v-bind="forwarded">
     <slot>
       <template v-for="(item, i) in items" :key="i">
         <UIAccordionItem :disabled="item.disabled" :value="item.value">
@@ -28,7 +20,8 @@
 </template>
 
 <script setup lang="ts">
-  import { type AccordionRootEmits, type AccordionRootProps } from "radix-vue";
+  import { AccordionRoot, useForwardPropsEmits } from "radix-vue";
+  import type { AccordionRootEmits, AccordionRootProps } from "radix-vue";
 
   type AccordionItem = {
     title?: string;
@@ -39,29 +32,20 @@
   };
 
   const props = withDefaults(
-    defineProps<{
-      class?: any;
-      type?: AccordionRootProps["type"];
-      collapsible?: AccordionRootProps["collapsible"];
-      disabled?: AccordionRootProps["disabled"];
-      dir?: AccordionRootProps["dir"];
-      orientation?: AccordionRootProps["orientation"];
-      as?: AccordionRootProps["as"];
-      asChild?: AccordionRootProps["asChild"];
-      defaultValue?: AccordionRootProps["defaultValue"];
-      items?: AccordionItem[];
-      icon?: string;
-    }>(),
+    defineProps<
+      AccordionRootProps & {
+        class?: any;
+        items?: AccordionItem[];
+        icon?: string;
+      }
+    >(),
     {
       type: "single",
       collapsible: true,
       disabled: false,
-      dir: "ltr",
-      orientation: "vertical",
     }
   );
 
-  const emits = defineEmits<{
-    "update:modelValue": [value: any];
-  }>();
+  const emits = defineEmits<AccordionRootEmits>();
+  const forwarded = useForwardPropsEmits(useOmit(props, ["class", "items", "icon"]), emits);
 </script>
