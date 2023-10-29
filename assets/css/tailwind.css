@@ -1,10 +1,12 @@
+@import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --font-sans: "Inter var", "Inter";
     --background: 0 0% 100%;
     --foreground: 222.2 47.4% 11.2%;
 
@@ -75,10 +77,48 @@
   * {
     @apply border-border;
   }
+  html {
+    @apply scroll-smooth antialiased;
+  }
   body {
     @apply bg-background text-foreground;
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
   }
+}
+
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a,
+h5 > a,
+h6 > a {
+  @apply !font-bold !no-underline hover:!text-foreground hover:!decoration-wavy;
+}
+
+code {
+  @apply inline-block rounded bg-muted px-1 py-px font-mono;
+}
+
+a > code {
+  @apply inline-block border border-dashed border-primary/40 bg-primary/5 px-1  transition hover:border-primary;
+}
+
+pre::-webkit-scrollbar {
+  @apply h-2.5 w-2.5;
+}
+pre::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+pre::-webkit-scrollbar-corner {
+  @apply bg-transparent;
+}
+pre::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-muted-foreground/60;
+}
+pre {
+  max-height: 400px;
+  scrollbar-width: thin;
+  scrollbar-color: theme("colors.muted.DEFAULT") theme("colors.background");
 }

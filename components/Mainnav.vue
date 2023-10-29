@@ -56,19 +56,18 @@
 </template>
 
 <script lang="ts" setup>
-  const mode = useColorMode();
-
   const modes = [
     { icon: "lucide:sun", title: "Light", value: "light" },
     { icon: "lucide:moon", title: "Dark", value: "dark" },
-    { icon: "lucide:laptop", title: "System", value: "auto" },
+    { icon: "lucide:laptop", title: "System", value: "system" },
   ];
 
+  const colorMode = useColorMode();
   const setTheme = (val: string) => {
-    mode.value = val as "light" | "dark" | "auto";
+    colorMode.preference = val;
   };
 
   const currentIcon = computed(() => {
-    return modes.find((m) => m.value === mode.value)?.icon;
+    return modes.find((m) => m.value === colorMode.preference)?.icon;
   });
 </script>

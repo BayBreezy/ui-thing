@@ -8,6 +8,8 @@ export default defineNuxtConfig({
     "@samk-dev/nuxt-vcalendar",
     "@vee-validate/nuxt",
     "nuxt-lodash",
+    "@nuxt/content",
+    "@nuxtjs/color-mode",
   ],
   typescript: {
     shim: false,
@@ -28,11 +30,43 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "UI Thing",
-      link: [
-        // Inter font
-        { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" },
-        { rel: "preconnect", href: "https://rsms.me/" },
-      ],
+      titleTemplate: "%s - UI Thing",
     },
+  },
+  content: {
+    documentDriven: true,
+    navigation: { fields: ["icon"] },
+    markdown: {
+      toc: { depth: 4, searchDepth: 4 },
+    },
+    highlight: {
+      preload: [
+        "diff",
+        "json",
+        "js",
+        "ts",
+        "css",
+        "shell",
+        "html",
+        "md",
+        "yaml",
+        "vue",
+        "vue-html",
+        "bash",
+        "typescript",
+        "javascript",
+      ],
+      theme: {
+        default: "material-theme-palenight",
+        dark: "one-dark-pro",
+      },
+    },
+  },
+
+  routeRules: {
+    "/": { redirect: "/getting-started/introduction" },
+  },
+  colorMode: {
+    classSuffix: "",
   },
 });
