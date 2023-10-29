@@ -1,16 +1,25 @@
 <template>
-  <div :class="styles({ class: props.class })">
+  <Primitive v-bind="forwarded" :class="styles({ class: props.class })">
     <slot>{{ description }}</slot>
-  </div>
+  </Primitive>
 </template>
 
 <script lang="ts" setup>
+  import { Primitive, useForwardProps } from "radix-vue";
+  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";
+
+  const props = withDefaults(
+    defineProps<
+      PrimitiveProps & {
+        class?: any;
+        description?: string;
+      }
+    >(),
+    { as: "div" }
+  );
+  const forwarded = useForwardProps(useOmit(props, ["class", "description"]));
+
   const styles = tv({
     base: "text-sm [&_p]:leading-relaxed",
   });
-
-  const props = defineProps<{
-    class?: any;
-    description?: string;
-  }>();
 </script>

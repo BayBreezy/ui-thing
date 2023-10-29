@@ -1,16 +1,13 @@
 <template>
-  <AlertDialogPortal :to="to">
+  <AlertDialogPortal v-bind="forwarded">
     <slot></slot>
   </AlertDialogPortal>
 </template>
 
 <script lang="ts" setup>
-  const props = withDefaults(
-    defineProps<{
-      to?: string | HTMLElement;
-    }>(),
-    {
-      to: "body",
-    }
-  );
+  import { AlertDialogPortal, useForwardProps } from "radix-vue";
+  import type { AlertDialogPortalProps } from "radix-vue";
+
+  const props = defineProps<AlertDialogPortalProps>();
+  const forwarded = useForwardProps(props);
 </script>

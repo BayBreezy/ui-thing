@@ -13,6 +13,23 @@
 </template>
 
 <script lang="ts" setup>
+  const props = withDefaults(
+    defineProps<{
+      class?: any;
+      modelValue?: boolean;
+      variant?: VariantProps<typeof styles>["variant"];
+      title?: string;
+      description?: string;
+      icon?: string;
+    }>(),
+    {
+      modelValue: true,
+    }
+  );
+
+  const emit = defineEmits(["update:modelValue"]);
+  const shown = useVModel(props, "modelValue", emit, { defaultValue: true });
+
   const styles = tv({
     base: "relative flex w-full gap-3 rounded-lg border p-4",
     variants: {
@@ -26,21 +43,4 @@
       variant: "default",
     },
   });
-  type AlertProps = VariantProps<typeof styles>;
-  const props = withDefaults(
-    defineProps<{
-      class?: any;
-      modelValue?: boolean;
-      variant?: AlertProps["variant"];
-      title?: string;
-      description?: string;
-      icon?: string;
-    }>(),
-    {
-      modelValue: true,
-    }
-  );
-
-  const emit = defineEmits(["update:modelValue"]);
-  const shown = useVModel(props, "modelValue", emit, { defaultValue: true });
 </script>

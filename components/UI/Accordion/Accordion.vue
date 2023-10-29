@@ -6,7 +6,7 @@
           <slot name="header">
             <UIAccordionHeader>
               <slot name="trigger">
-                <UIAccordionTrigger :title="item.title" :icon="item.icon || icon" />
+                <UIAccordionTrigger :title="item.title" :icon="item.icon" />
               </slot>
             </UIAccordionHeader>
           </slot>
@@ -23,29 +23,21 @@
   import { AccordionRoot, useForwardPropsEmits } from "radix-vue";
   import type { AccordionRootEmits, AccordionRootProps } from "radix-vue";
 
-  type AccordionItem = {
-    title?: string;
-    content?: string;
-    value: string;
-    disabled?: boolean;
-    icon?: string;
-  };
-
   const props = withDefaults(
     defineProps<
       AccordionRootProps & {
-        class?: any;
-        items?: AccordionItem[];
-        icon?: string;
+        items?: {
+          title?: string;
+          content?: string;
+          value: string;
+          disabled?: boolean;
+          icon?: string;
+        }[];
       }
     >(),
-    {
-      type: "single",
-      collapsible: true,
-      disabled: false,
-    }
+    { type: "single", collapsible: true }
   );
 
   const emits = defineEmits<AccordionRootEmits>();
-  const forwarded = useForwardPropsEmits(useOmit(props, ["class", "items", "icon"]), emits);
+  const forwarded = useForwardPropsEmits(useOmit(props, ["items"]), emits);
 </script>

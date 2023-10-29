@@ -10,10 +10,6 @@
   import { AccordionContent, useForwardProps } from "radix-vue";
   import type { AccordionContentProps } from "radix-vue";
 
-  const styles = tv({
-    base: "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
-  });
-
   const props = defineProps<
     AccordionContentProps & {
       class?: any;
@@ -21,4 +17,8 @@
     }
   >();
   const forwarded = useForwardProps(useOmit(props, ["class", "content"]));
+
+  const styles = tv({
+    base: "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
+  });
 </script>

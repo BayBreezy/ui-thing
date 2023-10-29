@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-  import { useForwardProps } from "radix-vue";
+  import { AccordionItem, useForwardProps } from "radix-vue";
   import type { AccordionItemProps } from "radix-vue";
 
   const props = defineProps<
@@ -13,10 +13,9 @@
       class?: any;
     }
   >();
+  const forwarded = useForwardProps(useOmit(props, ["class"]));
 
   const styles = tv({
     base: "border-b",
   });
-
-  const forwarded = useForwardProps(useOmit(props, ["class"]));
 </script>

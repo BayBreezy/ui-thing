@@ -1,8 +1,7 @@
 <template>
   <AlertDialogAction
-    :disabled="disabled"
-    @click="onClick"
-    :class="buttonStyles({ variant: variant, size: size, disabled: disabled, class: props.class })"
+    v-bind="forwarded"
+    :class="buttonStyles({ variant, size, disabled, class: props.class })"
   >
     <slot>
       {{ text }}
@@ -11,18 +10,25 @@
 </template>
 
 <script lang="ts" setup>
+  import { AlertDialogAction, useForwardProps } from "radix-vue";
+  import type { AlertDialogActionProps } from "radix-vue";
+
   const props = withDefaults(
-    defineProps<{
-      onClick?: () => void;
-      text?: string;
-      class?: any;
-      disabled?: boolean;
-      variant?: VariantProps<typeof buttonStyles>["variant"];
-      size?: VariantProps<typeof buttonStyles>["size"];
-    }>(),
+    defineProps<
+      AlertDialogActionProps & {
+        onClick?: () => void;
+        text?: string;
+        class?: any;
+        disabled?: boolean;
+        variant?: VariantProps<typeof buttonStyles>["variant"];
+        size?: VariantProps<typeof buttonStyles>["size"];
+      }
+    >(),
     {
       text: "Continue",
       variant: "default",
     }
   );
+
+  const forwarded = useForwardProps(useOmit(props, ["text", "class", "variant", "size"]));
 </script>

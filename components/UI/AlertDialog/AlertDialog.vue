@@ -1,8 +1,8 @@
 <template>
-  <AlertDialogRoot v-model:open="open" :default-open="defaultOpen">
+  <AlertDialogRoot v-bind="forwarded">
     <slot>
       <slot name="trigger">
-        <UIAlertDialogTrigger as-child>
+        <UIAlertDialogTrigger v-if="triggerText" as-child>
           <UIButton variant="outline">{{ triggerText }}</UIButton>
         </UIAlertDialogTrigger>
       </slot>
@@ -11,7 +11,7 @@
           <slot name="header">
             <UIAlertDialogHeader>
               <slot name="title">
-                <UIAlertDialogTitle :title="title" />
+                <UIAlertDialogTitle v-if="title" :title="title" />
               </slot>
               <slot name="description">
                 <UIAlertDialogDescription v-if="description" :description="description" />
@@ -35,23 +35,21 @@
 </template>
 
 <script lang="ts" setup>
-  const props = withDefaults(
-    defineProps<{
-      defaultOpen?: boolean;
-      modelValue?: boolean;
+  import { AlertDialogRoot, useForwardPropsEmits } from "radix-vue";
+  import type { AlertDialogEmits, AlertDialogProps } from "radix-vue";
+
+  const props = defineProps<
+    AlertDialogProps & {
       triggerText?: string;
       title?: string;
       description?: string;
-    }>(),
-    {
-      triggerText: "Show Dialog",
-      title: "Are you absolutely sure?",
     }
+  >();
+
+  const emits = defineEmits<AlertDialogEmits>();
+
+  const forwarded = useForwardPropsEmits(
+    useOmit(props, ["description", "title", "triggerText"]),
+    emits
   );
-
-  const emits = defineEmits<{
-    "update:modelValue": [boolean];
-  }>();
-
-  const open = useVModel(props, "modelValue", emits);
 </script>

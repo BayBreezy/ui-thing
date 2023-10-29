@@ -1,15 +1,20 @@
 <template>
-  <AlertDialogTitle :as-child="asChild" :class="styles({ class: props.class })">
+  <AlertDialogTitle v-bind="forwarded" :class="styles({ class: props.class })">
     <slot>{{ title }}</slot>
   </AlertDialogTitle>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    title?: string;
-    class?: any;
-    asChild?: boolean;
-  }>();
+  import { AlertDialogTitle, useForwardProps } from "radix-vue";
+  import type { AlertDialogTitleProps } from "radix-vue";
+
+  const props = defineProps<
+    AlertDialogTitleProps & {
+      title?: string;
+      class?: any;
+    }
+  >();
+  const forwarded = useForwardProps(useOmit(props, ["title", "class"]));
 
   const styles = tv({
     base: "text-lg font-semibold",
