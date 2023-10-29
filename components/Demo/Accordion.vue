@@ -6,7 +6,7 @@
       radix-link="https://www.radix-vue.com/components/accordion.html"
     />
 
-    <UIAccordion default-value="item-2" :items="accordionItems" />
+    <UIAccordion type="single" default-value="item-2" :items="accordionItems" />
   </div>
 </template>
 
