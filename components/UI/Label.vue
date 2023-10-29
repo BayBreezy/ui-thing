@@ -1,15 +1,19 @@
 <template>
-  <Label :as-child="asChild" :for="props.for" :class="styles({ class: props.class })">
+  <Label :class="styles({ class: props.class })" v-bind="forwarded">
     <slot />
   </Label>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    for?: string;
-    class?: any;
-  }>();
+  import { Label, useForwardProps } from "radix-vue";
+  import type { LabelProps } from "radix-vue";
+
+  const props = defineProps<
+    LabelProps & {
+      class?: any;
+    }
+  >();
+  const forwarded = useForwardProps(useOmit(props, ["class"]));
 
   const styles = tv({
     base: "inline-block text-sm font-medium leading-none hover:cursor-pointer peer-disabled:cursor-not-allowed peer-disabled:opacity-70",

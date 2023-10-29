@@ -1,5 +1,5 @@
 <template>
-  <CheckboxIndicator :as-child="asChild" :class="styles({ class: props.class })">
+  <CheckboxIndicator :class="styles({ class: props.class })" v-bind="forwarded">
     <slot>
       <Icon :name="icon" class="h-4 w-4" />
     </slot>
@@ -7,16 +7,21 @@
 </template>
 
 <script lang="ts" setup>
+  import { CheckboxIndicator, useForwardProps } from "radix-vue";
+  import type { CheckboxIndicatorProps } from "radix-vue";
+
   const props = withDefaults(
-    defineProps<{
-      class?: any;
-      asChild?: boolean;
-      icon?: string;
-    }>(),
+    defineProps<
+      CheckboxIndicatorProps & {
+        class?: any;
+        icon?: string;
+      }
+    >(),
     {
       icon: "lucide:check",
     }
   );
+  const forwarded = useForwardProps(useOmit(props, ["icon", "class"]));
 
   const styles = tv({
     base: "flex items-center justify-center text-current",

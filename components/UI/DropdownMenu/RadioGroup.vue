@@ -1,18 +1,16 @@
 <template>
-  <DropdownMenuRadioGroup :as-child="asChild" v-model="localModel">
+  <DropdownMenuRadioGroup v-bind="forwarded">
     <slot></slot>
   </DropdownMenuRadioGroup>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    modelValue?: any;
-  }>();
+  import { DropdownMenuRadioGroup, useForwardPropsEmits } from "radix-vue";
+  import type { DropdownMenuRadioGroupEmits, DropdownMenuRadioGroupProps } from "radix-vue";
 
-  const emits = defineEmits<{
-    "update:modelValue": [v: any];
-  }>();
+  const props = defineProps<DropdownMenuRadioGroupProps>();
 
-  const localModel = useVModel(props, "modelValue", emits);
+  const emits = defineEmits<DropdownMenuRadioGroupEmits>();
+
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>

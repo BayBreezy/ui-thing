@@ -1,9 +1,9 @@
 <template>
-  <AvatarRoot :class="styles({ class: props.class })">
+  <AvatarRoot :as="as" :as-child="asChild" :class="styles({ class: props.class })">
     <slot>
       <slot name="image">
         <UIAvatarImage
-          @loading-status-change="onLoadingStatusChange"
+          @loading-status-change="emits('loadingStatusChange', $event)"
           v-if="src"
           :src="src"
           :alt="alt"
@@ -18,19 +18,25 @@
 </template>
 
 <script lang="ts" setup>
+  import { AvatarRoot } from "radix-vue";
+  import type { AvatarImageEmits, AvatarImageProps, AvatarRootProps } from "radix-vue";
+
   const props = withDefaults(
-    defineProps<{
-      class?: any;
-      imageClass?: any;
-      fallbackClass?: any;
-      src?: string;
-      alt?: string;
-      fallback?: string;
-      delayMs?: number;
-      onLoadingStatusChange?: (v: "idle" | "loading" | "loaded" | "error") => void;
-    }>(),
+    defineProps<
+      AvatarRootProps &
+        Partial<AvatarImageProps> & {
+          class?: any;
+          imageClass?: any;
+          fallbackClass?: any;
+          alt?: string;
+          fallback?: string;
+          delayMs?: number;
+        }
+    >(),
     {}
   );
+
+  const emits = defineEmits<AvatarImageEmits>();
   const styles = tv({
     base: "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
   });

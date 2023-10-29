@@ -1,5 +1,5 @@
 <template>
-  <DropdownMenuItemIndicator :as-child="asChild" :forceMount="forceMount">
+  <DropdownMenuItemIndicator v-bind="forwarded">
     <slot>
       <Icon v-if="icon" :name="icon" class="h-4 w-4" />
     </slot>
@@ -7,9 +7,13 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    forceMount?: boolean;
-    icon?: string;
-  }>();
+  import { DropdownMenuItemIndicator, useForwardProps } from "radix-vue";
+  import type { DropdownMenuItemIndicatorProps } from "radix-vue";
+
+  const props = defineProps<
+    DropdownMenuItemIndicatorProps & {
+      icon?: string;
+    }
+  >();
+  const forwarded = useForwardProps(useOmit(props, ["icon"]));
 </script>

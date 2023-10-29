@@ -1,12 +1,5 @@
 <template>
-  <DropdownMenuRadioItem
-    :as-child="asChild"
-    :disabled="disabled"
-    :value="value"
-    :text-value="textValue"
-    :class="styles({ class: props.class })"
-    @select="emits('select', $event)"
-  >
+  <DropdownMenuRadioItem v-bind="forwarded" :class="styles({ class: props.class })">
     <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center text-primary">
       <UIDropdownMenuItemIndicator>
         <Icon v-if="icon" :name="icon" class="h-4 w-4" />
@@ -18,19 +11,19 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    class?: any;
-    value: any;
-    disabled?: boolean;
-    textValue?: string;
-    icon?: string;
-    title?: string;
-  }>();
+  import { DropdownMenuRadioItem, useForwardPropsEmits } from "radix-vue";
+  import type { DropdownMenuRadioItemEmits, DropdownMenuRadioItemProps } from "radix-vue";
 
-  const emits = defineEmits<{
-    select: [e: Event];
-  }>();
+  const props = defineProps<
+    DropdownMenuRadioItemProps & {
+      class?: any;
+      icon?: string;
+      title?: string;
+    }
+  >();
+
+  const emits = defineEmits<DropdownMenuRadioItemEmits>();
+  const forwarded = useForwardPropsEmits(useOmit(props, ["class", "icon", "title"]), emits);
 
   const styles = tv({
     base: "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",

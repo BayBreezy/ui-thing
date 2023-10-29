@@ -1,10 +1,5 @@
 <template>
-  <DropdownMenuSubTrigger
-    :as-child="asChild"
-    :disabled="disabled"
-    :text-value="textValue"
-    :class="styles({ inset, class: props.class })"
-  >
+  <DropdownMenuSubTrigger v-bind="forwarded" :class="styles({ inset, class: props.class })">
     <slot>
       <Icon v-if="icon" :name="icon" class="h-4 w-4" />
       <span v-if="title">{{ title }}</span>
@@ -17,16 +12,22 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    class?: any;
-    inset?: boolean;
-    textValue?: string;
-    asChild?: boolean;
-    disabled?: boolean;
-    icon?: string;
-    title?: string;
-    trailingIcon?: string;
-  }>();
+  import { DropdownMenuSubTrigger, useForwardProps } from "radix-vue";
+  import type { DropdownMenuSubTriggerProps } from "radix-vue";
+
+  const props = defineProps<
+    DropdownMenuSubTriggerProps & {
+      class?: any;
+      inset?: boolean;
+      asChild?: boolean;
+      icon?: string;
+      title?: string;
+      trailingIcon?: string;
+    }
+  >();
+  const forwarded = useForwardProps(
+    useOmit(props, ["class", "inset", "asChild", "icon", "title", "trailingIcon"])
+  );
 
   const styles = tv({
     base: "flex cursor-default select-none items-center gap-3 rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent",

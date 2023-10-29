@@ -1,13 +1,5 @@
 <template>
-  <div>
-    <Heading
-      title="Accordion"
-      subtext="A vertically stacked set of interactive headings that each reveal a section of content."
-      radix-link="https://www.radix-vue.com/components/accordion.html"
-    />
-
-    <UIAccordion type="single" default-value="item-2" :items="accordionItems" />
-  </div>
+  <UIAccordion type="single" default-value="item-2" :items="accordionItems" />
 </template>
 
 <script lang="ts" setup>

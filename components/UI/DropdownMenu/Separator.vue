@@ -1,12 +1,17 @@
 <template>
-  <DropdownMenuSeparator :as-child="asChild" :class="styles({ class: props.class })" />
+  <DropdownMenuSeparator :class="styles({ class: props.class })" v-bind="forwarded" />
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    class?: any;
-    asChild?: boolean;
-  }>();
+  import { DropdownMenuSeparator, useForwardProps } from "radix-vue";
+  import type { DropdownMenuSeparatorProps } from "radix-vue";
+
+  const props = defineProps<
+    DropdownMenuSeparatorProps & {
+      class?: any;
+    }
+  >();
+  const forwarded = useForwardProps(useOmit(props, ["class"]));
 
   const styles = tv({
     base: "-mx-1 my-1 h-px bg-border",

@@ -1,10 +1,12 @@
 <template>
-  <header class="sticky top-0 z-20 border-b bg-background/80 backdrop-blur">
+  <header class="sticky top-0 z-30 border-b bg-background/80 backdrop-blur">
     <div class="container flex h-14 items-center justify-between">
       <div class="flex items-center gap-10">
         <NuxtLink to="/" class="text-lg font-bold">UI Thing</NuxtLink>
         <nav class="flex items-center space-x-6 text-sm font-medium">
-          <NuxtLink to="/" class="text-foreground/60 transition-colors hover:text-foreground"
+          <NuxtLink
+            to="/components/accordion"
+            class="text-foreground/60 transition-colors hover:text-foreground"
             >Components</NuxtLink
           >
           <UIDropdownMenu>

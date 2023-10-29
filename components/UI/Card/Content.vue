@@ -1,16 +1,24 @@
 <template>
-  <div :class="styles({ class: props.class })">
+  <Primitive :as="as" :as-child="asChild" :class="styles({ class: props.class })">
     <slot>
       {{ content }}
     </slot>
-  </div>
+  </Primitive>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    content?: string;
-    class?: any;
-  }>();
+  import { Primitive } from "radix-vue";
+  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";
+
+  const props = withDefaults(
+    defineProps<
+      PrimitiveProps & {
+        content?: string;
+        class?: any;
+      }
+    >(),
+    { as: "div" }
+  );
   const styles = tv({
     base: "p-6 pt-0",
   });

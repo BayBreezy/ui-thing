@@ -1,11 +1,13 @@
 <template>
-  <DropdownMenuPortal :to="to || 'body'">
+  <DropdownMenuPortal v-bind="forwarded">
     <slot></slot>
   </DropdownMenuPortal>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    to?: string | HTMLElement;
-  }>();
+  import { DropdownMenuPortal, useForwardProps } from "radix-vue";
+  import type { DropdownMenuPortalProps } from "radix-vue";
+
+  const props = defineProps<DropdownMenuPortalProps>();
+  const forwarded = useForwardProps(props);
 </script>

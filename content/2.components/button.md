@@ -1,7 +1,27 @@
+---
+title: Button
+description: A button is a component that is used to trigger an action.
+---
+
+## Source code
+
+Click :SourceCodeLink{component="Button.vue"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
+## Installation
+
+```bash
+npx ui-thing@latest add button
+```
+
+## Usage
+
+::ShowCase{component="DocsButtons"}
+
+#code
+
+```vue [DocsBadge.vue]
 <template>
   <div>
-    <Heading title="Buttons" subtext="Displays a button or a component that looks like a button." />
-
     <div class="flex flex-wrap gap-5">
       <UIButton>Default</UIButton>
       <UIButton variant="secondary">Secondary</UIButton>
@@ -13,14 +33,12 @@
       <UIButton variant="destructive">Destructive</UIButton>
       <UIButton variant="ghost">Ghost</UIButton>
       <UIButton variant="link">Link Btn</UIButton>
-      <UIButton @click="toggleMode()" variant="outline" size="icon"
-        ><Icon name="lucide:sun"
+      <UIButton variant="outline" size="icon"
+        ><Icon class="h-4 w-4" name="lucide:activity"
       /></UIButton>
     </div>
   </div>
 </template>
+```
 
-<script lang="ts" setup>
-  const isDark = useDark();
-  const toggleMode = useToggle(isDark);
-</script>
+::

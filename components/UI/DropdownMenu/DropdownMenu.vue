@@ -1,26 +1,15 @@
 <template>
-  <DropdownMenuRoot
-    :open="open"
-    :default-open="defaultOpen"
-    @update:open="emit('update:open', $event)"
-    :modal="modal || true"
-    :dir="dir"
-  >
+  <DropdownMenuRoot v-bind="forwarded">
     <slot></slot>
   </DropdownMenuRoot>
 </template>
 
 <script lang="ts" setup>
-  import type { DropdownMenuRootProps } from "radix-vue";
+  import { DropdownMenuRoot, useForwardPropsEmits } from "radix-vue";
+  import type { DropdownMenuRootEmits, DropdownMenuRootProps } from "radix-vue";
 
-  const props = defineProps<{
-    modal?: boolean;
-    dir?: DropdownMenuRootProps["dir"];
-    defaultOpen?: DropdownMenuRootProps["defaultOpen"];
-    open?: DropdownMenuRootProps["open"];
-  }>();
+  const props = defineProps<DropdownMenuRootProps>();
 
-  const emit = defineEmits<{
-    "update:open": [v: boolean];
-  }>();
+  const emit = defineEmits<DropdownMenuRootEmits>();
+  const forwarded = useForwardPropsEmits(props, emit);
 </script>

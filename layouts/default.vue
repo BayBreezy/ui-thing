@@ -15,10 +15,11 @@
       <div class="xl:grid xl:grid-cols-[1fr,250px] xl:gap-5">
         <!-- Page content -->
         <div
-          class="prose dark:prose-invert prose-headings:scroll-mt-16 prose-headings:tracking-tight prose-h2:border-b prose-h2:pb-3 prose-a:decoration-primary prose-a:decoration-wavy prose-a:underline-offset-2 hover:prose-a:text-primary mx-auto w-full min-w-0 max-w-none py-5"
+          class="prose mx-auto w-full min-w-0 max-w-none py-5 dark:prose-invert prose-headings:scroll-mt-16 prose-headings:tracking-tight prose-h2:mt-6 prose-h2:border-b prose-h2:pb-3 first:prose-h2:mt-10 prose-a:decoration-primary prose-a:decoration-wavy prose-a:underline-offset-2 hover:prose-a:text-primary"
         >
-          <DocsHeader :title="page.title" :description="page.description" :links="page.links" />
+          <DocsHeader />
           <slot />
+          <DocsFooter />
         </div>
         <!-- Table of contents for current page -->
         <aside

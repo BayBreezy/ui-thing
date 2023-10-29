@@ -1,13 +1,24 @@
 <template>
-  <span :class="styles({ class: props.class })">
+  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">
     <slot />
-  </span>
+  </Primitive>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    class?: any;
-  }>();
+  import { Primitive, useForwardProps } from "radix-vue";
+  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";
+
+  const props = withDefaults(
+    defineProps<
+      PrimitiveProps & {
+        class?: any;
+      }
+    >(),
+    {
+      as: "span",
+    }
+  );
+  const forwarded = useForwardProps(useOmit(props, ["class"]));
 
   const styles = tv({
     base: "ml-auto text-xs tracking-widest opacity-60",

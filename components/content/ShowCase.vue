@@ -1,0 +1,34 @@
+<template>
+  <TabsRoot default-value="preview">
+    <TabsList class="flex items-center gap-1">
+      <TabsTrigger as-child value="preview">
+        <UIButton class="data-[state=active]:bg-accent" variant="ghost"> Preview</UIButton>
+      </TabsTrigger>
+      <TabsTrigger value="code" as-child>
+        <UIButton class="data-[state=active]:bg-accent" variant="ghost"> Code</UIButton>
+      </TabsTrigger>
+    </TabsList>
+    <TabsContent value="preview">
+      <div
+        class="mt-3 flex min-h-[300px] items-center justify-center rounded-lg border p-5 lg:p-10"
+      >
+        <div class="not-prose mx-auto w-full">
+          <component :is="component" />
+        </div>
+      </div>
+    </TabsContent>
+    <TabsContent value="code">
+      <div v-if="$slots?.code">
+        <ContentSlot :use="$slots.code" unwrap="p" />
+      </div>
+    </TabsContent>
+  </TabsRoot>
+</template>
+
+<script lang="ts" setup>
+  import { TabsContent, TabsList, TabsRoot, TabsTrigger } from "radix-vue";
+
+  const props = defineProps<{
+    component: string;
+  }>();
+</script>

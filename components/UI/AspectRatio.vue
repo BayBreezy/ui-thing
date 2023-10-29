@@ -1,18 +1,13 @@
 <template>
-  <AspectRatio :as-child="asChild" :ratio="ratio">
+  <AspectRatio v-bind="forwarded">
     <slot />
   </AspectRatio>
 </template>
 
 <script lang="ts" setup>
-  const props = withDefaults(
-    defineProps<{
-      ratio?: number;
-      asChild?: boolean;
-    }>(),
-    {
-      ratio: 1,
-      asChild: false,
-    }
-  );
+  import { AspectRatio, useForwardProps } from "radix-vue";
+  import type { AspectRatioProps } from "radix-vue";
+
+  const props = defineProps<AspectRatioProps>();
+  const forwarded = useForwardProps(props);
 </script>

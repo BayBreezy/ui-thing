@@ -29,11 +29,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-  definePageMeta({
-    layout: "examples",
-  });
-
-  useSeoMeta({ title: "Cards" });
-</script>

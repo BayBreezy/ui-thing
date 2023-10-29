@@ -1,13 +1,5 @@
 <template>
-  <DropdownMenuCheckboxItem
-    :as-child="asChild"
-    :checked="checked"
-    :disabled="disabled"
-    :text-value="textValue"
-    :class="styles({ class: props.class })"
-    @select="emits('select', $event)"
-    @update:checked="emits('update:checked', $event)"
-  >
+  <DropdownMenuCheckboxItem v-bind="forwarded" :class="styles({ class: props.class })">
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center text-primary">
       <UIDropdownMenuItemIndicator icon="lucide:check" />
     </span>
@@ -21,22 +13,20 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    checked?: boolean | "indeterminate";
-    disabled?: boolean;
-    textValue?: string;
-    class?: any;
-    shortcut?: string;
-    title?: string;
-  }>();
+  import { DropdownMenuCheckboxItem, useForwardPropsEmits } from "radix-vue";
+  import type { DropdownMenuCheckboxItemEmits, DropdownMenuCheckboxItemProps } from "radix-vue";
+
+  const props = defineProps<
+    DropdownMenuCheckboxItemProps & {
+      class?: any;
+      shortcut?: string;
+      title?: string;
+    }
+  >();
+  const emits = defineEmits<DropdownMenuCheckboxItemEmits>();
+  const forwarded = useForwardPropsEmits(useOmit(props, ["class", "shortcut", "title"]), emits);
 
   const styles = tv({
     base: "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
   });
-
-  const emits = defineEmits<{
-    "update:checked": [e: boolean];
-    select: [e: Event];
-  }>();
 </script>

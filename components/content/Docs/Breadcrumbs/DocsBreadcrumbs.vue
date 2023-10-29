@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { Crumbs } from "@/components/UI/Breadcrumbs.vue";
+  import type { Crumbs } from "@/components/UI/Breadcrumbs.vue";
 
   const crumbs: Crumbs[] = [
     {

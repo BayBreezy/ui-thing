@@ -1,13 +1,22 @@
 <template>
-  <div :class="styles({ class: props.class })">
+  <Primitive :class="styles({ class: props.class })" :as="as" :as-child="asChild">
     <slot> </slot>
-  </div>
+  </Primitive>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    class?: any;
-  }>();
+  import { Primitive } from "radix-vue";
+  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";
+
+  const props = withDefaults(
+    defineProps<
+      PrimitiveProps & {
+        class?: any;
+      }
+    >(),
+    { as: "div" }
+  );
+
   const styles = tv({
     base: "flex items-center p-6 pt-0",
   });

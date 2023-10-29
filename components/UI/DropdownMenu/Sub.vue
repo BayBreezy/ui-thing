@@ -1,20 +1,14 @@
 <template>
-  <DropdownMenuSub
-    :default-open="defaultOpen"
-    :open="open"
-    @update:open="emits('update:open', $event)"
-  >
+  <DropdownMenuSub v-bind="forwarded">
     <slot></slot>
   </DropdownMenuSub>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    defaultOpen?: boolean;
-    open?: boolean;
-  }>();
+  import { DropdownMenuSub, useForwardPropsEmits } from "radix-vue";
+  import type { DropdownMenuSubEmits, DropdownMenuSubProps } from "radix-vue";
 
-  const emits = defineEmits<{
-    "update:open": [any];
-  }>();
+  const props = defineProps<DropdownMenuSubProps>();
+  const emits = defineEmits<DropdownMenuSubEmits>();
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>

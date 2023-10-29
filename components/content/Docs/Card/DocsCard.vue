@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <Heading title="Card" subtext="Displays a card with header, content, and footer." />
-
+  <div class="flex items-center justify-center">
     <form>
       <UICard
-        class="max-w-sm"
+        class="w-[360px] max-w-sm"
         title="Create project"
         description="Deploy your new project in one-click."
       >

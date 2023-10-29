@@ -1,11 +1,5 @@
 <template>
-  <DropdownMenuItem
-    @select="emits('select', $event)"
-    :as-child="asChild"
-    :disabled="disabled"
-    :text-value="textValue"
-    :class="styles({ inset, class: props.class })"
-  >
+  <DropdownMenuItem v-bind="forwarded" :class="styles({ inset, class: props.class })">
     <slot>
       <slot name="icon">
         <Icon v-if="icon" :name="icon" class="h-4 w-4" />
@@ -21,20 +15,24 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    disabled?: boolean;
-    textValue?: string;
-    class?: any;
-    inset?: boolean;
-    shortcut?: string;
-    title?: string;
-    icon?: string;
-  }>();
+  import { DropdownMenuItem, useForwardPropsEmits } from "radix-vue";
+  import type { DropdownMenuItemEmits, DropdownMenuItemProps } from "radix-vue";
 
-  const emits = defineEmits<{
-    select: [e: Event];
-  }>();
+  const props = defineProps<
+    DropdownMenuItemProps & {
+      class?: any;
+      inset?: boolean;
+      shortcut?: string;
+      title?: string;
+      icon?: string;
+    }
+  >();
+
+  const emits = defineEmits<DropdownMenuItemEmits>();
+  const forwarded = useForwardPropsEmits(
+    useOmit(props, ["class", "inset", "shortcut", "icon"]),
+    emits
+  );
 
   const styles = tv({
     base: "relative flex cursor-default select-none items-center gap-3 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",

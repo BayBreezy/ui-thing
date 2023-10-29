@@ -3,9 +3,7 @@
     v-bind="forwarded"
     :class="buttonStyles({ variant, size, disabled, class: props.class })"
   >
-    <slot>
-      {{ text }}
-    </slot>
+    <slot>{{ text }} </slot>
   </AlertDialogAction>
 </template>
 

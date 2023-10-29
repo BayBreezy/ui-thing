@@ -1,12 +1,13 @@
 <template>
-  <DropdownMenuTrigger v-bind="$attrs" :as-child="asChild">
+  <DropdownMenuTrigger v-bind="forwarded">
     <slot></slot>
   </DropdownMenuTrigger>
 </template>
 
 <script lang="ts" setup>
-  defineOptions({ inheritAttrs: false });
-  const props = defineProps<{
-    asChild?: boolean;
-  }>();
+  import { DropdownMenuTrigger, useForwardProps } from "radix-vue";
+  import type { DropdownMenuTriggerProps } from "radix-vue";
+
+  const props = defineProps<DropdownMenuTriggerProps>();
+  const forwarded = useForwardProps(props);
 </script>

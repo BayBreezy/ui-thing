@@ -1,11 +1,13 @@
 <template>
-  <DropdownMenuGroup :as-child="asChild">
+  <DropdownMenuGroup v-bind="forwarded">
     <slot></slot>
   </DropdownMenuGroup>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-  }>();
+  import { DropdownMenuGroup, useForwardProps } from "radix-vue";
+  import type { DropdownMenuGroupProps } from "radix-vue";
+
+  const props = defineProps<DropdownMenuGroupProps>();
+  const forwarded = useForwardProps(props);
 </script>
