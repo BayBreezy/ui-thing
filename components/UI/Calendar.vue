@@ -1,6 +1,6 @@
 <template>
   <ClientOnly>
-    <VCalendar :is-dark="isDark" v-bind="$attrs">
+    <VCalendar :is-dark="$colorMode.value == 'dark'" v-bind="$attrs">
       <template v-for="(_, slot) in $slots" v-slot:[slot]="scope">
         <slot :name="slot" v-bind="scope"></slot>
       </template>
@@ -10,8 +10,6 @@
 
 <script lang="ts" setup>
   import { Calendar } from "v-calendar";
-
-  const isDark = useDark();
 
   defineOptions({ inheritAttrs: false });
 
