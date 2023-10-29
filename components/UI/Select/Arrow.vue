@@ -3,15 +3,11 @@
 </template>
 
 <script lang="ts" setup>
-  const props = withDefaults(
-    defineProps<{
-      asChild?: boolean;
-      width?: number;
-      height?: number;
-    }>(),
-    {
-      width: 10,
-      height: 5,
-    }
-  );
+  import { SelectArrow, useForwardProps } from "radix-vue";
+  import type { SelectArrowProps } from "radix-vue";
+
+  const props = withDefaults(defineProps<SelectArrowProps>(), {
+    width: 10,
+    height: 5,
+  });
 </script>

@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ColumnDef, Table } from "@tanstack/vue-table";
+  import type { ColumnDef, Table } from "@tanstack/vue-table";
 
   const selected = ref([]);
   const tableRef = ref();

@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ComboboxItemEmits, ComboboxItemProps } from "radix-vue";
+  import type { ComboboxItemEmits, ComboboxItemProps } from "radix-vue";
 
   const props = defineProps<{
     value: ComboboxItemProps["value"];

@@ -152,9 +152,9 @@
     getFilteredRowModel,
     getPaginationRowModel,
     getSortedRowModel,
-    Table,
     useVueTable,
   } from "@tanstack/vue-table";
+  import type { Table } from "@tanstack/vue-table";
   import type { ColumnDef, SortingState } from "@tanstack/vue-table";
 
   const props = withDefaults(

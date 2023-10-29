@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ToastActionProps } from "radix-vue";
+  import type { ToastActionProps } from "radix-vue";
 
   const props = withDefaults(
     defineProps<{

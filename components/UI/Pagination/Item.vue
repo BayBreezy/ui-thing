@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { PaginationListItemProps } from "radix-vue";
+  import type { PaginationListItemProps } from "radix-vue";
 
   const props = defineProps<{
     value: PaginationListItemProps["value"];

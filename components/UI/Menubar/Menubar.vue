@@ -1,36 +1,27 @@
 <template>
-  <MenubarRoot
-    :class="styles({ class: props.class })"
-    v-model="localModel"
-    :default-value="defaultValue"
-    :dir="dir"
-    :loop="loop"
-  >
+  <MenubarRoot v-bind="forwarded" :class="styles({ class: props.class })">
     <slot></slot>
   </MenubarRoot>
 </template>
 
 <script lang="ts" setup>
-  import { type MenubarRootEmits, type MenubarRootProps } from "radix-vue/dist/Menubar/MenubarRoot";
+  import { MenubarRoot, useForwardPropsEmits } from "radix-vue";
+  import type { MenubarRootEmits, MenubarRootProps } from "radix-vue";
 
   const props = withDefaults(
-    defineProps<{
-      defaultValue?: MenubarRootProps["defaultValue"];
-      modelValue?: MenubarRootProps["modelValue"];
-      dir?: MenubarRootProps["dir"];
-      loop?: MenubarRootProps["loop"];
-      class?: any;
-    }>(),
+    defineProps<
+      MenubarRootProps & {
+        class?: any;
+      }
+    >(),
     {
       loop: true,
     }
   );
 
-  const emits = defineEmits<{
-    "update:modelValue": [value: MenubarRootEmits["update:modelValue"]];
-  }>();
+  const emits = defineEmits<MenubarRootEmits>();
 
-  const localModel = useVModel(props, "modelValue", emits);
+  const forwarded = useForwardPropsEmits(useOmit(props, ["class"]), emits);
 
   const styles = tv({
     base: "inline-flex h-10 items-center space-x-1 rounded-md border bg-background p-1",

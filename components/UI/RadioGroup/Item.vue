@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { type RadioGroupItemProps } from "radix-vue/dist/RadioGroup/RadioGroupItem";
+  import { type RadioGroupItemProps } from "radix-vue";
 
   const props = defineProps<{
     asChild?: RadioGroupItemProps["asChild"];

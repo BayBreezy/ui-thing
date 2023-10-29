@@ -1,5 +1,5 @@
 <template>
-  <SelectIcon :as-child="asChild || true">
+  <SelectIcon v-bind="forwarded">
     <slot>
       <Icon :class="styles({ class: props.class })" :name="icon || 'lucide:chevrons-up-down'" />
     </slot>
@@ -7,13 +7,19 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    icon?: string;
-    class?: any;
-  }>();
+  import { SelectIcon, useForwardProps } from "radix-vue";
+  import type { SelectIconProps } from "radix-vue";
+
+  const props = defineProps<
+    SelectIconProps & {
+      icon?: string;
+      class?: any;
+    }
+  >();
 
   const styles = tv({
     base: "h-4 w-4 shrink-0 text-muted-foreground opacity-70",
   });
+
+  const forwarded = useForwardProps(useOmit(props, ["icon", "class"]));
 </script>

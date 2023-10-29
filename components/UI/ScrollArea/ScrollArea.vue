@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ScrollAreaRootProps } from "radix-vue/dist/ScrollArea/ScrollAreaRoot";
+  import type { ScrollAreaRootProps } from "radix-vue";
 
   const props = defineProps<{
     type?: ScrollAreaRootProps["type"];

@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ComboboxRootEmits, ComboboxRootProps } from "radix-vue";
+  import type { ComboboxRootEmits, ComboboxRootProps } from "radix-vue";
 
   const props = withDefaults(
     defineProps<{

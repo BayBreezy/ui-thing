@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { PaginationEllipsisProps } from "radix-vue";
+  import type { PaginationEllipsisProps } from "radix-vue";
 
   const props = defineProps<{
     asChild?: PaginationEllipsisProps["asChild"];

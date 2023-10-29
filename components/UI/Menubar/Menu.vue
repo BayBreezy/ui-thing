@@ -1,17 +1,13 @@
 <template>
-  <MenubarMenu :value="value">
+  <MenubarMenu v-bind="forwarded">
     <slot></slot>
   </MenubarMenu>
 </template>
 
 <script lang="ts" setup>
-  import { type MenubarMenuProps } from "radix-vue/dist/Menubar/MenubarMenu";
+  import { MenubarMenu, useForwardProps } from "radix-vue";
+  import type { MenubarMenuProps } from "radix-vue";
 
-  const props = withDefaults(
-    defineProps<{
-      value?: MenubarMenuProps["value"];
-      asChild?: boolean;
-    }>(),
-    {}
-  );
+  const props = defineProps<MenubarMenuProps>();
+  const forwarded = useForwardProps(props);
 </script>

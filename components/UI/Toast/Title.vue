@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ToastTitleProps } from "radix-vue";
+  import type { ToastTitleProps } from "radix-vue";
 
   const props = withDefaults(
     defineProps<{

@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { DataOrientation, Direction } from "radix-vue/dist/shared/types";
+  import type { DataOrientation, Direction } from "radix-vue/dist/shared/types";
 
   const props = withDefaults(
     defineProps<{

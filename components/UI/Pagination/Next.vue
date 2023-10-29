@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { PaginationNextProps } from "radix-vue";
+  import type { PaginationNextProps } from "radix-vue";
 
   const props = defineProps<{
     asChild?: PaginationNextProps["asChild"];

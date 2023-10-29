@@ -1,43 +1,16 @@
 <template>
-  <SelectRoot
-    :open="open"
-    :defaultOpen="defaultOpen"
-    :defaultValue="defaultValue"
-    :modelValue="modelValue"
-    :orientation="orientation"
-    :dir="dir"
-    :name="name"
-    :autocomplete="autocomplete"
-    :disabled="disabled"
-    :required="required"
-    @update:modelValue="($event) => $emit('update:modelValue', $event)"
-    @update:open="($event) => $emit('update:open', $event)"
-  >
+  <SelectRoot v-bind="forwarded">
     <slot></slot>
   </SelectRoot>
 </template>
 
 <script lang="ts" setup>
-  import { DataOrientation, Direction } from "radix-vue/dist/shared/types";
+  import { SelectRoot, useForwardPropsEmits } from "radix-vue";
+  import type { SelectRootEmits, SelectRootProps } from "radix-vue";
 
-  const props = withDefaults(
-    defineProps<{
-      open?: boolean;
-      defaultOpen?: boolean;
-      defaultValue?: string;
-      modelValue?: string;
-      orientation?: DataOrientation;
-      dir?: Direction;
-      name?: string;
-      autocomplete?: string;
-      disabled?: boolean;
-      required?: boolean;
-    }>(),
-    {}
-  );
+  const props = defineProps<SelectRootProps>();
 
-  const emits = defineEmits<{
-    "update:modelValue": [value: string];
-    "update:open": [value: boolean];
-  }>();
+  const emits = defineEmits<SelectRootEmits>();
+
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>

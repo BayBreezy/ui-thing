@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { PaginationFirstProps } from "radix-vue";
+  import type { PaginationFirstProps } from "radix-vue";
 
   const props = defineProps<{
     asChild?: PaginationFirstProps["asChild"];

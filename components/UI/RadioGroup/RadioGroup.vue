@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { type RadioGroupRootEmits, type RadioGroupRootProps } from "radix-vue/dist/RadioGroup";
+  import { type RadioGroupRootEmits, type RadioGroupRootProps } from "radix-vue";
 
   const props = withDefaults(
     defineProps<{

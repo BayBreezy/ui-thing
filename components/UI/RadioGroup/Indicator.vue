@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { RadioGroupIndicatorProps } from "radix-vue/dist/RadioGroup/RadioGroupIndicator";
+  import type { RadioGroupIndicatorProps } from "radix-vue";
 
   const props = defineProps<{
     asChild?: RadioGroupIndicatorProps["asChild"];

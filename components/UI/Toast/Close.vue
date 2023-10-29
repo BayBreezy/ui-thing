@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ToastCloseProps } from "radix-vue";
+  import type { ToastCloseProps } from "radix-vue";
 
   const props = withDefaults(
     defineProps<{

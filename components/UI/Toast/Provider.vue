@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ToastProviderProps } from "radix-vue";
+  import type { ToastProviderProps } from "radix-vue";
 
   const props = withDefaults(
     defineProps<{

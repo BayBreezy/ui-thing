@@ -24,10 +24,7 @@
 </template>
 
 <script lang="ts" setup>
-  import {
-    type TooltipContentEmits,
-    type TooltipContentProps,
-  } from "radix-vue/dist/Tooltip/TooltipContent";
+  import type { TooltipContentEmits, TooltipContentProps } from "radix-vue";
 
   defineOptions({ inheritAttrs: false });
 
