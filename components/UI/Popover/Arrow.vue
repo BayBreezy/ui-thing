@@ -1,17 +1,15 @@
 <template>
-  <PopoverArrow :as-child="asChild" :width="width" :height="height" />
+  <PopoverArrow v-bind="forwarded" />
 </template>
 
 <script lang="ts" setup>
-  const props = withDefaults(
-    defineProps<{
-      asChild?: boolean;
-      width?: number;
-      height?: number;
-    }>(),
-    {
-      width: 10,
-      height: 5,
-    }
-  );
+  import { PopoverArrow, useForwardProps } from "radix-vue";
+  import type { PopoverArrowProps } from "radix-vue/dist/Popover/PopoverArrow";
+
+  const props = withDefaults(defineProps<PopoverArrowProps>(), {
+    width: 10,
+    height: 5,
+  });
+
+  const forwarded = useForwardProps(props);
 </script>

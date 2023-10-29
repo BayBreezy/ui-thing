@@ -1,19 +1,15 @@
 <template>
-  <PopoverRoot v-model:open="localModel" :default-open="defaultOpen" :modal="modal">
+  <PopoverRoot v-bind="forwarded">
     <slot></slot>
   </PopoverRoot>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    defaultOpen?: boolean;
-    modelValue?: boolean;
-    modal?: boolean;
-  }>();
+  import { PopoverRoot, useForwardPropsEmits } from "radix-vue";
+  import type { PopoverRootEmits, PopoverRootProps } from "radix-vue";
 
-  const emits = defineEmits<{
-    "update:modelValue": [boolean];
-  }>();
+  const props = defineProps<PopoverRootProps>();
+  const emits = defineEmits<PopoverRootEmits>();
 
-  const localModel = useVModel(props, "modelValue", emits);
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>

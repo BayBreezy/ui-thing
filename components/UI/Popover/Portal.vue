@@ -1,11 +1,13 @@
 <template>
-  <PopoverPortal :to="to">
+  <PopoverPortal v-bind="forwarded">
     <slot></slot>
   </PopoverPortal>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    to?: string | HTMLElement;
-  }>();
+  import { PopoverPortal, useForwardProps } from "radix-vue";
+  import type { PopoverPortalProps } from "radix-vue";
+
+  const props = defineProps<PopoverPortalProps>();
+  const forwarded = useForwardProps(props);
 </script>

@@ -1,26 +1,14 @@
 <template>
-  <Separator
-    :orientation="orientation"
-    :decorative="decorative"
-    :as-child="asChild"
-    :class="styles({ orientation, class: props.class })"
-  />
+  <Separator v-bind="forwarded" :class="styles({ orientation, class: props.class })" />
 </template>
 
 <script lang="ts" setup>
-  import { type SeparatorProps } from "radix-vue/dist/Separator/Separator";
+  import { Separator, useForwardProps } from "radix-vue";
+  import type { SeparatorProps } from "radix-vue";
 
-  const props = withDefaults(
-    defineProps<{
-      orientation?: SeparatorProps["orientation"];
-      decorative?: SeparatorProps["decorative"];
-      class?: any;
-      asChild?: boolean;
-    }>(),
-    {
-      orientation: "horizontal",
-    }
-  );
+  const props = withDefaults(defineProps<SeparatorProps & { class?: any }>(), {
+    orientation: "horizontal",
+  });
 
   const styles = tv({
     base: "shrink-0 bg-border",
@@ -31,4 +19,6 @@
       },
     },
   });
+
+  const forwarded = useForwardProps(useOmit(props, ["class"]));
 </script>

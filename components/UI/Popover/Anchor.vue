@@ -1,11 +1,13 @@
 <template>
-  <PopoverAnchor :as-child="asChild">
+  <PopoverAnchor v-bind="forwarded">
     <slot></slot>
   </PopoverAnchor>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-  }>();
+  import { PopoverAnchor, useForwardProps } from "radix-vue";
+  import type { PopoverAnchorProps } from "radix-vue";
+
+  const props = defineProps<PopoverAnchorProps>();
+  const forwarded = useForwardProps(props);
 </script>
