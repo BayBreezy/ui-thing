@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="flex flex-wrap justify-center gap-5">
-      <UICalendar :attributes="attributes" />
-      <UICalendar title-position="right" />
-      <UICalendar show-weeknumbers>
+      <UICalendar trim-weeks :attributes="attributes" />
+      <UICalendar trim-weeks title-position="right" />
+      <UICalendar trim-weeks show-weeknumbers>
         <template #header-title="{ title }">
           <div class="flex items-center gap-2">
             <p>{{ title }}</p>

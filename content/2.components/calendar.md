@@ -22,23 +22,82 @@ npx ui-thing@latest add calendar
 ```vue [DocsBadge.vue]
 <template>
   <div>
-    <div class="flex flex-wrap gap-5">
-      <UIButton>Default</UIButton>
-      <UIButton variant="secondary">Secondary</UIButton>
-      <UIButton><Icon class="h-4 w-4" name="lucide:mail" /> Login with Email</UIButton>
-      <UIButton loading
-        ><Icon class="h-4 w-4 animate-spin" name="lucide:loader-2" /> Please wait</UIButton
-      >
-      <UIButton variant="outline">Outline</UIButton>
-      <UIButton variant="destructive">Destructive</UIButton>
-      <UIButton variant="ghost">Ghost</UIButton>
-      <UIButton variant="link">Link Btn</UIButton>
-      <UIButton variant="outline" size="icon"
-        ><Icon class="h-4 w-4" name="lucide:activity"
-      /></UIButton>
+    <div class="flex flex-wrap justify-center gap-5">
+      <UICalendar trim-weeks :attributes="attributes" />
+      <UICalendar trim-weeks title-position="right" />
+      <UICalendar trim-weeks show-weeknumbers>
+        <template #header-title="{ title }">
+          <div class="flex items-center gap-2">
+            <p>{{ title }}</p>
+            <Icon class="h-4 w-4 text-muted-foreground" name="lucide:chevron-down" />
+          </div>
+        </template>
+      </UICalendar>
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+  import { addDays, endOfMonth, startOfMonth, startOfToday } from "date-fns";
+
+  const attributes = ref([
+    {
+      highlight: true,
+      popover: {
+        label: "Out of town bussiness trip",
+      },
+      dates: {
+        start: startOfMonth(startOfToday()).toString(),
+        end: addDays(startOfMonth(startOfToday()), 3).toString(),
+      },
+    },
+    {
+      popover: {
+        label: "Take the dog to the vet",
+      },
+      dot: "red",
+      dates: addDays(startOfMonth(startOfToday()), 5).toString(),
+    },
+    {
+      bar: "green",
+      popover: {
+        label: "Dinner with friends",
+      },
+      dates: addDays(startOfMonth(startOfToday()), 8).toString(),
+    },
+    {
+      dot: "purple",
+      popover: {
+        label: "Take the car to the mechanic",
+      },
+      dates: addDays(startOfMonth(startOfToday()), 14).toString(),
+    },
+    {
+      highlight: true,
+      popover: {
+        label: "Family vacation in Ibiza",
+      },
+      dates: {
+        start: addDays(startOfMonth(startOfToday()), 16).toString(),
+        end: addDays(startOfMonth(startOfToday()), 24).toString(),
+      },
+    },
+    {
+      dot: true,
+      popover: {
+        label: "Take Noah to the football game",
+      },
+      dates: addDays(startOfMonth(startOfToday()), 22).toString(),
+    },
+    {
+      highlight: true,
+      popover: {
+        label: "Visit the in-laws",
+      },
+      dates: endOfMonth(startOfToday()).toString(),
+    },
+  ]);
+</script>
 ```
 
 ::
