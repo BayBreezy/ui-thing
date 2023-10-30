@@ -9,7 +9,7 @@
         class: props.class,
       })
     "
-    :disabled="disabled"
+    :disabled="disabled || loading"
     :to="to"
     :href="href"
     :type="type"
@@ -31,7 +31,7 @@
       onClick?: () => void;
       to?: string | RouteLocationRaw;
       href?: string;
-      tag?: string;
+      as?: string;
       class?: any;
       variant?: ButtonProps["variant"];
       size?: ButtonProps["size"];
@@ -42,8 +42,8 @@
   );
 
   const elementType = computed(() => {
-    if (props.tag) return props.tag;
+    if (props.as) return props.as;
     if (props.href || props.to) return resolveComponent("NuxtLink");
-    return props.tag || "button";
+    return "button";
   });
 </script>

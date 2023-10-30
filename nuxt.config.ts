@@ -19,6 +19,13 @@ export default defineNuxtConfig({
       },
     },
   },
+  vcalendar: {
+    calendarOptions: {
+      masks: {
+        weekdays: "WW",
+      },
+    },
+  },
   tailwindcss: { exposeConfig: true },
   imports: {
     // Add tv and VariantProps to the set of auto imported modules

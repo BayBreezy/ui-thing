@@ -1,11 +1,6 @@
 <template>
   <div>
-    <Heading
-      title="Calendar"
-      subtext="Displays a calendar that allows the user to select & view dates & events."
-    />
-
-    <div class="flex flex-wrap gap-5">
+    <div class="flex flex-wrap justify-center gap-5">
       <UICalendar :attributes="attributes" />
       <UICalendar title-position="right" />
       <UICalendar show-weeknumbers>
@@ -62,7 +57,7 @@
       },
       dates: {
         start: addDays(startOfMonth(startOfToday()), 16).toString(),
-        end: addDays(startOfMonth(startOfToday()), 20).toString(),
+        end: addDays(startOfMonth(startOfToday()), 24).toString(),
       },
     },
     {

@@ -18,7 +18,7 @@ export const buttonStyles = tv({
       icon: "h-10 w-10",
     },
     disabled: {
-      true: "cursor-not-allowed opacity-50",
+      true: "pointer-events-none opacity-50",
     },
   },
   defaultVariants: {
