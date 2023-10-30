@@ -23,16 +23,18 @@
   import { AccordionRoot, useForwardPropsEmits } from "radix-vue";
   import type { AccordionRootEmits, AccordionRootProps } from "radix-vue";
 
+  export interface AccordionItem {
+    title?: string;
+    content?: string;
+    value: string;
+    disabled?: boolean;
+    icon?: string;
+  }
+
   const props = withDefaults(
     defineProps<
       AccordionRootProps & {
-        items?: {
-          title?: string;
-          content?: string;
-          value: string;
-          disabled?: boolean;
-          icon?: string;
-        }[];
+        items?: AccordionItem[];
       }
     >(),
     { type: "single", collapsible: true }
