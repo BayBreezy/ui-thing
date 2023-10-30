@@ -1,6 +1,13 @@
 ---
 title: Calendar
 description: A calendar component allows you to display a calendar with events.
+links:
+  - title: VCalendar
+    href: https://vcalendar.io/
+    icon: "lucide:calendar-days"
+  - title: API Reference
+    href: https://vcalendar.io/calendar/api.html
+    icon: "icon-park-solid:api"
 ---
 
 ## Source code
@@ -11,6 +18,18 @@ Click :SourceCodeLink{component="Calendar.vue"} to see the source code for this 
 
 ```bash
 npx ui-thing@latest add calendar
+```
+
+You can optionally configure the vcalendar module in your `nuxt.config.js` file:
+
+```ts
+vcalendar: {
+  calendarOptions: {
+    masks: {
+      weekdays: "WW",
+    },
+  },
+},
 ```
 
 ## Usage

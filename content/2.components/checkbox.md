@@ -1,10 +1,34 @@
+---
+title: Checkbox
+description: A control that allows the user to toggle between checked and not checked.
+links:
+  - title: Radix-Vue
+    href: https://www.radix-vue.com/components/checkbox.html
+    icon: "simple-icons:radixui"
+  - title: API Reference
+    href: https://www.radix-vue.com/components/checkbox.html#api-reference
+    icon: "icon-park-solid:api"
+---
+
+## Source code
+
+Click :SourceCodeLink{component="Checkbox"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
+## Installation
+
+```bash
+npx ui-thing@latest add checkbox
+```
+
+## Usage
+
+::ShowCase{component="DocsCheckbox"}
+
+#code
+
+```vue [DocsCheckbox.vue]
 <template>
-  <div>
-    <Heading
-      title="Checkbox"
-      subtext="A control that allows the user to toggle between checked and not checked."
-      radix-link="https://www.radix-vue.com/components/checkbox.html"
-    />
+  <div class="flex flex-col items-center justify-center">
     <div class="flex items-center gap-2">
       <UICheckbox v-model="terms" id="checkbox-terms" />
       <UILabel for="checkbox-terms">
@@ -30,3 +54,6 @@
   const terms = ref(false);
   const terms1 = ref(false);
 </script>
+```
+
+::
