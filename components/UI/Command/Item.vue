@@ -1,30 +1,36 @@
 <template>
-  <ComboboxItem
-    :value="value"
-    :disabled="disabled"
-    :as-child="asChild"
-    :class="styles({ class: props.class })"
-    @select="($event) => emits('select', $event)"
-  >
-    <slot></slot>
+  <ComboboxItem v-bind="forwarded" :class="styles({ class: props.class })">
+    <slot>
+      <slot name="icon">
+        <Icon v-if="icon" :name="icon" class="h-4 w-4" />
+      </slot>
+      {{ text }}
+      <slot name="shortcut">
+        <UICommandShortcut v-if="shortcut" :shortcut="shortcut" />
+      </slot>
+    </slot>
   </ComboboxItem>
 </template>
 
 <script lang="ts" setup>
+  import { ComboboxItem, useForwardPropsEmits } from "radix-vue";
   import type { ComboboxItemEmits, ComboboxItemProps } from "radix-vue";
 
-  const props = defineProps<{
-    value: ComboboxItemProps["value"];
-    disabled?: ComboboxItemProps["disabled"];
-    asChild?: boolean;
-    class?: any;
-  }>();
+  const props = defineProps<
+    ComboboxItemProps & {
+      class?: any;
+      icon?: string;
+      text?: string;
+      shortcut?: string;
+    }
+  >();
+  const emit = defineEmits<ComboboxItemEmits>();
+  const forwarded = useForwardPropsEmits(
+    useOmit(props, ["class", "icon", "text", "shortcut"]),
+    emit
+  );
 
   const styles = tv({
-    base: "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
+    base: "relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
   });
-
-  const emits = defineEmits<{
-    select: ComboboxItemEmits["select"];
-  }>();
 </script>

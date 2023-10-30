@@ -5,10 +5,14 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    class?: any;
-  }>();
+  import { ComboboxSeparator, useForwardProps } from "radix-vue";
+  import type { ComboboxSeparatorProps } from "radix-vue";
+
+  const props = defineProps<
+    ComboboxSeparatorProps & {
+      class?: any;
+    }
+  >();
   const styles = tv({
     base: "-mx-1 h-px bg-border",
   });
