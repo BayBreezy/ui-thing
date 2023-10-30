@@ -1,13 +1,18 @@
 <template>
-  <span :class="styles({ class: props.class })">
+  <Primitive :as="as || 'span'" :as-child="asChild" :class="styles({ class: props.class })">
     <slot />
-  </span>
+  </Primitive>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    class?: any;
-  }>();
+  import { Primitive } from "radix-vue";
+  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";
+
+  const props = defineProps<
+    PrimitiveProps & {
+      class?: any;
+    }
+  >();
 
   const styles = tv({
     base: "ml-auto text-xs tracking-widest text-muted-foreground",

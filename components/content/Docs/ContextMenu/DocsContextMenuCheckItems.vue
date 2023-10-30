@@ -2,7 +2,7 @@
   <UIContextMenu>
     <UIContextMenuTrigger as-child>
       <div
-        class="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm"
+        class="mx-auto flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm"
       >
         Right click for check items menu
       </div>

@@ -1,20 +1,15 @@
 <template>
-  <ContextMenuSub
-    :default-open="defaultOpen"
-    :open="open"
-    @update:open="emits('update:open', $event)"
-  >
+  <ContextMenuSub v-bind="forwarded">
     <slot></slot>
   </ContextMenuSub>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    defaultOpen?: boolean;
-    open?: boolean;
-  }>();
+  import { ContextMenuSub, useForwardPropsEmits } from "radix-vue";
+  import type { ContextMenuSubEmits, ContextMenuSubProps } from "radix-vue";
 
-  const emits = defineEmits<{
-    "update:open": [any];
-  }>();
+  const props = defineProps<ContextMenuSubProps>();
+  const emits = defineEmits<ContextMenuSubEmits>();
+
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>

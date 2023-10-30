@@ -1,11 +1,21 @@
 <template>
   <TabsRoot default-value="preview">
-    <TabsList class="flex items-center gap-1">
+    <TabsList class="flex items-center border-b">
       <TabsTrigger as-child value="preview">
-        <UIButton class="data-[state=active]:bg-accent" variant="ghost"> Preview</UIButton>
+        <UIButton
+          class="-mb-px rounded-none border-b-2 border-transparent hover:bg-transparent data-[state=active]:border-primary"
+          variant="ghost"
+        >
+          Preview</UIButton
+        >
       </TabsTrigger>
       <TabsTrigger value="code" as-child>
-        <UIButton class="data-[state=active]:bg-accent" variant="ghost"> Code</UIButton>
+        <UIButton
+          class="-mb-px rounded-none border-b-2 border-transparent hover:bg-transparent data-[state=active]:border-primary"
+          variant="ghost"
+        >
+          Code</UIButton
+        >
       </TabsTrigger>
     </TabsList>
     <TabsContent value="preview">

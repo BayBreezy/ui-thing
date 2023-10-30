@@ -1,21 +1,17 @@
 <template>
-  <ContextMenuArrow v-bind="props" :class="styles({ class: props.class })" />
+  <ContextMenuArrow v-bind="forwarded" :class="styles({ class: props.class })" />
 </template>
 
 <script lang="ts" setup>
-  const props = withDefaults(
-    defineProps<{
-      asChild?: boolean;
-      width?: number;
-      height?: number;
+  import { ContextMenuArrow, useForwardProps } from "radix-vue";
+  import type { ContextMenuArrowProps } from "radix-vue";
+
+  const props = defineProps<
+    ContextMenuArrowProps & {
       class?: any;
-    }>(),
-    {
-      asChild: false,
-      width: 10,
-      height: 5,
     }
-  );
+  >();
+  const forwarded = useForwardProps(useOmit(props, ["class"]));
 
   const styles = tv({
     base: "border bg-muted",

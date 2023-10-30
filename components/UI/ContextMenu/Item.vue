@@ -1,9 +1,6 @@
 <template>
   <ContextMenuItem
-    @select="emits('select', $event)"
-    :as-child="asChild"
-    :disabled="disabled"
-    :text-value="textValue"
+    v-bind="{ ...forwarded, ...useEmitAsProps(emits) }"
     :class="styles({ inset, class: props.class })"
   >
     <slot>
@@ -16,19 +13,21 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    disabled?: boolean;
-    textValue?: string;
-    class?: any;
-    inset?: boolean;
-    shortcut?: string;
-    title?: string;
-  }>();
+  import { ContextMenuItem, useEmitAsProps } from "radix-vue";
+  import type { ContextMenuItemEmits, ContextMenuItemProps } from "radix-vue";
 
-  const emits = defineEmits<{
-    select: [e: Event];
-  }>();
+  const props = defineProps<
+    ContextMenuItemProps & {
+      class?: any;
+      inset?: boolean;
+      shortcut?: string;
+      title?: string;
+    }
+  >();
+
+  const forwarded = useOmit(props, ["class", "inset", "shortcut", "title"]);
+
+  const emits = defineEmits<ContextMenuItemEmits>();
 
   const styles = tv({
     base: "relative flex cursor-default select-none items-center gap-2.5 rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:cursor-not-allowed data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",

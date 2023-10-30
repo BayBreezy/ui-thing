@@ -2,7 +2,7 @@
   <UIContextMenu>
     <UIContextMenuTrigger
       as="div"
-      class="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm"
+      class="mx-auto flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm"
     >
       Right click to see basic context menu
     </UIContextMenuTrigger>
@@ -12,17 +12,19 @@
       <UIContextMenuItem title="Reload" inset shortcut="⌘R" />
       <UIContextMenuSub>
         <UIContextMenuSubTrigger title="More Tools" inset />
-        <UIContextMenuSubContent class="min-w-[280px] max-w-md">
-          <UIContextMenuItem title="Save Page As..." inset shortcut="⌘S" />
-          <UIContextMenuItem title="Clear Browsing Data" inset shortcut="⌘⇧⌫" />
+        <UIContextMenuSubContent class="w-52">
+          <UIContextMenuItem title="New window..." />
+          <UIContextMenuItem title="Create shortcut..." />
+          <UIContextMenuItem title="Save page as..." shortcut="⌘S" />
+          <UIContextMenuItem title="Clear data" shortcut="⌘⇧⌫" />
           <UIContextMenuSeparator />
-          <UIContextMenuItem title="Developer Tools" inset shortcut="⌥⌘I" />
+          <UIContextMenuItem title="Developer tools" shortcut="⌥⌘I" />
         </UIContextMenuSubContent>
       </UIContextMenuSub>
       <UIContextMenuSeparator />
       <UIContextMenuCheckboxItem
-        @select="(e) => e.preventDefault()"
         v-model:checked="showBookmark"
+        @select="(e) => e.preventDefault()"
         title="Show Bookmarks Bar"
         inset
         shortcut="⌘⇧B"

@@ -5,7 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    to?: string | HTMLElement;
-  }>();
+  import { ContextMenuPortal } from "radix-vue";
+  import type { ContextMenuPortalProps } from "radix-vue";
+
+  const props = defineProps<ContextMenuPortalProps>();
 </script>

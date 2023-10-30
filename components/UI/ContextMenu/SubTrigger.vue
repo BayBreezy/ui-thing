@@ -1,10 +1,5 @@
 <template>
-  <ContextMenuSubTrigger
-    :as-child="asChild"
-    :disabled="disabled"
-    :text-value="textValue"
-    :class="styles({ inset, class: props.class })"
-  >
+  <ContextMenuSubTrigger v-bind="props" :class="styles({ inset, class: props.class })">
     <slot>
       <span v-if="title">{{ title }}</span>
     </slot>
@@ -13,15 +8,17 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    class?: any;
-    inset?: boolean;
-    textValue?: string;
-    asChild?: boolean;
-    disabled?: boolean;
-    icon?: string;
-    title?: string;
-  }>();
+  import { ContextMenuSubTrigger } from "radix-vue";
+  import type { ContextMenuSubTriggerProps } from "radix-vue";
+
+  const props = defineProps<
+    ContextMenuSubTriggerProps & {
+      class?: any;
+      inset?: boolean;
+      icon?: string;
+      title?: string;
+    }
+  >();
 
   const styles = tv({
     base: "flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[highlighted]:bg-accent data-[state=open]:bg-accent data-[highlighted]:text-accent-foreground data-[state=open]:text-accent-foreground",
