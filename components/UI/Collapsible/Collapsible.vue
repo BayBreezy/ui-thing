@@ -1,26 +1,16 @@
 <template>
-  <CollapsibleRoot
-    :as-child="asChild"
-    :disabled="disabled"
-    :default-open="defaultOpen"
-    v-model:open="open"
-  >
+  <CollapsibleRoot v-bind="forwarded">
     <slot></slot>
   </CollapsibleRoot>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    defaultOpen?: boolean;
-    open?: boolean;
-    disabled?: boolean;
-    modelValue?: boolean;
-  }>();
+  import { CollapsibleRoot, useForwardPropsEmits } from "radix-vue";
+  import type { CollapsibleRootEmits, CollapsibleRootProps } from "radix-vue";
 
-  const emit = defineEmits<{
-    "update:modelValue": [boolean];
-  }>();
+  const props = defineProps<CollapsibleRootProps>();
 
-  const open = useVModel(props, "modelValue", emit);
+  const emit = defineEmits<CollapsibleRootEmits>();
+
+  const forwarded = useForwardPropsEmits(props, emit);
 </script>

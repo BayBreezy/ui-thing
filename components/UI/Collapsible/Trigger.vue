@@ -1,11 +1,13 @@
 <template>
-  <CollapsibleTrigger :as-child="asChild">
+  <CollapsibleTrigger v-bind="forwarded">
     <slot></slot>
   </CollapsibleTrigger>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-  }>();
+  import { CollapsibleTrigger, useForwardProps } from "radix-vue";
+  import type { CollapsibleTriggerProps } from "radix-vue";
+
+  const props = defineProps<CollapsibleTriggerProps>();
+  const forwarded = useForwardProps(props);
 </script>

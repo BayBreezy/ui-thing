@@ -1,11 +1,5 @@
 <template>
-  <div>
-    <Heading
-      title="Collapsible"
-      subtext="An interactive component which expands/collapses a panel."
-      radix-link="https://www.radix-vue.com/components/collapsible.html"
-    />
-
+  <div class="flex items-center justify-center">
     <UICollapsible class="w-[350px] space-y-2">
       <div class="flex items-center justify-between space-x-4 px-2">
         <h4 class="text-sm font-semibold">@peduarte starred 3 repositories</h4>
@@ -24,5 +18,3 @@
     </UICollapsible>
   </div>
 </template>
-
-<script lang="ts" setup></script>
