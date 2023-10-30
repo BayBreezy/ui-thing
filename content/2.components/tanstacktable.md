@@ -1,10 +1,34 @@
+---
+title: Tanstack Table
+description: A powerful datatable for your app built with TanStack Table.
+links:
+  - title: TanStack Table
+    href: https://tanstack.com/table/v8
+    icon: "lucide:table-2"
+  - title: API Reference
+    href: https://tanstack.com/table/v8/docs/api/core/column-def
+    icon: "icon-park-solid:api"
+---
+
+## Source code
+
+Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
+## Installation
+
+```bash
+npx ui-thing@latest add tanstacktable
+```
+
+## Usage
+
+::ShowCase{component="DocsTanStackTable"}
+
+#code
+
+```vue [DocsTanStackTable.vue]
 <template>
   <div>
-    <Heading
-      title="Data Table"
-      subtext="Powerful table and datagrids built using TanStack Table."
-    />
-
     <div class="flex flex-col justify-between gap-5 md:flex-row md:items-center">
       <UIInput type="search" v-model="search" placeholder="Search" class="w-full md:w-96" />
       <UIDropdownMenu>
@@ -31,7 +55,7 @@
       </UIDropdownMenu>
     </div>
 
-    <UIDataTable
+    <UITanStackTable
       @ready="table = $event"
       ref="tableRef"
       show-select
@@ -46,14 +70,13 @@
           <span class="mt-2">No data available.</span>
         </div>
       </template>
-    </UIDataTable>
+    </UITanStackTable>
   </div>
 </template>
 
 <script lang="ts" setup>
   import type { ColumnDef, Table } from "@tanstack/vue-table";
 
-  const selected = ref([]);
   const tableRef = ref();
   const table = ref<Table<Payment> | null>(null);
   const search = ref("");
@@ -139,3 +162,6 @@
     },
   ];
 </script>
+```
+
+::

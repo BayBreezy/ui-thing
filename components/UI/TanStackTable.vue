@@ -154,8 +154,7 @@
     getSortedRowModel,
     useVueTable,
   } from "@tanstack/vue-table";
-  import type { Table } from "@tanstack/vue-table";
-  import type { ColumnDef, SortingState } from "@tanstack/vue-table";
+  import type { ColumnDef, SortingState, Table } from "@tanstack/vue-table";
 
   const props = withDefaults(
     defineProps<{
@@ -221,7 +220,7 @@
   }
 
   const emit = defineEmits<{
-    ready: [table: Table<any>];
+    ready: [table: Table<T>];
   }>();
 
   const localSorting = ref(props.sorting);
