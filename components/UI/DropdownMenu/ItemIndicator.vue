@@ -15,5 +15,5 @@
       icon?: string;
     }
   >();
-  const forwarded = useForwardProps(useOmit(props, ["icon"]));
+  const forwarded = useForwardProps(props);
 </script>

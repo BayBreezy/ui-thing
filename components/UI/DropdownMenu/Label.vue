@@ -15,7 +15,7 @@
       label?: string;
     }
   >();
-  const forwarded = useForwardProps(useOmit(props, ["class", "inset", "label"]));
+  const forwarded = useForwardProps(props);
 
   const styles = tv({
     base: "inline-block w-full px-2 py-1.5 text-sm font-semibold text-foreground",

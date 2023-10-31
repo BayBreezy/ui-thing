@@ -1,36 +1,42 @@
 <template>
-  <UIDropdownMenu>
-    <UIDropdownMenuTrigger asChild>
-      <UIButton variant="outline">Open menu</UIButton>
-    </UIDropdownMenuTrigger>
-    <UIDropdownMenuContent class="w-56">
-      <template v-for="(item, i) in menuitems" :key="i">
-        <UIDropdownMenuLabel v-if="item.label" :label="item.label" />
-        <UIDropdownMenuSeparator v-else-if="item.divider" />
-        <UIDropdownMenuItem
-          v-else-if="item.title && !item.items"
-          :title="item.title"
-          :icon="item.icon"
-          :shortcut="item.shortcut"
-          :disabled="item.disabled"
-        />
-        <UIDropdownMenuSub v-else-if="item.title && item.items">
-          <UIDropdownMenuSubTrigger :title="item.title" :icon="item.icon" :textValue="item.title" />
-          <UIDropdownMenuSubContent>
-            <template v-for="(child, k) in item.items" :key="`child-${k}`">
-              <UIDropdownMenuSeparator v-if="child.divider" />
-              <UIDropdownMenuItem
-                v-else
-                :title="child.title"
-                :icon="child.icon"
-                :shortcut="child.shortcut"
-              />
-            </template>
-          </UIDropdownMenuSubContent>
-        </UIDropdownMenuSub>
-      </template>
-    </UIDropdownMenuContent>
-  </UIDropdownMenu>
+  <div class="flex items-center justify-center">
+    <UIDropdownMenu>
+      <UIDropdownMenuTrigger asChild>
+        <UIButton variant="outline">Open menu</UIButton>
+      </UIDropdownMenuTrigger>
+      <UIDropdownMenuContent class="w-56">
+        <template v-for="(item, i) in menuitems" :key="i">
+          <UIDropdownMenuLabel v-if="item.label" :label="item.label" />
+          <UIDropdownMenuSeparator v-else-if="item.divider" />
+          <UIDropdownMenuItem
+            v-else-if="item.title && !item.items"
+            :title="item.title"
+            :icon="item.icon"
+            :shortcut="item.shortcut"
+            :disabled="item.disabled"
+          />
+          <UIDropdownMenuSub v-else-if="item.title && item.items">
+            <UIDropdownMenuSubTrigger
+              :title="item.title"
+              :icon="item.icon"
+              :textValue="item.title"
+            />
+            <UIDropdownMenuSubContent>
+              <template v-for="(child, k) in item.items" :key="`child-${k}`">
+                <UIDropdownMenuSeparator v-if="child.divider" />
+                <UIDropdownMenuItem
+                  v-else
+                  :title="child.title"
+                  :icon="child.icon"
+                  :shortcut="child.shortcut"
+                />
+              </template>
+            </UIDropdownMenuSubContent>
+          </UIDropdownMenuSub>
+        </template>
+      </UIDropdownMenuContent>
+    </UIDropdownMenu>
+  </div>
 </template>
 
 <script lang="ts" setup>

@@ -18,7 +18,7 @@
       as: "span",
     }
   );
-  const forwarded = useForwardProps(useOmit(props, ["class"]));
+  const forwarded = useForwardProps(props);
 
   const styles = tv({
     base: "ml-auto text-xs tracking-widest opacity-60",

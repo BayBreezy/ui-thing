@@ -18,7 +18,7 @@
       height: 5,
     }
   );
-  const forwarded = useForwardProps(useOmit(props, ["class"]));
+  const forwarded = useForwardProps(props);
 
   const styles = tv({
     base: "rotate-45 border bg-muted",
