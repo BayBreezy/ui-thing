@@ -1,21 +1,20 @@
 <template>
-  <ScrollAreaScrollbar
-    :as-child="asChild"
-    :orientation="orientation"
-    :class="styles({ orientation, class: props.class })"
-  >
+  <ScrollAreaScrollbar v-bind="props" :class="styles({ orientation, class: props.class })">
     <slot></slot>
     <UIScrollAreaThumb />
   </ScrollAreaScrollbar>
 </template>
 
 <script lang="ts" setup>
+  import { ScrollAreaScrollbar } from "radix-vue";
+  import type { ScrollAreaScrollbarProps } from "radix-vue";
+
   const props = withDefaults(
-    defineProps<{
-      asChild?: boolean;
-      class?: any;
-      orientation?: "vertical" | "horizontal";
-    }>(),
+    defineProps<
+      ScrollAreaScrollbarProps & {
+        class?: any;
+      }
+    >(),
     {
       orientation: "vertical",
     }

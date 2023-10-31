@@ -1,11 +1,12 @@
 <template>
-  <ScrollAreaCorner :as-child="asChild">
+  <ScrollAreaCorner v-bind="props">
     <slot></slot>
   </ScrollAreaCorner>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-  }>();
+  import { ScrollAreaCorner } from "radix-vue";
+  import type { ScrollAreaCornerProps } from "radix-vue";
+
+  const props = defineProps<ScrollAreaCornerProps>();
 </script>

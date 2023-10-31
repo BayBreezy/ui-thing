@@ -1,16 +1,32 @@
 <template>
-  <ScrollAreaThumb :as-child="asChild" :class="styles({ class: props.class })">
+  <ScrollAreaThumb v-bind="props" :class="styles({ orientation, class: props.class })">
     <slot></slot>
   </ScrollAreaThumb>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    class?: any;
-  }>();
+  import { ScrollAreaThumb } from "radix-vue";
+  import type { ScrollAreaThumbProps } from "radix-vue";
+
+  const props = withDefaults(
+    defineProps<
+      ScrollAreaThumbProps & {
+        class?: any;
+        orientation?: "vertical" | "horizontal";
+      }
+    >(),
+    {
+      orientation: "vertical",
+    }
+  );
 
   const styles = tv({
     base: "relative flex-1 rounded-full bg-border",
+    variants: {
+      orientation: {
+        vertical: "flex-1",
+        horizontal: "",
+      },
+    },
   });
 </script>

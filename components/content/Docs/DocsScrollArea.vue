@@ -1,11 +1,5 @@
 <template>
-  <div>
-    <Heading
-      title="ScrollArea"
-      subtext="Augments native scroll functionality for custom, cross-browser styling."
-      radix-link="https://www.radix-vue.com/components/scroll-area.html"
-    />
-
+  <div class="flex w-full justify-center">
     <UIScrollArea class="h-72 w-48 rounded-md border">
       <div class="p-4">
         <h4 class="mb-4 text-sm font-medium leading-none">Tags</h4>

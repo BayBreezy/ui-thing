@@ -1,11 +1,5 @@
 <template>
-  <ScrollAreaRoot
-    :type="type"
-    :scrollHideDelay="scrollHideDelay"
-    :dir="dir"
-    :asChild="asChild"
-    :class="styles({ class: props.class })"
-  >
+  <ScrollAreaRoot v-bind="props" :class="styles({ class: props.class })">
     <UIScrollAreaViewport>
       <slot></slot>
     </UIScrollAreaViewport>
@@ -15,16 +9,20 @@
 </template>
 
 <script lang="ts" setup>
+  import { ScrollAreaRoot } from "radix-vue";
   import type { ScrollAreaRootProps } from "radix-vue";
 
-  const props = defineProps<{
-    type?: ScrollAreaRootProps["type"];
-    scrollHideDelay?: ScrollAreaRootProps["scrollHideDelay"];
-    dir?: ScrollAreaRootProps["dir"];
-    asChild?: ScrollAreaRootProps["asChild"];
-    orientation?: "vertical" | "horizontal";
-    class?: any;
-  }>();
+  const props = withDefaults(
+    defineProps<
+      ScrollAreaRootProps & {
+        orientation?: "vertical" | "horizontal";
+        class?: any;
+      }
+    >(),
+    {
+      orientation: "vertical",
+    }
+  );
 
   const styles = tv({
     base: "relative overflow-hidden",
