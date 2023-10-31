@@ -24,7 +24,7 @@
     }
   >();
   const emits = defineEmits<DropdownMenuCheckboxItemEmits>();
-  const forwarded = useForwardPropsEmits(useOmit(props, ["class", "shortcut"]), emits);
+  const forwarded = useForwardPropsEmits(props, emits);
 
   const styles = tv({
     base: "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",

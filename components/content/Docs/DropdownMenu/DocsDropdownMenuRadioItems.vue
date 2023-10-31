@@ -1,23 +1,25 @@
 <template>
-  <UIDropdownMenu>
-    <UIDropdownMenuTrigger as-child>
-      <UIButton variant="outline">Radio options</UIButton>
-    </UIDropdownMenuTrigger>
+  <div class="flex w-full items-center justify-center">
+    <UIDropdownMenu>
+      <UIDropdownMenuTrigger as-child>
+        <UIButton variant="outline">Radio options</UIButton>
+      </UIDropdownMenuTrigger>
 
-    <UIDropdownMenuContent class="w-48">
-      <UIDropdownMenuLabel label="Tooltip placement" />
-      <UIDropdownMenuSeparator />
-      <UIDropdownMenuRadioGroup v-model="placement">
-        <UIDropdownMenuRadioItem
-          v-for="item in placements"
-          :key="item"
-          :value="item"
-          :title="item"
-          :text-value="item"
-        />
-      </UIDropdownMenuRadioGroup>
-    </UIDropdownMenuContent>
-  </UIDropdownMenu>
+      <UIDropdownMenuContent class="w-48">
+        <UIDropdownMenuLabel label="Tooltip placement" />
+        <UIDropdownMenuSeparator />
+        <UIDropdownMenuRadioGroup v-model="placement">
+          <UIDropdownMenuRadioItem
+            v-for="item in placements"
+            :key="item"
+            :value="item"
+            :title="item"
+            :text-value="item"
+          />
+        </UIDropdownMenuRadioGroup>
+      </UIDropdownMenuContent>
+    </UIDropdownMenu>
+  </div>
 </template>
 
 <script lang="ts" setup>

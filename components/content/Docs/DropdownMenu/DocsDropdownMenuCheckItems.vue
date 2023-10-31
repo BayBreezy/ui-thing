@@ -1,30 +1,32 @@
 <template>
-  <UIDropdownMenu>
-    <UIDropdownMenuTrigger as-child>
-      <UIButton variant="outline">Checbox items</UIButton>
-    </UIDropdownMenuTrigger>
-    <UIDropdownMenuContent class="w-48">
-      <UIDropdownMenuLabel label="Choose heros" />
-      <UIDropdownMenuSeparator />
-      <template v-for="h in heroList" :key="h.id">
-        <UIDropdownMenuCheckboxItem
-          :checked="selectedHeros.includes(h.id)"
-          @select="(e) => e.preventDefault()"
-          class="mb-1"
-          @update:checked="
-            selectedHeros.includes(h.id)
-              ? selectedHeros.splice(selectedHeros.indexOf(h.id), 1)
-              : selectedHeros.push(h.id)
-          "
-        >
-          <div class="flex items-center gap-4">
-            <UIAvatar :src="h.image" class="h-6 w-6" :alt="h.name" />
-            <span>{{ h.name }}</span>
-          </div>
-        </UIDropdownMenuCheckboxItem>
-      </template>
-    </UIDropdownMenuContent>
-  </UIDropdownMenu>
+  <div class="flex w-full items-center justify-center">
+    <UIDropdownMenu>
+      <UIDropdownMenuTrigger as-child>
+        <UIButton variant="outline">Checbox items</UIButton>
+      </UIDropdownMenuTrigger>
+      <UIDropdownMenuContent class="w-48">
+        <UIDropdownMenuLabel label="Choose heros" />
+        <UIDropdownMenuSeparator />
+        <template v-for="h in heroList" :key="h.id">
+          <UIDropdownMenuCheckboxItem
+            :checked="selectedHeros.includes(h.id)"
+            @select="(e) => e.preventDefault()"
+            class="mb-1"
+            @update:checked="
+              selectedHeros.includes(h.id)
+                ? selectedHeros.splice(selectedHeros.indexOf(h.id), 1)
+                : selectedHeros.push(h.id)
+            "
+          >
+            <div class="flex items-center gap-4">
+              <UIAvatar :src="h.image" class="h-6 w-6" :alt="h.name" />
+              <span>{{ h.name }}</span>
+            </div>
+          </UIDropdownMenuCheckboxItem>
+        </template>
+      </UIDropdownMenuContent>
+    </UIDropdownMenu>
+  </div>
 </template>
 
 <script lang="ts" setup>
