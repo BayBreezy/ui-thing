@@ -1,34 +1,23 @@
 <template>
-  <ToggleRoot
-    v-model:pressed="localModel"
-    :as-child="asChild"
-    :default-value="defaultValue"
-    :disabled="disabled"
-    :class="styles({ variant, size, class: props.class })"
-  >
+  <ToggleRoot v-bind="forwarded" :class="styles({ variant, size, class: props.class })">
     <slot></slot>
   </ToggleRoot>
 </template>
 
 <script lang="ts" setup>
-  import { Toggle as ToggleRoot } from "radix-vue";
+  import { Toggle as ToggleRoot, useForwardPropsEmits } from "radix-vue";
+  import type { ToggleEmits, ToggleProps } from "radix-vue";
 
-  const props = defineProps<{
-    defaultValue?: boolean;
-    pressed?: boolean;
-    disabled?: boolean;
-    modelValue?: boolean;
-    asChild?: boolean;
-    class?: any;
-    variant?: Props["variant"];
-    size?: Props["size"];
-  }>();
+  const props = defineProps<
+    ToggleProps & {
+      class?: any;
+      variant?: Props["variant"];
+      size?: Props["size"];
+    }
+  >();
 
-  const emits = defineEmits<{
-    "update:modelValue": [value: boolean];
-  }>();
-
-  const localModel = useVModel(props, "modelValue", emits);
+  const emits = defineEmits<ToggleEmits>();
+  const forwarded = useForwardPropsEmits(props, emits);
 
   type Props = VariantProps<typeof styles>;
 
