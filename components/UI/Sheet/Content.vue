@@ -1,7 +1,10 @@
 <template>
   <UIDialogPortal :to="to">
     <UIDialogOverlay />
-    <DialogContent :class="styles({ side, class: props.class })" v-bind="$attrs">
+    <DialogContent
+      :class="styles({ side, class: props.class })"
+      v-bind="{ ...forwarded, ...$attrs }"
+    >
       <slot>
         <slot name="header">
           <UIDialogHeader>
@@ -24,7 +27,23 @@
 </template>
 
 <script lang="ts" setup>
+  import { DialogContent, useForwardPropsEmits } from "radix-vue";
+  import type { DialogContentEmits, DialogContentProps } from "radix-vue";
+
   defineOptions({ inheritAttrs: false });
+
+  const props = defineProps<
+    DialogContentProps & {
+      icon?: string;
+      title?: string;
+      description?: string;
+      class?: any;
+      side?: VariantProps<typeof styles>["side"];
+      to?: string | HTMLElement;
+    }
+  >();
+  const emits = defineEmits<DialogContentEmits>();
+  const forwarded = useForwardPropsEmits(useOmit(props, ["title", "class"]), emits);
 
   const styles = tv({
     base: "fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out",
@@ -42,13 +61,4 @@
       side: "left",
     },
   });
-
-  const props = defineProps<{
-    icon?: string;
-    title?: string;
-    description?: string;
-    class?: any;
-    side?: VariantProps<typeof styles>["side"];
-    to?: string | HTMLElement;
-  }>();
 </script>

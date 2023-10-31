@@ -1,15 +1,19 @@
 <template>
-  <DialogTitle :as-child="asChild" :class="styles({ class: props.class })">
+  <DialogTitle :class="styles({ class: props.class })" v-bind="props">
     <slot>{{ title }}</slot>
   </DialogTitle>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    class?: any;
-    asChild?: boolean;
-    title?: string;
-  }>();
+  import { DialogTitle } from "radix-vue";
+  import type { DialogTitleProps } from "radix-vue";
+
+  const props = defineProps<
+    DialogTitleProps & {
+      class?: any;
+      title?: string;
+    }
+  >();
 
   const styles = tv({
     base: "text-lg font-semibold text-foreground",

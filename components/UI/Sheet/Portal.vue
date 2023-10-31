@@ -1,11 +1,12 @@
 <template>
-  <DialogPortal :to="to">
+  <DialogPortal v-bind="props">
     <slot></slot>
   </DialogPortal>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    to?: string | HTMLElement;
-  }>();
+  import { DialogPortal } from "radix-vue";
+  import type { DialogPortalProps } from "radix-vue";
+
+  const props = defineProps<DialogPortalProps>();
 </script>

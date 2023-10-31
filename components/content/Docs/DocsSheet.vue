@@ -1,17 +1,13 @@
 <template>
-  <div>
-    <Heading
-      title="Sheet"
-      subtext="Extends the Dialog component to display content that complements the main content of the screen."
-      radix-link="https://www.radix-vue.com/components/dialog.html"
-    />
-
-    <UISheet v-model="dialog">
+  <div class="flex w-full justify-center">
+    <UISheet>
       <UISheetTrigger as-child>
         <UIButton variant="outline">Open Sheet</UIButton>
       </UISheetTrigger>
 
       <UISheetContent
+        class="sm:max-w-none md:w-[450px]"
+        side="right"
         title="Edit profile"
         description="Make changes to your profile here. Click save when you're done."
       >
@@ -29,17 +25,15 @@
         </template>
         <template #footer>
           <UISheetFooter>
-            <UIButton @click="dialog = false" variant="outline" type="button" class="mt-2 sm:mt-0"
-              >Cancel</UIButton
-            >
-            <UIButton @click="dialog = false" type="submit">Save</UIButton>
+            <UISheetClose as-child>
+              <UIButton variant="outline" type="button" class="mt-2 sm:mt-0">Cancel</UIButton>
+            </UISheetClose>
+            <UISheetClose as-child>
+              <UIButton type="submit">Save</UIButton>
+            </UISheetClose>
           </UISheetFooter>
         </template>
       </UISheetContent>
     </UISheet>
   </div>
 </template>
-
-<script lang="ts" setup>
-  const dialog = ref(false);
-</script>
