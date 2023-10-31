@@ -1,5 +1,5 @@
 <template>
-  <SelectTrigger :as-child="asChild" :class="styles({ class: props.class })">
+  <SelectTrigger :class="styles({ class: props.class })" v-bind="props">
     <slot>
       <UISelectValue :placeholder="placeholder" />
     </slot>
@@ -8,12 +8,16 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    class?: any;
-    icon?: string;
-    placeholder?: string;
-  }>();
+  import { SelectTrigger } from "radix-vue";
+  import type { SelectTriggerProps } from "radix-vue";
+
+  const props = defineProps<
+    SelectTriggerProps & {
+      class?: any;
+      icon?: string;
+      placeholder?: string;
+    }
+  >();
 
   const styles = tv({
     base: "line-clamp-1 flex h-10 w-full items-center justify-between truncate rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-muted-foreground",

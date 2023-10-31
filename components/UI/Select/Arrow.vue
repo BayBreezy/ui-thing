@@ -1,5 +1,5 @@
 <template>
-  <SelectArrow :as-child="asChild" :width="width" :height="height" />
+  <SelectArrow v-bind="useForwardProps(props)" />
 </template>
 
 <script lang="ts" setup>

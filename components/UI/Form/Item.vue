@@ -1,5 +1,5 @@
 <template>
-  <div :class="styles({ class: props.class })" v-bind="$attrs" v-auto-animate>
+  <div :class="styles({ class: props.class })" v-bind="$attrs">
     <slot name="label">
       <UIFormLabel v-if="label || hint" :label="label" :hint="hint" />
     </slot>
@@ -10,7 +10,9 @@
       <UIFormDescription v-if="description" :description="description" />
     </slot>
     <slot name="errorMessage">
-      <UIFormMessage v-if="!hideMessage" />
+      <p v-auto-animate>
+        <UIFormMessage v-if="!hideMessage" />
+      </p>
     </slot>
   </div>
 </template>

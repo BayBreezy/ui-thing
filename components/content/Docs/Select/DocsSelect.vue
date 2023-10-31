@@ -1,11 +1,5 @@
 <template>
-  <div>
-    <Heading
-      title="Select"
-      subtext="Displays a list of options for the user to pick from—triggered by a button."
-      radix-link="https://www.radix-vue.com/components/select.html"
-    />
-
+  <div class="flex justify-center">
     <UISelect v-model="option">
       <UISelectTrigger placeholder="Select an option" />
       <UISelectContent>

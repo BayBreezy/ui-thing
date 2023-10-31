@@ -1,12 +1,16 @@
 <template>
-  <SelectScrollDownButton :as-child="asChild">
+  <SelectScrollDownButton v-bind="props">
     <slot> <Icon :name="icon || 'lucide:chevron-down'" class="h-5 w-5" /></slot>
   </SelectScrollDownButton>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    icon?: string;
-  }>();
+  import { SelectScrollDownButton } from "radix-vue";
+  import type { SelectScrollDownButtonProps } from "radix-vue";
+
+  const props = defineProps<
+    SelectScrollDownButtonProps & {
+      icon?: string;
+    }
+  >();
 </script>

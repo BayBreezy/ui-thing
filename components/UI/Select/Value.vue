@@ -1,15 +1,12 @@
 <template>
-  <SelectValue :as-child="asChild" :placeholder="placeholder">
+  <SelectValue v-bind="props">
     <slot></slot>
   </SelectValue>
 </template>
 
 <script lang="ts" setup>
-  const props = withDefaults(
-    defineProps<{
-      placeholder?: string;
-      asChild?: boolean;
-    }>(),
-    {}
-  );
+  import { SelectValue } from "radix-vue";
+  import type { SelectValueProps } from "radix-vue";
+
+  const props = defineProps<SelectValueProps>();
 </script>

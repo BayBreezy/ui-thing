@@ -16,10 +16,9 @@
       class?: any;
     }
   >();
+  const forwarded = useForwardProps(props);
 
   const styles = tv({
     base: "h-4 w-4 shrink-0 text-muted-foreground opacity-70",
   });
-
-  const forwarded = useForwardProps(useOmit(props, ["icon", "class"]));
 </script>

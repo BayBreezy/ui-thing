@@ -1,15 +1,19 @@
 <template>
-  <SelectViewport :as-child="asChild" :class="styles({ position, class: props.class })">
+  <SelectViewport :class="styles({ position, class: props.class })" v-bind="props">
     <slot></slot>
   </SelectViewport>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    position?: "item-aligned" | "popper";
-    class?: any;
-  }>();
+  import { SelectViewport } from "radix-vue";
+  import type { SelectViewportProps } from "radix-vue";
+
+  const props = defineProps<
+    SelectViewportProps & {
+      position?: "item-aligned" | "popper";
+      class?: any;
+    }
+  >();
 
   const styles = tv({
     base: "p-1",

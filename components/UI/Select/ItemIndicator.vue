@@ -1,5 +1,5 @@
 <template>
-  <SelectItemIndicator :as-child="asChild">
+  <SelectItemIndicator v-bind="props">
     <slot>
       <Icon :class="styles({ class: props.class })" :name="icon || 'lucide:check'" />
     </slot>
@@ -7,11 +7,15 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    icon?: string;
-    asChild?: boolean;
-    class?: any;
-  }>();
+  import { SelectItemIndicator } from "radix-vue";
+  import type { SelectItemIndicatorProps } from "radix-vue";
+
+  const props = defineProps<
+    SelectItemIndicatorProps & {
+      icon?: string;
+      class?: any;
+    }
+  >();
 
   const styles = tv({
     base: "h-4 w-4",

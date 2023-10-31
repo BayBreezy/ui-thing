@@ -1,5 +1,5 @@
 <template>
-  <SelectScrollUpButton :as-child="asChild">
+  <SelectScrollUpButton v-bind="props">
     <slot>
       <Icon :name="icon || 'lucide:chevron-up'" class="h-5 w-5" />
     </slot>
@@ -7,8 +7,12 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    icon?: string;
-  }>();
+  import { SelectScrollUpButton } from "radix-vue";
+  import type { SelectScrollUpButtonProps } from "radix-vue";
+
+  const props = defineProps<
+    SelectScrollUpButtonProps & {
+      icon?: string;
+    }
+  >();
 </script>

@@ -1,11 +1,12 @@
 <template>
-  <SelectItemText :as-child="asChild">
+  <SelectItemText v-bind="props">
     <slot></slot>
   </SelectItemText>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-  }>();
+  import { SelectItemText } from "radix-vue";
+  import type { SelectItemTextProps } from "radix-vue";
+
+  const props = defineProps<SelectItemTextProps>();
 </script>

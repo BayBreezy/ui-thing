@@ -1,11 +1,12 @@
 <template>
-  <SelectPortal :to="to">
+  <SelectPortal v-bind="props">
     <slot></slot>
   </SelectPortal>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    to?: string | HTMLElement;
-  }>();
+  import { SelectPortal } from "radix-vue";
+  import type { SelectPortalProps } from "radix-vue";
+
+  const props = defineProps<SelectPortalProps>();
 </script>
