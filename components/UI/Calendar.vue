@@ -1,6 +1,10 @@
 <template>
   <ClientOnly>
-    <VCalendar :is-dark="$colorMode.value == 'dark'" v-bind="$attrs">
+    <VCalendar
+      :trimWeeks="props.trimWeeks || true"
+      :is-dark="$colorMode.value == 'dark'"
+      v-bind="$attrs"
+    >
       <template v-for="(_, slot) in $slots" v-slot:[slot]="scope">
         <slot :name="slot" v-bind="scope"></slot>
       </template>
@@ -15,7 +19,7 @@
 
   interface Props extends /* @vue-ignore */ Partial<InstanceType<typeof Calendar>["$props"]> {}
 
-  defineProps<Props>();
+  const props = defineProps<Props & { trimWeeks?: boolean }>();
 </script>
 
 <style>
