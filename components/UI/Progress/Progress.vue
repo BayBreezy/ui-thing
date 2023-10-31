@@ -1,31 +1,23 @@
 <template>
-  <ProgressRoot
-    v-model="localModel"
-    :max="max"
-    :get-value-label="getValueLabel"
-    :as-child="asChild"
-    :class="styles({ class: props.class })"
-  >
+  <ProgressRoot v-bind="forwarded" :class="styles({ class: props.class })">
     <slot>
-      <UIProgressIndicator :style="{ transform: `translateX(-${100 - (localModel || 0)}%)` }" />
+      <UIProgressIndicator :style="{ transform: `translateX(-${100 - (modelValue || 0)}%)` }" />
     </slot>
   </ProgressRoot>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    modelValue?: number;
-    max?: number;
-    getValueLabel?: (value: number, max: number) => string;
-    asChild?: boolean;
-    class?: any;
-  }>();
+  import { ProgressRoot, useForwardPropsEmits } from "radix-vue";
+  import type { ProgressRootEmits, ProgressRootProps } from "radix-vue";
 
-  const emits = defineEmits<{
-    "update:modelValue": [value: number];
-  }>();
+  const props = defineProps<
+    ProgressRootProps & {
+      class?: any;
+    }
+  >();
 
-  const localModel = useVModel(props, "modelValue", emits, { defaultValue: 0 });
+  const emits = defineEmits<ProgressRootEmits>();
+  const forwarded = useForwardPropsEmits(props, emits);
 
   const styles = tv({
     base: "relative h-3 w-full overflow-hidden rounded-full bg-secondary",
