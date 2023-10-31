@@ -1,9 +1,5 @@
 <template>
-  <RadioGroupIndicator
-    :as-child="asChild"
-    :forceMount="forceMount"
-    :class="styles({ class: props.class })"
-  >
+  <RadioGroupIndicator v-bind="props" :class="styles({ class: props.class })">
     <slot>
       <Icon :name="icon || 'ph:circle-fill'" class="h-2.5 w-2.5 fill-current text-current" />
     </slot>
@@ -11,14 +7,15 @@
 </template>
 
 <script lang="ts" setup>
+  import { RadioGroupIndicator } from "radix-vue";
   import type { RadioGroupIndicatorProps } from "radix-vue";
 
-  const props = defineProps<{
-    asChild?: RadioGroupIndicatorProps["asChild"];
-    forceMount?: boolean;
-    class?: any;
-    icon?: string;
-  }>();
+  const props = defineProps<
+    RadioGroupIndicatorProps & {
+      class?: any;
+      icon?: string;
+    }
+  >();
 
   const styles = tv({
     base: "flex items-center justify-center",

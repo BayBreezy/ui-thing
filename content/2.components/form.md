@@ -42,19 +42,30 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 ## Anatomy
 
 ```html
-<form>
-  <FormField v-slot="{ ... }">
-    <FormItem>
-      <FormLabel />
-      <FormControl>
-        <!-- any Form Input component or native input elements -->
-      </FormControl>
-      <FormDescription />
-      <FormMessage />
-    </FormItem>
-  </FormField>
-</form>
+<template>
+  <form>
+    <Field v-slot="{ ... }">
+      <FormItem>
+        <template #label>
+          <FormLabel />
+        </template>
+        <FormControl>
+          <!-- any Form Input component or native input elements -->
+        </FormControl>
+        <template #description>
+          <FormDescription />
+        </template>
+        <template #message>
+          <FormMessage />
+        </template>
+      </FormItem>
+    </Field>
+  </form>
+</template>
 ```
+
+The `<Field/>` component is auto-imported by the `@vee-validate/nuxt` module. You can change the name of the impported components in your `nuxt.config
+.ts` file. You can visit :prose-a[here]{href="https://vee-validate.logaretm.com/v4/integrations/nuxt/" target="\_blank"} for more information.
 
 ## Source code
 
@@ -76,29 +87,66 @@ npx ui-thing@latest add form
 
 ```vue [DocsFormUser.vue]
 <template>
-  <div>
-    <UIAccordion type="single" default-value="item-2" :items="accordionItems" />
-  </div>
+  <UICard
+    class="mx-auto max-w-sm"
+    title="Profile"
+    description="Update your profile information below"
+  >
+    <template #content>
+      <UICardContent as="form" @submit="onSubmit" class="flex flex-col gap-4">
+        <Field v-slot="{ componentField }" name="fullName">
+          <UIFormItem label="Full name" description="This will be displayed to the public">
+            <UIInput v-bind="componentField" />
+          </UIFormItem>
+        </Field>
+        <Field v-slot="{ componentField }" name="email">
+          <UIFormItem label="Email">
+            <UIInput type="email" v-bind="componentField" />
+          </UIFormItem>
+        </Field>
+        <Field v-slot="{ componentField }" name="phone">
+          <UIFormItem hint="Optional" label="Phone">
+            <UIInput type="tel" v-bind="componentField" />
+          </UIFormItem>
+        </Field>
+        <div>
+          <UIButton type="submit">Update profile</UIButton>
+        </div>
+      </UICardContent>
+    </template>
+  </UICard>
 </template>
 
 <script lang="ts" setup>
-  const accordionItems = [
-    {
-      value: "item-1",
-      title: "Is it accessible?",
-      content: "Yes. It adheres to the WAI-ARIA design pattern.",
-    },
-    {
-      value: "item-2",
-      title: "Is it unstyled?",
-      content: "Yes. It's unstyled by default, giving you freedom over the look and feel.",
-    },
-    {
-      value: "item-3",
-      title: "Can it be animated?",
-      content: "Yes! You can use the transition prop to configure the animation.",
-    },
-  ];
+  import { z } from "zod";
+
+  const { handleSubmit } = useForm({
+    validationSchema: toTypedSchema(
+      z.object({
+        fullName: z
+          .string({
+            required_error: "Full name is required",
+          })
+          .min(3, "Full name must be at least 3 characters"),
+        email: z
+          .string({
+            required_error: "Email is required",
+          })
+          .email("Email must be a valid email"),
+        phone: z
+          .string()
+          .transform((value) => (!!!value ? null : value))
+          .refine((value) => !value || value.length === 10, {
+            message: "Phone must be 10 digits",
+          })
+          .nullish(),
+      })
+    ),
+  });
+
+  const onSubmit = handleSubmit((values) => {
+    alert(JSON.stringify(values, null, 2));
+  });
 </script>
 ```
 

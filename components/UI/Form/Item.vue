@@ -1,16 +1,16 @@
 <template>
   <div :class="styles({ class: props.class })" v-bind="$attrs" v-auto-animate>
     <slot name="label">
-      <UIFormLabel :label="label" :hint="hint" />
+      <UIFormLabel v-if="label || hint" :label="label" :hint="hint" />
     </slot>
     <UIFormControl>
       <slot />
     </UIFormControl>
     <slot name="description">
-      <UIFormDescription :description="description" />
+      <UIFormDescription v-if="description" :description="description" />
     </slot>
     <slot name="errorMessage">
-      <UIFormMessage />
+      <UIFormMessage v-if="!hideMessage" />
     </slot>
   </div>
 </template>
@@ -29,7 +29,13 @@
   const id = useId();
   provide(FORM_ITEM_INJECTION_KEY, id);
 
-  const props = defineProps<{ class?: any; label?: string; description?: string; hint?: string }>();
+  const props = defineProps<{
+    class?: any;
+    label?: string;
+    description?: string;
+    hint?: string;
+    hideMessage?: boolean;
+  }>();
 
   const styles = tv({ base: "space-y-1.5" });
 </script>
