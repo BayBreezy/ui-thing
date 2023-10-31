@@ -1,11 +1,12 @@
 <template>
-  <DialogTrigger :as-child="asChild">
+  <DialogTrigger v-bind="props">
     <slot></slot>
   </DialogTrigger>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-  }>();
+  import { DialogTrigger, useForwardProps } from "radix-vue";
+  import type { DialogTriggerProps } from "radix-vue";
+
+  const props = defineProps<DialogTriggerProps>();
 </script>

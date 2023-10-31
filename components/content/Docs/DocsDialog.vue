@@ -1,12 +1,6 @@
 <template>
-  <div>
-    <Heading
-      title="Dialog"
-      subtext="A window overlaid on either the primary window or another dialog window, rendering the content underneath inert."
-      radix-link="https://www.radix-vue.com/components/dialog.html"
-    />
-
-    <UIDialog v-model="dialog">
+  <div class="flex w-full items-center justify-center">
+    <UIDialog v-model:open="dialog">
       <UIDialogTrigger as-child>
         <UIButton variant="outline">Edit Profile</UIButton>
       </UIDialogTrigger>
@@ -20,11 +14,11 @@
           <div class="grid gap-4 py-4">
             <div class="grid grid-cols-4 items-center gap-4">
               <UILabel for="name" class="text-right"> Name </UILabel>
-              <UIInput id="name" value="Pedro Duarte" class="col-span-3" />
+              <UIInput id="name" model-value="Pedro Duarte" class="col-span-3" />
             </div>
             <div class="grid grid-cols-4 items-center gap-4">
               <UILabel for="username" class="text-right"> Username </UILabel>
-              <UIInput id="username" value="@peduarte" class="col-span-3" />
+              <UIInput id="username" model-value="@peduarte" class="col-span-3" />
             </div>
           </div>
         </template>

@@ -1,19 +1,14 @@
 <template>
-  <DialogRoot :default-open="defaultOpen" :modal="modal || true" v-model:open="localOpen">
+  <DialogRoot v-bind="forwarded">
     <slot></slot>
   </DialogRoot>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    modelValue?: boolean;
-    defaultOpen?: boolean;
-    modal?: boolean;
-  }>();
+  import { DialogRoot, useForwardPropsEmits } from "radix-vue";
+  import type { DialogRootEmits, DialogRootProps } from "radix-vue";
 
-  const emit = defineEmits<{
-    "update:modelValue": [boolean];
-  }>();
-
-  const localOpen = useVModel(props, "modelValue", emit);
+  const props = defineProps<DialogRootProps>();
+  const emit = defineEmits<DialogRootEmits>();
+  const forwarded = useForwardPropsEmits(props, emit);
 </script>
