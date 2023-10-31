@@ -1,21 +1,5 @@
 <template>
-  <SliderRoot
-    :as-child="asChild"
-    :name="name"
-    :defaultValue="defaultValue"
-    :modelValue="modelValue"
-    :disabled="disabled"
-    :orientation="orientation"
-    :dir="dir"
-    :inverted="inverted"
-    :min="min"
-    :max="max"
-    :step="step"
-    :minStepsBetweenThumbs="minStepsBetweenThumbs"
-    :class="styles({ class: props.class })"
-    @update:modelValue="($event) => $emit('update:modelValue', $event)"
-    @valueCommit="($event) => $emit('valueCommit', $event)"
-  >
+  <SliderRoot v-bind="forwarded" :class="styles({ class: props.class })">
     <slot>
       <slot name="track">
         <UISliderTrack>
@@ -32,36 +16,26 @@
 </template>
 
 <script lang="ts" setup>
-  import type { DataOrientation, Direction } from "radix-vue/dist/shared/types";
+  import { SliderRoot, useForwardPropsEmits } from "radix-vue";
+  import type { SliderRootEmits, SliderRootProps } from "radix-vue";
 
   const props = withDefaults(
-    defineProps<{
-      name?: string;
-      defaultValue?: number[];
-      modelValue?: number[];
-      disabled?: boolean;
-      orientation?: DataOrientation;
-      dir?: Direction;
-      inverted?: boolean;
-      min?: number;
-      max?: number;
-      step?: number;
-      minStepsBetweenThumbs?: number;
-      asChild?: boolean;
-      class?: any;
-    }>(),
+    defineProps<
+      SliderRootProps & {
+        class?: any;
+      }
+    >(),
     {
       orientation: "horizontal",
       min: 0,
+      step: 1,
       max: 100,
       modelValue: () => [0],
     }
   );
 
-  const emits = defineEmits<{
-    "update:modelValue": [payload: number[] | undefined];
-    valueCommit: [payload: number[]];
-  }>();
+  const emits = defineEmits<SliderRootEmits>();
+  const forwarded = useForwardPropsEmits(props, emits);
 
   const styles = tv({
     base: "relative flex w-full touch-none select-none items-center",
