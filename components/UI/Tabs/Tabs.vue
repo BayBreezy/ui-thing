@@ -1,33 +1,17 @@
 <template>
-  <TabsRoot
-    :default-value="defaultValue"
-    :model-value="modelValue"
-    :orientation="orientation"
-    :dir="dir"
-    :activation-mode="activationMode"
-    :as-child="asChild"
-    @update:modelValue="($event) => $emit('update:modelValue', $event)"
-  >
+  <TabsRoot v-bind="forwarded">
     <slot></slot>
   </TabsRoot>
 </template>
 
 <script lang="ts" setup>
-  import type { DataOrientation, Direction } from "radix-vue/dist/shared/types";
+  import { TabsRoot, useForwardPropsEmits } from "radix-vue";
+  import type { TabsRootEmits, TabsRootProps } from "radix-vue";
 
-  const props = withDefaults(
-    defineProps<{
-      defaultValue?: string;
-      modelValue?: string;
-      orientation?: DataOrientation;
-      dir?: Direction;
-      activationMode?: "automatic" | "manual";
-      asChild?: boolean;
-    }>(),
-    {}
-  );
-
-  const emits = defineEmits<{
-    "update:modelValue": [payload: string];
-  }>();
+  const props = withDefaults(defineProps<TabsRootProps & {}>(), {
+    orientation: "horizontal",
+    activationMode: "automatic",
+  });
+  const emits = defineEmits<TabsRootEmits>();
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>

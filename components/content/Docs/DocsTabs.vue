@@ -1,11 +1,5 @@
 <template>
-  <div>
-    <Heading
-      title="Tabs"
-      subtext="A set of layered sections of content—known as tab panels—that are displayed one at a time."
-      radix-link="https://www.radix-vue.com/components/tabs.html"
-    />
-
+  <div class="flex w-full justify-center">
     <UITabs class="w-[400px]" default-value="account">
       <UITabsList class="grid w-full grid-cols-2">
         <UITabsTrigger value="account">Account</UITabsTrigger>
@@ -62,5 +56,3 @@
     </UITabs>
   </div>
 </template>
-
-<script lang="ts" setup></script>
