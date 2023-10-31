@@ -1,14 +1,25 @@
 <template>
-  <div :class="styles({ class: props.class })">
+  <Primitive :class="styles({ class: props.class })" v-bind="props">
     <slot></slot>
-  </div>
+  </Primitive>
 </template>
 
 <script lang="ts" setup>
+  import { Primitive } from "radix-vue";
+  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";
+
   const styles = tv({
     base: "animate-pulse rounded-md bg-muted",
   });
-  const props = defineProps<{
-    class?: any;
-  }>();
+
+  const props = withDefaults(
+    defineProps<
+      PrimitiveProps & {
+        class?: any;
+      }
+    >(),
+    {
+      as: "div",
+    }
+  );
 </script>
