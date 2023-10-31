@@ -1,11 +1,12 @@
 <template>
-  <TooltipPortal :to="to">
+  <TooltipPortal v-bind="props">
     <slot></slot>
   </TooltipPortal>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    to?: string | HTMLElement;
-  }>();
+  import { TooltipPortal } from "radix-vue";
+  import type { TooltipPortalProps } from "radix-vue";
+
+  const props = defineProps<TooltipPortalProps>();
 </script>

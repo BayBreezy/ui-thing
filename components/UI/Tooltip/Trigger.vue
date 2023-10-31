@@ -1,13 +1,12 @@
 <template>
-  <TooltipTrigger v-bind="$attrs" :as-child="asChild">
+  <TooltipTrigger v-bind="props">
     <slot></slot>
   </TooltipTrigger>
 </template>
 
 <script lang="ts" setup>
-  defineOptions({ inheritAttrs: false });
+  import { TooltipTrigger } from "radix-vue";
+  import type { TooltipTriggerProps } from "radix-vue";
 
-  const props = defineProps<{
-    asChild?: boolean;
-  }>();
+  const props = defineProps<TooltipTriggerProps>();
 </script>

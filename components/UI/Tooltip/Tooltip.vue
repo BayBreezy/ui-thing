@@ -1,15 +1,6 @@
 <template>
-  <UITooltipProvider
-    :delay-duration="delayDuration"
-    :skip-delay-duration="skipDelayDuration"
-    :disable-hoverable-content="disableHoverableContent"
-  >
-    <TooltipRoot
-      v-model:open="localModel"
-      :default-open="defaultOpen"
-      :delay-duration="delayDuration"
-      :disable-hoverable-content="disableHoverableContent"
-    >
+  <UITooltipProvider v-bind="props">
+    <TooltipRoot v-bind="forwarded">
       <slot>
         <slot name="trigger"></slot>
         <slot name="content"></slot>
@@ -19,22 +10,14 @@
 </template>
 
 <script lang="ts" setup>
-  const props = withDefaults(
-    defineProps<{
-      defaultOpen?: boolean;
-      modelValue?: boolean;
-      delayDuration?: number;
-      disableHoverableContent?: boolean;
-      skipDelayDuration?: number;
-    }>(),
-    {
-      delayDuration: 200,
-    }
-  );
+  import { TooltipRoot, useForwardPropsEmits } from "radix-vue";
+  import type { TooltipProviderProps, TooltipRootEmits, TooltipRootProps } from "radix-vue";
 
-  const emits = defineEmits<{
-    "update:modelValue": [value: boolean];
-  }>();
+  const props = withDefaults(defineProps<TooltipRootProps & TooltipProviderProps>(), {
+    delayDuration: 200,
+  });
 
-  const localModel = useVModel(props, "modelValue", emits, { defaultValue: false });
+  const emits = defineEmits<TooltipRootEmits>();
+
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>

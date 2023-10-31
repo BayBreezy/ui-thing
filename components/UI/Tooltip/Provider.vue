@@ -1,17 +1,12 @@
 <template>
-  <TooltipProvider
-    :delay-duration="delayDuration"
-    :skip-delay-duration="skipDelayDuration"
-    :disable-hoverable-content="disableHoverableContent"
-  >
+  <TooltipProvider v-bind="props">
     <slot></slot>
   </TooltipProvider>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    delayDuration?: number;
-    skipDelayDuration?: number;
-    disableHoverableContent?: boolean;
-  }>();
+  import { TooltipProvider } from "radix-vue";
+  import type { TooltipProviderProps } from "radix-vue";
+
+  const props = defineProps<TooltipProviderProps>();
 </script>

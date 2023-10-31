@@ -1,12 +1,6 @@
 <template>
-  <div>
-    <Heading
-      title="Tooltip"
-      subtext="A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it."
-      radix-link="https://www.radix-vue.com/components/tooltip.html"
-    />
-
-    <UITooltip>
+  <div class="flex w-full justify-center">
+    <UITooltip disable-closing-trigger>
       <template #trigger>
         <UITooltipTrigger as-child>
           <UIButton variant="outline">Hover me</UIButton>
@@ -20,5 +14,3 @@
     </UITooltip>
   </div>
 </template>
-
-<script lang="ts" setup></script>

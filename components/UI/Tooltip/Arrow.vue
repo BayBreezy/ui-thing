@@ -1,17 +1,13 @@
 <template>
-  <TooltipArrow :as-child="asChild" :width="width" :height="height" />
+  <TooltipArrow v-bind="props" />
 </template>
 
 <script lang="ts" setup>
-  const props = withDefaults(
-    defineProps<{
-      asChild?: boolean;
-      width?: number;
-      height?: number;
-    }>(),
-    {
-      width: 10,
-      height: 5,
-    }
-  );
+  import { TooltipArrow } from "radix-vue";
+  import type { TooltipArrowProps } from "radix-vue";
+
+  const props = withDefaults(defineProps<TooltipArrowProps>(), {
+    width: 10,
+    height: 5,
+  });
 </script>
