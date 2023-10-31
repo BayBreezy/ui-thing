@@ -1,7 +1,29 @@
-<template>
-  <div>
-    <Heading title="Table" subtext="A responsive table component." />
+---
+title: Table
+description: A responsive table component.
+---
 
+## Source code
+
+Click :SourceCodeLink{component="Table"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
+## Installation
+
+```bash
+npx ui-thing@latest add table
+```
+
+## Usage
+
+### Basic example
+
+::ShowCase{component="DocsTable"}
+
+#code
+
+```vue [DocsTable.vue]
+<template>
+  <div class="overflow-x-auto rounded-md border pb-4">
     <UITable>
       <UITableCaption>A list of your recent invoices.</UITableCaption>
       <UITableHeader>
@@ -12,7 +34,7 @@
           <UITableHead class="text-right">Amount</UITableHead>
         </UITableRow>
       </UITableHeader>
-      <UITableBody>
+      <UITableBody class="last:border-b">
         <template v-for="(invoice, i) in invoices" :key="invoice.id">
           <UITableRow>
             <UITableCell class="font-medium">{{ invoice.invoice }} </UITableCell>
@@ -72,3 +94,6 @@
     },
   ];
 </script>
+```
+
+::
