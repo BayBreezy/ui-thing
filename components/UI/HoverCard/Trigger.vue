@@ -1,12 +1,13 @@
 <template>
-  <HoverCardTrigger v-bind="$attrs" :as-child="asChild">
+  <HoverCardTrigger v-bind="props">
     <slot></slot>
   </HoverCardTrigger>
 </template>
 
 <script lang="ts" setup>
+  import { HoverCardTrigger } from "radix-vue";
+  import type { HoverCardTriggerProps } from "radix-vue";
+
   defineOptions({ inheritAttrs: false });
-  const props = defineProps<{
-    asChild?: boolean;
-  }>();
+  const props = defineProps<HoverCardTriggerProps>();
 </script>

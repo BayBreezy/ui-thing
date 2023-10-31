@@ -1,11 +1,12 @@
 <template>
-  <HoverCardPortal :to="to">
+  <HoverCardPortal v-bind="props">
     <slot></slot>
   </HoverCardPortal>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    to?: string | HTMLElement;
-  }>();
+  import { HoverCardPortal } from "radix-vue";
+  import type { HoverCardPortalProps } from "radix-vue";
+
+  const props = defineProps<HoverCardPortalProps>();
 </script>

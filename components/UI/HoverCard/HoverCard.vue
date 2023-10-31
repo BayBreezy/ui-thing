@@ -1,30 +1,18 @@
 <template>
-  <HoverCardRoot
-    :default-open="defaultOpen"
-    :open="open"
-    :open-delay="openDelay"
-    :close-delay="closeDelay"
-    @update:open="emits('update:open', $event)"
-  >
+  <HoverCardRoot v-bind="forwarded">
     <slot></slot>
   </HoverCardRoot>
 </template>
 
 <script lang="ts" setup>
-  const props = withDefaults(
-    defineProps<{
-      defaultOpen?: false;
-      open?: boolean;
-      openDelay?: number;
-      closeDelay?: number;
-    }>(),
-    {
-      openDelay: 200,
-      closeDelay: 200,
-    }
-  );
+  import { HoverCardRoot, useForwardPropsEmits } from "radix-vue";
+  import type { HoverCardRootEmits, HoverCardRootProps } from "radix-vue";
 
-  const emits = defineEmits<{
-    "update:open": [value: boolean];
-  }>();
+  const props = withDefaults(defineProps<HoverCardRootProps>(), {
+    openDelay: 200,
+    closeDelay: 200,
+  });
+
+  const emits = defineEmits<HoverCardRootEmits>();
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>

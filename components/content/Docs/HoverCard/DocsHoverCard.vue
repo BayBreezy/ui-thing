@@ -1,11 +1,5 @@
 <template>
-  <div>
-    <Heading
-      title="Hover Card"
-      subtext="For sighted users to preview content available behind a link."
-      radix-link="https://www.radix-vue.com/components/hover-card.html"
-    />
-
+  <div class="flex items-center justify-center">
     <UIHoverCard>
       <UIHoverCardTrigger as-child>
         <div
@@ -49,5 +43,3 @@
     </UIHoverCard>
   </div>
 </template>
-
-<script lang="ts" setup></script>
