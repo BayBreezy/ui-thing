@@ -67,7 +67,7 @@
     { title: "Settings", icon: "ph:gear", shortcut: "⌘S" },
     { title: "Keyboard shortcuts", icon: "ph:keyboard", shortcut: "⌘K" },
     { divider: true },
-    { title: "Github", icon: "logos:github-icon" },
+    { title: "Github", icon: "ph:github-logo" },
     { title: "Support", icon: "ph:lifebuoy" },
     { title: "API", icon: "ph:cloud", disabled: true },
     { divider: true },

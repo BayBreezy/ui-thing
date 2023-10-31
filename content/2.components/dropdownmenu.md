@@ -22,53 +22,88 @@ npx ui-thing@latest add dropdown-menu
 
 ## Usage
 
-### Full Example
+### Menu Items w/ Submenu
 
 ::ShowCase{component="DocsDropdownMenuBasic"}
 
 #code
 
-```vue [DocsDropdownMenuBasic.vue]
+```vue [DocsDropdownMenuBasic.vue],
 <template>
-  <div class="flex w-full items-center justify-center">
-    <UIDialog v-model:open="dialog">
-      <UIDialogTrigger as-child>
-        <UIButton variant="outline">Edit Profile</UIButton>
-      </UIDialogTrigger>
-
-      <UIDialogContent
-        class="sm:max-w-[425px]"
-        title="Edit profile"
-        description="Make changes to your profile here. Click save when you're done."
-      >
-        <template #content>
-          <div class="grid gap-4 py-4">
-            <div class="grid grid-cols-4 items-center gap-4">
-              <UILabel for="name" class="text-right"> Name </UILabel>
-              <UIInput id="name" model-value="Pedro Duarte" class="col-span-3" />
-            </div>
-            <div class="grid grid-cols-4 items-center gap-4">
-              <UILabel for="username" class="text-right"> Username </UILabel>
-              <UIInput id="username" model-value="@peduarte" class="col-span-3" />
-            </div>
-          </div>
+  <div class="flex items-center justify-center">
+    <UIDropdownMenu>
+      <UIDropdownMenuTrigger asChild>
+        <UIButton variant="outline">Open menu</UIButton>
+      </UIDropdownMenuTrigger>
+      <UIDropdownMenuContent class="w-56">
+        <template v-for="(item, i) in menuitems" :key="i">
+          <UIDropdownMenuLabel v-if="item.label" :label="item.label" />
+          <UIDropdownMenuSeparator v-else-if="item.divider" />
+          <UIDropdownMenuItem
+            v-else-if="item.title && !item.items"
+            :title="item.title"
+            :icon="item.icon"
+            :shortcut="item.shortcut"
+            :disabled="item.disabled"
+          />
+          <UIDropdownMenuSub v-else-if="item.title && item.items">
+            <UIDropdownMenuSubTrigger
+              :title="item.title"
+              :icon="item.icon"
+              :textValue="item.title"
+            />
+            <UIDropdownMenuSubContent>
+              <template v-for="(child, k) in item.items" :key="`child-${k}`">
+                <UIDropdownMenuSeparator v-if="child.divider" />
+                <UIDropdownMenuItem
+                  v-else
+                  :title="child.title"
+                  :icon="child.icon"
+                  :shortcut="child.shortcut"
+                />
+              </template>
+            </UIDropdownMenuSubContent>
+          </UIDropdownMenuSub>
         </template>
-        <template #footer>
-          <UIDialogFooter>
-            <UIButton @click="dialog = false" variant="outline" type="button" class="mt-2 sm:mt-0"
-              >Cancel</UIButton
-            >
-            <UIButton @click="dialog = false" type="submit">Save</UIButton>
-          </UIDialogFooter>
-        </template>
-      </UIDialogContent>
-    </UIDialog>
+      </UIDropdownMenuContent>
+    </UIDropdownMenu>
   </div>
 </template>
 
 <script lang="ts" setup>
-  const dialog = ref(false);
-</script>
-```
+  const showBookmark = ref(true);
+  const showFullUrls = ref(false);
+  const person = ref("1");
 
+  const menuitems = [
+    { label: "My Account" },
+    { divider: true },
+    { title: "Profile", icon: "ph:user", shortcut: "⇧⌘P" },
+    { title: "Billing", icon: "ph:credit-card", shortcut: "⌘B" },
+    { title: "Settings", icon: "ph:gear", shortcut: "⌘S" },
+    { title: "Keyboard shortcuts", icon: "ph:keyboard", shortcut: "⌘K" },
+    { divider: true },
+    { title: "Team", icon: "ph:users", shortcut: "⇧⌘T" },
+    {
+      title: "Invite Users",
+      icon: "ph:user-plus",
+      items: [
+        { title: "Email", icon: "ph:envelope", shortcut: "⇧⌘E" },
+        { title: "Facebook", icon: "logos:facebook", shortcut: "⇧⌘F" },
+        { title: "Twitter", icon: "logos:twitter", shortcut: "⇧⌘T" },
+        { divider: true },
+        { title: "More", icon: "ph:plus-circle" },
+      ],
+    },
+    { title: "Settings", icon: "ph:gear", shortcut: "⌘S" },
+    { title: "Keyboard shortcuts", icon: "ph:keyboard", shortcut: "⌘K" },
+    { divider: true },
+    { title: "Github", icon: "ph:github-logo" },
+    { title: "Support", icon: "ph:lifebuoy" },
+    { title: "API", icon: "ph:cloud", disabled: true },
+    { divider: true },
+    { title: "Sign out", icon: "ph:sign-out" },
+  ];
+</script>
 ::
+```

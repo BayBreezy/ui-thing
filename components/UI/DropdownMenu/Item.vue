@@ -29,7 +29,10 @@
   >();
 
   const emits = defineEmits<DropdownMenuItemEmits>();
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(
+    useOmit(props, ["class", "inset", "shortcut", "icon"]),
+    emits
+  );
 
   const styles = tv({
     base: "relative flex cursor-default select-none items-center gap-3 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",

@@ -11,7 +11,7 @@
       class?: any;
     }
   >();
-  const forwarded = useForwardProps(props);
+  const forwarded = useForwardProps(useOmit(props, ["class"]));
 
   const styles = tv({
     base: "-mx-1 my-1 h-px bg-border",
