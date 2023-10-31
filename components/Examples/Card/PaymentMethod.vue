@@ -68,14 +68,14 @@
 
 <script lang="ts" setup>
   import { addYears } from "date-fns";
-  import { object, string } from "yup";
+  import { z } from "zod";
 
-  const PaymentSchema = object({
-    name: string().required("Name is required"),
-    cardNumber: string().required("Card number is required"),
-    expires: string().required("Required"),
-    year: string().required("Required"),
-    cvc: string().required("Required").min(3, "CVC is too short"),
+  const PaymentSchema = z.object({
+    name: z.string({ required_error: "Name is required" }),
+    cardNumber: z.string({ required_error: "Card number is required" }),
+    expires: z.string({ required_error: "Required" }),
+    year: z.string({ required_error: "Required" }),
+    cvc: z.string({ required_error: "Required" }).min(3, "CVC is too short"),
   });
 
   const submitPayment = (values: any) => {

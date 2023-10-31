@@ -44,11 +44,11 @@
 </template>
 
 <script lang="ts" setup>
-  import { object, string } from "yup";
+  import { z } from "zod";
 
-  const CardSchema = object({
-    email: string().email("Invalid email").required("Email is required"),
-    password: string().required("Password is required").min(8, "Password is too short"),
+  const CardSchema = z.object({
+    email: z.string({ required_error: "Email is required" }).email("Invalid email"),
+    password: z.string({ required_error: "Password is required" }).min(8, "Password is too short"),
   });
 
   const submitCard = (values: any) => {

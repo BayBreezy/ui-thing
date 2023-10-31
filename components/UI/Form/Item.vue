@@ -1,7 +1,7 @@
 <template>
-  <div :class="styles({ class: props.class })" v-bind="$attrs">
+  <div :class="styles({ class: props.class })" v-bind="$attrs" v-auto-animate>
     <slot name="label">
-      <UIFormLabel :label="label" />
+      <UIFormLabel :label="label" :hint="hint" />
     </slot>
     <UIFormControl>
       <slot />
@@ -29,7 +29,7 @@
   const id = useId();
   provide(FORM_ITEM_INJECTION_KEY, id);
 
-  const props = defineProps<{ class?: any; label?: string; description?: string }>();
+  const props = defineProps<{ class?: any; label?: string; description?: string; hint?: string }>();
 
   const styles = tv({ base: "space-y-1.5" });
 </script>

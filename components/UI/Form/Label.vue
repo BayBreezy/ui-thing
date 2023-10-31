@@ -4,7 +4,10 @@
     :for="formItemId"
     v-bind="$attrs"
   >
-    <slot>{{ label }}</slot>
+    <slot
+      >{{ label }}
+      <span class="ml-auto font-normal text-muted-foreground/80">{{ hint }}</span></slot
+    >
   </Label>
 </template>
 
@@ -13,12 +16,12 @@
   import type { LabelProps } from "radix-vue";
 
   defineOptions({ inheritAttrs: false });
-  const props = defineProps<LabelProps & { class?: any; label?: string }>();
+  const props = defineProps<LabelProps & { class?: any; label?: string; hint?: string }>();
 
   const { error, formItemId } = useFormField();
 
   const styles = tv({
-    base: "block text-left text-sm font-medium tracking-tight text-foreground",
+    base: "flex w-full items-center justify-between text-left text-sm font-medium tracking-tight text-foreground hover:cursor-pointer",
     variants: {
       error: {
         true: "text-destructive",

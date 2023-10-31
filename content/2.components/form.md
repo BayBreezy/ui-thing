@@ -66,32 +66,15 @@ Click :SourceCodeLink{component="Form"} to see the source code for this componen
 npx ui-thing@latest add form
 ```
 
-You also need to add the animations to your `tailwind.config.js` file:
-
-```js
-keyframes: {
-  "accordion-down": {
-    from: { height: "0px" },
-    to: { height: "var(--radix-accordion-content-height)" },
-  },
-  "accordion-up": {
-    from: { height: "var(--radix-accordion-content-height)" },
-    to: { height: "0px" },
-  },
-},
-animation: {
-  "accordion-down": "accordion-down 0.2s ease-out",
-  "accordion-up": "accordion-up 0.2s ease-out",
-},
-```
-
 ## Usage
 
-::ShowCase{component="DocsAccordion"}
+### User profile form
+
+::ShowCase{component="DocsFormUser"}
 
 #code
 
-```vue [DocsAccordion.vue]
+```vue [DocsFormUser.vue]
 <template>
   <div>
     <UIAccordion type="single" default-value="item-2" :items="accordionItems" />

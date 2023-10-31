@@ -54,13 +54,13 @@
 
 <script lang="ts" setup>
   import { addYears } from "date-fns";
-  import { object, string } from "yup";
+  import { z } from "zod";
 
-  const ReportSchema = object({
-    area: string().required("Area is required"),
-    securityLevel: string().required("Security level is required"),
-    subject: string().required("Subject is required"),
-    description: string().required("Subject is required"),
+  const ReportSchema = z.object({
+    area: z.string({ required_error: "Area is required" }),
+    securityLevel: z.string({ required_error: "Security level is required" }),
+    subject: z.string({ required_error: "Subject is required" }),
+    description: z.string({ required_error: "Description is required" }),
   });
 
   const submitReport = (values: any) => {

@@ -1,6 +1,10 @@
 <template>
   <p :id="formDescriptionId" :class="styles({ class: props.class })" v-bind="$attrs">
-    <slot><p v-html="description"></p></slot>
+    <slot>
+      <ClientOnly>
+        <p v-html="description"></p>
+      </ClientOnly>
+    </slot>
   </p>
 </template>
 <script lang="ts" setup>

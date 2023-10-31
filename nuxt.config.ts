@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "nuxt-lodash",
     "@nuxt/content",
     "@nuxtjs/color-mode",
+    "@formkit/auto-animate/nuxt",
   ],
   typescript: {
     shim: false,
