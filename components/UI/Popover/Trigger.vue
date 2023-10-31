@@ -1,13 +1,12 @@
 <template>
-  <PopoverTrigger v-bind="$attrs" :as-child="asChild">
+  <PopoverTrigger v-bind="props">
     <slot></slot>
   </PopoverTrigger>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-  }>();
+  import { PopoverTrigger } from "radix-vue";
+  import type { PopoverTriggerProps } from "radix-vue";
 
-  defineOptions({ inheritAttrs: false });
+  const props = defineProps<PopoverTriggerProps>();
 </script>
