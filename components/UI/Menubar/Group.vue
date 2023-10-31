@@ -1,11 +1,12 @@
 <template>
-  <MenubarGroup :as-child="asChild">
+  <MenubarGroup v-bind="props">
     <slot></slot>
   </MenubarGroup>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-  }>();
+  import { MenubarGroup } from "radix-vue";
+  import type { MenubarGroupProps } from "radix-vue";
+
+  const props = defineProps<MenubarGroupProps>();
 </script>

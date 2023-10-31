@@ -1,15 +1,19 @@
 <template>
-  <MenubarLabel :as-child="asChild" :class="styles({ inset, class: props.class })">
+  <MenubarLabel :class="styles({ inset, class: props.class })" v-bind="props">
     <slot></slot>
   </MenubarLabel>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    class?: any;
-    inset?: boolean;
-  }>();
+  import { MenubarLabel } from "radix-vue";
+  import type { MenubarLabelProps } from "radix-vue";
+
+  const props = defineProps<
+    MenubarLabelProps & {
+      class?: any;
+      inset?: boolean;
+    }
+  >();
 
   const styles = tv({
     base: "px-2 py-1.5 text-sm font-semibold",

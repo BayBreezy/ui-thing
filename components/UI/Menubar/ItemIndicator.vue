@@ -1,5 +1,5 @@
 <template>
-  <MenubarItemIndicator :as-child="asChild" :forceMount="forceMount">
+  <MenubarItemIndicator v-bind="props">
     <slot>
       <Icon v-if="icon" :name="icon" class="h-4 w-4" />
     </slot>
@@ -7,9 +7,12 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    forceMount?: boolean;
-    icon?: string;
-  }>();
+  import { MenubarItemIndicator } from "radix-vue";
+  import type { MenubarItemIndicatorProps } from "radix-vue";
+
+  const props = defineProps<
+    MenubarItemIndicatorProps & {
+      icon?: string;
+    }
+  >();
 </script>

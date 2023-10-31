@@ -1,18 +1,14 @@
 <template>
-  <MenubarRadioGroup :as-child="asChild" v-model="localModel">
+  <MenubarRadioGroup v-bind="forwarded">
     <slot></slot>
   </MenubarRadioGroup>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    modelValue?: string;
-  }>();
+  import { MenubarRadioGroup, useForwardPropsEmits } from "radix-vue";
+  import type { MenubarRadioGroupEmits, MenubarRadioGroupProps } from "radix-vue";
 
-  const emits = defineEmits<{
-    "update:modelValue": [value: string];
-  }>();
-
-  const localModel = useVModel(props, "modelValue", emits);
+  const props = defineProps<MenubarRadioGroupProps>();
+  const emits = defineEmits<MenubarRadioGroupEmits>();
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>

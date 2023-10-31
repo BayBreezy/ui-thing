@@ -1,15 +1,40 @@
-<template>
-  <div>
-    <Heading
-      title="Menubar"
-      subtext="A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands."
-      radix-link="https://www.radix-vue.com/components/menubar.html"
-    />
+---
+title: Menubar
+description: A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.
+links:
+  - title: Radix-Vue
+    href: https://www.radix-vue.com/components/menubar.html
+    icon: "simple-icons:radixui"
+  - title: API Reference
+    href: https://www.radix-vue.com/components/menubar.html#api-reference
+    icon: "icon-park-solid:api"
+---
 
+## Source code
+
+Click :SourceCodeLink{component="Menubar"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
+## Installation
+
+```bash
+npx ui-thing@latest add menubar
+```
+
+## Usage
+
+### Full example
+
+::ShowCase{component="DocsMenubar"}
+
+#code
+
+```vue [DocsMenubar.vue]
+<template>
+  <div class="flex w-full items-center justify-center">
     <UIMenubar>
       <template v-for="(item, i) in menu" :key="i">
         <UIMenubarMenu :value="item.value">
-          <UIMenubarTrigger>
+          <UIMenubarTrigger class="cursor-pointer">
             {{ item.trigger }}
           </UIMenubarTrigger>
 
@@ -139,3 +164,6 @@
     },
   ];
 </script>
+```
+
+::

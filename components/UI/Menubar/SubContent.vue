@@ -20,7 +20,7 @@
     >(),
     {
       loop: true,
-      sideOffset: 50,
+      sideOffset: 5,
       avoidCollisions: true,
       collisionPadding: 8,
       sticky: "partial",

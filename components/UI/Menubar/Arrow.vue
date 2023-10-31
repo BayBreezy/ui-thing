@@ -1,17 +1,13 @@
 <template>
-  <MenubarArrow :as-child="asChild" :width="width" :height="height" />
+  <MenubarArrow v-bind="props" />
 </template>
 
 <script lang="ts" setup>
-  const props = withDefaults(
-    defineProps<{
-      asChild?: boolean;
-      width?: number;
-      height?: number;
-    }>(),
-    {
-      width: 10,
-      height: 5,
-    }
-  );
+  import { MenubarArrow } from "radix-vue";
+  import type { MenubarArrowProps } from "radix-vue";
+
+  const props = withDefaults(defineProps<MenubarArrowProps>(), {
+    width: 10,
+    height: 5,
+  });
 </script>

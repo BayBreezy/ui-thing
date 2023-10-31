@@ -1,10 +1,5 @@
 <template>
-  <MenubarSubTrigger
-    :as-child="asChild"
-    :disabled="disabled"
-    :text-value="textValue"
-    :class="styles({ inset, class: props.class })"
-  >
+  <MenubarSubTrigger v-bind="props" :class="styles({ inset, class: props.class })">
     <slot>
       <Icon v-if="icon" :name="icon" class="h-4 w-4" />
       <span v-if="title">{{ title }}</span>
@@ -17,16 +12,18 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    class?: any;
-    inset?: boolean;
-    textValue?: string;
-    asChild?: boolean;
-    disabled?: boolean;
-    icon?: string;
-    title?: string;
-    trailingIcon?: string;
-  }>();
+  import { MenubarSubTrigger } from "radix-vue";
+  import type { MenubarSubTriggerProps } from "radix-vue";
+
+  const props = defineProps<
+    MenubarSubTriggerProps & {
+      class?: any;
+      inset?: boolean;
+      icon?: string;
+      title?: string;
+      trailingIcon?: string;
+    }
+  >();
 
   const styles = tv({
     base: "flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground",

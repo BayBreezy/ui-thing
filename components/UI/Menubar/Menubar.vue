@@ -20,8 +20,7 @@
   );
 
   const emits = defineEmits<MenubarRootEmits>();
-
-  const forwarded = useForwardPropsEmits(useOmit(props, ["class"]), emits);
+  const forwarded = useForwardPropsEmits(props, emits);
 
   const styles = tv({
     base: "inline-flex h-10 items-center space-x-1 rounded-md border bg-background p-1",

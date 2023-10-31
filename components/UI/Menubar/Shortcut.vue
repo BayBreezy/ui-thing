@@ -1,13 +1,21 @@
 <template>
-  <span :class="styles({ class: props.class })">
+  <Primitive :class="styles({ class: props.class })" v-bind="props">
     <slot />
-  </span>
+  </Primitive>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    class?: any;
-  }>();
+  import { Primitive } from "radix-vue";
+  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";
+
+  const props = withDefaults(
+    defineProps<
+      PrimitiveProps & {
+        class?: any;
+      }
+    >(),
+    { as: "span" }
+  );
 
   const styles = tv({
     base: "ml-auto text-xs tracking-widest opacity-60",

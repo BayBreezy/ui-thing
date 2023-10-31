@@ -6,6 +6,9 @@
       </UIMenubarItemIndicator>
     </span>
     <slot>{{ title }}</slot>
+    <slot name="shortcut">
+      <UIMenubarShortcut v-if="shortcut">{{ shortcut }}</UIMenubarShortcut>
+    </slot>
   </MenubarCheckboxItem>
 </template>
 
@@ -18,11 +21,12 @@
       icon?: string;
       class?: any;
       title?: string;
+      shortcut?: string;
     }
   >();
   const emits = defineEmits<MenubarCheckboxItemEmits>();
 
-  const forwarded = useForwardPropsEmits(useOmit(props, ["class", "title", "icon"]), emits);
+  const forwarded = useForwardPropsEmits(props, emits);
 
   const styles = tv({
     base: "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",

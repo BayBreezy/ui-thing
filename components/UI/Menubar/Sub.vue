@@ -1,16 +1,14 @@
 <template>
-  <MenubarSub :default-open="defaultOpen" :open="open" @update:open="emits('update:open', $event)">
+  <MenubarSub v-bind="forwarded">
     <slot></slot>
   </MenubarSub>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    defaultOpen?: boolean;
-    open?: boolean;
-  }>();
+  import { MenubarSub, useForwardPropsEmits } from "radix-vue";
+  import type { MenubarSubEmits, MenubarSubProps } from "radix-vue";
 
-  const emits = defineEmits<{
-    "update:open": [value: boolean];
-  }>();
+  const props = defineProps<MenubarSubProps>();
+  const emits = defineEmits<MenubarSubEmits>();
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>
