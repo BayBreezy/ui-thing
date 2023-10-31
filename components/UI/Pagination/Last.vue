@@ -1,5 +1,5 @@
 <template>
-  <PaginationLast :as-child="asChild">
+  <PaginationLast v-bind="props">
     <slot>
       <UIButton v-if="icon" variant="ghost" size="icon-sm">
         <Icon :name="icon" />
@@ -9,10 +9,12 @@
 </template>
 
 <script lang="ts" setup>
+  import { PaginationLast } from "radix-vue";
   import type { PaginationLastProps } from "radix-vue";
 
-  const props = defineProps<{
-    asChild?: PaginationLastProps["asChild"];
-    icon?: string;
-  }>();
+  const props = defineProps<
+    PaginationLastProps & {
+      icon?: string;
+    }
+  >();
 </script>

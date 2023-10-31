@@ -1,12 +1,5 @@
 <template>
-  <PaginationRoot
-    v-model:page="localModel"
-    :defaultPage="defaultPage"
-    :total="total"
-    :itemsPerPage="itemsPerPage"
-    :siblingCount="siblingCount"
-    :showEdges="showEdges"
-  >
+  <PaginationRoot v-bind="forwarded">
     <slot>
       <UIPaginationList v-slot="{ items }">
         <slot name="first"><UIPaginationFirst asChild :icon="firstIcon" /> </slot>
@@ -29,22 +22,19 @@
 </template>
 
 <script lang="ts" setup>
-  import { type PaginationRootProps } from "radix-vue";
+  import { PaginationRoot, useForwardPropsEmits } from "radix-vue";
+  import type { PaginationRootEmits, PaginationRootProps } from "radix-vue";
 
   const props = withDefaults(
-    defineProps<{
-      modelValue?: PaginationRootProps["page"];
-      defaultPage?: PaginationRootProps["defaultPage"];
-      total?: PaginationRootProps["total"];
-      itemsPerPage?: PaginationRootProps["itemsPerPage"];
-      siblingCount?: PaginationRootProps["siblingCount"];
-      showEdges?: PaginationRootProps["showEdges"];
-      ellipsisIcon?: string;
-      firstIcon?: string;
-      lastIcon?: string;
-      nextIcon?: string;
-      prevIcon?: string;
-    }>(),
+    defineProps<
+      PaginationRootProps & {
+        ellipsisIcon?: string;
+        firstIcon?: string;
+        lastIcon?: string;
+        nextIcon?: string;
+        prevIcon?: string;
+      }
+    >(),
     {
       defaultPage: 1,
       total: 10,
@@ -59,11 +49,6 @@
     }
   );
 
-  const emits = defineEmits<{
-    "update:modelValue": [value: PaginationRootProps["page"]];
-  }>();
-
-  const localModel = useVModel(props, "modelValue", emits, {
-    passive: true,
-  });
+  const emits = defineEmits<PaginationRootEmits>();
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>

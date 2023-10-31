@@ -1,18 +1,20 @@
 <template>
-  <PaginationEllipsis :as-child="asChild">
+  <PaginationEllipsis v-bind="props">
     <slot>
-      <UIButton v-if="icon" variant="ghost" size="icon-sm">
+      <div v-if="icon" class="inline-flex h-9 w-9 items-center justify-center hover:bg-transparent">
         <Icon :name="icon" />
-      </UIButton>
+      </div>
     </slot>
   </PaginationEllipsis>
 </template>
 
 <script lang="ts" setup>
+  import { PaginationEllipsis } from "radix-vue";
   import type { PaginationEllipsisProps } from "radix-vue";
 
-  const props = defineProps<{
-    asChild?: PaginationEllipsisProps["asChild"];
-    icon?: string;
-  }>();
+  const props = defineProps<
+    PaginationEllipsisProps & {
+      icon?: string;
+    }
+  >();
 </script>

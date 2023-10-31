@@ -1,14 +1,18 @@
 <template>
-  <PaginationList :as-child="asChild" v-slot="{ items }" :class="styles({ class: props.class })">
+  <PaginationList v-slot="{ items }" :class="styles({ class: props.class })" v-bind="props">
     <slot :items="items"></slot>
   </PaginationList>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    class?: any;
-  }>();
+  import { PaginationList } from "radix-vue";
+  import type { PaginationListProps } from "radix-vue";
+
+  const props = defineProps<
+    PaginationListProps & {
+      class?: any;
+    }
+  >();
 
   const styles = tv({
     base: "flex items-center gap-1",

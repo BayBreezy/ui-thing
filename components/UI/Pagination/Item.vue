@@ -1,5 +1,5 @@
 <template>
-  <PaginationListItem :as-child="asChild" :value="value">
+  <PaginationListItem v-bind="props">
     <slot>
       <UIButton
         variant="outline"
@@ -13,10 +13,8 @@
 </template>
 
 <script lang="ts" setup>
+  import { PaginationListItem } from "radix-vue";
   import type { PaginationListItemProps } from "radix-vue";
 
-  const props = defineProps<{
-    value: PaginationListItemProps["value"];
-    asChild?: PaginationListItemProps["asChild"];
-  }>();
+  const props = defineProps<PaginationListItemProps>();
 </script>

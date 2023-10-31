@@ -1,5 +1,5 @@
 <template>
-  <PaginationPrev :as-child="asChild">
+  <PaginationPrev v-bind="props">
     <slot>
       <UIButton v-if="icon" variant="ghost" size="icon-sm">
         <Icon :name="icon" />
@@ -9,10 +9,12 @@
 </template>
 
 <script lang="ts" setup>
+  import { PaginationPrev } from "radix-vue";
   import type { PaginationPrevProps } from "radix-vue";
 
-  const props = defineProps<{
-    asChild?: PaginationPrevProps["asChild"];
-    icon?: string;
-  }>();
+  const props = defineProps<
+    PaginationPrevProps & {
+      icon?: string;
+    }
+  >();
 </script>
