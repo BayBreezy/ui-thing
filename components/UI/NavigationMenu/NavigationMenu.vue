@@ -1,35 +1,23 @@
 <template>
-  <NavigationMenuRoot
-    :class="styles({ class: props.class })"
-    :model-value="modelValue"
-    :default-value="props.defaultValue"
-    :delay-duration="props.delayDuration"
-    :skip-delay-duration="props.skipDelayDuration"
-    :dir="props.dir"
-    :orientation="props.orientation"
-    @update:modelValue="emits('update:modelValue', $event)"
-  >
+  <NavigationMenuRoot :class="styles({ class: props.class })" v-bind="forwarded">
     <slot></slot>
     <UINavigationMenuViewport />
   </NavigationMenuRoot>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    class?: any;
-    modelValue?: string;
-    defaultValue?: string;
-    delayDuration?: number;
-    skipDelayDuration?: number;
-    dir?: "ltr" | "rtl";
-    orientation?: "horizontal" | "vertical";
-  }>();
+  import { NavigationMenuRoot, useForwardPropsEmits } from "radix-vue";
+  import type { NavigationMenuRootEmits, NavigationMenuRootProps } from "radix-vue";
+
+  const props = defineProps<
+    NavigationMenuRootProps & {
+      class?: any;
+    }
+  >();
+  const emits = defineEmits<NavigationMenuRootEmits>();
+  const forwarded = useForwardPropsEmits(props, emits);
 
   const styles = tv({
     base: "relative flex max-w-max flex-1 items-center justify-center",
   });
-
-  const emits = defineEmits<{
-    "update:modelValue": [value: string];
-  }>();
 </script>

@@ -1,12 +1,12 @@
 <template>
-  <NavigationMenuItem :as-child="asChild" :value="value">
+  <NavigationMenuItem v-bind="props">
     <slot></slot>
   </NavigationMenuItem>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    value?: string;
-  }>();
+  import { NavigationMenuItem } from "radix-vue";
+  import type { NavigationMenuItemProps } from "radix-vue";
+
+  const props = defineProps<NavigationMenuItemProps>();
 </script>

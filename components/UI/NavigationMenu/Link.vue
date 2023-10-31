@@ -1,16 +1,14 @@
 <template>
-  <NavigationMenuLink :as-child="asChild" :active="active" @select="emits('select', $event)">
+  <NavigationMenuLink v-bind="forwarded">
     <slot></slot>
   </NavigationMenuLink>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    asChild?: boolean;
-    active?: boolean;
-  }>();
+  import { NavigationMenuLink, useForwardPropsEmits } from "radix-vue";
+  import type { NavigationMenuLinkEmits, NavigationMenuLinkProps } from "radix-vue";
 
-  const emits = defineEmits<{
-    select: [e: Event];
-  }>();
+  const props = defineProps<NavigationMenuLinkProps>();
+  const emits = defineEmits<NavigationMenuLinkEmits>();
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>

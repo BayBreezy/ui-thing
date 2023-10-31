@@ -1,11 +1,5 @@
 <template>
-  <div>
-    <Heading
-      title="Navigation Menu"
-      subtext="A collection of links for navigating websites."
-      radix-link="https://www.radix-vue.com/components/navigation-menu.html"
-    />
-
+  <div class="flex w-full items-center justify-center">
     <UINavigationMenu>
       <UINavigationMenuList>
         <UINavigationMenuItem>
@@ -34,14 +28,14 @@
           <UINavigationMenuTrigger title="Components" />
           <UINavigationMenuContent>
             <ul class="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              <DemoNavigationMenuListItem
+              <DocsNavigationMenuListItem
                 v-for="item in components"
                 :key="item.title"
                 :title="item.title"
                 :href="item.href"
               >
                 {{ item.description }}
-              </DemoNavigationMenuListItem>
+              </DocsNavigationMenuListItem>
             </ul>
           </UINavigationMenuContent>
         </UINavigationMenuItem>
@@ -64,6 +58,11 @@
             </div>
           </UINavigationMenuContent>
         </UINavigationMenuItem>
+        <UINavigationMenuItem>
+          <UINavigationMenuLink asChild>
+            <UIButton variant="ghost">Documentation</UIButton>
+          </UINavigationMenuLink>
+        </UINavigationMenuItem>
       </UINavigationMenuList>
     </UINavigationMenu>
   </div>
@@ -71,11 +70,6 @@
 
 <script lang="ts" setup>
   const beachAmenities = [
-    {
-      title: "Beach",
-      description:
-        "A beach is a landform alongside a body of water which consists of loose particles.",
-    },
     {
       title: "Sun",
       description: "The Sun is the star at the center of the Solar System.",
@@ -94,35 +88,35 @@
   const components: { title: string; href: string; description: string }[] = [
     {
       title: "Alert Dialog",
-      href: "/docs/primitives/alert-dialog",
+      href: "/components/alertdialog",
       description:
         "A modal dialog that interrupts the user with important content and expects a response.",
     },
     {
       title: "Hover Card",
-      href: "/docs/primitives/hover-card",
+      href: "/components/hovercard",
       description: "For sighted users to preview content available behind a link.",
     },
     {
       title: "Progress",
-      href: "/docs/primitives/progress",
+      href: "/components/progress",
       description:
         "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
     },
     {
       title: "Scroll-area",
-      href: "/docs/primitives/scroll-area",
+      href: "/components/scrollarea",
       description: "Visually or semantically separates content.",
     },
     {
       title: "Tabs",
-      href: "/docs/primitives/tabs",
+      href: "/components/tabs",
       description:
         "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
     },
     {
       title: "Tooltip",
-      href: "/docs/primitives/tooltip",
+      href: "/components/tooltip",
       description:
         "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
     },

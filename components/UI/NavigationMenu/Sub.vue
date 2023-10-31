@@ -1,22 +1,14 @@
 <template>
-  <NavigationMenuSub
-    :default-value="defaultValue"
-    :model-value="modelValue"
-    :orientation="orientation"
-    @update:modelValue="emits('update:modelValue', $event)"
-  >
+  <NavigationMenuSub v-bind="forwarded">
     <slot></slot>
   </NavigationMenuSub>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    modelValue?: string;
-    defaultValue?: string;
-    orientation?: "horizontal" | "vertical";
-  }>();
+  import { NavigationMenuSub, useForwardPropsEmits } from "radix-vue";
+  import type { NavigationMenuSubEmits, NavigationMenuSubProps } from "radix-vue";
 
-  const emits = defineEmits<{
-    "update:modelValue": [value: string];
-  }>();
+  const props = defineProps<NavigationMenuSubProps>();
+  const emits = defineEmits<NavigationMenuSubEmits>();
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>
