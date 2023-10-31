@@ -4,13 +4,13 @@
     <!-- Main content -->
     <main class="container grid grid-cols-1 lg:grid-cols-[290px_minmax(0,1fr)] lg:gap-10">
       <!-- Left sidebar with page links -->
-      <aside
-        class="sticky top-14 z-20 hidden h-[calc(100dvh-57px)] overflow-y-auto border-r bg-card text-card-foreground lg:block"
+      <div
+        class="sticky top-14 z-20 hidden h-[calc(100dvh-57px)] border-r bg-card text-card-foreground lg:block"
       >
-        <div class="px-2 py-5">
+        <UIScrollArea class="h-[calc(100dvh-57px)] px-2 py-5">
           <DocsNavlink :links="navigation" />
-        </div>
-      </aside>
+        </UIScrollArea>
+      </div>
       <!-- Page content -->
       <div class="xl:grid xl:grid-cols-[1fr,250px] xl:gap-5">
         <!-- Page content -->
