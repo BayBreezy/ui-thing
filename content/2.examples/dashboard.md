@@ -1,6 +1,7 @@
 ---
 title: Dashboard
+layout: examples
 ---
 
-::ExDashboard
+::PageExDashboard
 ::
