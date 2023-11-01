@@ -34,7 +34,26 @@
         </nav>
       </div>
 
-      <div class="flex items-center gap-5">
+      <div class="flex items-center">
+        <UIButton
+          size="sm"
+          class="mr-2 min-w-[200px] font-normal text-muted-foreground"
+          @click="isOpen = true"
+          variant="outline"
+        >
+          <Icon name="lucide:search" />
+          Search...
+          <UIKbd class="ml-auto">{{ metaSymbol }}+K</UIKbd>
+        </UIButton>
+        <UIButton
+          to="https://github.com/BayBreezy/ui-thing"
+          target="_blank"
+          class="h-9 w-9"
+          variant="ghost"
+          size="icon"
+          ><Icon name="radix-icons:github-logo" class="h-[18px] w-[18px]"
+        /></UIButton>
+        <CommandSearch v-model="isOpen" />
         <UIDropdownMenu>
           <UIDropdownMenuTrigger as-child>
             <UIButton class="h-9 w-9" variant="ghost" size="icon"
@@ -71,5 +90,15 @@
 
   const currentIcon = computed(() => {
     return modes.find((m) => m.value === colorMode.preference)?.icon;
+  });
+
+  const isOpen = ref(false);
+
+  const { metaSymbol } = useShortcuts();
+
+  defineShortcuts({
+    meta_k: () => {
+      isOpen.value = !isOpen.value;
+    },
   });
 </script>

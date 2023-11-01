@@ -20,7 +20,8 @@
         <UIDialogClose :icon="icon" />
       </slot>
       <UIDialogClose
-        class="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+        v-if="!hideClose"
+        class="absolute right-4 top-2 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
       >
         <Icon name="lucide:x" class="h-4 w-4" />
         <span class="sr-only">Close</span>
@@ -40,11 +41,12 @@
       title?: string;
       description?: string;
       class?: any;
+      hideClose?: boolean;
     }
   >();
   const emits = defineEmits<DialogContentEmits>();
   const forwarded = useForwardPropsEmits(
-    useOmit(props, ["icon", "title", "description", "class"]),
+    useOmit(props, ["icon", "title", "description", "class", "hideClose"]),
     emits
   );
 
