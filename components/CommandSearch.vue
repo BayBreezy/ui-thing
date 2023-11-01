@@ -68,5 +68,6 @@
   const setTheme = (e: Event, val: string) => {
     e.preventDefault();
     colorMode.preference = val;
+    localModel.value = false;
   };
 </script>
