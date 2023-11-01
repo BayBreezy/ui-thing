@@ -1,18 +1,19 @@
 <template>
-  <ToastAction :asChild="props.asChild" :altText="altText" :class="styles({ class: props.class })">
+  <ToastAction :class="styles({ class: props.class })" v-bind="props">
     <slot></slot>
   </ToastAction>
 </template>
 
 <script lang="ts" setup>
+  import { ToastAction } from "radix-vue";
   import type { ToastActionProps } from "radix-vue";
 
   const props = withDefaults(
-    defineProps<{
-      asChild?: ToastActionProps["asChild"];
-      altText?: string;
-      class?: any;
-    }>(),
+    defineProps<
+      ToastActionProps & {
+        class?: any;
+      }
+    >(),
     {
       altText: "Action button",
     }

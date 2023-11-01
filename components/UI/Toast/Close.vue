@@ -1,5 +1,5 @@
 <template>
-  <ToastClose :asChild="props.asChild" :class="styles({ class: props.class })">
+  <ToastClose :class="styles({ class: props.class })" v-bind="props">
     <slot>
       <Icon :name="icon || 'lucide:x'" class="h-4 w-4" />
     </slot>
@@ -7,14 +7,16 @@
 </template>
 
 <script lang="ts" setup>
+  import { ToastClose } from "radix-vue";
   import type { ToastCloseProps } from "radix-vue";
 
   const props = withDefaults(
-    defineProps<{
-      asChild?: ToastCloseProps["asChild"];
-      class?: any;
-      icon?: string;
-    }>(),
+    defineProps<
+      ToastCloseProps & {
+        class?: any;
+        icon?: string;
+      }
+    >(),
     {}
   );
 

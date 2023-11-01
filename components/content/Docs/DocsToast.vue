@@ -1,11 +1,5 @@
 <template>
   <div>
-    <Heading
-      title="Toast"
-      subtext="A succinct message that is displayed temporarily."
-      radix-link="https://www.radix-vue.com/components/toast.html"
-    />
-
     <div class="flex flex-wrap items-center gap-2">
       <UIButton variant="outline" class="mr-5" @click="showMessage()">Show Toast</UIButton>
       <UIButton variant="outline" class="mr-5" @click="showMessage('success')"

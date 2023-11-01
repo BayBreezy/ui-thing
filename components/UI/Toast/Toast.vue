@@ -1,51 +1,25 @@
 <template>
-  <ToastRoot
-    :asChild="asChild"
-    :type="type"
-    :duration="duration"
-    :defaultOpen="defaultOpen"
-    v-model:open="localModel"
-    :forceMount="forceMount"
-    :class="styles({ variant, class: props.class })"
-    @escapeKeyDown="emits('escapeKeyDown', $event)"
-    @pause="emits('pause')"
-    @resume="emits('resume')"
-    @swipeStart="emits('swipeStart', $event)"
-    @swipeMove="emits('swipeMove', $event)"
-    @swipeEnd="emits('swipeEnd', $event)"
-  >
+  <ToastRoot v-bind="forwarded" :class="styles({ variant, class: props.class })">
     <slot></slot>
   </ToastRoot>
 </template>
 
 <script lang="ts" setup>
+  import { ToastRoot, useForwardPropsEmits } from "radix-vue";
   import type { ToastRootEmits, ToastRootProps } from "radix-vue";
 
   const props = withDefaults(
-    defineProps<{
-      asChild?: ToastRootProps["asChild"];
-      type?: ToastRootProps["type"];
-      duration?: ToastRootProps["duration"];
-      defaultOpen?: ToastRootProps["defaultOpen"];
-      modelValue?: ToastRootProps["open"];
-      forceMount?: ToastRootProps["forceMount"];
-      class?: any;
-      variant?: VariantProps<typeof styles>["variant"];
-    }>(),
+    defineProps<
+      ToastRootProps & {
+        class?: any;
+        variant?: VariantProps<typeof styles>["variant"];
+      }
+    >(),
     {}
   );
 
-  const emits = defineEmits<{
-    "update:modelValue": ToastRootEmits["update:open"];
-    escapeKeyDown: ToastRootEmits["escapeKeyDown"];
-    pause: ToastRootEmits["pause"];
-    resume: ToastRootEmits["resume"];
-    swipeStart: ToastRootEmits["swipeStart"];
-    swipeMove: ToastRootEmits["swipeMove"];
-    swipeEnd: ToastRootEmits["swipeEnd"];
-  }>();
-
-  const localModel = useVModel(props, "modelValue", emits);
+  const emits = defineEmits<ToastRootEmits>();
+  const forwarded = useForwardPropsEmits(props, emits);
 
   const styles = tv({
     base: "group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border p-6 pr-8 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full",
