@@ -25,5 +25,9 @@
     el.select();
     document.execCommand("copy");
     document.body.removeChild(el);
+    useSonner.success("", {
+      description: "Copied to clipboard",
+      duration: 3000,
+    });
   };
 </script>

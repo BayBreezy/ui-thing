@@ -2,8 +2,13 @@
   <header class="sticky top-0 z-30 border-b bg-background/80 backdrop-blur">
     <div class="container flex h-14 items-center justify-between">
       <div class="flex items-center gap-10">
-        <NuxtLink to="/" class="text-lg font-bold">UI Thing</NuxtLink>
-        <nav class="flex items-center space-x-6 text-sm font-medium">
+        <div class="flex items-center gap-3">
+          <UIButton @click="mobileNav = true" size="icon-sm" variant="outline" class="h-8 lg:hidden"
+            ><Icon name="lucide:menu" class="h-4 w-4" />
+          </UIButton>
+          <NuxtLink to="/" class="text-lg font-bold">UI Thing</NuxtLink>
+        </div>
+        <nav class="hidden items-center space-x-6 text-sm font-medium lg:flex">
           <NuxtLink
             to="/components/accordion"
             class="text-foreground/60 transition-colors hover:text-foreground"
@@ -37,13 +42,21 @@
       <div class="flex items-center">
         <UIButton
           size="sm"
-          class="mr-2 min-w-[200px] font-normal text-muted-foreground"
+          class="mr-2 hidden min-w-[200px] font-normal text-muted-foreground md:flex"
           @click="isOpen = true"
           variant="outline"
         >
           <Icon name="lucide:search" />
           Search...
           <UIKbd class="ml-auto">{{ metaSymbol }}+K</UIKbd>
+        </UIButton>
+        <UIButton
+          size="icon"
+          class="text-muted-foreground md:hidden"
+          @click="isOpen = true"
+          variant="ghost"
+        >
+          <Icon name="lucide:search" class="h-[18px] w-[18px]" />
         </UIButton>
         <UIButton
           to="https://github.com/BayBreezy/ui-thing"
@@ -73,6 +86,7 @@
         </UIDropdownMenu>
       </div>
     </div>
+    <MobileNav v-model="mobileNav" />
   </header>
 </template>
 
@@ -82,6 +96,8 @@
     { icon: "lucide:moon", title: "Dark", value: "dark" },
     { icon: "lucide:laptop", title: "System", value: "system" },
   ];
+
+  const mobileNav = ref(false);
 
   const colorMode = useColorMode();
   const setTheme = (val: string) => {
