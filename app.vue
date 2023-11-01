@@ -3,5 +3,6 @@
     <NuxtLoadingIndicator />
     <NuxtPage />
     <UIToastToaster />
+    <UIVueSonner />
   </div>
 </template>
