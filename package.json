@@ -31,6 +31,7 @@
     "@unovis/ts": "^1.2.3",
     "@vee-validate/nuxt": "^4.11.8",
     "@vee-validate/zod": "^4.11.8",
+    "@vueuse/math": "^10.5.0",
     "@vueuse/nuxt": "^10.5.0",
     "date-fns": "2.30.0",
     "nuxt-icon": "^0.6.1",

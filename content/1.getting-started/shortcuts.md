@@ -1,0 +1,114 @@
+---
+title: Shortcuts
+description: Learn how to display and define keyboard shortcuts in your app.
+---
+
+## Credits
+
+I just want to say that this composable is coming directly from [Nuxt UI](https://ui.nuxt.com/). I am not the creator of this composable, I just wanted to share it with you because I think it's a really cool feature to have in your project. You can find the original docs here: [Nuxt UI - Shortcuts](https://ui.nuxt.com/getting-started/shortcuts).
+
+> Thanks Nuxt UI ♥
+
+## `defineShortcuts`
+
+The `defineShortcuts` composable allows you to define keyboard shortcuts in your app really easily. Try it out by pressing `Ctrl + v`
+
+:ShortcutsExOne
+
+```vue
+<template>
+  <div></div>
+</template>
+<script lang="ts" setup>
+  defineShortcuts({
+    ctrl_v: {
+      usingInput: false,
+      handler: () => {
+        useSonner("Nice!", { description: "You just used a shortcut!" });
+      },
+    },
+  });
+</script>
+```
+
+Shortcuts keys are written as the literal keyboard key value. Combinations are made with `_` separator. Chained shortcuts are made with `-` separator.
+
+Modifiers are also available:
+
+- `meta`: acts as `Command` for MacOS and `Control` for others
+- `ctrl`: acts as `Control`
+- `shift`: acts as `Shift` and is only necessary for alphabetic keys
+
+Examples of keys:
+
+- `escape`: will trigger by hitting `Esc`
+- `meta_k`: will trigger by hitting `⌘` and `K` at the same time on MacOS, and `Ctrl` and `K` on Windows and Linux
+- `ctrl_k`: will trigger by hitting `Ctrl` and `K` at the same time on MacOS, Windows and Linux
+- `shift_e`: will trigger by hitting `Shift` and `E` at the same time on MacOS, Windows and Linux
+- `?`: will trigger by hitting ? on some keyboard layouts, or for example Shift and /, which results in ? on US Mac keyboards
+- `g-d`: will trigger by hitting `g` then `d` with a maximum delay of 800ms by default
+- `arrowleft`: will trigger by hitting `←` (also: `arrowright`, `arrowup`, `arrowdown`)
+
+### `usingInput`
+
+Prop: `usingInput?: string | boolean`
+
+By default, `usingInput` is `false`, meaning it will only trigger when no input is focused. When set to `true`, the shortcut will also trigger when any input is focused.
+
+For a more advanced behavior, `usingInput` can be set to the name of an input, so it only triggers when focusing this specific input.
+
+::ShowCase{component="ShortcutsExTwo"}
+
+#code
+
+```vue
+<template>
+  <UILabel>Enter your name</UILabel>
+  <UIInput v-model="query" name="queryInput" />
+</template>
+
+<script setup lang="ts">
+  const query = ref("");
+
+  defineShortcuts({
+    enter: {
+      usingInput: "queryInput",
+      handler: () => {
+        useSonner.info("Triggered", {
+          description: query.value
+            ? `You just typed ${query.value} and pressed enter!`
+            : `You just pressed enter with nothing typed!`,
+        });
+      },
+    },
+  });
+</script>
+```
+
+::
+
+### Simple shortcut
+
+In case the shortcut does not need any config, it can be written as a function.
+
+```ts
+defineShortcuts({
+  "?": () => openHelpModal(),
+});
+```
+
+## `useShortcuts`
+
+To display shortcuts in your app according to the user's OS, you can use the `useShortcuts` composable.
+
+```vue
+<script setup>
+  const { metaSymbol } = useShortcuts();
+</script>
+
+<template>
+  <UKbd>{{ metaSymbol }}</UKbd>
+</template>
+```
+
+_`metaSymbol` will display either `⌘` on MacOS or `Ctrl` on any other OS_
