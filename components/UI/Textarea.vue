@@ -1,5 +1,5 @@
 <template>
-  <textarea :class="styles({ class: props.class })" v-bind="forwarded" />
+  <textarea :class="styles({ class: props.class })" v-bind="forwarded" v-model="localModel" />
 </template>
 
 <script lang="ts" setup>
@@ -20,6 +20,8 @@
     "update:modelValue": [value: any];
   }>();
   const forwarded = useForwardPropsEmits(useOmit(props, ["class"]), emits);
+
+  const localModel = useVModel(props, "modelValue", emits);
 
   const styles = tv({
     base: "flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
