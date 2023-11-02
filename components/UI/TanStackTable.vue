@@ -59,20 +59,24 @@
       </UITable>
     </div>
 
-    <div v-if="showPagination" class="my-6 flex items-center justify-end px-2">
-      <slot name="rowsSelected" :table="table">
-        <div v-if="showSelect" class="flex-1 text-sm text-muted-foreground">
-          <span>
-            {{ table.getFilteredSelectedRowModel().rows.length }} of {{ " " }}
-            {{ table.getFilteredRowModel().rows.length }} row(s) selected
-          </span>
-        </div>
-      </slot>
-
-      <div class="flex items-center space-x-6 lg:space-x-8">
+    <div
+      v-if="showPagination"
+      class="my-6 flex flex-col justify-between gap-4 px-2 md:flex-row md:items-center"
+    >
+      <div class="flex items-center justify-between gap-3">
+        <slot name="rowsSelected" :table="table">
+          <div v-if="showSelect" class="whitespace-nowrap text-sm text-muted-foreground">
+            <span>
+              {{ table.getFilteredSelectedRowModel().rows.length }} of {{ " " }}
+              {{ table.getFilteredRowModel().rows.length }} row(s) selected
+            </span>
+          </div>
+        </slot>
         <slot name="rowsPerPage" :table="table">
-          <div class="hidden items-center space-x-2 md:flex">
-            <p class="text-sm font-medium text-foreground">{{ rowsPerPageText }}</p>
+          <div class="flex items-center space-x-2 whitespace-nowrap">
+            <p class="hidden text-sm font-medium text-foreground md:inline-block">
+              {{ rowsPerPageText }}
+            </p>
             <UISelect v-model="pageSize">
               <UISelectTrigger class="h-9 w-[70px]">
                 {{ table.getState().pagination.pageSize }}
@@ -91,9 +95,13 @@
             </UISelect>
           </div>
         </slot>
+      </div>
 
+      <div class="flex items-center justify-between gap-3">
         <slot :table="table" name="page">
-          <div class="flex items-center justify-center text-sm font-medium text-foreground">
+          <div
+            class="flex items-center justify-center whitespace-nowrap text-sm font-medium text-foreground"
+          >
             Page {{ table.getState().pagination.pageIndex + 1 }} of
             {{ table.getPageCount() }}
           </div>
