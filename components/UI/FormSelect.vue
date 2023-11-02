@@ -24,13 +24,10 @@
         </slot>
       </UISelect>
     </div>
-    <p
-      class="mt-1 text-[13px] text-muted-foreground animate-in fade-in"
-      v-if="hint && !errorMessage"
-    >
+    <p class="mt-1 text-sm text-muted-foreground animate-in fade-in" v-if="hint && !errorMessage">
       {{ hint }}
     </p>
-    <p class="mt-1 text-[13px] text-destructive animate-in fade-in" v-if="errorMessage">
+    <p class="mt-1 text-sm text-destructive animate-in fade-in" v-if="errorMessage">
       {{ errorMessage }}
     </p>
   </div>

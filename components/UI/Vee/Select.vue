@@ -22,11 +22,11 @@
       </UINativeSelect>
     </div>
     <TransitionSlide group tag="div">
-      <p key="hint" class="mt-1.5 text-[13px] text-muted-foreground" v-if="hint && !errorMessage">
+      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">
         {{ hint }}
       </p>
 
-      <p key="errorMessage" class="mt-1.5 text-[13px] text-destructive" v-if="errorMessage">
+      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">
         {{ errorMessage }}
       </p>
     </TransitionSlide>

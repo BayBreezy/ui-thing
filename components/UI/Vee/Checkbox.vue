@@ -25,18 +25,14 @@
         <slot name="hint" :errorMessage="errorMessage" :checked="checked">
           <p
             key="hint"
-            class="text-[13px] leading-none text-muted-foreground"
+            class="text-sm leading-none text-muted-foreground"
             v-if="hint && !errorMessage"
           >
             {{ hint }}
           </p>
         </slot>
         <slot name="errorMessage" :errorMessage="errorMessage" :checked="checked">
-          <p
-            key="errorMessage"
-            class="text-[13px] leading-none text-destructive"
-            v-if="errorMessage"
-          >
+          <p key="errorMessage" class="text-sm leading-none text-destructive" v-if="errorMessage">
             {{ errorMessage }}
           </p>
         </slot>

@@ -4,7 +4,7 @@ description: An input component that allows the user to upload files to your app
 links:
   - title: Input Source
     href: /components/input
-    icon: lucide:text-cursor-input
+    icon: ph:paperclip
 ---
 
 ## Source code
