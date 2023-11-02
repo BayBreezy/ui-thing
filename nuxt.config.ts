@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@nuxtjs/color-mode",
     "@formkit/auto-animate/nuxt",
+    "@morev/vue-transitions/nuxt",
   ],
   build: {
     transpile: ["vue-sonner"],

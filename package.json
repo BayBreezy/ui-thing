@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.0",
+    "@morev/vue-transitions": "^2.3.6",
     "@nuxt/content": "^2.9.0",
     "@tanstack/vue-table": "^8.10.7",
     "@types/date-fns": "^2.6.0",

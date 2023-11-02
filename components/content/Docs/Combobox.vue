@@ -1,11 +1,5 @@
 <template>
   <div>
-    <Heading
-      title="Combobox"
-      subtext="Choose from a list of suggested values with full keyboard support. The Combobox is built using a composition of the <Popover /> and the <Command /> components."
-      radix-link="https://www.radix-vue.com/components/combobox.html"
-    />
-
     <UIPopover v-model="open">
       <UIPopoverTrigger as-child>
         <UIButton
