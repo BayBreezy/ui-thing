@@ -41,27 +41,3 @@
     </template>
   </UICard>
 </template>
-
-<script lang="ts" setup>
-  import { addYears } from "date-fns";
-  import { z } from "zod";
-
-  const ReportSchema = z.object({
-    area: z.string({ required_error: "Area is required" }),
-    securityLevel: z.string({ required_error: "Security level is required" }),
-    subject: z.string({ required_error: "Subject is required" }),
-    description: z.string({ required_error: "Description is required" }),
-  });
-
-  const submitReport = (values: any) => {
-    console.log(values);
-  };
-
-  const areaOptions = ["Team", "Billing", "Account", "Deployments", "Support"];
-  const securityLevels = [
-    "Severity 1 (Highest)",
-    "Severity 2",
-    "Severity 3",
-    "Severity 4 (Lowest)",
-  ];
-</script>

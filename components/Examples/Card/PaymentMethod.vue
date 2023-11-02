@@ -1,5 +1,5 @@
 <template>
-  <Form @submit="submitPayment" :validation-schema="PaymentSchema">
+  <form @submit="submitPayment">
     <UICard description="Add a new payment method to your account.">
       <template #title>
         <UICardTitle class="text-xl"> Payment Method </UICardTitle>
@@ -23,8 +23,8 @@
               </template>
             </UIRadioGroup>
             <!-- Form -->
-            <UIFormInput label="Name" name="name" placeholder="First & last name" />
-            <UIFormInput label="Card number" name="cardNumber" type="number" />
+            <UIVeeInput label="Name" name="name" placeholder="First & last name" />
+            <UIVeeInput label="Card number" name="cardNumber" />
             <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
               <UIFormSelect name="expires" placeholder="Month" label="Expires">
                 <template #content>
@@ -52,7 +52,7 @@
                   </UISelectContent>
                 </template>
               </UIFormSelect>
-              <UIFormInput label="CVC" name="cvc" maxlength="3" placeholder="CVC" />
+              <UIVeeInput label="CVC" name="cvc" maxlength="3" placeholder="CVC" />
             </div>
           </div>
         </UICardContent>
@@ -63,7 +63,7 @@
         </UICardFooter>
       </template>
     </UICard>
-  </Form>
+  </form>
 </template>
 
 <script lang="ts" setup>
@@ -78,9 +78,26 @@
     cvc: z.string({ required_error: "Required" }).min(3, "CVC is too short"),
   });
 
-  const submitPayment = (values: any) => {
-    console.log(values);
-  };
+  const { handleSubmit } = useForm({
+    validationSchema: toTypedSchema(PaymentSchema),
+  });
+
+  const submitPayment = handleSubmit(async (values) => {
+    const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise<void>((res, rej) => {
+      useSonner.promise(promise, {
+        loading: "Adding your payment method...",
+        success: (d) => {
+          res();
+          return "Payment method added!";
+        },
+        error: (e) => {
+          rej(e);
+          return "Error! Your information could not be sent to our servers!";
+        },
+      });
+    });
+  });
 
   const paymentMethods = [
     {

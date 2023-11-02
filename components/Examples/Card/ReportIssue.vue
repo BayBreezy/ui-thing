@@ -1,5 +1,5 @@
 <template>
-  <Form @submit="submitReport" :validation-schema="ReportSchema" v-slot="{ handleReset }">
+  <form @submit="submitReport">
     <UICard description="What area are you having problems with?">
       <template #title>
         <UICardTitle class="text-xl"> Report an issue </UICardTitle>
@@ -34,8 +34,8 @@
               </template>
             </UIFormSelect>
           </div>
-          <UIFormInput label="Subject" name="subject" placeholder="I need help with..." />
-          <UIFormTextarea
+          <UIVeeInput label="Subject" name="subject" placeholder="I need help with..." />
+          <UIVeeTextarea
             label="Description"
             name="description"
             placeholder="Please include all information relevant to your issue."
@@ -49,7 +49,7 @@
         </UICardFooter>
       </template>
     </UICard>
-  </Form>
+  </form>
 </template>
 
 <script lang="ts" setup>
@@ -63,9 +63,26 @@
     description: z.string({ required_error: "Description is required" }),
   });
 
-  const submitReport = (values: any) => {
-    console.log(values);
-  };
+  const { handleSubmit, handleReset } = useForm({
+    validationSchema: toTypedSchema(ReportSchema),
+  });
+
+  const submitReport = handleSubmit(async (values) => {
+    const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise<void>((res, rej) => {
+      useSonner.promise(promise, {
+        loading: "Submitting your report...",
+        success: (d) => {
+          res();
+          return "Your report has been submitted!";
+        },
+        error: (e) => {
+          rej(e);
+          return "Error! Your report could not be sent to our servers!";
+        },
+      });
+    });
+  });
 
   const areaOptions = ["Team", "Billing", "Account", "Deployments", "Support"];
   const securityLevels = [

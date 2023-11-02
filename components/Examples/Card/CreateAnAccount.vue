@@ -1,5 +1,5 @@
 <template>
-  <Form @submit="submitCard" :validation-schema="CardSchema">
+  <form @submit="submitCard">
     <UICard description="Enter your email below to create your account">
       <template #title>
         <UICardTitle class="text-xl"> Create an account </UICardTitle>
@@ -25,8 +25,8 @@
             </div>
           </div>
           <!-- Form -->
-          <UIFormInput type="email" label="Email" name="email" hint="Enter your email" />
-          <UIFormInput
+          <UIVeeInput type="email" label="Email" name="email" hint="Enter your email" />
+          <UIVeeInput
             label="Password"
             name="password"
             type="password"
@@ -40,7 +40,7 @@
         </UICardFooter>
       </template>
     </UICard>
-  </Form>
+  </form>
 </template>
 
 <script lang="ts" setup>
@@ -51,7 +51,24 @@
     password: z.string({ required_error: "Password is required" }).min(8, "Password is too short"),
   });
 
-  const submitCard = (values: any) => {
-    console.log(values);
-  };
+  const { handleSubmit } = useForm({
+    validationSchema: toTypedSchema(CardSchema),
+  });
+
+  const submitCard = handleSubmit(async (values) => {
+    const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise<void>((res, rej) => {
+      useSonner.promise(promise, {
+        loading: "Creating your account...",
+        success: (d) => {
+          res();
+          return "Your account has been created!";
+        },
+        error: (e) => {
+          rej(e);
+          return "Error! Your account could not be created!";
+        },
+      });
+    });
+  });
 </script>
