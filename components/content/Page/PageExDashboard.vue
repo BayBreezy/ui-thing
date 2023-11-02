@@ -1,5 +1,5 @@
 <template>
-  <div class="py-5 min-[1440px]:container max-[1440px]:px-10">
+  <div class="py-5 min-[1440px]:container max-[1440px]:px-4">
     <div class="rounded-md border bg-background shadow">
       <div class="flex flex-col">
         <ExamplesDashboardHeader />

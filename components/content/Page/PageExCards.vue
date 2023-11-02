@@ -1,5 +1,5 @@
 <template>
-  <div class="py-5 min-[1440px]:container max-[1440px]:px-10">
+  <div class="py-5 min-[1440px]:container max-[1440px]:px-4">
     <div class="grid grid-cols-1 items-start justify-center gap-5 md:grid-cols-2 xl:grid-cols-3">
       <div class="grid gap-6">
         <!-- Create account -->
