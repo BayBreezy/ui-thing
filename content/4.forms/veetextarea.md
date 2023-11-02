@@ -1,6 +1,6 @@
 ---
 title: VeeTextarea
-description: An input component that uses the composition API provided by Vee-Validate to perform validation.
+description: An textarea component that uses the composition API provided by Vee-Validate to perform validation.
 links:
   - title: Textarea Source
     href: /components/textarea

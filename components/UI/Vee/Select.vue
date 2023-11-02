@@ -17,24 +17,25 @@
         :name="name"
         v-bind="$attrs"
         :class="[hasIcon && 'pl-9']"
-        :placeholder="placeholder"
       >
         <slot></slot>
       </UINativeSelect>
     </div>
-    <p
-      class="mt-1 text-[13px] text-muted-foreground animate-in fade-in"
-      v-if="hint && !errorMessage"
-    >
-      {{ hint }}
-    </p>
-    <p class="mt-1 text-[13px] text-destructive animate-in fade-in" v-if="errorMessage">
-      {{ errorMessage }}
-    </p>
+    <TransitionSlide group appear>
+      <p key="hint" class="mt-1.5 text-[13px] text-muted-foreground" v-if="hint && !errorMessage">
+        {{ hint }}
+      </p>
+
+      <p key="errorMessage" class="mt-1.5 text-[13px] text-destructive" v-if="errorMessage">
+        {{ errorMessage }}
+      </p>
+    </TransitionSlide>
   </div>
 </template>
 
 <script lang="ts" setup>
+  import { useId } from "radix-vue";
+
   const props = defineProps<{
     label?: string;
     icon?: string;
@@ -45,26 +46,19 @@
     rules?: any;
     validateOnMount?: boolean;
     type?: string;
-    placeholder?: string;
     trailingIcon?: string;
   }>();
 
   defineOptions({ inheritAttrs: false });
 
-  const inputId = computed(
-    () => props.id || `native-select-${Math.random().toString(36).substring(2, 9)}`
-  );
+  const inputId = useId(props.id);
 
   const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));
 
-  const { errorMessage, value, handleBlur } = useField(
-    () => props.name || inputId.value,
-    props.rules,
-    {
-      initialValue: props.modelValue,
-      label: props.label,
-      validateOnMount: props.validateOnMount,
-      syncVModel: true,
-    }
-  );
+  const { errorMessage, value, handleBlur } = useField(() => props.name || inputId, props.rules, {
+    initialValue: props.modelValue,
+    label: props.label,
+    validateOnMount: props.validateOnMount,
+    syncVModel: true,
+  });
 </script>
