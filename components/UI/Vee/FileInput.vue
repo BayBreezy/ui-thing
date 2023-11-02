@@ -27,7 +27,7 @@
         :accept="accept"
       />
     </div>
-    <TransitionSlide group appear>
+    <TransitionSlide group tag="div">
       <p key="hint" class="mt-1.5 text-[13px] text-muted-foreground" v-if="hint && !errorMessage">
         {{ hint }}
       </p>
