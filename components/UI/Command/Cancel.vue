@@ -1,5 +1,5 @@
 <template>
-  <ComboboxCancel>
+  <ComboboxCancel v-bind="forwarded" :class="styles({ class: props.class })">
     <slot>
       <Icon name="lucide:x" class="h-4 w-4 text-muted-foreground/70" />
     </slot>

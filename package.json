@@ -1,6 +1,7 @@
 {
   "name": "ui-thing",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --host",
@@ -8,12 +9,13 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "clean": "rm -rf .nuxt dist .output node_modules yarn.lock package-lock.json && npm i",
+    "generate:components": "node scripts/create-components && npx prettier --write ./packages/cli/src/**/*",
     "format": "npx prettier --write ."
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@nuxtjs/color-mode": "^3.3.0",
-    "@nuxtjs/tailwindcss": "^6.8.1",
+    "@nuxtjs/tailwindcss": "^6.9.1",
     "@samk-dev/nuxt-vcalendar": "^1.0.1",
     "@tailwindcss/typography": "^0.5.10",
     "nuxt": "^3.8.0",
