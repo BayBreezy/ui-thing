@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "clean": "rm -rf .nuxt dist .output node_modules yarn.lock package-lock.json && npm i",
+    "clean": "rm -rf .nuxt dist .output node_modules yarn.lock package-lock.json && npm cache clean --force && npm i",
     "generate:components": "node scripts/create-components && npx prettier --write ./packages/cli/src/**/*",
     "format": "npx prettier --write ."
   },
@@ -30,7 +30,6 @@
     "@morev/vue-transitions": "^2.3.6",
     "@nuxt/content": "^2.9.0",
     "@tanstack/vue-table": "^8.10.7",
-    "@types/date-fns": "^2.6.0",
     "@unovis/ts": "^1.2.3",
     "@vee-validate/nuxt": "^4.11.8",
     "@vee-validate/zod": "^4.11.8",
