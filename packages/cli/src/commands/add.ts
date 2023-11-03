@@ -2,7 +2,7 @@ import path from "node:path";
 import { Command } from "commander";
 import { consola } from "consola";
 import kleur from "kleur";
-import { detectPackageManager } from "nypm";
+import { addDependency, addDevDependency, detectPackageManager } from "nypm";
 import ora from "ora";
 import prompts from "prompts";
 
@@ -19,7 +19,6 @@ const findComponent = (name: string) => {
 
 /**
  * Adds a component to your project
- * @param program{Command} The commander program
  */
 export const add = new Command()
   .name("add")
@@ -32,7 +31,7 @@ export const add = new Command()
     "Install the dependencies needed for the components being added",
     true
   )
-  .argument("[componentNames...]", "Components to add.")
+  .argument("[componentNames...]", "Components that you want to add.")
   .action(
     async (components: Array<string>, options: { force?: boolean; defaultFilename?: boolean }) => {
       let componentNames = components;
@@ -66,8 +65,20 @@ export const add = new Command()
           found.push(findComponent(c)!);
         }
       });
+      // check if the found components depends on other components and add them to the list
+      for (let i = 0; i < found.length; i++) {
+        const component = found[i];
+        if (component.components) {
+          for (let j = 0; j < component.components.length; j++) {
+            const comp = component.components[j];
+            if (!found.find((c) => c.value === comp)) {
+              found.push(findComponent(comp)!);
+            }
+          }
+        }
+      }
 
-      // add the components
+      // add the components & files associated with them
       loop1: for (let i = 0; i < found.length; i++) {
         const component = found[i];
         loop2: for (let k = 0; k < component.files.length; k++) {
@@ -112,14 +123,76 @@ export const add = new Command()
           }
           await writeFile(filePath, file.fileContent);
           consola.success(` Added ${kleur.bold(fileName)}`);
+          await addComponentDeps(component.deps);
+        }
+        // add utils attached to the component
+        loop3: for (let j = 0; j < component.utils.length; j++) {
+          const util = component.utils[j];
+          const filePath = path.join(currentDirectory, util.dirPath, util.fileName);
+          // Check if the file exists
+          const exists = await fileExists(filePath);
+          if (exists) {
+            const res = await prompts({
+              type: "confirm",
+              name: "value",
+              message: `The utils file that we are trying to add ${kleur.bold(
+                util.fileName
+              )} already exists. Overwrite?`,
+              initial: true,
+            });
+            if (!res.value) {
+              consola.info(`We will not overwrite the file for ${kleur.cyan(util.fileName)}`);
+              continue loop3;
+            }
+          }
+          await writeFile(filePath, util.fileContent);
+          consola.success(` Added ${kleur.bold(util.fileName)}`);
+        }
+        // add composables attached to the component
+        loop4: for (let j = 0; j < component.composables.length; j++) {
+          const composable = component.composables[j];
+          const filePath = path.join(currentDirectory, composable.dirPath, composable.fileName);
+          // Check if the file exists
+          const exists = await fileExists(filePath);
+          if (exists) {
+            const res = await prompts({
+              type: "confirm",
+              name: "value",
+              message: `The composables file that we are trying to add ${kleur.bold(
+                composable.fileName
+              )} already exists. Overwrite?`,
+              initial: true,
+            });
+            if (!res.value) {
+              consola.info(`We will not overwrite the file for ${kleur.cyan(composable.fileName)}`);
+              continue loop4;
+            }
+          }
+          await writeFile(filePath, composable.fileContent);
+          consola.success(` Added ${kleur.bold(composable.fileName)}`);
         }
       }
-      // install dependencies
-      const packageManager = await detectPackageManager(currentDirectory);
-      const depsSpinner = ora(
-        `Installing dependencies with ${kleur.cyan(packageManager?.name || "npm")}...`
-      ).start();
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      depsSpinner.succeed("Installed dependencies");
     }
   );
+
+const addComponentDeps = async (deps: string[], devDeps?: string[]) => {
+  // install dependencies
+  const packageManager = await detectPackageManager(currentDirectory);
+  if (packageManager && packageManager.name) {
+    const depsSpinner = ora(
+      `Installing dependencies with ${kleur.cyan(packageManager?.name)}...`
+    ).start();
+    for (let i = 0; i < deps.length; i++) {
+      const dep = deps[i];
+      await addDependency(dep, { cwd: currentDirectory });
+    }
+    if (devDeps) {
+      for (let i = 0; i < devDeps.length; i++) {
+        const devDep = devDeps[i];
+        await addDevDependency(devDep, { cwd: currentDirectory });
+      }
+    }
+
+    depsSpinner.succeed("Installed dependencies");
+  }
+};
