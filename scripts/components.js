@@ -28,6 +28,7 @@ export default [
     deps: ["radix-vue", "tailwind-variants"],
     devDeps: ["tailwindcss-animate", "nuxt-icon", "nuxt-lodash", "@vueuse/core", "@vueuse/nuxt"],
     nuxtModules: ["nuxt-icon", "nuxt-lodash", "@vueuse/nuxt"],
+    utils: ["shared.styles.ts"],
     files: [
       "AlertDialog/Action.vue",
       "AlertDialog/AlertDialog.vue",

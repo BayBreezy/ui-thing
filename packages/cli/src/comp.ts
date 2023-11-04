@@ -105,6 +105,13 @@ export default [
       "nuxt-lodash",
       "@vueuse/nuxt"
     ],
+    "utils": [
+      {
+        "fileName": "shared.styles.ts",
+        "dirPath": "utils",
+        "fileContent": "// Add here because button styles are used in several components\nexport const buttonStyles = tv({\n  base: \"inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2\",\n  variants: {\n    variant: {\n      default: \"bg-primary text-primary-foreground hover:bg-primary/90\",\n      destructive: \"bg-destructive text-destructive-foreground hover:bg-destructive/90\",\n      outline: \"border border-input bg-background hover:bg-accent hover:text-accent-foreground\",\n      secondary: \"bg-secondary text-secondary-foreground hover:bg-secondary/80\",\n      ghost: \"hover:bg-accent hover:text-accent-foreground\",\n      link: \"text-primary underline-offset-4 hover:underline\",\n    },\n    size: {\n      default: \"h-10 px-4 py-2\",\n      sm: \"h-9 rounded-md px-3\",\n      lg: \"h-11 rounded-md px-8\",\n      \"icon-sm\": \"h-9 w-9\",\n      icon: \"h-10 w-10\",\n    },\n    disabled: {\n      true: \"pointer-events-none opacity-50\",\n    },\n  },\n  defaultVariants: {\n    variant: \"default\",\n    size: \"default\",\n  },\n});\n"
+      }
+    ],
     "files": [
       {
         "fileName": "AlertDialog/Action.vue",
@@ -162,7 +169,6 @@ export default [
         "fileContent": "<template>\n  <AlertDialogTrigger v-bind=\"forwarded\">\n    <slot></slot>\n  </AlertDialogTrigger>\n</template>\n\n<script lang=\"ts\" setup>\n  import { AlertDialogTrigger, useForwardProps } from \"radix-vue\";\n  import type { AlertDialogTriggerProps } from \"radix-vue\";\n\n  const props = defineProps<AlertDialogTriggerProps>();\n  const forwarded = useForwardProps(props);\n</script>\n"
       }
     ],
-    "utils": [],
     "composables": []
   },
   {
