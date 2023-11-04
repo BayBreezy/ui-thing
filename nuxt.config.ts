@@ -10,7 +10,6 @@ export default defineNuxtConfig({
     "nuxt-lodash",
     "@nuxt/content",
     "@nuxtjs/color-mode",
-    "@formkit/auto-animate/nuxt",
     "@morev/vue-transitions/nuxt",
   ],
   build: {
