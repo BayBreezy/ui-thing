@@ -15,7 +15,7 @@
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@nuxtjs/color-mode": "^3.3.0",
-    "@nuxtjs/tailwindcss": "^6.9.3",
+    "@nuxtjs/tailwindcss": "^6.9.4",
     "@samk-dev/nuxt-vcalendar": "^1.0.1",
     "@tailwindcss/typography": "^0.5.10",
     "nuxt": "^3.8.0",
@@ -26,7 +26,6 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@formkit/auto-animate": "^0.8.0",
     "@morev/vue-transitions": "^2.3.6",
     "@nuxt/content": "^2.9.0",
     "@tanstack/vue-table": "^8.10.7",
@@ -37,7 +36,7 @@
     "@vueuse/nuxt": "^10.5.0",
     "date-fns": "2.30.0",
     "nuxt-icon": "^0.6.1",
-    "radix-vue": "^1.1.0",
+    "radix-vue": "^1.1.1",
     "tailwind-variants": "^0.1.18",
     "vue-sonner": "^1.0.1",
     "vue-use-active-scroll": "^1.1.1",

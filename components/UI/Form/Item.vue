@@ -10,9 +10,9 @@
       <UIFormDescription v-if="description" :description="description" />
     </slot>
     <slot name="errorMessage">
-      <p v-auto-animate>
+      <TransitionSlide tag="p">
         <UIFormMessage v-if="!hideMessage" />
-      </p>
+      </TransitionSlide>
     </slot>
   </div>
 </template>
