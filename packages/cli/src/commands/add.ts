@@ -89,14 +89,14 @@ export const add = new Command()
       loop2: for (let k = 0; k < component.files.length; k++) {
         const file = component.files[k];
         let fileName = file.fileName;
-        let dirPath = file.dirPath;
+        let dirPath = uiConfig.componentsLocation;
         let filePath = path.join(currentDirectory, dirPath, fileName);
         if (!uiConfig.useDefaultFilename) {
           const res = await prompts({
             type: "text",
             name: "value",
             message: `Where should we add the file`,
-            initial: file.dirPath,
+            initial: dirPath,
             onRender(kleur) {
               //@ts-ignore
               this.msg =
@@ -131,10 +131,10 @@ export const add = new Command()
         // add utils attached to the component
         loop3: for (let j = 0; j < component.utils.length; j++) {
           const util = component.utils[j];
-          const filePath = path.join(currentDirectory, util.dirPath, util.fileName);
+          const filePath = path.join(currentDirectory, uiConfig.utilsLocation, util.fileName);
           // Check if the file exists
           const exists = await fileExists(filePath);
-          if (exists && !confirmUtilsOverwrite) {
+          if (exists && !uiConfig.force) {
             const res = await prompts({
               type: "confirm",
               name: "value",
@@ -147,17 +147,20 @@ export const add = new Command()
               consola.info(`We will not overwrite the file for ${kleur.cyan(util.fileName)}`);
               continue loop3;
             }
-            confirmUtilsOverwrite = true;
           }
           await writeFile(filePath, util.fileContent);
         }
         // add composables attached to the component
         loop4: for (let j = 0; j < component.composables.length; j++) {
           const composable = component.composables[j];
-          const filePath = path.join(currentDirectory, composable.dirPath, composable.fileName);
+          const filePath = path.join(
+            currentDirectory,
+            uiConfig.composablesLocation,
+            composable.fileName
+          );
           // Check if the file exists
           const exists = await fileExists(filePath);
-          if (exists && !confirmComposablesOverwrite) {
+          if (exists && !uiConfig.force) {
             const res = await prompts({
               type: "confirm",
               name: "value",
@@ -170,7 +173,6 @@ export const add = new Command()
               consola.info(`We will not overwrite the file for ${kleur.cyan(composable.fileName)}`);
               continue loop4;
             }
-            confirmComposablesOverwrite = true;
           }
           await writeFile(filePath, composable.fileContent);
         }
@@ -192,6 +194,8 @@ export const add = new Command()
       `Run the ${kleur.bgCyan(" --help ")} command to learn more.`
     );
     const combinedInstructions = found.map((c) => c.instructions).flat();
+    // remove undefined from the array
+    _.remove(combinedInstructions, (i) => !i);
     if (combinedInstructions.length > 0) {
       console.log("\n");
       console.log(kleur.bgCyan(" Instructions "));
