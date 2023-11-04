@@ -1,4 +1,5 @@
 import { $ } from "execa";
+import { addDependency, addDevDependency } from "nypm";
 import ora from "ora";
 
 export const installPackages = async (
@@ -14,16 +15,31 @@ export const installPackages = async (
     devDeps = [devDeps];
   }
 
-  if (deps && deps.length)
-    await $`${packageManager} ${packageManager === "yarn" ? "add" : "install"} ${[
-      ...(deps || []),
-    ]}`;
+  if (deps && deps.length) {
+    for (const dep of deps) {
+      await addDependency(dep, {
+        cwd: process.cwd(),
+        silent: true,
+        packageManager: {
+          command: packageManager,
+          name: packageManager as any,
+        },
+      });
+    }
+  }
   depsSpinner.text = "Installing dev dependencies...";
-  if (devDeps && devDeps.length)
-    await $`${packageManager} ${packageManager === "yarn" ? "add" : "install"} -D ${[
-      ...(devDeps || []),
-    ]}`;
-
+  if (devDeps && devDeps.length) {
+    for (const dep of devDeps) {
+      await addDevDependency(dep, {
+        cwd: process.cwd(),
+        silent: true,
+        packageManager: {
+          command: packageManager,
+          name: packageManager as any,
+        },
+      });
+    }
+  }
   await $`${packageManager} run postinstall`;
 
   depsSpinner.succeed("Installed dependencies!");
