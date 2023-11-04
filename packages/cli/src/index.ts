@@ -1,8 +1,11 @@
+#!/usr/bin/env node
 import { Command } from "commander";
-import figlet from "figlet";
-import kleur from "kleur";
 
 import { add } from "./commands/add";
+import { init } from "./commands/init";
+import { addPrettier } from "./commands/prettier";
+import { theme } from "./commands/theme";
+import { printFancyBoxMessage } from "./utils/printFancyBoxMessage";
 
 process.on("SIGINT", () => process.exit(0));
 process.on("SIGTERM", () => process.exit(0));
@@ -10,13 +13,17 @@ process.on("SIGTERM", () => process.exit(0));
 const program = new Command();
 
 console.clear();
-console.log(kleur.bgBlack(kleur.cyan(figlet.textSync(" UI Thing "))));
+
+printFancyBoxMessage("UI Thing", { title: "Welcome" });
 console.log();
 
 program
   .name("ui-thing")
   .description("CLI for adding ui-thing components to your Nuxt 3 application")
   .version("0.0.1")
-  .addCommand(add);
+  .addCommand(init)
+  .addCommand(add)
+  .addCommand(theme)
+  .addCommand(addPrettier);
 
 program.parse(process.argv);

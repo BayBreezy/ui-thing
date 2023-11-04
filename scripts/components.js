@@ -5,7 +5,7 @@ export default [
     deps: ["radix-vue", "tailwind-variants"],
     devDeps: ["tailwindcss-animate", "nuxt-icon", "nuxt-lodash"],
     nuxtModules: ["nuxt-icon", "nuxt-lodash"],
-    instructions: ["Remember to add the animations to your tailwind.config.js"],
+    instructions: ["Remember to add the accordion animations to your tailwind.config.js"],
     files: [
       "Accordion/Accordion.vue",
       "Accordion/Content.vue",
@@ -145,7 +145,7 @@ export default [
     deps: ["radix-vue", "tailwind-variants"],
     devDeps: ["tailwindcss-animate", "nuxt-lodash", "nuxt-icon"],
     nuxtModules: ["nuxt-lodash", "nuxt-icon"],
-    instructions: ["Remember to add the animations to your tailwind.config.js"],
+    instructions: ["Remember to add the collapsile animations to your tailwind.config.js"],
     files: ["Collapsible/Collapsible.vue", "Collapsible/Content.vue", "Collapsible/Trigger.vue"],
   },
   {
@@ -607,7 +607,8 @@ export default [
       'build: {\n  transpile: ["vue-sonner"],\n},\n\n',
     ],
     instructions: [
-      "Remember to add the import statement and add vue-sonner to your transpile array in your nuxt.config.js file",
+      "Remember to add the auto-import statement in your nuxt.config.js file",
+      "Remember to add vue-sonner to list of transpiled dependencies.",
     ],
     files: ["VueSonner.client.vue"],
   },
