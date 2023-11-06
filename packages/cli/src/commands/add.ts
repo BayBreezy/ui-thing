@@ -86,8 +86,6 @@ export const add = new Command()
     }
 
     // add the components & files associated with them
-    let confirmUtilsOverwrite = false;
-    let confirmComposablesOverwrite = false;
     for (let i = 0; i < found.length; i++) {
       const component = found[i];
       loop2: for (let k = 0; k < component.files.length; k++) {
@@ -131,6 +129,29 @@ export const add = new Command()
           }
         }
         await writeFile(filePath, file.fileContent);
+
+        // This is not scalable. We need to find a better way to do this
+        if (component.value === "vue-sonner") {
+          // Update the nuxt config
+          cfg.defaultExport.imports ||= {};
+          cfg.defaultExport.build ||= {};
+          cfg.defaultExport.imports.imports ||= [];
+          cfg.defaultExport.build.transpile ||= [];
+          const sonnerExists = cfg.defaultExport.imports.imports.find(
+            (i: any) => i.from === "vue-sonner" && i.name === "toast"
+          );
+          if (!sonnerExists) {
+            cfg.defaultExport.imports.imports.push({
+              from: "vue-sonner",
+              name: "toast",
+              as: "useSonner",
+            });
+          }
+          const transpileExists = cfg.defaultExport.build.transpile.find((i: any) => "vue-sonner");
+          if (!transpileExists) {
+            cfg.defaultExport.build.transpile.push("vue-sonner");
+          }
+        }
 
         // add utils attached to the component
         loop3: for (let j = 0; j < component.utils.length; j++) {

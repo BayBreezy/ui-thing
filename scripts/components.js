@@ -603,14 +603,7 @@ export default [
     deps: ["vue-sonner"],
     devDeps: [],
     nuxtModules: [],
-    nuxtConfig: [
-      '"imports": {\n  "imports": [\n    { "from": "vue-sonner", "name": "toast", "as": "useSonner" }\n  ]\n}\n',
-      'build: {\n  transpile: ["vue-sonner"],\n},\n\n',
-    ],
-    instructions: [
-      "Remember to add the auto-import statement in your nuxt.config.js file",
-      "Remember to add vue-sonner to list of transpiled dependencies.",
-    ],
+    instructions: ["Remember to add the <UIVueSonner /> tag to your app.vue/layout file."],
     files: ["VueSonner.client.vue"],
   },
   {
