@@ -12,6 +12,7 @@ The documentation can be found here: https://ui-thing.behonbaker.com/
 - Radiv-Vue
 - TailwindCSS
 - Nuxt
+- Nuxt UI
 
 Thanks to the maintainers of the other third party libraries used in this project.
 
