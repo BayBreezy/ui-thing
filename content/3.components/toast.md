@@ -20,6 +20,18 @@ Click :SourceCodeLink{component="Toast"} to see the source code for this compone
 npx ui-thing@latest add toast
 ```
 
+Remember to add the `<UIToastToaster />` component to your app layout.
+
+```vue
+<template>
+  <div>
+    <NuxtLoadingIndicator />
+    <NuxtPage />
+    <UIToastToaster />
+  </div>
+</template>
+```
+
 ## Usage
 
 ### Full example

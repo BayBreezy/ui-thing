@@ -564,6 +564,7 @@ export default [
     devDeps: ["nuxt-icon"],
     nuxtModules: ["nuxt-icon"],
     composables: ["useToast.ts"],
+    instructions: ["Remeber to add <UIToastToaster /> to your app.vue/layout file."],
     files: [
       "Toast/Action.vue",
       "Toast/Close.vue",
