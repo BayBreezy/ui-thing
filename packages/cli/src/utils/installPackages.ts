@@ -15,11 +15,11 @@ export const installPackages = async (
   }
 
   const depsSpinner = ora("Installing dependencies...").start();
-  if (!_.isUndefined(deps)) {
+  if (!_.isUndefined(deps) && !_.isEmpty(deps)) {
     await execa(packageManager, [packageManager === "yarn" ? "add" : "install", ...deps]);
   }
   depsSpinner.text = "Installing dev dependencies...";
-  if (!_.isUndefined(devDeps)) {
+  if (!_.isUndefined(devDeps) && !_.isEmpty(devDeps)) {
     await execa(packageManager, [packageManager === "yarn" ? "add" : "install", "-D", ...devDeps]);
   }
   await execa(packageManager, ["run", "postinstall"]);

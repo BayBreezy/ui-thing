@@ -1,5 +1,9 @@
 <template>
-  <ToastRoot v-bind="forwarded" :class="styles({ variant, class: props.class })">
+  <ToastRoot
+    v-bind="forwarded"
+    :class="styles({ variant, class: props.class })"
+    @update:open="onOpenChange"
+  >
     <slot></slot>
   </ToastRoot>
 </template>
@@ -8,29 +12,29 @@
   import { ToastRoot, useForwardPropsEmits } from "radix-vue";
   import type { ToastRootEmits, ToastRootProps } from "radix-vue";
 
-  const props = withDefaults(
-    defineProps<
-      ToastRootProps & {
-        class?: any;
-        variant?: VariantProps<typeof styles>["variant"];
-      }
-    >(),
-    {}
-  );
+  export interface ToastProps extends ToastRootProps {
+    class?: any;
+    variant?: VariantProps<typeof styles>["variant"];
+    onOpenChange?: ((value: boolean) => void) | undefined;
+  }
+
+  const props = withDefaults(defineProps<ToastProps>(), {});
 
   const emits = defineEmits<ToastRootEmits>();
   const forwarded = useForwardPropsEmits(props, emits);
 
   const styles = tv({
-    base: "group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border p-6 pr-8 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full",
+    base: "group pointer-events-auto relative flex w-full items-center justify-between gap-4 overflow-hidden rounded-lg border p-4 pr-9 shadow-sm transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full",
     variants: {
       variant: {
         default: "border bg-background text-foreground",
-        success: "success group border-green-500 bg-green-500 text-green-50",
-        info: "info group border-blue-500 bg-blue-500 text-blue-50",
-        warning: "warning group border-yellow-600 bg-yellow-600 text-white",
+        success:
+          "success group border-[var(--success-border)] bg-[--success-bg] text-[--success-text]",
+        info: "info group border-[var(--info-border)] bg-[--info-bg] text-[--info-text]",
+        warning:
+          "warning group border-[var(--warning-border)] bg-[--warning-bg] text-[--warning-text]",
         destructive:
-          "destructive group border-destructive bg-destructive text-destructive-foreground",
+          "destructive group border-[var(--error-border)] bg-[--error-bg] text-[--error-text]",
       },
     },
     defaultVariants: {

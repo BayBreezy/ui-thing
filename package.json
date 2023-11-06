@@ -35,7 +35,7 @@
     "@vueuse/math": "^10.5.0",
     "@vueuse/nuxt": "^10.5.0",
     "date-fns": "2.30.0",
-    "nuxt-icon": "^0.6.2",
+    "nuxt-icon": "^0.6.3",
     "radix-vue": "^1.1.1",
     "tailwind-variants": "^0.1.18",
     "vue-sonner": "^1.0.1",

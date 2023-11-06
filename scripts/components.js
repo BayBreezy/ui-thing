@@ -563,7 +563,7 @@ export default [
     deps: ["tailwind-variants", "radix-vue"],
     devDeps: ["nuxt-icon"],
     nuxtModules: ["nuxt-icon"],
-    composables: ["toast.ts"],
+    composables: ["useToast.ts"],
     files: [
       "Toast/Action.vue",
       "Toast/Close.vue",
@@ -571,6 +571,7 @@ export default [
       "Toast/Provider.vue",
       "Toast/Title.vue",
       "Toast/Toast.vue",
+      "Toast/Toaster.vue",
       "Toast/Viewport.vue",
     ],
   },

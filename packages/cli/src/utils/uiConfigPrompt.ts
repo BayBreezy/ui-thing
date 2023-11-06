@@ -45,7 +45,7 @@ export const initPrompts = async () => {
       name: "force",
       type: "confirm",
       message: "Should we ask before overwriting files?",
-      initial: false,
+      initial: true,
     },
     {
       name: "useDefaultFilename",

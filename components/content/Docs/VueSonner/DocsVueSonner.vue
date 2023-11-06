@@ -45,7 +45,7 @@
       @click="
         useSonner.promise(promise, {
           loading: 'Checking API for tools...',
-          success: (d) => d,
+          success: (d) => d as string,
           error: (d) => 'API returned error',
         })
       "
