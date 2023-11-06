@@ -8,7 +8,7 @@ import prompts from "prompts";
 import allComponents from "../comp";
 import { UIConfig } from "../types";
 import { compareUIConfig } from "../utils/compareUIConfig";
-import { addModuleToConfig, getNuxtConfig, updateConfig } from "../utils/config";
+import { addModuleToConfig, getNuxtConfig, getUIConfig, updateConfig } from "../utils/config";
 import { fileExists } from "../utils/fileExists";
 import { installPackages } from "../utils/installPackages";
 import { printFancyBoxMessage } from "../utils/printFancyBoxMessage";
@@ -33,7 +33,11 @@ export const add = new Command()
     // Get nuxt config
     const cfg = await getNuxtConfig();
     // Get ui config
-    let uiConfig: UIConfig = await compareUIConfig();
+    let uiConfig = await getUIConfig();
+    let uiConfigIsCorrect = await compareUIConfig();
+    if (!uiConfigIsCorrect) {
+      uiConfig = await getUIConfig({ force: true });
+    }
     if (_.isEmpty(uiConfig)) {
       consola.info("Config file not set. Exiting...");
       process.exit(0);
@@ -182,22 +186,29 @@ export const add = new Command()
     addModuleToConfig(cfg.nuxtConfig, _.uniq(found.map((c) => c.nuxtModules).flat()));
     // Write the changes to the nuxt config
     await updateConfig(cfg.nuxtConfig, "nuxt.config.ts");
-    await installPackages(
-      uiConfig.packageManager,
-      _.uniq(found.map((c) => c.deps).flat()),
-      _.uniq(found.map((c) => c.devDeps).flat())
-    );
+    const foundDeps = _.uniq(found.map((c) => c.deps).flat());
+    const foundDevDeps = _.uniq(found.map((c) => c.devDeps).flat());
+    const { confirmInstall } = await prompts({
+      type: "confirm",
+      name: "confirmInstall",
+      message: `Do you want to install the following packages: ${kleur.cyan(
+        foundDeps.join(", ")
+      )} ${kleur.cyan(foundDevDeps.join(", "))}`,
+      initial: true,
+    });
+    if (confirmInstall) {
+      await installPackages(uiConfig.packageManager, foundDeps, foundDevDeps);
+    }
 
     printFancyBoxMessage(
       "All Done!",
       { title: "Components Added" },
-      `Run the ${kleur.bgCyan(" --help ")} command to learn more.`
+      `Run the ${kleur.cyan("ui-thing@latest --help")} command to learn more.\n`
     );
     const combinedInstructions = found.map((c) => c.instructions).flat();
     // remove undefined from the array
     _.remove(combinedInstructions, (i) => !i);
     if (combinedInstructions.length > 0) {
-      console.log("\n");
       console.log(kleur.bgCyan(" Instructions "));
       combinedInstructions.forEach((i) => {
         console.log(`${kleur.cyan("-")} ${i}`);

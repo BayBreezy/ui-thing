@@ -5,8 +5,8 @@ import _ from "lodash";
 import prompts from "prompts";
 
 import { createCSS } from "../templates/css";
-import { UIConfig } from "../types";
 import { compareUIConfig } from "../utils/compareUIConfig";
+import { getUIConfig } from "../utils/config";
 import { CSS_THEME_OPTIONS } from "../utils/constants";
 import { printFancyBoxMessage } from "../utils/printFancyBoxMessage";
 
@@ -16,7 +16,11 @@ export const theme = new Command()
   .description("Add a new theme to your project.")
   .action(async () => {
     // Get ui config
-    let uiConfig: UIConfig = await compareUIConfig();
+    let uiConfig = await getUIConfig();
+    let uiConfigIsCorrect = await compareUIConfig();
+    if (!uiConfigIsCorrect) {
+      uiConfig = await getUIConfig({ force: true });
+    }
     if (_.isEmpty(uiConfig)) {
       consola.info("Config file not set. Exiting...");
       process.exit(0);
@@ -25,7 +29,7 @@ export const theme = new Command()
       {
         name: "theme",
         type: "autocomplete",
-        message: "\nWhich theme do you want to add?",
+        message: "Which theme do you want to add?",
         choices: CSS_THEME_OPTIONS,
       },
     ]);

@@ -9,6 +9,7 @@ import { printFancyBoxMessage } from "./utils/printFancyBoxMessage";
 
 process.on("SIGINT", () => process.exit(0));
 process.on("SIGTERM", () => process.exit(0));
+process.on("SIGTSTP", () => process.exit(0));
 
 const program = new Command();
 

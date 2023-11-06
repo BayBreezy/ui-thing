@@ -1,6 +1,10 @@
 import { UIConfig } from "../types";
 import { getUIConfig } from "./config";
 
+/**
+ * Compares the UI config with a temporary config to see if any properties are missing
+ * @returns {boolean} - Returns true if all properties are present
+ */
 export const compareUIConfig = async () => {
   // Get ui config
   let userConfig: UIConfig = await getUIConfig();
@@ -25,7 +29,7 @@ export const compareUIConfig = async () => {
   }
 
   if (missingProperties.length > 0) {
-    userConfig = await getUIConfig({ force: true });
+    return false;
   }
-  return userConfig;
+  return true;
 };

@@ -1,5 +1,5 @@
-import { $ } from "execa";
-import { addDependency, addDevDependency } from "nypm";
+import { execa } from "execa";
+import _ from "lodash";
 import ora from "ora";
 
 export const installPackages = async (
@@ -7,7 +7,6 @@ export const installPackages = async (
   deps?: string[] | string,
   devDeps?: string | string[]
 ) => {
-  const depsSpinner = ora("Installing dependencies...").start();
   if (typeof deps === "string") {
     deps = [deps];
   }
@@ -15,32 +14,15 @@ export const installPackages = async (
     devDeps = [devDeps];
   }
 
-  if (deps && deps.length) {
-    for (const dep of deps) {
-      await addDependency(dep, {
-        cwd: process.cwd(),
-        silent: true,
-        packageManager: {
-          command: packageManager,
-          name: packageManager as any,
-        },
-      });
-    }
+  const depsSpinner = ora("Installing dependencies...").start();
+  if (!_.isUndefined(deps)) {
+    await execa(packageManager, [packageManager === "yarn" ? "add" : "install", ...deps]);
   }
   depsSpinner.text = "Installing dev dependencies...";
-  if (devDeps && devDeps.length) {
-    for (const dep of devDeps) {
-      await addDevDependency(dep, {
-        cwd: process.cwd(),
-        silent: true,
-        packageManager: {
-          command: packageManager,
-          name: packageManager as any,
-        },
-      });
-    }
+  if (!_.isUndefined(devDeps)) {
+    await execa(packageManager, [packageManager === "yarn" ? "add" : "install", "-D", ...devDeps]);
   }
-  await $`${packageManager} run postinstall`;
+  await execa(packageManager, ["run", "postinstall"]);
 
   depsSpinner.succeed("Installed dependencies!");
 };

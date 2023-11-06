@@ -66,9 +66,9 @@ export const initPrompts = async () => {
       ],
     },
   ]);
-  if (!response) {
+  if (!response || Object.keys(response).length < 9) {
     console.log(kleur.red("No response received. Exiting..."));
-    process.exit(0);
+    return process.exit(0);
   }
   return response;
 };
