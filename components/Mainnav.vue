@@ -10,6 +10,17 @@
         </div>
         <nav class="hidden items-center space-x-6 text-sm font-medium lg:flex">
           <NuxtLink
+            :class="[$route.path.includes('/getting-started/') ? '!text-primary' : '']"
+            to="/getting-started/introduction"
+            class="text-foreground/60 transition-colors hover:text-foreground"
+            >Documentation</NuxtLink
+          >
+          <NuxtLink
+            :class="[
+              $route.path.includes('/components/') || $route.path.includes('/forms/')
+                ? '!text-primary'
+                : '',
+            ]"
             to="/components/accordion"
             class="text-foreground/60 transition-colors hover:text-foreground"
             >Components</NuxtLink
@@ -42,7 +53,7 @@
       <div class="flex items-center">
         <UIButton
           size="sm"
-          class="mr-2 hidden min-w-[200px] font-normal text-muted-foreground md:flex"
+          class="mr-2 hidden min-w-[300px] font-normal text-muted-foreground md:flex"
           @click="isOpen = true"
           variant="outline"
         >
