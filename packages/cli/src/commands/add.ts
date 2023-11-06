@@ -6,7 +6,6 @@ import _ from "lodash";
 import prompts from "prompts";
 
 import allComponents from "../comp";
-import { UIConfig } from "../types";
 import { compareUIConfig } from "../utils/compareUIConfig";
 import { addModuleToConfig, getNuxtConfig, getUIConfig, updateConfig } from "../utils/config";
 import { fileExists } from "../utils/fileExists";

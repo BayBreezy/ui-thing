@@ -1,6 +1,4 @@
 import { Command } from "commander";
-import { addDevDependency } from "nypm";
-import ora from "ora";
 import prompts from "prompts";
 
 import { addPrettierConfig } from "../utils/addPrettierConfig";

@@ -8,7 +8,6 @@ import { addNuxtModule, getDefaultExportOptions } from "magicast/helpers";
 import prompts from "prompts";
 
 import { InitOptions, UIConfig } from "../types";
-import { compareUIConfig } from "./compareUIConfig";
 import { initPrompts } from "./configPrompt";
 
 const currentDir = process.cwd();
