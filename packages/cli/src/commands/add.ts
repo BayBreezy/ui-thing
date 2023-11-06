@@ -11,7 +11,7 @@ import { addModuleToConfig, getNuxtConfig, getUIConfig, updateConfig } from "../
 import { fileExists } from "../utils/fileExists";
 import { installPackages } from "../utils/installPackages";
 import { printFancyBoxMessage } from "../utils/printFancyBoxMessage";
-import { promptUserForComponents } from "../utils/promptUser";
+import { promptUserForComponents } from "../utils/promptForComponents";
 import { writeFile } from "../utils/writeFile";
 
 const currentDirectory = process.cwd();

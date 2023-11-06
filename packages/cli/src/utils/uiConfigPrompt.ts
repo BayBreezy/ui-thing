@@ -44,8 +44,7 @@ export const initPrompts = async () => {
     {
       name: "force",
       type: "confirm",
-      message:
-        "Would you like to overwrite the existing files when running the different commands?",
+      message: "Should we ask before overwriting files?",
       initial: false,
     },
     {
@@ -67,7 +66,7 @@ export const initPrompts = async () => {
     },
   ]);
   if (!response || Object.keys(response).length < 9) {
-    console.log(kleur.red("No response received. Exiting..."));
+    console.log(kleur.red("Incomplete configuration submitted. Exiting..."));
     return process.exit(0);
   }
   return response;

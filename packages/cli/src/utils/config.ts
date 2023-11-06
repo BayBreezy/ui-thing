@@ -8,7 +8,7 @@ import { addNuxtModule, getDefaultExportOptions } from "magicast/helpers";
 import prompts from "prompts";
 
 import { InitOptions, UIConfig } from "../types";
-import { initPrompts } from "./configPrompt";
+import { initPrompts } from "./uiConfigPrompt";
 
 const currentDir = process.cwd();
 const uiConfigFilename = "ui-thing.config.ts";
