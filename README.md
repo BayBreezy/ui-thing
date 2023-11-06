@@ -1,63 +1,72 @@
-# Nuxt 3 Minimal Starter
+# UI Thing
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Set of components created with Radix-Vue. Inspired by shadc/ui & shadcn-vue.
 
-## Setup
+## Documentation
 
-Make sure to install the dependencies:
+The documentation can be found here: https://ui-thing.behonbaker.com/
+
+## Credits
+
+- shadcn/ui
+- Radiv-Vue
+- TailwindCSS
+- Nuxt
+
+Thanks to the maintainers of the other third party libraries used in this project.
+
+## Getting Started
+
+- Create a Nuxt 3 project
+- Install the dependencies
+- Run the init command
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
+npx ui-thing@latest init
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+- Start the dev server
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
 ```
 
-## Production
-
-Build the application for production:
+- Add components to your project with the `add` command
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
+npx ui-thing@latest add
 ```
 
-Locally preview production build:
+## Commands
+
+### `init`
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
+npx ui-thing@latest init
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This command will install the dependencies and add the required configuration to your project.
+
+### `add`
+
+```bash
+npx ui-thing@latest add
+```
+
+This command will add the components to your project.
+
+### `theme`
+
+```bash
+npx ui-thing@latest theme
+```
+
+This command will add the theme to your project.
+
+### `prettier`
+
+```bash
+npx ui-thing@latest prettier
+```
+
+This command will add the prettier configuration to your project.

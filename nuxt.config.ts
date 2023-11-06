@@ -1,3 +1,12 @@
+const author = "Behon Baker";
+const description = "UI Thing is a collection of UI components for Nuxt 3.";
+const lang = "en";
+const title = "UI Thing";
+const themeColor = "#111827";
+const twitterCard = "summary_large_image";
+const twitterCreator = "@iAm_BayBreezy";
+const url = process.env.PUBLIC_URL;
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
@@ -11,6 +20,11 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@nuxtjs/color-mode",
     "@morev/vue-transitions/nuxt",
+    "@kevinmarrec/nuxt-pwa",
+    "@nuxtseo/module",
+    "nuxt-simple-robots",
+    "nuxt-simple-sitemap",
+    "nuxt-og-image",
   ],
   build: {
     transpile: ["vue-sonner"],
@@ -41,7 +55,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: "UI Thing",
+      title,
       titleTemplate: "%s - UI Thing",
     },
   },
@@ -80,5 +94,40 @@ export default defineNuxtConfig({
   },
   colorMode: {
     classSuffix: "",
+  },
+  pwa: {
+    meta: {
+      author,
+      description,
+      lang,
+      name: title,
+      ogDescription: description,
+      ogSiteName: title,
+      ogTitle: title,
+      ogType: "website",
+      ogUrl: url,
+      theme_color: themeColor,
+      ogImage: "/cover.png",
+      title,
+      twitterCard,
+      twitterCreator,
+    },
+  },
+  site: {
+    url,
+    name: title,
+    description,
+    defaultLocale: lang,
+    identity: { type: "Person" },
+    indexable: true,
+    twitter: twitterCreator,
+  },
+  ogImage: {
+    defaults: {
+      alt: title,
+      colorScheme: "dark",
+      description,
+      title,
+    },
   },
 });
