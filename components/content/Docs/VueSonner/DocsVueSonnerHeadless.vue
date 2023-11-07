@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative z-[999] box-border flex w-[360px] gap-4 rounded-md border bg-background p-3 px-5 shadow-lg"
+    class="relative z-[999] box-border flex w-full gap-4 rounded-md border bg-background p-3 px-5 shadow-lg md:w-[360px]"
   >
     <UIAvatar
       class="ring-1 ring-border"
