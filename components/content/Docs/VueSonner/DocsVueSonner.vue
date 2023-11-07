@@ -45,7 +45,7 @@
       @click="
         useSonner.promise(promise, {
           loading: 'Checking API for tools...',
-          success: (d) => d as string,
+          success: (d) => d,
           error: (d) => 'API returned error',
         })
       "
@@ -70,7 +70,7 @@
   const types = ["success", "info", "warning", "error"] as const;
 
   const promise = () =>
-    new Promise((resolve, reject) =>
+    new Promise<string>((resolve, reject) =>
       setTimeout(() => resolve("There are 16 tools ready for use"), 2000)
     );
 </script>

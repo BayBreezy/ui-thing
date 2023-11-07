@@ -127,7 +127,7 @@ build: {
   const types = ["success", "info", "warning", "error"] as const;
 
   const promise = () =>
-    new Promise((resolve, reject) =>
+    new Promise<string>((resolve, reject) =>
       setTimeout(() => resolve("There are 16 tools ready for use"), 2000)
     );
 </script>
