@@ -2,9 +2,13 @@
   <header class="sticky top-0 z-30 border-b bg-background/80 backdrop-blur">
     <div class="container flex h-14 items-center justify-between">
       <div class="flex items-center gap-10">
-        <div class="flex items-center gap-3">
-          <UIButton @click="mobileNav = true" size="icon-sm" variant="outline" class="h-8 lg:hidden"
-            ><Icon name="lucide:menu" class="h-4 w-4" />
+        <div class="flex items-center gap-5">
+          <UIButton
+            @click="mobileNav = true"
+            size="icon-sm"
+            variant="outline"
+            class="h-9 w-9 lg:hidden"
+            ><Icon name="heroicons:bars-2" class="h-4 w-4" />
           </UIButton>
           <NuxtLink to="/" class="text-lg font-bold">UI Thing</NuxtLink>
         </div>

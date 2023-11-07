@@ -2,7 +2,7 @@
   <nav :class="styles({ class: props.class })">
     <template v-for="(l, i) in links" :key="i">
       <NuxtLink
-        class="line-clamp-1 text-ellipsis text-muted-foreground underline-offset-2 hover:underline"
+        class="line-clamp-1 text-ellipsis text-base text-muted-foreground underline-offset-2 hover:underline sm:text-sm"
         exact-active-class="underline underline-offset-2"
         :to="l._path"
         :title="l.title"
@@ -12,7 +12,7 @@
       <div v-else class="flex flex-col gap-4">
         <div class="flex items-center gap-2.5">
           <Icon v-if="l.icon" :name="l.icon" class="h-4 w-4" />
-          <p class="font-medium">{{ l.title }}</p>
+          <p class="text-[17px] font-medium sm:text-sm">{{ l.title }}</p>
         </div>
         <div class="pl-7">
           <DocsNavlink class="gap-4" :links="l.children" />
@@ -38,6 +38,6 @@
   }>();
 
   const styles = tv({
-    base: "flex flex-col gap-6 text-sm",
+    base: "flex flex-col gap-6 sm:text-sm",
   });
 </script>
