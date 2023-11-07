@@ -1,5 +1,37 @@
 # UI Thing CLI
 
+## Credits
+
+- shadcn/ui
+- Radiv-Vue
+- TailwindCSS
+- Nuxt
+- Nuxt UI
+
+Thanks to the maintainers of the other third party libraries used in this project.
+
+## Getting Started
+
+- Create a Nuxt 3 project
+- Install the dependencies
+- Run the init command
+
+```bash
+npx ui-thing@latest init
+```
+
+- Start the dev server
+
+```bash
+npm run dev
+```
+
+- Add components to your project with the `add` command
+
+```bash
+npx ui-thing@latest add
+```
+
 ## Commands
 
 ### `init`
