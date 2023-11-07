@@ -6,7 +6,7 @@ import componentsData from "./components.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const outputTSPath = path.join(__dirname, "..", "packages/cli/src", "comp.ts");
+const outputTSPath = path.join(__dirname, "..", "server/utils", "comp.ts");
 const folderName = "components/UI";
 const folderPath = path.join(__dirname, "..", folderName);
 
@@ -14,6 +14,9 @@ const folderPath = path.join(__dirname, "..", folderName);
 function readFileContent(filePath) {
   return fs.readFileSync(filePath, "utf8");
 }
+
+// sort the components by value
+componentsData.sort((a, b) => a.value.localeCompare(b.value));
 
 // Iterate through the components and create a new JSON object
 const newComponentsData = componentsData.map((component) => {

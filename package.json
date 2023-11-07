@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "clean": "rm -rf .nuxt dist .output node_modules yarn.lock package-lock.json && npm cache clean --force && npm i",
-    "generate:components": "node scripts/create-components && npx prettier --write ./packages/cli/src/**/*",
+    "generate:components": "node scripts/create-components && npx prettier --write ./server/utils/comp.ts",
     "format": "npx prettier --write ."
   },
   "devDependencies": {
