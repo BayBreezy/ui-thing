@@ -1,5 +1,7 @@
 # UI Thing CLI
 
+![Cover Image](https://ui-thing.behonbaker.com/cover.png)
+
 ## Credits
 
 - shadcn/ui
