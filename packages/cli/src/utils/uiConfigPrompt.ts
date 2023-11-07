@@ -44,7 +44,7 @@ export const initPrompts = async () => {
     {
       name: "force",
       type: "confirm",
-      message: "Should we ask before overwriting files?",
+      message: "Should we just replace component files if they already exist?",
       initial: true,
     },
     {
