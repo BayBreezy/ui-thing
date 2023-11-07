@@ -2,6 +2,8 @@
   <UISheet v-model:open="localModel">
     <UISheetContent class="p-1">
       <template #content>
+        <UISheetTitle title="Mobile menu" class="sr-only" />
+        <UISheetDescription description="A list of navigation items for mobile" class="sr-only" />
         <UIScrollArea class="h-[calc(100dvh-20px)] w-full p-5">
           <div class="sticky top-0 mb-3 w-full bg-background">
             <div class="flex items-center gap-3.5">
@@ -9,6 +11,9 @@
                 <DocsLogo />
               </div>
               <p class="text-xl font-bold">UI Thing</p>
+              <UISheetClose class="ml-auto">
+                <Icon name="lucide:x" />
+              </UISheetClose>
             </div>
             <UISeparator class="mt-4" />
           </div>

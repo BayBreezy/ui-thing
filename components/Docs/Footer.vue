@@ -10,8 +10,8 @@
           <Icon name="lucide:arrow-left" class="h-5 w-5 text-muted-foreground" />
         </div>
         <div class="flex flex-col gap-1">
-          <p class="text-sm font-semibold">{{ prev.title }}</p>
-          <p class="line-clamp-2 text-ellipsis text-sm text-muted-foreground">
+          <p class="font-semibold lg:text-sm">{{ prev.title }}</p>
+          <p class="line-clamp-2 text-ellipsis text-[15px] text-muted-foreground lg:text-sm">
             {{ prev.description }}
           </p>
         </div>
@@ -22,8 +22,8 @@
         v-if="next"
       >
         <div class="flex flex-col gap-1">
-          <p class="text-sm font-semibold">{{ next.title }}</p>
-          <p class="line-clamp-2 text-ellipsis text-sm text-muted-foreground">
+          <p class="font-semibold lg:text-sm">{{ next.title }}</p>
+          <p class="line-clamp-2 text-ellipsis text-[15px] text-muted-foreground lg:text-sm">
             {{ next.description }}
           </p>
         </div>
