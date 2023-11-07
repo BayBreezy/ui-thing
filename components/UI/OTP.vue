@@ -49,7 +49,7 @@
   const localModel = useVModel(props, "modelValue", emits);
 
   const styles = tv({
-    base: "mr-3 h-10 w-10 rounded-md border border-input bg-background p-1 text-center font-medium [-moz-appearance:_textfield] selection:bg-primary selection:text-primary-foreground  placeholder:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none",
+    base: "mr-3 h-10 w-10 rounded-md border border-input bg-background p-1 text-center text-base font-medium [-moz-appearance:_textfield] selection:bg-primary  selection:text-primary-foreground placeholder:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none",
     variants: {
       separator: {
         true: "mx-2",

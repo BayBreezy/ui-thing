@@ -16,6 +16,6 @@
   const forwarded = useForwardProps(useOmit(props, ["class"]));
 
   const styles = tv({
-    base: "inline-block text-sm font-medium leading-none hover:cursor-pointer peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+    base: "inline-block text-base font-medium leading-none hover:cursor-pointer peer-disabled:cursor-not-allowed peer-disabled:opacity-70 sm:text-sm",
   });
 </script>
