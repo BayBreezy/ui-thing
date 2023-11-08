@@ -26,7 +26,7 @@
     "nuxt-simple-robots": "^3.1.9",
     "nuxt-simple-sitemap": "^3.4.1",
     "prettier": "^3.0.3",
-    "prettier-plugin-tailwindcss": "^0.5.6",
+    "prettier-plugin-tailwindcss": "^0.5.7",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.2.2"
   },
