@@ -1,10 +1,6 @@
 <template>
-  <div class="grid gap-10">
-    <DocShowcase title="Datatable.net table in action" class="px-5">
-      <div class="grid w-full">
-        <UIDatatable @ready="tableRef = $event" :data="users" :options="options" />
-      </div>
-    </DocShowcase>
+  <div class="flex w-full items-center justify-center">
+    <UIDatatable @ready="tableRef = $event" :data="users" :options="options" />
   </div>
 </template>
 

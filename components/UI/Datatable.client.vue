@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup generic="T">
+  import type DataTableRef from "datatables.net";
   import type { Config } from "datatables.net/types/types";
-  import DataTableRef from "datatables.net";
 
   const table = shallowRef<{ dt: InstanceType<typeof DataTableRef<T[]>> } | null>(null);
 
@@ -483,7 +483,7 @@
   .dataTables_wrapper .dt-buttons {
     @apply inline-flex items-center gap-2;
     button {
-      @apply inline-flex h-8 items-center gap-2 rounded-md border bg-background px-2 text-sm text-muted-foreground hover:bg-muted focus:outline-none  focus-visible:ring-4 focus-visible:ring-ring/10;
+      @apply inline-flex h-8 items-center gap-2 rounded-md border bg-background px-2 text-sm text-muted-foreground hover:bg-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
     }
   }
 
@@ -496,7 +496,7 @@
     label {
       @apply inline-flex items-center gap-2 text-sm font-normal text-muted-foreground;
       select {
-        @apply form-select h-8 w-[70px] cursor-pointer rounded-md border-border bg-background px-2 py-1 text-sm focus:border-primary focus:ring-4 focus:ring-ring/10;
+        @apply h-8 w-[70px] cursor-pointer rounded-md border border-border bg-background px-2 py-1 transition focus:border-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:text-sm;
       }
     }
   }
@@ -504,7 +504,7 @@
     label {
       @apply inline-flex w-full cursor-pointer items-center gap-2 text-sm font-normal text-muted-foreground;
       input {
-        @apply form-input h-8 w-full rounded-md border-border bg-background px-2 py-1 text-sm focus:border-primary focus:ring-4 focus:ring-ring/10;
+        @apply h-8 w-full rounded-md border border-border bg-background px-2 py-1 transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background sm:text-sm;
       }
     }
   }
@@ -796,7 +796,7 @@
   div.dtsb-searchBuilder div.dtsb-group div.dtsb-criteria {
     margin-bottom: 0.8em;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     flex-flow: row wrap;
   }
   div.dtsb-searchBuilder div.dtsb-group div.dtsb-criteria select.dtsb-dropDown,
@@ -876,7 +876,7 @@
       display: flex;
       flex-flow: none;
       flex-direction: column;
-      justify-content: start;
+      justify-content: flex-start;
       padding-right: calc(35px + 0.8em);
       margin-bottom: 0px;
     }
@@ -917,7 +917,7 @@
     @apply bg-background;
   }
   div.dtsb-searchBuilder button.dtsb-button {
-    @apply relative box-border inline-flex cursor-pointer select-none items-center justify-center overflow-hidden text-ellipsis whitespace-nowrap rounded-md border  bg-background px-3 py-2 text-xs focus:outline-none focus-visible:ring-4 focus-visible:ring-ring/10;
+    @apply relative box-border inline-flex cursor-pointer select-none items-center justify-center overflow-hidden text-ellipsis whitespace-nowrap rounded-md border bg-background px-3 py-2 text-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
   div.dtsb-searchBuilder button.dtsb-button:hover {
     @apply cursor-pointer bg-muted;
@@ -956,10 +956,10 @@
   div.dtsb-searchBuilder div.dtsb-group div.dtsb-criteria select.dtsb-condition,
   div.dtsb-searchBuilder div.dtsb-group div.dtsb-criteria select.dtsb-data,
   div.dtsb-searchBuilder div.dtsb-group div.dtsb-criteria select.dtsb-value {
-    @apply form-select rounded-md border-input bg-background text-xs transition focus:border-primary focus:ring-4 focus:ring-primary/10;
+    @apply rounded-md border border-input bg-background text-xs transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
   }
 
   div.dtsb-searchBuilder div.dtsb-group div.dtsb-criteria input.dtsb-value {
-    @apply form-input rounded-md border-input bg-background text-xs transition focus:border-primary focus:ring-4 focus:ring-primary/10;
+    @apply rounded-md border border-input bg-background text-xs transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
   }
 </style>

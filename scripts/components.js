@@ -196,6 +196,22 @@ export default [
     ],
   },
   {
+    name: "DataTables.net",
+    value: "datatable",
+    deps: [
+      "datatables.net-buttons-dt",
+      "datatables.net-responsive-dt",
+      "datatables.net-searchbuilder-dt",
+      "datatables.net-select-dt",
+      "datatables.net-vue3",
+      "jszip",
+    ],
+    devDeps: [],
+    nuxtModules: [],
+    plugins: ["datatables.client.ts"],
+    files: ["Datatable.client.vue"],
+  },
+  {
     name: "Datepicker",
     value: "datepicker",
     deps: [],

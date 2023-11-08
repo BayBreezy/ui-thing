@@ -40,12 +40,20 @@ const newComponentsData = componentsData.map((component) => {
     const fileContent = readFileContent(filePath);
     return { fileName, dirPath, fileContent };
   });
+  // Check if plugins exist and load those files too
+  const pluginsFiles = component.plugins?.map((fileName) => {
+    const filePath = path.join(__dirname, "../plugins", fileName);
+    const dirPath = "plugins";
+    const fileContent = readFileContent(filePath);
+    return { fileName, dirPath, fileContent };
+  });
 
   return {
     ...component,
     files: newFiles,
     utils: utilsFiles || [],
     composables: composablesFiles || [],
+    plugins: pluginsFiles || [],
   };
 });
 
