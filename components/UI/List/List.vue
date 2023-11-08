@@ -1,13 +1,23 @@
 <template>
-  <ul :class="styles({ class: props.class })">
+  <Primitive :class="styles({ class: props.class })" v-bind="props">
     <slot></slot>
-  </ul>
+  </Primitive>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    class?: any;
-  }>();
+  import { Primitive } from "radix-vue";
+  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";
+
+  const props = withDefaults(
+    defineProps<
+      PrimitiveProps & {
+        class?: any;
+      }
+    >(),
+    {
+      as: "ul",
+    }
+  );
 
   const styles = tv({
     base: "w-full py-2",

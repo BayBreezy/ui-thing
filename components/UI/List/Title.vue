@@ -1,14 +1,25 @@
 <template>
-  <p :class="styles({ class: props.class })">
+  <Primitive :class="styles({ class: props.class })" v-bind="props">
     <slot>{{ title }}</slot>
-  </p>
+  </Primitive>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    class?: any;
-    title?: string;
-  }>();
+  import { Primitive } from "radix-vue";
+  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";
+
+  const props = withDefaults(
+    defineProps<
+      PrimitiveProps & {
+        class?: any;
+        title?: string;
+      }
+    >(),
+    {
+      as: "p",
+    }
+  );
+
   const styles = tv({
     base: "font-semibold",
   });

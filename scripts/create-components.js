@@ -16,7 +16,7 @@ function readFileContent(filePath) {
 }
 
 // sort the components by value
-componentsData.sort((a, b) => a.value.localeCompare(b.value));
+componentsData.sort((a, b) => a.value.replace("-", "").localeCompare(b.value.replace("-", "")));
 
 // Iterate through the components and create a new JSON object
 const newComponentsData = componentsData.map((component) => {

@@ -1,6 +1,7 @@
 <template>
-  <component
-    :is="eltype"
+  <Primitive
+    :as="eltype"
+    :as-child="asChild"
     :to="to"
     @click="onClick"
     :class="
@@ -11,16 +12,26 @@
     "
   >
     <slot></slot>
-  </component>
+  </Primitive>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    class?: any;
-    onClick?: () => void;
-    to?: string;
-    href?: string;
-  }>();
+  import { Primitive } from "radix-vue";
+  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";
+
+  const props = withDefaults(
+    defineProps<
+      PrimitiveProps & {
+        class?: any;
+        onClick?: () => void;
+        to?: string;
+        href?: string;
+      }
+    >(),
+    {
+      as: "li",
+    }
+  );
 
   const styles = tv({
     base: "flex w-full items-center gap-5 px-4 py-2",
@@ -34,6 +45,6 @@
   const eltype = computed(() => {
     if (props.to || props.href) return resolveComponent("NuxtLink");
     if (props.onClick) return "button";
-    return "li";
+    return props.as;
   });
 </script>

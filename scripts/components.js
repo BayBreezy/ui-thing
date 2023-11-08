@@ -313,6 +313,20 @@ export default [
     files: ["Label.vue"],
   },
   {
+    name: "List",
+    value: "list",
+    deps: ["radix-vue", "tailwind-variants"],
+    devDeps: [],
+    nuxtModules: [],
+    files: [
+      "List/Content.vue",
+      "List/Item.vue",
+      "List/List.vue",
+      "List/Subtitle.vue",
+      "List/Title.vue",
+    ],
+  },
+  {
     name: "Menubar",
     value: "menubar",
     deps: ["radix-vue", "tailwind-variants"],

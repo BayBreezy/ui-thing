@@ -1,14 +1,24 @@
 <template>
-  <p :class="styles({ class: props.class })">
+  <Primitive :class="styles({ class: props.class })" v-bind="props">
     <slot>{{ subtitle }}</slot>
-  </p>
+  </Primitive>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
-    class?: any;
-    subtitle?: string;
-  }>();
+  import { Primitive } from "radix-vue";
+  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";
+
+  const props = withDefaults(
+    defineProps<
+      PrimitiveProps & {
+        class?: any;
+        subtitle?: string;
+      }
+    >(),
+    {
+      as: "p",
+    }
+  );
 
   const styles = tv({
     base: "text-sm text-muted-foreground",
