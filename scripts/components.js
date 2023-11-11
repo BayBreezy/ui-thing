@@ -698,4 +698,14 @@ export default [
     components: ["textarea", "label"],
     files: ["Vee/Textarea.vue"],
   },
+  {
+    name: "VeeMultiSelect",
+    value: "vee-multi-select",
+    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    askValidator: true,
+    devDeps: ["nuxt-icon"],
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+    components: ["label"],
+    files: ["Vee/MultiSelect.vue"],
+  },
 ];

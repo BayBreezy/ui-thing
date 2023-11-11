@@ -1,8 +1,11 @@
 <template>
   <div class="w-full">
-    <UILabel :for="inputId" v-if="label" :class="[errorMessage && 'text-destructive', 'mb-2']">{{
-      label
-    }}</UILabel>
+    <UILabel
+      :for="inputId"
+      v-if="label"
+      :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
+      >{{ label }}</UILabel
+    >
     <div class="relative">
       <slot name="icon">
         <span v-if="hasIcon" class="absolute inset-y-0 left-3 flex items-center justify-center">
@@ -15,6 +18,7 @@
         @blur="handleBlur"
         :id="inputId"
         :name="name"
+        :disabled="disabled"
         v-bind="$attrs"
         :class="[hasIcon && 'pl-9']"
         :placeholder="placeholder"
@@ -39,6 +43,7 @@
     label?: string;
     icon?: string;
     hint?: string;
+    disabled?: boolean;
     modelValue?: string;
     name?: string;
     id?: string;
