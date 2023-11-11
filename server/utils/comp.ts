@@ -2122,7 +2122,13 @@ export default [
   {
     name: "VeeMultiSelect",
     value: "vee-multi-select",
-    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    deps: [
+      "@vee-validate/nuxt",
+      "radix-vue",
+      "@morev/vue-transitions",
+      "tailwind-variants",
+      "@vueform/multiselect",
+    ],
     askValidator: true,
     devDeps: ["nuxt-icon"],
     nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
