@@ -1,11 +1,11 @@
 <template>
-  <CollapsibleContent :class="styles({ class: props.class })" v-bind="forwarded">
+  <CollapsibleContent :class="styles({ class: props.class })" v-bind="props">
     <slot></slot>
   </CollapsibleContent>
 </template>
 
 <script lang="ts" setup>
-  import { CollapsibleContent, useForwardProps } from "radix-vue";
+  import { CollapsibleContent } from "radix-vue";
   import type { CollapsibleContentProps } from "radix-vue";
 
   const props = defineProps<
@@ -13,7 +13,6 @@
       class?: any;
     }
   >();
-  const forwarded = useForwardProps(useOmit(props, ["class"]));
 
   const styles = tv({
     base: "overflow-hidden transition will-change-auto data-[state=closed]:animate-collapse-up data-[state=open]:animate-collapse-down",
