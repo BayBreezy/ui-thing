@@ -5,7 +5,7 @@
 </template>
 <script setup lang="ts">
   import { Primitive } from "radix-vue";
-  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";
+  import type { PrimitiveProps } from "radix-vue";
 
   const props = withDefaults(
     defineProps<

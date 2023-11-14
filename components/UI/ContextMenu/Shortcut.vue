@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
   import { Primitive } from "radix-vue";
-  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";
+  import type { PrimitiveProps } from "radix-vue";
 
   const props = defineProps<
     PrimitiveProps & {

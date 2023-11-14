@@ -59,13 +59,13 @@ export default [
         fileName: "Alert/Description.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <Primitive v-bind="forwarded" :class="styles({ class: props.class })">\n    <slot>{{ description }}</slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n        description?: string;\n      }\n    >(),\n    { as: "div" }\n  );\n  const forwarded = useForwardProps(useOmit(props, ["class", "description"]));\n\n  const styles = tv({\n    base: "text-sm [&_p]:leading-relaxed",\n  });\n</script>\n',
+          '<template>\n  <Primitive v-bind="forwarded" :class="styles({ class: props.class })">\n    <slot>{{ description }}</slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n        description?: string;\n      }\n    >(),\n    { as: "div" }\n  );\n  const forwarded = useForwardProps(useOmit(props, ["class", "description"]));\n\n  const styles = tv({\n    base: "text-sm [&_p]:leading-relaxed",\n  });\n</script>\n',
       },
       {
         fileName: "Alert/Title.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <Primitive v-bind="forwarded" :class="styles({ class: props.class })">\n    <slot>{{ title }}</slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n        title?: string;\n      }\n    >(),\n    { as: "h5" }\n  );\n  const forwarded = useForwardProps(useOmit(props, ["class", "title"]));\n\n  const styles = tv({\n    base: "mb-1 font-medium leading-none tracking-tight",\n  });\n</script>\n',
+          '<template>\n  <Primitive v-bind="forwarded" :class="styles({ class: props.class })">\n    <slot>{{ title }}</slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n        title?: string;\n      }\n    >(),\n    { as: "h5" }\n  );\n  const forwarded = useForwardProps(useOmit(props, ["class", "title"]));\n\n  const styles = tv({\n    base: "mb-1 font-medium leading-none tracking-tight",\n  });\n</script>\n',
       },
     ],
     utils: [],
@@ -121,13 +121,13 @@ export default [
         fileName: "AlertDialog/Footer.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">\n    <slot></slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "div",\n    }\n  );\n\n  const forwarded = useForwardProps(useOmit(props, ["class"]));\n\n  const styles = tv({\n    base: "flex flex-col-reverse sm:flex-row sm:justify-end sm:gap-2",\n  });\n</script>\n',
+          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">\n    <slot></slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "div",\n    }\n  );\n\n  const forwarded = useForwardProps(useOmit(props, ["class"]));\n\n  const styles = tv({\n    base: "flex flex-col-reverse sm:flex-row sm:justify-end sm:gap-2",\n  });\n</script>\n',
       },
       {
         fileName: "AlertDialog/Header.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">\n    <slot></slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "div",\n    }\n  );\n  const forwarded = useForwardProps(useOmit(props, ["class"]));\n\n  const styles = tv({\n    base: "flex flex-col gap-2 text-center sm:text-left",\n  });\n</script>\n',
+          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">\n    <slot></slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "div",\n    }\n  );\n  const forwarded = useForwardProps(useOmit(props, ["class"]));\n\n  const styles = tv({\n    base: "flex flex-col gap-2 text-center sm:text-left",\n  });\n</script>\n',
       },
       {
         fileName: "AlertDialog/Overlay.vue",
@@ -398,37 +398,37 @@ export default [
         fileName: "Card/Card.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\r\n  <Primitive :as="as" :as-child="asChild" :class="styles({ class: props.class })">\r\n    <slot>\r\n      <slot name="header">\r\n        <UICardHeader>\r\n          <slot name="title">\r\n            <UICardTitle v-if="title || $slots.title" :title="title" />\r\n          </slot>\r\n          <slot name="description">\r\n            <UICardDescription\r\n              v-if="description || $slots.description"\r\n              :description="description"\r\n            />\r\n          </slot>\r\n        </UICardHeader>\r\n      </slot>\r\n      <slot name="content" v-if="content || $slots.content">\r\n        <UICardContent>\r\n          <div v-html="content"></div>\r\n        </UICardContent>\r\n      </slot>\r\n      <slot name="footer"></slot>\r\n    </slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        title?: string;\r\n        description?: string;\r\n        content?: string;\r\n        class?: any;\r\n      }\r\n    >(),\r\n    {\r\n      as: "div",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "rounded-lg border bg-card text-card-foreground shadow-sm",\r\n  });\r\n</script>\r\n',
+          '<template>\r\n  <Primitive :as="as" :as-child="asChild" :class="styles({ class: props.class })">\r\n    <slot>\r\n      <slot name="header">\r\n        <UICardHeader>\r\n          <slot name="title">\r\n            <UICardTitle v-if="title || $slots.title" :title="title" />\r\n          </slot>\r\n          <slot name="description">\r\n            <UICardDescription\r\n              v-if="description || $slots.description"\r\n              :description="description"\r\n            />\r\n          </slot>\r\n        </UICardHeader>\r\n      </slot>\r\n      <slot name="content" v-if="content || $slots.content">\r\n        <UICardContent>\r\n          <div v-html="content"></div>\r\n        </UICardContent>\r\n      </slot>\r\n      <slot name="footer"></slot>\r\n    </slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        title?: string;\r\n        description?: string;\r\n        content?: string;\r\n        class?: any;\r\n      }\r\n    >(),\r\n    {\r\n      as: "div",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "rounded-lg border bg-card text-card-foreground shadow-sm",\r\n  });\r\n</script>\r\n',
       },
       {
         fileName: "Card/Content.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\r\n  <Primitive :as="as" :as-child="asChild" :class="styles({ class: props.class })">\r\n    <slot>\r\n      {{ content }}\r\n    </slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        content?: string;\r\n        class?: any;\r\n      }\r\n    >(),\r\n    { as: "div" }\r\n  );\r\n  const styles = tv({\r\n    base: "p-6 pt-0",\r\n  });\r\n</script>\r\n',
+          '<template>\r\n  <Primitive :as="as" :as-child="asChild" :class="styles({ class: props.class })">\r\n    <slot>\r\n      {{ content }}\r\n    </slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        content?: string;\r\n        class?: any;\r\n      }\r\n    >(),\r\n    { as: "div" }\r\n  );\r\n  const styles = tv({\r\n    base: "p-6 pt-0",\r\n  });\r\n</script>\r\n',
       },
       {
         fileName: "Card/Description.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\r\n  <Primitive :class="styles({ class: props.class })" :as="as" :as-child="asChild">\r\n    <slot>\r\n      {{ description }}\r\n    </slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        description?: string;\r\n        class?: any;\r\n      }\r\n    >(),\r\n    {\r\n      as: "div",\r\n    }\r\n  );\r\n  const styles = tv({\r\n    base: "text-sm text-muted-foreground",\r\n  });\r\n</script>\r\n',
+          '<template>\r\n  <Primitive :class="styles({ class: props.class })" :as="as" :as-child="asChild">\r\n    <slot>\r\n      {{ description }}\r\n    </slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        description?: string;\r\n        class?: any;\r\n      }\r\n    >(),\r\n    {\r\n      as: "div",\r\n    }\r\n  );\r\n  const styles = tv({\r\n    base: "text-sm text-muted-foreground",\r\n  });\r\n</script>\r\n',
       },
       {
         fileName: "Card/Footer.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\r\n  <Primitive :class="styles({ class: props.class })" :as="as" :as-child="asChild">\r\n    <slot> </slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n      }\r\n    >(),\r\n    { as: "div" }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "flex items-center p-6 pt-0",\r\n  });\r\n</script>\r\n',
+          '<template>\r\n  <Primitive :class="styles({ class: props.class })" :as="as" :as-child="asChild">\r\n    <slot> </slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n      }\r\n    >(),\r\n    { as: "div" }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "flex items-center p-6 pt-0",\r\n  });\r\n</script>\r\n',
       },
       {
         fileName: "Card/Header.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\r\n  <Primitive :class="styles({ class: props.class })" :as="as" :as-child="asChild">\r\n    <slot></slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n      }\r\n    >(),\r\n    { as: "div" }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "flex flex-col space-y-1.5 p-6",\r\n  });\r\n</script>\r\n',
+          '<template>\r\n  <Primitive :class="styles({ class: props.class })" :as="as" :as-child="asChild">\r\n    <slot></slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n      }\r\n    >(),\r\n    { as: "div" }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "flex flex-col space-y-1.5 p-6",\r\n  });\r\n</script>\r\n',
       },
       {
         fileName: "Card/Title.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\r\n  <Primitive :class="styles({ class: props.class })" :as="as" :as-child="asChild">\r\n    <slot>\r\n      {{ title }}\r\n    </slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        title?: string;\r\n        class?: any;\r\n      }\r\n    >(),\r\n    {\r\n      as: "h3",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "text-xl font-semibold leading-none tracking-tight",\r\n  });\r\n</script>\r\n',
+          '<template>\r\n  <Primitive :class="styles({ class: props.class })" :as="as" :as-child="asChild">\r\n    <slot>\r\n      {{ title }}\r\n    </slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        title?: string;\r\n        class?: any;\r\n      }\r\n    >(),\r\n    {\r\n      as: "h3",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "text-xl font-semibold leading-none tracking-tight",\r\n  });\r\n</script>\r\n',
       },
     ],
     utils: [],
@@ -561,7 +561,7 @@ export default [
         fileName: "Command/Shortcut.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <Primitive :as="as || \'span\'" :as-child="asChild" :class="styles({ class: props.class })">\n    <slot>{{ shortcut }}</slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\n\n  const props = defineProps<\n    PrimitiveProps & {\n      class?: any;\n      shortcut?: any;\n    }\n  >();\n  const styles = tv({\n    base: "ml-auto text-xs tracking-widest text-muted-foreground",\n  });\n</script>\n',
+          '<template>\n  <Primitive :as="as || \'span\'" :as-child="asChild" :class="styles({ class: props.class })">\n    <slot>{{ shortcut }}</slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const props = defineProps<\n    PrimitiveProps & {\n      class?: any;\n      shortcut?: any;\n    }\n  >();\n  const styles = tv({\n    base: "ml-auto text-xs tracking-widest text-muted-foreground",\n  });\n</script>\n',
       },
     ],
     utils: [],
@@ -651,7 +651,7 @@ export default [
         fileName: "ContextMenu/Shortcut.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <Primitive :as="as || \'span\'" :as-child="asChild" :class="styles({ class: props.class })">\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\n\n  const props = defineProps<\n    PrimitiveProps & {\n      class?: any;\n    }\n  >();\n\n  const styles = tv({\n    base: "ml-auto text-xs tracking-widest text-muted-foreground",\n  });\n</script>\n',
+          '<template>\n  <Primitive :as="as || \'span\'" :as-child="asChild" :class="styles({ class: props.class })">\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const props = defineProps<\n    PrimitiveProps & {\n      class?: any;\n    }\n  >();\n\n  const styles = tv({\n    base: "ml-auto text-xs tracking-widest text-muted-foreground",\n  });\n</script>\n',
       },
       {
         fileName: "ContextMenu/Sub.vue",
@@ -770,13 +770,13 @@ export default [
         fileName: "Dialog/Footer.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">\n    <slot></slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "div",\n    }\n  );\n  const forwarded = useForwardProps(useOmit(props, ["class"]));\n\n  const styles = tv({\n    base: "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",\n  });\n</script>\n',
+          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">\n    <slot></slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "div",\n    }\n  );\n  const forwarded = useForwardProps(useOmit(props, ["class"]));\n\n  const styles = tv({\n    base: "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",\n  });\n</script>\n',
       },
       {
         fileName: "Dialog/Header.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">\n    <slot></slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "div",\n    }\n  );\n  const forwarded = useForwardProps(useOmit(props, ["class"]));\n\n  const styles = tv({\n    base: "flex flex-col space-y-1.5 text-center sm:text-left",\n  });\n</script>\n',
+          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">\n    <slot></slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "div",\n    }\n  );\n  const forwarded = useForwardProps(useOmit(props, ["class"]));\n\n  const styles = tv({\n    base: "flex flex-col space-y-1.5 text-center sm:text-left",\n  });\n</script>\n',
       },
       {
         fileName: "Dialog/Overlay.vue",
@@ -890,7 +890,7 @@ export default [
         fileName: "DropdownMenu/Shortcut.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\r\n  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">\r\n    <slot />\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive, useForwardProps } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n      }\r\n    >(),\r\n    {\r\n      as: "span",\r\n    }\r\n  );\r\n  const forwarded = useForwardProps(useOmit(props, ["class"]));\r\n\r\n  const styles = tv({\r\n    base: "ml-auto text-xs tracking-widest opacity-60",\r\n  });\r\n</script>\r\n',
+          '<template>\r\n  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">\r\n    <slot />\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive, useForwardProps } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n      }\r\n    >(),\r\n    {\r\n      as: "span",\r\n    }\r\n  );\r\n  const forwarded = useForwardProps(useOmit(props, ["class"]));\r\n\r\n  const styles = tv({\r\n    base: "ml-auto text-xs tracking-widest opacity-60",\r\n  });\r\n</script>\r\n',
       },
       {
         fileName: "DropdownMenu/Sub.vue",
@@ -1059,7 +1059,7 @@ export default [
         fileName: "Kbd.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <Primitive :class="styles({ size, class: props.class })" v-bind="props">\n    <slot />\n  </Primitive>\n</template>\n<script setup lang="ts">\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        size?: VariantProps<typeof styles>["size"];\n        class?: any;\n      }\n    >(),\n    {\n      as: "kbd",\n      size: "sm",\n    }\n  );\n\n  const styles = tv({\n    base: "pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded-md border border-border bg-muted font-sans font-medium",\n    variants: {\n      size: {\n        xs: "h-5 min-h-[16px] px-1 text-[10px]",\n        sm: "h-6 min-h-[20px] px-1.5 text-[11px]",\n        md: "h-7 min-h-[24px] px-2 text-[12px]",\n      },\n    },\n    defaultVariants: {\n      size: "sm",\n    },\n  });\n</script>\n',
+          '<template>\n  <Primitive :class="styles({ size, class: props.class })" v-bind="props">\n    <slot />\n  </Primitive>\n</template>\n<script setup lang="ts">\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        size?: VariantProps<typeof styles>["size"];\n        class?: any;\n      }\n    >(),\n    {\n      as: "kbd",\n      size: "sm",\n    }\n  );\n\n  const styles = tv({\n    base: "pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded-md border border-border bg-muted font-sans font-medium",\n    variants: {\n      size: {\n        xs: "h-5 min-h-[16px] px-1 text-[10px]",\n        sm: "h-6 min-h-[20px] px-1.5 text-[11px]",\n        md: "h-7 min-h-[24px] px-2 text-[12px]",\n      },\n    },\n    defaultVariants: {\n      size: "sm",\n    },\n  });\n</script>\n',
       },
     ],
     utils: [],
@@ -1095,7 +1095,7 @@ export default [
         fileName: "List/Content.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\r\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\r\n    <slot></slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n      }\r\n    >(),\r\n    {\r\n      as: "div",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "flex flex-col gap-1 leading-none",\r\n  });\r\n</script>\r\n',
+          '<template>\r\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\r\n    <slot></slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n      }\r\n    >(),\r\n    {\r\n      as: "div",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "flex flex-col gap-1 leading-none",\r\n  });\r\n</script>\r\n',
       },
       {
         fileName: "List/Item.vue",
@@ -1107,19 +1107,19 @@ export default [
         fileName: "List/List.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\r\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\r\n    <slot></slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n      }\r\n    >(),\r\n    {\r\n      as: "ul",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "w-full py-2",\r\n  });\r\n</script>\r\n',
+          '<template>\r\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\r\n    <slot></slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n      }\r\n    >(),\r\n    {\r\n      as: "ul",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "w-full py-2",\r\n  });\r\n</script>\r\n',
       },
       {
         fileName: "List/Subtitle.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\r\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\r\n    <slot>{{ subtitle }}</slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n        subtitle?: string;\r\n      }\r\n    >(),\r\n    {\r\n      as: "p",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "text-sm text-muted-foreground",\r\n  });\r\n</script>\r\n',
+          '<template>\r\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\r\n    <slot>{{ subtitle }}</slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n        subtitle?: string;\r\n      }\r\n    >(),\r\n    {\r\n      as: "p",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "text-sm text-muted-foreground",\r\n  });\r\n</script>\r\n',
       },
       {
         fileName: "List/Title.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\r\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\r\n    <slot>{{ title }}</slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n        title?: string;\r\n      }\r\n    >(),\r\n    {\r\n      as: "p",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "font-semibold",\r\n  });\r\n</script>\r\n',
+          '<template>\r\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\r\n    <slot>{{ title }}</slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive } from "radix-vue";\r\n  import type { PrimitiveProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n        title?: string;\r\n      }\r\n    >(),\r\n    {\r\n      as: "p",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "font-semibold",\r\n  });\r\n</script>\r\n',
       },
     ],
     utils: [],
@@ -1215,7 +1215,7 @@ export default [
         fileName: "Menubar/Shortcut.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    { as: "span" }\n  );\n\n  const styles = tv({\n    base: "ml-auto text-xs tracking-widest opacity-60",\n  });\n</script>\n',
+          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    { as: "span" }\n  );\n\n  const styles = tv({\n    base: "ml-auto text-xs tracking-widest opacity-60",\n  });\n</script>\n',
       },
       {
         fileName: "Menubar/Sub.vue",
@@ -1719,13 +1719,13 @@ export default [
         fileName: "Sheet/Footer.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\n    <slot></slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "div",\n    }\n  );\n\n  const styles = tv({\n    base: "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",\n  });\n</script>\n',
+          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\n    <slot></slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "div",\n    }\n  );\n\n  const styles = tv({\n    base: "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",\n  });\n</script>\n',
       },
       {
         fileName: "Sheet/Header.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\n    <slot></slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "div",\n    }\n  );\n\n  const styles = tv({\n    base: "flex flex-col space-y-2 text-center sm:text-left",\n  });\n</script>\n',
+          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\n    <slot></slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "div",\n    }\n  );\n\n  const styles = tv({\n    base: "flex flex-col space-y-2 text-center sm:text-left",\n  });\n</script>\n',
       },
       {
         fileName: "Sheet/Overlay.vue",
@@ -1779,7 +1779,7 @@ export default [
         fileName: "Skeleton.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\n    <slot></slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue/dist/Primitive/Primitive";\n\n  const styles = tv({\n    base: "animate-pulse rounded-md bg-muted",\n  });\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "div",\n    }\n  );\n</script>\n',
+          '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="props">\n    <slot></slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const styles = tv({\n    base: "animate-pulse rounded-md bg-muted",\n  });\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "div",\n    }\n  );\n</script>\n',
       },
     ],
     utils: [],
