@@ -1,5 +1,5 @@
 <template>
-  <AvatarFallback :class="styles({ class: props.class })" v-bind="forwarded">
+  <AvatarFallback :class="styles({ class: props.class })" v-bind="props">
     <slot>
       {{ fallback }}
     </slot>
@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { AvatarFallback, useForwardProps } from "radix-vue";
+  import { AvatarFallback } from "radix-vue";
   import type { AvatarFallbackProps } from "radix-vue";
 
   const props = defineProps<
@@ -16,8 +16,6 @@
       class?: any;
     }
   >();
-  const forwarded = useForwardProps(useOmit(props, ["fallback", "class"]));
-
   const styles = tv({
     base: "flex h-full w-full items-center justify-center rounded-full bg-muted font-medium",
   });
