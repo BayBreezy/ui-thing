@@ -127,6 +127,7 @@ export default defineNuxtConfig({
     indexable: true,
     twitter: twitterCreator,
   },
+  sitemap: { autoLastmod: true },
   ogImage: {
     defaults: {
       alt: title,
