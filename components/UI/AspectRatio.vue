@@ -1,13 +1,12 @@
 <template>
-  <AspectRatio v-bind="forwarded">
+  <AspectRatio v-bind="props">
     <slot />
   </AspectRatio>
 </template>
 
 <script lang="ts" setup>
-  import { AspectRatio, useForwardProps } from "radix-vue";
+  import { AspectRatio } from "radix-vue";
   import type { AspectRatioProps } from "radix-vue";
 
   const props = defineProps<AspectRatioProps>();
-  const forwarded = useForwardProps(props);
 </script>
