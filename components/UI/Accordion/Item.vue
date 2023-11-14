@@ -1,5 +1,5 @@
 <template>
-  <AccordionItem v-bind="forwarded" :class="styles({ class: props.class })">
+  <AccordionItem v-bind="props" :class="styles({ class: props.class })">
     <slot></slot>
   </AccordionItem>
 </template>
@@ -13,7 +13,6 @@
       class?: any;
     }
   >();
-  const forwarded = useForwardProps(useOmit(props, ["class"]));
 
   const styles = tv({
     base: "border-b",

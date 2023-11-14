@@ -1,5 +1,5 @@
 <template>
-  <AccordionTrigger v-bind="forwarded" :class="styles({ class: props.class })">
+  <AccordionTrigger v-bind="props" :class="styles({ class: props.class })">
     <slot>
       {{ title }}
     </slot>
@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { AccordionTrigger, useForwardProps } from "radix-vue";
+  import { AccordionTrigger } from "radix-vue";
   import type { AccordionTriggerProps } from "radix-vue";
 
   const props = withDefaults(
@@ -25,7 +25,6 @@
       icon: "lucide:chevron-down",
     }
   );
-  const forwarded = useForwardProps(useOmit(props, ["class", "title", "icon"]));
 
   const styles = tv({
     base: "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&[data-state=open]>svg]:rotate-180",

@@ -41,5 +41,5 @@
   );
 
   const emits = defineEmits<AccordionRootEmits>();
-  const forwarded = useForwardPropsEmits(useOmit(props, ["items"]), emits);
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>
