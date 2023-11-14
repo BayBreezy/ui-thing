@@ -458,7 +458,7 @@
     @apply bg-primary/10;
   }
   table.dataTable.no-footer {
-    @apply border-b;
+    @apply border-b-0;
   }
   table.dataTable.compact thead th,
   table.dataTable.compact thead td,
@@ -472,6 +472,10 @@
   table.dataTable th,
   table.dataTable td {
     @apply box-content border-y;
+  }
+
+  table.dataTable tr:last-child td {
+    @apply !border-b-0;
   }
 
   /* Control feature layout */
