@@ -1,5 +1,5 @@
 <template>
-  <ComboboxCancel v-bind="forwarded" :class="styles({ class: props.class })">
+  <ComboboxCancel v-bind="props" :class="styles({ class: props.class })">
     <slot>
       <Icon name="lucide:x" class="h-4 w-4 text-muted-foreground/70" />
     </slot>
@@ -7,11 +7,10 @@
 </template>
 
 <script lang="ts" setup>
-  import { ComboboxCancel, useForwardProps } from "radix-vue";
+  import { ComboboxCancel } from "radix-vue";
   import type { ComboboxCancelProps } from "radix-vue";
 
   const props = defineProps<ComboboxCancelProps & { class?: any }>();
-  const forwarded = useForwardProps(props);
 
   const styles = tv({
     base: "flex items-center justify-center",

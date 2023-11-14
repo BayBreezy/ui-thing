@@ -14,7 +14,7 @@
         </UIButton>
       </UIPopoverTrigger>
       <UIPopoverContent class="w-[250px] p-0">
-        <UICommand v-model="value">
+        <UICommand :filter-function="filterFunction" v-model="value">
           <UICommandInput placeholder="Search framework..." />
           <UICommandList>
             <UICommandEmpty>No framework found.</UICommandEmpty>
@@ -57,4 +57,7 @@
   const selectedFramework = computed(
     () => frameworks.find((framework) => framework.value === value?.value?.value)?.label
   );
+
+  const filterFunction = (list: typeof frameworks, search: string) =>
+    list.filter((i) => i.value.toLowerCase().includes(search.toLowerCase()));
 </script>

@@ -25,10 +25,7 @@
     }
   >();
   const emit = defineEmits<ComboboxItemEmits>();
-  const forwarded = useForwardPropsEmits(
-    useOmit(props, ["class", "icon", "text", "shortcut"]),
-    emit
-  );
+  const forwarded = useForwardPropsEmits(props, emit);
 
   const styles = tv({
     base: "relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
