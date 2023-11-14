@@ -1,11 +1,11 @@
 <template>
-  <ContextMenuLabel :class="styles({ inset, class: props.class })" v-bind="forwarded">
+  <ContextMenuLabel :class="styles({ inset, class: props.class })" v-bind="props">
     <slot>{{ label }}</slot>
   </ContextMenuLabel>
 </template>
 
 <script lang="ts" setup>
-  import { ContextMenuLabel, useForwardProps } from "radix-vue";
+  import { ContextMenuLabel } from "radix-vue";
   import type { ContextMenuLabelProps } from "radix-vue";
 
   const props = defineProps<
@@ -15,7 +15,6 @@
       label?: string;
     }
   >();
-  const forwarded = useForwardProps(useOmit(props, ["class", "inset", "label"]));
 
   const styles = tv({
     base: "inline-block w-full px-2 py-1.5 text-sm font-semibold text-foreground",

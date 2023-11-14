@@ -1,9 +1,9 @@
 <template>
-  <ContextMenuSeparator :class="styles({ class: props.class })" v-bind="forwarded" />
+  <ContextMenuSeparator :class="styles({ class: props.class })" v-bind="props" />
 </template>
 
 <script lang="ts" setup>
-  import { ContextMenuSeparator, useForwardProps } from "radix-vue";
+  import { ContextMenuSeparator } from "radix-vue";
   import type { ContextMenuSeparatorProps } from "radix-vue";
 
   const props = defineProps<
@@ -11,7 +11,6 @@
       class?: any;
     }
   >();
-  const forwarded = useForwardProps(useOmit(props, ["class"]));
 
   const styles = tv({
     base: "-mx-1 my-1 h-px bg-border",

@@ -23,9 +23,9 @@
   >();
 
   const emits = defineEmits<ContextMenuRadioItemEmits>();
-  const forwarded = useForwardPropsEmits(useOmit(props, ["icon", "title", "class"]), emits);
+  const forwarded = useForwardPropsEmits(props, emits);
 
   const styles = tv({
-    base: "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:cursor-not-allowed data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
+    base: "relative flex cursor-pointer select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:cursor-not-allowed data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
   });
 </script>
