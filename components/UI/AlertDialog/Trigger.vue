@@ -1,5 +1,5 @@
 <template>
-  <AlertDialogTrigger v-bind="forwarded">
+  <AlertDialogTrigger v-bind="props">
     <slot></slot>
   </AlertDialogTrigger>
 </template>
@@ -9,5 +9,4 @@
   import type { AlertDialogTriggerProps } from "radix-vue";
 
   const props = defineProps<AlertDialogTriggerProps>();
-  const forwarded = useForwardProps(props);
 </script>

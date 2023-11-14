@@ -48,8 +48,5 @@
 
   const emits = defineEmits<AlertDialogEmits>();
 
-  const forwarded = useForwardPropsEmits(
-    useOmit(props, ["description", "title", "triggerText"]),
-    emits
-  );
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>

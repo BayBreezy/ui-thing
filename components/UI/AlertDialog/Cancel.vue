@@ -1,6 +1,6 @@
 <template>
   <AlertDialogCancel
-    v-bind="forwarded"
+    v-bind="props"
     :class="buttonStyles({ variant, size, disabled, class: props.class })"
   >
     <slot>{{ text }}</slot>
@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { AlertDialogCancel, useForwardProps } from "radix-vue";
+  import { AlertDialogCancel } from "radix-vue";
   import type { AlertDialogCancelProps } from "radix-vue";
 
   const props = withDefaults(
@@ -27,5 +27,4 @@
       variant: "outline",
     }
   );
-  const forwarded = useForwardProps(useOmit(props, ["text", "class", "variant", "size"]));
 </script>

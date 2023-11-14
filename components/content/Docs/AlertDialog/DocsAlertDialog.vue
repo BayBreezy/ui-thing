@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center">
-    <UIAlertDialog>
+    <UIAlertDialog v-model:open="model">
       <UIAlertDialogTrigger as-child>
         <UIButton variant="outline">Show Dialog</UIButton>
       </UIAlertDialogTrigger>
@@ -25,4 +25,5 @@
   const showMessage = (message: string) => {
     alert(message);
   };
+  const model = ref(true);
 </script>
