@@ -1,11 +1,11 @@
 <template>
-  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">
+  <Primitive :class="styles({ class: props.class })" v-bind="props">
     <slot></slot>
   </Primitive>
 </template>
 
 <script lang="ts" setup>
-  import { Primitive, useForwardProps } from "radix-vue";
+  import { Primitive } from "radix-vue";
   import type { PrimitiveProps } from "radix-vue";
 
   const props = withDefaults(
@@ -18,7 +18,6 @@
       as: "div",
     }
   );
-  const forwarded = useForwardProps(useOmit(props, ["class"]));
 
   const styles = tv({
     base: "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
