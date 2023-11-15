@@ -35,7 +35,7 @@ export const defineShortcuts = (config: ShortcutsConfig, options: ShortcutsOptio
 
   let shortcuts: Shortcut[] = [];
 
-  const chainedInputs = ref([]);
+  const chainedInputs = ref<any[]>([]);
   const clearChainedInput = () => {
     chainedInputs.value.splice(0, chainedInputs.value.length);
   };
