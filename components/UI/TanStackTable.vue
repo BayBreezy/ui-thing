@@ -204,18 +204,26 @@
   const checkBoxHeader: ColumnDef<any> = {
     id: "checkbox",
     header: ({ table }) => {
-      return h(CheckBox, {
-        checked: table.getIsAllRowsSelected(),
-        "onUpdate:checked": (value: boolean) => table.toggleAllPageRowsSelected(!!value),
-        ariaLabel: "Select all",
-      });
+      return h(
+        "div",
+        { class: "flex items-center justify-center" },
+        h(CheckBox, {
+          checked: table.getIsAllRowsSelected(),
+          "onUpdate:checked": (value: boolean) => table.toggleAllPageRowsSelected(!!value),
+          ariaLabel: "Select all",
+        })
+      );
     },
     cell: ({ row }) => {
-      return h(CheckBox, {
-        checked: row.getIsSelected(),
-        "onUpdate:checked": (value) => row.toggleSelected(!!value),
-        ariaLabel: "Select row",
-      });
+      return h(
+        "div",
+        { class: "flex items-center justify-center " },
+        h(CheckBox, {
+          checked: row.getIsSelected(),
+          "onUpdate:checked": (value) => row.toggleSelected(!!value),
+          ariaLabel: "Select row",
+        })
+      );
     },
     enableSorting: false,
     enableHiding: false,
