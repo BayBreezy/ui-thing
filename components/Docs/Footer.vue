@@ -18,7 +18,7 @@
       </NuxtLink>
       <NuxtLink
         :to="next._path"
-        class="flex basis-full gap-4 rounded-lg border p-5 transition hover:border-primary md:basis-1/2"
+        class="flex basis-full justify-between gap-4 rounded-lg border p-5 transition hover:border-primary md:basis-1/2"
         v-if="next"
       >
         <div class="flex flex-col gap-1">
