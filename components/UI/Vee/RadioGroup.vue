@@ -52,9 +52,7 @@
     }
   >();
 
-  const forwarded = useForwardProps(
-    useOmit(props, ["label", "hint", "id", "rules", "validateOnMount", "class"])
-  );
+  const forwarded = useForwardProps(props);
   const styles = tv({
     base: "flex flex-col",
   });
