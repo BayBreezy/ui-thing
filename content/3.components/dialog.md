@@ -55,10 +55,14 @@ npx ui-thing@latest add dialog
         </template>
         <template #footer>
           <UIDialogFooter>
-            <UIButton @click="dialog = false" variant="outline" type="button" class="mt-2 sm:mt-0"
+            <UIButton
+              @click="closeDialog(false)"
+              variant="outline"
+              type="button"
+              class="mt-2 sm:mt-0"
               >Cancel</UIButton
             >
-            <UIButton @click="dialog = false" type="submit">Save</UIButton>
+            <UIButton @click="closeDialog(true)" type="submit">Save</UIButton>
           </UIDialogFooter>
         </template>
       </UIDialogContent>
@@ -68,6 +72,16 @@ npx ui-thing@latest add dialog
 
 <script lang="ts" setup>
   const dialog = ref(false);
+
+  const closeDialog = (save: boolean) => {
+    useToast().toast({
+      title: save ? "Profile updated" : "Changes discarded",
+      description: `Your changes has been ${save ? "saved" : "discarded"}.`,
+      duration: 5000,
+      icon: save ? "lucide:check" : "lucide:x",
+    });
+    dialog.value = false;
+  };
 </script>
 ```
 
@@ -98,7 +112,7 @@ npx ui-thing@latest add dialog
               <UILabel for="link" class="sr-only"> Link </UILabel>
               <UIInput id="link" model-value="https://ui.shadcn.com/docs/installation" readOnly />
             </div>
-            <UIButton type="submit" size="icon" class="px-3">
+            <UIButton @click="copyValue" type="submit" size="icon" class="px-3">
               <span class="sr-only">Copy</span>
               <Icon name="lucide:copy" class="h-4 w-4" />
             </UIButton>
@@ -115,6 +129,30 @@ npx ui-thing@latest add dialog
     </UIDialog>
   </div>
 </template>
+
+<script lang="ts" setup>
+  const copyValue = () => {
+    const { isSupported, copy } = useClipboard({ legacy: true });
+    if (isSupported.value) {
+      copy("https://ui.shadcn.com/docs/installation");
+      useToast().toast({
+        title: "Copied",
+        description: `The link has been copied to your clipboard.`,
+        duration: 5000,
+        icon: "lucide:thumbs-up",
+      });
+      return;
+    } else {
+      useToast().toast({
+        title: "Not supported",
+        description: `Your browser does not support copying to clipboard.`,
+        duration: 5000,
+        icon: "lucide:thumbs-down",
+      });
+      return;
+    }
+  };
+</script>
 ```
 
 ::

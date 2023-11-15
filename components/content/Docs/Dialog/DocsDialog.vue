@@ -24,10 +24,14 @@
         </template>
         <template #footer>
           <UIDialogFooter>
-            <UIButton @click="dialog = false" variant="outline" type="button" class="mt-2 sm:mt-0"
+            <UIButton
+              @click="closeDialog(false)"
+              variant="outline"
+              type="button"
+              class="mt-2 sm:mt-0"
               >Cancel</UIButton
             >
-            <UIButton @click="dialog = false" type="submit">Save</UIButton>
+            <UIButton @click="closeDialog(true)" type="submit">Save</UIButton>
           </UIDialogFooter>
         </template>
       </UIDialogContent>
@@ -37,4 +41,14 @@
 
 <script lang="ts" setup>
   const dialog = ref(false);
+
+  const closeDialog = (save: boolean) => {
+    useToast().toast({
+      title: save ? "Profile updated" : "Changes discarded",
+      description: `Your changes has been ${save ? "saved" : "discarded"}.`,
+      duration: 5000,
+      icon: save ? "lucide:check" : "lucide:x",
+    });
+    dialog.value = false;
+  };
 </script>

@@ -16,7 +16,7 @@
               <UILabel for="link" class="sr-only"> Link </UILabel>
               <UIInput id="link" model-value="https://ui.shadcn.com/docs/installation" readOnly />
             </div>
-            <UIButton type="submit" size="icon" class="px-3">
+            <UIButton @click="copyValue" type="submit" size="icon" class="px-3">
               <span class="sr-only">Copy</span>
               <Icon name="lucide:copy" class="h-4 w-4" />
             </UIButton>
@@ -33,3 +33,27 @@
     </UIDialog>
   </div>
 </template>
+
+<script lang="ts" setup>
+  const copyValue = () => {
+    const { isSupported, copy } = useClipboard({ legacy: true });
+    if (isSupported.value) {
+      copy("https://ui.shadcn.com/docs/installation");
+      useToast().toast({
+        title: "Copied",
+        description: `The link has been copied to your clipboard.`,
+        duration: 5000,
+        icon: "lucide:thumbs-up",
+      });
+      return;
+    } else {
+      useToast().toast({
+        title: "Not supported",
+        description: `Your browser does not support copying to clipboard.`,
+        duration: 5000,
+        icon: "lucide:thumbs-down",
+      });
+      return;
+    }
+  };
+</script>
