@@ -15,7 +15,7 @@
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
-    "@nuxtjs/color-mode": "^3.3.0",
+    "@nuxtjs/color-mode": "^3.3.1",
     "@nuxtjs/tailwindcss": "^6.9.4",
     "@nuxtseo/module": "^2.0.0-beta.42",
     "@samk-dev/nuxt-vcalendar": "^1.0.1",
