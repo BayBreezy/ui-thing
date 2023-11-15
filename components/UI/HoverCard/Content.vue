@@ -1,13 +1,13 @@
 <template>
   <UIHoverCardPortal>
-    <HoverCardContent v-bind="{ ...forwarded, ...$attrs }" :class="styles({ class: props.class })">
+    <HoverCardContent v-bind="{ ...props, ...$attrs }" :class="styles({ class: props.class })">
       <slot></slot>
     </HoverCardContent>
   </UIHoverCardPortal>
 </template>
 
 <script lang="ts" setup>
-  import { HoverCardContent, useForwardProps } from "radix-vue";
+  import { HoverCardContent } from "radix-vue";
   import type { HoverCardContentProps } from "radix-vue";
 
   const styles = tv({
@@ -30,6 +30,4 @@
       sticky: "partial",
     }
   );
-
-  const forwarded = useForwardProps(props);
 </script>
