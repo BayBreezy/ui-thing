@@ -16,7 +16,6 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "@samk-dev/nuxt-vcalendar",
     "@vee-validate/nuxt",
-    "nuxt-lodash",
     "@nuxt/content",
     "@nuxtjs/color-mode",
     "@morev/vue-transitions/nuxt",
