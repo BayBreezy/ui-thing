@@ -1,5 +1,5 @@
 <template>
-  <Separator v-bind="forwarded" :class="styles({ orientation, class: props.class })" />
+  <Separator v-bind="useForwardProps(props)" :class="styles({ orientation, class: props.class })" />
 </template>
 
 <script lang="ts" setup>
@@ -19,6 +19,4 @@
       },
     },
   });
-
-  const forwarded = useForwardProps(useOmit(props, ["class"]));
 </script>
