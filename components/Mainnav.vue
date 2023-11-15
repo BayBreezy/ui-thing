@@ -120,7 +120,7 @@
   };
 
   const currentIcon = computed(() => {
-    return modes.find((m) => m.value === colorMode.preference)?.icon;
+    return modes.find((m) => m.value === colorMode?.preference)?.icon;
   });
 
   const isOpen = ref(false);
