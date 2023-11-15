@@ -1,5 +1,5 @@
 <template>
-  <DropdownMenuItemIndicator v-bind="forwarded">
+  <DropdownMenuItemIndicator v-bind="props">
     <slot>
       <Icon v-if="icon" :name="icon" class="h-4 w-4" />
     </slot>
@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { DropdownMenuItemIndicator, useForwardProps } from "radix-vue";
+  import { DropdownMenuItemIndicator } from "radix-vue";
   import type { DropdownMenuItemIndicatorProps } from "radix-vue";
 
   const props = defineProps<
@@ -15,5 +15,4 @@
       icon?: string;
     }
   >();
-  const forwarded = useForwardProps(useOmit(props, ["icon"]));
 </script>

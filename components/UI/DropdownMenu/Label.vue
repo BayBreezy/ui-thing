@@ -1,11 +1,11 @@
 <template>
-  <DropdownMenuLabel :class="styles({ inset, class: props.class })" v-bind="forwarded">
+  <DropdownMenuLabel :class="styles({ inset, class: props.class })" v-bind="props">
     <slot>{{ label }}</slot>
   </DropdownMenuLabel>
 </template>
 
 <script lang="ts" setup>
-  import { DropdownMenuLabel, useForwardProps } from "radix-vue";
+  import { DropdownMenuLabel } from "radix-vue";
   import type { DropdownMenuLabelProps } from "radix-vue";
 
   const props = defineProps<
@@ -15,7 +15,6 @@
       label?: string;
     }
   >();
-  const forwarded = useForwardProps(useOmit(props, ["class", "inset", "label"]));
 
   const styles = tv({
     base: "inline-block w-full px-2 py-1.5 text-sm font-semibold text-foreground",
