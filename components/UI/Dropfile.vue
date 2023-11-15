@@ -69,7 +69,7 @@
     accept: props.accept,
   });
 
-  onChange((files) => {
+  onChange((files: FileList) => {
     handleDrop(Array.from(files || []));
     reset();
   });
