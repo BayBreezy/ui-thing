@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
   const showMessage = (message: string) => {
-    alert(message);
+    useSonner(message);
   };
-  const model = ref(true);
+  const model = ref(false);
 </script>

@@ -1,6 +1,6 @@
 <template>
   <UITooltipProvider v-bind="props">
-    <TooltipRoot v-bind="forwarded">
+    <TooltipRoot v-bind="{ ...forwarded, ...$attrs }">
       <slot>
         <slot name="trigger"></slot>
         <slot name="content"></slot>
@@ -13,6 +13,7 @@
   import { TooltipRoot, useForwardPropsEmits } from "radix-vue";
   import type { TooltipProviderProps, TooltipRootEmits, TooltipRootProps } from "radix-vue";
 
+  defineOptions({ inheritAttrs: false });
   const props = withDefaults(defineProps<TooltipRootProps & TooltipProviderProps>(), {
     delayDuration: 200,
   });

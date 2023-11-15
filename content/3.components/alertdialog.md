@@ -29,7 +29,7 @@ npx ui-thing@latest add alert-dialog
 ```vue [DocsAlertDialog.vue]
 <template>
   <div class="flex justify-center">
-    <UIAlertDialog>
+    <UIAlertDialog v-model:open="model">
       <UIAlertDialogTrigger as-child>
         <UIButton variant="outline">Show Dialog</UIButton>
       </UIAlertDialogTrigger>
@@ -52,8 +52,9 @@ npx ui-thing@latest add alert-dialog
 
 <script lang="ts" setup>
   const showMessage = (message: string) => {
-    alert(message);
+    useSonner(message);
   };
+  const model = ref(false);
 </script>
 ```
 

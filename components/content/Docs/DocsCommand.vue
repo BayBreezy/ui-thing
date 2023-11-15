@@ -29,27 +29,39 @@
 <script lang="ts" setup>
   const items = {
     Suggestions: [
-      { label: "Calendar", icon: "lucide:calendar", perform: () => alert("Calendar") },
-      { label: "Search Emoji", icon: "lucide:smile", perform: () => alert("Smile") },
-      { label: "Calculator", icon: "lucide:calculator", perform: () => alert("Calculator") },
+      {
+        label: "Calendar",
+        icon: "lucide:calendar",
+        perform: () => useSonner("Now performing the action: Calendar"),
+      },
+      {
+        label: "Search Emoji",
+        icon: "lucide:smile",
+        perform: () => useSonner("Now performing the action: Smile"),
+      },
+      {
+        label: "Calculator",
+        icon: "lucide:calculator",
+        perform: () => useSonner("Now performing the action: Calculator"),
+      },
     ],
     Settings: [
       {
         label: "Profile",
         icon: "lucide:user",
-        perform: () => alert("User profile"),
+        perform: () => useSonner("Now performing the action: User profile"),
         shortcut: "⌘P",
       },
       {
         label: "Billing",
         icon: "lucide:credit-card",
-        perform: () => alert("Billing"),
+        perform: () => useSonner("Now performing the action: Billing"),
         shortcut: "⌘B",
       },
       {
         label: "Settings",
         icon: "lucide:settings",
-        perform: () => alert("Settings"),
+        perform: () => useSonner("Now performing the action: Settings"),
         shortcut: "⌘S",
       },
     ],
