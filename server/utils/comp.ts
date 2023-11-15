@@ -2120,6 +2120,86 @@ export default [
     plugins: [],
   },
   {
+    name: "VeeCheckbox",
+    value: "vee-checkbox",
+    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    askValidator: true,
+    devDeps: ["nuxt-icon"],
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+    components: ["checkbox", "label"],
+    files: [
+      {
+        fileName: "Vee/Checkbox.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <div :class="styles({ class: props.class })">\n    <UICheckbox\n      :id="inputId"\n      v-bind="$attrs"\n      :icon="icon"\n      :value="value"\n      :name="name"\n      :required="required"\n      :disabled="disabled"\n      :checked="checked"\n      @update:checked="handleChange"\n    />\n    <div class="flex flex-col gap-1.5">\n      <slot name="label" :errorMessage="errorMessage" :checked="checked">\n        <UILabel\n          :for="inputId"\n          v-if="label"\n          class="leading-none"\n          :class="[errorMessage && \'text-destructive\']"\n          >{{ label }}</UILabel\n        >\n      </slot>\n      <TransitionSlide tag="div" group>\n        <slot name="hint" :errorMessage="errorMessage" :checked="checked">\n          <p\n            key="hint"\n            class="text-sm leading-none text-muted-foreground"\n            v-if="hint && !errorMessage"\n          >\n            {{ hint }}\n          </p>\n        </slot>\n        <slot name="errorMessage" :errorMessage="errorMessage" :checked="checked">\n          <p key="errorMessage" class="text-sm leading-none text-destructive" v-if="errorMessage">\n            {{ errorMessage }}\n          </p>\n        </slot>\n      </TransitionSlide>\n    </div>\n  </div>\n</template>\n\n<script lang="ts" setup>\n  import { useId } from "radix-vue";\n\n  const props = defineProps<{\n    label?: string;\n    icon?: string;\n    hint?: string;\n    modelValue?: string;\n    name?: string;\n    id?: string;\n    rules?: any;\n    validateOnMount?: boolean;\n    type?: string;\n    placeholder?: string;\n    value?: any;\n    required?: boolean;\n    disabled?: boolean;\n    class?: any;\n  }>();\n  const styles = tv({\n    base: "flex gap-3",\n  });\n\n  defineOptions({ inheritAttrs: false });\n\n  const inputId = useId(props.id);\n\n  const { errorMessage, checked, handleChange } = useField(\n    () => props.name || inputId,\n    props.rules,\n    {\n      initialValue: props.modelValue,\n      label: props.label,\n      validateOnMount: props.validateOnMount,\n      type: "checkbox",\n      checkedValue: props.value || true,\n      syncVModel: true,\n    }\n  );\n</script>\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "VeeDatepicker",
+    value: "vee-datepicker",
+    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    askValidator: true,
+    devDeps: ["nuxt-icon"],
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+    components: ["datepicker", "label", "input"],
+    files: [
+      {
+        fileName: "Vee/Datepicker.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <div class="w-full">\r\n    <UILabel\r\n      :for="inputId"\r\n      v-if="label"\r\n      :class="[disabled && \'text-muted-foreground\', errorMessage && \'text-destructive\', \'mb-2\']"\r\n      >{{ label }}</UILabel\r\n    >\r\n    <div class="relative">\r\n      <slot name="icon">\r\n        <span v-if="hasIcon" class="absolute inset-y-0 left-3 flex items-center justify-center">\r\n          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />\r\n        </span>\r\n      </slot>\r\n      <UIDatepicker v-bind="datePickerProps" v-model="value">\r\n        <template #header-title="{ title }">\r\n          <div class="inline-flex items-center gap-1">\r\n            {{ title }} <Icon name="lucide:chevron-down" class="h-4 w-4" />\r\n          </div>\r\n        </template>\r\n        <template #default="{ inputValue, inputEvents }">\r\n          <UIInput\r\n            :readonly="readonly"\r\n            :model-value="inputValue"\r\n            v-on="inputEvents"\r\n            :id="inputId"\r\n            :name="name"\r\n            :disabled="disabled"\r\n            v-bind="$attrs"\r\n            :class="[hasIcon && \'pl-9\']"\r\n            :placeholder="placeholder"\r\n          />\r\n        </template>\r\n      </UIDatepicker>\r\n    </div>\r\n    <TransitionSlide group tag="div">\r\n      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">\r\n        {{ hint }}\r\n      </p>\r\n\r\n      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">\r\n        {{ errorMessage }}\r\n      </p>\r\n    </TransitionSlide>\r\n  </div>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { useId } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<{\r\n      label?: string;\r\n      icon?: string;\r\n      hint?: string;\r\n      disabled?: boolean;\r\n      modelValue?: any;\r\n      name?: string;\r\n      id?: string;\r\n      rules?: any;\r\n      validateOnMount?: boolean;\r\n      placeholder?: string;\r\n      readonly?: boolean;\r\n      datePickerProps?: any;\r\n    }>(),\r\n    {\r\n      icon: "lucide:calendar-days",\r\n    }\r\n  );\r\n\r\n  defineOptions({ inheritAttrs: false });\r\n\r\n  const inputId = useId(props.id);\r\n\r\n  const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));\r\n\r\n  const { errorMessage, value } = useField(() => props.name || inputId, props.rules, {\r\n    initialValue: props.modelValue,\r\n    label: props.label,\r\n    validateOnMount: props.validateOnMount,\r\n    syncVModel: true,\r\n  });\r\n</script>\r\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "VeeFileInput",
+    value: "vee-file-input",
+    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    askValidator: true,
+    devDeps: ["nuxt-icon"],
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+    components: ["input", "label"],
+    files: [
+      {
+        fileName: "Vee/FileInput.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <div class="w-full">\r\n    <UILabel :for="inputId" v-if="label" :class="[errorMessage && \'text-destructive\', \'mb-2\']">{{\r\n      label\r\n    }}</UILabel>\r\n    <div class="relative">\r\n      <slot name="icon">\r\n        <span v-if="hasIcon" class="absolute inset-y-0 left-3 flex items-center justify-center">\r\n          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />\r\n        </span>\r\n      </slot>\r\n      <UIInput\r\n        type="file"\r\n        @change="\r\n          handleChange($event);\r\n          emits(\'change\', $event.target.files);\r\n        "\r\n        @blur="\r\n          handleBlur($event);\r\n          emits(\'blur\', $event);\r\n        "\r\n        :id="inputId"\r\n        :name="name"\r\n        v-bind="$attrs"\r\n        :multiple="multiple"\r\n        :class="[hasIcon && \'pl-9\']"\r\n        :accept="accept"\r\n      />\r\n    </div>\r\n    <TransitionSlide group tag="div">\r\n      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">\r\n        {{ hint }}\r\n      </p>\r\n\r\n      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">\r\n        {{ errorMessage }}\r\n      </p>\r\n    </TransitionSlide>\r\n  </div>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { useId } from "radix-vue";\r\n\r\n  const props = defineProps<{\r\n    label?: string;\r\n    icon?: string;\r\n    hint?: string;\r\n    name: string;\r\n    id?: string;\r\n    rules?: any;\r\n    validateOnMount?: boolean;\r\n    multiple?: boolean;\r\n    accept?: string;\r\n  }>();\r\n\r\n  defineOptions({ inheritAttrs: false });\r\n\r\n  const emits = defineEmits<{\r\n    change: [files?: FileList | File | File[] | null];\r\n    blur: [event?: FocusEvent];\r\n  }>();\r\n\r\n  const inputId = useId(props.id);\r\n\r\n  const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));\r\n\r\n  const { errorMessage, handleChange, handleBlur } = useField(() => props.name, props.rules, {\r\n    label: props.label,\r\n    validateOnMount: props.validateOnMount,\r\n  });\r\n</script>\r\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "VeeInput",
+    value: "vee-input",
+    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    askValidator: true,
+    devDeps: ["nuxt-icon"],
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+    components: ["input", "label"],
+    files: [
+      {
+        fileName: "Vee/Input.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <div class="w-full">\r\n    <UILabel\r\n      :for="inputId"\r\n      v-if="label"\r\n      :class="[disabled && \'text-muted-foreground\', errorMessage && \'text-destructive\', \'mb-2\']"\r\n      >{{ label }}</UILabel\r\n    >\r\n    <div class="relative">\r\n      <slot name="icon">\r\n        <span v-if="hasIcon" class="absolute inset-y-0 left-3 flex items-center justify-center">\r\n          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />\r\n        </span>\r\n      </slot>\r\n      <UIInput\r\n        :type="type"\r\n        v-model="value"\r\n        @blur="handleBlur"\r\n        :id="inputId"\r\n        :name="name"\r\n        :disabled="disabled"\r\n        v-bind="$attrs"\r\n        :class="[hasIcon && \'pl-9\']"\r\n        :placeholder="placeholder"\r\n      />\r\n    </div>\r\n    <TransitionSlide group tag="div">\r\n      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">\r\n        {{ hint }}\r\n      </p>\r\n\r\n      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">\r\n        {{ errorMessage }}\r\n      </p>\r\n    </TransitionSlide>\r\n  </div>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { useId } from "radix-vue";\r\n\r\n  const props = defineProps<{\r\n    label?: string;\r\n    icon?: string;\r\n    hint?: string;\r\n    disabled?: boolean;\r\n    modelValue?: string;\r\n    name?: string;\r\n    id?: string;\r\n    rules?: any;\r\n    validateOnMount?: boolean;\r\n    type?: string;\r\n    placeholder?: string;\r\n  }>();\r\n\r\n  defineOptions({ inheritAttrs: false });\r\n\r\n  const inputId = useId(props.id);\r\n\r\n  const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));\r\n\r\n  const { errorMessage, value, handleBlur } = useField(() => props.name || inputId, props.rules, {\r\n    initialValue: props.modelValue,\r\n    label: props.label,\r\n    validateOnMount: props.validateOnMount,\r\n    syncVModel: true,\r\n  });\r\n</script>\r\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "VeeMultiSelect",
     value: "vee-multi-select",
     deps: [
@@ -2146,68 +2226,8 @@ export default [
     plugins: [],
   },
   {
-    name: "VeeCheckbox",
-    value: "vue-checkbox",
-    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
-    askValidator: true,
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
-    components: ["checkbox", "label"],
-    files: [
-      {
-        fileName: "Vee/Checkbox.vue",
-        dirPath: "components/UI",
-        fileContent:
-          '<template>\n  <div :class="styles({ class: props.class })">\n    <UICheckbox\n      :id="inputId"\n      v-bind="$attrs"\n      :icon="icon"\n      :value="value"\n      :name="name"\n      :required="required"\n      :disabled="disabled"\n      :checked="checked"\n      @update:checked="handleChange"\n    />\n    <div class="flex flex-col gap-1.5">\n      <slot name="label" :errorMessage="errorMessage" :checked="checked">\n        <UILabel\n          :for="inputId"\n          v-if="label"\n          class="leading-none"\n          :class="[errorMessage && \'text-destructive\']"\n          >{{ label }}</UILabel\n        >\n      </slot>\n      <TransitionSlide tag="div" group>\n        <slot name="hint" :errorMessage="errorMessage" :checked="checked">\n          <p\n            key="hint"\n            class="text-sm leading-none text-muted-foreground"\n            v-if="hint && !errorMessage"\n          >\n            {{ hint }}\n          </p>\n        </slot>\n        <slot name="errorMessage" :errorMessage="errorMessage" :checked="checked">\n          <p key="errorMessage" class="text-sm leading-none text-destructive" v-if="errorMessage">\n            {{ errorMessage }}\n          </p>\n        </slot>\n      </TransitionSlide>\n    </div>\n  </div>\n</template>\n\n<script lang="ts" setup>\n  import { useId } from "radix-vue";\n\n  const props = defineProps<{\n    label?: string;\n    icon?: string;\n    hint?: string;\n    modelValue?: string;\n    name?: string;\n    id?: string;\n    rules?: any;\n    validateOnMount?: boolean;\n    type?: string;\n    placeholder?: string;\n    value?: any;\n    required?: boolean;\n    disabled?: boolean;\n    class?: any;\n  }>();\n  const styles = tv({\n    base: "flex gap-3",\n  });\n\n  defineOptions({ inheritAttrs: false });\n\n  const inputId = useId(props.id);\n\n  const { errorMessage, checked, handleChange } = useField(\n    () => props.name || inputId,\n    props.rules,\n    {\n      initialValue: props.modelValue,\n      label: props.label,\n      validateOnMount: props.validateOnMount,\n      type: "checkbox",\n      checkedValue: props.value || true,\n      syncVModel: true,\n    }\n  );\n</script>\n',
-      },
-    ],
-    utils: [],
-    composables: [],
-    plugins: [],
-  },
-  {
-    name: "VeeFileInput",
-    value: "vue-file-input",
-    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
-    askValidator: true,
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
-    components: ["input", "label"],
-    files: [
-      {
-        fileName: "Vee/FileInput.vue",
-        dirPath: "components/UI",
-        fileContent:
-          '<template>\r\n  <div class="w-full">\r\n    <UILabel :for="inputId" v-if="label" :class="[errorMessage && \'text-destructive\', \'mb-2\']">{{\r\n      label\r\n    }}</UILabel>\r\n    <div class="relative">\r\n      <slot name="icon">\r\n        <span v-if="hasIcon" class="absolute inset-y-0 left-3 flex items-center justify-center">\r\n          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />\r\n        </span>\r\n      </slot>\r\n      <UIInput\r\n        type="file"\r\n        @change="\r\n          handleChange($event);\r\n          emits(\'change\', $event.target.files);\r\n        "\r\n        @blur="\r\n          handleBlur($event);\r\n          emits(\'blur\', $event);\r\n        "\r\n        :id="inputId"\r\n        :name="name"\r\n        v-bind="$attrs"\r\n        :multiple="multiple"\r\n        :class="[hasIcon && \'pl-9\']"\r\n        :accept="accept"\r\n      />\r\n    </div>\r\n    <TransitionSlide group tag="div">\r\n      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">\r\n        {{ hint }}\r\n      </p>\r\n\r\n      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">\r\n        {{ errorMessage }}\r\n      </p>\r\n    </TransitionSlide>\r\n  </div>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { useId } from "radix-vue";\r\n\r\n  const props = defineProps<{\r\n    label?: string;\r\n    icon?: string;\r\n    hint?: string;\r\n    name: string;\r\n    id?: string;\r\n    rules?: any;\r\n    validateOnMount?: boolean;\r\n    multiple?: boolean;\r\n    accept?: string;\r\n  }>();\r\n\r\n  defineOptions({ inheritAttrs: false });\r\n\r\n  const emits = defineEmits<{\r\n    change: [files?: FileList | File | File[] | null];\r\n    blur: [event?: FocusEvent];\r\n  }>();\r\n\r\n  const inputId = useId(props.id);\r\n\r\n  const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));\r\n\r\n  const { errorMessage, handleChange, handleBlur } = useField(() => props.name, props.rules, {\r\n    label: props.label,\r\n    validateOnMount: props.validateOnMount,\r\n  });\r\n</script>\r\n',
-      },
-    ],
-    utils: [],
-    composables: [],
-    plugins: [],
-  },
-  {
-    name: "VeeInput",
-    value: "vue-input",
-    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
-    askValidator: true,
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
-    components: ["input", "label"],
-    files: [
-      {
-        fileName: "Vee/Input.vue",
-        dirPath: "components/UI",
-        fileContent:
-          '<template>\r\n  <div class="w-full">\r\n    <UILabel\r\n      :for="inputId"\r\n      v-if="label"\r\n      :class="[disabled && \'text-muted-foreground\', errorMessage && \'text-destructive\', \'mb-2\']"\r\n      >{{ label }}</UILabel\r\n    >\r\n    <div class="relative">\r\n      <slot name="icon">\r\n        <span v-if="hasIcon" class="absolute inset-y-0 left-3 flex items-center justify-center">\r\n          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />\r\n        </span>\r\n      </slot>\r\n      <UIInput\r\n        :type="type"\r\n        v-model="value"\r\n        @blur="handleBlur"\r\n        :id="inputId"\r\n        :name="name"\r\n        :disabled="disabled"\r\n        v-bind="$attrs"\r\n        :class="[hasIcon && \'pl-9\']"\r\n        :placeholder="placeholder"\r\n      />\r\n    </div>\r\n    <TransitionSlide group tag="div">\r\n      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">\r\n        {{ hint }}\r\n      </p>\r\n\r\n      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">\r\n        {{ errorMessage }}\r\n      </p>\r\n    </TransitionSlide>\r\n  </div>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { useId } from "radix-vue";\r\n\r\n  const props = defineProps<{\r\n    label?: string;\r\n    icon?: string;\r\n    hint?: string;\r\n    disabled?: boolean;\r\n    modelValue?: string;\r\n    name?: string;\r\n    id?: string;\r\n    rules?: any;\r\n    validateOnMount?: boolean;\r\n    type?: string;\r\n    placeholder?: string;\r\n  }>();\r\n\r\n  defineOptions({ inheritAttrs: false });\r\n\r\n  const inputId = useId(props.id);\r\n\r\n  const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));\r\n\r\n  const { errorMessage, value, handleBlur } = useField(() => props.name || inputId, props.rules, {\r\n    initialValue: props.modelValue,\r\n    label: props.label,\r\n    validateOnMount: props.validateOnMount,\r\n    syncVModel: true,\r\n  });\r\n</script>\r\n',
-      },
-    ],
-    utils: [],
-    composables: [],
-    plugins: [],
-  },
-  {
     name: "VeeRadioGroup",
-    value: "vue-radio-group",
+    value: "vee-radio-group",
     deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
     askValidator: true,
     devDeps: ["nuxt-icon"],
@@ -2227,7 +2247,7 @@ export default [
   },
   {
     name: "VeeSelect",
-    value: "vue-select",
+    value: "vee-select",
     deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
     askValidator: true,
     devDeps: ["nuxt-icon"],
@@ -2239,6 +2259,26 @@ export default [
         dirPath: "components/UI",
         fileContent:
           '<template>\r\n  <div class="w-full">\r\n    <UILabel :for="inputId" v-if="label" :class="[errorMessage && \'text-destructive\', \'mb-2\']">{{\r\n      label\r\n    }}</UILabel>\r\n    <div class="relative">\r\n      <slot name="icon">\r\n        <span v-if="hasIcon" lass="absolute inset-y-0 left-3 flex items-center justify-center">\r\n          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground" />\r\n        </span>\r\n      </slot>\r\n      <UINativeSelect\r\n        :trailingIcon="trailingIcon"\r\n        v-model="value"\r\n        @blur="handleBlur"\r\n        :id="inputId"\r\n        :name="name"\r\n        v-bind="$attrs"\r\n        :class="[hasIcon && \'pl-9\']"\r\n      >\r\n        <slot></slot>\r\n      </UINativeSelect>\r\n    </div>\r\n    <TransitionSlide group tag="div">\r\n      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">\r\n        {{ hint }}\r\n      </p>\r\n\r\n      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">\r\n        {{ errorMessage }}\r\n      </p>\r\n    </TransitionSlide>\r\n  </div>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { useId } from "radix-vue";\r\n\r\n  const props = defineProps<{\r\n    label?: string;\r\n    icon?: string;\r\n    hint?: string;\r\n    modelValue?: string;\r\n    name?: string;\r\n    id?: string;\r\n    rules?: any;\r\n    validateOnMount?: boolean;\r\n    type?: string;\r\n    trailingIcon?: string;\r\n  }>();\r\n\r\n  defineOptions({ inheritAttrs: false });\r\n\r\n  const inputId = useId(props.id);\r\n\r\n  const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));\r\n\r\n  const { errorMessage, value, handleBlur } = useField(() => props.name || inputId, props.rules, {\r\n    initialValue: props.modelValue,\r\n    label: props.label,\r\n    validateOnMount: props.validateOnMount,\r\n    syncVModel: true,\r\n  });\r\n</script>\r\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "VeeTextarea",
+    value: "vee-textarea",
+    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    askValidator: true,
+    devDeps: ["nuxt-icon"],
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+    components: ["textarea", "label"],
+    files: [
+      {
+        fileName: "Vee/Textarea.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <div class="w-full">\r\n    <UILabel :for="inputId" v-if="label" :class="[errorMessage && \'text-destructive\', \'mb-2\']">{{\r\n      label\r\n    }}</UILabel>\r\n    <div class="relative">\r\n      <slot name="icon">\r\n        <span v-if="hasIcon" class="absolute left-3 top-3 flex items-center justify-center">\r\n          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />\r\n        </span>\r\n      </slot>\r\n      <UITextarea\r\n        :rows="rows"\r\n        v-model="value"\r\n        @blur="handleBlur"\r\n        :id="inputId"\r\n        :name="name"\r\n        v-bind="$attrs"\r\n        :class="[hasIcon && \'pl-9\']"\r\n        :placeholder="placeholder"\r\n      />\r\n    </div>\r\n    <TransitionSlide group tag="div">\r\n      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">\r\n        {{ hint }}\r\n      </p>\r\n\r\n      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">\r\n        {{ errorMessage }}\r\n      </p>\r\n    </TransitionSlide>\r\n  </div>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { useId } from "radix-vue";\r\n\r\n  const props = defineProps<{\r\n    label?: string;\r\n    icon?: string;\r\n    hint?: string;\r\n    modelValue?: string;\r\n    name?: string;\r\n    id?: string;\r\n    rules?: any;\r\n    validateOnMount?: boolean;\r\n    placeholder?: string;\r\n    rows?: number;\r\n  }>();\r\n\r\n  defineOptions({ inheritAttrs: false });\r\n\r\n  const inputId = useId(props.id);\r\n\r\n  const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));\r\n\r\n  const { errorMessage, value, handleBlur } = useField(() => props.name || inputId, props.rules, {\r\n    initialValue: props.modelValue,\r\n    label: props.label,\r\n    validateOnMount: props.validateOnMount,\r\n    syncVModel: true,\r\n  });\r\n</script>\r\n',
       },
     ],
     utils: [],
@@ -2258,26 +2298,6 @@ export default [
         dirPath: "components/UI",
         fileContent:
           '<template>\r\n  <Toaster\r\n    position="top-right"\r\n    :visible-toasts="5"\r\n    rich-colors\r\n    :duration="7000"\r\n    close-button\r\n    :theme="$colorMode.value == \'dark\' ? \'dark\' : \'light\'"\r\n  />\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Toaster } from "vue-sonner";\r\n</script>\r\n<style scoped>\r\n  :deep([data-sonner-toaster][data-theme="dark"]),\r\n  :deep([data-sonner-toaster][data-theme="light"]) {\r\n    --normal-bg: theme("colors.popover.DEFAULT");\r\n    --normal-border: theme("colors.border");\r\n    --normal-text: theme("colors.popover.foreground");\r\n    --border-radius: theme("borderRadius.md");\r\n  }\r\n  :deep([data-sonner-toaster]) {\r\n    @apply font-sans;\r\n  }\r\n  :deep([data-sonner-toast][data-styled="true"]) {\r\n    @apply items-start;\r\n  }\r\n  :deep([data-sonner-toast] [data-icon]) {\r\n    @apply mt-0.5;\r\n  }\r\n  :deep([data-sonner-toast] [data-title]) {\r\n    @apply text-sm font-semibold;\r\n  }\r\n  :deep([data-sonner-toast] [data-description]) {\r\n    @apply text-sm;\r\n  }\r\n  :deep([data-sonner-toast] [data-close-button]) {\r\n    @apply border border-border bg-background text-foreground hover:border-inherit hover:bg-inherit hover:text-accent-foreground;\r\n  }\r\n  :deep([data-sonner-toast] [data-button]) {\r\n    @apply bg-primary text-primary-foreground transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;\r\n  }\r\n  :deep(.sonner-loading-bar) {\r\n    @apply bg-muted-foreground;\r\n  }\r\n</style>\r\n',
-      },
-    ],
-    utils: [],
-    composables: [],
-    plugins: [],
-  },
-  {
-    name: "VeeTextarea",
-    value: "vue-textarea",
-    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
-    askValidator: true,
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
-    components: ["textarea", "label"],
-    files: [
-      {
-        fileName: "Vee/Textarea.vue",
-        dirPath: "components/UI",
-        fileContent:
-          '<template>\r\n  <div class="w-full">\r\n    <UILabel :for="inputId" v-if="label" :class="[errorMessage && \'text-destructive\', \'mb-2\']">{{\r\n      label\r\n    }}</UILabel>\r\n    <div class="relative">\r\n      <slot name="icon">\r\n        <span v-if="hasIcon" class="absolute left-3 top-3 flex items-center justify-center">\r\n          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />\r\n        </span>\r\n      </slot>\r\n      <UITextarea\r\n        :rows="rows"\r\n        v-model="value"\r\n        @blur="handleBlur"\r\n        :id="inputId"\r\n        :name="name"\r\n        v-bind="$attrs"\r\n        :class="[hasIcon && \'pl-9\']"\r\n        :placeholder="placeholder"\r\n      />\r\n    </div>\r\n    <TransitionSlide group tag="div">\r\n      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">\r\n        {{ hint }}\r\n      </p>\r\n\r\n      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">\r\n        {{ errorMessage }}\r\n      </p>\r\n    </TransitionSlide>\r\n  </div>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { useId } from "radix-vue";\r\n\r\n  const props = defineProps<{\r\n    label?: string;\r\n    icon?: string;\r\n    hint?: string;\r\n    modelValue?: string;\r\n    name?: string;\r\n    id?: string;\r\n    rules?: any;\r\n    validateOnMount?: boolean;\r\n    placeholder?: string;\r\n    rows?: number;\r\n  }>();\r\n\r\n  defineOptions({ inheritAttrs: false });\r\n\r\n  const inputId = useId(props.id);\r\n\r\n  const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));\r\n\r\n  const { errorMessage, value, handleBlur } = useField(() => props.name || inputId, props.rules, {\r\n    initialValue: props.modelValue,\r\n    label: props.label,\r\n    validateOnMount: props.validateOnMount,\r\n    syncVModel: true,\r\n  });\r\n</script>\r\n',
       },
     ],
     utils: [],

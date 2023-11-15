@@ -640,7 +640,7 @@ export default [
   },
   {
     name: "VeeCheckbox",
-    value: "vue-checkbox",
+    value: "vee-checkbox",
     deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
     askValidator: true,
     devDeps: ["nuxt-icon"],
@@ -649,8 +649,18 @@ export default [
     files: ["Vee/Checkbox.vue"],
   },
   {
+    name: "VeeDatepicker",
+    value: "vee-datepicker",
+    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    askValidator: true,
+    devDeps: ["nuxt-icon"],
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+    components: ["datepicker", "label", "input"],
+    files: ["Vee/Datepicker.vue"],
+  },
+  {
     name: "VeeFileInput",
-    value: "vue-file-input",
+    value: "vee-file-input",
     deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
     askValidator: true,
     devDeps: ["nuxt-icon"],
@@ -660,7 +670,7 @@ export default [
   },
   {
     name: "VeeInput",
-    value: "vue-input",
+    value: "vee-input",
     deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
     askValidator: true,
     devDeps: ["nuxt-icon"],
@@ -670,7 +680,7 @@ export default [
   },
   {
     name: "VeeRadioGroup",
-    value: "vue-radio-group",
+    value: "vee-radio-group",
     deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
     askValidator: true,
     devDeps: ["nuxt-icon"],
@@ -680,7 +690,7 @@ export default [
   },
   {
     name: "VeeSelect",
-    value: "vue-select",
+    value: "vee-select",
     deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
     askValidator: true,
     devDeps: ["nuxt-icon"],
@@ -690,7 +700,7 @@ export default [
   },
   {
     name: "VeeTextarea",
-    value: "vue-textarea",
+    value: "vee-textarea",
     deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
     askValidator: true,
     devDeps: ["nuxt-icon"],
