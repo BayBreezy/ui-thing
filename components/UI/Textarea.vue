@@ -1,10 +1,8 @@
 <template>
-  <textarea :class="styles({ class: props.class })" v-bind="forwarded" v-model="localModel" />
+  <textarea :class="styles({ class: props.class })" v-bind="props" v-model="localModel" />
 </template>
 
 <script lang="ts" setup>
-  import { useForwardPropsEmits } from "radix-vue";
-
   const props = defineProps<{
     class?: any;
     name?: string;
@@ -19,7 +17,6 @@
   const emits = defineEmits<{
     "update:modelValue": [value: any];
   }>();
-  const forwarded = useForwardPropsEmits(useOmit(props, ["class"]), emits);
 
   const localModel = useVModel(props, "modelValue", emits);
 
