@@ -1,14 +1,14 @@
 <template>
   <div class="flex w-full items-center justify-center">
-    <UIDropdownMenu>
-      <UIDropdownMenuTrigger as-child>
-        <UIButton variant="outline">Checbox items</UIButton>
-      </UIDropdownMenuTrigger>
-      <UIDropdownMenuContent class="w-48">
-        <UIDropdownMenuLabel label="Choose heros" />
-        <UIDropdownMenuSeparator />
+    <UiDropdownMenu>
+      <UiDropdownMenuTrigger as-child>
+        <UiButton variant="outline">Checbox items</UiButton>
+      </UiDropdownMenuTrigger>
+      <UiDropdownMenuContent class="w-48">
+        <UiDropdownMenuLabel label="Choose heros" />
+        <UiDropdownMenuSeparator />
         <template v-for="h in heroList" :key="h.id">
-          <UIDropdownMenuCheckboxItem
+          <UiDropdownMenuCheckboxItem
             :checked="selectedHeros.includes(h.id)"
             @select="(e) => e.preventDefault()"
             class="mb-1"
@@ -19,13 +19,13 @@
             "
           >
             <div class="flex items-center gap-4">
-              <UIAvatar :src="h.image" class="h-6 w-6" :alt="h.name" />
+              <UiAvatar :src="h.image" class="h-6 w-6" :alt="h.name" />
               <span>{{ h.name }}</span>
             </div>
-          </UIDropdownMenuCheckboxItem>
+          </UiDropdownMenuCheckboxItem>
         </template>
-      </UIDropdownMenuContent>
-    </UIDropdownMenu>
+      </UiDropdownMenuContent>
+    </UiDropdownMenu>
   </div>
 </template>
 

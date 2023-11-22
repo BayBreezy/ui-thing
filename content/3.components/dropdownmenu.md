@@ -31,42 +31,42 @@ npx ui-thing@latest add dropdown-menu
 ```vue [DocsDropdownMenuBasic.vue],
 <template>
   <div class="flex items-center justify-center">
-    <UIDropdownMenu>
-      <UIDropdownMenuTrigger asChild>
-        <UIButton variant="outline">Open menu</UIButton>
-      </UIDropdownMenuTrigger>
-      <UIDropdownMenuContent class="w-56">
+    <UiDropdownMenu>
+      <UiDropdownMenuTrigger asChild>
+        <UiButton variant="outline">Open menu</UiButton>
+      </UiDropdownMenuTrigger>
+      <UiDropdownMenuContent class="w-56">
         <template v-for="(item, i) in menuitems" :key="i">
-          <UIDropdownMenuLabel v-if="item.label" :label="item.label" />
-          <UIDropdownMenuSeparator v-else-if="item.divider" />
-          <UIDropdownMenuItem
+          <UiDropdownMenuLabel v-if="item.label" :label="item.label" />
+          <UiDropdownMenuSeparator v-else-if="item.divider" />
+          <UiDropdownMenuItem
             v-else-if="item.title && !item.items"
             :title="item.title"
             :icon="item.icon"
             :shortcut="item.shortcut"
             :disabled="item.disabled"
           />
-          <UIDropdownMenuSub v-else-if="item.title && item.items">
-            <UIDropdownMenuSubTrigger
+          <UiDropdownMenuSub v-else-if="item.title && item.items">
+            <UiDropdownMenuSubTrigger
               :title="item.title"
               :icon="item.icon"
               :textValue="item.title"
             />
-            <UIDropdownMenuSubContent>
+            <UiDropdownMenuSubContent>
               <template v-for="(child, k) in item.items" :key="`child-${k}`">
-                <UIDropdownMenuSeparator v-if="child.divider" />
-                <UIDropdownMenuItem
+                <UiDropdownMenuSeparator v-if="child.divider" />
+                <UiDropdownMenuItem
                   v-else
                   :title="child.title"
                   :icon="child.icon"
                   :shortcut="child.shortcut"
                 />
               </template>
-            </UIDropdownMenuSubContent>
-          </UIDropdownMenuSub>
+            </UiDropdownMenuSubContent>
+          </UiDropdownMenuSub>
         </template>
-      </UIDropdownMenuContent>
-    </UIDropdownMenu>
+      </UiDropdownMenuContent>
+    </UiDropdownMenu>
   </div>
 </template>
 
@@ -118,15 +118,15 @@ npx ui-thing@latest add dropdown-menu
 ```vue [DocsDropdownMenuCheckItems.vue],
 <template>
   <div class="flex w-full items-center justify-center">
-    <UIDropdownMenu>
-      <UIDropdownMenuTrigger as-child>
-        <UIButton variant="outline">Checbox items</UIButton>
-      </UIDropdownMenuTrigger>
-      <UIDropdownMenuContent class="w-48">
-        <UIDropdownMenuLabel label="Choose heros" />
-        <UIDropdownMenuSeparator />
+    <UiDropdownMenu>
+      <UiDropdownMenuTrigger as-child>
+        <UiButton variant="outline">Checbox items</UiButton>
+      </UiDropdownMenuTrigger>
+      <UiDropdownMenuContent class="w-48">
+        <UiDropdownMenuLabel label="Choose heros" />
+        <UiDropdownMenuSeparator />
         <template v-for="h in heroList" :key="h.id">
-          <UIDropdownMenuCheckboxItem
+          <UiDropdownMenuCheckboxItem
             :checked="selectedHeros.includes(h.id)"
             @select="(e) => e.preventDefault()"
             class="mb-1"
@@ -137,13 +137,13 @@ npx ui-thing@latest add dropdown-menu
             "
           >
             <div class="flex items-center gap-4">
-              <UIAvatar :src="h.image" class="h-6 w-6" :alt="h.name" />
+              <UiAvatar :src="h.image" class="h-6 w-6" :alt="h.name" />
               <span>{{ h.name }}</span>
             </div>
-          </UIDropdownMenuCheckboxItem>
+          </UiDropdownMenuCheckboxItem>
         </template>
-      </UIDropdownMenuContent>
-    </UIDropdownMenu>
+      </UiDropdownMenuContent>
+    </UiDropdownMenu>
   </div>
 </template>
 
@@ -182,25 +182,25 @@ npx ui-thing@latest add dropdown-menu
 ```vue [DocsDropdownMenuRadioItems.vue]
 <template>
   <div class="flex w-full items-center justify-center">
-    <UIDropdownMenu>
-      <UIDropdownMenuTrigger as-child>
-        <UIButton variant="outline">Radio options</UIButton>
-      </UIDropdownMenuTrigger>
+    <UiDropdownMenu>
+      <UiDropdownMenuTrigger as-child>
+        <UiButton variant="outline">Radio options</UiButton>
+      </UiDropdownMenuTrigger>
 
-      <UIDropdownMenuContent class="w-48">
-        <UIDropdownMenuLabel label="Tooltip placement" />
-        <UIDropdownMenuSeparator />
-        <UIDropdownMenuRadioGroup v-model="placement">
-          <UIDropdownMenuRadioItem
+      <UiDropdownMenuContent class="w-48">
+        <UiDropdownMenuLabel label="Tooltip placement" />
+        <UiDropdownMenuSeparator />
+        <UiDropdownMenuRadioGroup v-model="placement">
+          <UiDropdownMenuRadioItem
             v-for="item in placements"
             :key="item"
             :value="item"
             :title="item"
             :text-value="item"
           />
-        </UIDropdownMenuRadioGroup>
-      </UIDropdownMenuContent>
-    </UIDropdownMenu>
+        </UiDropdownMenuRadioGroup>
+      </UiDropdownMenuContent>
+    </UiDropdownMenu>
   </div>
 </template>
 

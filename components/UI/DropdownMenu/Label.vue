@@ -1,5 +1,8 @@
 <template>
-  <DropdownMenuLabel :class="styles({ inset, class: props.class })" v-bind="props">
+  <DropdownMenuLabel
+    :class="styles({ inset, class: props.class })"
+    v-bind="reactiveOmit(props, 'class', 'inset', 'label')"
+  >
     <slot>{{ label }}</slot>
   </DropdownMenuLabel>
 </template>

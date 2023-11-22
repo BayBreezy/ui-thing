@@ -1,41 +1,41 @@
 <template>
   <div class="flex items-center justify-center">
-    <UIDropdownMenu>
-      <UIDropdownMenuTrigger asChild>
-        <UIButton variant="outline">Open menu</UIButton>
-      </UIDropdownMenuTrigger>
-      <UIDropdownMenuContent class="w-56">
+    <UiDropdownMenu>
+      <UiDropdownMenuTrigger asChild>
+        <UiButton variant="outline">Open menu</UiButton>
+      </UiDropdownMenuTrigger>
+      <UiDropdownMenuContent class="w-56">
         <template v-for="(item, i) in menuitems" :key="i">
-          <UIDropdownMenuLabel v-if="item.label" :label="item.label" />
-          <UIDropdownMenuSeparator v-else-if="item.divider" />
-          <UIDropdownMenuItem
+          <UiDropdownMenuLabel v-if="item.label" :label="item.label" />
+          <UiDropdownMenuSeparator v-else-if="item.divider" />
+          <UiDropdownMenuItem
             v-else-if="item.title && !item.items"
             :title="item.title"
             :icon="item.icon"
             :shortcut="item.shortcut"
             :disabled="item.disabled"
           />
-          <UIDropdownMenuSub v-else-if="item.title && item.items">
-            <UIDropdownMenuSubTrigger
+          <UiDropdownMenuSub v-else-if="item.title && item.items">
+            <UiDropdownMenuSubTrigger
               :title="item.title"
               :icon="item.icon"
               :textValue="item.title"
             />
-            <UIDropdownMenuSubContent>
+            <UiDropdownMenuSubContent>
               <template v-for="(child, k) in item.items" :key="`child-${k}`">
-                <UIDropdownMenuSeparator v-if="child.divider" />
-                <UIDropdownMenuItem
+                <UiDropdownMenuSeparator v-if="child.divider" />
+                <UiDropdownMenuItem
                   v-else
                   :title="child.title"
                   :icon="child.icon"
                   :shortcut="child.shortcut"
                 />
               </template>
-            </UIDropdownMenuSubContent>
-          </UIDropdownMenuSub>
+            </UiDropdownMenuSubContent>
+          </UiDropdownMenuSub>
         </template>
-      </UIDropdownMenuContent>
-    </UIDropdownMenu>
+      </UiDropdownMenuContent>
+    </UiDropdownMenu>
   </div>
 </template>
 

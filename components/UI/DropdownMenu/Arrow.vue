@@ -1,5 +1,8 @@
 <template>
-  <DropdownMenuArrow v-bind="props" :class="styles({ class: props.class })" />
+  <DropdownMenuArrow
+    v-bind="reactiveOmit(props, 'class')"
+    :class="styles({ class: props.class })"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -9,6 +12,7 @@
   const props = withDefaults(
     defineProps<
       DropdownMenuArrowProps & {
+        /** Custom class(es) to add to the parent */
         class?: any;
       }
     >(),

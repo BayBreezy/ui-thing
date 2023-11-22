@@ -9,7 +9,7 @@
       </slot>
     </slot>
     <slot name="shortcut">
-      <UIDropdownMenuShortcut v-if="shortcut">{{ shortcut }}</UIDropdownMenuShortcut>
+      <UiDropdownMenuShortcut v-if="shortcut">{{ shortcut }}</UiDropdownMenuShortcut>
     </slot>
   </DropdownMenuItem>
 </template>
@@ -20,16 +20,24 @@
 
   const props = defineProps<
     DropdownMenuItemProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
+      /** Whether to inset the content */
       inset?: boolean;
+      /** The shorttcut text to display */
       shortcut?: string;
+      /** The title text to display */
       title?: string;
+      /** The icon to display */
       icon?: string;
     }
   >();
 
   const emits = defineEmits<DropdownMenuItemEmits>();
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(
+    reactiveOmit(props, "class", "inset", "shortcut", "title", "icon"),
+    emits
+  );
 
   const styles = tv({
     base: "relative flex cursor-default select-none items-center gap-3 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",

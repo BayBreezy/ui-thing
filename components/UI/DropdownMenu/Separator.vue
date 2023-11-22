@@ -1,5 +1,8 @@
 <template>
-  <DropdownMenuSeparator :class="styles({ class: props.class })" v-bind="props" />
+  <DropdownMenuSeparator
+    :class="styles({ class: props.class })"
+    v-bind="reactiveOmit(props, 'class')"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -8,6 +11,7 @@
 
   const props = defineProps<
     DropdownMenuSeparatorProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();
