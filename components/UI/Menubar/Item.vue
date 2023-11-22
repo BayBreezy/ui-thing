@@ -9,7 +9,7 @@
       </slot>
     </slot>
     <slot name="shortcut">
-      <UIMenubarShortcut v-if="shortcut">{{ shortcut }}</UIMenubarShortcut>
+      <UiMenubarShortcut v-if="shortcut">{{ shortcut }}</UiMenubarShortcut>
     </slot>
   </MenubarItem>
 </template>
@@ -29,7 +29,10 @@
   >();
 
   const emits = defineEmits<MenubarItemEmits>();
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(
+    reactiveOmit(props, "class", "inset", "shortcut", "title", "icon"),
+    emits
+  );
 
   const styles = tv({
     base: "relative flex cursor-pointer select-none items-center gap-3 rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",

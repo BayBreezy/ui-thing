@@ -11,6 +11,7 @@
   const props = withDefaults(
     defineProps<
       MenubarRootProps & {
+        /** Custom class(es) to add to the parent */
         class?: any;
       }
     >(),
@@ -20,7 +21,7 @@
   );
 
   const emits = defineEmits<MenubarRootEmits>();
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);
 
   const styles = tv({
     base: "inline-flex h-10 items-center space-x-1 rounded-md border bg-background p-1",

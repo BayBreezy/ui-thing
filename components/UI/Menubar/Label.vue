@@ -1,5 +1,8 @@
 <template>
-  <MenubarLabel :class="styles({ inset, class: props.class })" v-bind="props">
+  <MenubarLabel
+    :class="styles({ inset, class: props.class })"
+    v-bind="reactiveOmit(props, 'class', 'inset')"
+  >
     <slot></slot>
   </MenubarLabel>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <MenubarSeparator :class="styles({ class: props.class })" v-bind="props" />
+  <MenubarSeparator :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')" />
 </template>
 
 <script lang="ts" setup>
@@ -8,6 +8,7 @@
 
   const props = defineProps<
     MenubarSeparatorProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();

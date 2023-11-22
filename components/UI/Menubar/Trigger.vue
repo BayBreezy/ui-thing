@@ -1,5 +1,5 @@
 <template>
-  <MenubarTrigger :class="styles({ class: props.class })" v-bind="props">
+  <MenubarTrigger :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
     <slot></slot>
   </MenubarTrigger>
 </template>
@@ -10,6 +10,7 @@
 
   const props = defineProps<
     MenubarTriggerProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();

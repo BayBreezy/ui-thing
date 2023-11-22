@@ -1,53 +1,53 @@
 <template>
   <div class="flex w-full items-center justify-center">
-    <UIMenubar>
+    <UiMenubar>
       <template v-for="(item, i) in menu" :key="i">
-        <UIMenubarMenu :value="item.value">
-          <UIMenubarTrigger class="cursor-pointer">
+        <UiMenubarMenu :value="item.value">
+          <UiMenubarTrigger class="cursor-pointer">
             {{ item.trigger }}
-          </UIMenubarTrigger>
+          </UiMenubarTrigger>
 
-          <UIMenubarContent>
+          <UiMenubarContent>
             <template v-for="(child, k) in item.items" :key="`child-${k}`">
-              <UIMenubarSeparator v-if="child.divider" />
-              <UIMenubarCheckboxItem
+              <UiMenubarSeparator v-if="child.divider" />
+              <UiMenubarCheckboxItem
                 @select="(e) => e.preventDefault()"
                 v-else-if="child.type === 'check'"
                 :title="child.title"
                 :shortcut="child.shortcut"
                 v-model:checked="child.model.value"
               />
-              <UIMenubarRadioGroup v-else-if="child.type === 'radio'" v-model="child.model.value">
+              <UiMenubarRadioGroup v-else-if="child.type === 'radio'" v-model="child.model.value">
                 <template v-for="(o, m) in child.options" :key="m">
-                  <UIMenubarRadioItem
+                  <UiMenubarRadioItem
                     @select="(e) => e.preventDefault()"
                     :title="o.title"
                     :shortcut="o.shortcut"
                     :value="o.value"
                   />
                 </template>
-              </UIMenubarRadioGroup>
-              <UIMenubarItem
+              </UiMenubarRadioGroup>
+              <UiMenubarItem
                 v-else-if="!child.divider && !child.items"
                 :title="child.title"
                 :inset="child.inset"
                 :shortcut="child.shortcut"
                 :disabled="child.disabled"
               />
-              <UIMenubarSub v-else-if="child.items">
-                <UIMenubarSubTrigger :title="child.title" />
-                <UIMenubarSubContent class="w-44">
+              <UiMenubarSub v-else-if="child.items">
+                <UiMenubarSubTrigger :title="child.title" />
+                <UiMenubarSubContent class="w-44">
                   <template v-for="(kid, j) in child.items" :key="`kid-${j}`">
-                    <UIMenubarSeparator v-if="kid.divider" />
-                    <UIMenubarItem :inset="kid.inset" v-else :title="kid.title" :icon="kid.icon" />
+                    <UiMenubarSeparator v-if="kid.divider" />
+                    <UiMenubarItem :inset="kid.inset" v-else :title="kid.title" :icon="kid.icon" />
                   </template>
-                </UIMenubarSubContent>
-              </UIMenubarSub>
+                </UiMenubarSubContent>
+              </UiMenubarSub>
             </template>
-          </UIMenubarContent>
-        </UIMenubarMenu>
+          </UiMenubarContent>
+        </UiMenubarMenu>
       </template>
-    </UIMenubar>
+    </UiMenubar>
   </div>
 </template>
 

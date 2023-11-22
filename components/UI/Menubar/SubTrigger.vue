@@ -1,5 +1,8 @@
 <template>
-  <MenubarSubTrigger v-bind="props" :class="styles({ inset, class: props.class })">
+  <MenubarSubTrigger
+    v-bind="reactiveOmit(props, 'class', 'inset', 'icon', 'title', 'trailingIcon')"
+    :class="styles({ inset, class: props.class })"
+  >
     <slot>
       <Icon v-if="icon" :name="icon" class="h-4 w-4" />
       <span v-if="title">{{ title }}</span>
