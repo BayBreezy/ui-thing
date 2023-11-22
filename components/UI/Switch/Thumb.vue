@@ -1,5 +1,5 @@
 <template>
-  <SwitchThumb :class="styles({ class: props.class })" v-bind="props">
+  <SwitchThumb :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
     <slot></slot>
   </SwitchThumb>
 </template>
@@ -10,6 +10,7 @@
 
   const props = defineProps<
     SwitchThumbProps & {
+      /** Custom class(es) to add to parent element */
       class?: any;
     }
   >();

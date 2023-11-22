@@ -32,8 +32,8 @@ npx ui-thing@latest add switch
 <template>
   <div class="flex w-full justify-center">
     <div class="flex items-center space-x-2">
-      <UISwitch id="airplane-mode" />
-      <UILabel for="airplane-mode">Airplane Mode</UILabel>
+      <UiSwitch id="airplane-mode" />
+      <UiLabel for="airplane-mode">Airplane Mode</UiLabel>
     </div>
   </div>
 </template>
@@ -52,15 +52,15 @@ npx ui-thing@latest add switch
   <form @submit="onSubmit" class="flex w-full justify-center">
     <div class="w-full">
       <Field name="mode" v-slot="{ handleChange, value }">
-        <UIFormItem class="flex flex-col">
+        <UiFormItem class="flex flex-col">
           <div class="flex items-center gap-3">
-            <UISwitch :checked="value" @update:checked="handleChange" />
-            <UIFormLabel class="w-auto"> Airplane mode </UIFormLabel>
+            <UiSwitch :checked="value" @update:checked="handleChange" />
+            <UiFormLabel class="w-auto"> Airplane mode </UiFormLabel>
           </div>
-        </UIFormItem>
+        </UiFormItem>
       </Field>
       <div class="mt-4">
-        <UIButton type="submit" size="sm"> Update </UIButton>
+        <UiButton type="submit" size="sm"> Update </UiButton>
       </div>
     </div>
   </form>
