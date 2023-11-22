@@ -14,7 +14,9 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
+        /** Custom class to add to the parent */
         class?: any;
+        /** The description text that should be displayed */
         description?: string;
       }
     >(),
