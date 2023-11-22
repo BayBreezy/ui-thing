@@ -1,5 +1,5 @@
 <template>
-  <CollapsibleContent :class="styles({ class: props.class })" v-bind="props">
+  <CollapsibleContent :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
     <slot></slot>
   </CollapsibleContent>
 </template>
@@ -10,6 +10,7 @@
 
   const props = defineProps<
     CollapsibleContentProps & {
+      /** Customer class(es) to add to the element */
       class?: any;
     }
   >();
