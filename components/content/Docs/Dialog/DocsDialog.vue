@@ -1,11 +1,11 @@
 <template>
   <div class="flex w-full items-center justify-center">
-    <UIDialog v-model:open="dialog">
-      <UIDialogTrigger as-child>
-        <UIButton variant="outline">Edit Profile</UIButton>
-      </UIDialogTrigger>
+    <UiDialog v-model:open="dialog">
+      <UiDialogTrigger as-child>
+        <UiButton variant="outline">Edit Profile</UiButton>
+      </UiDialogTrigger>
 
-      <UIDialogContent
+      <UiDialogContent
         class="sm:max-w-[425px]"
         title="Edit profile"
         description="Make changes to your profile here. Click save when you're done."
@@ -13,29 +13,29 @@
         <template #content>
           <div class="grid gap-4 py-4">
             <div class="grid grid-cols-4 items-center gap-4">
-              <UILabel for="name" class="text-right"> Name </UILabel>
-              <UIInput id="name" model-value="Pedro Duarte" class="col-span-3" />
+              <UiLabel for="name" class="text-right"> Name </UiLabel>
+              <UiInput id="name" model-value="Pedro Duarte" class="col-span-3" />
             </div>
             <div class="grid grid-cols-4 items-center gap-4">
-              <UILabel for="username" class="text-right"> Username </UILabel>
-              <UIInput id="username" model-value="@peduarte" class="col-span-3" />
+              <UiLabel for="username" class="text-right"> Username </UiLabel>
+              <UiInput id="username" model-value="@peduarte" class="col-span-3" />
             </div>
           </div>
         </template>
         <template #footer>
-          <UIDialogFooter>
-            <UIButton
+          <UiDialogFooter>
+            <UiButton
               @click="closeDialog(false)"
               variant="outline"
               type="button"
               class="mt-2 sm:mt-0"
-              >Cancel</UIButton
+              >Cancel</UiButton
             >
-            <UIButton @click="closeDialog(true)" type="submit">Save</UIButton>
-          </UIDialogFooter>
+            <UiButton @click="closeDialog(true)" type="submit">Save</UiButton>
+          </UiDialogFooter>
         </template>
-      </UIDialogContent>
-    </UIDialog>
+      </UiDialogContent>
+    </UiDialog>
   </div>
 </template>
 
