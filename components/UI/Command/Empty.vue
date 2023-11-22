@@ -1,5 +1,5 @@
 <template>
-  <ComboboxEmpty :class="styles({ class: props.class })" v-bind="props">
+  <ComboboxEmpty :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
     <slot></slot>
   </ComboboxEmpty>
 </template>

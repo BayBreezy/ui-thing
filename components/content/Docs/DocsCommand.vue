@@ -1,12 +1,12 @@
 <template>
   <div class="flex w-full items-center justify-center">
-    <UICommand class="max-w-[450px] rounded-lg border shadow-md">
-      <UICommandInput placeholder="Type a command or search..." />
-      <UICommandList>
-        <UICommandEmpty>No results found.</UICommandEmpty>
+    <UiCommand class="max-w-[450px] rounded-lg border shadow-md">
+      <UiCommandInput placeholder="Type a command or search..." />
+      <UiCommandList>
+        <UiCommandEmpty>No results found.</UiCommandEmpty>
         <template v-for="(item, label, i) in items" :key="i">
-          <UICommandGroup :heading="label">
-            <UICommandItem
+          <UiCommandGroup :heading="label">
+            <UiCommandItem
               v-for="(child, k) in item"
               :key="k"
               :text="child.label"
@@ -18,11 +18,11 @@
                 $event.preventDefault();
               "
             />
-          </UICommandGroup>
-          <UICommandSeparator class="last:hidden" />
+          </UiCommandGroup>
+          <UiCommandSeparator class="last:hidden" />
         </template>
-      </UICommandList>
-    </UICommand>
+      </UiCommandList>
+    </UiCommand>
   </div>
 </template>
 

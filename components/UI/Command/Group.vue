@@ -1,7 +1,10 @@
 <template>
-  <ComboboxGroup :class="styles({ class: props.class })" v-bind="props">
+  <ComboboxGroup
+    :class="styles({ class: props.class })"
+    v-bind="reactiveOmit(props, 'class', 'heading')"
+  >
     <slot name="heading">
-      <UICommandLabel v-if="heading" :label="heading" />
+      <UiCommandLabel v-if="heading" :label="heading" />
     </slot>
     <slot> </slot>
   </ComboboxGroup>

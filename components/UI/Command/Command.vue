@@ -11,7 +11,7 @@
   const props = defineProps<ComboboxRootProps & { class?: any }>();
   const emits = defineEmits<ComboboxRootEmits>();
 
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);
 
   const styles = tv({
     base: "flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground",

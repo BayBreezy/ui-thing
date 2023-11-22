@@ -17,7 +17,7 @@
   >();
 
   const emits = defineEmits<ComboboxContentEmits>();
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);
 
   const styles = tv({
     base: "max-h-[300px] overflow-y-auto overflow-x-hidden",

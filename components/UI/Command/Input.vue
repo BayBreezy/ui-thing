@@ -8,7 +8,7 @@
       auto-focus
       :class="styles({ class: props.class })"
     />
-    <UICommandCancel v-if="showCancel" />
+    <UiCommandCancel v-if="showCancel" />
   </div>
 </template>
 

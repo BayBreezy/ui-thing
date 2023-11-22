@@ -1,11 +1,11 @@
 <template>
-  <UIDialog v-bind="forwarded">
-    <UIDialogContent class="overflow-hidden p-0 shadow-lg">
-      <UICommand>
+  <UiDialog v-bind="forwarded">
+    <UiDialogContent class="overflow-hidden p-0 shadow-lg">
+      <UiCommand>
         <slot />
-      </UICommand>
-    </UIDialogContent>
-  </UIDialog>
+      </UiCommand>
+    </UiDialogContent>
+  </UiDialog>
 </template>
 
 <script lang="ts" setup>

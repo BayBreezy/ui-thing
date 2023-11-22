@@ -1,5 +1,8 @@
 <template>
-  <ComboboxLabel :class="styles({ class: props.class })" v-bind="props">
+  <ComboboxLabel
+    :class="styles({ class: props.class })"
+    v-bind="reactiveOmit(props, 'class', 'label')"
+  >
     <slot>{{ label }}</slot>
   </ComboboxLabel>
 </template>
@@ -10,7 +13,13 @@
 
   const props = defineProps<
     ComboboxLabelProps & {
+      /**
+       * Class(es) to pass to the ComboboxLabel component.
+       */
       class?: any;
+      /**
+       * The label to display.
+       */
       label?: any;
     }
   >();
