@@ -11,6 +11,7 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
+        /** Custom class(es) to add to the element */
         class?: any;
       }
     >(),
@@ -18,6 +19,6 @@
   );
 
   const styles = tv({
-    base: "flex items-center p-6 pt-0",
+    base: "flex items-center p-6 ",
   });
 </script>

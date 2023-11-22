@@ -23,45 +23,43 @@ npx ui-thing@latest add card
 <template>
   <div class="flex items-center justify-center">
     <form>
-      <UICard
+      <UiCard
         class="w-[360px] max-w-sm"
         title="Create project"
         description="Deploy your new project in one-click."
       >
         <template #content>
-          <UICardContent>
+          <UiCardContent>
             <div class="grid w-full items-center gap-4">
               <div class="flex flex-col space-y-1.5">
-                <UILabel for="name">Name</UILabel>
-                <UIInput required id="name" placeholder="Name of your project" />
+                <UiLabel for="name">Name</UiLabel>
+                <UiInput required id="name" placeholder="Name of your project" />
               </div>
               <div class="flex flex-col space-y-1.5">
-                <UILabel for="framework">Framework</UILabel>
-                <UISelect required>
-                  <UISelectTrigger id="framework" placeholder="Select" />
-                  <UISelectContent>
-                    <UISelectItem value="next">Next.js</UISelectItem>
-                    <UISelectItem value="sveltekit">SvelteKit</UISelectItem>
-                    <UISelectItem value="astro">Astro</UISelectItem>
-                    <UISelectItem value="nuxt">Nuxt.js</UISelectItem>
-                  </UISelectContent>
-                </UISelect>
+                <UiLabel for="framework">Framework</UiLabel>
+                <UiSelect required>
+                  <UiSelectTrigger id="framework" placeholder="Select" />
+                  <UiSelectContent>
+                    <UiSelectItem value="next">Next.js</UiSelectItem>
+                    <UiSelectItem value="sveltekit">SvelteKit</UiSelectItem>
+                    <UiSelectItem value="astro">Astro</UiSelectItem>
+                    <UiSelectItem value="nuxt">Nuxt.js</UiSelectItem>
+                  </UiSelectContent>
+                </UiSelect>
               </div>
             </div>
-          </UICardContent>
+          </UiCardContent>
         </template>
         <template #footer>
-          <UICardFooter class="flex justify-between">
-            <UIButton type="reset" variant="outline">Cancel</UIButton>
-            <UIButton type="submit">Deploy</UIButton>
-          </UICardFooter>
+          <UiCardFooter class="flex justify-between">
+            <UiButton type="reset" variant="outline">Cancel</UiButton>
+            <UiButton type="submit">Deploy</UiButton>
+          </UiCardFooter>
         </template>
-      </UICard>
+      </UiCard>
     </form>
   </div>
 </template>
-
-<script lang="ts" setup></script>
 ```
 
 ::
@@ -75,23 +73,23 @@ npx ui-thing@latest add card
 ```vue [DocsCardExample.vue]
 <template>
   <div class="flex items-center justify-center">
-    <UICard
+    <UiCard
       class="w-[380px] max-w-sm"
       title="Notifications"
       description="You have 3 unread messages."
     >
       <template #content>
-        <UICardContent>
+        <UiCardContent>
           <div class="flex items-center gap-3 rounded-lg border p-3">
             <div class="shrink-0 self-start">
               <Icon name="lucide:bell" class="h-6 w-6" />
             </div>
-            <UILabel for="push" class="flex flex-col text-sm">
+            <UiLabel for="push" class="flex flex-col text-sm">
               <p class="font-medium">Push Notifications</p>
               <p class="text-muted-foreground">Send notifications to device.</p>
-            </UILabel>
+            </UiLabel>
             <div class="ml-auto">
-              <UISwitch id="push" v-model:checked="push" />
+              <UiSwitch id="push" v-model:checked="push" />
             </div>
           </div>
 
@@ -104,15 +102,15 @@ npx ui-thing@latest add card
               </div>
             </li>
           </ul>
-        </UICardContent>
+        </UiCardContent>
       </template>
 
       <template #footer>
-        <UICardFooter>
-          <UIButton class="w-full"> <Icon name="lucide:check" /> Mark all as read </UIButton>
-        </UICardFooter>
+        <UiCardFooter>
+          <UiButton class="w-full"> <Icon name="lucide:check" /> Mark all as read </UiButton>
+        </UiCardFooter>
       </template>
-    </UICard>
+    </UiCard>
   </div>
 </template>
 

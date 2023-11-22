@@ -1,22 +1,22 @@
 <template>
   <div class="flex items-center justify-center">
-    <UICard
+    <UiCard
       class="w-[380px] max-w-sm"
       title="Notifications"
       description="You have 3 unread messages."
     >
       <template #content>
-        <UICardContent>
+        <UiCardContent>
           <div class="flex items-center gap-3 rounded-lg border p-3">
             <div class="shrink-0 self-start">
               <Icon name="lucide:bell" class="h-6 w-6" />
             </div>
-            <UILabel for="push" class="flex flex-col text-sm">
+            <UiLabel for="push" class="flex flex-col text-sm">
               <p class="font-medium">Push Notifications</p>
               <p class="text-muted-foreground">Send notifications to device.</p>
-            </UILabel>
+            </UiLabel>
             <div class="ml-auto">
-              <UISwitch id="push" v-model:checked="push" />
+              <UiSwitch id="push" v-model:checked="push" />
             </div>
           </div>
 
@@ -29,15 +29,15 @@
               </div>
             </li>
           </ul>
-        </UICardContent>
+        </UiCardContent>
       </template>
 
       <template #footer>
-        <UICardFooter>
-          <UIButton class="w-full"> <Icon name="lucide:check" /> Mark all as read </UIButton>
-        </UICardFooter>
+        <UiCardFooter>
+          <UiButton class="w-full"> <Icon name="lucide:check" /> Mark all as read </UiButton>
+        </UiCardFooter>
       </template>
-    </UICard>
+    </UiCard>
   </div>
 </template>
 

@@ -13,7 +13,9 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
+        /** Description to display in the card */
         description?: string;
+        /** Custom class(es) to add to the element */
         class?: any;
       }
     >(),

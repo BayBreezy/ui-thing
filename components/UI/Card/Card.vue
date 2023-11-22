@@ -31,9 +31,13 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
+        /** Title that should be displayed. Passed to the `CardTitle` component */
         title?: string;
+        /** Description that should be displayed. Passed to the `CardDescription` component */
         description?: string;
+        /** Content that should be displayed. Passed to the `CardContent` component */
         content?: string;
+        /** Custom class(es) to add to the element */
         class?: any;
       }
     >(),

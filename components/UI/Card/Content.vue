@@ -13,13 +13,15 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
+        /** Content to display in the card */
         content?: string;
+        /** Custom class(es) to add to the element */
         class?: any;
       }
     >(),
     { as: "div" }
   );
   const styles = tv({
-    base: "p-6 pt-0",
+    base: "p-6 [&+*]:pt-0",
   });
 </script>
