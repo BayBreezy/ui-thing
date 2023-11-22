@@ -1,5 +1,8 @@
 <template>
-  <Primitive v-bind="props" :class="styles({ class: props.class })">
+  <Primitive
+    v-bind="reactiveOmit(props, 'description', 'class')"
+    :class="styles({ class: props.class })"
+  >
     <slot>{{ description }}</slot>
   </Primitive>
 </template>

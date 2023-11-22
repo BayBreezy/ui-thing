@@ -5,8 +5,8 @@
     </slot>
     <div>
       <slot>
-        <UIAlertTitle :title="title" v-if="title" />
-        <UIAlertDescription v-if="description" :description="description" />
+        <UiAlertTitle :title="title" v-if="title" />
+        <UiAlertDescription v-if="description" :description="description" />
       </slot>
     </div>
   </div>
