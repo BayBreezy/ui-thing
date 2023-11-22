@@ -1,5 +1,8 @@
 <template>
-  <NavigationMenuTrigger v-bind="props" :class="styles({ class: props.class })">
+  <NavigationMenuTrigger
+    v-bind="reactiveOmit(props, 'class', 'icon', 'title')"
+    :class="styles({ class: props.class })"
+  >
     <slot>{{ title }}</slot>
     <Icon
       :name="icon || 'lucide:chevron-down'"
@@ -15,8 +18,11 @@
 
   const props = defineProps<
     NavigationMenuTriggerProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
+      /** Icon to show */
       icon?: string;
+      /** Title to show */
       title?: string;
     }
   >();

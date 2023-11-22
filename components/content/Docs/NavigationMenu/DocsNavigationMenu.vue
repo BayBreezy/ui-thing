@@ -1,10 +1,10 @@
 <template>
   <div class="flex w-full items-center justify-center">
-    <UINavigationMenu>
-      <UINavigationMenuList>
-        <UINavigationMenuItem>
-          <UINavigationMenuTrigger title="Beach day" />
-          <UINavigationMenuContent>
+    <UiNavigationMenu>
+      <UiNavigationMenuList>
+        <UiNavigationMenuItem>
+          <UiNavigationMenuTrigger title="Beach day" />
+          <UiNavigationMenuContent>
             <div class="grid w-[600px] grid-cols-2 gap-5 p-4">
               <img
                 src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"
@@ -22,11 +22,11 @@
                 </li>
               </ul>
             </div>
-          </UINavigationMenuContent>
-        </UINavigationMenuItem>
-        <UINavigationMenuItem>
-          <UINavigationMenuTrigger title="Components" />
-          <UINavigationMenuContent>
+          </UiNavigationMenuContent>
+        </UiNavigationMenuItem>
+        <UiNavigationMenuItem>
+          <UiNavigationMenuTrigger title="Components" />
+          <UiNavigationMenuContent>
             <ul class="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               <DocsNavigationMenuListItem
                 v-for="item in components"
@@ -37,11 +37,11 @@
                 {{ item.description }}
               </DocsNavigationMenuListItem>
             </ul>
-          </UINavigationMenuContent>
-        </UINavigationMenuItem>
-        <UINavigationMenuItem>
-          <UINavigationMenuTrigger title="Learn more" />
-          <UINavigationMenuContent>
+          </UiNavigationMenuContent>
+        </UiNavigationMenuItem>
+        <UiNavigationMenuItem>
+          <UiNavigationMenuTrigger title="Learn more" />
+          <UiNavigationMenuContent>
             <div class="grid w-[500px] grid-cols-2 place-items-center gap-5 p-3">
               <img
                 src="https://www.radix-vue.com/logo.svg"
@@ -56,15 +56,15 @@
                 </p>
               </div>
             </div>
-          </UINavigationMenuContent>
-        </UINavigationMenuItem>
-        <UINavigationMenuItem>
-          <UINavigationMenuLink asChild>
-            <UIButton variant="ghost">Documentation</UIButton>
-          </UINavigationMenuLink>
-        </UINavigationMenuItem>
-      </UINavigationMenuList>
-    </UINavigationMenu>
+          </UiNavigationMenuContent>
+        </UiNavigationMenuItem>
+        <UiNavigationMenuItem>
+          <UiNavigationMenuLink asChild>
+            <UiButton variant="ghost">Documentation</UiButton>
+          </UiNavigationMenuLink>
+        </UiNavigationMenuItem>
+      </UiNavigationMenuList>
+    </UiNavigationMenu>
   </div>
 </template>
 

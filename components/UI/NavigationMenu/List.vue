@@ -1,5 +1,5 @@
 <template>
-  <NavigationMenuList v-bind="props" :class="styles({ class: props.class })">
+  <NavigationMenuList v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
     <slot></slot>
   </NavigationMenuList>
 </template>
@@ -10,6 +10,7 @@
 
   const props = defineProps<
     NavigationMenuListProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();

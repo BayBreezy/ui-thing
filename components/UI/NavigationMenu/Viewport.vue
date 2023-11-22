@@ -1,7 +1,7 @@
 <template>
   <div class="absolute left-0 top-full flex justify-center">
     <NavigationMenuViewport
-      v-bind="{ ...props, ...$attrs }"
+      v-bind="{ ...reactiveOmit(props, 'class'), ...$attrs }"
       :class="styles({ class: props.class })"
     />
   </div>
@@ -14,6 +14,7 @@
   defineOptions({ inheritAttrs: false });
   const props = defineProps<
     NavigationMenuViewportProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();
