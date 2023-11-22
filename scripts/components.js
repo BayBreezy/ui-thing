@@ -724,4 +724,20 @@ export default [
     components: ["label"],
     files: ["Vee/MultiSelect.vue"],
   },
+  {
+    name: "VeeOTP",
+    value: "vee-otp",
+    deps: [
+      "@vee-validate/nuxt",
+      "radix-vue",
+      "@morev/vue-transitions",
+      "tailwind-variants",
+      "vue3-otp-input",
+    ],
+    askValidator: true,
+    devDeps: [],
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
+    components: ["label", "otp"],
+    files: ["Vee/OTP.vue"],
+  },
 ];

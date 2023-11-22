@@ -1,10 +1,13 @@
 <template>
   <div class="w-full">
-    <UILabel :for="inputId" v-if="label" :class="[errorMessage && 'text-destructive', 'mb-2']">{{
-      label
-    }}</UILabel>
+    <UiLabel
+      :for="inputId"
+      v-if="label"
+      :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
+      >{{ label }}</UiLabel
+    >
     <div class="relative">
-      <UIOTP
+      <UiOtp
         v-model="value"
         v-bind="$attrs"
         :input-classes="inputClasses"
@@ -20,16 +23,21 @@
         @ready="emits('ready', $event)"
       />
     </div>
-    <p class="mt-1 text-sm text-muted-foreground animate-in fade-in" v-if="hint && !errorMessage">
-      {{ hint }}
-    </p>
-    <p class="mt-1 text-sm text-destructive animate-in fade-in" v-if="errorMessage">
-      {{ errorMessage }}
-    </p>
+    <TransitionSlide group tag="div">
+      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">
+        {{ hint }}
+      </p>
+
+      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">
+        {{ errorMessage }}
+      </p>
+    </TransitionSlide>
   </div>
 </template>
 
 <script lang="ts" setup>
+  import { useId } from "radix-vue";
+
   const props = defineProps<{
     label?: string;
     hint?: string;
@@ -51,7 +59,7 @@
 
   defineOptions({ inheritAttrs: false });
 
-  const inputId = computed(() => props.id || `otp-${Math.random().toString(36).substring(2, 9)}`);
+  const inputId = useId(props.id);
 
   const emits = defineEmits<{
     change: [any];
@@ -59,7 +67,7 @@
     ready: [any];
   }>();
 
-  const { errorMessage, value } = useField(() => props.name || inputId.value, props.rules, {
+  const { errorMessage, value } = useField(() => props.name || inputId, props.rules, {
     initialValue: props.modelValue,
     label: props.label,
     validateOnMount: props.validateOnMount,
