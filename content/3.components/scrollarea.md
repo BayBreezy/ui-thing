@@ -24,13 +24,13 @@ npx ui-thing@latest add scroll-area
 
 ```vue
 <template>
-  <UIScrollArea class="h-[200px] w-[350px] rounded-md border p-4">
+  <UiScrollArea class="h-[200px] w-[350px] rounded-md border p-4">
     Jokester began sneaking into the castle in the middle of the night and leaving jokes all over
     the place: under the king's pillow, in his soup, even in the royal toilet. The king was furious,
     but he couldn't seem to stop Jokester. And then, one day, the people of the kingdom discovered
     that the jokes left by Jokester were so funny that they couldn't help but laugh. And once
     theystarted laughing, they couldn't stop.
-  </UIScrollArea>
+  </UiScrollArea>
 </template>
 ```
 
@@ -43,15 +43,15 @@ npx ui-thing@latest add scroll-area
 ```vue [DocsScrollArea.vue]
 <template>
   <div class="flex w-full justify-center">
-    <UIScrollArea class="h-72 w-48 rounded-md border">
+    <UiScrollArea class="h-72 w-48 rounded-md border">
       <div class="p-4">
         <h4 class="mb-4 text-sm font-medium leading-none">Tags</h4>
         <template v-for="(tag, i) in tags" :key="i">
           <div class="text-sm">{{ tag }}</div>
-          <UISeparator class="my-2" />
+          <UiSeparator class="my-2" />
         </template>
       </div>
-    </UIScrollArea>
+    </UiScrollArea>
   </div>
 </template>
 

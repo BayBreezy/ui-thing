@@ -1,7 +1,10 @@
 <template>
-  <ScrollAreaScrollbar v-bind="props" :class="styles({ orientation, class: props.class })">
+  <ScrollAreaScrollbar
+    v-bind="reactiveOmit(props, 'class')"
+    :class="styles({ orientation, class: props.class })"
+  >
     <slot></slot>
-    <UIScrollAreaThumb />
+    <UiScrollAreaThumb />
   </ScrollAreaScrollbar>
 </template>
 
@@ -12,6 +15,7 @@
   const props = withDefaults(
     defineProps<
       ScrollAreaScrollbarProps & {
+        /** Class to apply to the scrollbar */
         class?: any;
       }
     >(),

@@ -1,5 +1,5 @@
 <template>
-  <ScrollAreaViewport v-bind="props" :class="styles({ class: props.class })">
+  <ScrollAreaViewport v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
     <slot></slot>
   </ScrollAreaViewport>
 </template>
@@ -10,6 +10,7 @@
 
   const props = defineProps<
     ScrollAreaViewportProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();
