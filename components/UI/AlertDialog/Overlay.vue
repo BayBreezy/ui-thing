@@ -1,5 +1,8 @@
 <template>
-  <AlertDialogOverlay v-bind="props" :class="styles({ class: props.class })" />
+  <AlertDialogOverlay
+    v-bind="reactiveOmit(props, 'class')"
+    :class="styles({ class: props.class })"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -8,6 +11,7 @@
 
   const props = defineProps<
     AlertDialogOverlayProps & {
+      /** Custom class(es) to add to the overlay */
       class?: any;
     }
   >();

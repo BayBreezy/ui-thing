@@ -1,5 +1,8 @@
 <template>
-  <AlertDialogDescription v-bind="props" :class="styles({ class: props.class })">
+  <AlertDialogDescription
+    v-bind="reactiveOmit(props, 'class', 'description')"
+    :class="styles({ class: props.class })"
+  >
     <slot>{{ description }}</slot>
   </AlertDialogDescription>
 </template>
@@ -10,7 +13,9 @@
 
   const props = defineProps<
     AlertDialogDescriptionProps & {
+      /** Text to display in the description */
       description?: string;
+      /** Custom class(es) to add to the description */
       class?: any;
     }
   >();

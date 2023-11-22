@@ -1,5 +1,5 @@
 <template>
-  <AlertDialogTitle v-bind="props" :class="styles({ class: props.class })">
+  <AlertDialogTitle v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
     <slot>{{ title }}</slot>
   </AlertDialogTitle>
 </template>
@@ -10,7 +10,9 @@
 
   const props = defineProps<
     AlertDialogTitleProps & {
+      /** Text to display in the title */
       title?: string;
+      /** Custom class(es) to add to the title */
       class?: any;
     }
   >();

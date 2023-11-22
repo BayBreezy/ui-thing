@@ -2,33 +2,33 @@
   <AlertDialogRoot v-bind="forwarded">
     <slot>
       <slot name="trigger">
-        <UIAlertDialogTrigger v-if="triggerText" as-child>
-          <UIButton variant="outline">{{ triggerText }}</UIButton>
-        </UIAlertDialogTrigger>
+        <UiAlertDialogTrigger v-if="triggerText" as-child>
+          <UiButton variant="outline">{{ triggerText }}</UiButton>
+        </UiAlertDialogTrigger>
       </slot>
       <slot name="content">
-        <UIAlertDialogContent>
+        <UiAlertDialogContent>
           <slot name="header">
-            <UIAlertDialogHeader>
+            <UiAlertDialogHeader>
               <slot name="title">
-                <UIAlertDialogTitle v-if="title" :title="title" />
+                <UiAlertDialogTitle v-if="title" :title="title" />
               </slot>
               <slot name="description">
-                <UIAlertDialogDescription v-if="description" :description="description" />
+                <UiAlertDialogDescription v-if="description" :description="description" />
               </slot>
-            </UIAlertDialogHeader>
+            </UiAlertDialogHeader>
           </slot>
           <slot name="footer">
-            <UIAlertDialogFooter>
+            <UiAlertDialogFooter>
               <slot name="cancel">
-                <UIAlertDialogCancel />
+                <UiAlertDialogCancel />
               </slot>
               <slot name="action">
-                <UIAlertDialogAction />
+                <UiAlertDialogAction />
               </slot>
-            </UIAlertDialogFooter>
+            </UiAlertDialogFooter>
           </slot>
-        </UIAlertDialogContent>
+        </UiAlertDialogContent>
       </slot>
     </slot>
   </AlertDialogRoot>
@@ -40,13 +40,19 @@
 
   const props = defineProps<
     AlertDialogProps & {
+      /** Text to display in the trigger button */
       triggerText?: string;
+      /** Text to be passed to the `AlertDialogTitle` */
       title?: string;
+      /** Text to be passed to the `AlertDialogDescription` */
       description?: string;
     }
   >();
 
   const emits = defineEmits<AlertDialogEmits>();
 
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(
+    reactiveOmit(props, "description", "title", "triggerText"),
+    emits
+  );
 </script>
