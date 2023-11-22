@@ -1,7 +1,7 @@
 <template>
-  <UIToastProvider>
+  <UiToastProvider>
     <template v-for="toast in toasts" :key="toast.id">
-      <UIToast v-bind="toast">
+      <UiToast v-bind="toast">
         <div class="flex gap-3">
           <Icon
             v-if="toast.icon"
@@ -10,23 +10,23 @@
             :class="[!!toast.title && !!toast.description && 'mt-0.5']"
           />
           <div class="flex flex-col gap-1">
-            <UIToastTitle v-if="toast.title" :title="toast.title" />
+            <UiToastTitle v-if="toast.title" :title="toast.title" />
             <template v-if="toast.description">
-              <UIToastDescription v-if="isVNode(toast.description)">
+              <UiToastDescription v-if="isVNode(toast.description)">
                 <component :is="toast.description" />
-              </UIToastDescription>
-              <UIToastDescription v-else>
+              </UiToastDescription>
+              <UiToastDescription v-else>
                 {{ toast.description }}
-              </UIToastDescription>
+              </UiToastDescription>
             </template>
-            <UIToastClose />
+            <UiToastClose />
           </div>
         </div>
         <component :is="toast.action" />
-      </UIToast>
+      </UiToast>
     </template>
-    <UIToastViewport />
-  </UIToastProvider>
+    <UiToastViewport />
+  </UiToastProvider>
 </template>
 
 <script lang="ts" setup>

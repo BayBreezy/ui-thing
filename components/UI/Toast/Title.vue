@@ -1,5 +1,8 @@
 <template>
-  <ToastTitle :class="styles({ class: props.class })" v-bind="props">
+  <ToastTitle
+    :class="styles({ class: props.class })"
+    v-bind="reactiveOmit(props, 'class', 'title')"
+  >
     <slot>{{ title }}</slot>
   </ToastTitle>
 </template>
@@ -10,7 +13,9 @@
 
   const props = defineProps<
     ToastTitleProps & {
+      /** The title text to render */
       title?: string;
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();

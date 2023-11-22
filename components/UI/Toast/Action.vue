@@ -1,5 +1,5 @@
 <template>
-  <ToastAction :class="styles({ class: props.class })" v-bind="props">
+  <ToastAction :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
     <slot></slot>
   </ToastAction>
 </template>
@@ -11,6 +11,9 @@
   const props = withDefaults(
     defineProps<
       ToastActionProps & {
+        /**
+         * Custom class names to add to the button.
+         */
         class?: any;
       }
     >(),

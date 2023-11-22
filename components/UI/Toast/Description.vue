@@ -1,5 +1,8 @@
 <template>
-  <ToastDescription :class="styles({ class: props.class })" v-bind="props">
+  <ToastDescription
+    :class="styles({ class: props.class })"
+    v-bind="reactiveOmit(props, 'class', 'description')"
+  >
     <slot>{{ description }}</slot>
   </ToastDescription>
 </template>
@@ -10,7 +13,9 @@
 
   const props = defineProps<
     ToastDescriptionProps & {
+      /** The description text to render */
       description?: string;
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();
