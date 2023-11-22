@@ -1,8 +1,8 @@
 <template>
   <div class="flex justify-center">
-    <UIPopover v-model:open="open">
-      <UIPopoverTrigger as-child>
-        <UIButton
+    <UiPopover v-model:open="open">
+      <UiPopoverTrigger as-child>
+        <UiButton
           variant="outline"
           role="combobox"
           :aria-expanded="open"
@@ -11,15 +11,15 @@
           {{ value ? selectedFramework : "Select framework..." }}
 
           <Icon name="lucide:chevrons-up-down" class="ml-auto h-4 w-4 shrink-0 opacity-50" />
-        </UIButton>
-      </UIPopoverTrigger>
-      <UIPopoverContent class="w-[250px] p-0">
-        <UICommand :filter-function="filterFunction" v-model="value">
-          <UICommandInput placeholder="Search framework..." />
-          <UICommandList>
-            <UICommandEmpty>No framework found.</UICommandEmpty>
-            <UICommandGroup>
-              <UICommandItem
+        </UiButton>
+      </UiPopoverTrigger>
+      <UiPopoverContent class="w-[250px] p-0">
+        <UiCommand :filter-function="filterFunction" v-model="value">
+          <UiCommandInput placeholder="Search framework..." />
+          <UiCommandList>
+            <UiCommandEmpty>No framework found.</UiCommandEmpty>
+            <UiCommandGroup>
+              <UiCommandItem
                 v-for="framework in frameworks"
                 :key="framework.value"
                 :value="framework"
@@ -33,12 +33,12 @@
                   ]"
                 />
                 {{ framework.label }}
-              </UICommandItem>
-            </UICommandGroup>
-          </UICommandList>
-        </UICommand>
-      </UIPopoverContent>
-    </UIPopover>
+              </UiCommandItem>
+            </UiCommandGroup>
+          </UiCommandList>
+        </UiCommand>
+      </UiPopoverContent>
+    </UiPopover>
   </div>
 </template>
 

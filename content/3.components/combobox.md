@@ -90,9 +90,9 @@ See installation instructions for the [Popover](/components/popover) and the [Co
 ```vue [DocsCombobox.vue]
 <template>
   <div class="flex justify-center">
-    <UIPopover v-model:open="open">
-      <UIPopoverTrigger as-child>
-        <UIButton
+    <UiPopover v-model:open="open">
+      <UiPopoverTrigger as-child>
+        <UiButton
           variant="outline"
           role="combobox"
           :aria-expanded="open"
@@ -101,15 +101,15 @@ See installation instructions for the [Popover](/components/popover) and the [Co
           {{ value ? selectedFramework : "Select framework..." }}
 
           <Icon name="lucide:chevrons-up-down" class="ml-auto h-4 w-4 shrink-0 opacity-50" />
-        </UIButton>
-      </UIPopoverTrigger>
-      <UIPopoverContent class="w-[250px] p-0">
-        <UICommand v-model="value">
-          <UICommandInput placeholder="Search framework..." />
-          <UICommandList>
-            <UICommandEmpty>No framework found.</UICommandEmpty>
-            <UICommandGroup>
-              <UICommandItem
+        </UiButton>
+      </UiPopoverTrigger>
+      <UiPopoverContent class="w-[250px] p-0">
+        <UiCommand :filter-function="filterFunction" v-model="value">
+          <UiCommandInput placeholder="Search framework..." />
+          <UiCommandList>
+            <UiCommandEmpty>No framework found.</UiCommandEmpty>
+            <UiCommandGroup>
+              <UiCommandItem
                 v-for="framework in frameworks"
                 :key="framework.value"
                 :value="framework"
@@ -123,12 +123,12 @@ See installation instructions for the [Popover](/components/popover) and the [Co
                   ]"
                 />
                 {{ framework.label }}
-              </UICommandItem>
-            </UICommandGroup>
-          </UICommandList>
-        </UICommand>
-      </UIPopoverContent>
-    </UIPopover>
+              </UiCommandItem>
+            </UiCommandGroup>
+          </UiCommandList>
+        </UiCommand>
+      </UiPopoverContent>
+    </UiPopover>
   </div>
 </template>
 
@@ -147,6 +147,9 @@ See installation instructions for the [Popover](/components/popover) and the [Co
   const selectedFramework = computed(
     () => frameworks.find((framework) => framework.value === value?.value?.value)?.label
   );
+
+  const filterFunction = (list: typeof frameworks, search: string) =>
+    list.filter((i) => i.value.toLowerCase().includes(search.toLowerCase()));
 </script>
 ```
 
