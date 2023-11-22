@@ -1,15 +1,15 @@
 <template>
   <SliderRoot v-bind="forwarded" :class="styles({ class: props.class })">
-    <slot>
-      <slot name="track">
-        <UISliderTrack>
-          <slot name="range">
-            <UISliderRange />
+    <slot :props="props">
+      <slot name="track" :props="props">
+        <UiSliderTrack>
+          <slot name="range" :props="props">
+            <UiSliderRange />
           </slot>
-        </UISliderTrack>
+        </UiSliderTrack>
       </slot>
-      <slot name="thumb">
-        <UISliderThumb v-for="(t, i) in modelValue.length" :key="i" />
+      <slot name="thumb" :props="props">
+        <UiSliderThumb v-for="(t, i) in modelValue.length" :key="i" />
       </slot>
     </slot>
   </SliderRoot>
@@ -22,6 +22,7 @@
   const props = withDefaults(
     defineProps<
       SliderRootProps & {
+        /** Custom class(es) to add to parent element */
         class?: any;
       }
     >(),
@@ -35,7 +36,7 @@
   );
 
   const emits = defineEmits<SliderRootEmits>();
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);
 
   const styles = tv({
     base: "relative flex w-full touch-none select-none items-center",

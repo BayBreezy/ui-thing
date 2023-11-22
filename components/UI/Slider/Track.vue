@@ -1,5 +1,5 @@
 <template>
-  <SliderTrack :class="styles({ class: props.class })" v-bind="props">
+  <SliderTrack :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
     <slot></slot>
   </SliderTrack>
 </template>
@@ -10,6 +10,7 @@
 
   const props = defineProps<
     SliderTrackProps & {
+      /** Custom class(es) to add to parent element */
       class?: any;
     }
   >();

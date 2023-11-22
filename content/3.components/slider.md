@@ -32,7 +32,7 @@ npx ui-thing@latest add slider
 <template>
   <div class="flex w-full flex-col gap-4">
     <p class="font-semibold">Value {{ sliderValue }}</p>
-    <UISlider v-model="sliderValue" />
+    <UiSlider v-model="sliderValue" />
   </div>
 </template>
 
@@ -53,7 +53,7 @@ npx ui-thing@latest add slider
 <template>
   <div class="flex w-full flex-col gap-4">
     <p class="font-semibold">Range {{ rangeValue }}</p>
-    <UISlider v-model="rangeValue" :max="250" />
+    <UiSlider v-model="rangeValue" :max="250" />
   </div>
 </template>
 

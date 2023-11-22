@@ -1,5 +1,5 @@
 <template>
-  <SliderThumb :class="styles({ class: props.class })" v-bind="props">
+  <SliderThumb :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
     <slot></slot>
   </SliderThumb>
 </template>
@@ -10,6 +10,7 @@
 
   const props = defineProps<
     SliderThumbProps & {
+      /** Custom class(es) to add to parent element */
       class?: any;
     }
   >();

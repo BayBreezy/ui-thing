@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-full flex-col gap-4">
     <p class="font-semibold">Range {{ rangeValue }}</p>
-    <UISlider v-model="rangeValue" :max="250" />
+    <UiSlider v-model="rangeValue" :max="250" />
   </div>
 </template>
 

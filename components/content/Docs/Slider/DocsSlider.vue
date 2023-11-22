@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-full flex-col gap-4">
     <p class="font-semibold">Value {{ sliderValue }}</p>
-    <UISlider v-model="sliderValue" />
+    <UiSlider v-model="sliderValue" />
   </div>
 </template>
 

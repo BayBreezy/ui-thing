@@ -1,5 +1,5 @@
 <template>
-  <SliderRange :class="styles({ class: props.class })" v-bind="props">
+  <SliderRange :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
     <slot></slot>
   </SliderRange>
 </template>
@@ -10,6 +10,7 @@
 
   const props = defineProps<
     SliderRangeProps & {
+      /** Custom class(es) to add to parent element */
       class?: any;
     }
   >();
