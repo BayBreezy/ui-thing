@@ -24,7 +24,7 @@ npx ui-thing@latest add input
 ```vue [DocsInputEmail.vue]
 <template>
   <div class="flex w-full items-center justify-center">
-    <UIInput type="email" placeholder="Email" />
+    <UiInput type="email" placeholder="Email" />
   </div>
 </template>
 ```
@@ -41,8 +41,8 @@ npx ui-thing@latest add input
 <template>
   <div class="flex w-full items-center justify-center">
     <div>
-      <UILabel for="picture">Picture</UILabel>
-      <UIInput id="picture" type="file" />
+      <UiLabel for="picture">Picture</UiLabel>
+      <UiInput id="picture" type="file" />
     </div>
   </div>
 </template>
@@ -61,12 +61,12 @@ npx ui-thing@latest add input
   <div class="mx-auto flex w-full max-w-lg items-center justify-center">
     <form @submit="onSubmit" class="w-full space-y-4">
       <Field name="username" v-slot="{ componentField }">
-        <UIFormItem label="Username" description="Others will be able to see this">
-          <UIInput v-bind="componentField" />
-        </UIFormItem>
+        <UiFormItem label="Username" description="Others will be able to see this">
+          <UiInput v-bind="componentField" />
+        </UiFormItem>
       </Field>
       <div>
-        <UIButton type="submit">Update</UIButton>
+        <UiButton type="submit">Update</UiButton>
       </div>
     </form>
   </div>

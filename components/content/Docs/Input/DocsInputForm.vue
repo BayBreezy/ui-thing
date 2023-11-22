@@ -2,12 +2,12 @@
   <div class="mx-auto flex w-full max-w-lg items-center justify-center">
     <form @submit="onSubmit" class="w-full space-y-4">
       <Field name="username" v-slot="{ componentField }">
-        <UIFormItem label="Username" description="Others will be able to see this">
-          <UIInput v-bind="componentField" />
-        </UIFormItem>
+        <UiFormItem label="Username" description="Others will be able to see this">
+          <UiInput v-bind="componentField" />
+        </UiFormItem>
       </Field>
       <div>
-        <UIButton type="submit">Update</UIButton>
+        <UiButton type="submit">Update</UiButton>
       </div>
     </form>
   </div>
