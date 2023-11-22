@@ -46,5 +46,36 @@
     "scope": "html, vue",
     "prefix": "class",
     "body": [":class=\"styles({ class: props.class })\""]
+  },
+  //Component snippets
+  "Accordion": {
+    "scope": "html,vue",
+    "prefix": ["accordion", "uiaccordion"],
+    "body": ["<UiAccordion :items=\"${1:accordionItems}\">", "\t$0", "</UiAccordion>"],
+    "description": "Generates parent Accordion component"
+  },
+  "AccordionContent": {
+    "scope": "html,vue",
+    "prefix": ["accordioncontent", "uiaccordioncontent"],
+    "body": ["<UiAccordionContent content=\"$1\">$0</UiAccordionContent>"],
+    "description": "Generates AccordionContent component"
+  },
+  "AccordionHeader": {
+    "scope": "html,vue",
+    "prefix": ["accordionheader", "uiaccordionheader"],
+    "body": ["<UiAccordionHeader>$0</UiAccordionHeader>"],
+    "description": "Generates AccordionHeader component"
+  },
+  "AccordionItem": {
+    "scope": "html,vue",
+    "prefix": ["accordionitem", "uiaccordionitem"],
+    "body": ["<UiAccordionItem value=\"$1\">$0</UiAccordionItem>"],
+    "description": "Generates AccordionItem component"
+  },
+  "AccordionTrigger": {
+    "scope": "html,vue",
+    "prefix": ["accordiontrigger", "uiaccordiontrigger"],
+    "body": ["<UiAccordionTrigger>$0</UiAccordionTrigger>"],
+    "description": "Generates AccordionTrigger component"
   }
 }
