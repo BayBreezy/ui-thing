@@ -1,5 +1,5 @@
 <template>
-  <UIAccordion type="single" default-value="item-2" :items="accordionItems" />
+  <UiAccordion type="single" default-value="item-2" :items="accordionItems" />
 </template>
 
 <script lang="ts" setup>
