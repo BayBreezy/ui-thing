@@ -1,24 +1,24 @@
 <template>
   <div class="flex items-center justify-center">
-    <UIList class="max-w-sm">
+    <UiList class="max-w-sm">
       <template v-for="n in cartItems" :key="n.product">
-        <UIListItem class="items-start px-0">
-          <UIAvatar :src="`https://avatar.vercel.sh/${n.product}`" />
-          <UIListContent>
-            <UIListTitle :title="n.product" />
-            <UIListSubtitle>
+        <UiListItem class="items-start px-0">
+          <UiAvatar :src="`https://avatar.vercel.sh/${n.product}`" />
+          <UiListContent>
+            <UiListTitle :title="n.product" />
+            <UiListSubtitle>
               <p>Qty: {{ n.quantity }}</p>
-            </UIListSubtitle>
-          </UIListContent>
+            </UiListSubtitle>
+          </UiListContent>
           <p class="ml-auto text-sm font-semibold">
             {{
               new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(n.price)
             }}
           </p>
-        </UIListItem>
-        <UISeparator class="my-2 ml-auto w-[85%] last:hidden" />
+        </UiListItem>
+        <UiSeparator class="my-2 ml-auto w-[85%] last:hidden" />
       </template>
-    </UIList>
+    </UiList>
   </div>
 </template>
 <script lang="ts" setup>

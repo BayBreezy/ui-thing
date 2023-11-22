@@ -1,5 +1,5 @@
 <template>
-  <Primitive :class="styles({ class: props.class })" v-bind="props">
+  <Primitive :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class', 'title')">
     <slot>{{ title }}</slot>
   </Primitive>
 </template>
@@ -11,7 +11,9 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
+        /** Custom class(es) to add to the parent */
         class?: any;
+        /** The title of the component */
         title?: string;
       }
     >(),
