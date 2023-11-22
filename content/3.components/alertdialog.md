@@ -29,24 +29,24 @@ npx ui-thing@latest add alert-dialog
 ```vue [DocsAlertDialog.vue]
 <template>
   <div class="flex justify-center">
-    <UIAlertDialog v-model:open="model">
-      <UIAlertDialogTrigger as-child>
-        <UIButton variant="outline">Show Dialog</UIButton>
-      </UIAlertDialogTrigger>
-      <UIAlertDialogContent @escape-key-down="showMessage('Escape key pressed')">
-        <UIAlertDialogHeader>
-          <UIAlertDialogTitle>Are you absolutely sure?</UIAlertDialogTitle>
-          <UIAlertDialogDescription>
+    <UiAlertDialog v-model:open="model">
+      <UiAlertDialogTrigger as-child>
+        <UiButton variant="outline">Show Dialog</UiButton>
+      </UiAlertDialogTrigger>
+      <UiAlertDialogContent @escape-key-down="showMessage('Escape key pressed')">
+        <UiAlertDialogHeader>
+          <UiAlertDialogTitle>Are you absolutely sure?</UiAlertDialogTitle>
+          <UiAlertDialogDescription>
             This action cannot be undone. This will permanently delete your account and remove your
             data from our servers.
-          </UIAlertDialogDescription>
-        </UIAlertDialogHeader>
-        <UIAlertDialogFooter>
-          <UIAlertDialogCancel @click="showMessage('Action cancelled')" />
-          <UIAlertDialogAction @click="showMessage('Action confirmed!')" />
-        </UIAlertDialogFooter>
-      </UIAlertDialogContent>
-    </UIAlertDialog>
+          </UiAlertDialogDescription>
+        </UiAlertDialogHeader>
+        <UiAlertDialogFooter>
+          <UiAlertDialogCancel @click="showMessage('Action cancelled')" />
+          <UiAlertDialogAction @click="showMessage('Action confirmed!')" />
+        </UiAlertDialogFooter>
+      </UiAlertDialogContent>
+    </UiAlertDialog>
   </div>
 </template>
 
