@@ -1,29 +1,31 @@
 <template>
-  <UIDialogPortal :to="to">
-    <UIDialogOverlay />
+  <UiSheetPortal :to="to">
+    <slot name="overlay">
+      <UiSheetOverlay />
+    </slot>
     <DialogContent
       :class="styles({ side, class: props.class })"
       v-bind="{ ...forwarded, ...$attrs }"
     >
       <slot>
         <slot name="header">
-          <UIDialogHeader>
+          <UiSheetHeader>
             <slot name="title">
-              <UIDialogTitle v-if="title" :title="title" />
+              <UiSheetTitle v-if="title" :title="title" />
             </slot>
             <slot name="description">
-              <UIDialogDescription v-if="description" :description="description" />
+              <UiSheetDescription v-if="description" :description="description" />
             </slot>
-          </UIDialogHeader>
+          </UiSheetHeader>
         </slot>
         <slot name="content"></slot>
         <slot name="footer"></slot>
       </slot>
       <slot name="close">
-        <UIDialogClose :icon="icon" />
+        <UiDialogClose :icon="icon" />
       </slot>
     </DialogContent>
-  </UIDialogPortal>
+  </UiSheetPortal>
 </template>
 
 <script lang="ts" setup>
@@ -43,7 +45,10 @@
     }
   >();
   const emits = defineEmits<DialogContentEmits>();
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(
+    reactiveOmit(props, "icon", "title", "description", "class", "to", "side"),
+    emits
+  );
 
   const styles = tv({
     base: "fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out",

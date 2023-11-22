@@ -1,5 +1,5 @@
 <template>
-  <DialogOverlay :class="styles({ class: props.class })" v-bind="props" />
+  <DialogOverlay :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')" />
 </template>
 
 <script lang="ts" setup>
@@ -8,6 +8,7 @@
 
   const props = defineProps<
     DialogOverlayProps & {
+      /** Custom class(es) to add to parent element */
       class?: any;
     }
   >();

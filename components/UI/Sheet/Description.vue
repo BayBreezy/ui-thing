@@ -1,5 +1,8 @@
 <template>
-  <DialogDescription :class="styles({ class: props.class })" v-bind="props">
+  <DialogDescription
+    :class="styles({ class: props.class })"
+    v-bind="reactiveOmit(props, 'class', 'description')"
+  >
     <slot>{{ description }}</slot>
   </DialogDescription>
 </template>
@@ -10,7 +13,9 @@
 
   const props = defineProps<
     DialogDescriptionProps & {
+      /** Custom class(es) to add to parent element */
       class?: any;
+      /** Description text */
       description?: string;
     }
   >();

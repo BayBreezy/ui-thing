@@ -1,5 +1,8 @@
 <template>
-  <DialogClose :class="styles({ class: props.class })" v-bind="props">
+  <DialogClose
+    :class="styles({ class: props.class })"
+    v-bind="reactiveOmit(props, 'srText', 'class', 'icon')"
+  >
     <slot>
       <Icon :name="icon" class="h-4 w-4" />
       <span class="sr-only">{{ srText }}</span>
@@ -14,8 +17,11 @@
   const props = withDefaults(
     defineProps<
       DialogCloseProps & {
+        /** Custom class(es) to add to parent element */
         class?: any;
+        /** Icon to display */
         icon?: string;
+        /** Screen reader text */
         srText?: string;
       }
     >(),
