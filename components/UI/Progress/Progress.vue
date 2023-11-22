@@ -1,7 +1,7 @@
 <template>
   <ProgressRoot v-bind="forwarded" :class="styles({ class: props.class })">
     <slot>
-      <UIProgressIndicator :style="{ transform: `translateX(-${100 - (modelValue || 0)}%)` }" />
+      <UiProgressIndicator :style="{ transform: `translateX(-${100 - (modelValue || 0)}%)` }" />
     </slot>
   </ProgressRoot>
 </template>
@@ -12,12 +12,13 @@
 
   const props = defineProps<
     ProgressRootProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();
 
   const emits = defineEmits<ProgressRootEmits>();
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);
 
   const styles = tv({
     base: "relative h-3 w-full overflow-hidden rounded-full bg-secondary",

@@ -24,9 +24,9 @@ npx ui-thing@latest add progress
 
 ```vue
 <template>
-  <UIProgress>
-    <UIProgressIndicator :style="{ transform: `translateX(-${100 - (modelValue || 0)}%)` }" />
-  </UIProgress>
+  <UiProgress>
+    <UiProgressIndicator :style="{ transform: `translateX(-${100 - (modelValue || 0)}%)` }" />
+  </UiProgress>
 </template>
 ```
 
@@ -41,7 +41,7 @@ npx ui-thing@latest add progress
 ```vue [DocsProgress.vue]
 <template>
   <div class="flex w-full justify-center">
-    <UIProgress v-model="value" />
+    <UiProgress v-model="value" />
   </div>
 </template>
 

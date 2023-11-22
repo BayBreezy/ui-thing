@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full justify-center">
-    <UIProgress v-model="value" />
+    <UiProgress v-model="value" />
   </div>
 </template>
 

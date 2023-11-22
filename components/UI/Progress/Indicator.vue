@@ -1,5 +1,5 @@
 <template>
-  <ProgressIndicator v-bind="props" :class="styles({ class: props.class })">
+  <ProgressIndicator v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
     <slot></slot>
   </ProgressIndicator>
 </template>
@@ -10,6 +10,7 @@
 
   const props = defineProps<
     ProgressIndicatorProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();
