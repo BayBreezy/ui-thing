@@ -1,15 +1,15 @@
 <template>
   <div class="flex items-center justify-center">
-    <UIHoverCard>
-      <UIHoverCardTrigger as-child>
-        <UIButton variant="link"> @vuejs </UIButton>
-      </UIHoverCardTrigger>
-      <UIHoverCardContent class="w-80">
+    <UiHoverCard>
+      <UiHoverCardTrigger as-child>
+        <UiButton variant="link"> @vuejs </UiButton>
+      </UiHoverCardTrigger>
+      <UiHoverCardContent class="w-80">
         <div class="flex justify-between space-x-4">
-          <UIAvatar class="ring-1 ring-muted">
-            <UIAvatarImage src="https://github.com/vuejs.png" />
-            <UIAvatarFallback>VC</UIAvatarFallback>
-          </UIAvatar>
+          <UiAvatar class="ring-1 ring-muted">
+            <UiAvatarImage src="https://github.com/vuejs.png" />
+            <UiAvatarFallback>VC</UiAvatarFallback>
+          </UiAvatar>
           <div class="space-y-1">
             <h4 class="text-sm font-semibold">@vuejs</h4>
             <p class="text-sm">
@@ -21,7 +21,7 @@
             </div>
           </div>
         </div>
-      </UIHoverCardContent>
-    </UIHoverCard>
+      </UiHoverCardContent>
+    </UiHoverCard>
   </div>
 </template>

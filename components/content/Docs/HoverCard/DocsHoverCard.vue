@@ -1,14 +1,14 @@
 <template>
   <div class="flex items-center justify-center">
-    <UIHoverCard>
-      <UIHoverCardTrigger as-child>
+    <UiHoverCard>
+      <UiHoverCardTrigger as-child>
         <div
           class="flex h-20 w-20 cursor-pointer items-center justify-center rounded-full border bg-background shadow-sm"
         >
           <Icon name="logos:nuxt-icon" class="h-8 w-8" />
         </div>
-      </UIHoverCardTrigger>
-      <UIHoverCardContent class="h-[460px] w-80 overflow-hidden rounded-lg p-0">
+      </UiHoverCardTrigger>
+      <UiHoverCardContent class="h-[460px] w-80 overflow-hidden rounded-lg p-0">
         <div class="group relative flex h-full w-full flex-col justify-end overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80"
@@ -33,13 +33,13 @@
             </p>
 
             <div class="mt-5 hidden transition-all group-hover:block">
-              <UIButton class="w-full dark:bg-primary-foreground dark:text-primary"
-                >View profile</UIButton
+              <UiButton class="w-full dark:bg-primary-foreground dark:text-primary"
+                >View profile</UiButton
               >
             </div>
           </div>
         </div>
-      </UIHoverCardContent>
-    </UIHoverCard>
+      </UiHoverCardContent>
+    </UiHoverCard>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <HoverCardArrow :class="styles({ class: props.class })" v-bind="props" />
+  <HoverCardArrow :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')" />
 </template>
 
 <script lang="ts" setup>
@@ -9,6 +9,7 @@
   const props = withDefaults(
     defineProps<
       HoverCardArrowProps & {
+        /** Custom class(es) to add to the parent */
         class?: any;
       }
     >(),
