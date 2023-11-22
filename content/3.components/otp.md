@@ -21,17 +21,17 @@ npx ui-thing@latest add otp
 
 ### Placeholder
 
-::ShowCase{component="DocsOTP"}
+::ShowCase{component="DocsOtp"}
 
 #code
 
-```vue [DocsOTP.vue]
+```vue [DocsOtp.vue]
 <template>
   <div class="flex items-center justify-center">
     <div class="grid gap-5">
       <div>
         <p class="mb-3 text-sm font-medium">Placeholder</p>
-        <UIOTP :placeholder="['0', '0', '0', '0']" />
+        <UiOtp :placeholder="['0', '0', '0', '0']" />
       </div>
     </div>
   </div>
@@ -42,16 +42,16 @@ npx ui-thing@latest add otp
 
 ### Separator
 
-::ShowCase{component="DocsOTPSeparator"}
+::ShowCase{component="DocsOtpSeparator"}
 
 #code
 
-```vue [DocsOTPSeparator.vue]
+```vue [DocsOtpSeparator.vue]
 <template>
   <div class="flex items-center justify-center">
     <div>
       <p class="mb-3 text-sm font-medium">Separator</p>
-      <UIOTP separator="-" />
+      <UiOtp separator="-" />
     </div>
   </div>
 </template>
@@ -61,17 +61,17 @@ npx ui-thing@latest add otp
 
 ### Disabled
 
-::ShowCase{component="DocsOTPDisabled"}
+::ShowCase{component="DocsOtpDisabled"}
 
 #code
 
-```vue [DocsOTPDisabled.vue]
+```vue [DocsOtpDisabled.vue]
 <template>
   <div class="flex items-center justify-center">
     <div class="grid gap-5">
       <div>
         <p class="mb-3 text-sm font-medium">Disabled</p>
-        <UIOTP disabled />
+        <UiOtp disabled />
       </div>
     </div>
   </div>
@@ -82,17 +82,17 @@ npx ui-thing@latest add otp
 
 ### Event
 
-::ShowCase{component="DocsOTPEvents"}
+::ShowCase{component="DocsOtpEvents"}
 
 #code
 
-```vue [DocsOTPEvents.vue]
+```vue [DocsOtpEvents.vue]
 <template>
   <div class="flex items-center justify-center">
     <div class="grid gap-5">
       <div>
         <p class="mb-3 text-sm font-medium">Events with 6 inputs</p>
-        <UIOTP :num-inputs="6" v-model="otp" @complete="handleComplete" @change="handleChange" />
+        <UiOtp :num-inputs="6" v-model="otp" @complete="handleComplete" @change="handleChange" />
       </div>
     </div>
   </div>
@@ -102,7 +102,12 @@ npx ui-thing@latest add otp
   const otp = ref("124");
 
   const handleComplete = (value: string) => {
-    alert(`OTP: ${value}`);
+    toast({
+      title: "One Time Password",
+      description: `OTP: ${value}`,
+      variant: "success",
+      icon: "solar:password-minimalistic-input-line-duotone",
+    });
   };
 
   const handleChange = (value: string) => {
