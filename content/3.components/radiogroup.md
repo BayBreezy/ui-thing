@@ -24,10 +24,10 @@ npx ui-thing@latest add radio-group
 
 ```vue
 <template>
-  <UIRadioGroup>
-    <UIRadioGroupItem value="default" />
-    <UILabel>Default</UILabel>
-  </UIRadioGroup>
+  <UiRadioGroup>
+    <UiRadioGroupItem value="default" />
+    <UiLabel>Default</UiLabel>
+  </UiRadioGroup>
 </template>
 ```
 
@@ -42,20 +42,20 @@ npx ui-thing@latest add radio-group
 ```vue [DocsRadioGroup.vue]
 <template>
   <div class="flex w-full justify-center">
-    <UIRadioGroup defaultValue="comfortable">
+    <UiRadioGroup defaultValue="comfortable">
       <div class="flex items-center space-x-2">
-        <UIRadioGroupItem value="default" id="r1" />
-        <UILabel for="r1">Default</UILabel>
+        <UiRadioGroupItem value="default" id="r1" />
+        <UiLabel for="r1">Default</UiLabel>
       </div>
       <div class="flex items-center space-x-2">
-        <UIRadioGroupItem value="comfortable" id="r2" />
-        <UILabel for="r2">Comfortable</UILabel>
+        <UiRadioGroupItem value="comfortable" id="r2" />
+        <UiLabel for="r2">Comfortable</UiLabel>
       </div>
       <div class="flex items-center space-x-2">
-        <UIRadioGroupItem value="compact" id="r3" />
-        <UILabel for="r3">Compact</UILabel>
+        <UiRadioGroupItem value="compact" id="r3" />
+        <UiLabel for="r3">Compact</UiLabel>
       </div>
-    </UIRadioGroup>
+    </UiRadioGroup>
   </div>
 </template>
 ```
@@ -73,35 +73,35 @@ npx ui-thing@latest add radio-group
   <div class="flex w-full justify-center">
     <form @submit="onSubmit">
       <Field name="type" v-slot="{ componentField }">
-        <UIFormItem class="space-y-5">
+        <UiFormItem class="space-y-5">
           <p class="font-medium">What type of notifications should we send?</p>
-          <UIRadioGroup v-bind="componentField">
-            <UIFormItem
+          <UiRadioGroup v-bind="componentField">
+            <UiFormItem
               hideMessage
               class="flex flex-row-reverse items-center justify-center gap-3 space-y-0"
               label="All notifications"
             >
-              <UIRadioGroupItem value="all" />
-            </UIFormItem>
-            <UIFormItem
+              <UiRadioGroupItem value="all" />
+            </UiFormItem>
+            <UiFormItem
               hideMessage
               class="flex flex-row-reverse items-center justify-center gap-3 space-y-0"
               label="Only mentions"
             >
-              <UIRadioGroupItem value="mentions" />
-            </UIFormItem>
-            <UIFormItem
+              <UiRadioGroupItem value="mentions" />
+            </UiFormItem>
+            <UiFormItem
               hideMessage
               class="flex flex-row-reverse items-center justify-center gap-3 space-y-0"
               label="Nothing"
             >
-              <UIRadioGroupItem value="none" />
-            </UIFormItem>
-          </UIRadioGroup>
-        </UIFormItem>
+              <UiRadioGroupItem value="none" />
+            </UiFormItem>
+          </UiRadioGroup>
+        </UiFormItem>
       </Field>
       <div class="mt-6">
-        <UIButton type="submit">Update settings</UIButton>
+        <UiButton type="submit">Update settings</UiButton>
       </div>
     </form>
   </div>
@@ -121,7 +121,11 @@ npx ui-thing@latest add radio-group
   });
 
   const onSubmit = handleSubmit((values) => {
-    alert(JSON.stringify(values, null, 2));
+    toast({
+      title: "Settings updated",
+      description: h("pre", { class: "p-2" }, JSON.stringify(values, null, 2)),
+      variant: "success",
+    });
   });
 </script>
 ```

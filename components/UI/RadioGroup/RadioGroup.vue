@@ -11,6 +11,7 @@
   const props = withDefaults(
     defineProps<
       RadioGroupRootProps & {
+        /** Custom class(es) to add to the parent */
         class?: any;
       }
     >(),
@@ -21,7 +22,7 @@
   );
 
   const emits = defineEmits<RadioGroupRootEmits>();
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);
 
   const styles = tv({ base: "grid gap-3" });
 </script>

@@ -1,18 +1,18 @@
 <template>
   <div class="flex w-full justify-center">
-    <UIRadioGroup defaultValue="comfortable">
+    <UiRadioGroup defaultValue="comfortable">
       <div class="flex items-center space-x-2">
-        <UIRadioGroupItem value="default" id="r1" />
-        <UILabel for="r1">Default</UILabel>
+        <UiRadioGroupItem value="default" id="r1" />
+        <UiLabel for="r1">Default</UiLabel>
       </div>
       <div class="flex items-center space-x-2">
-        <UIRadioGroupItem value="comfortable" id="r2" />
-        <UILabel for="r2">Comfortable</UILabel>
+        <UiRadioGroupItem value="comfortable" id="r2" />
+        <UiLabel for="r2">Comfortable</UiLabel>
       </div>
       <div class="flex items-center space-x-2">
-        <UIRadioGroupItem value="compact" id="r3" />
-        <UILabel for="r3">Compact</UILabel>
+        <UiRadioGroupItem value="compact" id="r3" />
+        <UiLabel for="r3">Compact</UiLabel>
       </div>
-    </UIRadioGroup>
+    </UiRadioGroup>
   </div>
 </template>

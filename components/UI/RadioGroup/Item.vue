@@ -1,7 +1,10 @@
 <template>
-  <RadioGroupItem v-bind="props" :class="styles({ class: props.class })">
+  <RadioGroupItem
+    v-bind="reactiveOmit(props, 'class', 'icon')"
+    :class="styles({ class: props.class })"
+  >
     <slot>
-      <UIRadioGroupIndicator :icon="props.icon" />
+      <UiRadioGroupIndicator :icon="props.icon" />
     </slot>
   </RadioGroupItem>
 </template>
@@ -12,7 +15,9 @@
 
   const props = defineProps<
     RadioGroupItemProps & {
+      /** Class to apply to the item */
       class?: any;
+      /** Icon to show */
       icon?: string;
     }
   >();

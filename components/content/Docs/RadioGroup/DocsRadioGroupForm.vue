@@ -2,35 +2,35 @@
   <div class="flex w-full justify-center">
     <form @submit="onSubmit">
       <Field name="type" v-slot="{ componentField }">
-        <UIFormItem class="space-y-5">
+        <UiFormItem class="space-y-5">
           <p class="font-medium">What type of notifications should we send?</p>
-          <UIRadioGroup v-bind="componentField">
-            <UIFormItem
+          <UiRadioGroup v-bind="componentField">
+            <UiFormItem
               hideMessage
               class="flex flex-row-reverse items-center justify-center gap-3 space-y-0"
               label="All notifications"
             >
-              <UIRadioGroupItem value="all" />
-            </UIFormItem>
-            <UIFormItem
+              <UiRadioGroupItem value="all" />
+            </UiFormItem>
+            <UiFormItem
               hideMessage
               class="flex flex-row-reverse items-center justify-center gap-3 space-y-0"
               label="Only mentions"
             >
-              <UIRadioGroupItem value="mentions" />
-            </UIFormItem>
-            <UIFormItem
+              <UiRadioGroupItem value="mentions" />
+            </UiFormItem>
+            <UiFormItem
               hideMessage
               class="flex flex-row-reverse items-center justify-center gap-3 space-y-0"
               label="Nothing"
             >
-              <UIRadioGroupItem value="none" />
-            </UIFormItem>
-          </UIRadioGroup>
-        </UIFormItem>
+              <UiRadioGroupItem value="none" />
+            </UiFormItem>
+          </UiRadioGroup>
+        </UiFormItem>
       </Field>
       <div class="mt-6">
-        <UIButton type="submit">Update settings</UIButton>
+        <UiButton type="submit">Update settings</UiButton>
       </div>
     </form>
   </div>
@@ -50,6 +50,10 @@
   });
 
   const onSubmit = handleSubmit((values) => {
-    alert(JSON.stringify(values, null, 2));
+    toast({
+      title: "Settings updated",
+      description: h("pre", { class: "p-2" }, JSON.stringify(values, null, 2)),
+      variant: "success",
+    });
   });
 </script>
