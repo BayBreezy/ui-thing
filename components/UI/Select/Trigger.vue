@@ -1,9 +1,12 @@
 <template>
-  <SelectTrigger :class="styles({ class: props.class })" v-bind="props">
+  <SelectTrigger
+    :class="styles({ class: props.class })"
+    v-bind="reactiveOmit(props, 'class', 'icon', 'placeholder')"
+  >
     <slot>
-      <UISelectValue :placeholder="placeholder" />
+      <UiSelectValue :placeholder="placeholder" />
     </slot>
-    <UISelectIcon :icon="icon" />
+    <UiSelectIcon :icon="icon" />
   </SelectTrigger>
 </template>
 
@@ -13,8 +16,11 @@
 
   const props = defineProps<
     SelectTriggerProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
+      /** Icon to render */
       icon?: string;
+      /** Placeholder text */
       placeholder?: string;
     }
   >();

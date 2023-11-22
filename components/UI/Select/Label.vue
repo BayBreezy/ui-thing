@@ -1,5 +1,5 @@
 <template>
-  <SelectLabel :class="styles({ class: props.class })" v-bind="props">
+  <SelectLabel :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
     <slot></slot>
   </SelectLabel>
 </template>
@@ -10,6 +10,7 @@
 
   const props = defineProps<
     SelectLabelProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();

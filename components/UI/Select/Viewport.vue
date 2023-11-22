@@ -1,5 +1,8 @@
 <template>
-  <SelectViewport :class="styles({ position, class: props.class })" v-bind="props">
+  <SelectViewport
+    :class="styles({ position, class: props.class })"
+    v-bind="reactiveOmit(props, 'class')"
+  >
     <slot></slot>
   </SelectViewport>
 </template>
@@ -11,6 +14,7 @@
   const props = defineProps<
     SelectViewportProps & {
       position?: "item-aligned" | "popper";
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();

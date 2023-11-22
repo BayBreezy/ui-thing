@@ -1,5 +1,5 @@
 <template>
-  <SelectItemIndicator v-bind="props">
+  <SelectItemIndicator v-bind="reactiveOmit(props, 'class', 'icon')">
     <slot>
       <Icon :class="styles({ class: props.class })" :name="icon || 'lucide:check'" />
     </slot>
@@ -12,7 +12,9 @@
 
   const props = defineProps<
     SelectItemIndicatorProps & {
+      /** Icon to render */
       icon?: string;
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();

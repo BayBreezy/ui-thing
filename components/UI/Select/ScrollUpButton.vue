@@ -1,5 +1,5 @@
 <template>
-  <SelectScrollUpButton v-bind="props">
+  <SelectScrollUpButton v-bind="reactiveOmit(props, 'icon')">
     <slot>
       <Icon :name="icon || 'lucide:chevron-up'" class="h-5 w-5" />
     </slot>
@@ -12,6 +12,7 @@
 
   const props = defineProps<
     SelectScrollUpButtonProps & {
+      /** Icon to render */
       icon?: string;
     }
   >();

@@ -1,7 +1,5 @@
 <template>
-  <SelectSeparator :class="styles({ class: props.class })" v-bind="props">
-    <slot></slot>
-  </SelectSeparator>
+  <SelectSeparator :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')" />
 </template>
 
 <script lang="ts" setup>
@@ -10,6 +8,7 @@
 
   const props = defineProps<
     SelectSeparatorProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();

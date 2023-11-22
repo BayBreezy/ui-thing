@@ -1,5 +1,5 @@
 <template>
-  <SelectScrollDownButton v-bind="props">
+  <SelectScrollDownButton v-bind="reactiveOmit(props, 'icon')">
     <slot> <Icon :name="icon || 'lucide:chevron-down'" class="h-5 w-5" /></slot>
   </SelectScrollDownButton>
 </template>
@@ -10,6 +10,7 @@
 
   const props = defineProps<
     SelectScrollDownButtonProps & {
+      /** Icon to render */
       icon?: string;
     }
   >();

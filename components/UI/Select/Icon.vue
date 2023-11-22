@@ -12,11 +12,13 @@
 
   const props = defineProps<
     SelectIconProps & {
+      /** Icon to render */
       icon?: string;
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();
-  const forwarded = useForwardProps(props);
+  const forwarded = useForwardProps(reactiveOmit(props, "class"));
 
   const styles = tv({
     base: "h-4 w-4 shrink-0 text-muted-foreground opacity-70",

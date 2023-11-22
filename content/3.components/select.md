@@ -31,22 +31,22 @@ npx ui-thing@latest add select
 ```vue [DocsSelect.vue]
 <template>
   <div class="flex justify-center">
-    <UISelect v-model="option">
-      <UISelectTrigger placeholder="Select an option" />
-      <UISelectContent>
-        <UISelectLabel>Fruits</UISelectLabel>
-        <UISelectSeparator />
-        <UISelectGroup>
-          <UISelectItem v-for="(fruit, i) in fruits" :key="i" :value="fruit" :text="fruit" />
-        </UISelectGroup>
-        <UISelectSeparator />
-        <UISelectLabel>Vegetables</UISelectLabel>
-        <UISelectSeparator />
-        <UISelectGroup>
-          <UISelectItem v-for="(veg, i) in vegetables" :key="i" :value="veg" :text="veg" />
-        </UISelectGroup>
-      </UISelectContent>
-    </UISelect>
+    <UiSelect v-model="option">
+      <UiSelectTrigger placeholder="Select an option" />
+      <UiSelectContent>
+        <UiSelectLabel>Fruits</UiSelectLabel>
+        <UiSelectSeparator />
+        <UiSelectGroup>
+          <UiSelectItem v-for="(fruit, i) in fruits" :key="i" :value="fruit" :text="fruit" />
+        </UiSelectGroup>
+        <UiSelectSeparator />
+        <UiSelectLabel>Vegetables</UiSelectLabel>
+        <UiSelectSeparator />
+        <UiSelectGroup>
+          <UiSelectItem v-for="(veg, i) in vegetables" :key="i" :value="veg" :text="veg" />
+        </UiSelectGroup>
+      </UiSelectContent>
+    </UiSelect>
   </div>
 </template>
 
@@ -70,19 +70,19 @@ npx ui-thing@latest add select
   <div class="flex w-full justify-center">
     <form class="w-full" @submit="onSubmit">
       <Field name="email" v-slot="{ componentField }">
-        <UIFormItem label="Primary email" description="This will be shown to the public">
-          <UISelect v-bind="componentField">
-            <UISelectTrigger placeholder="Select primary email" />
-            <UISelectContent>
-              <UISelectGroup>
-                <UISelectItem v-for="(e, i) in emails" :key="i" :value="e" :text="e" />
-              </UISelectGroup>
-            </UISelectContent>
-          </UISelect>
-        </UIFormItem>
+        <UiFormItem label="Primary email" description="This will be shown to the public">
+          <UiSelect v-bind="componentField">
+            <UiSelectTrigger placeholder="Select primary email" />
+            <UiSelectContent>
+              <UiSelectGroup>
+                <UiSelectItem v-for="(e, i) in emails" :key="i" :value="e" :text="e" />
+              </UiSelectGroup>
+            </UiSelectContent>
+          </UiSelect>
+        </UiFormItem>
       </Field>
       <div class="mt-4">
-        <UIButton type="submit"> Update profile </UIButton>
+        <UiButton type="submit"> Update profile </UiButton>
       </div>
     </form>
   </div>
@@ -106,7 +106,11 @@ npx ui-thing@latest add select
   });
 
   const onSubmit = handleSubmit((data) => {
-    alert(JSON.stringify(data, null, 2));
+    toast({
+      title: "Profile updated",
+      description: h("pre", { class: "p-2" }, JSON.stringify(data, null, 2)),
+      variant: "success",
+    });
   });
 </script>
 ```
