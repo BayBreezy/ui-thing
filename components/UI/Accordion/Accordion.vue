@@ -1,19 +1,19 @@
 <template>
   <AccordionRoot v-bind="forwarded">
-    <slot>
+    <slot :items="items">
       <template v-for="(item, i) in items" :key="i">
-        <UIAccordionItem :disabled="item.disabled" :value="item.value">
-          <slot name="header">
-            <UIAccordionHeader>
-              <slot name="trigger">
-                <UIAccordionTrigger :title="item.title" :icon="item.icon" />
+        <UiAccordionItem :disabled="item.disabled" :value="item.value">
+          <slot name="header" :items="items">
+            <UiAccordionHeader>
+              <slot name="trigger" :items="items">
+                <UiAccordionTrigger :title="item.title" :icon="item.icon" />
               </slot>
-            </UIAccordionHeader>
+            </UiAccordionHeader>
           </slot>
-          <slot name="content">
-            <UIAccordionContent :content="item.content"></UIAccordionContent>
+          <slot name="content" :items="items">
+            <UiAccordionContent :content="item.content"></UiAccordionContent>
           </slot>
-        </UIAccordionItem>
+        </UiAccordionItem>
       </template>
     </slot>
   </AccordionRoot>
@@ -41,5 +41,5 @@
   );
 
   const emits = defineEmits<AccordionRootEmits>();
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(reactiveOmit(props, "items"), emits);
 </script>

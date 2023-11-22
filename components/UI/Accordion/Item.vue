@@ -1,5 +1,5 @@
 <template>
-  <AccordionItem v-bind="props" :class="styles({ class: props.class })">
+  <AccordionItem v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
     <slot></slot>
   </AccordionItem>
 </template>

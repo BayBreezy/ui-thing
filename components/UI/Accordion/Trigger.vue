@@ -1,9 +1,12 @@
 <template>
-  <AccordionTrigger v-bind="props" :class="styles({ class: props.class })">
-    <slot>
+  <AccordionTrigger
+    v-bind="reactiveOmit(props, 'class', 'icon', 'title')"
+    :class="styles({ class: props.class })"
+  >
+    <slot :props="props">
       {{ title }}
     </slot>
-    <slot name="icon">
+    <slot name="icon" :props="props">
       <Icon v-if="icon" :name="icon" class="h-4 w-4 shrink-0 transition-transform duration-200" />
     </slot>
   </AccordionTrigger>

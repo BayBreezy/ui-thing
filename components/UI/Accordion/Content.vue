@@ -1,5 +1,8 @@
 <template>
-  <AccordionContent v-bind="props" :class="styles({ class: props.class })">
+  <AccordionContent
+    v-bind="reactiveOmit(props, 'content', 'class')"
+    :class="styles({ class: props.class })"
+  >
     <div class="pb-4 pt-0">
       <slot>{{ content }}</slot>
     </div>
