@@ -1,9 +1,9 @@
 <template>
-  <UITableRow>
-    <UITableCell :colspan="colspan" :class="styles({ class: props.class })">
+  <UiTableRow>
+    <UiTableCell :colspan="colspan" :class="styles({ class: props.class })">
       <slot></slot>
-    </UITableCell>
-  </UITableRow>
+    </UiTableCell>
+  </UiTableRow>
 </template>
 
 <script lang="ts" setup>

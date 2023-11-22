@@ -1,26 +1,26 @@
 <template>
   <div class="overflow-x-auto rounded-md border pb-4">
-    <UITable>
-      <UITableCaption>A list of your recent invoices.</UITableCaption>
-      <UITableHeader>
-        <UITableRow>
-          <UITableHead class="w-[100px]">Invoice</UITableHead>
-          <UITableHead>Status</UITableHead>
-          <UITableHead>Method</UITableHead>
-          <UITableHead class="text-right">Amount</UITableHead>
-        </UITableRow>
-      </UITableHeader>
-      <UITableBody class="last:border-b">
+    <UiTable>
+      <UiTableCaption>A list of your recent invoices.</UiTableCaption>
+      <UiTableHeader>
+        <UiTableRow>
+          <UiTableHead class="w-[100px]">Invoice</UiTableHead>
+          <UiTableHead>Status</UiTableHead>
+          <UiTableHead>Method</UiTableHead>
+          <UiTableHead class="text-right">Amount</UiTableHead>
+        </UiTableRow>
+      </UiTableHeader>
+      <UiTableBody class="last:border-b">
         <template v-for="(invoice, i) in invoices" :key="invoice.id">
-          <UITableRow>
-            <UITableCell class="font-medium">{{ invoice.invoice }} </UITableCell>
-            <UITableCell>{{ invoice.paymentStatus }}</UITableCell>
-            <UITableCell>{{ invoice.paymentMethod }}</UITableCell>
-            <UITableCell class="text-right">{{ invoice.totalAmount }}</UITableCell>
-          </UITableRow>
+          <UiTableRow>
+            <UiTableCell class="font-medium">{{ invoice.invoice }} </UiTableCell>
+            <UiTableCell>{{ invoice.paymentStatus }}</UiTableCell>
+            <UiTableCell>{{ invoice.paymentMethod }}</UiTableCell>
+            <UiTableCell class="text-right">{{ invoice.totalAmount }}</UiTableCell>
+          </UiTableRow>
         </template>
-      </UITableBody>
-    </UITable>
+      </UiTableBody>
+    </UiTable>
   </div>
 </template>
 
