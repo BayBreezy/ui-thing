@@ -47,9 +47,7 @@ animation: {
 
 ```vue [DocsAccordion.vue]
 <template>
-  <div>
-    <UIAccordion type="single" default-value="item-2" :items="accordionItems" />
-  </div>
+  <UiAccordion type="single" default-value="item-2" :items="accordionItems" />
 </template>
 
 <script lang="ts" setup>
