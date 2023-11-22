@@ -1,5 +1,5 @@
 <template>
-  <Label :class="styles({ class: props.class })" v-bind="props">
+  <Label :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
     <slot />
   </Label>
 </template>
@@ -10,6 +10,7 @@
 
   const props = defineProps<
     LabelProps & {
+      /** Custom class(es) to add to the label */
       class?: any;
     }
   >();
