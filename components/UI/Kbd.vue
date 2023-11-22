@@ -1,5 +1,8 @@
 <template>
-  <Primitive :class="styles({ size, class: props.class })" v-bind="props">
+  <Primitive
+    :class="styles({ size, class: props.class })"
+    v-bind="reactiveOmit(props, 'class', 'size')"
+  >
     <slot />
   </Primitive>
 </template>
@@ -10,7 +13,9 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
+        /** The size of the component */
         size?: VariantProps<typeof styles>["size"];
+        /** Custom class(es) to add to the parent */
         class?: any;
       }
     >(),
