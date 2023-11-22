@@ -77,5 +77,23 @@
     "prefix": ["accordiontrigger", "uiaccordiontrigger"],
     "body": ["<UiAccordionTrigger>$0</UiAccordionTrigger>"],
     "description": "Generates AccordionTrigger component"
+  },
+  "Alert": {
+    "scope": "html,vue",
+    "prefix": ["alert", "uialert"],
+    "body": ["<UiAlert title=\"$1\" description=\"$2\" icon=\"$3\">$0</UiAlert>"],
+    "description": "Generates Alert parent component"
+  },
+  "AlertTitle": {
+    "scope": "html,vue",
+    "prefix": ["alerttitle", "uialerttitle"],
+    "body": ["<UiAlertTitle title=\"$1\">$0</UiAlertTitle>"],
+    "Title": "Generates AlertTitle component"
+  },
+  "AlertDescription": {
+    "scope": "html,vue",
+    "prefix": ["alertdescription", "uialertdescription"],
+    "body": ["<UiAlertDescription description=\"$1\">$0</UiAlertDescription>"],
+    "description": "Generates AlertDescription component"
   }
 }
