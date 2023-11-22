@@ -1,22 +1,22 @@
 <template>
   <PaginationRoot v-bind="forwarded">
     <slot>
-      <UIPaginationList v-slot="{ items }">
-        <slot name="first"><UIPaginationFirst asChild :icon="firstIcon" /> </slot>
-        <slot name="prev"><UIPaginationPrev asChild :icon="prevIcon" /> </slot>
+      <UiPaginationList v-slot="{ items }">
+        <slot name="first"><UiPaginationFirst asChild :icon="firstIcon" /> </slot>
+        <slot name="prev"><UiPaginationPrev asChild :icon="prevIcon" /> </slot>
 
         <template v-for="(page, index) in items" :key="index">
-          <UIPaginationItem asChild v-if="page.type === 'page'" v-bind="page" />
-          <UIPaginationEllipsis
+          <UiPaginationItem asChild v-if="page.type === 'page'" v-bind="page" />
+          <UiPaginationEllipsis
             asChild
             v-else-if="page.type === 'ellipsis'"
             v-bind="page"
             :icon="ellipsisIcon"
           />
         </template>
-        <slot name="next"><UIPaginationNext asChild :icon="nextIcon" /> </slot>
-        <slot name="last"><UIPaginationLast asChild :icon="lastIcon" /></slot>
-      </UIPaginationList>
+        <slot name="next"><UiPaginationNext asChild :icon="nextIcon" /> </slot>
+        <slot name="last"><UiPaginationLast asChild :icon="lastIcon" /></slot>
+      </UiPaginationList>
     </slot>
   </PaginationRoot>
 </template>
@@ -50,5 +50,8 @@
   );
 
   const emits = defineEmits<PaginationRootEmits>();
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(
+    reactiveOmit(props, "ellipsisIcon", "firstIcon", "lastIcon", "nextIcon", "prevIcon"),
+    emits
+  );
 </script>

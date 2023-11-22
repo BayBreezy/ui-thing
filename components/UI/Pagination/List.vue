@@ -1,5 +1,9 @@
 <template>
-  <PaginationList v-slot="{ items }" :class="styles({ class: props.class })" v-bind="props">
+  <PaginationList
+    v-slot="{ items }"
+    :class="styles({ class: props.class })"
+    v-bind="reactiveOmit(props, 'class')"
+  >
     <slot :items="items"></slot>
   </PaginationList>
 </template>
@@ -10,6 +14,7 @@
 
   const props = defineProps<
     PaginationListProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();

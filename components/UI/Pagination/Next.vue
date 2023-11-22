@@ -1,9 +1,9 @@
 <template>
   <PaginationNext v-bind="props">
     <slot>
-      <UIButton v-if="icon" variant="ghost" size="icon-sm">
+      <UiButton v-if="icon" variant="ghost" size="icon-sm">
         <Icon :name="icon" />
-      </UIButton>
+      </UiButton>
     </slot>
   </PaginationNext>
 </template>
@@ -14,6 +14,7 @@
 
   const props = defineProps<
     PaginationNextProps & {
+      /** Icon to show */
       icon?: string;
     }
   >();

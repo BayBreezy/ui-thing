@@ -1,5 +1,5 @@
 <template>
-  <PaginationEllipsis v-bind="props">
+  <PaginationEllipsis v-bind="reactiveOmit(props, 'icon')">
     <slot>
       <div v-if="icon" class="inline-flex h-9 w-9 items-center justify-center hover:bg-transparent">
         <Icon :name="icon" />
@@ -14,6 +14,7 @@
 
   const props = defineProps<
     PaginationEllipsisProps & {
+      /** Icon to show */
       icon?: string;
     }
   >();

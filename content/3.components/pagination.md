@@ -24,14 +24,14 @@ npx ui-thing@latest add pagination
 
 ```vue
 <template>
-  <UIPagination>
-    <UIPaginationList v-slot="{ items }">
-      <UIPaginationFirst asChild :icon="firstIcon" />
-      <UIPaginationPrev asChild :icon="prevIcon" />
+  <UiPagination>
+    <UiPaginationList v-slot="{ items }">
+      <UiPaginationFirst asChild :icon="firstIcon" />
+      <UiPaginationPrev asChild :icon="prevIcon" />
 
       <template v-for="(page, index) in items" :key="index">
-        <UIPaginationItem asChild v-if="page.type === 'page'" v-bind="page" />
-        <UIPaginationEllipsis
+        <UiPaginationItem asChild v-if="page.type === 'page'" v-bind="page" />
+        <UiPaginationEllipsis
           asChild
           v-else-if="page.type === 'ellipsis'"
           v-bind="page"
@@ -39,10 +39,10 @@ npx ui-thing@latest add pagination
         />
       </template>
 
-      <UIPaginationNext asChild :icon="nextIcon" />
-      <UIPaginationLast asChild :icon="lastIcon" />
-    </UIPaginationList>
-  </UIPagination>
+      <UiPaginationNext asChild :icon="nextIcon" />
+      <UiPaginationLast asChild :icon="lastIcon" />
+    </UiPaginationList>
+  </UiPagination>
 </template>
 ```
 
@@ -57,7 +57,7 @@ npx ui-thing@latest add pagination
 ```vue [DocsPagination.vue]
 <template>
   <div class="flex w-full justify-center">
-    <UIPagination :total="100" :sibling-count="1"></UIPagination>
+    <UiPagination :total="100" :sibling-count="1"></UiPagination>
   </div>
 </template>
 ```

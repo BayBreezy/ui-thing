@@ -1,5 +1,5 @@
 <template>
-  <PaginationFirst v-bind="props">
+  <PaginationFirst v-bind="reactiveOmit(props, 'icon')">
     <slot>
       <UIButton v-if="icon" variant="ghost" size="icon-sm">
         <Icon :name="icon" />
@@ -14,6 +14,7 @@
 
   const props = defineProps<
     PaginationFirstProps & {
+      /** Icon to show */
       icon?: string;
     }
   >();

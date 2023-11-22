@@ -1,13 +1,13 @@
 <template>
   <PaginationListItem v-bind="props">
     <slot>
-      <UIButton
+      <UiButton
         variant="outline"
         size="icon-sm"
         class="data-[selected=true]:border-transparent data-[selected=true]:bg-primary data-[selected=true]:text-primary-foreground"
       >
         {{ value }}
-      </UIButton>
+      </UiButton>
     </slot>
   </PaginationListItem>
 </template>
