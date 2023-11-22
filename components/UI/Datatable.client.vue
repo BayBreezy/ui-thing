@@ -960,10 +960,10 @@
   div.dtsb-searchBuilder div.dtsb-group div.dtsb-criteria select.dtsb-condition,
   div.dtsb-searchBuilder div.dtsb-group div.dtsb-criteria select.dtsb-data,
   div.dtsb-searchBuilder div.dtsb-group div.dtsb-criteria select.dtsb-value {
-    @apply rounded-md border border-input bg-background text-xs transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
+    @apply rounded-md border border-input bg-background text-sm transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background focus-visible:border-input;
   }
 
   div.dtsb-searchBuilder div.dtsb-group div.dtsb-criteria input.dtsb-value {
-    @apply rounded-md border border-input bg-background text-xs transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
+    @apply rounded-md border border-input bg-background text-sm transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background focus-visible:border-input;
   }
 </style>
