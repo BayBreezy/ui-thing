@@ -33,14 +33,14 @@ npx ui-thing@latest add separator
   <div>
     <div class="space-y-1">
       <h4 class="text-sm font-medium leading-none">Radix Vue</h4>
-      <p class="text-sm text-muted-foreground">An open-source UI component library.</p>
+      <p class="text-sm text-muted-foreground">An open-source Ui component library.</p>
     </div>
-    <UISeparator class="my-4" />
+    <UiSeparator class="my-4" />
     <div class="flex h-5 items-center space-x-4 text-sm">
       <div>Blog</div>
-      <UISeparator orientation="vertical" />
+      <UiSeparator orientation="vertical" />
       <div>Docs</div>
-      <UISeparator orientation="vertical" />
+      <UiSeparator orientation="vertical" />
       <div>Source</div>
     </div>
   </div>

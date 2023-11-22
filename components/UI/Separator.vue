@@ -1,5 +1,8 @@
 <template>
-  <Separator v-bind="useForwardProps(props)" :class="styles({ orientation, class: props.class })" />
+  <Separator
+    v-bind="useForwardProps(reactiveOmit(props, 'class'))"
+    :class="styles({ orientation, class: props.class })"
+  />
 </template>
 
 <script lang="ts" setup>
