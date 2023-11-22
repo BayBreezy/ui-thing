@@ -47,6 +47,10 @@
     --vc-header-arrow-hover-bg: theme("colors.accent.DEFAULT");
     --vc-weeknumber-color: theme("colors.muted.foreground");
     --vc-nav-hover-bg: theme("colors.accent.DEFAULT");
+    --vc-time-year-color: theme("colors.foreground");
+    --vc-time-weekday-color: theme("colors.foreground");
+    --vc-time-month-color: theme("colors.foreground");
+    --vc-time-day-color: theme("colors.foreground");
 
     --vc-nav-item-active-color: theme("colors.primary.foreground");
     --vc-nav-item-active-bg: theme("colors.primary.DEFAULT");
