@@ -28,7 +28,7 @@
       type?: "button" | "submit" | "reset";
       disabled?: boolean;
       loading?: boolean;
-      onClick?: () => void;
+      onClick?: any;
       to?: string | RouteLocationRaw;
       href?: string;
       as?: string;
