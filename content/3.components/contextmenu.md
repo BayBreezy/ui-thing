@@ -30,62 +30,62 @@ npx ui-thing@latest add context-menu
 
 ```vue [DocsContextMenuBasic.vue]
 <template>
-  <UIContextMenu>
-    <UIContextMenuTrigger
+  <UiContextMenu>
+    <UiContextMenuTrigger
       as="div"
       class="mx-auto flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm"
     >
       Right click to see basic context menu
-    </UIContextMenuTrigger>
-    <UIContextMenuContent loop class="w-64">
-      <UIContextMenuItem title="Back" inset shortcut="⌘[" />
-      <UIContextMenuItem title="Forward" disabled inset shortcut="⌘]" />
-      <UIContextMenuItem title="Reload" inset shortcut="⌘R" />
-      <UIContextMenuSub>
-        <UIContextMenuSubTrigger title="More Tools" inset />
-        <UIContextMenuSubContent class="w-52">
-          <UIContextMenuItem title="New window..." />
-          <UIContextMenuItem title="Create shortcut..." />
-          <UIContextMenuItem title="Save page as..." shortcut="⌘S" />
-          <UIContextMenuItem title="Clear data" shortcut="⌘⇧⌫" />
-          <UIContextMenuSeparator />
-          <UIContextMenuItem title="Developer tools" shortcut="⌥⌘I" />
-        </UIContextMenuSubContent>
-      </UIContextMenuSub>
-      <UIContextMenuSeparator />
-      <UIContextMenuCheckboxItem
+    </UiContextMenuTrigger>
+    <UiContextMenuContent loop class="w-64">
+      <UiContextMenuItem title="Back" inset shortcut="⌘[" />
+      <UiContextMenuItem title="Forward" disabled inset shortcut="⌘]" />
+      <UiContextMenuItem title="Reload" inset shortcut="⌘R" />
+      <UiContextMenuSub>
+        <UiContextMenuSubTrigger title="More Tools" inset />
+        <UiContextMenuSubContent class="w-52">
+          <UiContextMenuItem title="New window..." />
+          <UiContextMenuItem title="Create shortcut..." />
+          <UiContextMenuItem title="Save page as..." shortcut="⌘S" />
+          <UiContextMenuItem title="Clear data" shortcut="⌘⇧⌫" />
+          <UiContextMenuSeparator />
+          <UiContextMenuItem title="Developer tools" shortcut="⌥⌘I" />
+        </UiContextMenuSubContent>
+      </UiContextMenuSub>
+      <UiContextMenuSeparator />
+      <UiContextMenuCheckboxItem
         v-model:checked="showBookmark"
         @select="(e) => e.preventDefault()"
         title="Show Bookmarks Bar"
         inset
         shortcut="⌘⇧B"
       />
-      <UIContextMenuCheckboxItem
+      <UiContextMenuCheckboxItem
         v-model:checked="showFullUrls"
         @select="(e) => e.preventDefault()"
         title="Show full URLs"
         inset
         shortcut="⌘⇧U"
       />
-      <UIContextMenuSeparator />
-      <UIContextMenuLabel inset label="Choose a person" />
-      <UIContextMenuSeparator />
-      <UIContextMenuRadioGroup v-model="person">
-        <UIContextMenuRadioItem
+      <UiContextMenuSeparator />
+      <UiContextMenuLabel inset label="Choose a person" />
+      <UiContextMenuSeparator />
+      <UiContextMenuRadioGroup v-model="person">
+        <UiContextMenuRadioItem
           @select="(e) => e.preventDefault()"
           title="Paul Rafael"
           inset
           value="1"
         />
-        <UIContextMenuRadioItem
+        <UiContextMenuRadioItem
           @select="(e) => e.preventDefault()"
           title="Sarah Lindsey"
           inset
           value="2"
         />
-      </UIContextMenuRadioGroup>
-    </UIContextMenuContent>
-  </UIContextMenu>
+      </UiContextMenuRadioGroup>
+    </UiContextMenuContent>
+  </UiContextMenu>
 </template>
 
 <script lang="ts" setup>
@@ -105,19 +105,19 @@ npx ui-thing@latest add context-menu
 
 ```vue [DocsContextMenuCheckItems.vue]
 <template>
-  <UIContextMenu>
-    <UIContextMenuTrigger as-child>
+  <UiContextMenu>
+    <UiContextMenuTrigger as-child>
       <div
         class="mx-auto flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm"
       >
         Right click for check items menu
       </div>
-    </UIContextMenuTrigger>
-    <UIContextMenuContent class="w-52">
-      <UIContextMenuLabel class="my-1" label="Choose your hero(s)" />
-      <UIContextMenuSeparator />
-      <UIContextMenuGroup>
-        <UIContextMenuCheckboxItem
+    </UiContextMenuTrigger>
+    <UiContextMenuContent class="w-52">
+      <UiContextMenuLabel class="my-1" label="Choose your hero(s)" />
+      <UiContextMenuSeparator />
+      <UiContextMenuGroup>
+        <UiContextMenuCheckboxItem
           inset
           v-for="hero in heroList"
           :key="hero.id"
@@ -131,13 +131,13 @@ npx ui-thing@latest add context-menu
           "
         >
           <div class="flex items-center gap-4">
-            <UIAvatar :src="hero.image" class="h-6 w-6" :alt="hero.name" />
+            <UiAvatar :src="hero.image" class="h-6 w-6" :alt="hero.name" />
             <span>{{ hero.name }}</span>
           </div>
-        </UIContextMenuCheckboxItem>
-      </UIContextMenuGroup>
-    </UIContextMenuContent>
-  </UIContextMenu>
+        </UiContextMenuCheckboxItem>
+      </UiContextMenuGroup>
+    </UiContextMenuContent>
+  </UiContextMenu>
 </template>
 
 <script lang="ts" setup>
@@ -174,29 +174,29 @@ npx ui-thing@latest add context-menu
 
 ```vue [DocsContextMenuRadioItems.vue]
 <template>
-  <UIContextMenu>
-    <UIContextMenuTrigger as-child>
+  <UiContextMenu>
+    <UiContextMenuTrigger as-child>
       <div
         class="mx-auto flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm"
       >
         Right click for radio items context menu
       </div>
-    </UIContextMenuTrigger>
+    </UiContextMenuTrigger>
 
-    <UIContextMenuContent class="w-48">
-      <UIContextMenuLabel label="Tooltip placement" />
-      <UIContextMenuSeparator />
-      <UIContextMenuRadioGroup v-model="placement">
-        <UIContextMenuRadioItem
+    <UiContextMenuContent class="w-48">
+      <UiContextMenuLabel label="Tooltip placement" />
+      <UiContextMenuSeparator />
+      <UiContextMenuRadioGroup v-model="placement">
+        <UiContextMenuRadioItem
           v-for="item in placements"
           :key="item"
           :value="item"
           :title="item"
           :text-value="item"
         />
-      </UIContextMenuRadioGroup>
-    </UIContextMenuContent>
-  </UIContextMenu>
+      </UiContextMenuRadioGroup>
+    </UiContextMenuContent>
+  </UiContextMenu>
 </template>
 
 <script lang="ts" setup>

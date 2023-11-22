@@ -1,17 +1,17 @@
 <template>
-  <UIContextMenu>
-    <UIContextMenuTrigger as-child>
+  <UiContextMenu>
+    <UiContextMenuTrigger as-child>
       <div
         class="mx-auto flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm"
       >
         Right click for check items menu
       </div>
-    </UIContextMenuTrigger>
-    <UIContextMenuContent class="w-52">
-      <UIContextMenuLabel class="my-1" label="Choose your hero(s)" />
-      <UIContextMenuSeparator />
-      <UIContextMenuGroup>
-        <UIContextMenuCheckboxItem
+    </UiContextMenuTrigger>
+    <UiContextMenuContent class="w-52">
+      <UiContextMenuLabel class="my-1" label="Choose your hero(s)" />
+      <UiContextMenuSeparator />
+      <UiContextMenuGroup>
+        <UiContextMenuCheckboxItem
           inset
           v-for="hero in heroList"
           :key="hero.id"
@@ -25,13 +25,13 @@
           "
         >
           <div class="flex items-center gap-4">
-            <UIAvatar :src="hero.image" class="h-6 w-6" :alt="hero.name" />
+            <UiAvatar :src="hero.image" class="h-6 w-6" :alt="hero.name" />
             <span>{{ hero.name }}</span>
           </div>
-        </UIContextMenuCheckboxItem>
-      </UIContextMenuGroup>
-    </UIContextMenuContent>
-  </UIContextMenu>
+        </UiContextMenuCheckboxItem>
+      </UiContextMenuGroup>
+    </UiContextMenuContent>
+  </UiContextMenu>
 </template>
 
 <script lang="ts" setup>

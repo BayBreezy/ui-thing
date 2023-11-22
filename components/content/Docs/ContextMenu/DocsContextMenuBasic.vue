@@ -1,60 +1,60 @@
 <template>
-  <UIContextMenu>
-    <UIContextMenuTrigger
+  <UiContextMenu>
+    <UiContextMenuTrigger
       as="div"
       class="mx-auto flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm"
     >
       Right click to see basic context menu
-    </UIContextMenuTrigger>
-    <UIContextMenuContent loop class="w-64">
-      <UIContextMenuItem title="Back" inset shortcut="⌘[" />
-      <UIContextMenuItem title="Forward" disabled inset shortcut="⌘]" />
-      <UIContextMenuItem title="Reload" inset shortcut="⌘R" />
-      <UIContextMenuSub>
-        <UIContextMenuSubTrigger title="More Tools" inset />
-        <UIContextMenuSubContent class="w-52">
-          <UIContextMenuItem title="New window..." />
-          <UIContextMenuItem title="Create shortcut..." />
-          <UIContextMenuItem title="Save page as..." shortcut="⌘S" />
-          <UIContextMenuItem title="Clear data" shortcut="⌘⇧⌫" />
-          <UIContextMenuSeparator />
-          <UIContextMenuItem title="Developer tools" shortcut="⌥⌘I" />
-        </UIContextMenuSubContent>
-      </UIContextMenuSub>
-      <UIContextMenuSeparator />
-      <UIContextMenuCheckboxItem
+    </UiContextMenuTrigger>
+    <UiContextMenuContent loop class="w-64">
+      <UiContextMenuItem title="Back" inset shortcut="⌘[" />
+      <UiContextMenuItem title="Forward" disabled inset shortcut="⌘]" />
+      <UiContextMenuItem title="Reload" inset shortcut="⌘R" />
+      <UiContextMenuSub>
+        <UiContextMenuSubTrigger title="More Tools" inset />
+        <UiContextMenuSubContent class="w-52">
+          <UiContextMenuItem title="New window..." />
+          <UiContextMenuItem title="Create shortcut..." />
+          <UiContextMenuItem title="Save page as..." shortcut="⌘S" />
+          <UiContextMenuItem title="Clear data" shortcut="⌘⇧⌫" />
+          <UiContextMenuSeparator />
+          <UiContextMenuItem title="Developer tools" shortcut="⌥⌘I" />
+        </UiContextMenuSubContent>
+      </UiContextMenuSub>
+      <UiContextMenuSeparator />
+      <UiContextMenuCheckboxItem
         v-model:checked="showBookmark"
         @select="(e) => e.preventDefault()"
         title="Show Bookmarks Bar"
         inset
         shortcut="⌘⇧B"
       />
-      <UIContextMenuCheckboxItem
+      <UiContextMenuCheckboxItem
         v-model:checked="showFullUrls"
         @select="(e) => e.preventDefault()"
         title="Show full URLs"
         inset
         shortcut="⌘⇧U"
       />
-      <UIContextMenuSeparator />
-      <UIContextMenuLabel inset label="Choose a person" />
-      <UIContextMenuSeparator />
-      <UIContextMenuRadioGroup v-model="person">
-        <UIContextMenuRadioItem
+      <UiContextMenuSeparator />
+      <UiContextMenuLabel inset label="Choose a person" />
+      <UiContextMenuSeparator />
+      <UiContextMenuRadioGroup v-model="person">
+        <UiContextMenuRadioItem
           @select="(e) => e.preventDefault()"
           title="Paul Rafael"
           inset
           value="1"
         />
-        <UIContextMenuRadioItem
+        <UiContextMenuRadioItem
           @select="(e) => e.preventDefault()"
           title="Sarah Lindsey"
           inset
           value="2"
         />
-      </UIContextMenuRadioGroup>
-    </UIContextMenuContent>
-  </UIContextMenu>
+      </UiContextMenuRadioGroup>
+    </UiContextMenuContent>
+  </UiContextMenu>
 </template>
 
 <script lang="ts" setup>

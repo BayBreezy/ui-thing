@@ -1,5 +1,8 @@
 <template>
-  <ContextMenuLabel :class="styles({ inset, class: props.class })" v-bind="props">
+  <ContextMenuLabel
+    :class="styles({ inset, class: props.class })"
+    v-bind="reactiveOmit(props, 'class', 'inset', 'label')"
+  >
     <slot>{{ label }}</slot>
   </ContextMenuLabel>
 </template>

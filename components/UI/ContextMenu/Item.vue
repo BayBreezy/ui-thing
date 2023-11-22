@@ -1,13 +1,16 @@
 <template>
   <ContextMenuItem
-    v-bind="{ ...props, ...useEmitAsProps(emits) }"
+    v-bind="{
+      ...reactiveOmit(props, 'class', 'inset', 'shortcut', 'title'),
+      ...useEmitAsProps(emits),
+    }"
     :class="styles({ inset, class: props.class })"
   >
     <slot>
       <span v-if="title">{{ title }}</span>
     </slot>
     <slot name="shortcut">
-      <UIContextMenuShortcut v-if="shortcut">{{ shortcut }}</UIContextMenuShortcut>
+      <UiContextMenuShortcut v-if="shortcut">{{ shortcut }}</UiContextMenuShortcut>
     </slot>
   </ContextMenuItem>
 </template>

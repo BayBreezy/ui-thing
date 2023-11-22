@@ -1,12 +1,12 @@
 <template>
-  <UIContextMenuPortal>
+  <UiContextMenuPortal>
     <ContextMenuSubContent
       v-bind="{ ...forwarded, ...$attrs }"
       :class="styles({ class: props.class })"
     >
       <slot></slot>
     </ContextMenuSubContent>
-  </UIContextMenuPortal>
+  </UiContextMenuPortal>
 </template>
 
 <script lang="ts" setup>

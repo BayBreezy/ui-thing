@@ -1,16 +1,16 @@
 <template>
   <ContextMenuCheckboxItem
-    v-bind="{ ...props, ...useEmitAsProps(emits) }"
+    v-bind="{ ...reactiveOmit(props, 'class', 'shortcut', 'title'), ...useEmitAsProps(emits) }"
     :class="styles({ class: props.class })"
   >
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center text-primary">
-      <UIContextMenuItemIndicator icon="lucide:check" />
+      <UiContextMenuItemIndicator icon="lucide:check" />
     </span>
     <slot>
       <span v-if="title">{{ title }}</span>
     </slot>
     <slot name="shortcut">
-      <UIContextMenuShortcut v-if="shortcut">{{ shortcut }}</UIContextMenuShortcut>
+      <UiContextMenuShortcut v-if="shortcut">{{ shortcut }}</UiContextMenuShortcut>
     </slot>
   </ContextMenuCheckboxItem>
 </template>

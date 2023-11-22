@@ -1,27 +1,27 @@
 <template>
-  <UIContextMenu>
-    <UIContextMenuTrigger as-child>
+  <UiContextMenu>
+    <UiContextMenuTrigger as-child>
       <div
         class="mx-auto flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm"
       >
         Right click for radio items context menu
       </div>
-    </UIContextMenuTrigger>
+    </UiContextMenuTrigger>
 
-    <UIContextMenuContent class="w-48">
-      <UIContextMenuLabel label="Tooltip placement" />
-      <UIContextMenuSeparator />
-      <UIContextMenuRadioGroup v-model="placement">
-        <UIContextMenuRadioItem
+    <UiContextMenuContent class="w-48">
+      <UiContextMenuLabel label="Tooltip placement" />
+      <UiContextMenuSeparator />
+      <UiContextMenuRadioGroup v-model="placement">
+        <UiContextMenuRadioItem
           v-for="item in placements"
           :key="item"
           :value="item"
           :title="item"
           :text-value="item"
         />
-      </UIContextMenuRadioGroup>
-    </UIContextMenuContent>
-  </UIContextMenu>
+      </UiContextMenuRadioGroup>
+    </UiContextMenuContent>
+  </UiContextMenu>
 </template>
 
 <script lang="ts" setup>

@@ -1,5 +1,5 @@
 <template>
-  <ContextMenuItemIndicator v-bind="props">
+  <ContextMenuItemIndicator v-bind="reactiveOmit(props, 'icon')">
     <slot>
       <Icon v-if="icon" :name="icon" class="h-4 w-4" />
     </slot>

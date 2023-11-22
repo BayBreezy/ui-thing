@@ -1,5 +1,5 @@
 <template>
-  <ContextMenuArrow v-bind="props" :class="styles({ class: props.class })" />
+  <ContextMenuArrow v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })" />
 </template>
 
 <script lang="ts" setup>
@@ -8,6 +8,7 @@
 
   const props = defineProps<
     ContextMenuArrowProps & {
+      /** Custom class(es) to add to teh arrow */
       class?: any;
     }
   >();

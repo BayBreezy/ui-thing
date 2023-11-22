@@ -1,5 +1,8 @@
 <template>
-  <ContextMenuSubTrigger v-bind="props" :class="styles({ inset, class: props.class })">
+  <ContextMenuSubTrigger
+    v-bind="reactiveOmit(props, 'class', 'inset', 'icon', 'title')"
+    :class="styles({ inset, class: props.class })"
+  >
     <slot>
       <span v-if="title">{{ title }}</span>
     </slot>
