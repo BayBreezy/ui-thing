@@ -24,10 +24,9 @@
       srText: "Close",
     }
   );
+  const forwarded = useForwardProps(reactiveOmit(props, "icon", "srText", "class"));
 
   const styles = tv({
     base: "absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground",
   });
-
-  const forwarded = useForwardProps(props);
 </script>
