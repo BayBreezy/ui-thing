@@ -1,5 +1,5 @@
 <template>
-  <AvatarImage v-bind="props" :class="styles({ class: props.class })" :alt="alt" />
+  <AvatarImage v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })" />
 </template>
 
 <script lang="ts" setup>

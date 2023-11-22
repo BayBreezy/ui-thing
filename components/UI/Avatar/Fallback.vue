@@ -1,5 +1,8 @@
 <template>
-  <AvatarFallback :class="styles({ class: props.class })" v-bind="props">
+  <AvatarFallback
+    :class="styles({ class: props.class })"
+    v-bind="reactiveOmit(props, 'class', 'fallback')"
+  >
     <slot>
       {{ fallback }}
     </slot>
