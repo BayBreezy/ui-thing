@@ -17,7 +17,7 @@
   >();
 
   const emits = defineEmits<ToggleEmits>();
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class", "variant", "size"), emits);
 
   type Props = VariantProps<typeof styles>;
 
