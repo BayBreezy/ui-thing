@@ -1,12 +1,12 @@
 <template>
-  <UITooltipProvider v-bind="props">
+  <UiTooltipProvider v-bind="props">
     <TooltipRoot v-bind="{ ...forwarded, ...$attrs }">
       <slot>
         <slot name="trigger"></slot>
         <slot name="content"></slot>
       </slot>
     </TooltipRoot>
-  </UITooltipProvider>
+  </UiTooltipProvider>
 </template>
 
 <script lang="ts" setup>

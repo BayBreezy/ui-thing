@@ -1,16 +1,16 @@
 <template>
   <div class="flex w-full justify-center">
-    <UITooltip disable-closing-trigger>
+    <UiTooltip disable-closing-trigger>
       <template #trigger>
-        <UITooltipTrigger as-child>
-          <UIButton variant="outline">Hover me</UIButton>
-        </UITooltipTrigger>
+        <UiTooltipTrigger as-child>
+          <UiButton variant="outline">Hover me</UiButton>
+        </UiTooltipTrigger>
       </template>
       <template #content>
-        <UITooltipContent>
+        <UiTooltipContent>
           <p>Add to library</p>
-        </UITooltipContent>
+        </UiTooltipContent>
       </template>
-    </UITooltip>
+    </UiTooltip>
   </div>
 </template>
