@@ -31,10 +31,10 @@ Checkboxes can be tricky to implement with validation libraries. Luckily, Vee-Va
 <template>
   <form @submit="onSubmit" class="mx-auto max-w-md">
     <fieldset :disabled="isSubmitting" class="space-y-5">
-      <UIVeeCheckbox name="drinks" value="coffee" label="Coffee" hint="I love coffee" />
-      <UIVeeCheckbox name="drinks" value="tea" label="Tea" hint="I love tea" />
-      <UIVeeCheckbox name="drinks" value="water" label="Water" hint="I love water" />
-      <UIButton type="submit"> Order now </UIButton>
+      <UiVeeCheckbox name="drinks" value="coffee" label="Coffee" hint="I love coffee" />
+      <UiVeeCheckbox name="drinks" value="tea" label="Tea" hint="I love tea" />
+      <UiVeeCheckbox name="drinks" value="water" label="Water" hint="I love water" />
+      <UiButton type="submit"> Order now </UiButton>
     </fieldset>
   </form>
 </template>
@@ -81,8 +81,8 @@ Checkboxes can be tricky to implement with validation libraries. Luckily, Vee-Va
       Dolores quaerat architecto in sapiente expedita cum?
     </p>
     <fieldset :disabled="isSubmitting" class="space-y-5">
-      <UIVeeCheckbox name="terms" label="I agree to the terms of service" />
-      <UIButton type="submit"> Continue </UIButton>
+      <UiVeeCheckbox name="terms" label="I agree to the terms of service" />
+      <UiButton type="submit"> Continue </UiButton>
     </fieldset>
   </form>
 </template>

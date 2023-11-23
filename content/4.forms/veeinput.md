@@ -31,10 +31,10 @@ In the form below, we are using the `useForm` composition function provided by V
 <template>
   <form @submit="onSubmit" class="mx-auto max-w-md">
     <fieldset :disabled="isSubmitting" class="space-y-5">
-      <UIVeeInput label="Full name" name="name" hint="This will be displayed to the public" />
-      <UIVeeInput label="Email" name="email" type="email" />
-      <UIVeeInput label="Age" name="age" type="number" />
-      <UIButton type="submit"> Submit </UIButton>
+      <UiVeeInput label="Full name" name="name" hint="This will be displayed to the public" />
+      <UiVeeInput label="Email" name="email" type="email" />
+      <UiVeeInput label="Age" name="age" type="number" />
+      <UiButton type="submit"> Submit </UiButton>
     </fieldset>
   </form>
 </template>

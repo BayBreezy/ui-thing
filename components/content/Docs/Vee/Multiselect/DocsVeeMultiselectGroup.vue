@@ -1,14 +1,14 @@
 <template>
   <div class="mx-auto max-w-md">
     <form @submit="submit">
-      <UIVeeMultiSelect
+      <UiVeeMultiSelect
         name="hero"
         formLabel="Hero"
         groups
         placeholder="Select a hero"
         :options="options"
       />
-      <UIButton type="submit" class="mt-4"> Submit </UIButton>
+      <UiButton type="submit" class="mt-4"> Submit </UiButton>
     </form>
   </div>
 </template>

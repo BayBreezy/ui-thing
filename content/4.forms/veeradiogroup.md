@@ -21,7 +21,7 @@ npx ui-thing@latest add vee-radio-group
 
 ### Notification type
 
-In the form below, we are using the `<UIVeeRadioGroup/>` component to create a radio group that allows the user to select how they want to be notified. The component uses the composition API provided by Vee-Validate to perform validation. Notice that we pass the different `RadioItems` into the default slot of the component.
+In the form below, we are using the `<UiVeeRadioGroup/>` component to create a radio group that allows the user to select how they want to be notified. The component uses the composition API provided by Vee-Validate to perform validation. Notice that we pass the different `RadioItems` into the default slot of the component.
 
 ::ShowCase{component="DocsVeeRadioGroup"}
 
@@ -31,15 +31,15 @@ In the form below, we are using the `<UIVeeRadioGroup/>` component to create a r
 <template>
   <form @submit="onSubmit" class="mx-auto max-w-md">
     <fieldset :disabled="isSubmitting" class="space-y-5">
-      <UIVeeRadioGroup name="notify" label="Select how you want to be notified">
+      <UiVeeRadioGroup name="notify" label="Select how you want to be notified">
         <template v-for="(opt, i) in options" :key="i">
           <div class="mb-2 flex items-center gap-3">
-            <UIRadioGroupItem :value="opt.value" :id="opt.value" />
-            <UILabel :for="opt.value">{{ opt.text }}</UILabel>
+            <UiRadioGroupItem :value="opt.value" :id="opt.value" />
+            <UiLabel :for="opt.value">{{ opt.text }}</UiLabel>
           </div>
         </template>
-      </UIVeeRadioGroup>
-      <UIButton type="submit"> Update settings </UIButton>
+      </UiVeeRadioGroup>
+      <UiButton type="submit"> Update settings </UiButton>
     </fieldset>
   </form>
 </template>

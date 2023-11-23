@@ -31,13 +31,13 @@ In the form below, we are using the `useForm` composition function provided by V
 <template>
   <form @submit="onSubmit" class="mx-auto max-w-md">
     <fieldset :disabled="isSubmitting" class="space-y-5">
-      <UIVeeTextarea label="First love" name="firstLove" hint="We will not share this" />
-      <UIVeeTextarea
+      <UiVeeTextarea label="First love" name="firstLove" hint="We will not share this" />
+      <UiVeeTextarea
         label="First heartbreak"
         name="firstHeartbreak"
         hint="We will not share this"
       />
-      <UIButton type="submit"> Save secrets </UIButton>
+      <UiButton type="submit"> Save secrets </UiButton>
     </fieldset>
   </form>
 </template>

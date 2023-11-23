@@ -7,8 +7,8 @@
       Dolores quaerat architecto in sapiente expedita cum?
     </p>
     <fieldset :disabled="isSubmitting" class="space-y-5">
-      <UIVeeCheckbox name="terms" label="I agree to the terms of service" />
-      <UIButton type="submit"> Continue </UIButton>
+      <UiVeeCheckbox name="terms" label="I agree to the terms of service" />
+      <UiButton type="submit"> Continue </UiButton>
     </fieldset>
   </form>
 </template>

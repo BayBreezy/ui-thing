@@ -27,7 +27,7 @@ npx ui-thing@latest add vee-datepicker
 <template>
   <form @submit="onSubmit" class="mx-auto max-w-md">
     <fieldset :disabled="isSubmitting" class="space-y-5">
-      <UIVeeDatepicker
+      <UiVeeDatepicker
         :date-picker-props="{
           mode: 'dateTime',
         }"
@@ -37,7 +37,7 @@ npx ui-thing@latest add vee-datepicker
         name="startDate"
         hint="This will be displayed to the public"
       />
-      <UIButton type="submit"> Submit </UIButton>
+      <UiButton type="submit"> Submit </UiButton>
     </fieldset>
   </form>
 </template>

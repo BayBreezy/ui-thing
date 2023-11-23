@@ -1,15 +1,15 @@
 <template>
   <form @submit="onSubmit" class="mx-auto max-w-md">
     <fieldset :disabled="isSubmitting" class="space-y-5">
-      <UIVeeRadioGroup name="notify" label="Select how you want to be notified">
+      <UiVeeRadioGroup name="notify" label="Select how you want to be notified">
         <template v-for="(opt, i) in options" :key="i">
           <div class="mb-2 flex items-center gap-3">
-            <UIRadioGroupItem :value="opt.value" :id="opt.value" />
-            <UILabel :for="opt.value">{{ opt.text }}</UILabel>
+            <UiRadioGroupItem :value="opt.value" :id="opt.value" />
+            <UiLabel :for="opt.value">{{ opt.text }}</UiLabel>
           </div>
         </template>
-      </UIVeeRadioGroup>
-      <UIButton type="submit"> Update settings </UIButton>
+      </UiVeeRadioGroup>
+      <UiButton type="submit"> Update settings </UiButton>
     </fieldset>
   </form>
 </template>

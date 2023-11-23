@@ -1,8 +1,8 @@
 <template>
   <form @submit="onSubmit" class="mx-auto max-w-md">
     <fieldset :disabled="isSubmitting" class="space-y-5">
-      <UIVeeFileInput multiple label="Certificates" name="certs" hint="Add at least 2 files" />
-      <UIButton type="submit"> Upload files </UIButton>
+      <UiVeeFileInput multiple label="Certificates" name="certs" hint="Add at least 2 files" />
+      <UiButton type="submit"> Upload files </UiButton>
     </fieldset>
   </form>
 </template>

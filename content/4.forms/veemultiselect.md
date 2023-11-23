@@ -33,7 +33,7 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
 ```vue [DocsVeeMultiselectObject.vue]
 <template>
   <form @submit="submit" class="mx-auto max-w-md">
-    <UIVeeMultiSelect
+    <UiVeeMultiSelect
       formLabel="Hero"
       valueProp="id"
       label="name"
@@ -41,7 +41,7 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
       :options="options"
       name="heroObject"
     />
-    <UIButton type="submit" class="mt-5"> Submit </UIButton>
+    <UiButton type="submit" class="mt-5"> Submit </UiButton>
   </form>
 </template>
 
@@ -108,14 +108,14 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
 <template>
   <div class="mx-auto max-w-md">
     <form @submit="submit">
-      <UIVeeMultiSelect
+      <UiVeeMultiSelect
         name="hero"
         formLabel="Hero"
         groups
         placeholder="Select a hero"
         :options="options"
       />
-      <UIButton type="submit" class="mt-4"> Submit </UIButton>
+      <UiButton type="submit" class="mt-4"> Submit </UiButton>
     </form>
   </div>
 </template>
@@ -179,7 +179,7 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
 ```vue [DocsVeeMultiselectSearch.vue]
 <template>
   <div class="mx-auto max-w-md">
-    <UIVeeMultiSelect
+    <UiVeeMultiSelect
       searchable
       formLabel="Hero"
       valueProp="id"

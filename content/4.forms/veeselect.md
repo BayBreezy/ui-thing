@@ -31,14 +31,14 @@ In the form below, we are using the `useForm` composition function provided by V
 <template>
   <form @submit="onSubmit" class="mx-auto max-w-md">
     <fieldset :disabled="isSubmitting" class="space-y-5">
-      <UIVeeSelect label="Country" name="country" hint="Pick the country you want to visit">
+      <UiVeeSelect label="Country" name="country" hint="Pick the country you want to visit">
         <option disabled value="">Select a country</option>
         <option v-for="country in countries" :key="country" :value="country">
           {{ country }}
         </option>
-      </UIVeeSelect>
+      </UiVeeSelect>
       <TransitionSlide>
-        <UIVeeSelect
+        <UiVeeSelect
           v-if="values.country"
           label="Attraction"
           name="attraction"
@@ -48,9 +48,9 @@ In the form below, we are using the `useForm` composition function provided by V
           <option v-for="spot in spots" :key="spot" :value="spot">
             {{ spot }}
           </option>
-        </UIVeeSelect>
+        </UiVeeSelect>
       </TransitionSlide>
-      <UIButton type="submit"> Book now </UIButton>
+      <UiButton type="submit"> Book now </UiButton>
     </fieldset>
   </form>
 </template>

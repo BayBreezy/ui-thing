@@ -1,6 +1,6 @@
 <template>
   <form @submit="submit" class="mx-auto max-w-md">
-    <UIVeeMultiSelect
+    <UiVeeMultiSelect
       formLabel="Hero"
       valueProp="id"
       label="name"
@@ -8,7 +8,7 @@
       :options="options"
       name="heroObject"
     />
-    <UIButton type="submit" class="mt-5"> Submit </UIButton>
+    <UiButton type="submit" class="mt-5"> Submit </UiButton>
   </form>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto max-w-md">
-    <UIVeeMultiSelect
+    <UiVeeMultiSelect
       searchable
       formLabel="Hero"
       valueProp="id"
