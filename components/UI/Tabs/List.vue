@@ -1,5 +1,5 @@
 <template>
-  <TabsList :class="styles({ class: props.class })" v-bind="props">
+  <TabsList :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
     <slot></slot>
   </TabsList>
 </template>
@@ -10,6 +10,7 @@
 
   const props = defineProps<
     TabsListProps & {
+      /** Custom class(es) to add to parent element */
       class?: any;
     }
   >();

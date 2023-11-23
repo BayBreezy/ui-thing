@@ -1,58 +1,58 @@
 <template>
   <div class="flex w-full justify-center">
-    <UITabs class="w-[400px]" default-value="account">
-      <UITabsList class="grid w-full grid-cols-2">
-        <UITabsTrigger value="account">Account</UITabsTrigger>
-        <UITabsTrigger value="password">Password</UITabsTrigger>
-      </UITabsList>
-      <UITabsContent value="account">
-        <UICard
+    <UiTabs class="w-[400px]" default-value="account">
+      <UiTabsList class="grid w-full grid-cols-2">
+        <UiTabsTrigger value="account">Account</UiTabsTrigger>
+        <UiTabsTrigger value="password">Password</UiTabsTrigger>
+      </UiTabsList>
+      <UiTabsContent value="account">
+        <UiCard
           title="Account"
           description="Make changes to your account here. Click save when you're done."
         >
           <template #content>
-            <UICardContent class="space-y-2">
+            <UiCardContent class="space-y-2">
               <div class="space-y-1">
-                <UILabel for="name">Name</UILabel>
-                <UIInput id="name" value="Pedro Duarte" />
+                <UiLabel for="name">Name</UiLabel>
+                <UiInput id="name" value="Pedro Duarte" />
               </div>
               <div class="space-y-1">
-                <UILabel htmlFor="username">Username</UILabel>
-                <UIInput id="username" value="@peduarte" />
+                <UiLabel htmlFor="username">Username</UiLabel>
+                <UiInput id="username" value="@peduarte" />
               </div>
-            </UICardContent>
+            </UiCardContent>
           </template>
           <template #footer>
-            <UICardFooter>
-              <UIButton>Save changes</UIButton>
-            </UICardFooter>
+            <UiCardFooter>
+              <UiButton>Save changes</UiButton>
+            </UiCardFooter>
           </template>
-        </UICard>
-      </UITabsContent>
-      <UITabsContent value="password">
-        <UICard
+        </UiCard>
+      </UiTabsContent>
+      <UiTabsContent value="password">
+        <UiCard
           title="Password"
           description="Change your password here. After saving, you'll be logged out."
         >
           <template #content>
-            <UICardContent class="space-y-2">
+            <UiCardContent class="space-y-2">
               <div class="space-y-1">
-                <UILabel htmlFor="current">Current password</UILabel>
-                <UIInput id="current" type="password" />
+                <UiLabel htmlFor="current">Current password</UiLabel>
+                <UiInput id="current" type="password" />
               </div>
               <div class="space-y-1">
-                <UILabel htmlFor="new">New password</UILabel>
-                <UIInput id="new" type="password" />
+                <UiLabel htmlFor="new">New password</UiLabel>
+                <UiInput id="new" type="password" />
               </div>
-            </UICardContent>
+            </UiCardContent>
           </template>
           <template #footer>
-            <UICardFooter>
-              <UIButton>Save password</UIButton>
-            </UICardFooter>
+            <UiCardFooter>
+              <UiButton>Save password</UiButton>
+            </UiCardFooter>
           </template>
-        </UICard>
-      </UITabsContent>
-    </UITabs>
+        </UiCard>
+      </UiTabsContent>
+    </UiTabs>
   </div>
 </template>

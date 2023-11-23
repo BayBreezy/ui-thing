@@ -1,5 +1,5 @@
 <template>
-  <TabsTrigger v-bind="props" :class="styles({ class: props.class })">
+  <TabsTrigger v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
     <slot></slot>
   </TabsTrigger>
 </template>
@@ -10,6 +10,7 @@
 
   const props = defineProps<
     TabsTriggerProps & {
+      /** Custom class(es) to add to parent element */
       class?: any;
     }
   >();
