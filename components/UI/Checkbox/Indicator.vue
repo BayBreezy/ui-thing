@@ -4,7 +4,7 @@
     v-bind="reactiveOmit(props, 'class', 'icon')"
   >
     <slot>
-      <Icon :name="icon" class="h-4 w-4" />
+      <Icon :name="checked == 'indeterminate' ? 'lucide:minus' : icon" class="h-4 w-4" />
     </slot>
   </CheckboxIndicator>
 </template>
@@ -16,6 +16,7 @@
   const props = withDefaults(
     defineProps<
       CheckboxIndicatorProps & {
+        checked?: boolean | "indeterminate";
         /** Custom class(es) to add to the element */
         class?: any;
         /**

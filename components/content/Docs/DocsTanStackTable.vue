@@ -1,32 +1,32 @@
 <template>
   <div>
     <div class="flex flex-col justify-between gap-5 md:flex-row md:items-center">
-      <UIInput type="search" v-model="search" placeholder="Search" class="w-full md:w-96" />
-      <UIDropdownMenu>
-        <UIDropdownMenuTrigger as-child>
-          <UIButton variant="outline">
+      <UiInput type="search" v-model="search" placeholder="Search" class="w-full md:w-96" />
+      <UiDropdownMenu>
+        <UiDropdownMenuTrigger as-child>
+          <UiButton variant="outline">
             <span>View</span>
             <Icon name="lucide:chevron-down" class="h-4 w-4" />
-          </UIButton>
-        </UIDropdownMenuTrigger>
-        <UIDropdownMenuContent :side-offset="10" align="start" class="w-[300px] md:w-[200px]">
-          <UIDropdownMenuLabel> Toggle Columns </UIDropdownMenuLabel>
-          <UIDropdownMenuSeparator />
-          <UIDropdownMenuGroup>
-            <UIDropdownMenuCheckboxItem
+          </UiButton>
+        </UiDropdownMenuTrigger>
+        <UiDropdownMenuContent :side-offset="10" align="start" class="w-[300px] md:w-[200px]">
+          <UiDropdownMenuLabel> Toggle Columns </UiDropdownMenuLabel>
+          <UiDropdownMenuSeparator />
+          <UiDropdownMenuGroup>
+            <UiDropdownMenuCheckboxItem
               v-for="column in table?.getAllColumns().filter((column) => column.getCanHide())"
               :key="column.id"
               :checked="column.getIsVisible()"
               @update:checked="tableRef?.toggleColumnVisibility(column)"
             >
               <span class="text-sm capitalize">{{ column?.id }}</span>
-            </UIDropdownMenuCheckboxItem>
-          </UIDropdownMenuGroup>
-        </UIDropdownMenuContent>
-      </UIDropdownMenu>
+            </UiDropdownMenuCheckboxItem>
+          </UiDropdownMenuGroup>
+        </UiDropdownMenuContent>
+      </UiDropdownMenu>
     </div>
 
-    <UITanStackTable
+    <UiTanStackTable
       @ready="table = $event"
       ref="tableRef"
       show-select
@@ -41,7 +41,7 @@
           <span class="mt-2">No data available.</span>
         </div>
       </template>
-    </UITanStackTable>
+    </UiTanStackTable>
   </div>
 </template>
 
@@ -111,7 +111,7 @@
       accessorKey: "status",
       header: "Status",
       cell: ({ row }) => {
-        return h(resolveComponent("UIBadge"), { variant: "outline", class: "capitalize" }, () => [
+        return h(resolveComponent("UiBadge"), { variant: "outline", class: "capitalize" }, () => [
           row.original.status,
         ]);
       },
@@ -125,7 +125,7 @@
       enableHiding: false,
       cell: ({ row }) => {
         return h(
-          resolveComponent("UIButton"),
+          resolveComponent("UiButton"),
           { variant: "ghost", size: "icon", class: "w-9 h-9" },
           () => [h(resolveComponent("Icon"), { name: "lucide:more-horizontal", class: "h-4 w-4" })]
         );

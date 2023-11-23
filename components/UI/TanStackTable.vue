@@ -1,10 +1,10 @@
 <template>
   <div>
     <div :class="styles({ class: props.class })">
-      <UITable :class="tableClass">
-        <UITableHeader>
-          <UITableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
-            <UITableHead
+      <UiTable :class="tableClass">
+        <UiTableHeader>
+          <UiTableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
+            <UiTableHead
               v-for="header in headerGroup.headers"
               :key="header.id"
               :colspan="header.colSpan"
@@ -34,29 +34,29 @@
                   />
                 </div>
               </template>
-            </UITableHead>
-          </UITableRow>
-        </UITableHeader>
+            </UiTableHead>
+          </UiTableRow>
+        </UiTableHeader>
 
-        <UITableBody>
-          <UITableRow
+        <UiTableBody>
+          <UiTableRow
             v-for="row in table.getRowModel().rows"
             :key="row.id"
             :data-state="row.getIsSelected() ? 'selected' : ''"
           >
-            <UITableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
+            <UiTableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
               <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
-            </UITableCell>
-          </UITableRow>
+            </UiTableCell>
+          </UiTableRow>
 
-          <UITableEmpty
+          <UiTableEmpty
             v-if="table.getRowModel().rows.length === 0"
             :colspan="table.getAllLeafColumns().length"
           >
             <slot :table="table" name="empty"> No data available. </slot>
-          </UITableEmpty>
-        </UITableBody>
-      </UITable>
+          </UiTableEmpty>
+        </UiTableBody>
+      </UiTable>
     </div>
 
     <div
@@ -77,22 +77,22 @@
             <p class="hidden text-sm font-medium text-foreground md:inline-block">
               {{ rowsPerPageText }}
             </p>
-            <UISelect v-model="pageSize">
-              <UISelectTrigger class="h-9 w-[70px]">
+            <UiSelect v-model="pageSize">
+              <UiSelectTrigger class="h-9 w-[70px]">
                 {{ table.getState().pagination.pageSize }}
-              </UISelectTrigger>
-              <UISelectContent side="top" align="start">
-                <UISelectGroup>
-                  <UISelectItem
+              </UiSelectTrigger>
+              <UiSelectContent side="top" align="start">
+                <UiSelectGroup>
+                  <UiSelectItem
                     v-for="pageSize in pageSizes"
                     :key="pageSize"
                     :value="`${pageSize}`"
                   >
                     {{ pageSize }}
-                  </UISelectItem>
-                </UISelectGroup>
-              </UISelectContent>
-            </UISelect>
+                  </UiSelectItem>
+                </UiSelectGroup>
+              </UiSelectContent>
+            </UiSelect>
           </div>
         </slot>
       </div>
@@ -109,7 +109,7 @@
 
         <slot :table="table" name="pageButtons">
           <div class="flex items-center space-x-2">
-            <UIButton
+            <UiButton
               variant="outline"
               title="First page"
               class="h-9 w-9 p-0"
@@ -117,8 +117,8 @@
               @click="table.setPageIndex(0)"
             >
               <Icon name="lucide:chevrons-left" class="h-4 w-4" />
-            </UIButton>
-            <UIButton
+            </UiButton>
+            <UiButton
               variant="outline"
               title="Previous page"
               class="h-9 w-9 p-0"
@@ -126,8 +126,8 @@
               @click="table.previousPage()"
             >
               <Icon name="lucide:chevron-left" class="h-4 w-4" />
-            </UIButton>
-            <UIButton
+            </UiButton>
+            <UiButton
               variant="outline"
               title="Next page"
               class="h-9 w-9 p-0"
@@ -135,8 +135,8 @@
               @click="table.nextPage()"
             >
               <Icon name="lucide:chevron-right" class="h-4 w-4" />
-            </UIButton>
-            <UIButton
+            </UiButton>
+            <UiButton
               variant="outline"
               title="Last page"
               class="h-9 w-9 p-0"
@@ -144,7 +144,7 @@
               @click="table.setPageIndex(table.getPageCount() - 1)"
             >
               <Icon name="lucide:chevrons-right" class="h-4 w-4" />
-            </UIButton>
+            </UiButton>
           </div>
         </slot>
       </div>
@@ -208,7 +208,11 @@
         "div",
         { class: "flex items-center justify-center" },
         h(CheckBox, {
-          checked: table.getIsAllRowsSelected(),
+          checked: table.getIsAllRowsSelected()
+            ? true
+            : table.getIsSomeRowsSelected()
+              ? "indeterminate"
+              : false,
           "onUpdate:checked": (value: boolean) => table.toggleAllPageRowsSelected(!!value),
           ariaLabel: "Select all",
         })

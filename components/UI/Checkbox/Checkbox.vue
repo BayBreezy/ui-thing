@@ -2,7 +2,7 @@
   <CheckboxRoot v-bind="forwarded" :class="styles({ class: props.class })">
     <slot>
       <Transition enter-active-class="transition" enter-from-class="opacity-0 scale-0">
-        <UiCheckboxIndicator :icon="icon" />
+        <UiCheckboxIndicator :checked="checked" :icon="icon" />
       </Transition>
     </slot>
   </CheckboxRoot>
