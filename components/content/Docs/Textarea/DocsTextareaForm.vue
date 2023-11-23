@@ -1,12 +1,12 @@
 <template>
   <form @submit="onSubmit">
     <Field name="bio" v-slot="{ componentField }">
-      <UIFormItem label="Tell us about yourself" description="Feel free to @mention others">
-        <UITextarea v-bind="componentField" />
-      </UIFormItem>
+      <UiFormItem label="Tell us about yourself" description="Feel free to @mention others">
+        <UiTextarea v-bind="componentField" />
+      </UiFormItem>
     </Field>
     <div class="mt-5">
-      <UIButton type="submit">Submit</UIButton>
+      <UiButton type="submit">Submit</UiButton>
     </div>
   </form>
 </template>
@@ -28,6 +28,11 @@
   });
 
   const onSubmit = handleSubmit((values) => {
-    alert(JSON.stringify(values, null, 2));
+    toast({
+      title: "Success!",
+      description: h("pre", null, JSON.stringify(values, null, 2)),
+      variant: "success",
+      duration: 5000,
+    });
   });
 </script>

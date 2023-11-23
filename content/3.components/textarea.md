@@ -28,7 +28,7 @@ npx ui-thing@latest add textarea
 ```vue [DocsTextarea.vue]
 <template>
   <div>
-    <UITextarea placeholder="Bio" />
+    <UiTextarea placeholder="Bio" />
   </div>
 </template>
 ```
@@ -45,8 +45,8 @@ npx ui-thing@latest add textarea
 <template>
   <div>
     <div class="mt-7 grid w-full items-center gap-2.5">
-      <UILabel for="contact-message">Why are you here today?</UILabel>
-      <UITextarea id="contact-message" />
+      <UiLabel for="contact-message">Why are you here today?</UiLabel>
+      <UiTextarea id="contact-message" />
     </div>
   </div>
 </template>
@@ -64,12 +64,12 @@ npx ui-thing@latest add textarea
 <template>
   <form @submit="onSubmit">
     <Field name="bio" v-slot="{ componentField }">
-      <UIFormItem label="Tell us about yourself" description="Feel free to @mention others">
-        <UITextarea v-bind="componentField" />
-      </UIFormItem>
+      <UiFormItem label="Tell us about yourself" description="Feel free to @mention others">
+        <UiTextarea v-bind="componentField" />
+      </UiFormItem>
     </Field>
     <div class="mt-5">
-      <UIButton type="submit">Submit</UIButton>
+      <UiButton type="submit">Submit</UiButton>
     </div>
   </form>
 </template>
@@ -91,7 +91,12 @@ npx ui-thing@latest add textarea
   });
 
   const onSubmit = handleSubmit((values) => {
-    alert(JSON.stringify(values, null, 2));
+    toast({
+      title: "Success!",
+      description: h("pre", null, JSON.stringify(values, null, 2)),
+      variant: "success",
+      duration: 5000,
+    });
   });
 </script>
 ```

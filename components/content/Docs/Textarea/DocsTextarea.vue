@@ -1,5 +1,5 @@
 <template>
   <div>
-    <UITextarea placeholder="Bio" />
+    <UiTextarea placeholder="Bio" />
   </div>
 </template>
