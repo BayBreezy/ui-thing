@@ -2,7 +2,7 @@
   <div
     class="relative z-[999] box-border flex w-full gap-4 rounded-md border bg-background p-3 px-5 shadow-lg md:w-[360px]"
   >
-    <UIAvatar
+    <UiAvatar
       class="ring-1 ring-border"
       src="https://behonbaker.com/icon.png"
       fallback="BB"
@@ -14,8 +14,8 @@
         Would you like to add this user to the list?
       </p>
       <div class="mt-2 flex items-center gap-2">
-        <UIButton class="h-7 text-xs" @click="addUser">Yes</UIButton>
-        <UIButton @click="cancel" variant="outline" class="h-7 text-xs">No</UIButton>
+        <UiButton class="h-7 text-xs" @click="addUser">Yes</UiButton>
+        <UiButton @click="cancel" variant="outline" class="h-7 text-xs">No</UiButton>
       </div>
     </div>
   </div>

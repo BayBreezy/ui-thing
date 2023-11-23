@@ -17,13 +17,13 @@ Click :SourceCodeLink{component="VueSonner.client.vue"} to see the source code f
 npx ui-thing@latest add vue-sonner
 ```
 
-Add the `<UIVueSonner />` component to your `app.vue` file:
+Add the `<UiVueSonner />` component to your `app.vue` file:
 
 ```vue [app.vue]
 <template>
   <div>
     <NuxtPage />
-    <UIVueSonner />
+    <UiVueSonner />
   </div>
 </template>
 ```
@@ -57,16 +57,16 @@ build: {
 ```vue [DocsVueSonner.vue]
 <template>
   <div class="flex flex-wrap items-center justify-center gap-3">
-    <UIButton
+    <UiButton
       @click="
         useSonner('Default', {
           description: 'This is a description',
         })
       "
       variant="outline"
-      >Show default</UIButton
+      >Show default</UiButton
     >
-    <UIButton
+    <UiButton
       @click="
         useSonner('', {
           description: 'Send new notification to customer?',
@@ -86,9 +86,9 @@ build: {
         })
       "
       variant="outline"
-      >Show action</UIButton
+      >Show action</UiButton
     >
-    <UIButton
+    <UiButton
       v-for="(t, i) in types"
       @click="
         useSonner[t](useCapitalize(t), {
@@ -96,9 +96,9 @@ build: {
         })
       "
       variant="outline"
-      >Show {{ t }}</UIButton
+      >Show {{ t }}</UiButton
     >
-    <UIButton
+    <UiButton
       @click="
         useSonner.promise(promise, {
           loading: 'Checking API for tools...',
@@ -107,16 +107,16 @@ build: {
         })
       "
       variant="outline"
-      >Show promise</UIButton
+      >Show promise</UiButton
     >
-    <UIButton
+    <UiButton
       @click="
         useSonner(markRaw(Headless), {
           duration: Infinity,
         })
       "
       variant="outline"
-      >Show custom</UIButton
+      >Show custom</UiButton
     >
   </div>
 </template>
@@ -142,7 +142,7 @@ For the custom element, this is what the code looks like
   <div
     class="relative z-[999] box-border flex w-full gap-4 rounded-md border bg-background p-3 px-5 shadow-lg md:w-[360px]"
   >
-    <UIAvatar
+    <UiAvatar
       class="ring-1 ring-border"
       src="https://behonbaker.com/icon.png"
       fallback="BB"
@@ -154,8 +154,8 @@ For the custom element, this is what the code looks like
         Would you like to add this user to the list?
       </p>
       <div class="mt-2 flex items-center gap-2">
-        <UIButton class="h-7 text-xs" @click="addUser">Yes</UIButton>
-        <UIButton @click="cancel" variant="outline" class="h-7 text-xs">No</UIButton>
+        <UiButton class="h-7 text-xs" @click="addUser">Yes</UiButton>
+        <UiButton @click="cancel" variant="outline" class="h-7 text-xs">No</UiButton>
       </div>
     </div>
   </div>

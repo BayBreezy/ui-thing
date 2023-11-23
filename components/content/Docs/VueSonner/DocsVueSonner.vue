@@ -1,15 +1,15 @@
 <template>
   <div class="flex flex-wrap items-center justify-center gap-3">
-    <UIButton
+    <UiButton
       @click="
         useSonner('Default', {
           description: 'This is a description',
         })
       "
       variant="outline"
-      >Show default</UIButton
+      >Show default</UiButton
     >
-    <UIButton
+    <UiButton
       @click="
         useSonner('', {
           description: 'Send new notification to customer?',
@@ -29,19 +29,20 @@
         })
       "
       variant="outline"
-      >Show action</UIButton
+      >Show action</UiButton
     >
-    <UIButton
+    <UiButton
       v-for="(t, i) in types"
       @click="
-        useSonner[t](useCapitalize(t), {
-          description: `This is a ${t} message`,
-        })
+        useSonner[t](t),
+          {
+            description: `This is a ${t} message`,
+          }
       "
       variant="outline"
-      >Show {{ t }}</UIButton
+      >Show {{ t }}</UiButton
     >
-    <UIButton
+    <UiButton
       @click="
         useSonner.promise(promise, {
           loading: 'Checking API for tools...',
@@ -50,16 +51,16 @@
         })
       "
       variant="outline"
-      >Show promise</UIButton
+      >Show promise</UiButton
     >
-    <UIButton
+    <UiButton
       @click="
         useSonner(markRaw(Headless), {
           duration: Infinity,
         })
       "
       variant="outline"
-      >Show custom</UIButton
+      >Show custom</UiButton
     >
   </div>
 </template>
