@@ -30,7 +30,7 @@
   const onSubmit = handleSubmit(async (values) => {
     const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
     useSonner.promise(promise, {
-      loading: "Saving brancds...",
+      loading: "Saving brands...",
       success: (d) => "Success! Your information has been saved!",
       error: (e) => "Error! Your information could not be sent to our servers!",
     });

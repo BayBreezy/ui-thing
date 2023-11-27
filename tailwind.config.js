@@ -111,7 +111,7 @@ module.exports = {
             "--tw-prose-kbd": theme("colors.foreground"),
             "--tw-prose-kbd-shadows": theme("colors.foreground"),
             "--tw-prose-code": theme("colors.foreground"),
-            "--tw-prose-pre-code": theme("colors.foreground"),
+            "--tw-prose-pre-code": theme("colors.background"),
             "--tw-prose-pre-bg": theme("colors.foreground / 90%"),
             "--tw-prose-th-borders": theme("colors.border"),
             "--tw-prose-td-borders": theme("colors.border"),
