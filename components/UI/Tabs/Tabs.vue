@@ -8,7 +8,7 @@
   import { TabsRoot, useForwardPropsEmits } from "radix-vue";
   import type { TabsRootEmits, TabsRootProps } from "radix-vue";
 
-  const props = withDefaults(defineProps<TabsRootProps & {}>(), {
+  const props = withDefaults(defineProps<TabsRootProps>(), {
     orientation: "horizontal",
     activationMode: "automatic",
   });

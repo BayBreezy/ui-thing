@@ -568,7 +568,13 @@ export default [
     deps: ["tailwind-variants", "radix-vue"],
     devDeps: [],
     nuxtModules: [],
-    files: ["Tabs/Content.vue", "Tabs/List.vue", "Tabs/Tabs.vue", "Tabs/Trigger.vue"],
+    files: [
+      "Tabs/Content.vue",
+      "Tabs/Indicator.vue",
+      "Tabs/List.vue",
+      "Tabs/Tabs.vue",
+      "Tabs/Trigger.vue",
+    ],
   },
   {
     name: "Tanstack Table",
