@@ -1955,6 +1955,54 @@ export default [
     plugins: [],
   },
   {
+    name: "Tags Input",
+    value: "tags-input",
+    deps: ["tailwind-variants", "radix-vue"],
+    devDeps: [],
+    nuxtModules: [],
+    files: [
+      {
+        fileName: "TagsInput/Clear.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <TagsInputClear v-bind="props" :class="styles({ class: props.class })">\r\n    <slot>\r\n      <Icon v-if="icon" :name="icon" class="h-3.5 w-3.5" />\r\n    </slot>\r\n  </TagsInputClear>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { TagsInputClear } from "radix-vue";\r\n  import type { TagsInputClearProps } from "radix-vue";\r\n\r\n  const props = withDefaults(defineProps<TagsInputClearProps & { icon?: string; class?: any }>(), {\r\n    icon: "lucide:x",\r\n  });\r\n  const styles = tv({\r\n    base: "flex items-center justify-center rounded bg-transparent p-1 opacity-40 transition hover:bg-muted-foreground hover:opacity-100 focus:opacity-100 focus-visible:outline-none",\r\n  });\r\n</script>\r\n',
+      },
+      {
+        fileName: "TagsInput/Field.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <TagsInputInput v-bind="reactiveOmit(props, \'class\')" :class="styles({ class: props.class })">\r\n    <slot></slot>\r\n  </TagsInputInput>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { TagsInputInput } from "radix-vue";\r\n  import type { TagsInputInputProps } from "radix-vue";\r\n\r\n  const props = defineProps<TagsInputInputProps & { class?: any }>();\r\n\r\n  const styles = tv({\r\n    base: "flex-1 bg-transparent focus:outline-none sm:text-sm",\r\n  });\r\n</script>\r\n',
+      },
+      {
+        fileName: "TagsInput/Item.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <TagsInputItem\r\n    v-bind="reactiveOmit(props, \'class\', \'icon\')"\r\n    :class="styles({ class: props.class })"\r\n  >\r\n    <slot>\r\n      <slot name="text">\r\n        <UiTagsInputItemText />\r\n      </slot>\r\n      <slot name="delete">\r\n        <UiTagsInputItemDelete :icon="icon" />\r\n      </slot>\r\n    </slot>\r\n  </TagsInputItem>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { TagsInputItem } from "radix-vue";\r\n  import type { TagsInputItemProps } from "radix-vue";\r\n\r\n  const props = defineProps<TagsInputItemProps & { class?: any; icon?: string }>();\r\n  const styles = tv({\r\n    base: "inline-flex h-6 shrink-0 items-center gap-1.5 rounded bg-primary pl-2 pr-1 leading-none text-primary-foreground sm:text-sm",\r\n  });\r\n</script>\r\n',
+      },
+      {
+        fileName: "TagsInput/ItemDelete.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <TagsInputItemDelete\r\n    v-bind="reactiveOmit(props, \'icon\', \'class\')"\r\n    :class="styles({ class: props.class })"\r\n  >\r\n    <slot>\r\n      <Icon v-if="icon" :name="icon" class="h-3.5 w-3.5" />\r\n    </slot>\r\n  </TagsInputItemDelete>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { TagsInputItemDelete } from "radix-vue";\r\n  import type { TagsInputItemDeleteProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<TagsInputItemDeleteProps & { icon?: string; class?: any }>(),\r\n    {\r\n      icon: "lucide:x",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "flex items-center justify-center rounded bg-transparent opacity-40 transition hover:bg-muted-foreground hover:opacity-100 focus:opacity-100 focus-visible:outline-none",\r\n  });\r\n</script>\r\n',
+      },
+      {
+        fileName: "TagsInput/ItemText.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <TagsInputItemText v-bind="reactiveOmit(props, \'class\')" :class="styles({ class: props.class })">\r\n    <slot></slot>\r\n  </TagsInputItemText>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { TagsInputItemText } from "radix-vue";\r\n  import type { TagsInputItemTextProps } from "radix-vue";\r\n\r\n  const props = defineProps<TagsInputItemTextProps & { class?: any }>();\r\n\r\n  const styles = tv({\r\n    base: "leading-none sm:text-sm",\r\n  });\r\n</script>\r\n',
+      },
+      {
+        fileName: "TagsInput/TagsInput.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <TagsInputRoot v-bind="forwarded" :class="styles({ class: props.class })">\r\n    <slot></slot>\r\n  </TagsInputRoot>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { TagsInputRoot, useForwardPropsEmits } from "radix-vue";\r\n  import type { TagsInputRootEmits, TagsInputRootProps } from "radix-vue";\r\n\r\n  const props = defineProps<TagsInputRootProps & { class?: any }>();\r\n  const emits = defineEmits<TagsInputRootEmits>();\r\n  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);\r\n\r\n  const styles = tv({\r\n    base: "flex min-h-[40px] w-full flex-wrap items-center gap-2 rounded-md border border-input bg-background px-3 py-2 leading-none transition focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",\r\n  });\r\n</script>\r\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Tanstack Table",
     value: "tanstacktable",
     deps: ["tailwind-variants", "@tanstack/vue-table"],
@@ -2291,6 +2339,26 @@ export default [
         dirPath: "components/UI",
         fileContent:
           '<template>\r\n  <div class="w-full">\r\n    <UILabel :for="inputId" v-if="label" :class="[errorMessage && \'text-destructive\', \'mb-2\']">{{\r\n      label\r\n    }}</UILabel>\r\n    <div class="relative">\r\n      <slot name="icon">\r\n        <span v-if="hasIcon" lass="absolute inset-y-0 left-3 flex items-center justify-center">\r\n          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground" />\r\n        </span>\r\n      </slot>\r\n      <UINativeSelect\r\n        :trailingIcon="trailingIcon"\r\n        v-model="value"\r\n        @blur="handleBlur"\r\n        :id="inputId"\r\n        :name="name"\r\n        v-bind="$attrs"\r\n        :class="[hasIcon && \'pl-9\']"\r\n      >\r\n        <slot></slot>\r\n      </UINativeSelect>\r\n    </div>\r\n    <TransitionSlide group tag="div">\r\n      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">\r\n        {{ hint }}\r\n      </p>\r\n\r\n      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">\r\n        {{ errorMessage }}\r\n      </p>\r\n    </TransitionSlide>\r\n  </div>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { useId } from "radix-vue";\r\n\r\n  const props = defineProps<{\r\n    label?: string;\r\n    icon?: string;\r\n    hint?: string;\r\n    modelValue?: string;\r\n    name?: string;\r\n    id?: string;\r\n    rules?: any;\r\n    validateOnMount?: boolean;\r\n    type?: string;\r\n    trailingIcon?: string;\r\n  }>();\r\n\r\n  defineOptions({ inheritAttrs: false });\r\n\r\n  const inputId = useId(props.id);\r\n\r\n  const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));\r\n\r\n  const { errorMessage, value, handleBlur } = useField(() => props.name || inputId, props.rules, {\r\n    initialValue: props.modelValue,\r\n    label: props.label,\r\n    validateOnMount: props.validateOnMount,\r\n    syncVModel: true,\r\n  });\r\n</script>\r\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "VeeTagsInput",
+    value: "vee-tags-input",
+    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    askValidator: true,
+    devDeps: ["nuxt-icon"],
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+    components: ["tags-input", "label"],
+    files: [
+      {
+        fileName: "Vee/TagsInput.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <div class="w-full">\r\n    <UILabel\r\n      :for="inputId"\r\n      v-if="label"\r\n      :class="[disabled && \'text-muted-foreground\', errorMessage && \'text-destructive\', \'mb-2\']"\r\n      >{{ label }}</UILabel\r\n    >\r\n    <div class="relative">\r\n      <slot name="icon">\r\n        <span v-if="hasIcon" class="absolute inset-y-0 left-3 flex items-center justify-center">\r\n          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />\r\n        </span>\r\n      </slot>\r\n      <UiTagsInput\r\n        v-model="value"\r\n        :name="name"\r\n        :disabled="disabled"\r\n        v-bind="$attrs"\r\n        :class="[hasIcon && \'pl-9\']"\r\n      >\r\n        <UiTagsInputItem v-for="tag in value" :key="tag" :value="tag" />\r\n        <UiTagsInputField :id="inputId" :placeholder="placeholder" />\r\n      </UiTagsInput>\r\n    </div>\r\n    <TransitionSlide group tag="div">\r\n      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">\r\n        {{ hint }}\r\n      </p>\r\n\r\n      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">\r\n        {{ errorMessage }}\r\n      </p>\r\n    </TransitionSlide>\r\n  </div>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { useId } from "radix-vue";\r\n\r\n  const props = defineProps<{\r\n    label?: string;\r\n    icon?: string;\r\n    hint?: string;\r\n    disabled?: boolean;\r\n    modelValue?: string[];\r\n    name?: string;\r\n    id?: string;\r\n    rules?: any;\r\n    validateOnMount?: boolean;\r\n    type?: string;\r\n    placeholder?: string;\r\n  }>();\r\n\r\n  defineOptions({ inheritAttrs: false });\r\n\r\n  const inputId = useId(props.id);\r\n\r\n  const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));\r\n\r\n  const { errorMessage, value, handleBlur } = useField(() => props.name || inputId, props.rules, {\r\n    initialValue: props.modelValue,\r\n    label: props.label,\r\n    validateOnMount: props.validateOnMount,\r\n    syncVModel: true,\r\n  });\r\n</script>\r\n',
       },
     ],
     utils: [],

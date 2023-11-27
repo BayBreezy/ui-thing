@@ -577,6 +577,21 @@ export default [
     ],
   },
   {
+    name: "Tags Input",
+    value: "tags-input",
+    deps: ["tailwind-variants", "radix-vue"],
+    devDeps: [],
+    nuxtModules: [],
+    files: [
+      "TagsInput/Clear.vue",
+      "TagsInput/Field.vue",
+      "TagsInput/Item.vue",
+      "TagsInput/ItemDelete.vue",
+      "TagsInput/ItemText.vue",
+      "TagsInput/TagsInput.vue",
+    ],
+  },
+  {
     name: "Tanstack Table",
     value: "tanstacktable",
     deps: ["tailwind-variants", "@tanstack/vue-table"],
@@ -713,6 +728,16 @@ export default [
     nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
     components: ["textarea", "label"],
     files: ["Vee/Textarea.vue"],
+  },
+  {
+    name: "VeeTagsInput",
+    value: "vee-tags-input",
+    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    askValidator: true,
+    devDeps: ["nuxt-icon"],
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+    components: ["tags-input", "label"],
+    files: ["Vee/TagsInput.vue"],
   },
   {
     name: "VeeMultiSelect",
