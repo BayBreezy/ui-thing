@@ -1409,6 +1409,30 @@ export default [
     plugins: [],
   },
   {
+    name: "Pin Input",
+    value: "pin-input",
+    deps: ["radix-vue", "tailwind-variants"],
+    devDeps: [],
+    nuxtModules: [],
+    files: [
+      {
+        fileName: "PinInput/PinInput.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <PinInputRoot v-bind="forwarded" :class="styles({ class: props.class })">\r\n    <slot>\r\n      <template v-for="(input, k) in inputCount" :key="k">\r\n        <UiPinInputInput :index="k" />\r\n        <template v-if="k < inputCount - 1">\r\n          <span v-if="separator" class="text-muted-foreground">{{ separator }}</span>\r\n        </template>\r\n      </template>\r\n    </slot>\r\n  </PinInputRoot>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { PinInputRoot, useForwardPropsEmits } from "radix-vue";\r\n  import type { PinInputRootEmits, PinInputRootProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PinInputRootProps & {\r\n        /** Custom class(es) to apply to the parent element. */\r\n        class?: any;\r\n        /** The number of inputs to render.  @default 4 */\r\n        inputCount?: number;\r\n        /** The separator to render between inputs.  @default undefined */\r\n        separator?: string;\r\n      }\r\n    >(),\r\n    {\r\n      inputCount: 4,\r\n    }\r\n  );\r\n\r\n  const emits = defineEmits<PinInputRootEmits>();\r\n\r\n  const forwarded = useForwardPropsEmits(\r\n    reactiveOmit(props, "class", "inputCount", "separator"),\r\n    emits\r\n  );\r\n  const styles = tv({\r\n    base: "flex items-center gap-2",\r\n  });\r\n</script>\r\n',
+      },
+      {
+        fileName: "PinInput/PinInputInput.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <PinInputInput v-bind="reactiveOmit(props, \'class\')" :class="styles({ class: props.class })" />\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { PinInputInput } from "radix-vue";\r\n  import type { PinInputInputProps } from "radix-vue";\r\n\r\n  const props = defineProps<\r\n    PinInputInputProps & {\r\n      class?: any;\r\n    }\r\n  >();\r\n  const styles = tv({\r\n    base: "h-10 w-10 rounded-md border border-input bg-background p-1 text-center text-base font-medium placeholder:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm",\r\n  });\r\n</script>\r\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Popover",
     value: "popover",
     deps: ["radix-vue", "tailwind-variants"],

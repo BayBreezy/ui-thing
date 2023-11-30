@@ -1,0 +1,8 @@
+<template>
+  <div class="flex items-center justify-center">
+    <UiLabel>
+      <p class="mb-3 text-sm font-medium">Placeholder</p>
+      <UiPinInput placeholder="0" />
+    </UiLabel>
+  </div>
+</template>

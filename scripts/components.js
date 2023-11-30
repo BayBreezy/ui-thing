@@ -421,6 +421,14 @@ export default [
     ],
   },
   {
+    name: "Pin Input",
+    value: "pin-input",
+    deps: ["radix-vue", "tailwind-variants"],
+    devDeps: [],
+    nuxtModules: [],
+    files: ["PinInput/PinInput.vue", "PinInput/PinInputInput.vue"],
+  },
+  {
     name: "Popover",
     value: "popover",
     deps: ["radix-vue", "tailwind-variants"],
