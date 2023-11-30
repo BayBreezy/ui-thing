@@ -75,3 +75,11 @@ npx ui-thing@latest prettier
 ```
 
 This command will add the prettier configuration to your project.
+
+### `shortcuts`
+
+```bash
+npx ui-thing@latest shortcuts
+```
+
+This command will add the `defineShortcuts` & `useShortcuts` composables to your project.
