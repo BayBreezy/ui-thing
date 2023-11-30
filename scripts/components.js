@@ -396,14 +396,6 @@ export default [
     ],
   },
   {
-    name: "One-Time Password",
-    value: "otp",
-    deps: ["tailwind-variants", "vue3-otp-input"],
-    devDeps: ["@vueuse/core", "@vueuse/nuxt"],
-    nuxtModules: ["@vueuse/nuxt"],
-    files: ["OTP.vue"],
-  },
-  {
     name: "Pagination",
     value: "pagination",
     deps: ["radix-vue", "tailwind-variants"],
@@ -421,7 +413,7 @@ export default [
     ],
   },
   {
-    name: "Pin Input",
+    name: "Pin Input (OTP)",
     value: "pin-input",
     deps: ["radix-vue", "tailwind-variants"],
     devDeps: [],
@@ -764,19 +756,13 @@ export default [
     files: ["Vee/MultiSelect.vue"],
   },
   {
-    name: "VeeOTP",
-    value: "vee-otp",
-    deps: [
-      "@vee-validate/nuxt",
-      "radix-vue",
-      "@morev/vue-transitions",
-      "tailwind-variants",
-      "vue3-otp-input",
-    ],
+    name: "Vee Pin Input",
+    value: "vee-pin-input",
+    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
     askValidator: true,
     devDeps: [],
     nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
-    components: ["label", "otp"],
-    files: ["Vee/OTP.vue"],
+    components: ["label", "pin-input"],
+    files: ["Vee/PinInput.vue"],
   },
 ];

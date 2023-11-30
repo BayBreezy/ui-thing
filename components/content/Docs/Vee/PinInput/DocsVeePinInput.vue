@@ -1,7 +1,7 @@
 <template>
   <form @submit="onSubmit" class="mx-auto max-w-md">
     <fieldset :disabled="isSubmitting" class="space-y-5">
-      <UiVeeOtp :numInputs="6" name="otp" label="Enter your 2FA code below" />
+      <UiVeePinInput :inputCount="6" name="otp" label="Enter your 2FA code below" otp />
       <UiButton type="submit"> Submit </UiButton>
     </fieldset>
   </form>
@@ -11,7 +11,10 @@
   import { z } from "zod";
 
   const schema = z.object({
-    otp: z.string().length(6, "Code must be 6 characters long"),
+    otp: z
+      .array(z.string({ required_error: "Required" }).min(1, "Enter all values"))
+      .length(6, "Code must be 6 characters long")
+      .transform((v) => v.join("")),
   });
 
   const { handleSubmit, isSubmitting } = useForm({
@@ -19,10 +22,10 @@
   });
 
   const onSubmit = handleSubmit(async (values) => {
-    const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
+    const promise = () => new Promise((resolve) => setTimeout(resolve, 4000));
     const { id, update } = toast({
-      title: "Verifying code",
-      description: "Please wait while we verify your code",
+      title: "Verifying code...",
+      description: "Please wait while we verify " + values.otp,
       duration: Infinity,
       icon: "svg-spinners:12-dots-scale-rotate",
     });
@@ -32,6 +35,7 @@
       title: "Code verified",
       description: "Your code has been verified successfully",
       variant: "success",
+      duration: 3000,
       icon: "solar:check-circle-line-duotone",
     });
   });

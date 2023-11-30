@@ -1331,24 +1331,6 @@ export default [
     plugins: [],
   },
   {
-    name: "One-Time Password",
-    value: "otp",
-    deps: ["tailwind-variants", "vue3-otp-input"],
-    devDeps: ["@vueuse/core", "@vueuse/nuxt"],
-    nuxtModules: ["@vueuse/nuxt"],
-    files: [
-      {
-        fileName: "OTP.vue",
-        dirPath: "components/UI",
-        fileContent:
-          '<template>\n  <VOtpInput\n    ref="otp"\n    v-model:value="localModel"\n    :input-classes="styles({ separator: Boolean(separator), class: inputClasses })"\n    :separator="separator"\n    :num-inputs="numInputs"\n    :input-type="inputType"\n    :inputmode="inputmode"\n    :should-auto-focus="shouldAutoFocus"\n    :placeholder="placeholder"\n    :is-disabled="disabled"\n    @on-change="emits(\'change\', $event)"\n    @on-complete="emits(\'complete\', $event)"\n  />\n</template>\n\n<script lang="ts" setup>\n  import VOtpInput from "vue3-otp-input";\n\n  const otp = ref<InstanceType<typeof VOtpInput> | null>(null);\n\n  const props = withDefaults(\n    defineProps<{\n      modelValue?: string;\n      numInputs?: number;\n      separator?: string;\n      inputClasses?: any;\n      conditionalClass?: any[];\n      inputType?: "number" | "tel" | "letter-numeric" | "password";\n      inputmode?: "none" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | "search";\n      shouldAutoFocus?: boolean;\n      placeholder?: string[];\n      disabled?: boolean;\n    }>(),\n    {\n      numInputs: 4,\n      inputType: "letter-numeric",\n      inputmode: "text",\n      separator: "",\n    }\n  );\n  const emits = defineEmits<{\n    "update:modelValue": [any];\n    change: [any];\n    complete: [any];\n    ready: [any];\n  }>();\n  const localModel = useVModel(props, "modelValue", emits);\n\n  const styles = tv({\n    base: "mr-3 h-10 w-10 rounded-md border border-input bg-background p-1 text-center text-base font-medium [-moz-appearance:_textfield] selection:bg-primary  selection:text-primary-foreground placeholder:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none",\n    variants: {\n      separator: {\n        true: "mx-2",\n      },\n    },\n  });\n\n  onMounted(() => {\n    emits("ready", otp.value);\n  });\n</script>\n',
-      },
-    ],
-    utils: [],
-    composables: [],
-    plugins: [],
-  },
-  {
     name: "Pagination",
     value: "pagination",
     deps: ["radix-vue", "tailwind-variants"],
@@ -1409,7 +1391,7 @@ export default [
     plugins: [],
   },
   {
-    name: "Pin Input",
+    name: "Pin Input (OTP)",
     value: "pin-input",
     deps: ["radix-vue", "tailwind-variants"],
     devDeps: [],
@@ -2304,25 +2286,19 @@ export default [
     plugins: [],
   },
   {
-    name: "VeeOTP",
-    value: "vee-otp",
-    deps: [
-      "@vee-validate/nuxt",
-      "radix-vue",
-      "@morev/vue-transitions",
-      "tailwind-variants",
-      "vue3-otp-input",
-    ],
+    name: "Vee Pin Input",
+    value: "vee-pin-input",
+    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
     askValidator: true,
     devDeps: [],
     nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
-    components: ["label", "otp"],
+    components: ["label", "pin-input"],
     files: [
       {
-        fileName: "Vee/OTP.vue",
+        fileName: "Vee/PinInput.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <div class="w-full">\n    <UiLabel\n      :for="inputId"\n      v-if="label"\n      :class="[disabled && \'text-muted-foreground\', errorMessage && \'text-destructive\', \'mb-2\']"\n      >{{ label }}</UiLabel\n    >\n    <div class="relative">\n      <UiOtp\n        v-model="value"\n        v-bind="$attrs"\n        :input-classes="inputClasses"\n        :separator="separator"\n        :num-inputs="numInputs"\n        :input-type="inputType"\n        :inputmode="inputmode"\n        :should-auto-focus="shouldAutoFocus"\n        :placeholder="placeholder"\n        :is-disabled="disabled"\n        @change="emits(\'change\', $event)"\n        @complete="emits(\'complete\', $event)"\n        @ready="emits(\'ready\', $event)"\n      />\n    </div>\n    <TransitionSlide group tag="div">\n      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">\n        {{ hint }}\n      </p>\n\n      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">\n        {{ errorMessage }}\n      </p>\n    </TransitionSlide>\n  </div>\n</template>\n\n<script lang="ts" setup>\n  import { useId } from "radix-vue";\n\n  const props = defineProps<{\n    label?: string;\n    hint?: string;\n    modelValue?: string;\n    name?: string;\n    id?: string;\n    rules?: any;\n    validateOnMount?: boolean;\n    numInputs?: number;\n    separator?: string;\n    inputClasses?: any;\n    conditionalClass?: any[];\n    inputType?: "number" | "tel" | "letter-numeric" | "password";\n    inputmode?: "none" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | "search";\n    shouldAutoFocus?: boolean;\n    placeholder?: string[];\n    disabled?: boolean;\n  }>();\n\n  defineOptions({ inheritAttrs: false });\n\n  const inputId = useId(props.id);\n\n  const emits = defineEmits<{\n    change: [any];\n    complete: [any];\n    ready: [any];\n  }>();\n\n  const { errorMessage, value } = useField(() => props.name || inputId, props.rules, {\n    initialValue: props.modelValue,\n    label: props.label,\n    validateOnMount: props.validateOnMount,\n    syncVModel: true,\n  });\n</script>\n',
+          '<template>\r\n  <div class="w-full">\r\n    <UiLabel\r\n      :for="inputId"\r\n      v-if="label"\r\n      :class="[disabled && \'text-muted-foreground\', errorMessage && \'text-destructive\', \'mb-2\']"\r\n      >{{ label }}</UiLabel\r\n    >\r\n    <div class="relative">\r\n      <UiPinInput\r\n        @complete="emits(\'complete\', $event)"\r\n        :id="inputId"\r\n        v-bind="{\r\n          ...$attrs,\r\n          ...reactiveOmit(props, \'label\', \'hint\', \'id\', \'rules\', \'validateOnMount\', \'modelValue\'),\r\n        }"\r\n        v-model="value"\r\n      />\r\n    </div>\r\n    <TransitionSlide group tag="div">\r\n      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">\r\n        {{ hint }}\r\n      </p>\r\n\r\n      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">\r\n        {{ errorMessage }}\r\n      </p>\r\n    </TransitionSlide>\r\n  </div>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { useId } from "radix-vue";\r\n  import type { PinInputRootProps } from "radix-vue";\r\n\r\n  const props = defineProps<\r\n    Omit<PinInputRootProps, "as" | "asChild"> & {\r\n      label?: string;\r\n      hint?: string;\r\n      id?: string;\r\n      rules?: any;\r\n      validateOnMount?: boolean;\r\n      separator?: string;\r\n      inputCount?: number;\r\n    }\r\n  >();\r\n\r\n  const emits = defineEmits<{\r\n    complete: [value: string[]];\r\n  }>();\r\n\r\n  defineOptions({ inheritAttrs: false });\r\n\r\n  const inputId = useId(props.id);\r\n\r\n  const { errorMessage, value } = useField(() => props.name || inputId, props.rules, {\r\n    initialValue: props.modelValue || [],\r\n    label: props.label,\r\n    validateOnMount: props.validateOnMount,\r\n    syncVModel: true,\r\n  });\r\n</script>\r\n',
       },
     ],
     utils: [],
