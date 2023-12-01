@@ -43,7 +43,7 @@ vcalendar: {
 ```vue [DocsDatepickerMode.vue]
 <template>
   <div class="flex w-full items-center justify-center">
-    <UIDatepicker v-model="today" mode="dateTime" title-position="right" />
+    <UiDatepicker v-model="today" mode="dateTime" title-position="right" />
   </div>
 </template>
 
@@ -65,14 +65,14 @@ vcalendar: {
 ```vue [DocsDatepickerTitle.vue]
 <template>
   <div class="flex w-full items-center justify-center">
-    <UIDatepicker show-weeknumbers>
+    <UiDatepicker show-weeknumbers>
       <template #header-title="{ title }">
         <div class="flex items-center gap-2">
           <p>{{ title }}</p>
           <Icon class="h-4 w-4 text-muted-foreground" name="lucide:chevron-down" />
         </div>
       </template>
-    </UIDatepicker>
+    </UiDatepicker>
   </div>
 </template>
 ```
@@ -88,18 +88,18 @@ vcalendar: {
 ```vue [DocsDatepickerButton.vue]
 <template>
   <div class="flex w-full items-center justify-center">
-    <UIDatepicker v-model="date">
+    <UiDatepicker v-model="date">
       <template #default="{ togglePopover }">
-        <UIButton
+        <UiButton
           variant="outline"
           :class="[!date && 'text-muted-foreground', 'w-[260px] justify-start text-left']"
           @click="togglePopover"
         >
           <Icon name="lucide:calendar" class="h-4 w-4" />
           {{ date ? format(date, "MMMM dd, yyyy") : "Select a date" }}
-        </UIButton>
+        </UiButton>
       </template>
-    </UIDatepicker>
+    </UiDatepicker>
   </div>
 </template>
 
@@ -121,11 +121,11 @@ vcalendar: {
 ```vue [DocsDatepickerInput.vue]
 <template>
   <div class="flex w-full items-center justify-center">
-    <UIDatepicker v-model="date">
+    <UiDatepicker v-model="date">
       <template #default="{ inputValue, inputEvents }">
-        <UIInput placeholder="DD/MM/YYYY" :value="inputValue" v-on="inputEvents" />
+        <UiInput placeholder="DD/MM/YYYY" :value="inputValue" v-on="inputEvents" />
       </template>
-    </UIDatepicker>
+    </UiDatepicker>
   </div>
 </template>
 

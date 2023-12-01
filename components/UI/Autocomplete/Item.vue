@@ -2,7 +2,7 @@
   <ComboboxItem v-bind="forwarded" :class="styles({ class: props.class })">
     <slot name="icon">
       <span class="absolute inset-y-0 left-2 flex items-center justify-center">
-        <UIAutocompleteItemIndicator class="animate-in fade-in-0 zoom-in-0" :icon="icon" />
+        <UiAutocompleteItemIndicator class="animate-in fade-in-0 zoom-in-0" :icon="icon" />
       </span>
     </slot>
     <slot></slot>

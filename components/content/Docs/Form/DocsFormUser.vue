@@ -1,32 +1,32 @@
 <template>
-  <UICard
+  <UiCard
     class="mx-auto max-w-sm"
     title="Profile"
     description="Update your profile information below"
   >
     <template #content>
-      <UICardContent as="form" @submit="onSubmit" class="flex flex-col gap-4">
+      <UiCardContent as="form" @submit="onSubmit" class="flex flex-col gap-4">
         <Field v-slot="{ componentField }" name="fullName">
-          <UIFormItem label="Full name" description="This will be displayed to the public">
-            <UIInput v-bind="componentField" />
-          </UIFormItem>
+          <UiFormItem label="Full name" description="This will be displayed to the public">
+            <UiInput v-bind="componentField" />
+          </UiFormItem>
         </Field>
         <Field v-slot="{ componentField }" name="email">
-          <UIFormItem label="Email">
-            <UIInput type="email" v-bind="componentField" />
-          </UIFormItem>
+          <UiFormItem label="Email">
+            <UiInput type="email" v-bind="componentField" />
+          </UiFormItem>
         </Field>
         <Field v-slot="{ componentField }" name="phone">
-          <UIFormItem hint="Optional" label="Phone">
-            <UIInput type="tel" v-bind="componentField" />
-          </UIFormItem>
+          <UiFormItem hint="Optional" label="Phone">
+            <UiInput type="tel" v-bind="componentField" />
+          </UiFormItem>
         </Field>
         <div>
-          <UIButton type="submit">Update profile</UIButton>
+          <UiButton type="submit">Update profile</UiButton>
         </div>
-      </UICardContent>
+      </UiCardContent>
     </template>
-  </UICard>
+  </UiCard>
 </template>
 
 <script lang="ts" setup>

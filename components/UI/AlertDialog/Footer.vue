@@ -20,6 +20,6 @@
     }
   );
   const styles = tv({
-    base: "flex flex-col-reverse sm:flex-row sm:justify-end sm:gap-2",
+    base: "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
   });
 </script>

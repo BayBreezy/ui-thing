@@ -1,17 +1,17 @@
 <template>
   <div :class="styles({ class: props.class })" v-bind="$attrs">
     <slot name="label">
-      <UIFormLabel v-if="label || hint" :label="label" :hint="hint" />
+      <UiFormLabel v-if="label || hint" :label="label" :hint="hint" />
     </slot>
-    <UIFormControl>
+    <UiFormControl>
       <slot />
-    </UIFormControl>
+    </UiFormControl>
     <slot name="description">
-      <UIFormDescription v-if="description" :description="description" />
+      <UiFormDescription v-if="description" :description="description" />
     </slot>
     <slot name="errorMessage">
       <TransitionSlide tag="p">
-        <UIFormMessage v-if="!hideMessage" />
+        <UiFormMessage v-if="!hideMessage" />
       </TransitionSlide>
     </slot>
   </div>

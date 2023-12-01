@@ -21,8 +21,11 @@
 
   const props = defineProps<
     ContextMenuCheckboxItemProps & {
+      /**Custom class(es) to add to the element */
       class?: any;
+      /**The shortcut for the item */
       shortcut?: string;
+      /**The title for the item */
       title?: string;
     }
   >();

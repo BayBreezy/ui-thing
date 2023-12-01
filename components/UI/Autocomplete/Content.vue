@@ -1,8 +1,8 @@
 <template>
   <ComboboxContent v-bind="forwarded" :class="styles({ class: props.class })">
-    <UIAutocompleteViewport>
+    <UiAutocompleteViewport>
       <slot></slot>
-    </UIAutocompleteViewport>
+    </UiAutocompleteViewport>
   </ComboboxContent>
 </template>
 

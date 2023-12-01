@@ -2,19 +2,19 @@
   <TabsRoot default-value="preview">
     <TabsList class="flex items-center border-b">
       <TabsTrigger as-child value="preview">
-        <UIButton
+        <UiButton
           class="-mb-px rounded-none border-b-2 border-transparent text-base hover:bg-transparent data-[state=active]:border-primary md:text-sm"
           variant="ghost"
         >
-          Preview</UIButton
+          Preview</UiButton
         >
       </TabsTrigger>
       <TabsTrigger value="code" as-child>
-        <UIButton
+        <UiButton
           class="-mb-px rounded-none border-b-2 border-transparent text-base hover:bg-transparent data-[state=active]:border-primary md:text-sm"
           variant="ghost"
         >
-          Code</UIButton
+          Code</UiButton
         >
       </TabsTrigger>
     </TabsList>

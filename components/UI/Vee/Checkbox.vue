@@ -1,6 +1,6 @@
 <template>
   <div :class="styles({ class: props.class })">
-    <UICheckbox
+    <UiCheckbox
       :id="inputId"
       v-bind="$attrs"
       :icon="icon"
@@ -13,12 +13,12 @@
     />
     <div class="flex flex-col gap-1.5">
       <slot name="label" :errorMessage="errorMessage" :checked="checked">
-        <UILabel
+        <UiLabel
           :for="inputId"
           v-if="label"
           class="leading-none"
           :class="[errorMessage && 'text-destructive']"
-          >{{ label }}</UILabel
+          >{{ label }}</UiLabel
         >
       </slot>
       <TransitionSlide tag="div" group>

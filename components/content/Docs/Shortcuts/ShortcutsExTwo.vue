@@ -1,6 +1,6 @@
 <template>
-  <UILabel>Enter your name</UILabel>
-  <UIInput v-model="query" name="queryInput" />
+  <UiLabel>Enter your name</UiLabel>
+  <UiInput v-model="query" name="queryInput" />
 </template>
 
 <script setup lang="ts">

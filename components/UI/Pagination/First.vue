@@ -1,9 +1,9 @@
 <template>
   <PaginationFirst v-bind="reactiveOmit(props, 'icon')">
     <slot>
-      <UIButton v-if="icon" variant="ghost" size="icon-sm">
+      <UiButton v-if="icon" variant="ghost" size="icon-sm">
         <Icon :name="icon" />
-      </UIButton>
+      </UiButton>
     </slot>
   </PaginationFirst>
 </template>

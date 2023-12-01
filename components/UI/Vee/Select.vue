@@ -1,15 +1,15 @@
 <template>
   <div class="w-full">
-    <UILabel :for="inputId" v-if="label" :class="[errorMessage && 'text-destructive', 'mb-2']">{{
+    <UiLabel :for="inputId" v-if="label" :class="[errorMessage && 'text-destructive', 'mb-2']">{{
       label
-    }}</UILabel>
+    }}</UiLabel>
     <div class="relative">
       <slot name="icon">
         <span v-if="hasIcon" lass="absolute inset-y-0 left-3 flex items-center justify-center">
           <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground" />
         </span>
       </slot>
-      <UINativeSelect
+      <UiNativeSelect
         :trailingIcon="trailingIcon"
         v-model="value"
         @blur="handleBlur"
@@ -19,7 +19,7 @@
         :class="[hasIcon && 'pl-9']"
       >
         <slot></slot>
-      </UINativeSelect>
+      </UiNativeSelect>
     </div>
     <TransitionSlide group tag="div">
       <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">

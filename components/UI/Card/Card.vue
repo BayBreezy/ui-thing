@@ -2,22 +2,22 @@
   <Primitive :as="as" :as-child="asChild" :class="styles({ class: props.class })">
     <slot>
       <slot name="header">
-        <UICardHeader>
+        <UiCardHeader>
           <slot name="title">
-            <UICardTitle v-if="title || $slots.title" :title="title" />
+            <UiCardTitle v-if="title || $slots.title" :title="title" />
           </slot>
           <slot name="description">
-            <UICardDescription
+            <UiCardDescription
               v-if="description || $slots.description"
               :description="description"
             />
           </slot>
-        </UICardHeader>
+        </UiCardHeader>
       </slot>
       <slot name="content" v-if="content || $slots.content">
-        <UICardContent>
+        <UiCardContent>
           <div v-html="content"></div>
-        </UICardContent>
+        </UiCardContent>
       </slot>
       <slot name="footer"></slot>
     </slot>

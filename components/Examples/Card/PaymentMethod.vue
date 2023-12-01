@@ -1,68 +1,68 @@
 <template>
   <form @submit="submitPayment">
-    <UICard description="Add a new payment method to your account.">
+    <UiCard description="Add a new payment method to your account.">
       <template #title>
-        <UICardTitle class="text-xl"> Payment Method </UICardTitle>
+        <UiCardTitle class="text-xl"> Payment Method </UiCardTitle>
       </template>
       <template #content>
-        <UICardContent>
+        <UiCardContent>
           <!-- Payment methods -->
           <div class="grid gap-4">
-            <UIRadioGroup orientation="horizontal" class="grid grid-cols-3 gap-4">
+            <UiRadioGroup orientation="horizontal" class="grid grid-cols-3 gap-4">
               <template v-for="(p, i) in paymentMethods" :key="`payment-method-${i}`">
                 <div>
-                  <UIRadioGroupItem :value="p.id" :id="p.id" class="peer sr-only" />
-                  <UILabel
+                  <UiRadioGroupItem :value="p.id" :id="p.id" class="peer sr-only" />
+                  <UiLabel
                     :for="p.id"
                     class="flex flex-col items-center justify-between gap-3 rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
                   >
                     <Icon class="h-6 w-6" :name="p.icon" />
                     <span class="text-sm">{{ p.name }}</span>
-                  </UILabel>
+                  </UiLabel>
                 </div>
               </template>
-            </UIRadioGroup>
+            </UiRadioGroup>
             <!-- Form -->
-            <UIVeeInput label="Name" name="name" placeholder="First & last name" />
-            <UIVeeInput label="Card number" name="cardNumber" />
+            <UiVeeInput label="Name" name="name" placeholder="First & last name" />
+            <UiVeeInput label="Card number" name="cardNumber" />
             <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-              <UIFormSelect name="expires" placeholder="Month" label="Expires">
+              <UiFormSelect name="expires" placeholder="Month" label="Expires">
                 <template #content>
-                  <UISelectContent>
-                    <UISelectItem
+                  <UiSelectContent>
+                    <UiSelectItem
                       v-for="m in monthsOfYear"
                       :key="m"
                       :value="m"
                       :text-value="m"
                       :text="m"
                     />
-                  </UISelectContent>
+                  </UiSelectContent>
                 </template>
-              </UIFormSelect>
-              <UIFormSelect name="year" placeholder="Year" label="Year">
+              </UiFormSelect>
+              <UiFormSelect name="year" placeholder="Year" label="Year">
                 <template #content>
-                  <UISelectContent>
-                    <UISelectItem
+                  <UiSelectContent>
+                    <UiSelectItem
                       v-for="m in years"
                       :key="m"
                       :value="m"
                       :text-value="m"
                       :text="m"
                     />
-                  </UISelectContent>
+                  </UiSelectContent>
                 </template>
-              </UIFormSelect>
-              <UIVeeInput label="CVC" name="cvc" maxlength="3" placeholder="CVC" />
+              </UiFormSelect>
+              <UiVeeInput label="CVC" name="cvc" maxlength="3" placeholder="CVC" />
             </div>
           </div>
-        </UICardContent>
+        </UiCardContent>
       </template>
       <template #footer>
-        <UICardFooter>
-          <UIButton type="submit" class="w-full">Continue</UIButton>
-        </UICardFooter>
+        <UiCardFooter>
+          <UiButton type="submit" class="w-full">Continue</UiButton>
+        </UiCardFooter>
       </template>
-    </UICard>
+    </UiCard>
   </form>
 </template>
 

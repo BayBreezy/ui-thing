@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full items-center justify-center">
-    <UIDatatable @ready="tableRef = $event" :data="users" :options="options" />
+    <UiDatatable @ready="tableRef = $event" :data="users" :options="options" />
   </div>
 </template>
 

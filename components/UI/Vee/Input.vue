@@ -1,10 +1,10 @@
 <template>
   <div class="w-full">
-    <UILabel
+    <UiLabel
       :for="inputId"
       v-if="label"
       :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
-      >{{ label }}</UILabel
+      >{{ label }}</UiLabel
     >
     <div class="relative">
       <slot name="icon">
@@ -12,7 +12,7 @@
           <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />
         </span>
       </slot>
-      <UIInput
+      <UiInput
         :type="type"
         v-model="value"
         @blur="handleBlur"

@@ -2,8 +2,8 @@
   <div>
     <NuxtLoadingIndicator />
     <NuxtPage />
-    <UIToastToaster />
-    <UIVueSonner />
+    <UiToastToaster />
+    <UiVueSonner />
   </div>
 </template>
 

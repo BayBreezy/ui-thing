@@ -1,45 +1,45 @@
 <template>
   <form @submit="submitCard">
-    <UICard description="Enter your email below to create your account">
+    <UiCard description="Enter your email below to create your account">
       <template #title>
-        <UICardTitle class="text-xl"> Create an account </UICardTitle>
+        <UiCardTitle class="text-xl"> Create an account </UiCardTitle>
       </template>
       <template #content>
-        <UICardContent class="grid gap-4">
+        <UiCardContent class="grid gap-4">
           <!-- Login buttons -->
           <div class="flex items-center gap-4">
-            <UIButton variant="outline" class="w-full"
-              ><Icon class="h-4 w-4" name="mdi:github" /> Github</UIButton
+            <UiButton variant="outline" class="w-full"
+              ><Icon class="h-4 w-4" name="mdi:github" /> Github</UiButton
             >
-            <UIButton variant="outline" class="w-full"
-              ><Icon class="h-4 w-4" name="uim:google" /> Google</UIButton
+            <UiButton variant="outline" class="w-full"
+              ><Icon class="h-4 w-4" name="uim:google" /> Google</UiButton
             >
           </div>
           <!-- Separator -->
           <div class="relative">
             <div class="absolute inset-0 flex items-center">
-              <UISeparator />
+              <UiSeparator />
             </div>
             <div class="relative flex justify-center text-xs uppercase">
               <span class="bg-background px-2 text-muted-foreground">or continue with</span>
             </div>
           </div>
           <!-- Form -->
-          <UIVeeInput type="email" label="Email" name="email" hint="Enter your email" />
-          <UIVeeInput
+          <UiVeeInput type="email" label="Email" name="email" hint="Enter your email" />
+          <UiVeeInput
             label="Password"
             name="password"
             type="password"
             hint="8 characters or more"
           />
-        </UICardContent>
+        </UiCardContent>
       </template>
       <template #footer>
-        <UICardFooter>
-          <UIButton type="submit" class="w-full">Create account</UIButton>
-        </UICardFooter>
+        <UiCardFooter>
+          <UiButton type="submit" class="w-full">Create account</UiButton>
+        </UiCardFooter>
       </template>
-    </UICard>
+    </UiCard>
   </form>
 </template>
 

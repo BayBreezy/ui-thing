@@ -1,19 +1,19 @@
 <template>
   <div>
-    <UICommandDialog v-model:open="localModel">
-      <UIDialogTitle class="sr-only">Doumnetation search modal</UIDialogTitle>
-      <UIDialogDescription class="sr-only">
+    <UiCommandDialog v-model:open="localModel">
+      <UiDialogTitle class="sr-only">Doumnetation search modal</UiDialogTitle>
+      <UiDialogDescription class="sr-only">
         Search the documentation for components, utilities, and more.
-      </UIDialogDescription>
+      </UiDialogDescription>
 
-      <UICommandInput placeholder="Search..." />
+      <UiCommandInput placeholder="Search..." />
 
-      <UICommandList>
-        <UIScrollArea class="h-[300px] w-full">
-          <UICommandEmpty>No results found.</UICommandEmpty>
+      <UiCommandList>
+        <UiScrollArea class="h-[300px] w-full">
+          <UiCommandEmpty>No results found.</UiCommandEmpty>
           <template v-for="(nav, i) in navigation" :key="i">
-            <UICommandGroup :heading="nav.title">
-              <UICommandItem
+            <UiCommandGroup :heading="nav.title">
+              <UiCommandItem
                 v-for="(child, k) in nav.children"
                 :key="k"
                 class="px-4 py-2 first:mt-2"
@@ -26,11 +26,11 @@
               >
                 <Icon :name="nav.icon" class="h-4 w-4 text-muted-foreground/80" />
                 <span>{{ child.title }}</span>
-              </UICommandItem>
-            </UICommandGroup>
+              </UiCommandItem>
+            </UiCommandGroup>
           </template>
-          <UICommandGroup heading="Theme">
-            <UICommandItem
+          <UiCommandGroup heading="Theme">
+            <UiCommandItem
               v-for="(mode, i) in modes"
               :key="i"
               class="px-4 py-2 first:mt-2"
@@ -39,11 +39,11 @@
             >
               <Icon :name="mode.icon" class="h-4 w-4 text-muted-foreground/80" />
               <span>{{ mode.title }}</span>
-            </UICommandItem>
-          </UICommandGroup>
-        </UIScrollArea>
-      </UICommandList>
-    </UICommandDialog>
+            </UiCommandItem>
+          </UiCommandGroup>
+        </UiScrollArea>
+      </UiCommandList>
+    </UiCommandDialog>
   </div>
 </template>
 

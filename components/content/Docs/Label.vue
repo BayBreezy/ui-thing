@@ -7,8 +7,8 @@
     />
 
     <div class="flex items-center space-x-2">
-      <UICheckbox v-model="terms" id="label-terms" />
-      <UILabel for="label-terms">Accept terms and conditions</UILabel>
+      <UiCheckbox v-model="terms" id="label-terms" />
+      <UiLabel for="label-terms">Accept terms and conditions</UiLabel>
     </div>
   </div>
 </template>

@@ -2,7 +2,7 @@
   <AvatarRoot :as="as" :as-child="asChild" :class="styles({ class: props.class })">
     <slot>
       <slot name="image">
-        <UIAvatarImage
+        <UiAvatarImage
           @loading-status-change="emits('loadingStatusChange', $event)"
           v-if="src"
           :src="src"
@@ -11,7 +11,7 @@
         />
       </slot>
       <slot name="fallback">
-        <UIAvatarFallback :delay-ms="delayMs" :class="fallbackClass" :fallback="fallback" />
+        <UiAvatarFallback :delay-ms="delayMs" :class="fallbackClass" :fallback="fallback" />
       </slot>
     </slot>
   </AvatarRoot>

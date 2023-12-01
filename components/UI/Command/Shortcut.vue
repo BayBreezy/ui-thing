@@ -10,7 +10,9 @@
 
   const props = defineProps<
     PrimitiveProps & {
+      /**Custom class(es) to add to the element */
       class?: any;
+      /** The shortcut text to render */
       shortcut?: any;
     }
   >();

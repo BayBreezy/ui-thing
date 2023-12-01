@@ -8,6 +8,7 @@
 
   const props = defineProps<
     ContextMenuSeparatorProps & {
+      /**Custom class(es) to add to the element */
       class?: any;
     }
   >();

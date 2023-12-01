@@ -16,7 +16,9 @@
 
   const props = defineProps<
     ComboboxGroupProps & {
+      /**The heading for the group */
       heading?: any;
+      /**Custom class(es) to add to the element */
       class?: any;
     }
   >();

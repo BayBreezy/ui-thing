@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full items-center justify-center">
-    <UIDatepicker v-model="today" mode="dateTime" title-position="right" />
+    <UiDatepicker v-model="today" mode="dateTime" title-position="right" />
   </div>
 </template>
 

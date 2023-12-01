@@ -1,24 +1,24 @@
 <template>
-  <UICard description="Invite your team members to collaborate.">
+  <UiCard description="Invite your team members to collaborate.">
     <template #title>
-      <UICardTitle class="text-xl"> Team Members </UICardTitle>
+      <UiCardTitle class="text-xl"> Team Members </UiCardTitle>
     </template>
     <template #content>
-      <UICardContent class="grid gap-6">
+      <UiCardContent class="grid gap-6">
         <div class="flex items-center justify-between space-x-4">
           <div class="flex items-center space-x-4">
-            <UIAvatar src="https://avatar.vercel.sh/mary" />
+            <UiAvatar src="https://avatar.vercel.sh/mary" />
             <div class="text-sm">
               <p class="font-medium leading-none">Mary Davis</p>
               <p class="text-muted-foreground">m@example.com</p>
             </div>
           </div>
-          <UIPopover>
-            <UIPopoverTrigger as-child>
-              <UIButton variant="outline"
+          <UiPopover>
+            <UiPopoverTrigger as-child>
+              <UiButton variant="outline"
                 >Owner <Icon name="heroicons:chevron-down" class="h-4 w-4 text-muted-foreground"
-              /></UIButton>
-              <UIPopoverContent class="p-1" align="end">
+              /></UiButton>
+              <UiPopoverContent class="p-1" align="end">
                 <ul>
                   <template v-for="(m, i) in memberOptions" :key="i">
                     <PopoverClose class="w-full">
@@ -31,24 +31,24 @@
                     </PopoverClose>
                   </template>
                 </ul>
-              </UIPopoverContent>
-            </UIPopoverTrigger>
-          </UIPopover>
+              </UiPopoverContent>
+            </UiPopoverTrigger>
+          </UiPopover>
         </div>
         <div class="flex items-center justify-between space-x-4">
           <div class="flex items-center space-x-4">
-            <UIAvatar src="https://avatar.vercel.sh/jackson" />
+            <UiAvatar src="https://avatar.vercel.sh/jackson" />
             <div class="text-sm">
               <p class="font-medium leading-none">Jackson Lee</p>
               <p class="text-muted-foreground">j@example.com</p>
             </div>
           </div>
-          <UIPopover>
-            <UIPopoverTrigger as-child>
-              <UIButton variant="outline"
+          <UiPopover>
+            <UiPopoverTrigger as-child>
+              <UiButton variant="outline"
                 >Member <Icon name="heroicons:chevron-down" class="h-4 w-4 text-muted-foreground"
-              /></UIButton>
-              <UIPopoverContent class="p-1" align="end">
+              /></UiButton>
+              <UiPopoverContent class="p-1" align="end">
                 <ul>
                   <template v-for="(m, i) in memberOptions" :key="i">
                     <PopoverClose class="w-full">
@@ -61,13 +61,13 @@
                     </PopoverClose>
                   </template>
                 </ul>
-              </UIPopoverContent>
-            </UIPopoverTrigger>
-          </UIPopover>
+              </UiPopoverContent>
+            </UiPopoverTrigger>
+          </UiPopover>
         </div>
-      </UICardContent>
+      </UiCardContent>
     </template>
-  </UICard>
+  </UiCard>
 </template>
 
 <script lang="ts" setup>

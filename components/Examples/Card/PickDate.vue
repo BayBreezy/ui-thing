@@ -1,25 +1,25 @@
 <template>
-  <UICard>
+  <UiCard>
     <template #title>
-      <UICardTitle class="text-lg"> Pick a date</UICardTitle>
+      <UiCardTitle class="text-lg"> Pick a date</UiCardTitle>
     </template>
     <template #content>
-      <UICardContent>
-        <UIDatepicker :columns="2" v-model.range="date">
+      <UiCardContent>
+        <UiDatepicker :columns="2" v-model.range="date">
           <template #default="{ togglePopover }">
-            <UIButton
+            <UiButton
               variant="outline"
               :class="['w-full justify-start text-left font-normal']"
               @click="togglePopover"
             >
               <Icon name="lucide:calendar" class="h-4 w-4" />
               {{ format(date.start, "MMM dd, yyyy") }} to {{ format(date.end, "MMM dd, yyyy") }}
-            </UIButton>
+            </UiButton>
           </template>
-        </UIDatepicker>
-      </UICardContent>
+        </UiDatepicker>
+      </UiCardContent>
     </template>
-  </UICard>
+  </UiCard>
 </template>
 
 <script lang="ts" setup>

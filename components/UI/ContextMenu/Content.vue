@@ -17,6 +17,7 @@
   const props = withDefaults(
     defineProps<
       ContextMenuContentProps & {
+        /** Custom class(es) to add to the element */
         class?: any;
       }
     >(),

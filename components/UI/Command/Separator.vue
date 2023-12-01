@@ -10,6 +10,7 @@
 
   const props = defineProps<
     ComboboxSeparatorProps & {
+      /**Custom class(es) to add to the element */
       class?: any;
     }
   >();

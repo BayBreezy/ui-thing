@@ -1,9 +1,9 @@
 <template>
   <div class="relative">
     <div class="absolute right-3 top-2">
-      <UIButton @click="copyCode()" variant="outline" size="icon" class="h-7 w-7">
+      <UiButton @click="copyCode()" variant="outline" size="icon" class="h-7 w-7">
         <Icon name="lucide:copy"></Icon>
-      </UIButton>
+      </UiButton>
     </div>
     <slot />
   </div>

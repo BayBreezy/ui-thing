@@ -16,6 +16,7 @@
   const props = withDefaults(
     defineProps<
       CheckboxIndicatorProps & {
+        /** The state of the checkbox */
         checked?: boolean | "indeterminate";
         /** Custom class(es) to add to the element */
         class?: any;

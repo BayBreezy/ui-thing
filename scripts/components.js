@@ -615,7 +615,7 @@ export default [
     devDeps: ["nuxt-icon"],
     nuxtModules: ["nuxt-icon"],
     composables: ["useToast.ts"],
-    instructions: ["Remeber to add <UIToastToaster /> to your app.vue/layout file."],
+    instructions: ["Remeber to add <UiToastToaster /> to your app.vue/layout file."],
     files: [
       "Toast/Action.vue",
       "Toast/Close.vue",
@@ -656,7 +656,7 @@ export default [
     deps: ["vue-sonner"],
     devDeps: [],
     nuxtModules: [],
-    instructions: ["Remember to add the <UIVueSonner /> tag to your app.vue/layout file."],
+    instructions: ["Remember to add the <UiVueSonner /> tag to your app.vue/layout file."],
     files: ["VueSonner.client.vue"],
   },
   {

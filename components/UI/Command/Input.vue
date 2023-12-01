@@ -18,10 +18,15 @@
   defineOptions({ inheritAttrs: false });
 
   const props = defineProps<{
+    /**Custom class(es) to add to the input element*/
     class?: any;
+    /**The icon to render*/
     icon?: string;
+    /**The input type*/
     type?: string;
+    /**Whether the input is disabled*/
     disabled?: boolean;
+    /**Whether to show the cancel button*/
     showCancel?: boolean;
   }>();
 

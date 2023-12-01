@@ -1,10 +1,10 @@
 <template>
   <div class="w-full">
-    <UILabel
+    <UiLabel
       :for="inputId"
       v-if="label"
       :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
-      >{{ label }}</UILabel
+      >{{ label }}</UiLabel
     >
     <div class="relative">
       <slot name="icon">
@@ -12,14 +12,14 @@
           <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />
         </span>
       </slot>
-      <UIDatepicker v-bind="datePickerProps" v-model="value">
+      <UiDatepicker v-bind="datePickerProps" v-model="value">
         <template #header-title="{ title }">
           <div class="inline-flex items-center gap-1">
             {{ title }} <Icon name="lucide:chevron-down" class="h-4 w-4" />
           </div>
         </template>
         <template #default="{ inputValue, inputEvents }">
-          <UIInput
+          <UiInput
             :readonly="readonly"
             :model-value="inputValue"
             v-on="inputEvents"
@@ -31,7 +31,7 @@
             :placeholder="placeholder"
           />
         </template>
-      </UIDatepicker>
+      </UiDatepicker>
     </div>
     <TransitionSlide group tag="div">
       <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">

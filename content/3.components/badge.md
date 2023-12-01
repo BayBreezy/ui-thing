@@ -22,10 +22,10 @@ npx ui-thing@latest add badge
 ```vue [DocsBadge.vue]
 <template>
   <div class="flex flex-wrap items-center justify-center gap-5">
-    <UIBadge>Default</UIBadge>
-    <UIBadge variant="destructive">Destructive</UIBadge>
-    <UIBadge variant="outline">Outline</UIBadge>
-    <UIBadge variant="secondary">Secondary</UIBadge>
+    <UiBadge>Default</UiBadge>
+    <UiBadge variant="destructive">Destructive</UiBadge>
+    <UiBadge variant="outline">Outline</UiBadge>
+    <UiBadge variant="secondary">Secondary</UiBadge>
   </div>
 </template>
 ```

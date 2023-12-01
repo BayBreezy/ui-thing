@@ -1,10 +1,10 @@
 <template>
   <div class="w-full">
-    <UILabel
+    <UiLabel
       :for="inputId"
       v-if="label"
       :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
-      >{{ label }}</UILabel
+      >{{ label }}</UiLabel
     >
     <div class="relative">
       <slot name="icon">

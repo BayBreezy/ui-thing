@@ -24,7 +24,7 @@ npx ui-thing@latest add breadcrumbs
 ```vue [DocsBreadcrumbs.vue]
 <template>
   <div>
-    <UIBreadcrumbs class="justify-center" :items="crumbs" />
+    <UiBreadcrumbs class="justify-center" :items="crumbs" />
   </div>
 </template>
 

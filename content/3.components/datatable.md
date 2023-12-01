@@ -81,7 +81,7 @@ Take note of how the [`dom`](https://datatables.net/reference/option/dom) option
 ```vue [DocsDatatableBasic.vue]
 <template>
   <div class="flex w-full items-center justify-center">
-    <UIDatatable @ready="tableRef = $event" :data="users" :options="options" />
+    <UiDatatable @ready="tableRef = $event" :data="users" :options="options" />
   </div>
 </template>
 

@@ -1,15 +1,15 @@
 <template>
   <div class="w-full">
-    <UILabel :for="inputId" v-if="label" :class="[errorMessage && 'text-destructive', 'mb-2']">{{
+    <UiLabel :for="inputId" v-if="label" :class="[errorMessage && 'text-destructive', 'mb-2']">{{
       label
-    }}</UILabel>
+    }}</UiLabel>
     <div class="relative">
       <slot name="icon">
         <span v-if="hasIcon" class="absolute left-3 top-3 flex items-center justify-center">
           <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />
         </span>
       </slot>
-      <UITextarea
+      <UiTextarea
         :rows="rows"
         v-model="value"
         @blur="handleBlur"

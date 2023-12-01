@@ -17,9 +17,13 @@
 
 <script lang="ts" setup>
   const props = defineProps<{
+    /**Custom class(es) to add to the element */
     class?: any;
+    /** Function called when the item is clicked */
     onClick?: () => void;
+    /** The location that the item should navigate to when clicked */
     to?: string;
+    /** The href for the `a` tag */
     href?: string;
   }>();
 

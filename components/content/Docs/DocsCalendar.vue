@@ -1,16 +1,16 @@
 <template>
   <div>
     <div class="flex flex-wrap justify-center gap-5">
-      <UICalendar :attributes="attributes" />
-      <UICalendar title-position="right" />
-      <UICalendar show-weeknumbers>
+      <UiCalendar :attributes="attributes" />
+      <UiCalendar title-position="right" />
+      <UiCalendar show-weeknumbers>
         <template #header-title="{ title }">
           <div class="flex items-center gap-2">
             <p>{{ title }}</p>
             <Icon class="h-4 w-4 text-muted-foreground" name="lucide:chevron-down" />
           </div>
         </template>
-      </UICalendar>
+      </UiCalendar>
     </div>
   </div>
 </template>

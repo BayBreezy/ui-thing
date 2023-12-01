@@ -12,6 +12,7 @@
 
   const props = defineProps<
     ContextMenuItemIndicatorProps & {
+      /** The icon to display */
       icon?: string;
     }
   >();

@@ -1,16 +1,16 @@
 <template>
   <div :class="styles({ class: props.class })">
     <slot name="label" :errorMessage="errorMessage" :value="value">
-      <UILabel
+      <UiLabel
         v-if="label"
         class="mb-5 leading-none"
         :class="[errorMessage && 'text-destructive']"
-        >{{ label }}</UILabel
+        >{{ label }}</UiLabel
       >
     </slot>
-    <UIRadioGroup v-bind="{ ...forwarded, ...$attrs }" v-model="value">
+    <UiRadioGroup v-bind="{ ...forwarded, ...$attrs }" v-model="value">
       <slot></slot>
-    </UIRadioGroup>
+    </UiRadioGroup>
     <div class="flex flex-col gap-1.5">
       <TransitionSlide tag="div" group>
         <slot name="hint" :errorMessage="errorMessage" :value="value">

@@ -15,7 +15,9 @@
 
   const props = defineProps<
     AvatarFallbackProps & {
+      /** The text to display inside th eavatar */
       fallback?: string;
+      /** Custom class(es) to add to the element */
       class?: any;
     }
   >();

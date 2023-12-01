@@ -1,54 +1,54 @@
 <template>
   <form @submit="submitReport">
-    <UICard description="What area are you having problems with?">
+    <UiCard description="What area are you having problems with?">
       <template #title>
-        <UICardTitle class="text-xl"> Report an issue </UICardTitle>
+        <UiCardTitle class="text-xl"> Report an issue </UiCardTitle>
       </template>
       <template #content>
-        <UICardContent class="grid gap-6">
+        <UiCardContent class="grid gap-6">
           <div class="grid grid-cols-2 gap-4">
-            <UIFormSelect label="Area" name="area" placeholder="Area">
+            <UiFormSelect label="Area" name="area" placeholder="Area">
               <template #content>
-                <UISelectContent>
-                  <UISelectItem
+                <UiSelectContent>
+                  <UiSelectItem
                     v-for="m in areaOptions"
                     :key="m"
                     :value="m"
                     :text-value="m"
                     :text="m"
                   />
-                </UISelectContent>
+                </UiSelectContent>
               </template>
-            </UIFormSelect>
-            <UIFormSelect label="Security Level" name="securityLevel" placeholder="Level">
+            </UiFormSelect>
+            <UiFormSelect label="Security Level" name="securityLevel" placeholder="Level">
               <template #content>
-                <UISelectContent>
-                  <UISelectItem
+                <UiSelectContent>
+                  <UiSelectItem
                     v-for="m in securityLevels"
                     :key="m"
                     :value="m"
                     :text-value="m"
                     :text="m"
                   />
-                </UISelectContent>
+                </UiSelectContent>
               </template>
-            </UIFormSelect>
+            </UiFormSelect>
           </div>
-          <UIVeeInput label="Subject" name="subject" placeholder="I need help with..." />
-          <UIVeeTextarea
+          <UiVeeInput label="Subject" name="subject" placeholder="I need help with..." />
+          <UiVeeTextarea
             label="Description"
             name="description"
             placeholder="Please include all information relevant to your issue."
           />
-        </UICardContent>
+        </UiCardContent>
       </template>
       <template #footer>
-        <UICardFooter class="justify-between">
-          <UIButton @click="handleReset()" variant="ghost">Cancel</UIButton>
-          <UIButton type="submit">Continue</UIButton>
-        </UICardFooter>
+        <UiCardFooter class="justify-between">
+          <UiButton @click="handleReset()" variant="ghost">Cancel</UiButton>
+          <UiButton type="submit">Continue</UiButton>
+        </UiCardFooter>
       </template>
-    </UICard>
+    </UiCard>
   </form>
 </template>
 

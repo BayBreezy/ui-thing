@@ -12,6 +12,7 @@
 
   const props = defineProps<
     ComboboxContentProps & {
+      /**Custom class(es) to add to the element */
       class?: any;
     }
   >();

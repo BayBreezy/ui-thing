@@ -1,10 +1,10 @@
 <template>
   <div class="w-full">
-    <UILabel
+    <UiLabel
       :for="inputId"
       v-if="formLabel"
       :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
-      >{{ formLabel }}</UILabel
+      >{{ formLabel }}</UiLabel
     >
     <Multiselect
       ref="multiselect"

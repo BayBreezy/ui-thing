@@ -7,9 +7,9 @@
       <div
         class="sticky top-14 z-20 hidden h-[calc(100dvh-57px)] border-r bg-card text-card-foreground lg:block"
       >
-        <UIScrollArea class="h-[calc(100dvh-57px)] px-2 py-5">
+        <UiScrollArea class="h-[calc(100dvh-57px)] px-2 py-5">
           <DocsNavlink :links="navigation" />
-        </UIScrollArea>
+        </UiScrollArea>
       </div>
       <!-- Page content -->
       <div class="xl:grid xl:grid-cols-[1fr,250px] xl:gap-5">

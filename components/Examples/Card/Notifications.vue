@@ -1,10 +1,10 @@
 <template>
-  <UICard description="Choose what you want to be notified about.">
+  <UiCard description="Choose what you want to be notified about.">
     <template #title>
-      <UICardTitle class="text-xl">Notifications </UICardTitle>
+      <UiCardTitle class="text-xl">Notifications </UiCardTitle>
     </template>
     <template #content>
-      <UICardContent class="grid gap-1">
+      <UiCardContent class="grid gap-1">
         <template v-for="(n, k) in notez" :key="k">
           <div
             class="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all hover:bg-accent hover:text-accent-foreground"
@@ -17,9 +17,9 @@
             </div>
           </div>
         </template>
-      </UICardContent>
+      </UiCardContent>
     </template>
-  </UICard>
+  </UiCard>
 </template>
 
 <script lang="ts" setup>

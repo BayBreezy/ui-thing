@@ -1,6 +1,6 @@
 <template>
   <div>
-    <UIBreadcrumbs class="justify-center" :items="crumbs" />
+    <UiBreadcrumbs class="justify-center" :items="crumbs" />
   </div>
 </template>
 

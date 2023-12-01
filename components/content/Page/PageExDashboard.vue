@@ -8,9 +8,9 @@
             <h2 class="text-3xl font-bold tracking-tight">Dashboard</h2>
             <div class="flex items-center space-x-2">
               <div>
-                <UIDatepicker :columns="2" v-model.range="date">
+                <UiDatepicker :columns="2" v-model.range="date">
                   <template #default="{ togglePopover }">
-                    <UIButton
+                    <UiButton
                       variant="outline"
                       :class="['w-[260px] justify-start text-left']"
                       @click="togglePopover"
@@ -18,58 +18,58 @@
                       <Icon name="lucide:calendar" class="h-4 w-4" />
                       {{ format(date.start, "MMM dd, yyyy") }} -
                       {{ format(date.end, "MMM dd, yyyy") }}
-                    </UIButton>
+                    </UiButton>
                   </template>
-                </UIDatepicker>
+                </UiDatepicker>
               </div>
-              <UIButton>Download</UIButton>
+              <UiButton>Download</UiButton>
             </div>
           </div>
 
           <!-- Tabs for page content -->
-          <UITabs defaultValue="overview" class="space-y-4">
-            <UITabsList>
+          <UiTabs defaultValue="overview" class="space-y-4">
+            <UiTabsList>
               <template v-for="(t, i) in tabItems" :key="i">
-                <UITabsTrigger :value="t.title.toLowerCase()" :disabled="t.disabled">{{
+                <UiTabsTrigger :value="t.title.toLowerCase()" :disabled="t.disabled">{{
                   t.title
-                }}</UITabsTrigger>
+                }}</UiTabsTrigger>
               </template>
-            </UITabsList>
+            </UiTabsList>
 
-            <UITabsContent value="overview" class="space-y-4">
+            <UiTabsContent value="overview" class="space-y-4">
               <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                 <template v-for="(s, i) in statusCards" :key="i">
-                  <UICard>
-                    <UICardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
-                      <UICardTitle class="text-sm font-medium"> {{ s.title }} </UICardTitle>
+                  <UiCard>
+                    <UiCardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
+                      <UiCardTitle class="text-sm font-medium"> {{ s.title }} </UiCardTitle>
                       <Icon :name="s.icon" class="h-4 w-4 text-muted-foreground" />
-                    </UICardHeader>
-                    <UICardContent>
+                    </UiCardHeader>
+                    <UiCardContent>
                       <div class="text-2xl font-bold">{{ s.amount }}</div>
                       <p class="text-xs text-muted-foreground">{{ s.subtext }}</p>
-                    </UICardContent>
-                  </UICard>
+                    </UiCardContent>
+                  </UiCard>
                 </template>
               </div>
               <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                <UICard class="col-span-4" title="Overview">
+                <UiCard class="col-span-4" title="Overview">
                   <template #content>
-                    <UICardContent class="h-full px-4">
+                    <UiCardContent class="h-full px-4">
                       <div class="h-[80%]" ref="chart"></div>
-                    </UICardContent>
+                    </UiCardContent>
                   </template>
-                </UICard>
-                <UICard
+                </UiCard>
+                <UiCard
                   class="col-span-3"
                   title="Recent Sales"
                   description="You made 265 sales this month."
                 >
                   <template #content>
-                    <UICardContent>
+                    <UiCardContent>
                       <div class="space-y-8">
                         <template v-for="(r, i) in recentSales" :key="i">
                           <div class="flex items-center">
-                            <UIAvatar
+                            <UiAvatar
                               class="h-9 w-9"
                               :src="r.avatar"
                               alt="Avatar"
@@ -83,12 +83,12 @@
                           </div>
                         </template>
                       </div>
-                    </UICardContent>
+                    </UiCardContent>
                   </template>
-                </UICard>
+                </UiCard>
               </div>
-            </UITabsContent>
-          </UITabs>
+            </UiTabsContent>
+          </UiTabs>
         </div>
       </div>
     </div>
@@ -186,7 +186,7 @@
           height: "100%",
           components: [bar],
           xAxis: new Axis<DataRecord>({
-            tickFormat: (d: number) => data[d].name,
+            tickFormat: (d, _, __) => data[d as number].name,
             numTicks: data.length,
             gridLine: false,
             domainLine: false,

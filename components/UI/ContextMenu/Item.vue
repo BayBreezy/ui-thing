@@ -21,9 +21,13 @@
 
   const props = defineProps<
     ContextMenuItemProps & {
+      /**Custom class(es) to add to the element */
       class?: any;
+      /** Wether an indentation should be added to the item or not */
       inset?: boolean;
+      /** The shortcut for the item */
       shortcut?: string;
+      /** The title for the item */
       title?: string;
     }
   >();

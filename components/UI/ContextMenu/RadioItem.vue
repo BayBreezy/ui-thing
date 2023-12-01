@@ -16,8 +16,11 @@
 
   const props = defineProps<
     ContextMenuRadioItemProps & {
+      /**Custom class(es) to add to the element */
       class?: any;
+      /**The icon to display */
       icon?: string;
+      /**The title for the item */
       title?: string;
     }
   >();

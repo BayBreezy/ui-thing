@@ -1,15 +1,15 @@
 <template>
   <div class="w-full">
-    <UILabel :for="inputId" v-if="label" :class="[errorMessage && 'text-destructive', 'mb-2']">{{
+    <UiLabel :for="inputId" v-if="label" :class="[errorMessage && 'text-destructive', 'mb-2']">{{
       label
-    }}</UILabel>
+    }}</UiLabel>
     <div class="relative">
       <slot name="icon">
         <span v-if="hasIcon" class="absolute">
           <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground" />
         </span>
       </slot>
-      <UISelect
+      <UiSelect
         :disabled="disabled"
         :required="required"
         :name="name"
@@ -18,11 +18,11 @@
       >
         <slot>
           <slot name="trigger">
-            <UISelectTrigger :placeholder="placeholder" :id="inputId" />
+            <UiSelectTrigger :placeholder="placeholder" :id="inputId" />
           </slot>
           <slot name="content"></slot>
         </slot>
-      </UISelect>
+      </UiSelect>
     </div>
     <p class="mt-1 text-sm text-muted-foreground animate-in fade-in" v-if="hint && !errorMessage">
       {{ hint }}
