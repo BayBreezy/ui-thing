@@ -1,0 +1,21 @@
+<template>
+  <TabsContent v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
+    <slot></slot>
+  </TabsContent>
+</template>
+
+<script lang="ts" setup>
+  import { TabsContent } from "radix-vue";
+  import type { TabsContentProps } from "radix-vue";
+
+  const props = defineProps<
+    TabsContentProps & {
+      /** Custom class(es) to add to parent element */
+      class?: any;
+    }
+  >();
+
+  const styles = tv({
+    base: "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+  });
+</script>
