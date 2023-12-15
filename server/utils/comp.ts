@@ -569,6 +569,24 @@ export default [
     plugins: [],
   },
   {
+    name: "Container",
+    value: "container",
+    deps: ["radix-vue", "tailwind-variants"],
+    devDeps: [],
+    nuxtModules: [],
+    files: [
+      {
+        fileName: "Container.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <Primitive :class="styles({ class: props.class })" v-bind="reactiveOmit(props, \'class\')">\r\n    <slot></slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import type { PrimitiveProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n      }\r\n    >(),\r\n    {\r\n      as: "div",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "container mx-auto",\r\n  });\r\n</script>\r\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Context Menu",
     value: "context-menu",
     deps: ["radix-vue", "tailwind-variants"],
@@ -801,6 +819,25 @@ export default [
         dirPath: "components/UI",
         fileContent:
           '<template>\n  <DialogTrigger v-bind="props">\n    <slot></slot>\n  </DialogTrigger>\n</template>\n\n<script lang="ts" setup>\n  import { DialogTrigger, useForwardProps } from "radix-vue";\n  import type { DialogTriggerProps } from "radix-vue";\n\n  const props = defineProps<DialogTriggerProps>();\n</script>\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "Divider",
+    value: "divider",
+    deps: ["radix-vue", "tailwind-variants"],
+    devDeps: ["nuxt-icon"],
+    nuxtModules: ["nuxt-icon"],
+    components: ["avatar"],
+    files: [
+      {
+        fileName: "Divider.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <Primitive as="div" :class="base({ orientation, type, class: props.class })">\r\n    <Separator :orientation="orientation" :class="border({ orientation, type })" />\r\n    <template v-if="label || icon || avatar || $slots.default">\r\n      <div :class="container({ orientation, type })">\r\n        <slot>\r\n          <slot name="label">\r\n            <span v-if="label" :class="labelClass({ orientation, type })">\r\n              {{ label }}\r\n            </span>\r\n          </slot>\r\n          <slot name="icon">\r\n            <Icon v-if="icon" :name="icon" :class="iconClass({ orientation, type })" />\r\n          </slot>\r\n          <slot name="avatar">\r\n            <UiAvatar v-if="avatar" :src="avatar" />\r\n          </slot>\r\n        </slot>\r\n      </div>\r\n    </template>\r\n    <Separator :orientation="orientation" :class="border({ orientation, type })" />\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Primitive, Separator } from "radix-vue";\r\n\r\n  const props = defineProps<{\r\n    class?: any;\r\n    type?: VariantProps<typeof style>["type"];\r\n    orientation?: VariantProps<typeof style>["orientation"];\r\n    icon?: string;\r\n    label?: string;\r\n    avatar?: string;\r\n  }>();\r\n\r\n  const style = tv({\r\n    slots: {\r\n      base: "flex w-full items-center text-center align-middle",\r\n      container: "flex font-medium",\r\n      border: "flex border-border",\r\n      icon: "h-5 w-5 shrink-0",\r\n      label: "text-sm",\r\n    },\r\n    variants: {\r\n      orientation: {\r\n        horizontal: {\r\n          base: "flex-row",\r\n          container: "mx-3 whitespace-nowrap",\r\n          border: "w-full border-t",\r\n        },\r\n        vertical: {\r\n          base: "h-full flex-col",\r\n          container: "my-3",\r\n          border: "h-full border-s",\r\n        },\r\n      },\r\n      type: {\r\n        solid: {\r\n          border: "border-solid",\r\n        },\r\n        dashed: {\r\n          border: "border-dashed",\r\n        },\r\n        dotted: {\r\n          border: "border-dotted",\r\n        },\r\n      },\r\n    },\r\n    defaultVariants: {\r\n      orientation: "horizontal",\r\n      type: "solid",\r\n    },\r\n  });\r\n\r\n  const { base, border, container, icon: iconClass, label: labelClass } = style();\r\n</script>\r\n',
       },
     ],
     utils: [],
@@ -1258,6 +1295,24 @@ export default [
         dirPath: "components/UI",
         fileContent:
           '<template>\n  <div class="relative">\n    <select\n      ref="select"\n      :multiple="multiple"\n      :name="name"\n      :size="size"\n      :id="id"\n      :placeholder="placeholder"\n      :disabled="disabled"\n      :required="required"\n      v-model="localModel"\n      :class="styles({ class: props.class })"\n    >\n      <slot></slot>\n    </select>\n    <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center justify-center">\n      <slot name="trailingIcon">\n        <Icon\n          :name="trailingIcon || \'lucide:chevrons-up-down\'"\n          class="h-4 w-4 text-muted-foreground"\n        />\n      </slot>\n    </span>\n  </div>\n</template>\n\n<script lang="ts" setup>\n  const props = defineProps<{\n    class?: any;\n    id?: string;\n    name?: string;\n    placeholder?: string;\n    disabled?: boolean;\n    required?: boolean;\n    modelValue?: any;\n    multiple?: boolean;\n    size?: number;\n    autofocus?: boolean;\n    trailingIcon?: string;\n  }>();\n  const styles = tv({\n    base: "flex h-10 w-full appearance-none rounded-md border border-input bg-background px-3 py-2 pr-10 ring-offset-background focus-visible:outline-none  focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm",\n  });\n\n  const select = ref<HTMLSelectElement | null>(null);\n  const emits = defineEmits<{\n    "update:modelValue": [value: any];\n  }>();\n\n  const localModel = useVModel(props, "modelValue", emits);\n\n  onMounted(() => {\n    if (props.autofocus) {\n      select.value?.focus();\n    }\n  });\n</script>\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "Navbar",
+    value: "navbar",
+    deps: ["radix-vue", "tailwind-variants"],
+    devDeps: [],
+    nuxtModules: [],
+    files: [
+      {
+        fileName: "Navbar.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <Primitive :class="styles({ sticky, class: props.class })" v-bind="reactiveOmit(props, \'class\')">\r\n    <slot> </slot>\r\n  </Primitive>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { type PrimitiveProps } from "radix-vue";\r\n\r\n  const props = withDefaults(\r\n    defineProps<\r\n      PrimitiveProps & {\r\n        class?: any;\r\n        sticky?: boolean;\r\n      }\r\n    >(),\r\n    {\r\n      as: "header",\r\n    }\r\n  );\r\n\r\n  const styles = tv({\r\n    base: "z-20 border-b bg-background/90 backdrop-blur",\r\n    variants: {\r\n      sticky: {\r\n        true: "sticky top-0",\r\n      },\r\n    },\r\n  });\r\n</script>\r\n',
       },
     ],
     utils: [],
