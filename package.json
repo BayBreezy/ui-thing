@@ -23,7 +23,7 @@
     "nuxt": "^3.8.2",
     "nuxt-og-image": "^2.2.4",
     "nuxt-simple-robots": "^3.1.10",
-    "nuxt-simple-sitemap": "^4.1.13",
+    "nuxt-simple-sitemap": "^4.1.17",
     "prettier": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.9",
     "tailwindcss-animate": "^1.0.7",
