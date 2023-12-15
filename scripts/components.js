@@ -170,6 +170,14 @@ export default [
     ],
   },
   {
+    name: "Container",
+    value: "container",
+    deps: ["radix-vue", "tailwind-variants"],
+    devDeps: [],
+    nuxtModules: [],
+    files: ["Container.vue"],
+  },
+  {
     name: "Context Menu",
     value: "context-menu",
     deps: ["radix-vue", "tailwind-variants"],
