@@ -242,6 +242,15 @@ export default [
     ],
   },
   {
+    name: "Divider",
+    value: "divider",
+    deps: ["radix-vue", "tailwind-variants"],
+    devDeps: ["nuxt-icon"],
+    nuxtModules: ["nuxt-icon"],
+    components: ["avatar"],
+    files: ["Divider.vue"],
+  },
+  {
     name: "Dropdown Menu",
     value: "dropdown-menu",
     deps: ["radix-vue", "tailwind-variants"],
