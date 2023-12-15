@@ -387,6 +387,14 @@ export default [
     ],
   },
   {
+    name: "Navbar",
+    value: "navbar",
+    deps: ["radix-vue", "tailwind-variants"],
+    devDeps: [],
+    nuxtModules: [],
+    files: ["Navbar.vue"],
+  },
+  {
     name: "Native Select",
     value: "native-select",
     deps: ["tailwind-variants"],
