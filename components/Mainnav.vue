@@ -38,7 +38,7 @@
                 <Icon name="heroicons:chevron-down" class="h-3 w-3" />
               </div>
             </UiDropdownMenuTrigger>
-            <UiDropdownMenuContent align="start" :side-offset="5">
+            <UiDropdownMenuContent class="min-w-[180px]" align="start" :side-offset="5">
               <UiDropdownMenuItem as-child>
                 <NuxtLink class="cursor-pointer hover:bg-muted" to="/examples/cards"
                   >Cards</NuxtLink
@@ -49,6 +49,17 @@
                   >Dashboard</NuxtLink
                 >
               </UiDropdownMenuItem>
+              <template v-for="l in externalProjects" :key="l.name">
+                <UiDropdownMenuItem as-child>
+                  <NuxtLink
+                    target="_blank"
+                    external
+                    class="cursor-pointer hover:bg-muted"
+                    :href="l.link"
+                    >{{ l.name }}</NuxtLink
+                  >
+                </UiDropdownMenuItem>
+              </template>
             </UiDropdownMenuContent>
           </UiDropdownMenu>
         </nav>
@@ -132,4 +143,9 @@
       isOpen.value = !isOpen.value;
     },
   });
+
+  const externalProjects = [
+    { name: "Settings Dashboard", link: "https://settings-dash.behonbaker.com/" },
+    { name: "ETag Topup UI", link: "https://etag-ui.behonbaker.com/" },
+  ];
 </script>
