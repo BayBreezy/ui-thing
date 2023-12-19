@@ -485,7 +485,7 @@
 
   /* Export button styles */
   .dataTables_wrapper .dt-buttons {
-    @apply inline-flex items-center gap-2;
+    @apply inline-flex flex-wrap items-center gap-2;
     button {
       @apply inline-flex h-9 items-center gap-2 whitespace-nowrap rounded-md border bg-background px-3 text-sm text-muted-foreground hover:bg-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
     }
@@ -965,5 +965,25 @@
 
   div.dtsb-searchBuilder div.dtsb-group div.dtsb-criteria input.dtsb-value {
     @apply rounded-md border border-input bg-background text-sm transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background focus-visible:border-input;
+  }
+
+  /* Col vis styles */
+  .dt-button-background {
+    @apply fixed inset-0 z-50 flex flex-col items-center justify-center bg-background/50 backdrop-blur-sm;
+  }
+  .dt-button-down-arrow {
+    @apply text-[10px];
+  }
+  .dt-button-collection {
+    @apply relative;
+    [role="menu"] {
+      @apply absolute -left-40 top-7 flex w-[300px] flex-wrap gap-x-3 gap-y-2 rounded-md border bg-background p-2 shadow lg:w-[500px];
+      button {
+        @apply h-7 px-2 text-xs;
+      }
+      .dt-button.buttons-columnVisibility.dt-button-active {
+        @apply bg-primary text-primary-foreground;
+      }
+    }
   }
 </style>
