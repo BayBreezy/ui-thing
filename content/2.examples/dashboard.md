@@ -4,5 +4,5 @@ description: A simple dashboard created with the components from the library. It
 layout: examples
 ---
 
-::PageExDashboard
+::Page-Ex-Dashboard
 ::
