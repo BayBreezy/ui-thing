@@ -58,8 +58,11 @@ export default defineNuxtConfig({
       titleTemplate: "%s - UI Thing",
       script: [
         // Add pdfmake scripts for DataTables.net export buttons
-        { src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js" },
-        { src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.min.js" },
+        { src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js", defer: true },
+        {
+          src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.min.js",
+          defer: true,
+        },
       ],
     },
   },
@@ -130,9 +133,6 @@ export default defineNuxtConfig({
   ogImage: {
     defaults: {
       alt: title,
-      colorScheme: "dark",
-      description,
-      title,
     },
   },
 });
