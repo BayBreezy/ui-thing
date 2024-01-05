@@ -11,6 +11,6 @@
   }>();
 
   const sourceCodeUrl = computed(() => {
-    return `https://github.com/BayBreezy/ui-thing/tree/main/components/UI/${props.component}`;
+    return `https://github.com/BayBreezy/ui-thing/tree/main/components/Ui/${props.component}`;
   });
 </script>
