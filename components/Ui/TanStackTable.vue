@@ -153,7 +153,7 @@
 </template>
 
 <script lang="ts" setup generic="T">
-  import CheckBox from "@/components/UI/Checkbox/Checkbox.vue";
+  import CheckBox from "@/components/Ui/Checkbox/Checkbox.vue";
   import {
     FlexRender,
     getCoreRowModel,

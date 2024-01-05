@@ -1,4 +1,4 @@
-import { FORM_ITEM_INJECTION_KEY } from "@/components/UI/Form/Item.vue";
+import { FORM_ITEM_INJECTION_KEY } from "@/components/Ui/Form/Item.vue";
 import {
   FieldContextKey,
   useFieldError,

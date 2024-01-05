@@ -1,4 +1,4 @@
-import type { ToastProps } from "@/components/UI/Toast/Toast.vue";
+import type { ToastProps } from "@/components/Ui/Toast/Toast.vue";
 
 const TOAST_LIMIT = 3;
 const TOAST_REMOVE_DELAY = 7000;
