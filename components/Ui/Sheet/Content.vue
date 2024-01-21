@@ -22,7 +22,7 @@
         <slot name="footer"></slot>
       </slot>
       <slot name="close">
-        <UiDialogClose :icon="icon" />
+        <UiSheetClose :icon="icon" />
       </slot>
     </DialogContent>
   </UiSheetPortal>
