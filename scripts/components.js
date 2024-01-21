@@ -2,9 +2,6 @@ export default [
   {
     name: "Accordion",
     value: "accordion",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["tailwindcss-animate", "nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
     instructions: ["Remember to add the accordion animations to your tailwind.config.js"],
     files: [
       "Accordion/Accordion.vue",
@@ -17,17 +14,16 @@ export default [
   {
     name: "Alert",
     value: "alert",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["nuxt-icon", "@vueuse/core", "@vueuse/nuxt"],
-    nuxtModules: ["nuxt-icon", "@vueuse/nuxt"],
+    devDeps: ["@vueuse/core"],
+
     files: ["Alert/Alert.vue", "Alert/Description.vue", "Alert/Title.vue"],
   },
   {
     name: "Alert Dialog",
     value: "alert-dialog",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["tailwindcss-animate", "nuxt-icon", "@vueuse/core", "@vueuse/nuxt"],
-    nuxtModules: ["nuxt-icon", "@vueuse/nuxt"],
+
+    devDeps: ["@vueuse/core"],
+
     utils: ["shared.styles.ts"],
     files: [
       "AlertDialog/Action.vue",
@@ -46,17 +42,14 @@ export default [
   {
     name: "Aspect Ratio",
     value: "aspect-ratio",
-    deps: ["radix-vue"],
-    devDeps: [],
-    nuxtModules: [],
     files: ["AspectRatio.vue"],
   },
   {
     name: "Autocomplete",
     value: "autocomplete",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["tailwindcss-animate", "nuxt-icon", "@vueuse/core", "@vueuse/nuxt"],
-    nuxtModules: ["nuxt-icon", "@vueuse/nuxt"],
+
+    devDeps: ["@vueuse/core"],
+
     files: [
       "Autocomplete/Anchor.vue",
       "Autocomplete/Arrow.vue",
@@ -78,40 +71,27 @@ export default [
   {
     name: "Avatar",
     value: "avatar",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: ["Avatar/Avatar.vue", "Avatar/Fallback.vue", "Avatar/Image.vue"],
   },
   {
     name: "Badge",
     value: "badge",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: ["Badge.vue"],
   },
   {
     name: "Breadcrumbs",
     value: "breadcrumbs",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
     files: ["Breadcrumbs.vue"],
   },
   {
     name: "Button",
     value: "button",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     utils: ["shared.styles.ts"],
     files: ["Button.vue"],
   },
   {
     name: "Calendar",
     value: "calendar",
-    deps: [],
     devDeps: ["@samk-dev/nuxt-vcalendar"],
     nuxtModules: ["@samk-dev/nuxt-vcalendar"],
     instructions: ["You can customize the calendar by adding options to your nuxt.config.js file"],
@@ -120,9 +100,6 @@ export default [
   {
     name: "Card",
     value: "card",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: [
       "Card/Card.vue",
       "Card/Content.vue",
@@ -135,26 +112,16 @@ export default [
   {
     name: "Checkbox",
     value: "checkbox",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
     files: ["Checkbox/Checkbox.vue", "Checkbox/Indicator.vue"],
   },
   {
     name: "Collapsible",
     value: "collapsible",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["tailwindcss-animate", "nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
-    instructions: ["Remember to add the collapsile animations to your tailwind.config.js"],
     files: ["Collapsible/Collapsible.vue", "Collapsible/Content.vue", "Collapsible/Trigger.vue"],
   },
   {
     name: "Command",
     value: "command",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["tailwindcss-animate", "nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
     files: [
       "Command/Cancel.vue",
       "Command/Command.vue",
@@ -172,17 +139,11 @@ export default [
   {
     name: "Container",
     value: "container",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: ["Container.vue"],
   },
   {
     name: "Context Menu",
     value: "context-menu",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["tailwindcss-animate", "nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
     files: [
       "ContextMenu/Arrow.vue",
       "ContextMenu/CheckboxItem.vue",
@@ -214,15 +175,12 @@ export default [
       "datatables.net-vue3",
       "jszip",
     ],
-    devDeps: [],
-    nuxtModules: [],
     plugins: ["datatables.client.ts"],
     files: ["Datatable.client.vue"],
   },
   {
     name: "Datepicker",
     value: "datepicker",
-    deps: [],
     devDeps: ["@samk-dev/nuxt-vcalendar"],
     nuxtModules: ["@samk-dev/nuxt-vcalendar"],
     instructions: [
@@ -233,9 +191,6 @@ export default [
   {
     name: "Dialog",
     value: "dialog",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["tailwindcss-animate", "nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
     files: [
       "Dialog/Close.vue",
       "Dialog/Content.vue",
@@ -252,18 +207,12 @@ export default [
   {
     name: "Divider",
     value: "divider",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
     components: ["avatar"],
     files: ["Divider.vue"],
   },
   {
     name: "Dropdown Menu",
     value: "dropdown-menu",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["tailwindcss-animate", "nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
     files: [
       "DropdownMenu/Arrow.vue",
       "DropdownMenu/CheckboxItem.vue",
@@ -287,16 +236,12 @@ export default [
   {
     name: "Dropfile",
     value: "dropfile",
-    deps: ["tailwind-variants"],
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
     files: ["Dropfile.vue"],
   },
   {
     name: "Form",
     value: "form",
-    deps: ["radix-vue", "tailwind-variants", "@vee-validate/nuxt"],
-    devDeps: [],
+    deps: ["@vee-validate/nuxt"],
     nuxtModules: ["@vee-validate/nuxt"],
     composables: ["useFormField.ts"],
     files: [
@@ -308,11 +253,14 @@ export default [
     ],
   },
   {
+    name: "Gradient Divider",
+    value: "gradient-divider",
+    files: ["GradientDivider.vue"],
+  },
+  {
     name: "Hover Card",
     value: "hover-card",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
+
     files: [
       "HoverCard/Arrow.vue",
       "HoverCard/Content.vue",
@@ -324,33 +272,23 @@ export default [
   {
     name: "Input",
     value: "input",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["@vueuse/core", "@vueuse/nuxt"],
-    nuxtModules: ["@vueuse/nuxt"],
+    devDeps: ["@vueuse/core"],
+
     files: ["Input.vue"],
   },
   {
     name: "Keyboard Key",
     value: "kbd",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: ["Kbd.vue"],
   },
   {
     name: "Label",
     value: "label",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: ["Label.vue"],
   },
   {
     name: "List",
     value: "list",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: [
       "List/Content.vue",
       "List/Item.vue",
@@ -362,9 +300,6 @@ export default [
   {
     name: "Menubar",
     value: "menubar",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["tailwindcss-animate", "nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
     files: [
       "Menubar/Arrow.vue",
       "Menubar/CheckboxItem.vue",
@@ -389,25 +324,19 @@ export default [
   {
     name: "Navbar",
     value: "navbar",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: ["Navbar.vue"],
   },
   {
     name: "Native Select",
     value: "native-select",
-    deps: ["tailwind-variants"],
-    devDeps: ["nuxt-icon", "@vueuse/core", "@vueuse/nuxt"],
-    nuxtModules: ["nuxt-icon", "@vueuse/nuxt"],
+    devDeps: ["@vueuse/core"],
+
     files: ["NativeSelect.vue"],
   },
   {
     name: "Navigation Menu",
     value: "navigation-menu",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["tailwindcss-animate", "nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
+
     files: [
       "NavigationMenu/Content.vue",
       "NavigationMenu/Indicator.vue",
@@ -423,9 +352,7 @@ export default [
   {
     name: "Pagination",
     value: "pagination",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
+
     files: [
       "Pagination/Ellipsis.vue",
       "Pagination/First.vue",
@@ -440,17 +367,13 @@ export default [
   {
     name: "Pin Input (OTP)",
     value: "pin-input",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
+
     files: ["PinInput/PinInput.vue", "PinInput/PinInputInput.vue"],
   },
   {
     name: "Popover",
     value: "popover",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["tailwindcss-animate", "nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
+
     files: [
       "Popover/Anchor.vue",
       "Popover/Arrow.vue",
@@ -465,25 +388,16 @@ export default [
   {
     name: "Progress",
     value: "progress",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: ["Progress/Indicator.vue", "Progress/Progress.vue"],
   },
   {
     name: "Radio Group",
     value: "radio-group",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
     files: ["RadioGroup/Indicator.vue", "RadioGroup/Item.vue", "RadioGroup/RadioGroup.vue"],
   },
   {
     name: "Scroll Area",
     value: "scroll-area",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: [
       "ScrollArea/Corner.vue",
       "ScrollArea/ScrollArea.vue",
@@ -495,9 +409,6 @@ export default [
   {
     name: "Select",
     value: "select",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["tailwindcss-animate", "nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
     files: [
       "Select/Arrow.vue",
       "Select/Content.vue",
@@ -520,17 +431,11 @@ export default [
   {
     name: "Separator",
     value: "separator",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: ["Separator.vue"],
   },
   {
     name: "Sheet",
     value: "sheet",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
     files: [
       "Sheet/Close.vue",
       "Sheet/Content.vue",
@@ -548,33 +453,21 @@ export default [
   {
     name: "Skeleton",
     value: "skeleton",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: ["Skeleton.vue"],
   },
   {
     name: "Slider",
     value: "slider",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: ["Slider/Range.vue", "Slider/Slider.vue", "Slider/Thumb.vue", "Slider/Track.vue"],
   },
   {
     name: "Switch",
     value: "switch",
-    deps: ["radix-vue", "tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: ["Switch/Switch.vue", "Switch/Thumb.vue"],
   },
   {
     name: "Table",
     value: "table",
-    deps: ["tailwind-variants"],
-    devDeps: [],
-    nuxtModules: [],
     files: [
       "Table/Body.vue",
       "Table/Caption.vue",
@@ -590,9 +483,6 @@ export default [
   {
     name: "Tabs",
     value: "tabs",
-    deps: ["tailwind-variants", "radix-vue"],
-    devDeps: [],
-    nuxtModules: [],
     files: [
       "Tabs/Content.vue",
       "Tabs/Indicator.vue",
@@ -604,9 +494,6 @@ export default [
   {
     name: "Tags Input",
     value: "tags-input",
-    deps: ["tailwind-variants", "radix-vue"],
-    devDeps: [],
-    nuxtModules: [],
     files: [
       "TagsInput/Clear.vue",
       "TagsInput/Field.vue",
@@ -619,26 +506,20 @@ export default [
   {
     name: "Tanstack Table",
     value: "tanstacktable",
-    deps: ["tailwind-variants", "@tanstack/vue-table"],
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
+    deps: ["@tanstack/vue-table"],
     components: ["checkbox"],
     files: ["TanStackTable.vue"],
   },
   {
     name: "Textarea",
     value: "textarea",
-    deps: ["tailwind-variants", "radix-vue"],
-    devDeps: ["@vueuse/core", "@vueuse/nuxt"],
-    nuxtModules: ["@vueuse/nuxt"],
+    devDeps: ["@vueuse/core"],
+
     files: ["Textarea.vue"],
   },
   {
     name: "Toast",
     value: "toast",
-    deps: ["tailwind-variants", "radix-vue"],
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["nuxt-icon"],
     composables: ["useToast.ts"],
     instructions: ["Remeber to add <UiToastToaster /> to your app.vue/layout file."],
     files: [
@@ -655,17 +536,11 @@ export default [
   {
     name: "Toggle",
     value: "toggle",
-    deps: ["tailwind-variants", "radix-vue"],
-    devDeps: [],
-    nuxtModules: [],
     files: ["Toggle.vue"],
   },
   {
     name: "Tooltip",
     value: "tooltip",
-    deps: ["tailwind-variants", "radix-vue"],
-    devDeps: [],
-    nuxtModules: [],
     files: [
       "Tooltip/Arrow.vue",
       "Tooltip/Content.vue",
@@ -679,113 +554,101 @@ export default [
     name: "Vue Sonner",
     value: "vue-sonner",
     deps: ["vue-sonner"],
-    devDeps: [],
-    nuxtModules: [],
     instructions: ["Remember to add the <UiVueSonner /> tag to your app.vue/layout file."],
     files: ["VueSonner.client.vue"],
   },
   {
     name: "VeeCheckbox",
     value: "vee-checkbox",
-    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["checkbox", "label"],
     files: ["Vee/Checkbox.vue"],
   },
   {
     name: "VeeDatepicker",
     value: "vee-datepicker",
-    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["datepicker", "label", "input"],
     files: ["Vee/Datepicker.vue"],
   },
   {
     name: "VeeFileInput",
     value: "vee-file-input",
-    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["input", "label"],
     files: ["Vee/FileInput.vue"],
   },
   {
     name: "VeeInput",
     value: "vee-input",
-    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["input", "label"],
     files: ["Vee/Input.vue"],
   },
   {
     name: "VeeRadioGroup",
     value: "vee-radio-group",
-    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["radio-group", "label"],
     files: ["Vee/RadioGroup.vue"],
   },
   {
     name: "VeeSelect",
     value: "vee-select",
-    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["native-select", "label"],
     files: ["Vee/Select.vue"],
   },
   {
     name: "VeeTextarea",
     value: "vee-textarea",
-    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["textarea", "label"],
     files: ["Vee/Textarea.vue"],
   },
   {
     name: "VeeTagsInput",
     value: "vee-tags-input",
-    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["tags-input", "label"],
     files: ["Vee/TagsInput.vue"],
   },
   {
     name: "VeeMultiSelect",
     value: "vee-multi-select",
-    deps: [
-      "@vee-validate/nuxt",
-      "radix-vue",
-      "@morev/vue-transitions",
-      "tailwind-variants",
-      "@vueform/multiselect",
-    ],
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions", "@vueform/multiselect"],
     askValidator: true,
-    devDeps: ["nuxt-icon"],
-    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt", "nuxt-icon"],
+
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["label"],
     files: ["Vee/MultiSelect.vue"],
   },
   {
     name: "Vee Pin Input",
     value: "vee-pin-input",
-    deps: ["@vee-validate/nuxt", "radix-vue", "@morev/vue-transitions", "tailwind-variants"],
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
-    devDeps: [],
+
     nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["label", "pin-input"],
     files: ["Vee/PinInput.vue"],
