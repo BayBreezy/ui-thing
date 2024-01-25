@@ -16,7 +16,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxtjs/color-mode": "^3.3.2",
-    "@nuxtjs/tailwindcss": "^6.11.0",
+    "@nuxtjs/tailwindcss": "^6.11.1",
     "@nuxtseo/module": "^2.0.0-beta.55",
     "@samk-dev/nuxt-vcalendar": "^1.0.2",
     "@tailwindcss/typography": "^0.5.10",
