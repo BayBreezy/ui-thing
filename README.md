@@ -12,11 +12,11 @@ The documentation can be found here: https://ui-thing.behonbaker.com/
 
 ## Credits
 
-- shadcn/ui
-- Radiv-Vue
-- TailwindCSS
-- Nuxt
-- Nuxt UI
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Radix-Vue](https://www.radix-vue.com/)
+- [TailwindCSS for Nuxt](https://tailwindcss.nuxtjs.org/)
+- [Nuxt](https://nuxt.com/)
+- [Nuxt UI](https://ui.nuxt.com/getting-started)
 
 Thanks to the maintainers of the other third party libraries used in this project.
 
