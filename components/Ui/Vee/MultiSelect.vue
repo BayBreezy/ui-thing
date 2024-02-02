@@ -44,6 +44,9 @@
 
 <script setup lang="ts">
   import Multiselect from "@vueform/multiselect";
+
+  import "@vueform/multiselect/themes/default.css";
+
   import { useId } from "radix-vue";
 
   const multiselect = shallowRef<InstanceType<typeof Multiselect> | null>(null);
@@ -103,7 +106,6 @@
   });
 </script>
 
-<style src="@vueform/multiselect/themes/default.css"></style>
 <style>
   :root {
     --ms-font-size: theme("fontSize.sm");
