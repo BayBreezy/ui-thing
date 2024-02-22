@@ -2,6 +2,7 @@ import DataTablesCore from "datatables.net";
 import DataTable from "datatables.net-vue3";
 import JSZip from "jszip";
 
+import "datatables.net-buttons";
 import "datatables.net-buttons-dt";
 import "datatables.net-buttons/js/buttons.colVis.mjs";
 import "datatables.net-buttons/js/buttons.html5.mjs";
