@@ -660,19 +660,23 @@ export default [
     name: "DataTables.net",
     value: "datatable",
     deps: [
-      "datatables.net-buttons-dt",
-      "datatables.net-responsive-dt",
-      "datatables.net-searchbuilder-dt",
-      "datatables.net-select-dt",
-      "datatables.net-vue3",
+      "datatables.net-buttons-dt@^2.4.3",
+      "datatables.net-responsive-dt@^2.5.1",
+      "datatables.net-searchbuilder-dt@^1.7.0",
+      "datatables.net-select-dt@^1.7.1",
+      "datatables.net-vue3@^2.1.3",
       "jszip",
     ],
+    overrides: {
+      "datatables.net": "1.13.10",
+      "datatables.net-dt": "1.13.10",
+    },
     plugins: [
       {
         fileName: "datatables.client.ts",
         dirPath: "plugins",
         fileContent:
-          'import DataTablesCore from "datatables.net";\nimport DataTable from "datatables.net-vue3";\nimport JSZip from "jszip";\n\nimport "datatables.net-buttons-dt";\nimport "datatables.net-buttons/js/buttons.colVis.mjs";\nimport "datatables.net-buttons/js/buttons.html5.mjs";\nimport "datatables.net-buttons/js/buttons.print.mjs";\nimport "datatables.net-responsive-dt";\nimport "datatables.net-searchbuilder-dt";\nimport "datatables.net-select-dt";\n\n// @ts-ignore\nwindow.JSZip = JSZip;\n\nDataTable.use(DataTablesCore);\n\nexport default defineNuxtPlugin((nuxtApp) => {\n  nuxtApp.vueApp.component("DataTable", DataTable);\n});\n',
+          'import DataTablesCore from "datatables.net";\nimport DataTable from "datatables.net-vue3";\nimport JSZip from "jszip";\n\nimport "datatables.net-buttons";\nimport "datatables.net-buttons-dt";\nimport "datatables.net-buttons/js/buttons.colVis.mjs";\nimport "datatables.net-buttons/js/buttons.html5.mjs";\nimport "datatables.net-buttons/js/buttons.print.mjs";\nimport "datatables.net-responsive-dt";\nimport "datatables.net-searchbuilder-dt";\nimport "datatables.net-select-dt";\n\n// @ts-ignore\nwindow.JSZip = JSZip;\n\nDataTable.use(DataTablesCore);\n\nexport default defineNuxtPlugin((nuxtApp) => {\n  nuxtApp.vueApp.component("DataTable", DataTable);\n});\n',
       },
     ],
     files: [
