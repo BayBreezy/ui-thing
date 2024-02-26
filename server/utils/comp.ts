@@ -796,6 +796,64 @@ export default [
     plugins: [],
   },
   {
+    name: "Drawer",
+    value: "drawer",
+    deps: ["vaul-vue"],
+    files: [
+      {
+        fileName: "Drawer/Close.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <DrawerClose v-bind="props">\n    <slot />\n  </DrawerClose>\n</template>\n\n<script lang="ts" setup>\n  import { DrawerClose } from "vaul-vue";\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerClose>, "$props">> {}\n  const props = defineProps<Props>();\n</script>\n',
+      },
+      {
+        fileName: "Drawer/Content.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <UiDrawerPortal>\n    <slot name="overlay">\n      <UiDrawerOverlay />\n    </slot>\n    <slot name="content">\n      <DrawerContent v-bind="{ ...props, ...$attrs }" :class="styles({ class: props.class })">\n        <slot name="knob">\n          <div\n            className="mx-auto cursor-grab active:cursor-grabbing my-5 h-2 w-[60px] rounded-full bg-muted"\n          />\n        </slot>\n        <slot />\n      </DrawerContent>\n    </slot>\n  </UiDrawerPortal>\n</template>\n\n<script lang="ts" setup>\n  import { DrawerContent } from "vaul-vue";\n\n  defineOptions({ inheritAttrs: false });\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerContent>, "$props">> {}\n\n  const props = defineProps<Props & { class?: any }>();\n  const styles = tv({\n    base: "fixed bottom-0 left-0 right-0 z-50 mt-24 flex h-auto max-h-[95%] flex-col rounded-t-[10px] border bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/40",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Drawer/Description.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <DrawerDescription v-bind="props" :class="styles({ class: props.class })">\n    <slot>\n      {{ props.text }}\n    </slot>\n  </DrawerDescription>\n</template>\n\n<script lang="ts" setup>\n  import { DrawerDescription } from "vaul-vue";\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerDescription>, "$props">> {\n    class?: any;\n    text?: string;\n  }\n\n  const props = defineProps<Props>();\n\n  const styles = tv({\n    base: "text-sm text-muted-foreground",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Drawer/Drawer.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <DrawerRoot v-bind="props">\n    <slot />\n  </DrawerRoot>\n</template>\n\n<script lang="ts" setup>\n  import { DrawerRoot } from "vaul-vue";\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerRoot>, "$props">> {}\n  const props = defineProps<Props>();\n</script>\n',
+      },
+      {
+        fileName: "Drawer/Overlay.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <DrawerOverlay v-bind="props" :class="styles({ class: props.class })" />\n</template>\n\n<script lang="ts" setup>\n  import { DrawerOverlay } from "vaul-vue";\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerOverlay>, "$props">> {}\n\n  const props = defineProps<Props & { class?: any }>();\n\n  const styles = tv({\n    base: "fixed inset-0 z-50 bg-black/40 backdrop-blur",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Drawer/Portal.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <DrawerPortal v-bind="props">\n    <slot />\n  </DrawerPortal>\n</template>\n\n<script lang="ts" setup>\n  import { DrawerPortal } from "vaul-vue";\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerPortal>, "$props">> {}\n\n  const props = defineProps<Props>();\n</script>\n',
+      },
+      {
+        fileName: "Drawer/Title.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <DrawerTitle v-bind="props" :class="styles({ class: props.class })">\n    <slot>\n      {{ props.text }}\n    </slot>\n  </DrawerTitle>\n</template>\n\n<script lang="ts" setup>\n  import { DrawerTitle } from "vaul-vue";\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerTitle>, "$props">> {\n    class?: any;\n    text?: string;\n  }\n\n  const props = defineProps<Props>();\n\n  const styles = tv({\n    base: "text-lg font-semibold leading-none tracking-tight",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Drawer/Trigger.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <DrawerTrigger v-bind="props">\n    <slot />\n  </DrawerTrigger>\n</template>\n\n<script lang="ts" setup>\n  import { DrawerTrigger } from "vaul-vue";\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerTrigger>, "$props">> {}\n\n  const props = defineProps<Props>();\n</script>\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Dropdown Menu",
     value: "dropdown-menu",
     files: [

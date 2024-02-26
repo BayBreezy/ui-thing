@@ -61,14 +61,25 @@ app: {
     head: {
       script: [
         // Add pdfmake scripts for DataTables.net export buttons
-        { src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js" },
-        { src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.min.js" },
+        { src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/pdfmake.min.js" },
+        { src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/vfs_fonts.min.js" },
       ],
     },
   },
 ```
 
 If you are not going to use the PDF export feature, you can remove the `script` tags from your `nuxt.config.ts` file.
+
+Also, adding this component will override the version of `datatables.net` & `datatables.net-dt` in your `package.json` file to the latest version `1.3.10`.
+
+```json
+{
+  "overrides": {
+    "datatables.net": "1.13.10",
+    "datatables.net-dt": "1.13.10"
+  }
+}
+```
 
 ## Usage
 

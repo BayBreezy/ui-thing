@@ -215,6 +215,21 @@ export default [
     files: ["Divider.vue"],
   },
   {
+    name: "Drawer",
+    value: "drawer",
+    deps: ["vaul-vue"],
+    files: [
+      "Drawer/Close.vue",
+      "Drawer/Content.vue",
+      "Drawer/Description.vue",
+      "Drawer/Drawer.vue",
+      "Drawer/Overlay.vue",
+      "Drawer/Portal.vue",
+      "Drawer/Title.vue",
+      "Drawer/Trigger.vue",
+    ],
+  },
+  {
     name: "Dropdown Menu",
     value: "dropdown-menu",
     files: [

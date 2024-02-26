@@ -9,7 +9,7 @@
   import type DataTableRef from "datatables.net";
 
   const options = ref<Config>({
-    dom: "Q<'flex flex-col lg:flex-row w-full lg:items-center lg:justify-between gap-5 mb-5'Bf><'border rounded-lg't><'flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-between pt-3 p-5'li><''p>",
+    dom: "Q<'flex flex-col lg:flex-row w-full lg:items-center lg:justify-between gap-5 mb-5 lg:pr-1'Bf><'border rounded-lg't><'flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-between pt-3 p-5'li><''p>",
     select: true,
     autoWidth: true,
     responsive: true,
@@ -32,7 +32,7 @@
         data: "id.value",
         title: "ID",
         render(data, type, row, meta) {
-          return row.id.value ?? "N/A";
+          return row.id?.value ? row.id?.value : "N/A";
         },
       },
       { data: "name.first", title: "First Name" },
