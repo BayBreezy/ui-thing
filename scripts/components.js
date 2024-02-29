@@ -480,6 +480,13 @@ export default [
     files: ["Slider/Range.vue", "Slider/Slider.vue", "Slider/Thumb.vue", "Slider/Track.vue"],
   },
   {
+    name: "Splitpanes",
+    value: "splitpanes",
+    deps: ["splitpanes"],
+    devDeps: ["@types/splitpanes"],
+    files: ["Splitpanes/Splitpanes.vue", "Splitpanes/Pane.vue"],
+  },
+  {
     name: "Switch",
     value: "switch",
     files: ["Switch/Switch.vue", "Switch/Thumb.vue"],

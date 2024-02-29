@@ -804,49 +804,49 @@ export default [
         fileName: "Drawer/Close.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <DrawerClose v-bind="props">\n    <slot />\n  </DrawerClose>\n</template>\n\n<script lang="ts" setup>\n  import { DrawerClose } from "vaul-vue";\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerClose>, "$props">> {}\n  const props = defineProps<Props>();\n</script>\n',
+          '<template>\r\n  <DrawerClose v-bind="props">\r\n    <slot />\r\n  </DrawerClose>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { DrawerClose } from "vaul-vue";\r\n\r\n  interface Props\r\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerClose>, "$props">> {}\r\n  const props = defineProps<Props>();\r\n</script>\r\n',
       },
       {
         fileName: "Drawer/Content.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <UiDrawerPortal>\n    <slot name="overlay">\n      <UiDrawerOverlay />\n    </slot>\n    <slot name="content">\n      <DrawerContent v-bind="{ ...props, ...$attrs }" :class="styles({ class: props.class })">\n        <slot name="knob">\n          <div\n            className="mx-auto cursor-grab active:cursor-grabbing my-5 h-2 w-[60px] rounded-full bg-muted"\n          />\n        </slot>\n        <slot />\n      </DrawerContent>\n    </slot>\n  </UiDrawerPortal>\n</template>\n\n<script lang="ts" setup>\n  import { DrawerContent } from "vaul-vue";\n\n  defineOptions({ inheritAttrs: false });\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerContent>, "$props">> {}\n\n  const props = defineProps<Props & { class?: any }>();\n  const styles = tv({\n    base: "fixed bottom-0 left-0 right-0 z-50 mt-24 flex h-auto max-h-[95%] flex-col rounded-t-[10px] border bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/40",\n  });\n</script>\n',
+          '<template>\r\n  <UiDrawerPortal>\r\n    <slot name="overlay">\r\n      <UiDrawerOverlay />\r\n    </slot>\r\n    <slot name="content">\r\n      <DrawerContent v-bind="{ ...props, ...$attrs }" :class="styles({ class: props.class })">\r\n        <slot name="knob">\r\n          <div\r\n            className="mx-auto cursor-grab active:cursor-grabbing my-5 h-2 w-[60px] rounded-full bg-muted"\r\n          />\r\n        </slot>\r\n        <slot />\r\n      </DrawerContent>\r\n    </slot>\r\n  </UiDrawerPortal>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { DrawerContent } from "vaul-vue";\r\n\r\n  defineOptions({ inheritAttrs: false });\r\n\r\n  interface Props\r\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerContent>, "$props">> {}\r\n\r\n  const props = defineProps<Props & { class?: any }>();\r\n  const styles = tv({\r\n    base: "fixed bottom-0 left-0 right-0 z-50 mt-24 flex h-auto max-h-[95%] flex-col rounded-t-[10px] border bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/40",\r\n  });\r\n</script>\r\n',
       },
       {
         fileName: "Drawer/Description.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <DrawerDescription v-bind="props" :class="styles({ class: props.class })">\n    <slot>\n      {{ props.text }}\n    </slot>\n  </DrawerDescription>\n</template>\n\n<script lang="ts" setup>\n  import { DrawerDescription } from "vaul-vue";\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerDescription>, "$props">> {\n    class?: any;\n    text?: string;\n  }\n\n  const props = defineProps<Props>();\n\n  const styles = tv({\n    base: "text-sm text-muted-foreground",\n  });\n</script>\n',
+          '<template>\r\n  <DrawerDescription v-bind="props" :class="styles({ class: props.class })">\r\n    <slot>\r\n      {{ props.text }}\r\n    </slot>\r\n  </DrawerDescription>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { DrawerDescription } from "vaul-vue";\r\n\r\n  interface Props\r\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerDescription>, "$props">> {\r\n    class?: any;\r\n    text?: string;\r\n  }\r\n\r\n  const props = defineProps<Props>();\r\n\r\n  const styles = tv({\r\n    base: "text-sm text-muted-foreground",\r\n  });\r\n</script>\r\n',
       },
       {
         fileName: "Drawer/Drawer.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <DrawerRoot v-bind="props">\n    <slot />\n  </DrawerRoot>\n</template>\n\n<script lang="ts" setup>\n  import { DrawerRoot } from "vaul-vue";\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerRoot>, "$props">> {}\n  const props = defineProps<Props>();\n</script>\n',
+          '<template>\r\n  <DrawerRoot v-bind="props">\r\n    <slot />\r\n  </DrawerRoot>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { DrawerRoot } from "vaul-vue";\r\n\r\n  interface Props\r\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerRoot>, "$props">> {}\r\n  const props = defineProps<Props>();\r\n</script>\r\n',
       },
       {
         fileName: "Drawer/Overlay.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <DrawerOverlay v-bind="props" :class="styles({ class: props.class })" />\n</template>\n\n<script lang="ts" setup>\n  import { DrawerOverlay } from "vaul-vue";\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerOverlay>, "$props">> {}\n\n  const props = defineProps<Props & { class?: any }>();\n\n  const styles = tv({\n    base: "fixed inset-0 z-50 bg-black/40 backdrop-blur",\n  });\n</script>\n',
+          '<template>\r\n  <DrawerOverlay v-bind="props" :class="styles({ class: props.class })" />\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { DrawerOverlay } from "vaul-vue";\r\n\r\n  interface Props\r\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerOverlay>, "$props">> {}\r\n\r\n  const props = defineProps<Props & { class?: any }>();\r\n\r\n  const styles = tv({\r\n    base: "fixed inset-0 z-50 bg-black/40 backdrop-blur",\r\n  });\r\n</script>\r\n',
       },
       {
         fileName: "Drawer/Portal.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <DrawerPortal v-bind="props">\n    <slot />\n  </DrawerPortal>\n</template>\n\n<script lang="ts" setup>\n  import { DrawerPortal } from "vaul-vue";\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerPortal>, "$props">> {}\n\n  const props = defineProps<Props>();\n</script>\n',
+          '<template>\r\n  <DrawerPortal v-bind="props">\r\n    <slot />\r\n  </DrawerPortal>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { DrawerPortal } from "vaul-vue";\r\n\r\n  interface Props\r\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerPortal>, "$props">> {}\r\n\r\n  const props = defineProps<Props>();\r\n</script>\r\n',
       },
       {
         fileName: "Drawer/Title.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <DrawerTitle v-bind="props" :class="styles({ class: props.class })">\n    <slot>\n      {{ props.text }}\n    </slot>\n  </DrawerTitle>\n</template>\n\n<script lang="ts" setup>\n  import { DrawerTitle } from "vaul-vue";\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerTitle>, "$props">> {\n    class?: any;\n    text?: string;\n  }\n\n  const props = defineProps<Props>();\n\n  const styles = tv({\n    base: "text-lg font-semibold leading-none tracking-tight",\n  });\n</script>\n',
+          '<template>\r\n  <DrawerTitle v-bind="props" :class="styles({ class: props.class })">\r\n    <slot>\r\n      {{ props.text }}\r\n    </slot>\r\n  </DrawerTitle>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { DrawerTitle } from "vaul-vue";\r\n\r\n  interface Props\r\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerTitle>, "$props">> {\r\n    class?: any;\r\n    text?: string;\r\n  }\r\n\r\n  const props = defineProps<Props>();\r\n\r\n  const styles = tv({\r\n    base: "text-lg font-semibold leading-none tracking-tight",\r\n  });\r\n</script>\r\n',
       },
       {
         fileName: "Drawer/Trigger.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <DrawerTrigger v-bind="props">\n    <slot />\n  </DrawerTrigger>\n</template>\n\n<script lang="ts" setup>\n  import { DrawerTrigger } from "vaul-vue";\n\n  interface Props\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerTrigger>, "$props">> {}\n\n  const props = defineProps<Props>();\n</script>\n',
+          '<template>\r\n  <DrawerTrigger v-bind="props">\r\n    <slot />\r\n  </DrawerTrigger>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { DrawerTrigger } from "vaul-vue";\r\n\r\n  interface Props\r\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerTrigger>, "$props">> {}\r\n\r\n  const props = defineProps<Props>();\r\n</script>\r\n',
       },
     ],
     utils: [],
@@ -1836,6 +1836,29 @@ export default [
         dirPath: "components/UI",
         fileContent:
           '<template>\n  <SliderTrack :class="styles({ class: props.class })" v-bind="reactiveOmit(props, \'class\')">\n    <slot></slot>\n  </SliderTrack>\n</template>\n\n<script lang="ts" setup>\n  import { SliderTrack } from "radix-vue";\n  import type { SliderTrackProps } from "radix-vue";\n\n  const props = defineProps<\n    SliderTrackProps & {\n      /** Custom class(es) to add to parent element */\n      class?: any;\n    }\n  >();\n\n  const styles = tv({\n    base: "relative h-2 w-full grow overflow-hidden rounded-full bg-secondary",\n  });\n</script>\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "Splitpanes",
+    value: "splitpanes",
+    deps: ["splitpanes"],
+    devDeps: ["@types/splitpanes"],
+    files: [
+      {
+        fileName: "Splitpanes/Splitpanes.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <Splitpanes v-bind="forwarded" :class="styles({ class: props.class, horizontal })">\r\n    <slot />\r\n  </Splitpanes>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { useForwardPropsEmits } from "radix-vue";\r\n  import { Splitpanes } from "splitpanes";\r\n\r\n  import "splitpanes/dist/splitpanes.css";\r\n\r\n  const props = withDefaults(\r\n    defineProps<{\r\n      horizontal?: boolean;\r\n      pushOtherPanes?: boolean;\r\n      dblClickSplitter?: boolean;\r\n      rtl?: boolean;\r\n      firstSplitter?: boolean;\r\n      class?: any;\r\n      withHandle?: boolean;\r\n    }>(),\r\n    {\r\n      horizontal: false,\r\n      pushOtherPanes: true,\r\n      dblClickSplitter: true,\r\n      rtl: false,\r\n      firstSplitter: false,\r\n      withHandle: false,\r\n    }\r\n  );\r\n\r\n  const emits = defineEmits([\r\n    "ready",\r\n    "resize",\r\n    "resized",\r\n    "pane-click",\r\n    "pane-maximize",\r\n    "pane-add",\r\n    "pane-remove",\r\n    "splitter-click",\r\n  ]);\r\n\r\n  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class", "withHandle"), emits);\r\n\r\n  const styles = tv({\r\n    base: "flex h-full w-full",\r\n    variants: {\r\n      horizontal: {\r\n        true: "flex-row",\r\n        false: "flex-col",\r\n      },\r\n    },\r\n  });\r\n\r\n  onMounted(() => {\r\n    if (props.withHandle) {\r\n      const splitpanesVertical = document.querySelectorAll(\r\n        ".splitpanes--vertical>.splitpanes__splitter"\r\n      ) as NodeListOf<HTMLElement>;\r\n      const splitpanesHorizontal = document.querySelectorAll(\r\n        ".splitpanes--horizontal>.splitpanes__splitter"\r\n      ) as NodeListOf<HTMLElement>;\r\n\r\n      splitpanesVertical.forEach((splitpane) => {\r\n        const newDiv = document.createElement("div");\r\n        newDiv.classList.add(\r\n          `absolute`,\r\n          `top-1/2`,\r\n          `z-[1]`,\r\n          `-ml-1.5`,\r\n          `inline-flex`,\r\n          `h-4`,\r\n          `w-3`,\r\n          `-translate-y-1/2`,\r\n          `items-center`,\r\n          `justify-center`,\r\n          `rounded-sm`,\r\n          `bg-border`,\r\n          `content-[url(\'https://api.iconify.design/lucide:grip-vertical.svg?width=10&height=10&inline=true\')]`,\r\n          `dark:content-[url(\'https://api.iconify.design/lucide:grip-vertical.svg?color=white&width=10&height=10&inline=true\')]`\r\n        );\r\n        splitpane.appendChild(newDiv);\r\n      });\r\n      splitpanesHorizontal.forEach((splitpane) => {\r\n        const newDiv = document.createElement("div");\r\n        newDiv.classList.add(\r\n          `absolute`,\r\n          `left-1/2`,\r\n          `z-[1]`,\r\n          `-mt-1.5`,\r\n          `inline-flex`,\r\n          `h-3`,\r\n          `w-4`,\r\n          `-translate-x-1/2`,\r\n          `items-center`,\r\n          `justify-center`,\r\n          `rounded-sm`,\r\n          `bg-border`,\r\n          `content-[url(\'https://api.iconify.design/lucide:grip-horizontal.svg?width=10&height=10&inline=true\')]`,\r\n          `dark:content-[url(\'https://api.iconify.design/lucide:grip-horizontal.svg?color=white&width=10&height=10&inline=true\')]`\r\n        );\r\n        splitpane.appendChild(newDiv);\r\n      });\r\n    }\r\n  });\r\n</script>\r\n\r\n<style>\r\n  .splitpanes__splitter {\r\n    @apply relative before:absolute before:left-0 before:top-0 before:z-[1];\r\n  }\r\n\r\n  .splitpanes--vertical > .splitpanes__splitter {\r\n    @apply h-full w-px cursor-ew-resize bg-border before:-left-1 before:-right-1 before:h-full;\r\n  }\r\n\r\n  .splitpanes--horizontal > .splitpanes__splitter {\r\n    @apply h-px w-full cursor-ns-resize bg-border before:-bottom-1 before:-top-1 before:w-full;\r\n  }\r\n</style>\r\n',
+      },
+      {
+        fileName: "Splitpanes/Pane.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\r\n  <Pane v-bind="props">\r\n    <slot />\r\n  </Pane>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { Pane } from "splitpanes";\r\n\r\n  const props = withDefaults(\r\n    defineProps<{\r\n      size?: number | string | null;\r\n      minSize?: number | string;\r\n      maxSize?: number | string;\r\n    }>(),\r\n    {\r\n      size: null,\r\n      minSize: 0,\r\n      maxSize: 100,\r\n    }\r\n  );\r\n</script>\r\n',
       },
     ],
     utils: [],
