@@ -822,7 +822,7 @@ export default [
         fileName: "Drawer/Drawer.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\r\n  <DrawerRoot v-bind="props">\r\n    <slot />\r\n  </DrawerRoot>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { DrawerRoot } from "vaul-vue";\r\n\r\n  interface Props\r\n    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerRoot>, "$props">> {}\r\n  const props = defineProps<Props>();\r\n</script>\r\n',
+          '<template>\r\n  <DrawerRoot v-bind="forwarded">\r\n    <slot />\r\n  </DrawerRoot>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { useForwardPropsEmits } from "radix-vue";\r\n  import { DrawerRoot } from "vaul-vue";\r\n  import type { DrawerRootEmits, DrawerRootProps } from "vaul-vue";\r\n\r\n  const props = defineProps<DrawerRootProps>();\r\n  const emits = defineEmits<DrawerRootEmits>();\r\n  const forwarded = useForwardPropsEmits(props, emits);\r\n</script>\r\n',
       },
       {
         fileName: "Drawer/Overlay.vue",
