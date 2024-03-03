@@ -10,7 +10,7 @@
           <UiDrawerDescription>
             This is a basic drawer with a title and description.
             <br />
-            For some strange reason the Vaul won't pull to close when a form i s present inside it
+            For some strange reason the Vaul won't pull to close when a form is present inside it
           </UiDrawerDescription>
 
           <div class="relative">
@@ -29,6 +29,12 @@
               </fieldset>
             </form>
           </div>
+
+          <UiDrawerClose class="absolute right-4 top-3 h-7 w-7" asChild>
+            <UiButton variant="ghost" size="icon-sm" class="opacity-50 hover:opacity-100">
+              <Icon name="lucide:x" />
+            </UiButton>
+          </UiDrawerClose>
         </div>
       </UiDrawerContent>
     </UiDrawer>

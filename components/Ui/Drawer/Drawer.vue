@@ -1,13 +1,15 @@
 <template>
-  <DrawerRoot v-bind="props">
+  <DrawerRoot v-bind="forwarded">
     <slot />
   </DrawerRoot>
 </template>
 
 <script lang="ts" setup>
+  import { useForwardPropsEmits } from "radix-vue";
   import { DrawerRoot } from "vaul-vue";
+  import type { DrawerRootEmits, DrawerRootProps } from "vaul-vue";
 
-  interface Props
-    extends /* @vue-ignore */ Partial<Pick<InstanceType<typeof DrawerRoot>, "$props">> {}
-  const props = defineProps<Props>();
+  const props = defineProps<DrawerRootProps>();
+  const emits = defineEmits<DrawerRootEmits>();
+  const forwarded = useForwardPropsEmits(props, emits);
 </script>
