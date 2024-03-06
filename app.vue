@@ -1,13 +1,20 @@
 <template>
   <div>
-    <NuxtLoadingIndicator />
-    <NuxtPage />
+    <ConfigProvider :use-id="useIdFunction">
+      <NuxtLoadingIndicator />
+      <NuxtPage />
+    </ConfigProvider>
     <UiToastToaster />
     <UiVueSonner />
   </div>
 </template>
 
 <script lang="ts" setup>
+  // Used to provide id's to radix components in nuxt until Vue releases a useId
+  import { ConfigProvider } from "radix-vue";
+
+  const useIdFunction = () => useId();
+
   useSeoMeta({
     ogImage: "/cover.png",
     twitterTitle: "UI Thing",
