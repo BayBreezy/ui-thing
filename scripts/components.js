@@ -183,6 +183,12 @@ export default [
     files: ["Datatable.client.vue"],
   },
   {
+    name: "Date Field",
+    value: "date-field",
+    devDeps: ["@internationalized/date"],
+    files: ["DateField.vue"],
+  },
+  {
     name: "Datepicker",
     value: "datepicker",
     devDeps: ["@samk-dev/nuxt-vcalendar"],
@@ -480,11 +486,9 @@ export default [
     files: ["Slider/Range.vue", "Slider/Slider.vue", "Slider/Thumb.vue", "Slider/Track.vue"],
   },
   {
-    name: "Splitpanes",
-    value: "splitpanes",
-    deps: ["splitpanes"],
-    devDeps: ["@types/splitpanes"],
-    files: ["Splitpanes/Splitpanes.vue", "Splitpanes/Pane.vue"],
+    name: "Splitter",
+    value: "splitter",
+    files: ["Splitter/Splitter.vue", "Splitter/Panel.vue", "Splitter/Handle.vue"],
   },
   {
     name: "Switch",

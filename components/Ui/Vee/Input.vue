@@ -3,6 +3,7 @@
     <UiLabel
       :for="inputId"
       v-if="label"
+      :hint="labelHint"
       :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
       >{{ label }}</UiLabel
     >
@@ -41,6 +42,7 @@
 
   const props = defineProps<{
     label?: string;
+    labelHint?: string;
     icon?: string;
     hint?: string;
     disabled?: boolean;
