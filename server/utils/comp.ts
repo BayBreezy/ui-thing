@@ -664,7 +664,7 @@ export default [
       "datatables.net-responsive-dt@^2.5.1",
       "datatables.net-searchbuilder-dt@^1.7.0",
       "datatables.net-select-dt@^1.7.1",
-      "datatables.net-vue3@^2.1.3",
+      "datatables.net-vue3",
       "jszip",
     ],
     overrides: {
