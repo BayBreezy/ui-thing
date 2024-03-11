@@ -1,6 +1,7 @@
 ---
 title: Date Field
 description: Enables users to input specific dates within a designated field.
+label: New
 links:
   - title: Radix-Vue
     href: https://www.radix-vue.com/components/date-field

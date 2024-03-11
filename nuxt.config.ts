@@ -68,7 +68,7 @@ export default defineNuxtConfig({
   },
   content: {
     documentDriven: true,
-    navigation: { fields: ["icon"] },
+    navigation: { fields: ["icon", "label"] },
     markdown: {
       toc: { depth: 4, searchDepth: 4 },
     },

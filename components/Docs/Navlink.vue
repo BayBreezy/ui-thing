@@ -1,14 +1,19 @@
 <template>
   <nav :class="styles({ class: props.class })">
     <template v-for="(l, i) in links" :key="i">
-      <NuxtLink
-        class="line-clamp-1 text-ellipsis text-base text-muted-foreground underline-offset-2 hover:underline sm:text-sm"
-        exact-active-class="underline underline-offset-2"
-        :to="l._path"
-        :title="l.title"
-        v-if="!l.children"
-        >{{ l.title }}</NuxtLink
-      >
+      <div v-if="!l.children" class="flex items-center gap-4">
+        <NuxtLink
+          class="line-clamp-1 shrink-0 text-ellipsis text-base text-muted-foreground underline-offset-2 hover:underline sm:text-sm"
+          exact-active-class="underline underline-offset-2"
+          :to="l._path"
+          :title="l.title"
+        >
+          {{ l.title }}
+        </NuxtLink>
+        <UiBadge class="px-2 py-0 text-[10px] dark:bg-lime-500" v-if="l.label">{{
+          l.label
+        }}</UiBadge>
+      </div>
       <div v-else class="flex flex-col gap-4">
         <div class="flex items-center gap-2.5">
           <Icon v-if="l.icon" :name="l.icon" class="h-4 w-4" />
@@ -30,6 +35,7 @@
     title: string;
     icon?: string;
     children?: Link[];
+    label?: string;
   };
 
   const props = defineProps<{

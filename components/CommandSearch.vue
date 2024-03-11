@@ -26,6 +26,9 @@
               >
                 <Icon :name="nav.icon" class="h-4 w-4 text-muted-foreground/80" />
                 <span>{{ child.title }}</span>
+                <UiBadge class="ml-4 px-2 py-0 text-[10px] dark:bg-lime-500" v-if="child.label">{{
+                  child.label
+                }}</UiBadge>
               </UiCommandItem>
             </UiCommandGroup>
           </template>

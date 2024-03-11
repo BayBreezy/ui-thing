@@ -1,6 +1,7 @@
 ---
 title: Splitter
 description: A component that divides your layout into resizable sections.
+label: New
 links:
   - title: Radix-Vue
     href: https://www.radix-vue.com/components/splitter.html
