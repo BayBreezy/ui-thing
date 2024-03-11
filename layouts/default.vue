@@ -48,5 +48,8 @@
     ])
   );
 
-  const { activeId, setActive } = useActiveScroll(targets);
+  const { activeId, setActive } = useActiveScroll(targets, {
+    replaceHash: true,
+    overlayHeight: 80,
+  });
 </script>
