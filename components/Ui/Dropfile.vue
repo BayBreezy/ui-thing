@@ -69,10 +69,12 @@
     accept: props.accept,
   });
 
-  onChange((files: FileList) => {
-    handleDrop(Array.from(files || []));
-    reset();
-  });
+  onChange((files: FileList | null) => {
+    if (files?.length) {
+      handleDrop(Array.from(files || []))
+      reset()
+    }
+  })
 
   const dropZoneRef = ref<HTMLDivElement>();
   const emits = defineEmits<{

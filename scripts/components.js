@@ -176,8 +176,8 @@ export default [
       "jszip",
     ],
     overrides: {
-      "datatables.net": "1.13.10",
-      "datatables.net-dt": "1.13.10",
+      "datatables.net": "1.13.11",
+      "datatables.net-dt": "1.13.11",
     },
     plugins: ["datatables.client.ts"],
     files: ["Datatable.client.vue"],
