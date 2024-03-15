@@ -1,12 +1,21 @@
 <template>
-  <DataTable ref="table" :data="data" :class="props.class" :options="options">
-    <slot></slot>
+  <DataTable
+    :columns="columns"
+    :ajax="ajax"
+    ref="table"
+    :data="data"
+    :class="props.class"
+    :options="options"
+  >
+    <template v-for="(_, name) in $slots" v-slot:[name]="scope">
+      <slot :name="name" v-bind="scope"></slot>
+    </template>
   </DataTable>
 </template>
 
 <script lang="ts" setup generic="T">
   import type DataTableRef from "datatables.net";
-  import type { Config } from "datatables.net/types/types";
+  import type { Config } from "datatables.net";
 
   const table = shallowRef<{ dt: InstanceType<typeof DataTableRef<T[]>> } | null>(null);
 
@@ -14,6 +23,8 @@
     defineProps<{
       data?: Config["data"];
       class?: any;
+      columns?: Config["columns"];
+      ajax?: Config["ajax"];
       options?: Config;
     }>(),
     {
@@ -79,7 +90,12 @@
   table.dataTable thead > tr > td.sorting_asc,
   table.dataTable thead > tr > td.sorting_desc,
   table.dataTable thead > tr > td.sorting_asc_disabled,
-  table.dataTable thead > tr > td.sorting_desc_disabled {
+  table.dataTable thead > tr > td.sorting_desc_disabled,
+  /* V2 */
+  table.dataTable thead > tr > th.dt-orderable-asc,
+  table.dataTable thead > tr > th.dt-orderable-desc,
+  table.dataTable thead > tr > td.dt-orderable-asc,
+  table.dataTable thead > tr > td.dt-orderable-desc {
     @apply relative cursor-pointer pr-7;
   }
   table.dataTable thead > tr > th.sorting:before,
@@ -101,7 +117,16 @@
   table.dataTable thead > tr > td.sorting_asc_disabled:before,
   table.dataTable thead > tr > td.sorting_asc_disabled:after,
   table.dataTable thead > tr > td.sorting_desc_disabled:before,
-  table.dataTable thead > tr > td.sorting_desc_disabled:after {
+  table.dataTable thead > tr > td.sorting_desc_disabled:after,
+  /* V2 */
+  table.dataTable thead > tr > th.dt-orderable-asc:before,
+  table.dataTable thead > tr > th.dt-orderable-asc:after,
+  table.dataTable thead > tr > th.dt-orderable-desc:before,
+  table.dataTable thead > tr > th.dt-orderable-desc:after,
+  table.dataTable thead > tr > td.dt-orderable-asc:before,
+  table.dataTable thead > tr > td.dt-orderable-asc:after,
+  table.dataTable thead > tr > td.dt-orderable-desc:before,
+  table.dataTable thead > tr > td.dt-orderable-desc:after {
     @apply absolute right-2.5 block text-xs leading-3 opacity-25;
   }
   table.dataTable thead > tr > th.sorting:before,
@@ -113,7 +138,12 @@
   table.dataTable thead > tr > td.sorting_asc:before,
   table.dataTable thead > tr > td.sorting_desc:before,
   table.dataTable thead > tr > td.sorting_asc_disabled:before,
-  table.dataTable thead > tr > td.sorting_desc_disabled:before {
+  table.dataTable thead > tr > td.sorting_desc_disabled:before,
+  /* V2 */
+  table.dataTable thead > tr > th.dt-orderable-asc:before,
+  table.dataTable thead > tr > th.dt-orderable-desc:before,
+  table.dataTable thead > tr > td.dt-orderable-asc:before,
+  table.dataTable thead > tr > td.dt-orderable-desc:before {
     @apply bottom-[43%] h-4 w-4 bg-[url('https://api.iconify.design/lucide:chevron-up.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-up.svg?color=white')];
   }
   table.dataTable thead > tr > th.sorting:after,
@@ -125,13 +155,21 @@
   table.dataTable thead > tr > td.sorting_asc:after,
   table.dataTable thead > tr > td.sorting_desc:after,
   table.dataTable thead > tr > td.sorting_asc_disabled:after,
-  table.dataTable thead > tr > td.sorting_desc_disabled:after {
+  table.dataTable thead > tr > td.sorting_desc_disabled:after,
+  /* V2 */
+  table.dataTable thead > tr > th.dt-orderable-asc:after,
+  table.dataTable thead > tr > th.dt-orderable-desc:after,
+  table.dataTable thead > tr > td.dt-orderable-asc:after,
+  table.dataTable thead > tr > td.dt-orderable-desc:after {
     @apply top-[43%] h-4 w-4 bg-[url('https://api.iconify.design/lucide:chevron-down.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-down.svg?color=white')];
   }
   table.dataTable thead > tr > th.sorting_asc:before,
   table.dataTable thead > tr > th.sorting_desc:after,
   table.dataTable thead > tr > td.sorting_asc:before,
-  table.dataTable thead > tr > td.sorting_desc:after {
+  table.dataTable thead > tr > td.sorting_desc:after,
+  /* V2 */
+  table.dataTable thead > tr > th.dt-ordering-asc:before,
+  table.dataTable thead > tr > th.dt-ordering-desc:after {
     @apply opacity-80;
   }
   table.dataTable thead > tr > th.sorting_desc_disabled:after,
@@ -483,8 +521,16 @@
     @apply w-full overflow-x-auto;
   }
 
-  /* Export button styles */
+  /* Export button styles - v1 of datatables */
   .dataTables_wrapper .dt-buttons {
+    @apply inline-flex flex-wrap items-center gap-2;
+    button {
+      @apply inline-flex h-9 items-center gap-2 whitespace-nowrap rounded-md border bg-background px-3 text-sm text-muted-foreground hover:bg-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    }
+  }
+  /* V2 of datatables button styles. 
+  */
+  .dt-buttons {
     @apply inline-flex flex-wrap items-center gap-2;
     button {
       @apply inline-flex h-9 items-center gap-2 whitespace-nowrap rounded-md border bg-background px-3 text-sm text-muted-foreground hover:bg-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
@@ -496,6 +542,7 @@
     @apply fixed inset-0 z-50 flex flex-col items-center justify-center bg-background/50 backdrop-blur;
   }
 
+  /* Select box at bottom showing number of records being displayed - v1 of datatables */
   .dataTables_wrapper .dataTables_length {
     label {
       @apply inline-flex items-center gap-2 text-sm font-normal text-muted-foreground;
@@ -504,6 +551,18 @@
       }
     }
   }
+  /* Select box at the bottom showing how many items are being display - v2 */
+  .dt-length {
+    @apply inline-flex items-center gap-2;
+    label {
+      @apply text-sm font-normal text-muted-foreground;
+    }
+    select {
+      @apply h-9 w-[70px] cursor-pointer rounded-md border border-border bg-background px-2 py-1 transition focus:border-primary focus:outline-none focus-visible:border-input focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:text-sm;
+    }
+  }
+
+  /* Search box at the top styles - v1 of datatables */
   .dataTables_wrapper .dataTables_filter {
     label {
       @apply inline-flex w-full cursor-pointer items-center gap-2 text-sm font-normal text-muted-foreground;
@@ -512,12 +571,41 @@
       }
     }
   }
-  .dataTables_wrapper .dataTables_info {
+
+  /* Search box at the top styles -v2 */
+  .dt-search {
+    @apply flex items-center gap-3;
+    label {
+      @apply inline-flex cursor-pointer items-center gap-2 text-sm font-normal text-muted-foreground;
+    }
+    input {
+      @apply h-9 w-full rounded-md border border-border bg-background px-2 py-1 transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background focus-visible:border-input sm:text-sm md:w-[50%] lg:w-[300px];
+    }
+  }
+
+  /* Info text that shows `Showing X to XX of XXXX entries - v1  */
+  .dataTables_wrapper .dataTables_info,
+  .dt-info {
     @apply flex items-center gap-3 text-sm !text-muted-foreground;
   }
+
+  /* Pagination button styles - v1 datatables */
   .dataTables_wrapper .dataTables_paginate {
     .paginate_button {
       @apply ml-1 box-border inline-flex h-9 min-w-[36px] cursor-pointer items-center justify-center rounded bg-transparent px-3 py-2 text-center text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    }
+  }
+  /* Pagination button - v2 */
+  .dt-paging-button {
+    @apply ml-1 box-border inline-flex h-9 min-w-[36px] cursor-pointer items-center justify-center rounded bg-transparent px-3 py-2 text-center text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    &.current,
+    &:hover {
+      @apply bg-muted;
+    }
+    &.disabled,
+    &.disabled:hover,
+    &.disabled:active {
+      @apply pointer-events-none opacity-50;
     }
   }
   .dataTables_wrapper .dataTables_paginate .paginate_button.current,
@@ -535,7 +623,8 @@
   .dataTables_wrapper .dataTables_paginate .paginate_button:active {
     @apply bg-muted;
   }
-  .dataTables_wrapper .dataTables_paginate .ellipsis {
+  .dataTables_wrapper .dataTables_paginate .ellipsis,
+  .dt-paging .ellipsis {
     @apply inline-flex h-8 min-w-[32px] items-start justify-center text-sm;
   }
   .dataTables_wrapper .dataTables_scroll {
@@ -977,12 +1066,12 @@
   .dt-button-collection {
     @apply relative;
     [role="menu"] {
-      @apply absolute -left-40 top-7 flex w-[300px] flex-wrap gap-x-3 gap-y-2 rounded-md border bg-background p-2 shadow lg:w-[500px];
+      @apply absolute -left-20 top-7 flex min-w-[200px] flex-col rounded-md border bg-background py-2 shadow before:mx-2 before:mb-2 before:text-xs before:text-muted-foreground/70 before:content-['Select_columns'];
       button {
-        @apply h-7 px-2 text-xs;
+        @apply h-8 rounded-none border-none px-4 text-xs;
       }
       .dt-button.buttons-columnVisibility.dt-button-active {
-        @apply bg-primary text-primary-foreground;
+        @apply text-foreground after:ml-auto after:content-['✓'];
       }
     }
   }
