@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full items-center justify-center">
+  <div>
     <UiDatatable @ready="tableRef = $event" :data="users" :options="options" />
   </div>
 </template>
@@ -8,8 +8,8 @@
   import type { Config } from "datatables.net";
   import type DataTableRef from "datatables.net";
 
-  const options = ref<Config>({
-    dom: "Q<'flex flex-col lg:flex-row w-full lg:items-center lg:justify-between gap-5 mb-5 lg:pr-1'Bf><'border rounded-lg't><'flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-between pt-3 p-5'li><''p>",
+  const options: Config = {
+    dom: "Q<'flex flex-col lg:flex-row w-full lg:items-start lg:justify-between gap-5 mb-5 lg:pr-1'Bf><'border rounded-lg't><'flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-between pt-3 p-5'li><''p>",
     select: true,
     autoWidth: true,
     responsive: true,
@@ -50,7 +50,7 @@
       { data: "location.city", title: "City" },
       { data: "location.country", title: "Country" },
     ],
-  });
+  };
 
   const { data: users } = await useAsyncData(
     "randomUsers",

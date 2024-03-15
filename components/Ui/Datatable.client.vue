@@ -13,9 +13,22 @@
   </DataTable>
 </template>
 
-<script lang="ts" setup generic="T">
+<script lang="ts" setup generic="T extends Record<string, any>">
   import type DataTableRef from "datatables.net";
   import type { Config } from "datatables.net";
+
+  export type DataTablesNamedSlotProps<T> = {
+    /** The data to show in the cell (from the `columns.data` configuration) */
+    cellData: keyof T | null;
+    /** The column index for the cell (0-based index) */
+    colIndex: number;
+    /** The data object for the whole row */
+    rowData: T | Record<string, any>;
+    /** Row index for the cell (data index, not the display index) */
+    rowIndex: number;
+    /** Orthogonal data type */
+    type: string;
+  };
 
   const table = shallowRef<{ dt: InstanceType<typeof DataTableRef<T[]>> } | null>(null);
 
@@ -579,7 +592,7 @@
       @apply inline-flex cursor-pointer items-center gap-2 text-sm font-normal text-muted-foreground;
     }
     input {
-      @apply h-9 w-full rounded-md border border-border bg-background px-2 py-1 transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background focus-visible:border-input sm:text-sm md:w-[50%] lg:w-[300px];
+      @apply h-9 w-full rounded-md border border-border bg-background px-2 py-1 transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background focus-visible:border-input sm:text-sm md:w-[50%] lg:w-[250px];
     }
   }
 

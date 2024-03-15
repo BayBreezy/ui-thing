@@ -1,29 +1,36 @@
 <template>
-  <UiContainer class="py-10">
-    <h1>Tables test</h1>
-
+  <div>
     <UiDatatable :options="options" :columns="columns" :data="users">
-      <template #actions="props">
+      <template #actions="{ cellData }: { cellData: Staff }">
         <UiButton
           class="h-7 text-xs"
           size="sm"
           @click.stop="
             useSonner('Editing...', {
-              description: `You are editing the user ${props.cellData.name}.`,
+              description: `You are editing the user ${cellData?.name}.`,
             })
           "
           >Edit</UiButton
         >
       </template>
     </UiDatatable>
-  </UiContainer>
+  </div>
 </template>
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
   import type { Config, ConfigColumns } from "datatables.net";
 
-  const { data: users } = await useAsyncData<any[]>(
+  interface Staff {
+    name: string;
+    position: string;
+    office: string;
+    age: number;
+    start_date: string;
+    salary: string;
+  }
+
+  const { data: users } = await useAsyncData<Staff[]>(
     "fakerUsers",
     () => {
       return new Promise((resolve) => {
@@ -76,9 +83,21 @@
       "print",
       "csv",
     ],
-    dom: "Q<'flex flex-col lg:flex-row w-full lg:items-center lg:justify-between gap-5 mb-5'Bf><'border rounded-lg't><'flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-between pt-3 p-5'li><''p>",
+
     responsive: true,
     autoWidth: true,
     select: true,
+    layout: {
+      top1: "searchBuilder",
+      top1Start: {
+        buttons: true,
+      },
+      topStart: null,
+      topEnd: null,
+      bottomStart: null,
+      bottomEnd: {
+        paging: true,
+      },
+    },
   };
 </script>

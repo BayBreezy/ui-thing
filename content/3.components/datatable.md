@@ -1,6 +1,7 @@
 ---
 title: DataTable
 description: DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, built upon the foundations of progressive enhancement, that adds all of these advanced features to any HTML table.
+label: "Updated"
 links:
   - title: DataTables.net
     href: https://datatables.net/
@@ -70,18 +71,9 @@ app: {
 
 If you are not going to use the PDF export feature, you can remove the `script` tags from your `nuxt.config.ts` file.
 
-Also, adding this component will override the version of `datatables.net` & `datatables.net-dt` in your `package.json` file to the latest version `1.3.10`.
-
-```json
-{
-  "overrides": {
-    "datatables.net": "1.13.10",
-    "datatables.net-dt": "1.13.10"
-  }
-}
-```
-
 ## Usage
+
+### Dom
 
 Take note of how the [`dom`](https://datatables.net/reference/option/dom) option is configured in the code. We use it to structure the layout of the table.
 
@@ -91,7 +83,7 @@ Take note of how the [`dom`](https://datatables.net/reference/option/dom) option
 
 ```vue [DocsDatatableBasic.vue]
 <template>
-  <div class="flex w-full items-center justify-center">
+  <div>
     <UiDatatable @ready="tableRef = $event" :data="users" :options="options" />
   </div>
 </template>
@@ -100,8 +92,8 @@ Take note of how the [`dom`](https://datatables.net/reference/option/dom) option
   import type { Config } from "datatables.net";
   import type DataTableRef from "datatables.net";
 
-  const options = ref<Config>({
-    dom: "Q<'flex flex-col lg:flex-row w-full lg:items-center lg:justify-between gap-5 mb-5'Bf><'border rounded-lg't><'flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-between pt-3 p-5'li><''p>",
+  const options: Config = {
+    dom: "Q<'flex flex-col lg:flex-row w-full lg:items-start lg:justify-between gap-5 mb-5 lg:pr-1'Bf><'border rounded-lg't><'flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-between pt-3 p-5'li><''p>",
     select: true,
     autoWidth: true,
     responsive: true,
@@ -124,7 +116,7 @@ Take note of how the [`dom`](https://datatables.net/reference/option/dom) option
         data: "id.value",
         title: "ID",
         render(data, type, row, meta) {
-          return row.id.value ?? "N/A";
+          return row.id?.value ? row.id?.value : "N/A";
         },
       },
       { data: "name.first", title: "First Name" },
@@ -142,7 +134,7 @@ Take note of how the [`dom`](https://datatables.net/reference/option/dom) option
       { data: "location.city", title: "City" },
       { data: "location.country", title: "Country" },
     ],
-  });
+  };
 
   const { data: users } = await useAsyncData(
     "randomUsers",
@@ -154,6 +146,231 @@ Take note of how the [`dom`](https://datatables.net/reference/option/dom) option
   );
 
   const tableRef = shallowRef<InstanceType<typeof DataTableRef<any[]>> | null>(null);
+</script>
+```
+
+::
+
+### Custom component
+
+With the new version of DataTables.net, you can now use custom Vue components in your table.
+
+::ShowCase{component="DocsDatatableComponent"}
+
+#code
+
+```vue [DocsDatatableComponent.vue]
+<template>
+  <div>
+    <UiDatatable :options="options" :columns="columns" :data="users">
+      <template #actions="{ cellData }: { cellData: Staff }">
+        <UiButton
+          class="h-7 text-xs"
+          size="sm"
+          @click.stop="
+            useSonner('Editing...', {
+              description: `You are editing the user ${cellData?.name}.`,
+            })
+          "
+          >Edit</UiButton
+        >
+      </template>
+    </UiDatatable>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import type { DataTablesNamedSlotProps } from "~/components/Ui/Datatable.client.vue";
+  import type { Config, ConfigColumns } from "datatables.net";
+
+  interface Staff {
+    name: string;
+    position: string;
+    office: string;
+    age: number;
+    start_date: string;
+    salary: string;
+  }
+
+  const { data: users } = await useAsyncData<Staff[]>(
+    "fakerUsers",
+    () => {
+      return new Promise((resolve) => {
+        // create 1000 fake users
+        const users = Array.from({ length: 1000 }, () => {
+          return {
+            name: faker.person.fullName(),
+            position: faker.person.jobTitle(),
+            office: faker.location.city(),
+            age: faker.number.int(100),
+            start_date: useDateFormat(faker.date.past().toISOString(), "MMMM DD, YYYY").value,
+            salary: faker.finance.amount({ symbol: "$" }),
+          };
+        });
+        resolve(users);
+      });
+    },
+    { default: () => [] }
+  );
+
+  const columns: ConfigColumns[] = [
+    { data: "name", title: "Name" },
+    { data: "position", title: "Position" },
+    { data: "office", title: "Office" },
+    { data: "age", title: "Age" },
+    { data: "start_date", title: "Start date" },
+    { data: "salary", title: "Salary" },
+    {
+      data: null,
+      title: "",
+      className: "no-export",
+      searchable: false,
+      orderable: false,
+      name: "actions",
+      render: "#actions",
+      responsivePriority: 1,
+    },
+  ];
+
+  const options: Config = {
+    buttons: [
+      {
+        extend: "colvis",
+        text: "Columns",
+        columns: ":not(.no-export)",
+      },
+      "copy",
+      "excel",
+      "pdf",
+      "print",
+      "csv",
+    ],
+    dom: "Q<'flex flex-col lg:flex-row w-full lg:items-start lg:justify-between gap-5 mb-5'Bf><'border rounded-lg't><'flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-between pt-3 p-5'li><''p>",
+    responsive: true,
+    autoWidth: true,
+    select: true,
+  };
+</script>
+```
+
+::
+
+### Layout
+
+The new version of DataTables.net also allows you to use custom layouts for your table.
+
+You can read more about it [here](https://datatables.net/reference/option/layout)
+
+For this, you will actually need to add some custom classes for things to look how you want.
+
+::ShowCase{component="DocsDatatableLayout"}
+
+#code
+
+```vue [DocsDatatableLayout.vue]
+<template>
+  <div>
+    <UiDatatable :options="options" :columns="columns" :data="users">
+      <template #actions="{ cellData }: { cellData: Staff }">
+        <UiButton
+          class="h-7 text-xs"
+          size="sm"
+          @click.stop="
+            useSonner('Editing...', {
+              description: `You are editing the user ${cellData?.name}.`,
+            })
+          "
+          >Edit</UiButton
+        >
+      </template>
+    </UiDatatable>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import type { Config, ConfigColumns } from "datatables.net";
+
+  interface Staff {
+    name: string;
+    position: string;
+    office: string;
+    age: number;
+    start_date: string;
+    salary: string;
+  }
+
+  const { data: users } = await useAsyncData<Staff[]>(
+    "fakerUsers",
+    () => {
+      return new Promise((resolve) => {
+        // create 1000 fake users
+        const users = Array.from({ length: 1000 }, () => {
+          return {
+            name: faker.person.fullName(),
+            position: faker.person.jobTitle(),
+            office: faker.location.city(),
+            age: faker.number.int(100),
+            start_date: useDateFormat(faker.date.past().toISOString(), "MMMM DD, YYYY").value,
+            salary: faker.finance.amount({ symbol: "$" }),
+          };
+        });
+        resolve(users);
+      });
+    },
+    { default: () => [] }
+  );
+
+  const columns: ConfigColumns[] = [
+    { data: "name", title: "Name" },
+    { data: "position", title: "Position" },
+    { data: "office", title: "Office" },
+    { data: "age", title: "Age" },
+    { data: "start_date", title: "Start date" },
+    { data: "salary", title: "Salary" },
+    {
+      data: null,
+      title: "",
+      className: "no-export",
+      searchable: false,
+      orderable: false,
+      name: "actions",
+      render: "#actions",
+      responsivePriority: 1,
+    },
+  ];
+
+  const options: Config = {
+    buttons: [
+      {
+        extend: "colvis",
+        text: "Columns",
+        columns: ":not(.no-export)",
+      },
+      "copy",
+      "excel",
+      "pdf",
+      "print",
+      "csv",
+    ],
+
+    responsive: true,
+    autoWidth: true,
+    select: true,
+    layout: {
+      top1: "searchBuilder",
+      top1Start: {
+        buttons: true,
+      },
+      topStart: null,
+      topEnd: null,
+      bottomStart: null,
+      bottomEnd: {
+        paging: true,
+      },
+    },
+  };
 </script>
 ```
 
