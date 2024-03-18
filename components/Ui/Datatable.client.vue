@@ -731,7 +731,9 @@
     content: "◄";
   }
   table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td.dtr-control:before,
-  table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th.dtr-control:before {
+  table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th.dtr-control:before,
+  table.dataTable.dtr-inline.collapsed > tbody > tr.dtr-expanded > td.dtr-control:before,
+  table.dataTable.dtr-inline.collapsed > tbody > tr.dtr-expanded > th.dtr-control:before {
     @apply mr-2 inline-block h-4 w-4 bg-[url('https://api.iconify.design/lucide:chevron-down.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-down.svg?color=white')];
   }
   table.dataTable.dtr-inline.collapsed.compact > tbody > tr > td.dtr-control,
@@ -759,7 +761,11 @@
   table.dataTable.dtr-column > tbody > tr.parent td.dtr-control:before,
   table.dataTable.dtr-column > tbody > tr.parent th.dtr-control:before,
   table.dataTable.dtr-column > tbody > tr.parent td.control:before,
-  table.dataTable.dtr-column > tbody > tr.parent th.control:before {
+  table.dataTable.dtr-column > tbody > tr.parent th.control:before,
+  table.dataTable.dtr-column > tbody > tr.dtr-expanded td.dtr-control:before,
+  table.dataTable.dtr-column > tbody > tr.dtr-expanded th.dtr-control:before,
+  table.dataTable.dtr-column > tbody > tr.dtr-expanded td.control:before,
+  table.dataTable.dtr-column > tbody > tr.dtr-expanded th.control:before {
     @apply mr-2 inline-block h-4 w-4 bg-[url('https://api.iconify.design/lucide:chevron-down.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-down.svg?color=white')];
   }
 
@@ -783,60 +789,27 @@
   table.dataTable > tbody > tr.child span.dtr-title {
     @apply inline-block min-w-[80px] font-bold;
   }
+  /* Responsive modal */
   div.dtr-modal {
-    position: fixed;
-    box-sizing: border-box;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 100;
-    padding: 10em 1em;
+    @apply fixed left-0 top-0 z-[1000] box-border size-full;
   }
   div.dtr-modal div.dtr-modal-display {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 50%;
-    height: fit-content;
-    max-height: 75%;
-    overflow: auto;
-    margin: auto;
-    z-index: 102;
-    overflow: auto;
-    background-color: #f5f5f7;
-    border: 1px solid black;
-    border-radius: 0.5em;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    @apply absolute left-1/2 top-1/2 z-[102] max-h-[80%] w-full max-w-screen-sm -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-md border bg-background p-4 pb-0 md:px-7 md:py-4 md:pb-0 lg:max-h-[90%];
   }
   div.dtr-modal div.dtr-modal-content {
-    position: relative;
-    padding: 2.5em;
-  }
-  div.dtr-modal div.dtr-modal-content h2 {
-    margin-top: 0;
+    @apply relative flex flex-col p-0 text-[15px];
+    h2 {
+      @apply text-lg font-semibold text-foreground;
+    }
+    table tr td {
+      @apply space-x-10 pb-2 first:font-semibold [&:nth-child(2)]:pl-2;
+    }
   }
   div.dtr-modal div.dtr-modal-close {
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    width: 22px;
-    height: 22px;
-    text-align: center;
-    border-radius: 3px;
-    cursor: pointer;
-    z-index: 12;
+    @apply absolute right-2 top-2 z-[10] inline-flex size-6 cursor-pointer items-center justify-center rounded-md bg-muted/10 hover:bg-muted;
   }
   div.dtr-modal div.dtr-modal-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 101;
-    background: rgba(0, 0, 0, 0.6);
+    @apply fixed inset-0 z-[101] bg-background/20 backdrop-blur;
   }
 
   /* Search Builder Styles */
