@@ -61,136 +61,125 @@ npx ui-thing@latest add navigation-menu
 ```vue [DocsNavigationMenu.vue]
 <template>
   <div class="flex w-full items-center justify-center">
-    <UiMenubar>
-      <template v-for="(item, i) in menu" :key="i">
-        <UiMenubarMenu :value="item.value">
-          <UiMenubarTrigger class="cursor-pointer">
-            {{ item.trigger }}
-          </UiMenubarTrigger>
-
-          <UiMenubarContent>
-            <template v-for="(child, k) in item.items" :key="`child-${k}`">
-              <UiMenubarSeparator v-if="child.divider" />
-              <UiMenubarCheckboxItem
-                @select="(e) => e.preventDefault()"
-                v-else-if="child.type === 'check'"
-                :title="child.title"
-                :shortcut="child.shortcut"
-                v-model:checked="child.model.value"
+    <UiNavigationMenu>
+      <UiNavigationMenuList>
+        <UiNavigationMenuItem>
+          <UiNavigationMenuTrigger title="Beach day" />
+          <UiNavigationMenuContent>
+            <div class="grid w-[600px] grid-cols-2 gap-5 p-4">
+              <img
+                src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"
+                alt="Beach"
+                class="h-full w-full rounded-md object-cover"
               />
-              <UiMenubarRadioGroup v-else-if="child.type === 'radio'" v-model="child.model.value">
-                <template v-for="(o, m) in child.options" :key="m">
-                  <UiMenubarRadioItem
-                    @select="(e) => e.preventDefault()"
-                    :title="o.title"
-                    :shortcut="o.shortcut"
-                    :value="o.value"
-                  />
-                </template>
-              </UiMenubarRadioGroup>
-              <UiMenubarItem
-                v-else-if="!child.divider && !child.items"
-                :title="child.title"
-                :inset="child.inset"
-                :shortcut="child.shortcut"
-                :disabled="child.disabled"
+              <ul class="flex flex-col gap-2">
+                <li
+                  v-for="(item, i) in beachAmenities"
+                  :key="i"
+                  class="rounded-md p-3 text-sm hover:bg-muted"
+                >
+                  <p class="mb-1 font-semibold leading-none text-foreground">{{ item.title }}</p>
+                  <p class="line-clamp-2 text-muted-foreground">{{ item.description }}</p>
+                </li>
+              </ul>
+            </div>
+          </UiNavigationMenuContent>
+        </UiNavigationMenuItem>
+        <UiNavigationMenuItem>
+          <UiNavigationMenuTrigger title="Components" />
+          <UiNavigationMenuContent>
+            <ul class="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              <DocsNavigationMenuListItem
+                v-for="item in components"
+                :key="item.title"
+                :title="item.title"
+                :href="item.href"
+              >
+                {{ item.description }}
+              </DocsNavigationMenuListItem>
+            </ul>
+          </UiNavigationMenuContent>
+        </UiNavigationMenuItem>
+        <UiNavigationMenuItem>
+          <UiNavigationMenuTrigger title="Learn more" />
+          <UiNavigationMenuContent>
+            <div class="grid w-[500px] grid-cols-2 place-items-center gap-5 p-3">
+              <img
+                src="https://www.radix-vue.com/logo.svg"
+                alt="Radix Vue Logo"
+                class="h-full w-full"
               />
-              <UiMenubarSub v-else-if="child.items">
-                <UiMenubarSubTrigger :title="child.title" />
-                <UiMenubarSubContent class="w-44">
-                  <template v-for="(kid, j) in child.items" :key="`kid-${j}`">
-                    <UiMenubarSeparator v-if="kid.divider" />
-                    <UiMenubarItem :inset="kid.inset" v-else :title="kid.title" :icon="kid.icon" />
-                  </template>
-                </UiMenubarSubContent>
-              </UiMenubarSub>
-            </template>
-          </UiMenubarContent>
-        </UiMenubarMenu>
-      </template>
-    </UiMenubar>
+              <div>
+                <p class="text-lg font-semibold text-foreground">Radix Vue</p>
+                <p class="mt-2 text-muted-foreground">
+                  Unstyled, accessible components for building high-quality design systems and web
+                  apps in Vue.
+                </p>
+              </div>
+            </div>
+          </UiNavigationMenuContent>
+        </UiNavigationMenuItem>
+        <UiNavigationMenuItem>
+          <UiNavigationMenuLink asChild>
+            <UiButton variant="ghost">Documentation</UiButton>
+          </UiNavigationMenuLink>
+        </UiNavigationMenuItem>
+      </UiNavigationMenuList>
+    </UiNavigationMenu>
   </div>
 </template>
 
 <script lang="ts" setup>
-  const showBookmarks = ref(false);
-  const showURLs = ref(false);
-  const person = ref();
-  const menu = [
+  const beachAmenities = [
     {
-      trigger: "File",
-      value: "file",
-      items: [
-        { title: "New Tab", shortcut: "⌘T" },
-        { title: "New Window", shortcut: "⌘NW" },
-        { title: "New Incognito Window", disabled: true },
-        { divider: true },
-        {
-          title: "Share",
-          items: [
-            { title: "WhatsApp", icon: "logos:whatsapp-icon" },
-            { title: "Facebook", icon: "logos:facebook" },
-            { title: "Twitter", icon: "logos:twitter" },
-          ],
-        },
-        { divider: true },
-        { title: "Print", shortcut: "⌘P" },
-      ],
+      title: "Sun",
+      description: "The Sun is the star at the center of the Solar System.",
     },
     {
-      trigger: "Edit",
-      value: "edit",
-      items: [
-        { title: "Undo", shortcut: "⌘Z" },
-        { title: "Redo", shortcut: "⇧⌘Z" },
-        { divider: true },
-        {
-          title: "Find",
-          items: [
-            { title: "Search the web" },
-            { divider: true },
-            { title: "Find..." },
-            { title: "Find Next" },
-            { title: "Find Previous" },
-          ],
-        },
-        { divider: true },
-        { title: "Cut" },
-        { title: "Copy" },
-        { title: "Paste" },
-      ],
+      title: "Sand",
+      description:
+        "Sand is a granular material composed of finely divided rock and mineral particles.",
     },
     {
-      trigger: "View",
-      value: "view",
-      items: [
-        { title: "Always show bookmarks bar", model: showBookmarks, type: "check" },
-        { title: "Always show full URLs", model: showURLs, type: "check" },
-        { divider: true },
-        { title: "Reload", shortcut: "⌘R", inset: true },
-        { title: "Force reload", shortcut: "⇧⌘R", disabled: true, inset: true },
-        { divider: true },
-        { title: "Toggle fullscreen", inset: true },
-        { title: "Hide sidebar", inset: true },
-      ],
+      title: "Water",
+      description:
+        "Water is an inorganic, transparent, tasteless, odorless, and nearly colorless chemical substance.",
+    },
+  ];
+  const components: { title: string; href: string; description: string }[] = [
+    {
+      title: "Alert Dialog",
+      href: "/components/alertdialog",
+      description:
+        "A modal dialog that interrupts the user with important content and expects a response.",
     },
     {
-      trigger: "Profile",
-      value: "profile",
-      items: [
-        {
-          model: person,
-          type: "radio",
-          options: [
-            { title: "Andy", value: "andy" },
-            { title: "Bob", value: "bob" },
-            { title: "Charlie", value: "charlie" },
-          ],
-        },
-        { divider: true },
-        { title: "Edit", shortcut: "⌘E", inset: true },
-        { title: "Add profile", shortcut: "⇧⌘P", inset: true },
-      ],
+      title: "Hover Card",
+      href: "/components/hovercard",
+      description: "For sighted users to preview content available behind a link.",
+    },
+    {
+      title: "Progress",
+      href: "/components/progress",
+      description:
+        "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    },
+    {
+      title: "Scroll-area",
+      href: "/components/scrollarea",
+      description: "Visually or semantically separates content.",
+    },
+    {
+      title: "Tabs",
+      href: "/components/tabs",
+      description:
+        "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+    },
+    {
+      title: "Tooltip",
+      href: "/components/tooltip",
+      description:
+        "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
     },
   ];
 </script>
