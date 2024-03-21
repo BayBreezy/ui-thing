@@ -1,7 +1,9 @@
 <template>
   <NavigationMenuRoot :class="styles({ class: props.class })" v-bind="forwarded">
     <slot></slot>
-    <UiNavigationMenuViewport />
+    <slot name="viewport">
+      <UiNavigationMenuViewport />
+    </slot>
   </NavigationMenuRoot>
 </template>
 
