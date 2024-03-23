@@ -33,7 +33,7 @@
   "dependencies": {
     "@morev/vue-transitions": "^3.0.2",
     "@nuxt/content": "^2.12.1",
-    "@tanstack/vue-table": "^8.14.0",
+    "@tanstack/vue-table": "^8.15.0",
     "@unovis/ts": "^1.3.5",
     "@vee-validate/nuxt": "^4.12.6",
     "@vee-validate/zod": "^4.12.6",
