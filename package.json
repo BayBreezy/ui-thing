@@ -18,7 +18,7 @@
     "@internationalized/date": "^3.5.2",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxtjs/color-mode": "^3.3.3",
-    "@nuxtjs/seo": "^2.0.0-rc.9",
+    "@nuxtjs/seo": "^2.0.0-rc.10",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@samk-dev/nuxt-vcalendar": "^1.0.2",
     "@tailwindcss/typography": "^0.5.10",
