@@ -30,7 +30,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { useId } from "radix-vue";
   import type { PinInputRootProps } from "radix-vue";
 
   const props = defineProps<
@@ -49,9 +48,7 @@
     complete: [value: string[]];
   }>();
 
-  defineOptions({ inheritAttrs: false });
-
-  const inputId = useId(props.id);
+  const inputId = props.id || useId();
 
   const { errorMessage, value } = useField(() => props.name || inputId, props.rules, {
     initialValue: props.modelValue || [],

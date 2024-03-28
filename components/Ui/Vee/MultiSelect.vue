@@ -47,8 +47,6 @@
 
   import "@vueform/multiselect/themes/default.css";
 
-  import { useId } from "radix-vue";
-
   const multiselect = shallowRef<InstanceType<typeof Multiselect> | null>(null);
 
   interface Props
@@ -88,9 +86,7 @@
     "ready",
   ]);
 
-  defineOptions({ inheritAttrs: false });
-
-  const inputId = useId(props.id);
+  const inputId = props.id || useId();
 
   const { errorMessage, value } = useField(() => props.name || inputId, props.rules, {
     initialValue: props.modelValue,

@@ -24,8 +24,6 @@
 </script>
 
 <script lang="ts" setup>
-  import { useId } from "radix-vue";
-
   defineOptions({ inheritAttrs: false });
 
   const id = useId();

@@ -46,8 +46,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { useId } from "radix-vue";
-
   const props = withDefaults(
     defineProps<{
       label?: string;
@@ -68,9 +66,7 @@
     }
   );
 
-  defineOptions({ inheritAttrs: false });
-
-  const inputId = useId(props.id);
+  const inputId = props.id || useId();
 
   const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));
 

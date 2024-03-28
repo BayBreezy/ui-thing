@@ -42,8 +42,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { useId } from "radix-vue";
-
   const props = defineProps<{
     label?: string;
     icon?: string;
@@ -64,9 +62,7 @@
     base: "flex gap-3",
   });
 
-  defineOptions({ inheritAttrs: false });
-
-  const inputId = useId(props.id);
+  const inputId = props.id || useId();
 
   const { errorMessage, checked, handleChange } = useField(
     () => props.name || inputId,
