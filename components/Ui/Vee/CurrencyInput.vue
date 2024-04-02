@@ -1,0 +1,69 @@
+<template>
+  <div class="w-full">
+    <UiLabel
+      :for="inputId"
+      v-if="label"
+      :hint="labelHint"
+      :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
+      >{{ label }}</UiLabel
+    >
+    <div class="relative">
+      <slot name="icon">
+        <span v-if="hasIcon" class="absolute inset-y-0 left-3 flex items-center justify-center">
+          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />
+        </span>
+      </slot>
+      <UiCurrencyInput
+        type="text"
+        v-model="value"
+        :id="inputId"
+        :name="name"
+        :disabled="disabled"
+        v-bind="$attrs"
+        :class="[hasIcon && 'pl-9']"
+        :placeholder="placeholder"
+        :options="options"
+      />
+    </div>
+    <TransitionSlide group tag="div">
+      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">
+        {{ hint }}
+      </p>
+
+      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">
+        {{ errorMessage }}
+      </p>
+    </TransitionSlide>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import type { CurrencyInputOptions } from "vue-currency-input";
+
+  const props = defineProps<{
+    label?: string;
+    labelHint?: string;
+    icon?: string;
+    hint?: string;
+    disabled?: boolean;
+    modelValue?: string;
+    name?: string;
+    id?: string;
+    rules?: any;
+    validateOnMount?: boolean;
+    type?: string;
+    placeholder?: string;
+    options?: CurrencyInputOptions;
+  }>();
+
+  const inputId = useId();
+
+  const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));
+
+  const { errorMessage, value } = useField(() => props.name || inputId, props.rules, {
+    initialValue: props.modelValue,
+    label: props.label,
+    validateOnMount: props.validateOnMount,
+    syncVModel: true,
+  });
+</script>

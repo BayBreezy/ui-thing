@@ -52,6 +52,7 @@
     "radix-vue": "^1.6.1",
     "tailwind-variants": "^0.2.1",
     "vaul-vue": "^0.1.0",
+    "vue-currency-input": "^3.1.0",
     "vue-sonner": "^1.1.2",
     "vue-use-active-scroll": "^1.1.1",
     "zod": "^3.22.4"
