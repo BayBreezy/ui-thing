@@ -600,11 +600,11 @@ export default [
   },
   {
     name: "VeeCurrencyInput",
-    value: "vee-currencyinput",
+    value: "vee-currency-input",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
     nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
-    components: ["currencyinput", "label"],
+    components: ["currency-input", "label"],
     files: ["Vee/CurrencyInput.vue"],
   },
   {
