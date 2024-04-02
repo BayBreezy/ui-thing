@@ -165,6 +165,12 @@ export default [
     ],
   },
   {
+    name: "Currency Input",
+    value: "currency-input",
+    deps: ["vue-currency-input"],
+    files: ["CurrencyInput.vue"],
+  },
+  {
     name: "DataTables.net",
     value: "datatable",
     deps: [
