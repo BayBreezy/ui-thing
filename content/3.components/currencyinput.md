@@ -1,6 +1,7 @@
 ---
 title: Currency Input
 description: Displays a form input field for currency values.
+label: New
 links:
   - title: Currency Input
     href: https://dm4t2.github.io/vue-currency-input/

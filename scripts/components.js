@@ -599,6 +599,15 @@ export default [
     files: ["Vee/Checkbox.vue"],
   },
   {
+    name: "VeeCurrencyInput",
+    value: "vee-currencyinput",
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
+    askValidator: true,
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
+    components: ["currencyinput", "label"],
+    files: ["Vee/CurrencyInput.vue"],
+  },
+  {
     name: "VeeDatepicker",
     value: "vee-datepicker",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],

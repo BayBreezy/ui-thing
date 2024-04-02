@@ -2243,6 +2243,25 @@ export default [
     plugins: [],
   },
   {
+    name: "VeeCurrencyInput",
+    value: "vee-currencyinput",
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
+    askValidator: true,
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
+    components: ["currencyinput", "label"],
+    files: [
+      {
+        fileName: "Vee/CurrencyInput.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <div class="w-full">\n    <UiLabel\n      :for="inputId"\n      v-if="label"\n      :hint="labelHint"\n      :class="[disabled && \'text-muted-foreground\', errorMessage && \'text-destructive\', \'mb-2\']"\n      >{{ label }}</UiLabel\n    >\n    <div class="relative">\n      <slot name="icon">\n        <span v-if="hasIcon" class="absolute inset-y-0 left-3 flex items-center justify-center">\n          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />\n        </span>\n      </slot>\n      <UiCurrencyInput\n        type="text"\n        v-model="value"\n        :id="inputId"\n        :name="name"\n        :disabled="disabled"\n        v-bind="$attrs"\n        :class="[hasIcon && \'pl-9\']"\n        :placeholder="placeholder"\n        :options="options"\n      />\n    </div>\n    <TransitionSlide group tag="div">\n      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">\n        {{ hint }}\n      </p>\n\n      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">\n        {{ errorMessage }}\n      </p>\n    </TransitionSlide>\n  </div>\n</template>\n\n<script lang="ts" setup>\n  import type { CurrencyInputOptions } from "vue-currency-input";\n\n  const props = defineProps<{\n    label?: string;\n    labelHint?: string;\n    icon?: string;\n    hint?: string;\n    disabled?: boolean;\n    modelValue?: string;\n    name?: string;\n    id?: string;\n    rules?: any;\n    validateOnMount?: boolean;\n    type?: string;\n    placeholder?: string;\n    options?: CurrencyInputOptions;\n  }>();\n\n  const inputId = useId();\n\n  const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));\n\n  const { errorMessage, value } = useField(() => props.name || inputId, props.rules, {\n    initialValue: props.modelValue,\n    label: props.label,\n    validateOnMount: props.validateOnMount,\n    syncVModel: true,\n  });\n</script>\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "VeeDatepicker",
     value: "vee-datepicker",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
