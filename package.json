@@ -36,7 +36,6 @@
     "@tanstack/vue-table": "^8.15.3",
     "@unovis/ts": "^1.3.5",
     "@vee-validate/nuxt": "^4.12.6",
-    "@vee-validate/yup": "^4.12.6",
     "@vee-validate/zod": "^4.12.6",
     "@vueform/multiselect": "^2.6.7",
     "@vueuse/math": "^10.9.0",
