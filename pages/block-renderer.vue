@@ -1,6 +1,6 @@
 <template>
-  <NuxtLayout name="blank">
-    <component :is="params.component" />
+  <NuxtLayout name="blank" :class="[$colorMode.value]">
+    <component :is="params.component" :class="params.containerClass" />
   </NuxtLayout>
 </template>
 
