@@ -571,6 +571,11 @@ export default [
     files: ["Toggle.vue"],
   },
   {
+    name: "Toggle Group",
+    value: "toggle-group",
+    files: ["ToggleGroup/ToggleGroup.vue", "ToggleGroup/ToggleGroupItem.vue"],
+  },
+  {
     name: "Tooltip",
     value: "tooltip",
     files: [
