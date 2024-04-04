@@ -27,19 +27,35 @@
           </UiToggleGroupItem>
         </UiToggleGroup>
       </div>
-      <UiTooltip v-if="codeBlock">
-        <UiTooltipTrigger asChild>
-          <UiButton
-            @click="copy(codeBlock)"
-            class="size-8 rounded-md"
-            size="icon-sm"
-            variant="outline"
-          >
-            <Icon :name="copied ? 'lucide:check' : 'lucide:copy'" class="size-3.5" />
-          </UiButton>
-        </UiTooltipTrigger>
-        <UiTooltipContent align="center">Click to copy the source code</UiTooltipContent>
-      </UiTooltip>
+      <div class="flex items-center gap-3">
+        <UiTooltip v-if="externalViewLink">
+          <UiTooltipTrigger asChild>
+            <UiButton
+              target="_blank"
+              :href="externalViewLink"
+              class="size-8 rounded-md"
+              size="icon-sm"
+              variant="outline"
+            >
+              <Icon name="lucide:square-arrow-out-up-right" class="size-3.5" />
+            </UiButton>
+          </UiTooltipTrigger>
+          <UiTooltipContent align="center">External view</UiTooltipContent>
+        </UiTooltip>
+        <UiTooltip v-if="codeBlock">
+          <UiTooltipTrigger asChild>
+            <UiButton
+              @click="copy(codeBlock)"
+              class="size-8 rounded-md"
+              size="icon-sm"
+              variant="outline"
+            >
+              <Icon :name="copied ? 'lucide:check' : 'lucide:copy'" class="size-3.5" />
+            </UiButton>
+          </UiTooltipTrigger>
+          <UiTooltipContent align="center">Click to copy the source code</UiTooltipContent>
+        </UiTooltip>
+      </div>
     </div>
 
     <div class="relative h-[--container-height] rounded-lg bg-muted">
@@ -59,7 +75,7 @@
               <iframe
                 v-if="!isLoading"
                 @load="isLoading = false"
-                :src="`/block-renderer?component=${props.component}&containerClass=${containerClass ?? ''}`"
+                :src="externalViewLink"
                 class="relative z-20 h-[--container-height] w-full bg-background"
               ></iframe>
             </TransitionFade>
@@ -116,5 +132,9 @@
     }
   );
 
-  const { copied, copy, isSupported } = useClipboard({ copiedDuring: 2500, legacy: true });
+  const { copied, copy } = useClipboard({ copiedDuring: 2500, legacy: true });
+
+  const externalViewLink = computed(() => {
+    return `/block-renderer?component=${props.component}&containerClass=${props.containerClass ?? ""}`;
+  });
 </script>
