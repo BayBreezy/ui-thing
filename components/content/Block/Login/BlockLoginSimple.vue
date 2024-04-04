@@ -1,13 +1,13 @@
 <template>
   <div class="flex h-screen items-center justify-center">
     <div class="w-full max-w-[330px] px-5">
-      <h1 class="text-3xl font-bold tracking-tight">Log in</h1>
+      <h1 class="text-2xl font-bold tracking-tight lg:text-3xl">Log in</h1>
       <p class="mt-1 text-muted-foreground">Enter your email & password to log in.</p>
 
       <form class="mt-10" @submit="submit">
         <fieldset :disabled="isSubmitting" class="grid gap-5">
           <div>
-            <UiVeeInput label="Email" type="email" name="email" />
+            <UiVeeInput label="Email" type="email" name="email" placeholder="john@example.com" />
           </div>
           <div>
             <UiVeeInput label="Password" type="password" name="password" />
@@ -17,9 +17,16 @@
           </div>
         </fieldset>
       </form>
-      <p class="mt-8 text-center text-sm text-muted-foreground">
+      <p class="mt-8 text-sm">
+        <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#"
+          >Forgot password?</NuxtLink
+        >
+      </p>
+      <p class="mt-4 text-sm text-muted-foreground">
         Don't have an account?
-        <NuxtLink class="font-semibold text-primary" to="#">Create one</NuxtLink>
+        <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#"
+          >Create account</NuxtLink
+        >
       </p>
     </div>
   </div>

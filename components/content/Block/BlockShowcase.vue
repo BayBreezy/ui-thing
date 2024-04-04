@@ -5,70 +5,75 @@
       '--container-height': props.iframeHeight || '600px',
     }"
   >
-    <ClientOnly>
-      <UiTabs defaultValue="preview">
-        <div class="mb-5 flex items-center justify-between">
-          <UiTabsList>
-            <UiTabsTrigger value="preview">Preview</UiTabsTrigger>
-            <UiTabsTrigger value="code">Code</UiTabsTrigger>
-          </UiTabsList>
-
-          <div
-            class="hidden h-[28px] items-center gap-1.5 rounded-md border p-[2px] shadow-sm md:flex"
-          >
-            <ToggleGroupRoot
-              type="single"
-              default-value="100"
-              @update:model-value="
-                (value) => {
-                  resizableRef?.resize(parseInt(value));
-                }
-              "
-            >
-              <ToggleGroupItem value="100" class="rounded-sm p-0">
-                <UiToggle class="size-5" as="span"><Icon name="lucide:laptop" /></UiToggle>
-              </ToggleGroupItem>
-              <ToggleGroupItem value="60" class="rounded-sm p-0">
-                <UiToggle class="size-5" as="span"><Icon name="lucide:tablet" /></UiToggle>
-              </ToggleGroupItem>
-              <ToggleGroupItem value="30" class="rounded-sm p-0">
-                <UiToggle class="size-5" as="span"><Icon name="lucide:smartphone" /></UiToggle>
-              </ToggleGroupItem>
-            </ToggleGroupRoot>
-          </div>
-        </div>
-        <UiTabsContent
-          forceMount
-          value="preview"
-          class="relative h-[--container-height] rounded-lg bg-muted"
+    <div class="mb-5 flex items-center justify-between gap-5">
+      <div class="flex h-8 items-center rounded-md border p-0.5 shadow-sm">
+        <UiToggleGroup
+          type="single"
+          default-value="100"
+          @update:model-value="
+            (value) => {
+              resizableRef?.resize(parseInt(value));
+            }
+          "
         >
-          <UiSplitter id="block-resizable" direction="horizontal" class="relative z-10">
-            <UiSplitterPanel
-              @ready="resizableRef = $event"
-              id="block-resizable-panel-1"
-              class="relative rounded-lg border bg-background transition-all"
-              :default-size="100"
-              :min-size="30"
-            >
+          <UiToggleGroupItem class="size-6 rounded-sm p-0" value="100">
+            <Icon class="size-3.5" name="lucide:monitor" />
+          </UiToggleGroupItem>
+          <UiToggleGroupItem class="size-6 rounded-sm p-0" value="60">
+            <Icon class="size-3.5" name="lucide:tablet" />
+          </UiToggleGroupItem>
+          <UiToggleGroupItem value="40" class="size-6 rounded-sm p-0">
+            <Icon class="size-3.5" name="lucide:smartphone" />
+          </UiToggleGroupItem>
+        </UiToggleGroup>
+      </div>
+      <UiTooltip v-if="codeBlock">
+        <UiTooltipTrigger asChild>
+          <UiButton
+            @click="copy(codeBlock)"
+            class="size-8 rounded-md"
+            size="icon-sm"
+            variant="outline"
+          >
+            <Icon :name="copied ? 'lucide:check' : 'lucide:copy'" class="size-3.5" />
+          </UiButton>
+        </UiTooltipTrigger>
+        <UiTooltipContent align="center">Click to copy the source code</UiTooltipContent>
+      </UiTooltip>
+    </div>
+
+    <div class="relative h-[--container-height] rounded-lg bg-muted">
+      <ClientOnly>
+        <UiSplitter id="block-resizable" direction="horizontal" class="relative z-10">
+          <UiSplitterPanel
+            @ready="resizableRef = $event"
+            id="block-resizable-panel-1"
+            class="relative rounded-lg border bg-background transition-all"
+            :default-size="100"
+            :min-size="40"
+          >
+            <TransitionFade>
+              <div v-if="isLoading" class="flex h-full items-center justify-center">
+                <Icon class="size-20" name="svg-spinners:blocks-wave" />
+              </div>
               <iframe
-                v-show="!isLoading"
+                v-if="!isLoading"
                 @load="isLoading = false"
-                :src="`/block-renderer?component=${props.component}&containerClass=${containerClass}`"
+                :src="`/block-renderer?component=${props.component}&containerClass=${containerClass ?? ''}`"
                 class="relative z-20 h-[--container-height] w-full bg-background"
               ></iframe>
-            </UiSplitterPanel>
-            <UiSplitterHandle class="bg-transparent" />
-            <UiSplitterPanel id="block-resizable-panel-2" :default-size="0" :min-size="0" />
-          </UiSplitter>
-        </UiTabsContent>
-      </UiTabs>
-    </ClientOnly>
+            </TransitionFade>
+          </UiSplitterPanel>
+          <UiSplitterHandle class="bg-transparent" />
+          <UiSplitterPanel id="block-resizable-panel-2" :default-size="0" :min-size="0" />
+        </UiSplitter>
+      </ClientOnly>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import { ToggleGroupItem, ToggleGroupRoot } from "radix-vue";
-  import { codeToHtml } from "shiki";
+  import type { SplitterPanel } from "radix-vue";
 
   const props = withDefaults(
     defineProps<{
@@ -87,8 +92,9 @@
   const colorMode = useColorMode();
 
   const codeBlock = ref<string | null>(null);
-  const preCode = ref<string | null>(null);
+
   const importPath = async () => {
+    isLoading.value = true;
     if (!props.blockPath) return console.error("Block path is required.");
     const blockImports = import.meta.glob<string>("./**/*.vue", {
       query: "?raw",
@@ -96,24 +102,19 @@
     });
     const path = blockImports[`./${props.blockPath}.vue`];
     codeBlock.value = await path();
-    preCode.value = await codeToHtml(codeBlock.value, {
-      lang: "vue",
-      theme: "material-theme-palenight",
-    });
+
     isLoading.value = false;
   };
 
-  const resizableRef = ref();
+  const resizableRef = ref<InstanceType<typeof SplitterPanel>>();
 
   await importPath();
-
   watch(
     () => colorMode.value,
     async () => {
-      isLoading.value = true;
-      setTimeout(() => {
-        isLoading.value = false;
-      }, 1500);
+      await importPath();
     }
   );
+
+  const { copied, copy, isSupported } = useClipboard({ copiedDuring: 2500, legacy: true });
 </script>
