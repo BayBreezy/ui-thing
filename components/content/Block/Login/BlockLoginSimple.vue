@@ -36,6 +36,11 @@
   import { object, string } from "yup";
   import type { InferType } from "yup";
 
+  useSeoMeta({
+    title: "Log in",
+    description: "Enter your email & password to log in.",
+  });
+
   const LoginSchema = object({
     email: string().email().required().label("Email"),
     password: string().required().label("Password").min(8),
