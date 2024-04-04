@@ -3,38 +3,20 @@ title: Forgot & Reset Password
 description: On this page you will find different ways in which you can styles your Forgot and Reset Password pages.
 ---
 
-## Simple
+## Forgot Password
 
-The simplest of `Login` pae designs. Here we just have a form with a `email` and `password` field. At the bottom of the form we have links that allow the user to navigate to the `Forgot password` and `Create account` pages.
+Here we allow the user to enter their email address to receive a password reset link.
 
-:BlockShowcase{blockPath="Login/BlockLoginSimple" containerClass="h-screen" component="BlockLoginSimple" iframeHeight="550px"}
+:BlockShowcase{blockPath="ForgotPassword/BlockForgotPassword" containerClass="h-screen" component="BlockForgotPassword" iframeHeight="550px"}
 
-## Simple w/ Card
+## Forgot Password - Success 🎉
 
-Another simple login page design. This time we have the form inside a card-like element.
+Instead of just showing a little notification, we can show a whole page to the user to let them know that the email has been sent.
 
-:BlockShowcase{blockPath="Login/BlockLoginSimpleCard" containerClass="h-screen" component="BlockLoginSimpleCard" iframeHeight="600px"}
+:BlockShowcase{blockPath="ForgotPassword/BlockForgotPasswordSuccess" containerClass="h-screen" component="BlockForgotPasswordSuccess" iframeHeight="550px"}
 
-## Simple w/ Social
+## Reset Password
 
-Another simple login page design. This time with some social login options.
+After the user clicks on the link in the email, they will be taken to the reset password page.
 
-:BlockShowcase{blockPath="Login/BlockLoginSimpleSocial" containerClass="h-screen" component="BlockLoginSimpleSocial" iframeHeight="650px"}
-
-## Simple w/ Social 2
-
-Another simple login page design. More social logins and a company logo.
-
-:BlockShowcase{blockPath="Login/BlockLoginSimpleSocial2" containerClass="h-screen" component="BlockLoginSimpleSocial2" iframeHeight="650px"}
-
-## Simple w/ Image
-
-Another simple login page design. This time with an image on one side of the form.
-
-:BlockShowcase{blockPath="Login/BlockLoginSimpleSocialImage" containerClass="h-screen" component="BlockLoginSimpleSocialImage" iframeHeight="650px"}
-
-## Remember Me
-
-Another simple login page design. This one sports a `Remember me` checkbox.
-
-:BlockShowcase{blockPath="Login/BlockLoginSimpleRemember" containerClass="h-screen" component="BlockLoginSimpleRemember" iframeHeight="650px"}
+:BlockShowcase{blockPath="ResetPassword/BlockResetPassword" containerClass="h-screen" component="BlockResetPassword" iframeHeight="680px"}
