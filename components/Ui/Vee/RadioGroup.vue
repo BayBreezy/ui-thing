@@ -1,11 +1,8 @@
 <template>
   <div :class="styles({ class: props.class })">
     <slot name="label" :errorMessage="errorMessage" :value="value">
-      <UiLabel
-        v-if="label"
-        class="mb-5 leading-none"
-        :class="[errorMessage && 'text-destructive']"
-        >{{ label }}</UiLabel
+      <UiLabel v-if="label" class="mb-5 leading-none" :class="[errorMessage && 'text-destructive']"
+        ><span>{{ label }} <span class="text-destructive" v-if="required">*</span></span></UiLabel
       >
     </slot>
     <UiRadioGroup v-bind="{ ...forwarded, ...$attrs }" v-model="value">

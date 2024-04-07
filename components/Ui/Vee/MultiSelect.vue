@@ -4,7 +4,7 @@
       :for="inputId"
       v-if="formLabel"
       :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
-      >{{ formLabel }}</UiLabel
+      ><span>{{ formLabel }} <span class="text-destructive" v-if="required">*</span></span></UiLabel
     >
     <Multiselect
       ref="multiselect"

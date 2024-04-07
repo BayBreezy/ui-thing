@@ -4,7 +4,7 @@
       :for="inputId"
       v-if="label"
       :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
-      >{{ label }}</UiLabel
+      ><span>{{ label }} <span class="text-destructive" v-if="required">*</span></span></UiLabel
     >
     <div class="relative">
       <slot name="icon">
@@ -13,6 +13,7 @@
         </span>
       </slot>
       <UiTagsInput
+        :required="required"
         v-model="value"
         :name="name"
         :disabled="disabled"
@@ -48,6 +49,7 @@
     validateOnMount?: boolean;
     type?: string;
     placeholder?: string;
+    required?: boolean;
   }>();
 
   const inputId = props.id || useId();

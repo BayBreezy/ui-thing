@@ -4,7 +4,7 @@
       :for="inputId"
       v-if="label"
       :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
-      >{{ label }}</UiLabel
+      ><span>{{ label }} <span class="text-destructive" v-if="required">*</span></span></UiLabel
     >
     <div class="relative">
       <slot name="icon">
@@ -21,6 +21,7 @@
         <template #default="{ inputValue, inputEvents }">
           <UiInput
             :readonly="readonly"
+            :required="required"
             :model-value="inputValue"
             v-on="inputEvents"
             :id="inputId"
@@ -60,6 +61,7 @@
       placeholder?: string;
       readonly?: boolean;
       datePickerProps?: any;
+      required?: boolean;
     }>(),
     {
       icon: "lucide:calendar-days",

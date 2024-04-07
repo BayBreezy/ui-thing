@@ -4,7 +4,7 @@
       :for="inputId"
       v-if="label"
       :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
-      >{{ label }}</UiLabel
+      ><span>{{ label }} <span class="text-destructive" v-if="required">*</span></span></UiLabel
     >
     <div class="relative">
       <UiPinInput

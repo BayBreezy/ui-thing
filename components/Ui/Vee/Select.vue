@@ -1,8 +1,8 @@
 <template>
   <div class="w-full">
-    <UiLabel :for="inputId" v-if="label" :class="[errorMessage && 'text-destructive', 'mb-2']">{{
-      label
-    }}</UiLabel>
+    <UiLabel :for="inputId" v-if="label" :class="[errorMessage && 'text-destructive', 'mb-2']">
+      <span>{{ label }} <span class="text-destructive" v-if="required">*</span></span>
+    </UiLabel>
     <div class="relative">
       <slot name="icon">
         <span v-if="hasIcon" lass="absolute inset-y-0 left-3 flex items-center justify-center">
@@ -10,6 +10,7 @@
         </span>
       </slot>
       <UiNativeSelect
+        :required="required"
         :trailingIcon="trailingIcon"
         v-model="value"
         @blur="handleBlur"
@@ -45,6 +46,7 @@
     validateOnMount?: boolean;
     type?: string;
     trailingIcon?: string;
+    required?: boolean;
   }>();
 
   const inputId = props.id || useId();

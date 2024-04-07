@@ -5,7 +5,7 @@
       v-if="label"
       :hint="labelHint"
       :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
-      >{{ label }}</UiLabel
+      ><span>{{ label }} <span class="text-destructive" v-if="required">*</span></span></UiLabel
     >
     <div class="relative">
       <slot name="icon">
@@ -15,6 +15,7 @@
       </slot>
       <UiCurrencyInput
         type="text"
+        :required="required"
         v-model="value"
         :id="inputId"
         :name="name"
@@ -54,6 +55,7 @@
     type?: string;
     placeholder?: string;
     options?: CurrencyInputOptions;
+    required?: boolean;
   }>();
 
   const inputId = useId();
