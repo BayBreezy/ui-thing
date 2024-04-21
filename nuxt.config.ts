@@ -21,7 +21,8 @@ export default defineNuxtConfig({
     "@morev/vue-transitions/nuxt",
     "@kevinmarrec/nuxt-pwa",
     "@nuxtjs/seo",
-    "@nuxt/eslint"
+    "@nuxt/eslint",
+    "nuxt-swiper",
   ],
   build: {
     transpile: ["vue-sonner"],

@@ -52,6 +52,7 @@
     "date-fns": "3.6.0",
     "jszip": "^3.10.1",
     "nuxt-icon": "^0.6.10",
+    "nuxt-swiper": "^1.2.2",
     "radix-vue": "^1.7.1",
     "tailwind-variants": "^0.2.1",
     "vaul-vue": "^0.1.0",
