@@ -10,13 +10,16 @@
     "postinstall": "nuxt prepare",
     "clean": "rm -rf .nuxt dist .output node_modules yarn.lock package-lock.json && npm cache clean --force && npm i",
     "generate:components": "node scripts/create-components && npx prettier --write ./server/utils/comp.ts",
-    "format": "npx prettier --write ."
+    "format": "npx prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
     "@ianvs/prettier-plugin-sort-imports": "4.2.1",
     "@internationalized/date": "^3.5.2",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
+    "@nuxt/eslint": "^0.3.8",
     "@nuxtjs/color-mode": "^3.4.0",
     "@nuxtjs/seo": "^2.0.0-rc.10",
     "@nuxtjs/tailwindcss": "^6.12.0",
