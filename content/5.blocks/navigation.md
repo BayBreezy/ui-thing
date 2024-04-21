@@ -11,16 +11,16 @@ This is because the full Navigation is not displayed unless you are above the `l
 
 ## Style One
 
-:BlockShowcase{blockPath="Navigation/1" containerClass="h-screen" component="1" iframeHeight="600px"}
+:BlockShowcase{blockPath="Navigation/BlockNavigation1" containerClass="h-screen" component="BlockNavigation1"}
 
 ## Style Two
 
-:BlockShowcase{blockPath="Navigation/2" containerClass="h-screen" component="2" iframeHeight="600px"}
+:BlockShowcase{blockPath="Navigation/BlockNavigation2" containerClass="h-screen" component="BlockNavigation2"}
 
 ## Style Three
 
-:BlockShowcase{blockPath="Navigation/3" containerClass="h-screen" component="3" iframeHeight="600px"}
+:BlockShowcase{blockPath="Navigation/BlockNavigation3" containerClass="h-screen" component="BlockNavigation3"}
 
 ## Style Four
 
-:BlockShowcase{blockPath="Navigation/4" containerClass="h-screen" component="4" iframeHeight="600px"}
+:BlockShowcase{blockPath="Navigation/BlockNavigation4" containerClass="h-screen" component="BlockNavigation4"}
