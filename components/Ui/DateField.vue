@@ -9,7 +9,7 @@
       <DateFieldInput
         v-if="item.part === 'literal'"
         :part="item.part"
-        class="flex items-center justify-center text-muted-foreground"
+        class="inline-flex items-center justify-center text-muted-foreground"
       >
         <Icon :name="separatorIcon" class="text-muted-foreground" v-if="separatorIcon" />
         <span class="mx-1 text-muted-foreground" v-else-if="separator">{{ separator }}</span>
@@ -17,7 +17,7 @@
       <DateFieldInput
         v-else
         :part="item.part"
-        class="flex cursor-text items-center rounded px-1 transition focus:outline-none focus:ring-1 focus:ring-ring aria-[valuetext=Empty]:text-muted-foreground"
+        class="inline-flex cursor-text items-center rounded px-1 transition focus:outline-none focus:ring-1 focus:ring-ring aria-[valuetext=Empty]:text-muted-foreground"
       >
         {{ item.value }}
       </DateFieldInput>
