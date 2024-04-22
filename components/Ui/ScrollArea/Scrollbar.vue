@@ -3,7 +3,7 @@
     v-bind="reactiveOmit(props, 'class')"
     :class="styles({ orientation, class: props.class })"
   >
-    <slot></slot>
+    <slot />
     <UiScrollAreaThumb />
   </ScrollAreaScrollbar>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex flex-col justify-between gap-5 md:flex-row md:items-center">
-      <UiInput type="search" v-model="search" placeholder="Search" class="w-full md:w-96" />
+      <UiInput v-model="search" type="search" placeholder="Search" class="w-full md:w-96" />
       <UiDropdownMenu>
         <UiDropdownMenuTrigger as-child>
           <UiButton variant="outline">
@@ -27,13 +27,13 @@
     </div>
 
     <UiTanStackTable
-      @ready="table = $event"
       ref="tableRef"
       show-select
       :search="search"
       :data="data"
       :columns="columns"
       class="mt-5 rounded-md border"
+      @ready="table = $event"
     >
       <template #empty>
         <div class="flex w-full flex-col items-center justify-center gap-5 py-5">
@@ -123,7 +123,7 @@
       header: "",
       enableSorting: false,
       enableHiding: false,
-      cell: ({ row }) => {
+      cell: () => {
         return h(
           resolveComponent("UiButton"),
           { variant: "ghost", size: "icon", class: "w-9 h-9" },

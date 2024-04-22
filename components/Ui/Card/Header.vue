@@ -1,6 +1,6 @@
 <template>
   <Primitive :class="styles({ class: props.class })" :as="as" :as-child="asChild">
-    <slot></slot>
+    <slot />
   </Primitive>
 </template>
 

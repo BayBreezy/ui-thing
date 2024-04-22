@@ -3,6 +3,7 @@
     <UiContainer class="flex h-16 items-center justify-between lg:h-20">
       <div class="flex items-center gap-10">
         <NuxtLink to="#" class="flex items-center gap-3">
+          <!-- eslint-disable-next-line vue/html-self-closing -->
           <img
             src="/icon.png"
             fit="contain"
@@ -15,7 +16,7 @@
         <UiNavigationMenu as="nav" class="hidden items-center justify-start gap-8 lg:flex">
           <UiNavigationMenuList class="gap-2">
             <UiNavigationMenuItem>
-              <UiNavigationMenuLink asChild>
+              <UiNavigationMenuLink as-child>
                 <UiButton to="#" variant="ghost" size="sm"> Home</UiButton>
               </UiNavigationMenuLink>
             </UiNavigationMenuItem>
@@ -26,7 +27,7 @@
                   <div class="w-[360px] bg-background shadow">
                     <ul class="flex flex-col gap-3 p-3">
                       <li v-for="(item, k) in l.items" :key="k">
-                        <UiNavigationMenuLink asChild>
+                        <UiNavigationMenuLink as-child>
                           <NuxtLink
                             to="#"
                             class="group flex gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 dark:hover:bg-muted/20"
@@ -53,7 +54,7 @@
             </template>
 
             <UiNavigationMenuItem>
-              <UiNavigationMenuLink asChild>
+              <UiNavigationMenuLink as-child>
                 <UiButton to="#" variant="ghost" size="sm">Pricing</UiButton>
               </UiNavigationMenuLink>
             </UiNavigationMenuItem>
@@ -62,7 +63,7 @@
       </div>
       <div class="lg:hidden">
         <UiSheet>
-          <UiSheetTrigger asChild>
+          <UiSheetTrigger as-child>
             <UiButton variant="ghost" size="icon-sm">
               <Icon name="lucide:menu" class="h-5 w-5" />
             </UiButton>
@@ -78,7 +79,7 @@
 
                     <template v-for="l in links" :key="l.title">
                       <UiCollapsible>
-                        <UiCollapsibleTrigger asChild>
+                        <UiCollapsibleTrigger as-child>
                           <UiButton
                             variant="ghost"
                             class="w-full justify-start text-base capitalize *:data-[state=open]:-rotate-180"
@@ -92,7 +93,7 @@
                         >
                           <div class="mt-5">
                             <ul class="flex w-full flex-col gap-5">
-                              <li v-for="item in l.items">
+                              <li v-for="item in l.items" :key="item.name">
                                 <NuxtLink
                                   :to="item.href"
                                   class="flex gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"

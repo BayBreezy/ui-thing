@@ -1,33 +1,33 @@
 <template>
   <div class="w-full">
-    <UiLabel :for="inputId" v-if="label" :class="[errorMessage && 'text-destructive', 'mb-2']">{{
+    <UiLabel v-if="label" :for="inputId" :class="[errorMessage && 'text-destructive', 'mb-2']">{{
       label
     }}</UiLabel>
     <div class="relative">
       <slot name="icon">
         <span v-if="hasIcon" class="absolute">
-          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground" />
+          <Icon v-if="icon" :name="icon" class="h-4 w-4 text-muted-foreground" />
         </span>
       </slot>
       <UiSelect
+        v-model="value"
         :disabled="disabled"
         :required="required"
         :name="name"
-        v-model="value"
         v-bind="$attrs"
       >
         <slot>
           <slot name="trigger">
-            <UiSelectTrigger :placeholder="placeholder" :id="inputId" />
+            <UiSelectTrigger :id="inputId" :placeholder="placeholder" />
           </slot>
-          <slot name="content"></slot>
+          <slot name="content" />
         </slot>
       </UiSelect>
     </div>
-    <p class="mt-1 text-sm text-muted-foreground animate-in fade-in" v-if="hint && !errorMessage">
+    <p v-if="hint && !errorMessage" class="mt-1 text-sm text-muted-foreground animate-in fade-in">
       {{ hint }}
     </p>
-    <p class="mt-1 text-sm text-destructive animate-in fade-in" v-if="errorMessage">
+    <p v-if="errorMessage" class="mt-1 text-sm text-destructive animate-in fade-in">
       {{ errorMessage }}
     </p>
   </div>

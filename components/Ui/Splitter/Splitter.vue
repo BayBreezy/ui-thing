@@ -1,10 +1,10 @@
 <template>
   <SplitterGroup
+    v-slot="{ layout }: { layout: number[] }"
     v-bind="forwarded"
     :class="styles({ class: props.class })"
-    v-slot="{ layout }: { layout: number[] }"
   >
-    <slot :layout="layout"></slot>
+    <slot :layout="layout" />
   </SplitterGroup>
 </template>
 

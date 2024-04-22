@@ -17,7 +17,7 @@
               <UiButton class="w-full" type="submit" text="Log in" />
             </div>
             <UiDivider label="OR" />
-            <UiButton @click="signInWithGoogle()" variant="outline" type="button">
+            <UiButton variant="outline" type="button" @click="signInWithGoogle()">
               <Icon class="size-4" name="logos:google-icon" />
               <span class="ml-2">Continue with Google</span>
             </UiButton>
@@ -37,6 +37,7 @@
       </div>
     </div>
     <div class="hidden h-screen md:block md:w-1/2 lg:w-1/2">
+      <!-- eslint-disable-next-line vue/html-self-closing -->
       <img
         src="https://images.unsplash.com/photo-1512551980832-13df02babc9e?q=60&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="Login form image"
@@ -64,7 +65,7 @@
     validationSchema: LoginSchema,
   });
 
-  const submit = handleSubmit(async (values) => {
+  const submit = handleSubmit(async (_) => {
     useSonner("Logged in successfully!", {
       description: "You have successfully logged in.",
     });

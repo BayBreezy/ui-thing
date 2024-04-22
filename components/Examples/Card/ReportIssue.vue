@@ -44,7 +44,7 @@
       </template>
       <template #footer>
         <UiCardFooter class="justify-between">
-          <UiButton @click="handleReset()" variant="ghost">Cancel</UiButton>
+          <UiButton variant="ghost" @click="handleReset()">Cancel</UiButton>
           <UiButton type="submit">Continue</UiButton>
         </UiCardFooter>
       </template>
@@ -53,7 +53,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { addYears } from "date-fns";
   import { z } from "zod";
 
   const ReportSchema = z.object({
@@ -67,12 +66,12 @@
     validationSchema: toTypedSchema(ReportSchema),
   });
 
-  const submitReport = handleSubmit(async (values) => {
+  const submitReport = handleSubmit(async (_) => {
     const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
     await new Promise<void>((res, rej) => {
       useSonner.promise(promise, {
         loading: "Submitting your report...",
-        success: (d) => {
+        success: (_) => {
           res();
           return "Your report has been submitted!";
         },

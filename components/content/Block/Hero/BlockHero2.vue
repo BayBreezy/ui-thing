@@ -33,7 +33,7 @@
         width="700"
         height="800"
         :title="`${COMPANY_NAME} hero section two header`"
-      />
+      >
     </div>
   </UiContainer>
 </template>

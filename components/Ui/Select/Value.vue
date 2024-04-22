@@ -1,6 +1,6 @@
 <template>
   <SelectValue v-bind="props">
-    <slot></slot>
+    <slot />
   </SelectValue>
 </template>
 

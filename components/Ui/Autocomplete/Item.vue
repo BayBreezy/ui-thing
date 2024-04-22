@@ -5,7 +5,7 @@
         <UiAutocompleteItemIndicator class="animate-in fade-in-0 zoom-in-0" :icon="icon" />
       </span>
     </slot>
-    <slot></slot>
+    <slot />
   </ComboboxItem>
 </template>
 

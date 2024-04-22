@@ -14,9 +14,9 @@
           <div class="flex items-center space-x-2">
             <div class="grid flex-1 gap-2">
               <UiLabel for="link" class="sr-only"> Link </UiLabel>
-              <UiInput id="link" model-value="https://ui.shadcn.com/docs/installation" readOnly />
+              <UiInput id="link" model-value="https://ui.shadcn.com/docs/installation" read-only />
             </div>
-            <UiButton @click="copyValue" type="submit" size="icon" class="px-3">
+            <UiButton type="submit" size="icon" class="px-3" @click="copyValue">
               <span class="sr-only">Copy</span>
               <Icon name="lucide:copy" class="h-4 w-4" />
             </UiButton>

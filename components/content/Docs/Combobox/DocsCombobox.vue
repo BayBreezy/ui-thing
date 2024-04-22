@@ -14,7 +14,7 @@
         </UiButton>
       </UiPopoverTrigger>
       <UiPopoverContent class="w-[250px] p-0">
-        <UiCommand :filter-function="filterFunction" v-model="value">
+        <UiCommand v-model="value" :filter-function="filterFunction">
           <UiCommandInput placeholder="Search framework..." />
           <UiCommandList>
             <UiCommandEmpty>No framework found.</UiCommandEmpty>

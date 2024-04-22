@@ -1,10 +1,10 @@
 <template>
-  <form @submit="onSubmit" class="mx-auto max-w-md">
+  <form class="mx-auto max-w-md" @submit="onSubmit">
     <fieldset :disabled="isSubmitting" class="space-y-5">
       <UiVeeRadioGroup name="notify" label="Select how you want to be notified">
         <template v-for="(opt, i) in options" :key="i">
           <div class="mb-2 flex items-center gap-3">
-            <UiRadioGroupItem :value="opt.value" :id="opt.value" />
+            <UiRadioGroupItem :id="opt.value" :value="opt.value" />
             <UiLabel :for="opt.value">{{ opt.text }}</UiLabel>
           </div>
         </template>
@@ -39,7 +39,7 @@
     await new Promise<void>((res, rej) => {
       useSonner.promise(promise, {
         loading: "Updating your settings...",
-        success: (d) => {
+        success: (_) => {
           res();
           return values.notify === "none"
             ? "You will no longer receive notifications"

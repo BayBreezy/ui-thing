@@ -30,7 +30,7 @@
       hint?: string;
       modelValue?: string;
       name?: string;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
       rules?: any;
       validateOnMount?: boolean;
       separator?: string;

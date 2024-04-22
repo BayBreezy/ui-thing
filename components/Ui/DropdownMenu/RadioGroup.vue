@@ -1,6 +1,6 @@
 <template>
   <DropdownMenuRadioGroup v-bind="forwarded">
-    <slot></slot>
+    <slot />
   </DropdownMenuRadioGroup>
 </template>
 

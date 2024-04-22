@@ -10,8 +10,8 @@
         <template v-for="h in heroList" :key="h.id">
           <UiDropdownMenuCheckboxItem
             :checked="selectedHeros.includes(h.id)"
-            @select="(e) => e.preventDefault()"
             class="mb-1"
+            @select="(e) => e.preventDefault()"
             @update:checked="
               selectedHeros.includes(h.id)
                 ? selectedHeros.splice(selectedHeros.indexOf(h.id), 1)

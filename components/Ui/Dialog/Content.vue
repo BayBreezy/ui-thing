@@ -13,8 +13,8 @@
             </slot>
           </UiDialogHeader>
         </slot>
-        <slot name="content"></slot>
-        <slot name="footer"></slot>
+        <slot name="content" />
+        <slot name="footer" />
       </slot>
       <slot name="close">
         <UiDialogClose />

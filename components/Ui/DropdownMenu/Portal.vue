@@ -1,6 +1,6 @@
 <template>
   <DropdownMenuPortal v-bind="props">
-    <slot></slot>
+    <slot />
   </DropdownMenuPortal>
 </template>
 

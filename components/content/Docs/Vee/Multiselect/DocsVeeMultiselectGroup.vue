@@ -3,7 +3,7 @@
     <form @submit="submit">
       <UiVeeMultiSelect
         name="hero"
-        formLabel="Hero"
+        form-label="Hero"
         groups
         placeholder="Select a hero"
         :options="options"

@@ -1,11 +1,11 @@
 <template>
   <AccordionItem v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
-    <slot></slot>
+    <slot />
   </AccordionItem>
 </template>
 
 <script setup lang="ts">
-  import { AccordionItem, useForwardProps } from "radix-vue";
+  import { AccordionItem } from "radix-vue";
   import type { AccordionItemProps } from "radix-vue";
 
   const props = defineProps<

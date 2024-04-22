@@ -15,11 +15,11 @@
           <div class="grid gap-4 py-4">
             <div class="grid grid-cols-4 items-center gap-4">
               <UiLabel for="name" class="text-right"> Name </UiLabel>
-              <UiInput id="name" modelValue="Pedro Duarte" class="col-span-3" />
+              <UiInput id="name" model-value="Pedro Duarte" class="col-span-3" />
             </div>
             <div class="grid grid-cols-4 items-center gap-4">
               <UiLabel for="username" class="text-right"> Username </UiLabel>
-              <UiInput id="username" modelValue="@peduarte" class="col-span-3" />
+              <UiInput id="username" model-value="@peduarte" class="col-span-3" />
             </div>
           </div>
         </template>

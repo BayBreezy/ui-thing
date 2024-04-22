@@ -1,6 +1,6 @@
 <template>
   <form @submit="onSubmit">
-    <Field name="bio" v-slot="{ componentField }">
+    <Field v-slot="{ componentField }" name="bio">
       <UiFormItem label="Tell us about yourself" description="Feel free to @mention others">
         <UiTextarea v-bind="componentField" />
       </UiFormItem>

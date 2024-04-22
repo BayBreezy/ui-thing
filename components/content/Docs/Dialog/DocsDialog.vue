@@ -25,13 +25,13 @@
         <template #footer>
           <UiDialogFooter>
             <UiButton
-              @click="closeDialog(false)"
               variant="outline"
               type="button"
               class="mt-2 sm:mt-0"
+              @click="closeDialog(false)"
               >Cancel</UiButton
             >
-            <UiButton @click="closeDialog(true)" type="submit">Save</UiButton>
+            <UiButton type="submit" @click="closeDialog(true)">Save</UiButton>
           </UiDialogFooter>
         </template>
       </UiDialogContent>

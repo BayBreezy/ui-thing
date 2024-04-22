@@ -10,7 +10,7 @@
         >
           {{ l.title }}
         </NuxtLink>
-        <UiBadge class="px-2 py-0 text-[10px] dark:bg-lime-500" v-if="l.label">{{
+        <UiBadge v-if="l.label" class="px-2 py-0 text-[10px] dark:bg-lime-500">{{
           l.label
         }}</UiBadge>
       </div>

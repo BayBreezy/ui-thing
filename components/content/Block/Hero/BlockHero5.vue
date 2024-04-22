@@ -4,7 +4,7 @@
   >
     <div
       class="absolute inset-0 z-[-2] h-full w-full bg-transparent bg-[radial-gradient(circle,_theme(colors.border)_3px,_transparent_1px)] bg-[size:30px_30px] [mask-image:radial-gradient(circle,#000,_transparent_80%)]"
-    ></div>
+    />
     <div
       class="absolute inset-y-0 right-5 -z-[1] hidden h-full md:block md:w-[450px] lg:w-[700px] xl:w-[800px]"
     >
@@ -16,7 +16,7 @@
         width="700"
         height="800"
         :title="`${COMPANY_NAME} hero section one header`"
-      />
+      >
     </div>
     <div class="flex h-full items-center justify-center md:w-[550px] lg:w-[768px]">
       <div>
@@ -79,7 +79,7 @@
         width="700"
         height="300"
         :title="`${COMPANY_NAME} hero section four header`"
-      />
+      >
     </div>
   </UiContainer>
 </template>

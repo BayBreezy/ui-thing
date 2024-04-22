@@ -1,6 +1,6 @@
 <template>
   <CollapsibleTrigger v-bind="forwarded">
-    <slot></slot>
+    <slot />
   </CollapsibleTrigger>
 </template>
 

@@ -17,16 +17,16 @@
                 v-for="(child, k) in nav.children"
                 :key="k"
                 class="px-4 py-2 first:mt-2"
+                :value="child.title"
                 @select="
                   $event.preventDefault();
                   navigateTo(child._path);
                   localModel = false;
                 "
-                :value="child.title"
               >
                 <Icon :name="nav.icon" class="h-4 w-4 text-muted-foreground/80" />
                 <span>{{ child.title }}</span>
-                <UiBadge class="ml-4 px-2 py-0 text-[10px] dark:bg-lime-500" v-if="child.label">{{
+                <UiBadge v-if="child.label" class="ml-4 px-2 py-0 text-[10px] dark:bg-lime-500">{{
                   child.label
                 }}</UiBadge>
               </UiCommandItem>

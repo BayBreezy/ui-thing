@@ -1,6 +1,6 @@
 <template>
   <HoverCardTrigger v-bind="props">
-    <slot></slot>
+    <slot />
   </HoverCardTrigger>
 </template>
 

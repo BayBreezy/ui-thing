@@ -1,7 +1,7 @@
 <template>
   <div>
     <UiDropfile @dropped="files = $event" />
-    <div class="mt-5" v-if="files && files.length">
+    <div v-if="files && files.length" class="mt-5">
       <div
         v-for="(file, i) in files"
         :key="file.name"
@@ -18,7 +18,7 @@
         </div>
 
         <div class="hidden transition group-hover:block">
-          <UiButton @click="removeFile(i)" size="icon-sm" variant="outline">
+          <UiButton size="icon-sm" variant="outline" @click="removeFile(i)">
             <Icon name="heroicons:x-mark" class="h-3.5 w-3.5" />
           </UiButton>
         </div>

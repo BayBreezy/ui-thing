@@ -2,8 +2,8 @@
   <div class="mx-auto max-w-md">
     <UiVeeMultiSelect
       searchable
-      formLabel="Hero"
-      valueProp="id"
+      form-label="Hero"
+      value-prop="id"
       label="name"
       placeholder="Search heroes..."
       :options="options"

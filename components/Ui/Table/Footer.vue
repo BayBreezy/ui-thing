@@ -1,6 +1,6 @@
 <template>
   <tfoot :class="styles({ class: props.class })">
-    <slot></slot>
+    <slot />
   </tfoot>
 </template>
 

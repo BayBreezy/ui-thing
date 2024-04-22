@@ -1,15 +1,16 @@
 <template>
   <div class="flex flex-wrap items-center justify-center gap-3">
     <UiButton
+      variant="outline"
       @click="
         useSonner('Default', {
           description: 'This is a description',
         })
       "
-      variant="outline"
       >Show default</UiButton
     >
     <UiButton
+      variant="outline"
       @click="
         useSonner('', {
           description: 'Send new notification to customer?',
@@ -28,21 +29,22 @@
           },
         })
       "
-      variant="outline"
       >Show action</UiButton
     >
     <UiButton
       v-for="(t, i) in types"
+      :key="i"
+      variant="outline"
       @click="
         useSonner[t](t),
           {
             description: `This is a ${t} message`,
           }
       "
-      variant="outline"
       >Show {{ t }}</UiButton
     >
     <UiButton
+      variant="outline"
       @click="
         useSonner.promise(promise, {
           loading: 'Checking API for tools...',
@@ -50,16 +52,15 @@
           error: (d) => 'API returned error',
         })
       "
-      variant="outline"
       >Show promise</UiButton
     >
     <UiButton
+      variant="outline"
       @click="
         useSonner(markRaw(Headless), {
           duration: Infinity,
         })
       "
-      variant="outline"
       >Show custom</UiButton
     >
   </div>
@@ -71,7 +72,7 @@
   const types = ["success", "info", "warning", "error"] as const;
 
   const promise = () =>
-    new Promise<string>((resolve, reject) =>
+    new Promise<string>((resolve) =>
       setTimeout(() => resolve("There are 16 tools ready for use"), 2000)
     );
 </script>

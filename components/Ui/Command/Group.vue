@@ -6,7 +6,7 @@
     <slot name="heading">
       <UiCommandLabel v-if="heading" :label="heading" />
     </slot>
-    <slot> </slot>
+    <slot />
   </ComboboxGroup>
 </template>
 

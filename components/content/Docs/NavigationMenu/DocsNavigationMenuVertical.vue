@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full items-center">
-    <UiNavigationMenu defaultValue="1" orientation="vertical" class="w-full rounded-md border p-2">
+    <UiNavigationMenu default-value="1" orientation="vertical" class="w-full rounded-md border p-2">
       <UiNavigationMenuList class="w-[300px] max-w-none flex-col items-start gap-1 space-x-0">
         <UiNavigationMenuItem value="1" class="w-full">
           <UiNavigationMenuTrigger class="w-full justify-between" title="Beach day" />
@@ -10,7 +10,7 @@
                 src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"
                 alt="Beach"
                 class="h-[100px] w-full rounded-md object-cover"
-              />
+              >
               <ul class="flex flex-col gap-2">
                 <li
                   v-for="(item, i) in beachAmenities"
@@ -47,7 +47,7 @@
                 src="https://www.radix-vue.com/logo.svg"
                 alt="Radix Vue Logo"
                 class="h-[100px] w-[100px] rounded-md object-cover"
-              />
+              >
               <div class="text-center">
                 <p class="text-lg font-semibold text-foreground">Radix Vue</p>
                 <p class="mt-2 text-muted-foreground">
@@ -59,7 +59,7 @@
           </UiNavigationMenuContent>
         </UiNavigationMenuItem>
         <UiNavigationMenuItem class="w-full">
-          <UiNavigationMenuLink asChild>
+          <UiNavigationMenuLink as-child>
             <UiButton class="w-full justify-start" variant="ghost">Documentation</UiButton>
           </UiNavigationMenuLink>
         </UiNavigationMenuItem>
@@ -69,7 +69,7 @@
           <UiNavigationMenuViewport
             class="origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-[0.97] data-[state=open]:zoom-in-95 md:w-[var(--radix-navigation-menu-viewport-width)]"
           >
-            <slot></slot>
+            <slot />
           </UiNavigationMenuViewport>
         </div>
       </template>

@@ -1,5 +1,5 @@
 <template>
-  <form @submit="onSubmit" class="mx-auto max-w-md">
+  <form class="mx-auto max-w-md" @submit="onSubmit">
     <fieldset :disabled="isSubmitting" class="space-y-5">
       <UiVeeTagsInput
         :max="5"
@@ -28,11 +28,12 @@
   });
 
   const onSubmit = handleSubmit(async (values) => {
+    console.log(values);
     const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
     useSonner.promise(promise, {
       loading: "Saving brands...",
-      success: (d) => "Success! Your information has been saved!",
-      error: (e) => "Error! Your information could not be sent to our servers!",
+      success: (_) => "Success! Your information has been saved!",
+      error: (_) => "Error! Your information could not be sent to our servers!",
     });
   });
 </script>

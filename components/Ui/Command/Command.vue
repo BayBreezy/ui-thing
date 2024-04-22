@@ -1,6 +1,6 @@
 <template>
   <ComboboxRoot v-bind="forwarded" :open="true" :class="styles({ class: props.class })">
-    <slot></slot>
+    <slot />
   </ComboboxRoot>
 </template>
 

@@ -1,19 +1,19 @@
 <template>
   <ClientOnly>
     <VCalendar
-      :trimWeeks="props.trimWeeks || true"
+      :trim-weeks="props.trimWeeks || true"
       :is-dark="$colorMode.value == 'dark'"
       v-bind="$attrs"
     >
-      <template v-for="(_, slot) in $slots" v-slot:[slot]="scope">
-        <slot :name="slot" v-bind="scope"></slot>
+      <template v-for="(_, slot) in $slots" #[slot]="scope">
+        <slot :name="slot" v-bind="scope" />
       </template>
     </VCalendar>
   </ClientOnly>
 </template>
 
 <script lang="ts" setup>
-  import { Calendar } from "v-calendar";
+  import type { Calendar } from "v-calendar";
 
   defineOptions({ inheritAttrs: false });
 

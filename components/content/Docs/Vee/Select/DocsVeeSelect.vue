@@ -1,5 +1,5 @@
 <template>
-  <form @submit="onSubmit" class="mx-auto max-w-md">
+  <form class="mx-auto max-w-md" @submit="onSubmit">
     <fieldset :disabled="isSubmitting" class="space-y-5">
       <UiVeeSelect label="Country" name="country" hint="Pick the country you want to visit">
         <option disabled value="">Select a country</option>
@@ -68,8 +68,8 @@
     const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
     useSonner.promise(promise, {
       loading: "Booking your trip...",
-      success: (d) => `You are going to ${values.attraction} in ${values.country}!`,
-      error: (e) => "Error! Your information could not be sent to our servers!",
+      success: (_) => `You are going to ${values.attraction} in ${values.country}!`,
+      error: (_) => "Error! Your information could not be sent to our servers!",
     });
   });
 </script>

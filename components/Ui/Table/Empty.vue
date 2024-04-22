@@ -1,7 +1,7 @@
 <template>
   <UiTableRow>
     <UiTableCell :colspan="colspan" :class="styles({ class: props.class })">
-      <slot></slot>
+      <slot />
     </UiTableCell>
   </UiTableRow>
 </template>

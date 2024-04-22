@@ -1,6 +1,6 @@
 <template>
   <ComboboxTrigger v-bind="props">
-    <slot></slot>
+    <slot />
   </ComboboxTrigger>
 </template>
 

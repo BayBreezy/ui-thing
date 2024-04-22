@@ -7,7 +7,7 @@
         precision: { min: 0, max: 4 },
       }"
       placeholder="What is the total?"
-      :modelValue="8518"
+      :model-value="8518"
     />
   </div>
 </template>

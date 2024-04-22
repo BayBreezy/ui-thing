@@ -1,6 +1,6 @@
 <template>
   <ComboboxContent v-bind="forwarded" :class="styles({ class: props.class })">
-    <slot></slot>
+    <slot />
   </ComboboxContent>
 </template>
 

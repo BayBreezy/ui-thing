@@ -10,7 +10,7 @@
         <path
           d="M23.2997 0L52.0461 28.6301V44H38.6311V34.1553L17.7522 13.3607L13.415 13.3607L13.415 44H0L0 0L23.2997 0ZM38.6311 15.2694V0L52.0461 0V15.2694L38.6311 15.2694Z"
           class="ccustom"
-        ></path>
+        />
       </svg>
 
       <div class="flex flex-col items-center">
@@ -24,15 +24,15 @@
           <UiButton class="w-full" type="submit" text="Log in" />
 
           <UiDivider label="OR" />
-          <UiButton @click="signInWithGoogle()" variant="outline" type="button">
+          <UiButton variant="outline" type="button" @click="signInWithGoogle()">
             <Icon class="size-4" name="logos:google-icon" />
             <span class="ml-2">Continue with Google</span>
           </UiButton>
-          <UiButton @click="signInWithFacebook()" variant="outline" type="button">
+          <UiButton variant="outline" type="button" @click="signInWithFacebook()">
             <Icon class="size-4" name="logos:facebook" />
             <span class="ml-2">Continue with Facebook</span>
           </UiButton>
-          <UiButton @click="signInWithGithub()" variant="outline" type="button">
+          <UiButton variant="outline" type="button" @click="signInWithGithub()">
             <Icon class="size-4" name="mdi:github" />
             <span class="ml-2">Continue with Github</span>
           </UiButton>
@@ -65,7 +65,7 @@
     validationSchema: LoginSchema,
   });
 
-  const submit = handleSubmit(async (values) => {
+  const submit = handleSubmit(async (_) => {
     useSonner("Logged in successfully!", {
       description: "You have successfully logged in.",
     });

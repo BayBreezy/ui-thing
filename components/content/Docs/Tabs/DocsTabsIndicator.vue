@@ -15,11 +15,11 @@
             <UiCardContent class="space-y-2">
               <div class="space-y-1">
                 <UiLabel for="name">Name</UiLabel>
-                <UiInput id="name" modelValue="Pedro Duarte" />
+                <UiInput id="name" model-value="Pedro Duarte" />
               </div>
               <div class="space-y-1">
-                <UiLabel htmlFor="username">Username</UiLabel>
-                <UiInput id="username" modelValue="@peduarte" />
+                <UiLabel html-for="username">Username</UiLabel>
+                <UiInput id="username" model-value="@peduarte" />
               </div>
             </UiCardContent>
           </template>
@@ -38,11 +38,11 @@
           <template #content>
             <UiCardContent class="space-y-2">
               <div class="space-y-1">
-                <UiLabel htmlFor="current">Current password</UiLabel>
+                <UiLabel html-for="current">Current password</UiLabel>
                 <UiInput id="current" type="password" />
               </div>
               <div class="space-y-1">
-                <UiLabel htmlFor="new">New password</UiLabel>
+                <UiLabel html-for="new">New password</UiLabel>
                 <UiInput id="new" type="password" />
               </div>
             </UiCardContent>

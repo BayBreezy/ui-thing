@@ -1,6 +1,6 @@
 <template>
   <SelectPortal v-bind="props">
-    <slot></slot>
+    <slot />
   </SelectPortal>
 </template>
 

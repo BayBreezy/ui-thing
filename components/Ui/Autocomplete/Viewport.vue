@@ -1,6 +1,6 @@
 <template>
   <ComboboxViewport v-bind="props">
-    <slot></slot>
+    <slot />
   </ComboboxViewport>
 </template>
 

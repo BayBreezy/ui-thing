@@ -10,9 +10,9 @@
               :class="[!isNotLastItem(i) && 'text-primary']"
             />
           </slot>
-          <slot :item="item" :isNotLastItem="isNotLastItem" :index="i" name="link">
+          <slot :item="item" :is-not-last-item="isNotLastItem" :index="i" name="link">
             <NuxtLink
-              @click="item?.click?.()"
+              v-if="item.label"
               :to="!item?.disabled ? item.link : ''"
               :class="[
                 isNotLastItem(i)
@@ -20,7 +20,7 @@
                   : 'font-semibold text-primary',
               ]"
               class="text-sm text-foreground"
-              v-if="item.label"
+              @click="item?.click?.()"
               >{{ item.label }}</NuxtLink
             >
           </slot>
@@ -39,6 +39,7 @@
     icon?: string;
     link?: string;
     disabled?: boolean;
+    // eslint-disable-next-line @typescript-eslint/ban-types
     click?: Function;
   }
   const props = withDefaults(
@@ -56,6 +57,7 @@
     {
       separator: "heroicons:chevron-right",
       items: () => [],
+      class: undefined,
     }
   );
 

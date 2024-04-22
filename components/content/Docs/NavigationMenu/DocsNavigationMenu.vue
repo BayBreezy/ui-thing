@@ -10,7 +10,7 @@
                 src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"
                 alt="Beach"
                 class="h-full w-full rounded-md object-cover"
-              />
+              >
               <ul class="flex flex-col gap-2">
                 <li
                   v-for="(item, i) in beachAmenities"
@@ -47,7 +47,7 @@
                 src="https://www.radix-vue.com/logo.svg"
                 alt="Radix Vue Logo"
                 class="h-full w-full"
-              />
+              >
               <div>
                 <p class="text-lg font-semibold text-foreground">Radix Vue</p>
                 <p class="mt-2 text-muted-foreground">
@@ -59,7 +59,7 @@
           </UiNavigationMenuContent>
         </UiNavigationMenuItem>
         <UiNavigationMenuItem>
-          <UiNavigationMenuLink asChild>
+          <UiNavigationMenuLink as-child>
             <UiButton variant="ghost">Documentation</UiButton>
           </UiNavigationMenuLink>
         </UiNavigationMenuItem>

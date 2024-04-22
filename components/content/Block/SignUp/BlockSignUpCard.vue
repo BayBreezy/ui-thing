@@ -2,7 +2,7 @@
   <div class="relative flex h-screen items-center justify-center">
     <div
       class="absolute h-full w-full bg-[radial-gradient(theme(colors.border)_1px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_80%,transparent_100%)]"
-    ></div>
+    />
 
     <div
       class="relative w-full max-w-[380px] border-border/60 bg-card px-8 py-5 shadow-sm dark:border-border min-[480px]:rounded-lg min-[480px]:border"
@@ -53,7 +53,7 @@
     validationSchema: Schema,
   });
 
-  const submit = handleSubmit(async (values) => {
+  const submit = handleSubmit(async (_) => {
     useSonner("Account created!", {
       description: "You have successfully created an account.",
     });

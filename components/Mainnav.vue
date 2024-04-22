@@ -4,10 +4,10 @@
       <div class="flex items-center gap-10">
         <div class="flex items-center gap-5">
           <UiButton
-            @click="mobileNav = true"
             size="icon-sm"
             variant="outline"
             class="h-9 w-9 lg:hidden"
+            @click="mobileNav = true"
             ><Icon name="heroicons:bars-2" class="h-4 w-4" />
           </UiButton>
           <NuxtLink to="/" class="text-lg font-bold">UI Thing</NuxtLink>
@@ -69,8 +69,8 @@
         <UiButton
           size="sm"
           class="mr-2 hidden min-w-[300px] font-normal text-muted-foreground md:flex"
-          @click="isOpen = true"
           variant="outline"
+          @click="isOpen = true"
         >
           <Icon name="lucide:search" />
           Search...
@@ -79,8 +79,8 @@
         <UiButton
           size="icon"
           class="text-muted-foreground md:hidden"
-          @click="isOpen = true"
           variant="ghost"
+          @click="isOpen = true"
         >
           <Icon name="lucide:search" class="h-[18px] w-[18px]" />
         </UiButton>
@@ -101,9 +101,9 @@
           </UiDropdownMenuTrigger>
           <UiDropdownMenuContent align="end" :side-offset="5">
             <UiDropdownMenuItem
-              class="cursor-pointer"
               v-for="(m, i) in modes"
               :key="i"
+              class="cursor-pointer"
               :icon="m.icon"
               :title="m.title"
               @click="setTheme(m.value)"

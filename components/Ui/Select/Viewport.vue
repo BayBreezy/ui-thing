@@ -3,7 +3,7 @@
     :class="styles({ position, class: props.class })"
     v-bind="reactiveOmit(props, 'class')"
   >
-    <slot></slot>
+    <slot />
   </SelectViewport>
 </template>
 

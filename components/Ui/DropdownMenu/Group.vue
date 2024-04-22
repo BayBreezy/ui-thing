@@ -1,6 +1,6 @@
 <template>
   <DropdownMenuGroup v-bind="props">
-    <slot></slot>
+    <slot />
   </DropdownMenuGroup>
 </template>
 

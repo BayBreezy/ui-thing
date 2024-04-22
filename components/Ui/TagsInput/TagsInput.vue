@@ -1,6 +1,6 @@
 <template>
   <TagsInputRoot v-bind="forwarded" :class="styles({ class: props.class })">
-    <slot></slot>
+    <slot />
   </TagsInputRoot>
 </template>
 

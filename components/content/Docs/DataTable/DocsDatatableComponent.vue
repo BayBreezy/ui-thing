@@ -19,6 +19,7 @@
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   import type { DataTablesNamedSlotProps } from "~/components/Ui/Datatable.client.vue";
   import type { Config, ConfigColumns } from "datatables.net";
 

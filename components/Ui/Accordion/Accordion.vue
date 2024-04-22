@@ -11,7 +11,7 @@
             </UiAccordionHeader>
           </slot>
           <slot name="content" :items="items">
-            <UiAccordionContent :content="item.content"></UiAccordionContent>
+            <UiAccordionContent :content="item.content" />
           </slot>
         </UiAccordionItem>
       </template>
@@ -37,7 +37,7 @@
         items?: AccordionItem[];
       }
     >(),
-    { type: "single", collapsible: true }
+    { type: "single", collapsible: true, items: () => [] }
   );
 
   const emits = defineEmits<AccordionRootEmits>();

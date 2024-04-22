@@ -5,14 +5,14 @@
       :class="styles({ class: props.class })"
     >
       <slot>
-        <div class="h-full w-full rounded-md bg-primary"></div>
+        <div class="h-full w-full rounded-md bg-primary" />
       </slot>
     </TabsIndicator>
   </ClientOnly>
 </template>
 
 <script lang="ts" setup>
-  import { TabsIndicator, withDefault } from "radix-vue";
+  import { TabsIndicator } from "radix-vue";
   import type { TabsIndicatorProps } from "radix-vue";
 
   defineOptions({ inheritAttrs: false });

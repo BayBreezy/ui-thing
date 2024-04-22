@@ -1,6 +1,6 @@
 <template>
   <ComboboxAnchor v-bind="props">
-    <slot></slot>
+    <slot />
   </ComboboxAnchor>
 </template>
 

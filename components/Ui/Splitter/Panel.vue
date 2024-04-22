@@ -4,12 +4,12 @@
     ref="forwardRef"
     v-slot="{ isCollapsed, isExpanded }: { isCollapsed: boolean; isExpanded: boolean }"
   >
-    <slot :isCollapsed="isCollapsed" :isExpanded="isExpanded"></slot>
+    <slot :is-collapsed="isCollapsed" :is-expanded="isExpanded" />
   </SplitterPanel>
 </template>
 
 <script lang="ts" setup>
-  import { SplitterPanel, useForwardExpose, useForwardPropsEmits } from "radix-vue";
+  import { SplitterPanel, useForwardPropsEmits } from "radix-vue";
   import type { SplitterPanelEmits, SplitterPanelProps } from "radix-vue";
 
   const props = withDefaults(defineProps<SplitterPanelProps>(), {});

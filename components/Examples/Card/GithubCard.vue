@@ -14,12 +14,12 @@
           >
           <UiSeparator orientation="vertical" class="h-[20px]" />
           <UiDropdownMenu>
-            <UiDropdownMenuTrigger asChild>
+            <UiDropdownMenuTrigger as-child>
               <UiButton variant="secondary" class="px-2 shadow-none"
                 ><Icon name="lucide:chevron-down" class="h-4 w-4"
               /></UiButton>
             </UiDropdownMenuTrigger>
-            <UiDropdownMenuContent align="end" :alignOffset="-5" class="w-[200px]">
+            <UiDropdownMenuContent align="end" :align-offset="-5" class="w-[200px]">
               <UiDropdownMenuLabel>Suggested Lists</UiDropdownMenuLabel>
               <UiDropdownMenuSeparator />
               <UiDropdownMenuCheckboxItem checked> Future Ideas </UiDropdownMenuCheckboxItem>

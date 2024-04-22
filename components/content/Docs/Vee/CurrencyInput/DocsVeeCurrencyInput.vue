@@ -1,5 +1,5 @@
 <template>
-  <form @submit="onSubmit" class="mx-auto max-w-md">
+  <form class="mx-auto max-w-md" @submit="onSubmit">
     <fieldset :disabled="isSubmitting" class="space-y-5">
       <UiVeeCurrencyInput label="Toys total" name="toys" hint="The cost for the baby toys" />
       <UiVeeCurrencyInput label="Food total" name="food" hint="The cost for the baby food" />
@@ -32,12 +32,12 @@
     validationSchema: toTypedSchema(schema),
   });
 
-  const onSubmit = handleSubmit(async (values) => {
+  const onSubmit = handleSubmit(async (_) => {
     const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
     useSonner.promise(promise, {
       loading: "Making payment...",
-      success: (d) => "Payment successful!",
-      error: (e) => "Error! Your information could not be sent to our servers!",
+      success: (_) => "Payment successful!",
+      error: (_) => "Error! Your information could not be sent to our servers!",
     });
   });
 </script>

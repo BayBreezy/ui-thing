@@ -9,13 +9,13 @@
             alt="Company Logo"
             title="Company Logo"
             class="h-6 object-contain lg:h-8"
-          />
+          >
           <span class="font-semibold lg:text-lg">UI Thing</span>
         </NuxtLink>
         <UiNavigationMenu as="nav" class="hidden items-center justify-start gap-8 lg:flex">
           <UiNavigationMenuList class="gap-2">
             <UiNavigationMenuItem>
-              <UiNavigationMenuLink asChild>
+              <UiNavigationMenuLink as-child>
                 <UiButton to="#" variant="ghost" size="sm"> Home</UiButton>
               </UiNavigationMenuLink>
             </UiNavigationMenuItem>
@@ -25,7 +25,7 @@
                 <div class="bg-background ring-1 ring-muted lg:w-[750px] xl:w-[1000px]">
                   <ul class="grid w-full grid-cols-3 flex-col gap-5 px-4 py-5 xl:grid-cols-3">
                     <li v-for="b in 9" :key="b">
-                      <UiNavigationMenuLink asChild>
+                      <UiNavigationMenuLink as-child>
                         <NuxtLink
                           to="#"
                           class="group flex gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 dark:hover:bg-muted/20"
@@ -38,7 +38,7 @@
                               width="400"
                               height="90"
                               class="h-full w-[400px] object-cover transition hover:scale-110 group-hover:scale-110"
-                            />
+                            >
                           </div>
                           <div class="flex flex-col gap-1.5 leading-none">
                             <p class="text-sm font-semibold">Auto layout explained</p>
@@ -64,7 +64,7 @@
             </UiNavigationMenuItem>
 
             <UiNavigationMenuItem>
-              <UiNavigationMenuLink asChild>
+              <UiNavigationMenuLink as-child>
                 <UiButton to="#" variant="ghost" size="sm">Pricing</UiButton>
               </UiNavigationMenuLink>
             </UiNavigationMenuItem>
@@ -73,7 +73,7 @@
       </div>
       <div class="lg:hidden">
         <UiSheet>
-          <UiSheetTrigger asChild>
+          <UiSheetTrigger as-child>
             <UiButton variant="ghost" size="icon-sm">
               <Icon name="lucide:menu" class="h-5 w-5" />
             </UiButton>
@@ -88,7 +88,7 @@
                     <UiButton variant="ghost" class="justify-start text-base" to="#">Home</UiButton>
 
                     <UiCollapsible>
-                      <UiCollapsibleTrigger asChild>
+                      <UiCollapsibleTrigger as-child>
                         <UiButton
                           variant="ghost"
                           class="w-full justify-start text-base capitalize *:data-[state=open]:-rotate-180"
@@ -115,7 +115,7 @@
                                     loading="lazy"
                                     height="200"
                                     class="h-full w-full object-cover transition hover:scale-110 group-hover:scale-110"
-                                  />
+                                  >
                                 </div>
                                 <div class="flex flex-col gap-1.5 leading-none">
                                   <p class="line-clamp-1 overflow-ellipsis font-semibold">

@@ -2,7 +2,7 @@
   <div class="relative flex h-screen items-center justify-center">
     <div
       class="absolute inset-0 bg-[linear-gradient(to_right,theme(colors.border/80%)_1px,transparent_1px),linear-gradient(to_bottom,theme(colors.border/80%)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"
-    ></div>
+    />
 
     <div class="relative w-full max-w-[330px] px-5">
       <div class="flex flex-col items-center">
@@ -21,15 +21,15 @@
           />
           <UiButton class="w-full" type="submit" text="Get Started" />
           <UiDivider label="OR" />
-          <UiButton @click="signInWithGoogle()" variant="outline" type="button">
+          <UiButton variant="outline" type="button" @click="signInWithGoogle()">
             <Icon class="size-4" name="logos:google-icon" />
             <span class="ml-2">Sign up with Google</span>
           </UiButton>
-          <UiButton @click="signInWithFacebook()" variant="outline" type="button">
+          <UiButton variant="outline" type="button" @click="signInWithFacebook()">
             <Icon class="size-4" name="logos:facebook" />
             <span class="ml-2">Sign up with Facebook</span>
           </UiButton>
-          <UiButton @click="signInWithGithub()" variant="outline" type="button">
+          <UiButton variant="outline" type="button" @click="signInWithGithub()">
             <Icon class="size-4" name="mdi:github" />
             <span class="ml-2">Sign up with Github</span>
           </UiButton>
@@ -62,7 +62,7 @@
     validationSchema: Schema,
   });
 
-  const submit = handleSubmit(async (values) => {
+  const submit = handleSubmit(async (_) => {
     useSonner("Account created!", {
       description: "You have successfully created an account.",
     });

@@ -5,7 +5,7 @@
     </template>
     <template #content>
       <UiCardContent>
-        <UiDatepicker :columns="2" v-model.range="date">
+        <UiDatepicker v-model.range="date" :columns="2">
           <template #default="{ togglePopover }">
             <UiButton
               variant="outline"

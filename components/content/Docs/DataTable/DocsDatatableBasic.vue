@@ -1,6 +1,6 @@
 <template>
   <div>
-    <UiDatatable @ready="tableRef = $event" :data="users" :options="options" />
+    <UiDatatable :data="users" :options="options" @ready="tableRef = $event" />
   </div>
 </template>
 
@@ -22,7 +22,7 @@
       "print",
       {
         text: "Select all",
-        action: function (e, dt, node, config) {
+        action: function (e, dt, _, __) {
           dt.rows().select();
         },
       },
@@ -31,7 +31,7 @@
       {
         data: "id.value",
         title: "ID",
-        render(data, type, row, meta) {
+        render(_, __, row, ___) {
           return row.id?.value ? row.id?.value : "N/A";
         },
       },
@@ -42,7 +42,7 @@
       {
         data: "dob.date",
         title: "DOB",
-        render(data, type, row, meta) {
+        render(_, __, row, ___) {
           const formattedDob = useDateFormat(row.dob.date, "MMM DD, YYYY [at] h:mm A");
           return formattedDob.value;
         },

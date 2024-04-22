@@ -17,7 +17,7 @@
                 <UiInput id="name" value="Pedro Duarte" />
               </div>
               <div class="space-y-1">
-                <UiLabel htmlFor="username">Username</UiLabel>
+                <UiLabel html-for="username">Username</UiLabel>
                 <UiInput id="username" value="@peduarte" />
               </div>
             </UiCardContent>
@@ -37,11 +37,11 @@
           <template #content>
             <UiCardContent class="space-y-2">
               <div class="space-y-1">
-                <UiLabel htmlFor="current">Current password</UiLabel>
+                <UiLabel html-for="current">Current password</UiLabel>
                 <UiInput id="current" type="password" />
               </div>
               <div class="space-y-1">
-                <UiLabel htmlFor="new">New password</UiLabel>
+                <UiLabel html-for="new">New password</UiLabel>
                 <UiInput id="new" type="password" />
               </div>
             </UiCardContent>

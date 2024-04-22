@@ -1,5 +1,5 @@
 <template>
-  <form @submit="onSubmit" class="mx-auto max-w-md">
+  <form class="mx-auto max-w-md" @submit="onSubmit">
     <p class="font-semibold">Terms of Service</p>
     <p class="mb-4 mt-2 text-sm text-muted-foreground">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, perspiciatis sunt, quae
@@ -24,12 +24,12 @@
     validationSchema: toTypedSchema(schema),
   });
 
-  const onSubmit = handleSubmit(async (values) => {
+  const onSubmit = handleSubmit(async (_) => {
     const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
     useSonner.promise(promise, {
       loading: "Starting the process...",
-      success: (d) => `We will begin the process now`,
-      error: (e) => "Error! Your information could not be sent to our servers!",
+      success: (_) => `We will begin the process now`,
+      error: (_) => "Error! Your information could not be sent to our servers!",
     });
   });
 </script>

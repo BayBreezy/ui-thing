@@ -1,6 +1,6 @@
 <template>
   <MenubarRadioGroup v-bind="forwarded">
-    <slot></slot>
+    <slot />
   </MenubarRadioGroup>
 </template>
 

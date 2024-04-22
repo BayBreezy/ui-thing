@@ -25,6 +25,8 @@
       }
     >(),
     {
+      class: undefined,
+      title: "",
       icon: "lucide:chevron-down",
     }
   );

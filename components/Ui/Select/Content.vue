@@ -6,7 +6,7 @@
     >
       <UiSelectScrollUpButton />
       <UiSelectViewport :position="position">
-        <slot></slot>
+        <slot />
       </UiSelectViewport>
       <UiSelectScrollDownButton />
     </SelectContent>

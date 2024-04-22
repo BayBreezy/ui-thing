@@ -3,11 +3,11 @@
     <slot>
       <slot name="image">
         <UiAvatarImage
-          @loading-status-change="emits('loadingStatusChange', $event)"
           v-if="src"
           :src="src"
           :alt="alt"
           :class="imageClass"
+          @loading-status-change="emits('loadingStatusChange', $event)"
         />
       </slot>
       <slot name="fallback">
@@ -33,7 +33,14 @@
           delayMs?: number;
         }
     >(),
-    {}
+    {
+      class: undefined,
+      imageClass: undefined,
+      fallbackClass: undefined,
+      alt: undefined,
+      fallback: undefined,
+      delayMs: undefined,
+    }
   );
 
   const emits = defineEmits<AvatarImageEmits>();

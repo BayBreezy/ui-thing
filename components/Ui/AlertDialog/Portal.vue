@@ -1,6 +1,6 @@
 <template>
   <AlertDialogPortal v-bind="props">
-    <slot></slot>
+    <slot />
   </AlertDialogPortal>
 </template>
 

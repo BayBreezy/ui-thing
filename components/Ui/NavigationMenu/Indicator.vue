@@ -3,7 +3,7 @@
     v-bind="reactiveOmit(props, 'class')"
     :class="styles({ class: props.class })"
   >
-    <slot></slot>
+    <slot />
     <div class="relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md" />
   </NavigationMenuIndicator>
 </template>

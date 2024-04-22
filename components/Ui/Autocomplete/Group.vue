@@ -1,6 +1,6 @@
 <template>
   <ComboboxGroup v-bind="props">
-    <slot></slot>
+    <slot />
   </ComboboxGroup>
 </template>
 

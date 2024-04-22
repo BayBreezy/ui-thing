@@ -1,5 +1,5 @@
 <template>
-  <form @submit="onSubmit" class="mx-auto max-w-md">
+  <form class="mx-auto max-w-md" @submit="onSubmit">
     <fieldset :disabled="isSubmitting" class="space-y-5">
       <UiVeeInput label="Full name" name="name" hint="This will be displayed to the public" />
       <UiVeeInput label="Email" name="email" type="email" />
@@ -30,12 +30,12 @@
     validationSchema: toTypedSchema(schema),
   });
 
-  const onSubmit = handleSubmit(async (values) => {
+  const onSubmit = handleSubmit(async (_) => {
     const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
     useSonner.promise(promise, {
       loading: "Sending information to our servers...",
-      success: (d) => "We updated your information.",
-      error: (e) => "Error! Your information could not be sent to our servers!",
+      success: (_) => "We updated your information.",
+      error: (_) => "Error! Your information could not be sent to our servers!",
     });
   });
 </script>

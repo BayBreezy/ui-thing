@@ -4,7 +4,7 @@
       v-bind="{ ...forwarded, ...$attrs }"
       :class="styles({ class: props.class })"
     >
-      <slot></slot>
+      <slot />
     </DropdownMenuSubContent>
   </UiDropdownMenuPortal>
 </template>

@@ -4,7 +4,7 @@
     :class="styles({ class: props.class })"
     v-bind="reactiveOmit(props, 'class')"
   >
-    <slot :items="items"></slot>
+    <slot :items="items" />
   </PaginationList>
 </template>
 

@@ -2,20 +2,20 @@
   <PaginationRoot v-bind="forwarded">
     <slot>
       <UiPaginationList v-slot="{ items }">
-        <slot name="first"><UiPaginationFirst asChild :icon="firstIcon" /> </slot>
-        <slot name="prev"><UiPaginationPrev asChild :icon="prevIcon" /> </slot>
+        <slot name="first"><UiPaginationFirst as-child :icon="firstIcon" /> </slot>
+        <slot name="prev"><UiPaginationPrev as-child :icon="prevIcon" /> </slot>
 
         <template v-for="(page, index) in items" :key="index">
-          <UiPaginationItem asChild v-if="page.type === 'page'" v-bind="page" />
+          <UiPaginationItem v-if="page.type === 'page'" as-child v-bind="page" />
           <UiPaginationEllipsis
-            asChild
             v-else-if="page.type === 'ellipsis'"
+            as-child
             v-bind="page"
             :icon="ellipsisIcon"
           />
         </template>
-        <slot name="next"><UiPaginationNext asChild :icon="nextIcon" /> </slot>
-        <slot name="last"><UiPaginationLast asChild :icon="lastIcon" /></slot>
+        <slot name="next"><UiPaginationNext as-child :icon="nextIcon" /> </slot>
+        <slot name="last"><UiPaginationLast as-child :icon="lastIcon" /></slot>
       </UiPaginationList>
     </slot>
   </PaginationRoot>

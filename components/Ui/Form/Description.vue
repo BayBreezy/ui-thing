@@ -2,7 +2,7 @@
   <p :id="formDescriptionId" :class="styles({ class: props.class })" v-bind="$attrs">
     <slot>
       <ClientOnly>
-        <p v-html="description"></p>
+        <p v-html="description" />
       </ClientOnly>
     </slot>
   </p>

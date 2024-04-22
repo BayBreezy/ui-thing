@@ -1,13 +1,13 @@
 <template>
   <component
     :is="elementType"
-    @click="onClick"
     :to="to"
     :href="href"
     :disabled="disabled"
     :class="badgeVariants({ disabled, variant, class: props.class })"
+    @click="onClick"
   >
-    <slot></slot>
+    <slot />
   </component>
 </template>
 

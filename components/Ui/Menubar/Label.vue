@@ -3,7 +3,7 @@
     :class="styles({ inset, class: props.class })"
     v-bind="reactiveOmit(props, 'class', 'inset')"
   >
-    <slot></slot>
+    <slot />
   </MenubarLabel>
 </template>
 

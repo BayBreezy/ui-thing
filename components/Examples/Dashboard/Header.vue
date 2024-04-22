@@ -31,7 +31,7 @@
       <div class="ml-auto flex items-center space-x-4">
         <UiInput type="search" placeholder="Search..." class="md:w-[100px] lg:w-[300px]" />
         <UiDropdownMenu>
-          <UiDropdownMenuTrigger asChild>
+          <UiDropdownMenuTrigger as-child>
             <UiButton variant="ghost" class="relative h-8 w-8 rounded-full">
               <UiAvatar
                 class="h-8 w-8"

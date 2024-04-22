@@ -55,12 +55,12 @@
     validationSchema: toTypedSchema(CardSchema),
   });
 
-  const submitCard = handleSubmit(async (values) => {
+  const submitCard = handleSubmit(async () => {
     const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
     await new Promise<void>((res, rej) => {
       useSonner.promise(promise, {
         loading: "Creating your account...",
-        success: (d) => {
+        success: (_) => {
           res();
           return "Your account has been created!";
         },

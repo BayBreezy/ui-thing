@@ -31,6 +31,9 @@
     {
       text: "Continue",
       variant: "default",
+      size: "default",
+      class: undefined,
+      onClick: undefined,
     }
   );
 </script>

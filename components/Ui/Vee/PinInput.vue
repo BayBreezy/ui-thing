@@ -1,28 +1,28 @@
 <template>
   <div class="w-full">
     <UiLabel
-      :for="inputId"
       v-if="label"
+      :for="inputId"
       :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
-      ><span>{{ label }} <span class="text-destructive" v-if="required">*</span></span></UiLabel
+      ><span>{{ label }} <span v-if="required" class="text-destructive">*</span></span></UiLabel
     >
     <div class="relative">
       <UiPinInput
-        @complete="emits('complete', $event)"
         :id="inputId"
         v-bind="{
           ...$attrs,
           ...reactiveOmit(props, 'label', 'hint', 'id', 'rules', 'validateOnMount', 'modelValue'),
         }"
         v-model="value"
+        @complete="emits('complete', $event)"
       />
     </div>
     <TransitionSlide group tag="div">
-      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">
+      <p v-if="hint && !errorMessage" key="hint" class="mt-1.5 text-sm text-muted-foreground">
         {{ hint }}
       </p>
 
-      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">
+      <p v-if="errorMessage" key="errorMessage" class="mt-1.5 text-sm text-destructive">
         {{ errorMessage }}
       </p>
     </TransitionSlide>

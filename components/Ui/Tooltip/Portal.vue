@@ -1,6 +1,6 @@
 <template>
   <TooltipPortal v-bind="props">
-    <slot></slot>
+    <slot />
   </TooltipPortal>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <ToggleRoot v-bind="forwarded" :class="styles({ variant, size, class: props.class })">
-    <slot></slot>
+    <slot />
   </ToggleRoot>
 </template>
 

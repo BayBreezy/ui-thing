@@ -1,7 +1,7 @@
 <template>
   <ComboboxContent v-bind="forwarded" :class="styles({ class: props.class })">
     <UiAutocompleteViewport>
-      <slot></slot>
+      <slot />
     </UiAutocompleteViewport>
   </ComboboxContent>
 </template>
@@ -22,6 +22,7 @@
       bodyLock: true,
       side: "bottom",
       sideOffset: 8,
+      class: undefined,
     }
   );
 

@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { DropdownMenuSubTrigger, useForwardProps } from "radix-vue";
+  import { DropdownMenuSubTrigger } from "radix-vue";
   import type { DropdownMenuSubTriggerProps } from "radix-vue";
 
   const props = defineProps<

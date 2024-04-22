@@ -1,7 +1,7 @@
 <template>
   <UiPopoverPortal :to="to">
     <PopoverContent v-bind="{ ...forwarded, ...$attrs }" :class="styles({ class: props.class })">
-      <slot></slot>
+      <slot />
     </PopoverContent>
   </UiPopoverPortal>
 </template>

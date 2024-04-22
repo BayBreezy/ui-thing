@@ -2,8 +2,8 @@
   <UiTooltipProvider v-bind="props">
     <TooltipRoot v-bind="{ ...forwarded, ...$attrs }">
       <slot>
-        <slot name="trigger"></slot>
-        <slot name="content"></slot>
+        <slot name="trigger" />
+        <slot name="content" />
       </slot>
     </TooltipRoot>
   </UiTooltipProvider>

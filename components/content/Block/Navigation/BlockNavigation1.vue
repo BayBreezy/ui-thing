@@ -9,13 +9,13 @@
             alt="Company Logo"
             title="Company Logo"
             class="h-6 object-contain lg:h-8"
-          />
+          >
           <span class="font-semibold lg:text-lg">UI Thing</span>
         </NuxtLink>
         <UiNavigationMenu as="nav" class="hidden items-center justify-start gap-8 lg:flex">
           <UiNavigationMenuList class="gap-2">
             <UiNavigationMenuItem>
-              <UiNavigationMenuLink asChild>
+              <UiNavigationMenuLink as-child>
                 <UiButton to="#" variant="ghost" size="sm"> Home</UiButton>
               </UiNavigationMenuLink>
             </UiNavigationMenuItem>
@@ -30,7 +30,7 @@
                       <p class="mb-5 text-sm font-semibold capitalize text-primary">{{ cat }}</p>
                       <ul class="flex w-full flex-col gap-2">
                         <li v-for="(child, k) in item" :key="k">
-                          <UiNavigationMenuLink class="data-[active]:bg-muted/80" asChild>
+                          <UiNavigationMenuLink class="data-[active]:bg-muted/80" as-child>
                             <NuxtLink
                               :to="child.href"
                               class="flex gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
@@ -56,7 +56,7 @@
               </UiNavigationMenuItem>
             </template>
             <UiNavigationMenuItem>
-              <UiNavigationMenuLink asChild>
+              <UiNavigationMenuLink as-child>
                 <UiButton to="#" variant="ghost" size="sm">Pricing</UiButton>
               </UiNavigationMenuLink>
             </UiNavigationMenuItem>
@@ -65,7 +65,7 @@
       </div>
       <div class="lg:hidden">
         <UiSheet>
-          <UiSheetTrigger asChild>
+          <UiSheetTrigger as-child>
             <UiButton variant="ghost" size="icon-sm">
               <Icon name="lucide:menu" class="h-5 w-5" />
             </UiButton>
@@ -80,7 +80,7 @@
                     <UiButton variant="ghost" class="justify-start text-base" to="#">Home</UiButton>
                     <template v-for="(data, link, i) in links" :key="i">
                       <UiCollapsible>
-                        <UiCollapsibleTrigger asChild>
+                        <UiCollapsibleTrigger as-child>
                           <UiButton
                             variant="ghost"
                             class="w-full justify-start text-base capitalize *:data-[state=open]:-rotate-180"
@@ -93,16 +93,16 @@
                           class="data-[state=closed]:animate-none data-[state=open]:p-3 data-[state=open]:pt-0"
                         >
                           <div
-                            class="mt-5"
                             v-for="(item, cat, index) in data"
                             :key="`${cat}-${index}`"
+                            class="mt-5"
                           >
                             <p class="mb-5 text-sm font-semibold capitalize text-primary">
                               {{ cat }}
                             </p>
                             <ul class="flex w-full flex-col gap-2">
                               <li v-for="(child, k) in item" :key="k">
-                                <UiNavigationMenuLink class="data-[active]:bg-muted/80" asChild>
+                                <UiNavigationMenuLink class="data-[active]:bg-muted/80" as-child>
                                   <NuxtLink
                                     :to="child.href"
                                     class="flex gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"

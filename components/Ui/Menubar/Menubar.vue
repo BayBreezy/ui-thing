@@ -1,6 +1,6 @@
 <template>
   <MenubarRoot v-bind="forwarded" :class="styles({ class: props.class })">
-    <slot></slot>
+    <slot />
   </MenubarRoot>
 </template>
 

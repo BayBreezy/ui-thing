@@ -1,6 +1,6 @@
 <template>
   <DialogClose v-bind="props">
-    <slot> </slot>
+    <slot />
   </DialogClose>
 </template>
 

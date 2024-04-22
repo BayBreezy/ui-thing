@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { logicAnd, logicNot } from "@vueuse/math";
 import { computed, ref } from "vue";
 import type { ComputedRef, WatchSource } from "vue";
@@ -5,7 +6,7 @@ import type { ComputedRef, WatchSource } from "vue";
 export interface ShortcutConfig {
   handler: Function;
   usingInput?: string | boolean;
-  whenever?: WatchSource<Boolean>[];
+  whenever?: WatchSource<boolean>[];
 }
 
 export interface ShortcutsConfig {
@@ -18,7 +19,7 @@ export interface ShortcutsOptions {
 
 interface Shortcut {
   handler: Function;
-  condition: ComputedRef<Boolean>;
+  condition: ComputedRef<boolean>;
   chained: boolean;
   // KeyboardEvent attributes
   key: string;
@@ -157,7 +158,7 @@ export const defineShortcuts = (config: ShortcutsConfig, options: ShortcutsOptio
       }
 
       // Create shortcut computed
-      const conditions: ComputedRef<Boolean>[] = [];
+      const conditions: ComputedRef<boolean>[] = [];
       if (!(shortcutConfig as ShortcutConfig).usingInput) {
         conditions.push(logicNot(usingInput));
       } else if (typeof (shortcutConfig as ShortcutConfig).usingInput === "string") {

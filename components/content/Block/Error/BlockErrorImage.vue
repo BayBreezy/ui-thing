@@ -4,7 +4,7 @@
       <div>
         <p class="mb-5 font-bold tracking-tight text-primary">{{ statusCode }} error</p>
         <h1 class="text-4xl font-bold tracking-tight lg:text-5xl">{{ title }}</h1>
-        <UiButton @click="clearError({ redirect: '#' })" class="mt-5">Take me home</UiButton>
+        <UiButton class="mt-5" @click="clearError({ redirect: '#' })">Take me home</UiButton>
       </div>
     </div>
     <div class="hidden h-screen md:block md:w-1/2 lg:w-1/2">
@@ -12,7 +12,7 @@
         src="https://images.unsplash.com/photo-1512551980832-13df02babc9e?q=60&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="Login form image"
         class="size-full object-cover"
-      />
+      >
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <SliderThumb :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
-    <slot></slot>
+    <slot />
   </SliderThumb>
 </template>
 

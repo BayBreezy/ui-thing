@@ -1,6 +1,6 @@
 <template>
   <CollapsibleContent :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
-    <slot></slot>
+    <slot />
   </CollapsibleContent>
 </template>
 

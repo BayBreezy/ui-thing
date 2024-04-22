@@ -14,12 +14,12 @@
           </slot>
         </UiCardHeader>
       </slot>
-      <slot name="content" v-if="content || $slots.content">
+      <slot v-if="content || $slots.content" name="content">
         <UiCardContent>
-          <div v-html="content"></div>
+          <div v-html="content" />
         </UiCardContent>
       </slot>
-      <slot name="footer"></slot>
+      <slot name="footer" />
     </slot>
   </Primitive>
 </template>
@@ -43,6 +43,10 @@
     >(),
     {
       as: "div",
+      title: undefined,
+      description: undefined,
+      content: undefined,
+      class: undefined,
     }
   );
 

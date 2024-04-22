@@ -50,6 +50,14 @@
     }>(),
     {
       type: "button",
+      onClick: undefined,
+      to: undefined,
+      href: undefined,
+      as: undefined,
+      class: undefined,
+      text: undefined,
+      variant: "default",
+      size: "default",
     }
   );
 

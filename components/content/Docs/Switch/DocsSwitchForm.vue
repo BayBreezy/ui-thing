@@ -1,7 +1,7 @@
 <template>
-  <form @submit="onSubmit" class="flex w-full justify-center">
+  <form class="flex w-full justify-center" @submit="onSubmit">
     <div class="w-full">
-      <Field name="mode" v-slot="{ handleChange, value }">
+      <Field v-slot="{ handleChange, value }" name="mode">
         <UiFormItem class="flex flex-col">
           <div class="flex items-center gap-3">
             <UiSwitch :checked="value" @update:checked="handleChange" />
@@ -22,7 +22,7 @@
     validationSchema: toTypedSchema(
       z.object({
         mode: z.literal(true, {
-          errorMap: (iss, ctx) => {
+          errorMap: (_, __) => {
             return { message: "Please turn on airplane mode" };
           },
         }),

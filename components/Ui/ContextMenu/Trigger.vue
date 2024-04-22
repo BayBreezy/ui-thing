@@ -1,6 +1,6 @@
 <template>
   <ContextMenuTrigger v-bind="props">
-    <slot></slot>
+    <slot />
   </ContextMenuTrigger>
 </template>
 

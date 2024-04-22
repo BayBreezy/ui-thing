@@ -20,7 +20,7 @@
         description?: string;
       }
     >(),
-    { as: "div" }
+    { as: "div", class: undefined, description: undefined }
   );
 
   const styles = tv({

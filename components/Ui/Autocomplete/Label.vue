@@ -1,6 +1,6 @@
 <template>
   <ComboboxLabel :class="styles({ class: props.class })" v-bind="props">
-    <slot></slot>
+    <slot />
   </ComboboxLabel>
 </template>
 

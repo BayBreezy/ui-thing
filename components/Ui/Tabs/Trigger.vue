@@ -1,6 +1,6 @@
 <template>
   <TabsTrigger v-bind="reactiveOmit(props, 'class')" :class="styles({ pill, class: props.class })">
-    <slot></slot>
+    <slot />
   </TabsTrigger>
 </template>
 

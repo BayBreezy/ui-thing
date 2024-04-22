@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center justify-center">
     <div class="flex items-center gap-2">
-      <UiCheckbox v-model="terms" id="checkbox-terms" />
+      <UiCheckbox id="checkbox-terms" v-model="terms" />
       <UiLabel for="checkbox-terms">
         <span class="ml-2"
           >I agree to the <a href="#" class="text-primary underline">terms and conditions</a></span

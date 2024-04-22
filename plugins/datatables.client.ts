@@ -11,7 +11,7 @@ import "datatables.net-responsive-dt";
 import "datatables.net-searchbuilder-dt";
 import "datatables.net-select-dt";
 
-// @ts-ignore
+// @ts-expect-error - We are not creating a declaration file for this library
 window.JSZip = JSZip;
 
 DataTable.use(DataTablesCore);

@@ -1,6 +1,6 @@
 <template>
   <ContextMenuPortal v-bind="props">
-    <slot></slot>
+    <slot />
   </ContextMenuPortal>
 </template>
 

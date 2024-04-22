@@ -1,6 +1,6 @@
 <template>
   <Primitive :class="styles({ sticky, class: props.class })" v-bind="reactiveOmit(props, 'class')">
-    <slot> </slot>
+    <slot />
   </Primitive>
 </template>
 

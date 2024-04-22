@@ -4,7 +4,7 @@
     v-bind="forwarded"
     :class="styles({ class: props.class })"
   >
-    <slot :modelValue="modelValue" />
+    <slot :model-value="modelValue" />
   </ToggleGroupRoot>
 </template>
 

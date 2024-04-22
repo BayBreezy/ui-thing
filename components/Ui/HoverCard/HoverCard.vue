@@ -1,6 +1,6 @@
 <template>
   <HoverCardRoot v-bind="forwarded">
-    <slot></slot>
+    <slot />
   </HoverCardRoot>
 </template>
 

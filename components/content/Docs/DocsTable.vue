@@ -11,7 +11,7 @@
         </UiTableRow>
       </UiTableHeader>
       <UiTableBody class="last:border-b">
-        <template v-for="(invoice, i) in invoices" :key="invoice.id">
+        <template v-for="invoice in invoices" :key="invoice.id">
           <UiTableRow>
             <UiTableCell class="font-medium">{{ invoice.invoice }} </UiTableCell>
             <UiTableCell>{{ invoice.paymentStatus }}</UiTableCell>

@@ -1,6 +1,6 @@
 <template>
   <ComboboxSeparator v-bind="props">
-    <slot></slot>
+    <slot />
   </ComboboxSeparator>
 </template>
 

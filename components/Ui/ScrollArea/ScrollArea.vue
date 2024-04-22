@@ -1,7 +1,7 @@
 <template>
   <ScrollAreaRoot v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
     <UiScrollAreaViewport>
-      <slot></slot>
+      <slot />
     </UiScrollAreaViewport>
     <UiScrollAreaScrollbar :orientation="orientation" />
     <UiScrollAreaCorner />

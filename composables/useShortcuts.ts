@@ -1,7 +1,10 @@
 export const _useShortcuts = () => {
   const macOS = computed(
     () =>
-      process.client && navigator && navigator.userAgent && navigator.userAgent.match(/Macintosh;/)
+      import.meta.client &&
+      navigator &&
+      navigator.userAgent &&
+      navigator.userAgent.match(/Macintosh;/)
   );
 
   const metaSymbol = ref(" ");

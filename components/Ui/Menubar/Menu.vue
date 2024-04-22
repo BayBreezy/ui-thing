@@ -1,6 +1,6 @@
 <template>
   <MenubarMenu v-bind="props">
-    <slot></slot>
+    <slot />
   </MenubarMenu>
 </template>
 

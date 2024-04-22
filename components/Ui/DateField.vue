@@ -1,9 +1,9 @@
 <template>
   <DateFieldRoot
-    v-slot="{ segments, modelValue, isInvalid }"
-    :class="styles({ class: props.class })"
+    v-slot="{ segments }"
     v-bind="props"
     v-model="localModel"
+    :class="styles({ class: props.class })"
   >
     <template v-for="item in segments" :key="item.part">
       <DateFieldInput
@@ -11,8 +11,8 @@
         :part="item.part"
         class="inline-flex items-center justify-center text-muted-foreground"
       >
-        <Icon :name="separatorIcon" class="text-muted-foreground" v-if="separatorIcon" />
-        <span class="mx-1 text-muted-foreground" v-else-if="separator">{{ separator }}</span>
+        <Icon v-if="separatorIcon" :name="separatorIcon" class="text-muted-foreground" />
+        <span v-else-if="separator" class="mx-1 text-muted-foreground">{{ separator }}</span>
       </DateFieldInput>
       <DateFieldInput
         v-else
@@ -28,7 +28,7 @@
 <script lang="ts" setup>
   import { type DateValue } from "@internationalized/date";
   import { DateFieldInput, DateFieldRoot } from "radix-vue";
-  import type { DateFieldRootEmits, DateFieldRootProps } from "radix-vue";
+  import type { DateFieldRootProps } from "radix-vue";
 
   const props = withDefaults(
     defineProps<
@@ -42,7 +42,6 @@
       separator: "/",
     }
   );
-  const emits = defineEmits<DateFieldRootEmits>();
   const localModel = defineModel<DateValue>();
 
   const styles = tv({

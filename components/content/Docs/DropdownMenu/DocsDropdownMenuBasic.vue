@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-center">
     <UiDropdownMenu>
-      <UiDropdownMenuTrigger asChild>
+      <UiDropdownMenuTrigger as-child>
         <UiButton variant="outline">Open menu</UiButton>
       </UiDropdownMenuTrigger>
       <UiDropdownMenuContent class="w-56">
@@ -19,7 +19,7 @@
             <UiDropdownMenuSubTrigger
               :title="item.title"
               :icon="item.icon"
-              :textValue="item.title"
+              :text-value="item.title"
             />
             <UiDropdownMenuSubContent>
               <template v-for="(child, k) in item.items" :key="`child-${k}`">
@@ -40,10 +40,6 @@
 </template>
 
 <script lang="ts" setup>
-  const showBookmark = ref(true);
-  const showFullUrls = ref(false);
-  const person = ref("1");
-
   const menuitems = [
     { label: "My Account" },
     { divider: true },

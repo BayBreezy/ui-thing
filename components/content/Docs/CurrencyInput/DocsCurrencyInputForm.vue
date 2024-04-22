@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto flex w-full max-w-lg items-center justify-center">
-    <form @submit="onSubmit" class="w-full space-y-4">
-      <Field name="total" v-slot="{ componentField }">
+    <form class="w-full space-y-4" @submit="onSubmit">
+      <Field v-slot="{ componentField }" name="total">
         <UiFormItem label="Grand total" description="This is what you came for, right?">
           <UiCurrencyInput v-bind="componentField" />
         </UiFormItem>

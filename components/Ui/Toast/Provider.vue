@@ -1,6 +1,6 @@
 <template>
   <ToastProvider v-bind="props">
-    <slot></slot>
+    <slot />
   </ToastProvider>
 </template>
 

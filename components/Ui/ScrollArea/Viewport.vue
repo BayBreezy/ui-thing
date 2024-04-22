@@ -1,6 +1,6 @@
 <template>
   <ScrollAreaViewport v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
-    <slot></slot>
+    <slot />
   </ScrollAreaViewport>
 </template>
 

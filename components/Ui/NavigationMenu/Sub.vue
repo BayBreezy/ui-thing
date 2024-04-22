@@ -1,6 +1,6 @@
 <template>
   <NavigationMenuSub v-bind="forwarded">
-    <slot></slot>
+    <slot />
   </NavigationMenuSub>
 </template>
 

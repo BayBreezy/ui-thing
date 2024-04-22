@@ -12,15 +12,15 @@
     <slot name="actions">
       <div class="flex flex-wrap items-center gap-2">
         <a
-          class="mt-5 inline-flex items-center gap-1 rounded-md bg-muted p-1 px-2 text-xs font-medium"
           v-if="radixLink"
+          class="mt-5 inline-flex items-center gap-1 rounded-md bg-muted p-1 px-2 text-xs font-medium"
           target="_blank"
           :href="radixLink"
           ><Icon name="simple-icons:radixui" size="12" /> Radix Vue</a
         >
       </div>
     </slot>
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

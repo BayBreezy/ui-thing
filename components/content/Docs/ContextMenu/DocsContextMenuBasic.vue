@@ -24,33 +24,33 @@
       <UiContextMenuSeparator />
       <UiContextMenuCheckboxItem
         v-model:checked="showBookmark"
-        @select="(e) => e.preventDefault()"
         title="Show Bookmarks Bar"
         inset
         shortcut="⌘⇧B"
+        @select="(e) => e.preventDefault()"
       />
       <UiContextMenuCheckboxItem
         v-model:checked="showFullUrls"
-        @select="(e) => e.preventDefault()"
         title="Show full URLs"
         inset
         shortcut="⌘⇧U"
+        @select="(e) => e.preventDefault()"
       />
       <UiContextMenuSeparator />
       <UiContextMenuLabel inset label="Choose a person" />
       <UiContextMenuSeparator />
       <UiContextMenuRadioGroup v-model="person">
         <UiContextMenuRadioItem
-          @select="(e) => e.preventDefault()"
           title="Paul Rafael"
           inset
           value="1"
+          @select="(e) => e.preventDefault()"
         />
         <UiContextMenuRadioItem
-          @select="(e) => e.preventDefault()"
           title="Sarah Lindsey"
           inset
           value="2"
+          @select="(e) => e.preventDefault()"
         />
       </UiContextMenuRadioGroup>
     </UiContextMenuContent>

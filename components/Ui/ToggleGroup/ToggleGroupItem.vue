@@ -1,14 +1,14 @@
 <template>
   <ToggleGroupItem v-bind="forwarded" :class="styles({ class: props.class, size, variant })">
     <slot>
-      <Icon class="size-4" v-if="icon" :name="icon" />
+      <Icon v-if="icon" class="size-4" :name="icon" />
     </slot>
   </ToggleGroupItem>
 </template>
 
 <script lang="ts" setup>
   import { ToggleGroupItem, useForwardProps } from "radix-vue";
-  import type { ToggleGroupItemProps, ToggleGroupRootEmits } from "radix-vue";
+  import type { ToggleGroupItemProps } from "radix-vue";
 
   const props = defineProps<
     ToggleGroupItemProps & {

@@ -3,15 +3,15 @@
     :is="eltype"
     :href="href"
     :to="to"
-    @click="onClick"
     :class="
       styles({
         hover: Boolean(onClick) || Boolean(to) || Boolean(href),
         class: props.class,
       })
     "
+    @click="onClick"
   >
-    <slot></slot>
+    <slot />
   </component>
 </template>
 

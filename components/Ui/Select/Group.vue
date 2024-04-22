@@ -1,6 +1,6 @@
 <template>
   <SelectGroup v-bind="forwarded">
-    <slot></slot>
+    <slot />
   </SelectGroup>
 </template>
 

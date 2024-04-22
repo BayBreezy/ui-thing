@@ -4,7 +4,7 @@
       v-bind="{ ...reactiveOmit(props, 'class', 'to'), ...$attrs }"
       :class="styles({ class: props.class })"
     >
-      <slot></slot>
+      <slot />
     </HoverCardContent>
   </UiHoverCardPortal>
 </template>

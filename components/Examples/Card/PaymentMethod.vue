@@ -11,7 +11,7 @@
             <UiRadioGroup orientation="horizontal" class="grid grid-cols-3 gap-4">
               <template v-for="(p, i) in paymentMethods" :key="`payment-method-${i}`">
                 <div>
-                  <UiRadioGroupItem :value="p.id" :id="p.id" class="peer sr-only" />
+                  <UiRadioGroupItem :id="p.id" :value="p.id" class="peer sr-only" />
                   <UiLabel
                     :for="p.id"
                     class="flex flex-col items-center justify-between gap-3 rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
@@ -82,12 +82,12 @@
     validationSchema: toTypedSchema(PaymentSchema),
   });
 
-  const submitPayment = handleSubmit(async (values) => {
+  const submitPayment = handleSubmit(async (_) => {
     const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
     await new Promise<void>((res, rej) => {
       useSonner.promise(promise, {
         loading: "Adding your payment method...",
-        success: (d) => {
+        success: (_) => {
           res();
           return "Payment method added!";
         },

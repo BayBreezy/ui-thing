@@ -1,11 +1,11 @@
 <template>
   <Primitive :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
-    <slot></slot>
+    <slot />
   </Primitive>
 </template>
 
 <script lang="ts" setup>
-  import { Primitive, useForwardProps } from "radix-vue";
+  import { Primitive } from "radix-vue";
   import type { PrimitiveProps } from "radix-vue";
 
   const props = withDefaults(
@@ -17,6 +17,7 @@
     >(),
     {
       as: "div",
+      class: undefined,
     }
   );
 

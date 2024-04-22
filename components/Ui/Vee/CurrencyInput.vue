@@ -1,23 +1,23 @@
 <template>
   <div class="w-full">
     <UiLabel
-      :for="inputId"
       v-if="label"
+      :for="inputId"
       :hint="labelHint"
       :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
-      ><span>{{ label }} <span class="text-destructive" v-if="required">*</span></span></UiLabel
+      ><span>{{ label }} <span v-if="required" class="text-destructive">*</span></span></UiLabel
     >
     <div class="relative">
       <slot name="icon">
         <span v-if="hasIcon" class="absolute inset-y-0 left-3 flex items-center justify-center">
-          <Icon :name="icon" v-if="icon" class="h-4 w-4 text-muted-foreground/70" />
+          <Icon v-if="icon" :name="icon" class="h-4 w-4 text-muted-foreground/70" />
         </span>
       </slot>
       <UiCurrencyInput
+        :id="inputId"
+        v-model="value"
         type="text"
         :required="required"
-        v-model="value"
-        :id="inputId"
         :name="name"
         :disabled="disabled"
         v-bind="$attrs"
@@ -27,11 +27,11 @@
       />
     </div>
     <TransitionSlide group tag="div">
-      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">
+      <p v-if="hint && !errorMessage" key="hint" class="mt-1.5 text-sm text-muted-foreground">
         {{ hint }}
       </p>
 
-      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">
+      <p v-if="errorMessage" key="errorMessage" class="mt-1.5 text-sm text-destructive">
         {{ errorMessage }}
       </p>
     </TransitionSlide>

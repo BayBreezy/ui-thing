@@ -1,7 +1,7 @@
 <template>
   <UiMenubarPortal :to="to">
     <MenubarContent v-bind="{ ...forwarded, ...$attrs }" :class="styles({ class: props.class })">
-      <slot></slot>
+      <slot />
     </MenubarContent>
   </UiMenubarPortal>
 </template>

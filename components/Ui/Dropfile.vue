@@ -1,5 +1,5 @@
 <template>
-  <div @click="open()" ref="dropZoneRef" :class="styles({ isOverDropZone, class: props.class })">
+  <div ref="dropZoneRef" :class="styles({ isOverDropZone, class: props.class })" @click="open()">
     <slot name="message">
       <div class="py-10 text-center">
         <slot name="icon">
@@ -16,10 +16,10 @@
           </div>
         </slot>
         <slot name="title">
-          <p class="mt-5 text-sm font-medium" v-html="title"></p>
+          <p class="mt-5 text-sm font-medium" v-html="title" />
         </slot>
         <slot name="subtext">
-          <p class="mt-1 text-sm text-muted-foreground/60" v-html="subtext"></p>
+          <p class="mt-1 text-sm text-muted-foreground/60" v-html="subtext" />
         </slot>
       </div>
     </slot>
@@ -44,6 +44,7 @@
       /**
        * The function to call when files are dropped.
        */
+      // eslint-disable-next-line @typescript-eslint/ban-types
       onDrop?: Function;
       /**
        * Whether or not to allow multiple files to be picked. Does not affect drag and drop.
@@ -71,10 +72,10 @@
 
   onChange((files: FileList | null) => {
     if (files?.length) {
-      handleDrop(Array.from(files || []))
-      reset()
+      handleDrop(Array.from(files || []));
+      reset();
     }
-  })
+  });
 
   const dropZoneRef = ref<HTMLDivElement>();
   const emits = defineEmits<{

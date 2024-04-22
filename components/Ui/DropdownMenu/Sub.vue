@@ -1,6 +1,6 @@
 <template>
   <DropdownMenuSub v-bind="forwarded">
-    <slot></slot>
+    <slot />
   </DropdownMenuSub>
 </template>
 

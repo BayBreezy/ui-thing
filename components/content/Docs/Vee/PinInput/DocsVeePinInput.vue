@@ -1,7 +1,7 @@
 <template>
-  <form @submit="onSubmit" class="mx-auto max-w-md">
+  <form class="mx-auto max-w-md" @submit="onSubmit">
     <fieldset :disabled="isSubmitting" class="space-y-5">
-      <UiVeePinInput :inputCount="6" name="otp" label="Enter your 2FA code below" otp />
+      <UiVeePinInput :input-count="6" name="otp" label="Enter your 2FA code below" otp />
       <UiButton type="submit"> Submit </UiButton>
     </fieldset>
   </form>

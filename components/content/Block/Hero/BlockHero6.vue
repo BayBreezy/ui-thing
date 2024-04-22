@@ -18,7 +18,7 @@
     <div class="flex h-full items-center justify-center text-center md:w-1/2 md:text-left">
       <div>
         <h1 class="mb-4 text-4xl font-bold md:text-5xl lg:mb-6 lg:mt-5 xl:text-6xl">
-          Super simplified <br />
+          Super simplified <br >
           customer service
         </h1>
         <p class="text-lg text-muted-foreground lg:text-xl">
@@ -59,11 +59,11 @@
           alt="Company Logo"
           title="Company Logo"
           class="mx-auto h-11 object-contain"
-        />
+        >
         <h2 class="text-center text-2xl font-semibold lg:mt-6 lg:text-3xl">Create an account</h2>
         <p class="mt-3 text-center text-muted-foreground">Get started with {{ COMPANY_NAME }}</p>
 
-        <form @submit="submit" class="mt-8">
+        <form class="mt-8" @submit="submit">
           <fieldset :disabled="isSubmitting" class="grid gap-5">
             <div>
               <UiVeeInput
@@ -116,7 +116,7 @@
     validationSchema: schema,
   });
 
-  const submit = handleSubmit(async (values) => {
+  const submit = handleSubmit(async (_) => {
     useSonner.success("Account created successfully");
   });
 </script>

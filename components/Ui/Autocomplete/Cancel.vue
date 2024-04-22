@@ -1,6 +1,6 @@
 <template>
   <ComboboxCancel v-bind="props">
-    <slot></slot>
+    <slot />
   </ComboboxCancel>
 </template>
 

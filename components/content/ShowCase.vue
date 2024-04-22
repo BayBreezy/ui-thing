@@ -38,7 +38,7 @@
 <script lang="ts" setup>
   import { TabsContent, TabsList, TabsRoot, TabsTrigger } from "radix-vue";
 
-  const props = defineProps<{
+  defineProps<{
     component: string;
   }>();
 </script>

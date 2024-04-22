@@ -1,14 +1,14 @@
 <template>
   <DataTable
+    ref="table"
     :columns="columns"
     :ajax="ajax"
-    ref="table"
     :data="data"
     :class="props.class"
     :options="options"
   >
-    <template v-for="(_, name) in $slots" v-slot:[name]="scope">
-      <slot :name="name" v-bind="scope"></slot>
+    <template v-for="(_, name) in $slots" #[name]="scope">
+      <slot :name="name" v-bind="scope" />
     </template>
   </DataTable>
 </template>

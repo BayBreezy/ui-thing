@@ -1,8 +1,8 @@
 <template>
-  <form @submit="submit" class="mx-auto max-w-md">
+  <form class="mx-auto max-w-md" @submit="submit">
     <UiVeeMultiSelect
-      formLabel="Hero"
-      valueProp="id"
+      form-label="Hero"
+      value-prop="id"
       label="name"
       placeholder="Select a hero"
       :options="options"

@@ -15,7 +15,7 @@
       </p>
       <div class="mt-2 flex items-center gap-2">
         <UiButton class="h-7 text-xs" @click="addUser">Yes</UiButton>
-        <UiButton @click="cancel" variant="outline" class="h-7 text-xs">No</UiButton>
+        <UiButton variant="outline" class="h-7 text-xs" @click="cancel">No</UiButton>
       </div>
     </div>
   </div>

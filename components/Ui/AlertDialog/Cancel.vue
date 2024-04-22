@@ -31,6 +31,9 @@
     {
       text: "Cancel",
       variant: "outline",
+      size: "default",
+      class: undefined,
+      onClick: undefined,
     }
   );
 </script>

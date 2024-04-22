@@ -1,6 +1,6 @@
 <template>
   <HoverCardPortal v-bind="props">
-    <slot></slot>
+    <slot />
   </HoverCardPortal>
 </template>
 

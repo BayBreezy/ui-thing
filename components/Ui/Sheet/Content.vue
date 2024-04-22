@@ -18,8 +18,8 @@
             </slot>
           </UiSheetHeader>
         </slot>
-        <slot name="content"></slot>
-        <slot name="footer"></slot>
+        <slot name="content" />
+        <slot name="footer" />
       </slot>
       <slot name="close">
         <UiSheetClose :icon="icon" />

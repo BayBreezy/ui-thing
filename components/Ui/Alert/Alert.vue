@@ -1,11 +1,11 @@
 <template>
-  <div :class="styles({ variant: variant, class: props.class })" v-if="shown">
+  <div v-if="shown" :class="styles({ variant: variant, class: props.class })">
     <slot :props="props" name="icon">
-      <Icon :name="icon" v-if="icon" class="h-4 w-4" />
+      <Icon v-if="icon" :name="icon" class="h-4 w-4" />
     </slot>
     <div>
       <slot :props="props">
-        <UiAlertTitle :title="title" v-if="title" />
+        <UiAlertTitle v-if="title" :title="title" />
         <UiAlertDescription v-if="description" :description="description" />
       </slot>
     </div>
@@ -33,6 +33,11 @@
     }>(),
     {
       modelValue: true,
+      variant: "default",
+      title: undefined,
+      description: undefined,
+      icon: undefined,
+      class: undefined,
     }
   );
 

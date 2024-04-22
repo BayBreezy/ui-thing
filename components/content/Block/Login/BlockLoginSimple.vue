@@ -50,7 +50,7 @@
     validationSchema: LoginSchema,
   });
 
-  const submit = handleSubmit(async (values) => {
+  const submit = handleSubmit(async (_) => {
     useSonner("Logged in successfully!", {
       description: "You have successfully logged in.",
     });

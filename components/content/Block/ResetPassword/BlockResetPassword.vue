@@ -2,7 +2,7 @@
   <div class="relative flex h-screen items-center justify-center">
     <div
       class="absolute inset-0 z-[1] bg-[linear-gradient(to_right,theme(colors.border)_1px,transparent_1px),linear-gradient(to_bottom,theme(colors.border)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(circle,transparent_25%,theme(colors.border)_100%)]"
-    ></div>
+    />
     <div class="relative z-[2] w-full max-w-[340px] px-5">
       <div
         class="mx-auto mb-6 flex size-14 items-center justify-center rounded-lg border bg-background"
@@ -80,7 +80,7 @@
     validationSchema: LoginSchema,
   });
 
-  const submit = handleSubmit(async (values) => {
+  const submit = handleSubmit(async (_) => {
     useSonner("Password updated", {
       description: "Your password has been updated successfully.",
     });

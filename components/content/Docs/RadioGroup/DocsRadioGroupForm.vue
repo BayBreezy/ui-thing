@@ -1,26 +1,26 @@
 <template>
   <div class="flex w-full justify-center">
     <form @submit="onSubmit">
-      <Field name="type" v-slot="{ componentField }">
+      <Field v-slot="{ componentField }" name="type">
         <UiFormItem class="space-y-5">
           <p class="font-medium">What type of notifications should we send?</p>
           <UiRadioGroup v-bind="componentField">
             <UiFormItem
-              hideMessage
+              hide-message
               class="flex flex-row-reverse items-center justify-center gap-3 space-y-0"
               label="All notifications"
             >
               <UiRadioGroupItem value="all" />
             </UiFormItem>
             <UiFormItem
-              hideMessage
+              hide-message
               class="flex flex-row-reverse items-center justify-center gap-3 space-y-0"
               label="Only mentions"
             >
               <UiRadioGroupItem value="mentions" />
             </UiFormItem>
             <UiFormItem
-              hideMessage
+              hide-message
               class="flex flex-row-reverse items-center justify-center gap-3 space-y-0"
               label="Nothing"
             >

@@ -11,7 +11,7 @@
             <div class="grid w-full items-center gap-4">
               <div class="flex flex-col space-y-1.5">
                 <UiLabel for="name">Name</UiLabel>
-                <UiInput required id="name" placeholder="Name of your project" />
+                <UiInput id="name" required placeholder="Name of your project" />
               </div>
               <div class="flex flex-col space-y-1.5">
                 <UiLabel for="framework">Framework</UiLabel>

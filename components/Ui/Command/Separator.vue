@@ -1,11 +1,11 @@
 <template>
   <ComboboxSeparator :as-child="asChild" :class="styles({ class: props.class })">
-    <slot></slot>
+    <slot />
   </ComboboxSeparator>
 </template>
 
 <script lang="ts" setup>
-  import { ComboboxSeparator, useForwardProps } from "radix-vue";
+  import { ComboboxSeparator } from "radix-vue";
   import type { ComboboxSeparatorProps } from "radix-vue";
 
   const props = defineProps<

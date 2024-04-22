@@ -1,41 +1,41 @@
 <template>
   <div class="w-full">
     <UiLabel
-      :for="inputId"
       v-if="formLabel"
+      :for="inputId"
       :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
-      ><span>{{ formLabel }} <span class="text-destructive" v-if="required">*</span></span></UiLabel
+      ><span>{{ formLabel }} <span v-if="required" class="text-destructive">*</span></span></UiLabel
     >
     <Multiselect
+      v-bind="$attrs"
+      :id="inputId"
       ref="multiselect"
+      v-model="value"
       :attrs="{
         id: inputId,
       }"
       :disabled="disabled"
-      v-bind="$attrs"
-      :id="inputId"
-      v-model="value"
       :name="name"
       :required="required"
       :classes="{
         containerActive: 'ring-2 ring-ring ring-offset-2 ring-offset-background transition',
       }"
     >
-      <template v-for="(_, name) in $slots" v-slot:[name]="scope">
-        <slot :name="name" v-bind="scope"></slot>
+      <template v-for="(_, slotName) in $slots" #[slotName]="scope">
+        <slot :name="slotName" v-bind="scope" />
       </template>
       <template #clear="{ clear }">
-        <button @click="clear" class="mr-2 flex items-center justify-center">
+        <button class="mr-2 flex items-center justify-center" @click="clear">
           <Icon name="heroicons:x-mark" size="16" class="text-muted-foreground" />
         </button>
       </template>
     </Multiselect>
     <TransitionSlide group tag="div">
-      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">
+      <p v-if="hint && !errorMessage" key="hint" class="mt-1.5 text-sm text-muted-foreground">
         {{ hint }}
       </p>
 
-      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">
+      <p v-if="errorMessage" key="errorMessage" class="mt-1.5 text-sm text-destructive">
         {{ errorMessage }}
       </p>
     </TransitionSlide>

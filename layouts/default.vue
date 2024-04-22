@@ -28,7 +28,7 @@
         >
           <div class="p-5">
             <p class="mb-5 text-sm font-semibold">Page contents</p>
-            <DocsToclink :setActive="setActive" :activeId="activeId" :links="toc.links" />
+            <DocsToclink :set-active="setActive" :active-id="activeId" :links="toc.links" />
           </div>
         </aside>
       </div>

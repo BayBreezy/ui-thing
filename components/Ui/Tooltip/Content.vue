@@ -1,7 +1,7 @@
 <template>
   <UiTooltipPortal :to="to">
     <TooltipContent v-bind="{ ...forwarded, ...$attrs }" :class="styles({ class: props.class })">
-      <slot></slot>
+      <slot />
     </TooltipContent>
   </UiTooltipPortal>
 </template>

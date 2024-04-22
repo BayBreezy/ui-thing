@@ -1,6 +1,6 @@
 <template>
   <ComboboxRoot v-bind="forwarded">
-    <slot></slot>
+    <slot />
   </ComboboxRoot>
 </template>
 

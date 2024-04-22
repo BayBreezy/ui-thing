@@ -16,11 +16,11 @@
             <UiButton class="w-full" type="submit" text="Log in" />
           </div>
           <UiDivider label="OR" />
-          <UiButton @click="signInWithGoogle()" variant="outline" type="button">
+          <UiButton variant="outline" type="button" @click="signInWithGoogle()">
             <Icon class="size-4" name="logos:google-icon" />
             <span class="ml-2">Continue with Google</span>
           </UiButton>
-          <UiButton @click="signInWithFacebook()" variant="outline" type="button">
+          <UiButton variant="outline" type="button" @click="signInWithFacebook()">
             <Icon class="size-4" name="logos:facebook" />
             <span class="ml-2">Continue with Facebook</span>
           </UiButton>
@@ -59,7 +59,7 @@
     validationSchema: LoginSchema,
   });
 
-  const submit = handleSubmit(async (values) => {
+  const submit = handleSubmit(async (_) => {
     useSonner("Logged in successfully!", {
       description: "You have successfully logged in.",
     });

@@ -3,7 +3,7 @@
     :class="styles({ loading, class: props.class })"
     v-bind="reactiveOmit(props, 'class', 'loading')"
   >
-    <slot></slot>
+    <slot />
   </Primitive>
 </template>
 

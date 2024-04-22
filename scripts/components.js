@@ -187,7 +187,7 @@ export default [
   {
     name: "Date Field",
     value: "date-field",
-    devDeps: ["@internationalized/date"],
+    deps: ["@internationalized/date"],
     files: ["DateField.vue"],
   },
   {
@@ -611,6 +611,15 @@ export default [
     nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["currency-input", "label"],
     files: ["Vee/CurrencyInput.vue"],
+  },
+  {
+    name: "VeeDateField",
+    value: "vee-date-field",
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions", "@internationalized/date"],
+    askValidator: true,
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
+    components: ["date-field", "label"],
+    files: ["Vee/DateField.vue"],
   },
   {
     name: "VeeDatepicker",

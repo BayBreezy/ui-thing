@@ -13,8 +13,8 @@
           <img
             src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80"
             class="absolute inset-0 h-full w-full object-cover"
-          />
-          <div class="absolute inset-0 h-full w-full bg-black opacity-50"></div>
+          >
+          <div class="absolute inset-0 h-full w-full bg-black opacity-50" />
           <div
             class="relative h-[40%] w-full rounded-t-2xl bg-white p-4 text-slate-800 transition-all group-hover:h-[50%]"
           >

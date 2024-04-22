@@ -1,6 +1,6 @@
 <template>
   <SliderRange :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
-    <slot></slot>
+    <slot />
   </SliderRange>
 </template>
 

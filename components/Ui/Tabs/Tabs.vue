@@ -1,6 +1,6 @@
 <template>
   <TabsRoot v-bind="forwarded">
-    <slot></slot>
+    <slot />
   </TabsRoot>
 </template>
 

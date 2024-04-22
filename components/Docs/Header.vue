@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1 class="mb-0 text-4xl">{{ page?.title }}</h1>
-    <p class="text-lg text-muted-foreground" v-if="page.description">{{ page?.description }}</p>
-    <div class="not-prose flex flex-wrap gap-2" v-if="page.links && page.links.length">
+    <p v-if="page.description" class="text-lg text-muted-foreground">{{ page?.description }}</p>
+    <div v-if="page.links && page.links.length" class="not-prose flex flex-wrap gap-2">
       <template v-for="(link, i) in page.links" :key="i">
         <a
           class="inline-flex items-center justify-center gap-2 rounded-md bg-muted px-2 py-1 text-[15px] md:text-sm"
@@ -12,7 +12,7 @@
             link.title
           }}</a
         >
-        <br />
+        <br >
       </template>
     </div>
   </div>

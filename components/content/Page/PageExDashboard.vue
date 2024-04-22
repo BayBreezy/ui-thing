@@ -8,7 +8,7 @@
             <h2 class="text-3xl font-bold tracking-tight">Dashboard</h2>
             <div class="flex items-center space-x-2">
               <div>
-                <UiDatepicker :columns="2" v-model.range="date">
+                <UiDatepicker v-model.range="date" :columns="2">
                   <template #default="{ togglePopover }">
                     <UiButton
                       variant="outline"
@@ -27,7 +27,7 @@
           </div>
 
           <!-- Tabs for page content -->
-          <UiTabs defaultValue="overview" class="space-y-4">
+          <UiTabs default-value="overview" class="space-y-4">
             <UiTabsList>
               <template v-for="(t, i) in tabItems" :key="i">
                 <UiTabsTrigger :value="t.title.toLowerCase()" :disabled="t.disabled">{{
@@ -55,7 +55,7 @@
                 <UiCard class="col-span-4" title="Overview">
                   <template #content>
                     <UiCardContent class="h-full px-4">
-                      <div class="h-[80%]" ref="chart"></div>
+                      <div ref="chart" class="h-[80%]" />
                     </UiCardContent>
                   </template>
                 </UiCard>

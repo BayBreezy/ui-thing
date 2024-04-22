@@ -1,6 +1,6 @@
 <template>
   <PopoverTrigger v-bind="props">
-    <slot></slot>
+    <slot />
   </PopoverTrigger>
 </template>
 

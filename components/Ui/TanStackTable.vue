@@ -8,8 +8,8 @@
               v-for="header in headerGroup.headers"
               :key="header.id"
               :colspan="header.colSpan"
-              @click="header.column.getToggleSortingHandler()?.($event)"
               :class="[header.column.getCanSort() && 'cursor-pointer select-none']"
+              @click="header.column.getToggleSortingHandler()?.($event)"
             >
               <template v-if="!header.isPlaceholder">
                 <div class="flex items-center gap-3">
@@ -83,6 +83,7 @@
               </UiSelectTrigger>
               <UiSelectContent side="top" align="start">
                 <UiSelectGroup>
+                  <!-- eslint-disable vue/no-template-shadow -->
                   <UiSelectItem
                     v-for="pageSize in pageSizes"
                     :key="pageSize"
@@ -302,6 +303,7 @@
     };
   }
 
+  // eslint-disable-next-line vue/no-dupe-keys
   const pageSize = computed({
     get() {
       return table.getState().pagination.pageSize.toString();

@@ -1,9 +1,9 @@
 <template>
-  <AvatarImage v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })" />
+  <AvatarImage v-bind="forwarded" :class="styles({ class: props.class })" />
 </template>
 
 <script lang="ts" setup>
-  import { AvatarImage } from "radix-vue";
+  import { AvatarImage, useForwardPropsEmits } from "radix-vue";
   import type { AvatarImageEmits, AvatarImageProps } from "radix-vue";
 
   const props = defineProps<
@@ -15,6 +15,8 @@
     }
   >();
   const emits = defineEmits<AvatarImageEmits>();
+
+  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);
 
   const styles = tv({
     base: "aspect-square h-full w-full object-cover",

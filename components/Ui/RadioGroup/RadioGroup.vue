@@ -1,6 +1,6 @@
 <template>
   <RadioGroupRoot v-bind="forwarded" :class="styles({ class: props.class })">
-    <slot></slot>
+    <slot />
   </RadioGroupRoot>
 </template>
 

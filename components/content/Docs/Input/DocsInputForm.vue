@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto flex w-full max-w-lg items-center justify-center">
-    <form @submit="onSubmit" class="w-full space-y-4">
-      <Field name="username" v-slot="{ componentField }">
+    <form class="w-full space-y-4" @submit="onSubmit">
+      <Field v-slot="{ componentField }" name="username">
         <UiFormItem label="Username" description="Others will be able to see this">
           <UiInput v-bind="componentField" />
         </UiFormItem>

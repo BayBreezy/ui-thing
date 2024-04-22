@@ -7,7 +7,7 @@
       :class="styles({ class: props.class })"
       v-bind="{ ...forwarded, ...$attrs }"
     >
-      <slot></slot>
+      <slot />
     </AlertDialogContent>
   </UiAlertDialogPortal>
 </template>

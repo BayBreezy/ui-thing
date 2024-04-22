@@ -1,5 +1,5 @@
 <template>
-  <textarea :class="styles({ class: props.class })" v-bind="props" v-model="localModel" />
+  <textarea v-bind="props" v-model="localModel" :class="styles({ class: props.class })" />
 </template>
 
 <script lang="ts" setup>

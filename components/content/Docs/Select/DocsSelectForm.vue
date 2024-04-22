@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-full justify-center">
     <form class="w-full" @submit="onSubmit">
-      <Field name="email" v-slot="{ componentField }">
+      <Field v-slot="{ componentField }" name="email">
         <UiFormItem label="Primary email" description="This will be shown to the public">
           <UiSelect v-bind="componentField">
             <UiSelectTrigger placeholder="Select primary email" />

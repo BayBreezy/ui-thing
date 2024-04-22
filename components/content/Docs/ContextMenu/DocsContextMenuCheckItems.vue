@@ -12,12 +12,12 @@
       <UiContextMenuSeparator />
       <UiContextMenuGroup>
         <UiContextMenuCheckboxItem
-          inset
           v-for="hero in heroList"
           :key="hero.id"
-          @select="(e) => e.preventDefault()"
+          inset
           class="mb-1"
           :checked="selectedHeros.includes(hero.id)"
+          @select="(e) => e.preventDefault()"
           @click="
             selectedHeros.includes(hero.id)
               ? selectedHeros.splice(selectedHeros.indexOf(hero.id), 1)

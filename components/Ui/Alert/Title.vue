@@ -17,7 +17,7 @@
         title?: string;
       }
     >(),
-    { as: "h5" }
+    { as: "h5", class: undefined, title: undefined }
   );
 
   const styles = tv({

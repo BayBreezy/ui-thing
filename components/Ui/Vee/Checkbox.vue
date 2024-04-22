@@ -12,27 +12,27 @@
       @update:checked="handleChange"
     />
     <div class="flex flex-col gap-1.5">
-      <slot name="label" :errorMessage="errorMessage" :checked="checked">
+      <slot name="label" :error-message="errorMessage" :checked="checked">
         <UiLabel
-          :for="inputId"
           v-if="label"
+          :for="inputId"
           class="leading-none"
           :class="[errorMessage && 'text-destructive']"
           >{{ label }}</UiLabel
         >
       </slot>
       <TransitionSlide tag="div" group>
-        <slot name="hint" :errorMessage="errorMessage" :checked="checked">
+        <slot name="hint" :error-message="errorMessage" :checked="checked">
           <p
+            v-if="hint && !errorMessage"
             key="hint"
             class="text-sm leading-none text-muted-foreground"
-            v-if="hint && !errorMessage"
           >
             {{ hint }}
           </p>
         </slot>
-        <slot name="errorMessage" :errorMessage="errorMessage" :checked="checked">
-          <p key="errorMessage" class="text-sm leading-none text-destructive" v-if="errorMessage">
+        <slot name="errorMessage" :error-message="errorMessage" :checked="checked">
+          <p v-if="errorMessage" key="errorMessage" class="text-sm leading-none text-destructive">
             {{ errorMessage }}
           </p>
         </slot>

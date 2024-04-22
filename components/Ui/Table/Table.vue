@@ -1,6 +1,6 @@
 <template>
   <table :class="styles({ class: props.class })">
-    <slot></slot>
+    <slot />
   </table>
 </template>
 

@@ -7,7 +7,7 @@
     />
 
     <div class="flex items-center space-x-2">
-      <UiCheckbox v-model="terms" id="label-terms" />
+      <UiCheckbox id="label-terms" v-model="terms" />
       <UiLabel for="label-terms">Accept terms and conditions</UiLabel>
     </div>
   </div>

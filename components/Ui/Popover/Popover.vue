@@ -1,6 +1,6 @@
 <template>
   <PopoverRoot v-bind="forwarded">
-    <slot></slot>
+    <slot />
   </PopoverRoot>
 </template>
 

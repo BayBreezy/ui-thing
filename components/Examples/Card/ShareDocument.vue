@@ -6,7 +6,7 @@
     <template #content>
       <UiCardContent>
         <div class="flex space-x-2">
-          <UiInput class="select-all" model-value="http://example.com/link/to/document" readOnly />
+          <UiInput class="select-all" model-value="http://example.com/link/to/document" read-only />
           <UiButton variant="secondary" class="shrink-0"> Copy Link </UiButton>
         </div>
         <UiSeparator class="my-4" />
@@ -22,7 +22,7 @@
                     <p class="text-sm text-muted-foreground">{{ p.email }}</p>
                   </div>
                 </div>
-                <UiSelect :default-value="p.model" v-model="p.model">
+                <UiSelect v-model="p.model" :default-value="p.model">
                   <UiSelectTrigger placeholder="Select" class="ml-auto w-[110px]" />
                   <UiSelectContent>
                     <UiSelectItem value="edit" text="Can Edit" />

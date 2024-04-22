@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { addDays, format } from "date-fns";
+  import { format } from "date-fns";
 
   const date = ref();
 </script>
