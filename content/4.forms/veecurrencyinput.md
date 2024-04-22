@@ -1,7 +1,6 @@
 ---
 title: VeeCurrencyInput
 description: A currency input component that uses the composition API provided by Vee-Validate to perform validation.
-label: New
 links:
   - title: Currency Input Source
     href: /components/currencyinput

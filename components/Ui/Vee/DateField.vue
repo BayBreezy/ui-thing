@@ -1,19 +1,19 @@
 <template>
   <div class="w-full">
     <UiLabel
-      :for="inputId"
       v-if="label"
+      :for="inputId"
       :hint="labelHint"
       :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
-      ><span>{{ label }} <span class="text-destructive" v-if="required">*</span></span></UiLabel
+      ><span>{{ label }} <span v-if="required" class="text-destructive">*</span></span></UiLabel
     >
-    <DateField v-bind="{ ...$attrs, ...props }" v-model="value" />
+    <UiDateField v-bind="{ ...$attrs, ...props }" v-model="value" />
     <TransitionSlide group tag="div">
-      <p key="hint" class="mt-1.5 text-sm text-muted-foreground" v-if="hint && !errorMessage">
+      <p v-if="hint && !errorMessage" key="hint" class="mt-1.5 text-sm text-muted-foreground">
         {{ hint }}
       </p>
 
-      <p key="errorMessage" class="mt-1.5 text-sm text-destructive" v-if="errorMessage">
+      <p v-if="errorMessage" key="errorMessage" class="mt-1.5 text-sm text-destructive">
         {{ errorMessage }}
       </p>
     </TransitionSlide>
@@ -28,14 +28,11 @@
       label?: string;
       labelHint?: string;
       hint?: string;
-      disabled?: boolean;
       modelValue?: string;
       name?: string;
-      id?: string;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       rules?: any;
       validateOnMount?: boolean;
-      placeholder?: string;
-      required?: boolean;
       separator?: string;
       separatorIcon?: string;
     }
