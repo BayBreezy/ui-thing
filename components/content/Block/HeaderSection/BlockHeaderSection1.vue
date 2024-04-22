@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-  const props = withDefaults(
+  withDefaults(
     defineProps<{
       headline?: string;
       description?: string;
