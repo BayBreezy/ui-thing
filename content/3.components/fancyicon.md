@@ -1,5 +1,6 @@
 ---
 title: Fancy Icon
+label: New
 description: An icon with a nice background color.
 ---
 

@@ -266,6 +266,11 @@ export default [
     files: ["Dropfile.vue"],
   },
   {
+    name: "Fancy Icon",
+    value: "fancy-icon",
+    files: ["FancyIcon.vue"],
+  },
+  {
     name: "Form",
     value: "form",
     deps: ["@vee-validate/nuxt"],
@@ -300,7 +305,6 @@ export default [
     name: "Input",
     value: "input",
     devDeps: ["@vueuse/core"],
-
     files: ["Input.vue"],
   },
   {
