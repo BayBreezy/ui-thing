@@ -29,7 +29,7 @@
       </div>
       <div class="flex items-center gap-3">
         <UiTooltip v-if="externalViewLink">
-          <UiTooltipTrigger asChild>
+          <UiTooltipTrigger as-child>
             <UiButton
               target="_blank"
               :href="externalViewLink"
@@ -43,12 +43,12 @@
           <UiTooltipContent align="center">External view</UiTooltipContent>
         </UiTooltip>
         <UiTooltip v-if="codeBlock">
-          <UiTooltipTrigger asChild>
+          <UiTooltipTrigger as-child>
             <UiButton
-              @click="copy(codeBlock)"
               class="size-8 rounded-md"
               size="icon-sm"
               variant="outline"
+              @click="copy(codeBlock)"
             >
               <Icon :name="copied ? 'lucide:check' : 'lucide:copy'" class="size-3.5" />
             </UiButton>
@@ -62,11 +62,11 @@
       <ClientOnly>
         <UiSplitter id="block-resizable" direction="horizontal" class="relative z-10">
           <UiSplitterPanel
-            @ready="resizableRef = $event"
             id="block-resizable-panel-1"
             class="relative rounded-lg border bg-background transition-all"
             :default-size="100"
             :min-size="40"
+            @ready="resizableRef = $event"
           >
             <TransitionFade>
               <div v-if="isLoading" class="flex h-full items-center justify-center">
@@ -74,10 +74,11 @@
               </div>
               <iframe
                 v-if="!isLoading"
-                @load="isLoading = false"
-                :src="externalViewLink"
                 class="relative z-20 h-[--container-height] w-full bg-background"
-              ></iframe>
+                :src="externalViewLink"
+                :class="props.frameClass"
+                @load="isLoading = false"
+              />
             </TransitionFade>
           </UiSplitterPanel>
           <UiSplitterHandle class="bg-transparent" />
