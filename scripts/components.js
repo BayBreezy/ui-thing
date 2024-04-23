@@ -47,9 +47,7 @@ export default [
   {
     name: "Autocomplete",
     value: "autocomplete",
-
     devDeps: ["@vueuse/core"],
-
     files: [
       "Autocomplete/Anchor.vue",
       "Autocomplete/Arrow.vue",

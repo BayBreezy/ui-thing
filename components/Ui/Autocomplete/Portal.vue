@@ -1,5 +1,5 @@
 <template>
-  <ComboboxPortal v-bind="props">
+  <ComboboxPortal position="popper" v-bind="props">
     <slot />
   </ComboboxPortal>
 </template>

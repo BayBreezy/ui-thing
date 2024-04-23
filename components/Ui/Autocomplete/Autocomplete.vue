@@ -1,5 +1,5 @@
 <template>
-  <ComboboxRoot v-bind="forwarded">
+  <ComboboxRoot v-bind="forwarded" :class="styles({ class: props.class })">
     <slot />
   </ComboboxRoot>
 </template>
@@ -8,8 +8,15 @@
   import { ComboboxRoot, useForwardPropsEmits } from "radix-vue";
   import type { ComboboxRootEmits, ComboboxRootProps } from "radix-vue";
 
-  const props = defineProps<ComboboxRootProps>();
+  const props = defineProps<
+    ComboboxRootProps & {
+      class?: any;
+    }
+  >();
 
   const emits = defineEmits<ComboboxRootEmits>();
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);
+  const styles = tv({
+    base: "relative",
+  });
 </script>

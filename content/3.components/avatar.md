@@ -26,7 +26,7 @@ npx ui-thing@latest add avatar
 
 #code
 
-```vue [DocsAspectRatio.vue]
+```vue [DocsAvatar.vue]
 <template>
   <div class="flex flex-wrap items-center justify-center gap-3">
     <UiAvatar

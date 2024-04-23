@@ -174,7 +174,7 @@ export default [
         fileName: "Autocomplete/Anchor.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <ComboboxAnchor v-bind="props">\n    <slot />\n  </ComboboxAnchor>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxAnchor } from "radix-vue";\n  import type { ComboboxAnchorProps } from "radix-vue";\n\n  const props = defineProps<ComboboxAnchorProps>();\n</script>\n',
+          '<template>\n  <ComboboxAnchor v-bind="props" :class="styles({ class: props.class })">\n    <slot />\n  </ComboboxAnchor>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxAnchor } from "radix-vue";\n  import type { ComboboxAnchorProps } from "radix-vue";\n\n  const props = defineProps<\n    ComboboxAnchorProps & {\n      class?: any;\n    }\n  >();\n\n  const styles = tv({\n    base: "flex h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 ring-offset-background focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2",\n  });\n</script>\n',
       },
       {
         fileName: "Autocomplete/Arrow.vue",
@@ -186,7 +186,7 @@ export default [
         fileName: "Autocomplete/Autocomplete.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <ComboboxRoot v-bind="forwarded">\n    <slot />\n  </ComboboxRoot>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxRoot, useForwardPropsEmits } from "radix-vue";\n  import type { ComboboxRootEmits, ComboboxRootProps } from "radix-vue";\n\n  const props = defineProps<ComboboxRootProps>();\n\n  const emits = defineEmits<ComboboxRootEmits>();\n  const forwarded = useForwardPropsEmits(props, emits);\n</script>\n',
+          '<template>\n  <ComboboxRoot v-bind="forwarded" :class="styles({ class: props.class })">\n    <slot />\n  </ComboboxRoot>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxRoot, useForwardPropsEmits } from "radix-vue";\n  import type { ComboboxRootEmits, ComboboxRootProps } from "radix-vue";\n\n  const props = defineProps<\n    ComboboxRootProps & {\n      class?: any;\n    }\n  >();\n\n  const emits = defineEmits<ComboboxRootEmits>();\n  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);\n  const styles = tv({\n    base: "relative",\n  });\n</script>\n',
       },
       {
         fileName: "Autocomplete/Cancel.vue",
@@ -198,7 +198,7 @@ export default [
         fileName: "Autocomplete/Content.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <ComboboxContent v-bind="forwarded" :class="styles({ class: props.class })">\n    <UiAutocompleteViewport>\n      <slot />\n    </UiAutocompleteViewport>\n  </ComboboxContent>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxContent, useForwardPropsEmits } from "radix-vue";\n  import type { ComboboxContentEmits, ComboboxContentProps } from "radix-vue";\n\n  defineOptions({ inheritAttrs: false });\n  const props = withDefaults(\n    defineProps<\n      ComboboxContentProps & {\n        class?: any;\n      }\n    >(),\n    {\n      position: "popper",\n      bodyLock: true,\n      side: "bottom",\n      sideOffset: 8,\n      class: undefined,\n    }\n  );\n\n  const emits = defineEmits<ComboboxContentEmits>();\n  const forwarded = useForwardPropsEmits(props, emits);\n\n  const styles = tv({\n    base: "z-50 w-[var(--radix-combobox-trigger-width)] min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-accent-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",\n  });\n</script>\n',
+          '<template>\n  <!-- <UiAutocompletePortal> -->\n  <ComboboxContent v-bind="forwarded" :class="styles({ class: props.class })">\n    <UiAutocompleteViewport>\n      <slot />\n    </UiAutocompleteViewport>\n  </ComboboxContent>\n  <!-- </UiAutocompletePortal> -->\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxContent, useForwardPropsEmits } from "radix-vue";\n  import type { ComboboxContentEmits, ComboboxContentProps } from "radix-vue";\n\n  defineOptions({ inheritAttrs: false });\n  const props = withDefaults(\n    defineProps<\n      ComboboxContentProps & {\n        class?: any;\n      }\n    >(),\n    {\n      position: "popper",\n      bodyLock: true,\n      side: "bottom",\n      sideOffset: 8,\n      class: undefined,\n    }\n  );\n\n  const emits = defineEmits<ComboboxContentEmits>();\n  const forwarded = useForwardPropsEmits(props, emits);\n\n  const styles = tv({\n    base: "z-50 max-h-[300px] w-[var(--radix-popper-anchor-width)] min-w-[8rem] overflow-hidden overflow-y-auto rounded-md border bg-popover p-1 text-accent-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",\n  });\n</script>\n',
       },
       {
         fileName: "Autocomplete/Empty.vue",
@@ -216,7 +216,7 @@ export default [
         fileName: "Autocomplete/Input.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <ComboboxInput v-bind="props" :class="styles({ class: props.class })" />\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxInput } from "radix-vue";\n  import type { ComboboxInputProps } from "radix-vue";\n\n  const props = defineProps<\n    ComboboxInputProps & {\n      type?: string;\n      disabled?: boolean;\n      autoFocus?: boolean;\n      class?: any;\n    }\n  >();\n\n  const styles = tv({\n    base: "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground file:hover:cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm",\n  });\n</script>\n',
+          '<template>\n  <ComboboxInput v-bind="props" :class="styles({ class: props.class })" />\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxInput } from "radix-vue";\n  import type { ComboboxInputProps } from "radix-vue";\n\n  const props = defineProps<\n    ComboboxInputProps & {\n      placeholder?: string;\n      class?: any;\n    }\n  >();\n\n  const styles = tv({\n    base: "size-full grow rounded-md bg-background placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm",\n  });\n</script>\n',
       },
       {
         fileName: "Autocomplete/Item.vue",
@@ -240,7 +240,7 @@ export default [
         fileName: "Autocomplete/Portal.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <ComboboxPortal v-bind="props">\n    <slot />\n  </ComboboxPortal>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxPortal } from "radix-vue";\n  import type { ComboboxPortalProps } from "radix-vue";\n\n  const props = defineProps<ComboboxPortalProps>();\n</script>\n',
+          '<template>\n  <ComboboxPortal position="popper" v-bind="props">\n    <slot />\n  </ComboboxPortal>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxPortal } from "radix-vue";\n  import type { ComboboxPortalProps } from "radix-vue";\n\n  const props = defineProps<ComboboxPortalProps>();\n</script>\n',
       },
       {
         fileName: "Autocomplete/Separator.vue",
@@ -252,7 +252,7 @@ export default [
         fileName: "Autocomplete/Trigger.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <ComboboxTrigger v-bind="props">\n    <slot />\n  </ComboboxTrigger>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxTrigger } from "radix-vue";\n  import type { ComboboxTriggerProps } from "radix-vue";\n\n  const props = defineProps<ComboboxTriggerProps>();\n</script>\n',
+          '<template>\n  <ComboboxTrigger v-bind="props">\n    <slot />\n  </ComboboxTrigger>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxTrigger } from "radix-vue";\n  import type { ComboboxTriggerProps } from "radix-vue";\n\n  const props = defineProps<\n    ComboboxTriggerProps & {\n      class?: any;\n    }\n  >();\n\n  const styles = tv({\n    base: "inline-flex shrink-0 cursor-pointer items-center justify-center",\n  });\n</script>\n',
       },
       {
         fileName: "Autocomplete/Viewport.vue",
