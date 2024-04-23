@@ -54,7 +54,7 @@
     "jszip": "^3.10.1",
     "nuxt-icon": "^0.6.10",
     "nuxt-swiper": "^1.2.2",
-    "radix-vue": "^1.7.1",
+    "radix-vue": "^1.7.2",
     "tailwind-variants": "^0.2.1",
     "vaul-vue": "^0.1.0",
     "vue-currency-input": "^3.1.0",
@@ -62,6 +62,6 @@
     "vue-use-active-scroll": "^1.1.1",
     "vue3-apexcharts": "^1.5.2",
     "yup": "^1.4.0",
-    "zod": "^3.23.0"
+    "zod": "^3.23.3"
   }
 }
