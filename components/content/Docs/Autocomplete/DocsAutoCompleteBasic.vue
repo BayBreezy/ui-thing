@@ -2,7 +2,7 @@
   <div>
     <UiAutocomplete>
       <UiAutocompleteAnchor>
-        <UiAutocompleteInput />
+        <UiAutocompleteInput placeholder="Select an item" />
         <UiAutocompleteTrigger>
           <Icon name="lucide:chevron-down" class="size-4 text-muted-foreground" />
         </UiAutocompleteTrigger>
@@ -12,7 +12,7 @@
         <UiAutocompleteEmpty />
         <UiAutocompleteGroup>
           <UiAutocompleteLabel>Fruits</UiAutocompleteLabel>
-          <template v-for="(f, i) in fruits" :key="f">
+          <template v-for="f in fruits" :key="f">
             <UiAutocompleteItem :value="f" icon="lucide:check">{{ f }}</UiAutocompleteItem>
           </template>
         </UiAutocompleteGroup>
