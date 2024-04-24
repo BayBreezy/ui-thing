@@ -252,7 +252,7 @@ export default [
         fileName: "Autocomplete/Trigger.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\r\n  <ComboboxTrigger v-bind="props">\r\n    <slot />\r\n  </ComboboxTrigger>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { ComboboxTrigger } from "radix-vue";\r\n  import type { ComboboxTriggerProps } from "radix-vue";\r\n\r\n  const props = defineProps<\r\n    ComboboxTriggerProps & {\r\n      class?: any;\r\n    }\r\n  >();\r\n\r\n  const styles = tv({\r\n    base: "inline-flex shrink-0 cursor-pointer items-center justify-center",\r\n  });\r\n</script>\r\n',
+          '<template>\r\n  <ComboboxTrigger v-bind="reactiveOmit(props, \'class\')" :class="styles({ class: props.class })">\r\n    <slot />\r\n  </ComboboxTrigger>\r\n</template>\r\n\r\n<script lang="ts" setup>\r\n  import { ComboboxTrigger } from "radix-vue";\r\n  import type { ComboboxTriggerProps } from "radix-vue";\r\n\r\n  const props = defineProps<\r\n    ComboboxTriggerProps & {\r\n      class?: any;\r\n    }\r\n  >();\r\n\r\n  const styles = tv({\r\n    base: "inline-flex shrink-0 cursor-pointer items-center justify-center",\r\n  });\r\n</script>\r\n',
       },
       {
         fileName: "Autocomplete/Viewport.vue",
@@ -1203,6 +1203,63 @@ export default [
         dirPath: "components/UI",
         fileContent:
           '<template>\n  <Primitive :class="styles({ class: props.class })" v-bind="reactiveOmit(props, \'class\', \'title\')">\n    <slot>{{ title }}</slot>\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        /** Custom class(es) to add to the parent */\n        class?: any;\n        /** The title of the component */\n        title?: string;\n      }\n    >(),\n    {\n      as: "p",\n    }\n  );\n\n  const styles = tv({\n    base: "font-semibold",\n  });\n</script>\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "Listbox",
+    value: "listbox",
+    files: [
+      {
+        fileName: "Listbox/Content.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <ListboxContent v-bind="forwarded" :class="styles({ class: props.class })">\n    <slot />\n  </ListboxContent>\n</template>\n\n<script lang="ts" setup>\n  import { ListboxContent, useForwardProps } from "radix-vue";\n  import type { ListboxContentProps } from "radix-vue";\n\n  const props = defineProps<ListboxContentProps & { class?: any }>();\n  const forwarded = useForwardProps(reactiveOmit(props));\n\n  const styles = tv({\n    base: "max-h-[300px] w-full overflow-y-auto rounded-md border bg-popover px-4 py-2",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Listbox/Filter.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <ListboxFilter v-bind="forwarded" :class="styles({ class: props.class })" />\n</template>\n\n<script lang="ts" setup>\n  import { ListboxFilter, useForwardPropsEmits } from "radix-vue";\n  import type { ListboxFilterEmits, ListboxFilterProps } from "radix-vue";\n\n  const props = defineProps<ListboxFilterProps & { class?: any; placeholder?: string }>();\n  const emits = defineEmits<ListboxFilterEmits>();\n  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);\n\n  const styles = tv({\n    base: "h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-[16px] ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground file:hover:cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Listbox/Group.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <ListboxGroup v-bind="forwarded">\n    <slot />\n  </ListboxGroup>\n</template>\n\n<script lang="ts" setup>\n  import { ListboxGroup, useForwardPropsEmits } from "radix-vue";\n  import type { ListboxGroupProps } from "radix-vue";\n\n  const props = defineProps<ListboxGroupProps>();\n  const forwarded = useForwardPropsEmits(props);\n</script>\n',
+      },
+      {
+        fileName: "Listbox/GroupLabel.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <ListboxGroupLabel v-bind="forwarded" :class="styles({ class: props.class })">\n    <slot />\n  </ListboxGroupLabel>\n</template>\n\n<script lang="ts" setup>\n  import { ListboxGroupLabel, useForwardProps } from "radix-vue";\n  import type { ListboxGroupLabelProps } from "radix-vue";\n\n  const props = defineProps<ListboxGroupLabelProps & { class?: any }>();\n  const forwarded = useForwardProps(reactiveOmit(props, "class"));\n\n  const styles = tv({\n    base: "py-1.5 pl-1 pr-8 text-sm font-semibold",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Listbox/Item.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <ListboxItem v-bind="forwarded" :class="styles({ class: props.class })">\n    <slot />\n    <span class="absolute right-2 flex h-3.5 w-3.5 items-center justify-center">\n      <UiListboxItemIndicator :icon="icon" />\n    </span>\n  </ListboxItem>\n</template>\n\n<script lang="ts" setup>\n  import { ListboxItem, useForwardPropsEmits } from "radix-vue";\n  import type { ListboxItemEmits, ListboxItemProps } from "radix-vue";\n\n  const props = defineProps<\n    ListboxItemProps & {\n      class?: any;\n      icon?: string;\n    }\n  >();\n  const emits = defineEmits<ListboxItemEmits>();\n  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class", "icon"), emits);\n\n  const styles = tv({\n    base: "relative flex w-full cursor-pointer select-none items-center rounded-sm py-2 pl-3 pr-8 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[highlighted]:ring-1 data-[highlighted]:ring-border",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Listbox/ItemIndicator.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <ListboxItemIndicator v-bind="forwarded">\n    <slot>\n      <Icon :class="styles({ class: props.class })" :name="icon || \'lucide:circle-check\'" />\n    </slot>\n  </ListboxItemIndicator>\n</template>\n\n<script lang="ts" setup>\n  import { ListboxItemIndicator, useForwardPropsEmits } from "radix-vue";\n  import type { ListboxItemIndicatorProps } from "radix-vue";\n\n  const props = defineProps<ListboxItemIndicatorProps & { class?: any; icon?: string }>();\n  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"));\n\n  const styles = tv({\n    base: "size-5 shrink-0",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Listbox/Listbox.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <ListboxRoot v-slot="{ modelValue }" v-bind="forwarded" :class="styles({ class: props.class })">\n    <slot :model-value="modelValue" />\n  </ListboxRoot>\n</template>\n\n<script lang="ts" setup>\n  import { ListboxRoot, useForwardPropsEmits } from "radix-vue";\n  import type { ListboxRootEmits, ListboxRootProps } from "radix-vue";\n\n  const props = defineProps<ListboxRootProps & { class?: any }>();\n  const emits = defineEmits<ListboxRootEmits>();\n  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);\n\n  const styles = tv({\n    base: "relative flex flex-col gap-4",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Listbox/Virtualizer.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <ListboxVirtualizer\n    v-slot="{ option }"\n    v-bind="forwarded"\n    :class="styles({ class: props.class })"\n  >\n    <slot :option="option" />\n  </ListboxVirtualizer>\n</template>\n\n<script lang="ts" setup>\n  import { ListboxVirtualizer, useForwardProps } from "radix-vue";\n  import type { ListboxVirtualizerProps } from "radix-vue";\n\n  const props = defineProps<ListboxVirtualizerProps & { class?: any }>();\n  const forwarded = useForwardProps(reactiveOmit(props, "class"));\n\n  const styles = tv({\n    base: "",\n  });\n</script>\n',
       },
     ],
     utils: [],

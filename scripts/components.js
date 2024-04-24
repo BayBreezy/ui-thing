@@ -327,6 +327,20 @@ export default [
     ],
   },
   {
+    name: "Listbox",
+    value: "listbox",
+    files: [
+      "Listbox/Content.vue",
+      "Listbox/Filter.vue",
+      "Listbox/Group.vue",
+      "Listbox/GroupLabel.vue",
+      "Listbox/Item.vue",
+      "Listbox/ItemIndicator.vue",
+      "Listbox/Listbox.vue",
+      "Listbox/Virtualizer.vue",
+    ],
+  },
+  {
     name: "Menubar",
     value: "menubar",
     files: [
