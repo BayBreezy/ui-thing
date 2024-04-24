@@ -1,7 +1,6 @@
 ---
 title: Autocomplete
 description: Choose from a list of suggested values with full keyboard support.
-label: New
 links:
   - title: Radix-Vue
     href: https://www.radix-vue.com/components/combobox.html
