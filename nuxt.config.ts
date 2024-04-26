@@ -9,6 +9,19 @@ const url = process.env.PUBLIC_URL;
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  vite: {
+    optimizeDeps: {
+      include: [
+        "vue-use-active-scroll",
+        "date-fns",
+        "@unovis/ts",
+        "vee-validate",
+        "@vee-validate/zod",
+        "zod",
+        "v-calendar",
+      ],
+    },
+  },
   modules: [
     "@vueuse/nuxt",
     "@nuxtjs/tailwindcss",
