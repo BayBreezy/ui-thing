@@ -17,9 +17,9 @@
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
     "@ianvs/prettier-plugin-sort-imports": "4.2.1",
-    "@internationalized/date": "^3.5.3",
+    "@internationalized/date": "^3.5.4",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
-    "@nuxt/eslint": "^0.3.12",
+    "@nuxt/eslint": "^0.3.13",
     "@nuxtjs/color-mode": "^3.4.1",
     "@nuxtjs/seo": "^2.0.0-rc.10",
     "@nuxtjs/tailwindcss": "^6.12.0",
@@ -36,8 +36,8 @@
   "dependencies": {
     "@morev/vue-transitions": "^3.0.2",
     "@nuxt/content": "^2.12.1",
-    "@tanstack/vue-table": "^8.17.0",
-    "@unovis/ts": "^1.4.0",
+    "@tanstack/vue-table": "^8.17.3",
+    "@unovis/ts": "^1.4.1",
     "@vee-validate/nuxt": "^4.12.8",
     "@vee-validate/zod": "^4.12.8",
     "@vueform/multiselect": "^2.6.7",
@@ -54,13 +54,13 @@
     "jszip": "^3.10.1",
     "nuxt-icon": "^0.6.10",
     "nuxt-swiper": "^1.2.2",
-    "radix-vue": "^1.7.4",
+    "radix-vue": "^1.8.1",
     "tailwind-variants": "^0.2.1",
     "vaul-vue": "^0.1.2",
     "vue-currency-input": "^3.1.0",
     "vue-sonner": "^1.1.2",
     "vue-use-active-scroll": "^1.1.1",
-    "vue3-apexcharts": "^1.5.2",
+    "vue3-apexcharts": "^1.5.3",
     "yup": "^1.4.0",
     "zod": "^3.23.8"
   }
