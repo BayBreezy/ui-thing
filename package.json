@@ -2,36 +2,18 @@
   "name": "ui-thing",
   "license": "MIT",
   "type": "module",
+  "private": false,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --host",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
     "clean": "rm -rf .nuxt dist .output node_modules yarn.lock package-lock.json && npm cache clean --force && npm i",
-    "generate:components": "node scripts/create-components && npx prettier --write ./server/utils/comp.ts",
+    "dev": "nuxt dev --host",
     "format": "npx prettier --write .",
+    "generate": "nuxt generate",
+    "generate:components": "node scripts/create-components && npx prettier --write ./server/utils/comp.ts",
+    "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
-  },
-  "devDependencies": {
-    "@faker-js/faker": "^8.4.1",
-    "@ianvs/prettier-plugin-sort-imports": "4.2.1",
-    "@internationalized/date": "^3.5.4",
-    "@kevinmarrec/nuxt-pwa": "^0.17.0",
-    "@nuxt/eslint": "^0.3.13",
-    "@nuxtjs/color-mode": "^3.4.1",
-    "@nuxtjs/seo": "^2.0.0-rc.10",
-    "@nuxtjs/tailwindcss": "^6.12.0",
-    "@samk-dev/nuxt-vcalendar": "^1.0.3",
-    "@tailwindcss/typography": "^0.5.13",
-    "nuxt": "^3.11.2",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.6.0",
-    "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.4.5",
-    "vue": "^3.4.27",
-    "vue-router": "^4.3.2"
+    "lint:fix": "eslint . --fix",
+    "preview": "nuxt preview"
   },
   "dependencies": {
     "@morev/vue-transitions": "^3.0.2",
@@ -63,5 +45,24 @@
     "vue3-apexcharts": "^1.5.3",
     "yup": "^1.4.0",
     "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@ianvs/prettier-plugin-sort-imports": "4.2.1",
+    "@internationalized/date": "^3.5.4",
+    "@kevinmarrec/nuxt-pwa": "^0.17.0",
+    "@nuxt/eslint": "^0.3.13",
+    "@nuxtjs/color-mode": "^3.4.1",
+    "@nuxtjs/seo": "^2.0.0-rc.10",
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "@samk-dev/nuxt-vcalendar": "^1.0.3",
+    "@tailwindcss/typography": "^0.5.13",
+    "nuxt": "^3.11.2",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.6.0",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.4.5",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
   }
 }
