@@ -12,12 +12,17 @@
   import { ToggleGroupRoot, useForwardPropsEmits } from "radix-vue";
   import type { ToggleGroupRootEmits, ToggleGroupRootProps } from "radix-vue";
 
-  const props = defineProps<
-    ToggleGroupRootProps & {
-      /** custom class to add to the parent */
-      class?: any;
+  const props = withDefaults(
+    defineProps<
+      ToggleGroupRootProps & {
+        /** custom class to add to the parent */
+        class?: any;
+      }
+    >(),
+    {
+      type: "single",
     }
-  >();
+  );
 
   const emit = defineEmits<ToggleGroupRootEmits>();
   const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emit);
