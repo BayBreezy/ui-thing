@@ -36,7 +36,7 @@
     @apply text-sm;
   }
   :deep([data-sonner-toast] [data-close-button]) {
-    @apply border border-border bg-background text-foreground hover:border-inherit hover:bg-inherit hover:text-accent-foreground;
+    @apply border border-border bg-background text-foreground hover:!border-inherit hover:!bg-inherit hover:!text-accent-foreground;
   }
   :deep([data-sonner-toast] [data-button]) {
     @apply bg-primary text-primary-foreground transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
