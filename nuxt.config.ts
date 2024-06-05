@@ -37,11 +37,8 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "nuxt-swiper",
   ],
-  build: {
-    transpile: ["vue-sonner"],
-  },
+  build: { transpile: ["vue-sonner"] },
   typescript: {
-    shim: false,
     tsConfig: {
       compilerOptions: {
         allowSyntheticDefaultImports: true,
@@ -86,12 +83,10 @@ export default defineNuxtConfig({
     },
     highlight: {
       preload: [
-        "diff",
         "json",
         "js",
         "ts",
         "css",
-        "shell",
         "html",
         "md",
         "yaml",
@@ -111,9 +106,7 @@ export default defineNuxtConfig({
   routeRules: {
     "/": { redirect: "/getting-started/introduction" },
   },
-  colorMode: {
-    classSuffix: "",
-  },
+  colorMode: { classSuffix: "" },
   pwa: {
     meta: {
       author,
