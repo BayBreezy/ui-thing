@@ -1,7 +1,6 @@
 ---
 title: Listbox
 description: A control that allows the user to toggle between checked and not checked from a list of options.
-label: New
 links:
   - title: Radix-Vue
     href: https://www.radix-vue.com/components/listbox.html

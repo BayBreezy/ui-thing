@@ -113,6 +113,11 @@ export default [
     files: ["Checkbox/Checkbox.vue", "Checkbox/Indicator.vue"],
   },
   {
+    name: "Chip",
+    value: "chip",
+    files: ["Chip.vue"],
+  },
+  {
     name: "Collapsible",
     value: "collapsible",
     files: ["Collapsible/Collapsible.vue", "Collapsible/Content.vue", "Collapsible/Trigger.vue"],

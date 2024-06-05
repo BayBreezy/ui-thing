@@ -429,6 +429,21 @@ export default [
     plugins: [],
   },
   {
+    name: "Chip",
+    value: "chip",
+    files: [
+      {
+        fileName: "Chip.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <div class="relative inline-flex flex-shrink-0 items-center justify-center">\n    <slot />\n    <TransitionScale>\n      <span\n        v-if="show"\n        :class="[styles({ position, size, inset, class: [props.color, props.class] })]"\n      >\n        <slot name="content">\n          {{ text }}\n        </slot>\n      </span>\n    </TransitionScale>\n  </div>\n</template>\n\n<script lang="ts" setup>\n  defineOptions({ inheritAttrs: false });\n  const props = withDefaults(\n    defineProps<{\n      text?: string;\n      color?: string;\n      size?: VariantProps<typeof styles>["size"];\n      position?: VariantProps<typeof styles>["position"];\n      inset?: boolean;\n      show?: boolean;\n      class?: any;\n    }>(),\n    { show: true, color: "bg-primary", inset: false }\n  );\n\n  const styles = tv({\n    base: "absolute flex items-center justify-center whitespace-nowrap rounded-full font-medium text-foreground ring-[2px] ring-background",\n    variants: {\n      position: {\n        "top-right": "right-0 top-0",\n        "bottom-right": "bottom-0 right-0",\n        "top-left": "left-0 top-0",\n        "bottom-left": "bottom-0 left-0",\n      },\n      inset: {\n        true: "",\n        false: "",\n      },\n      size: {\n        "3xs": "h-[4px] min-w-[4px] p-px text-[4px]",\n        "2xs": "h-[5px] min-w-[5px] p-px text-[5px]",\n        xs: "h-1.5 min-w-[0.375rem] p-px text-[6px]",\n        sm: "h-2 min-w-[0.5rem] p-0.5 text-[7px]",\n        md: "h-2.5 min-w-2.5 p-0.5 text-[8px]",\n        lg: "h-3 min-w-[0.75rem] p-0.5 text-[10px]",\n        xl: "h-3.5 min-w-[0.875rem] p-1 text-[11px]",\n        "2xl": "h-4 min-w-[1rem] p-1 text-[12px]",\n        "3xl": "h-5 min-w-[1.25rem] p-1 text-[14px]",\n      },\n    },\n    defaultVariants: {\n      size: "sm",\n      position: "top-right",\n      inset: false,\n    },\n    compoundVariants: [\n      {\n        inset: false,\n        position: "top-right",\n        class: "-translate-y-1/2 translate-x-1/2 transform",\n      },\n      {\n        inset: false,\n        position: "bottom-right",\n        class: "-translate-x-1/2 translate-y-1/2 transform",\n      },\n      {\n        inset: false,\n        position: "top-left",\n        class: "-translate-x-1/2 -translate-y-1/2 transform",\n      },\n      {\n        inset: false,\n        position: "bottom-left",\n        class: "-translate-x-1/2 translate-y-1/2 transform",\n      },\n    ],\n  });\n</script>\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Collapsible",
     value: "collapsible",
     files: [
