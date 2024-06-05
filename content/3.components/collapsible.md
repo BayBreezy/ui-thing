@@ -20,25 +20,6 @@ Click :SourceCodeLink{component="Collapsible"} to see the source code for this c
 npx ui-thing@latest add collapsible
 ```
 
-You also need to add the animations to your `tailwind.config.js` file:
-
-```js
-keyframes: {
-  "collapse-down": {
-    from: { height: "0px" },
-    to: { height: "var(--radix-collapsible-content-height)" },
-  },
-  "collapse-up": {
-    from: { height: "var(--radix-collapsible-content-height)" },
-    to: { height: "0px" },
-  },
-},
-animation: {
-  "collapse-down": "collapse-down 0.2s ease-out",
-  "collapse-up": "collapse-up 0.2s ease-out",
-},
-```
-
 ## Usage
 
 ::ShowCase{component="DocsCollapsible"}

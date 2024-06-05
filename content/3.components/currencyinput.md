@@ -88,14 +88,14 @@ You can change the configuration by passing the `options` prop.
 ```vue [DocsCurrencyInputForm.vue]
 <template>
   <div class="mx-auto flex w-full max-w-lg items-center justify-center">
-    <form @submit="onSubmit" class="w-full space-y-4">
-      <Field name="username" v-slot="{ componentField }">
-        <UiFormItem label="Username" description="Others will be able to see this">
-          <UiInput v-bind="componentField" />
+    <form class="w-full space-y-4" @submit="onSubmit">
+      <Field v-slot="{ componentField }" name="total">
+        <UiFormItem label="Grand total" description="This is what you came for, right?">
+          <UiCurrencyInput v-bind="componentField" />
         </UiFormItem>
       </Field>
       <div>
-        <UiButton type="submit">Update</UiButton>
+        <UiButton type="submit">Pay It</UiButton>
       </div>
     </form>
   </div>
@@ -107,18 +107,24 @@ You can change the configuration by passing the `options` prop.
   const { handleSubmit } = useForm({
     validationSchema: toTypedSchema(
       z.object({
-        username: z
-          .string({
-            required_error: "Username is required",
+        total: z
+          .number({
+            description: "Total amount to pay",
+            invalid_type_error: "Please enter a valid number",
           })
-          .min(3, "Username must be at least 3 characters long")
-          .max(20, "Username must be at most 20 characters long"),
+          .nonnegative()
+          .min(1000),
       })
     ),
   });
 
   const onSubmit = handleSubmit((values) => {
-    alert(JSON.stringify(values, null, 2));
+    useSonner("Thank you for paying", {
+      description: `You have paid ${new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(values.total)}`,
+    });
   });
 </script>
 ```
