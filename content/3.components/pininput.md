@@ -33,7 +33,7 @@ Passing a value to the placeholder prop will render a placeholder character in e
 ```vue [DocsPinInput.vue]
 <template>
   <div class="flex items-center justify-center">
-    <UiLabel>
+    <UiLabel class="flex flex-col items-start">
       <p class="mb-3 text-sm font-medium">Placeholder</p>
       <UiPinInput placeholder="0" />
     </UiLabel>
@@ -54,9 +54,9 @@ Passing a value to the separator prop will render a separator character between 
 ```vue [DocsPinInputSeparator.vue]
 <template>
   <div class="flex items-center justify-center">
-    <UiLabel>
+    <UiLabel class="flex flex-col items-start">
       <p class="mb-3 text-sm font-medium">Separator</p>
-      <UiPinInput :inputCount="6" separator="-" />
+      <UiPinInput :input-count="6" separator="-" />
     </UiLabel>
   </div>
 </template>
@@ -75,9 +75,9 @@ The complete event is emitted when the user has entered a value in all inputs.
 ```vue [DocsPinInputComplete.vue]
 <template>
   <div class="flex items-center justify-center">
-    <UiLabel>
+    <UiLabel class="flex flex-col items-start">
       <p class="mb-3 text-sm font-medium">Enter OTP sent to your email</p>
-      <UiPinInput @complete="toast({ title: 'Complete' })" :inputCount="5" type="number" />
+      <UiPinInput :input-count="5" type="number" @complete="toast({ title: 'Complete' })" />
     </UiLabel>
   </div>
 </template>
