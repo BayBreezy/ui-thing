@@ -1,16 +1,16 @@
 <template>
-  <AccordionRoot v-bind="forwarded">
-    <slot :items="items">
+  <AccordionRoot v-slot="rootSlotProps" v-bind="forwarded">
+    <slot v-bind="rootSlotProps" :items="items">
       <template v-for="(item, i) in items" :key="i">
-        <UiAccordionItem :disabled="item.disabled" :value="item.value">
-          <slot name="header" :items="items">
+        <UiAccordionItem v-slot="itemSlotProps" :disabled="item.disabled" :value="item.value">
+          <slot v-bind="{ ...itemSlotProps, ...rootSlotProps, items, item }" name="header">
             <UiAccordionHeader>
-              <slot name="trigger" :items="items">
+              <slot v-bind="{ ...itemSlotProps, ...rootSlotProps, items, item }" name="trigger">
                 <UiAccordionTrigger :title="item.title" :icon="item.icon" />
               </slot>
             </UiAccordionHeader>
           </slot>
-          <slot name="content" :items="items">
+          <slot name="content" v-bind="{ ...itemSlotProps, ...rootSlotProps, items, item }">
             <UiAccordionContent :content="item.content" />
           </slot>
         </UiAccordionItem>
