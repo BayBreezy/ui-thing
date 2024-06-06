@@ -57,8 +57,6 @@ Create the component `RetroGrid.vue` in the `components` directory.
 
 ### Basic
 
-We can add the `UiMeteors` component to trigger the meteors.
-
 ::ShowCase{component="DocsRetroGrid"}
 
 #code
