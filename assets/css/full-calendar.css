@@ -60,6 +60,13 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     }
   }
 }
+/* Toolbar */
+.fc .fc-toolbar {
+  @apply grid gap-3 md:flex md:items-center md:justify-between;
+  .fc-toolbar-chunk + .fc-toolbar-title {
+    @apply order-1 md:order-none;
+  }
+}
 /* Toolbar title */
 .fc .fc-toolbar-title {
   @apply text-2xl font-bold tracking-tight;

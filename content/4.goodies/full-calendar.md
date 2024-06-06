@@ -25,6 +25,16 @@ npm i @fullcalendar/daygrid @fullcalendar/interaction @fullcalendar/timegrid @fu
 In order to make the calendar match the UI Thing theme, I had to create the `full-calendar.css` file and import it in the `nuxt.config.ts` file.
 
 ```css [full-calendar.css]
+/*
+for css vars only.
+these values are automatically known in all stylesheets.
+the :root statement itself is only included in the common stylesheet.
+this file is not processed by postcss when imported into the postcss-custom-properties plugin,
+so only write standard css!
+
+NOTE: for old browsers, will need to restart watcher after changing a variable
+*/
+
 :root {
   --fc-small-font-size: theme(fontSize.sm);
   --fc-page-bg-color: theme(colors.background);
@@ -75,6 +85,13 @@ In order to make the calendar match the UI Thing theme, I had to create the `ful
     &.fc-button-active {
       @apply focus:shadow-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
     }
+  }
+}
+/* Toolbar */
+.fc .fc-toolbar {
+  @apply grid gap-3 md:flex md:items-center md:justify-between;
+  .fc-toolbar-chunk + .fc-toolbar-title {
+    @apply order-1 md:order-none;
   }
 }
 /* Toolbar title */
