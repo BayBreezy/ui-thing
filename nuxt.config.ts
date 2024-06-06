@@ -9,6 +9,7 @@ const url = process.env.PUBLIC_URL;
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  css: ["~/assets/css/full-calendar.css"],
   vite: {
     optimizeDeps: {
       include: [
@@ -52,7 +53,11 @@ export default defineNuxtConfig({
       },
     },
   },
-  tailwindcss: { exposeConfig: true },
+  tailwindcss: {
+    exposeConfig: true,
+    editorSupport: true,
+    cssPath: ["~/assets/css/tailwind.css", { injectPosition: "last" }],
+  },
   imports: {
     // Add tv and VariantProps to the set of auto imported modules
     imports: [

@@ -1,0 +1,122 @@
+/*
+for css vars only.
+these values are automatically known in all stylesheets.
+the :root statement itself is only included in the common stylesheet.
+this file is not processed by postcss when imported into the postcss-custom-properties plugin,
+so only write standard css!
+
+NOTE: for old browsers, will need to restart watcher after changing a variable
+*/
+
+:root {
+  --fc-small-font-size: theme(fontSize.sm);
+  --fc-page-bg-color: theme(colors.background);
+  --fc-neutral-bg-color: theme(colors.muted.DEFAULT);
+  --fc-neutral-text-color: theme(colors.foreground);
+  --fc-border-color: theme(colors.border);
+
+  --fc-button-text-color: theme(colors.foreground);
+  --fc-button-bg-color: theme(colors.background);
+  --fc-button-border-color: theme(colors.input);
+  --fc-button-hover-bg-color: theme(colors.accent.DEFAULT);
+  --fc-button-hover-border-color: theme(colors.input);
+  --fc-button-active-bg-color: theme(colors.accent.DEFAULT);
+  --fc-button-active-border-color: theme(colors.input);
+
+  --fc-event-bg-color: theme(colors.primary.DEFAULT);
+  --fc-event-border-color: theme(colors.input);
+  --fc-event-text-color: theme(colors.primary.foreground);
+  --fc-event-selected-overlay-color: rgba(0, 0, 0, 0.25);
+
+  --fc-more-link-bg-color: #d0d0d0;
+  --fc-more-link-text-color: inherit;
+
+  --fc-event-resizer-thickness: 8px;
+  --fc-event-resizer-dot-total-width: 8px;
+  --fc-event-resizer-dot-border-width: 1px;
+
+  --fc-non-business-color: rgba(215, 215, 215, 0.3);
+  --fc-bg-event-color: rgb(143, 223, 130);
+  --fc-bg-event-opacity: 0.3;
+  --fc-highlight-color: theme(colors.primary.DEFAULT / 10%);
+  --fc-today-bg-color: theme(colors.primary.DEFAULT / 10%);
+  --fc-now-indicator-color: red;
+
+  --fc-list-event-hover-bg-color: theme(colors.primary.DEFAULT / 10%);
+}
+
+/* Toolbar buttons */
+.fc {
+  .fc-button {
+    @apply inline-flex h-10 items-center justify-center rounded-md px-3 text-sm font-medium capitalize;
+    .fc-icon {
+      @apply text-sm/none;
+    }
+  }
+  .fc-button-primary {
+    @apply focus:!shadow-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
+    &.fc-button-active {
+      @apply focus:shadow-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
+    }
+  }
+}
+/* Toolbar title */
+.fc .fc-toolbar-title {
+  @apply text-2xl font-bold tracking-tight;
+}
+/* Calendar header cell */
+.fc .fc-col-header-cell-cushion,
+.fc .fc-timegrid-slot-label-cushion,
+.fc .fc-timegrid-axis-cushion {
+  @apply text-base/7 font-semibold;
+}
+/* Calendar: month day number */
+.fc .fc-daygrid-day-number {
+  @apply cursor-pointer text-base/7 font-medium;
+}
+.fc .fc-daygrid-month-start {
+  @apply text-lg/7 font-semibold;
+}
+/* List text */
+.fc-list-day-text,
+.fc-list-day-side-text {
+  @apply text-base/7 font-semibold;
+}
+.fc-h-event .fc-event-main-frame {
+  @apply items-center;
+}
+.fc .fc-list-event-time,
+.fc .fc-event-time {
+  @apply align-middle text-sm/none font-normal;
+}
+.fc .fc-event-time {
+  @apply mr-2;
+}
+
+.fc .fc-list-event-title {
+  @apply align-middle text-sm/none font-semibold;
+}
+
+/* Event inside month view */
+.fc .fc-daygrid-event {
+  @apply rounded-md font-medium;
+}
+.fc .fc-h-event .fc-event-main {
+  @apply px-1;
+}
+/* MultiMonth */
+.fc .fc-multimonth-multicol .fc-daygrid-more-link {
+  @apply border-primary bg-primary text-[10px] leading-4 text-primary-foreground;
+}
+
+/* Mulimonth popup */
+.fc-theme-standard .fc-popover {
+  @apply rounded-md;
+}
+
+.fc-popover-header {
+  @apply px-3;
+  .fc-popover-title {
+    @apply text-base/10 font-bold tracking-tight;
+  }
+}
