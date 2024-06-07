@@ -378,13 +378,11 @@ export default [
     name: "Native Select",
     value: "native-select",
     devDeps: ["@vueuse/core"],
-
     files: ["NativeSelect.vue"],
   },
   {
     name: "Navigation Menu",
     value: "navigation-menu",
-
     files: [
       "NavigationMenu/Content.vue",
       "NavigationMenu/Indicator.vue",
@@ -398,9 +396,19 @@ export default [
     ],
   },
   {
+    name: "Number Field",
+    value: "number-field",
+    deps: ["@internationalized/number"],
+    files: [
+      "NumberField/Decrement.vue",
+      "NumberField/Increment.vue",
+      "NumberField/Input.vue",
+      "NumberField/NumberField.vue",
+    ],
+  },
+  {
     name: "Pagination",
     value: "pagination",
-
     files: [
       "Pagination/Ellipsis.vue",
       "Pagination/First.vue",
@@ -674,7 +682,6 @@ export default [
     value: "vee-radio-group",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
-
     nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["radio-group", "label"],
     files: ["Vee/RadioGroup.vue"],
@@ -684,7 +691,6 @@ export default [
     value: "vee-select",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
-
     nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["native-select", "label"],
     files: ["Vee/Select.vue"],
@@ -694,7 +700,6 @@ export default [
     value: "vee-textarea",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
-
     nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["textarea", "label"],
     files: ["Vee/Textarea.vue"],
@@ -704,7 +709,6 @@ export default [
     value: "vee-tags-input",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
-
     nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["tags-input", "label"],
     files: ["Vee/TagsInput.vue"],
@@ -714,17 +718,24 @@ export default [
     value: "vee-multi-select",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions", "@vueform/multiselect"],
     askValidator: true,
-
     nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["label"],
     files: ["Vee/MultiSelect.vue"],
+  },
+  {
+    name: "VeeNumberField",
+    value: "vee-number-field",
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions", "@internationalized/number"],
+    askValidator: true,
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
+    components: ["label", "number-field"],
+    files: ["Vee/NumberField.vue"],
   },
   {
     name: "Vee Pin Input",
     value: "vee-pin-input",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
-
     nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["label", "pin-input"],
     files: ["Vee/PinInput.vue"],
