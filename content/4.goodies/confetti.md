@@ -23,8 +23,14 @@ Create a composable in your `composables` directory. You can name it `useConfett
 Add this to the file:
 
 ```ts
-//@ts-ignore
-export * as useConfetti from "canvas-confetti";
+/**
+ * Easily add confetti effects to your Nuxt 3 application
+ *
+ * @see https://github.com/catdad/canvas-confetti
+ */
+import useConfetti from "canvas-confetti";
+
+export default useConfetti;
 ```
 
 ## Usage
@@ -94,7 +100,7 @@ This is how you can shoot confetti off in a random direction.
 ```vue [DocsConfettiFireworks.vue]
 <template>
   <div class="flex items-center justify-center">
-    <UiButton @click="triggerConfetti()">Random Direction</UiButton>
+    <UiButton @click="triggerConfetti()">Fireworks</UiButton>
   </div>
 </template>
 
@@ -103,12 +109,29 @@ This is how you can shoot confetti off in a random direction.
     return Math.random() * (max - min) + min;
   }
   const triggerConfetti = () => {
-    useConfetti({
-      angle: randomInRange(55, 360),
-      spread: randomInRange(50, 360),
-      particleCount: randomInRange(50, 360),
-      origin: { y: 0.6 },
-    });
+    const duration = 5 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+    const interval: NodeJS.Timeout = setInterval(function () {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 50 * (timeLeft / duration);
+      // since particles fall down, start a bit higher than random
+      useConfetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+      });
+      useConfetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+      });
+    }, 250);
   };
 </script>
 ```
@@ -159,42 +182,42 @@ This is how you can shoot confetti off in a random direction.
 </template>
 
 <script lang="ts" setup>
-  function randomInRange(min: number, max: number) {
-    return Math.random() * (max - min) + min;
-  }
-
-  const duration = 10 * 1000;
-  const animationEnd = Date.now() + duration;
-  let skew = 1;
-
-  function frame() {
-    const timeLeft = animationEnd - Date.now();
-    const ticks = Math.max(200, 500 * (timeLeft / duration));
-    skew = Math.max(0.8, skew - 0.001);
-
-    useConfetti({
-      particleCount: 1,
-      startVelocity: 0,
-      ticks: ticks,
-      origin: {
-        x: Math.random(),
-        // since particles fall down, skew start toward the top
-        y: Math.random() * skew - 0.2,
-      },
-      colors: useColorMode().value === "dark" ? ["#ffffff"] : ["#000000"],
-      shapes: ["circle"],
-      gravity: randomInRange(0.4, 0.6),
-      scalar: randomInRange(0.4, 1),
-      drift: randomInRange(-0.4, 0.4),
-    });
-
-    if (timeLeft > 0) {
-      requestAnimationFrame(frame);
-    }
-  }
-
   const triggerConfetti = () => {
-    frame();
+    const duration = 5000;
+    const animationEnd = Date.now() + duration;
+    let skew = 1;
+
+    function randomInRange(min: number, max: number) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function frame() {
+      const timeLeft = animationEnd - Date.now();
+      const ticks = Math.max(200, 500 * (timeLeft / duration));
+      skew = Math.max(0.8, skew - 0.001);
+
+      useConfetti({
+        particleCount: 1,
+        startVelocity: 0,
+        ticks: ticks,
+        origin: {
+          x: Math.random(),
+          // since particles fall down, skew start toward the top
+          y: Math.random() * skew - 0.2,
+        },
+        colors: useColorMode().value === "dark" ? ["#ffffff"] : ["#000000"],
+        shapes: ["circle"],
+        gravity: randomInRange(0.4, 0.6),
+        scalar: randomInRange(0.4, 1),
+        drift: randomInRange(-0.4, 0.4),
+      });
+
+      if (timeLeft > 0) {
+        requestAnimationFrame(frame);
+      }
+    }
+
+    requestAnimationFrame(frame);
   };
 </script>
 ```
@@ -215,32 +238,30 @@ This is how you can shoot confetti off in a random direction.
 </template>
 
 <script lang="ts" setup>
-  const colors = ["#bb0000", "#0000ee"];
-  const end = Date.now() + 7 * 1000;
-
-  function frame() {
-    useConfetti({
-      particleCount: 2,
-      angle: 60,
-      spread: 55,
-      origin: { x: 0 },
-      colors: colors,
-    });
-    useConfetti({
-      particleCount: 2,
-      angle: 120,
-      spread: 55,
-      origin: { x: 1 },
-      colors: colors,
-    });
-
-    if (Date.now() < end) {
-      requestAnimationFrame(frame);
-    }
-  }
-
   const triggerConfetti = () => {
-    frame();
+    const colors = ["#bb0000", "#0000ee"];
+    const end = Date.now() + 5 * 1000;
+    function frame() {
+      useConfetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: colors,
+      });
+      useConfetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: colors,
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }
+    requestAnimationFrame(frame);
   };
 </script>
 ```
