@@ -1,7 +1,6 @@
 ---
 title: Full Calendar
 description: Display a full calendar in your nuxt app.
-label: New
 ---
 
 ## Getting Started

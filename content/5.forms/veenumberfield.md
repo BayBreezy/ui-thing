@@ -1,7 +1,6 @@
 ---
 title: VeeNumberField
 description: An number field component that uses the composition API provided by Vee-Validate to perform validation.
-label: New
 links:
   - title: Number Field Source
     href: /components/number-field

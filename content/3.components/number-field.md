@@ -1,7 +1,6 @@
 ---
 title: Number Field
 description: A number field allows a user to enter a number and increment or decrement the value using stepper buttons.
-label: New
 links:
   - title: Radix-Vue
     href: https://www.radix-vue.com/components/number-field

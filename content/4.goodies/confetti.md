@@ -1,7 +1,6 @@
 ---
 title: Confetti
 description: Display some confetti effect in your nuxt app.
-label: New
 ---
 
 ## Credits

@@ -1,7 +1,6 @@
 ---
 title: Border Beam
 description: An animated beam of light which travels along the border of its container.
-label: New
 ---
 
 ## Credits

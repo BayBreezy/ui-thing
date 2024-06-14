@@ -1,7 +1,6 @@
 ---
 title: Retro Grid
 description: Display an animated scrolling grid of retro squares.
-label: New
 ---
 
 ## Credits
