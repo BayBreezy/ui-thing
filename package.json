@@ -67,9 +67,10 @@
     "jszip": "^3.10.1",
     "nuxt-icon": "^0.6.10",
     "nuxt-swiper": "^1.2.2",
-    "radix-vue": "^1.8.3",
+    "radix-vue": "^1.8.4",
     "tailwind-variants": "^0.2.1",
-    "vaul-vue": "^0.1.2",
+    "v-wave": "^2.0.0",
+    "vaul-vue": "^0.2.0",
     "vue-currency-input": "^3.1.0",
     "vue-sonner": "^1.1.2",
     "vue-use-active-scroll": "^1.1.1",
@@ -90,12 +91,12 @@
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.13",
     "@types/canvas-confetti": "^1.6.4",
-    "nuxt": "^3.12.1",
+    "nuxt": "^3.12.2",
     "prettier": "^3.3.2",
-    "prettier-plugin-tailwindcss": "^0.6.4",
+    "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.4.5",
-    "vue": "^3.4.28",
+    "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   }
 }

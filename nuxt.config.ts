@@ -37,6 +37,7 @@ export default defineNuxtConfig({
     "@nuxtjs/seo",
     "@nuxt/eslint",
     "nuxt-swiper",
+    "v-wave/nuxt",
   ],
   build: { transpile: ["vue-sonner"] },
   typescript: {
