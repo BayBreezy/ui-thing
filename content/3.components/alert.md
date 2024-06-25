@@ -15,6 +15,8 @@ npx ui-thing@latest add alert
 
 ## Usage
 
+### Basic
+
 ::ShowCase{component="DocsAlert"}
 
 #code
@@ -23,12 +25,48 @@ npx ui-thing@latest add alert
 <template>
   <div>
     <UiAlert title="Heads up" description="You have 23 new messages" icon="lucide:mail" />
+  </div>
+</template>
+```
+
+::
+
+### Destructive
+
+::ShowCase{component="DocsAlertDestructive"}
+
+#code
+
+```vue [DocsAlertDestructive.vue]
+<template>
+  <div>
     <UiAlert
       class="mt-5"
       variant="destructive"
       title="Error"
       description="Your session has expired. Please log in again."
       icon="lucide:alert-circle"
+    />
+  </div>
+</template>
+```
+
+::
+
+### Border
+
+::ShowCase{component="DocsAlertBorder"}
+
+#code
+
+```vue [DocsAlertBorder.vue]
+<template>
+  <div>
+    <UiAlert
+      class="border-l-8 border-l-primary"
+      title="New users"
+      description="Over 25K new users joined today!"
+      icon="lucide:users"
     />
   </div>
 </template>
