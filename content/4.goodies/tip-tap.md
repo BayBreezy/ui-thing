@@ -1,7 +1,6 @@
 ---
 title: Tiptap
 description: Tiptap is an open source headless content editor and real-time collaboration framework to craft exactly the content experience you’d like to have – built for developers.
-label: New
 ---
 
 ## Installation

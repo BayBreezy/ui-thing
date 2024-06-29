@@ -1,0 +1,291 @@
+@import "@vueup/vue-quill/dist/vue-quill.snow.css";
+@import "@vueup/vue-quill/dist/vue-quill.bubble.css";
+
+.ql-toolbar {
+  &.ql-snow {
+    @apply rounded-t-md border-border font-sans;
+  }
+  &.ql-snow {
+    .ql-stroke {
+      @apply stroke-muted-foreground;
+    }
+    .ql-fill {
+      @apply fill-muted-foreground;
+    }
+    button {
+      @apply mx-0.5 rounded hover:bg-muted hover:text-foreground;
+      &:hover {
+        .ql-fill {
+          @apply fill-foreground;
+        }
+        .ql-stroke {
+          @apply stroke-foreground;
+        }
+      }
+      .ql-stroke {
+        @apply stroke-muted-foreground;
+      }
+      &.ql-active {
+        @apply bg-primary text-primary-foreground;
+        .ql-stroke {
+          @apply stroke-primary-foreground;
+        }
+        .ql-fill {
+          @apply fill-primary-foreground;
+        }
+      }
+    }
+    .ql-formats {
+      svg,
+      .ql-picker-label,
+      .ql-picker {
+        @apply text-muted-foreground;
+      }
+      button {
+        @apply mx-0.5 rounded hover:bg-muted hover:text-foreground;
+        &:hover {
+          .ql-fill {
+            @apply fill-foreground;
+          }
+          .ql-stroke {
+            @apply stroke-foreground;
+          }
+        }
+        .ql-fill {
+          @apply fill-muted-foreground;
+        }
+        .ql-stroke {
+          @apply stroke-muted-foreground;
+        }
+        &.ql-active {
+          @apply bg-primary text-primary-foreground;
+          .ql-fill {
+            @apply fill-primary-foreground;
+          }
+          .ql-stroke {
+            @apply stroke-primary-foreground;
+          }
+        }
+      }
+      .ql-picker {
+        @apply rounded;
+        .ql-picker-options {
+          @apply mt-1 rounded border-border bg-card p-1;
+          .ql-picker-item {
+            @apply rounded hover:bg-muted hover:text-foreground;
+            &.ql-selected {
+              @apply bg-primary text-primary-foreground;
+            }
+          }
+        }
+      }
+      .ql-align,
+      .ql-color-picker {
+        &:hover {
+          .ql-fill {
+            @apply fill-foreground;
+          }
+          .ql-stroke {
+            @apply stroke-foreground;
+          }
+        }
+        .ql-picker-options {
+          @apply mt-1 rounded border-border bg-card p-1;
+          .ql-picker-item {
+            &.ql-selected {
+              @apply bg-primary text-primary-foreground;
+              .ql-stroke {
+                @apply stroke-primary-foreground;
+              }
+            }
+          }
+        }
+      }
+      .ql-picker-label {
+        @apply hover:rounded hover:bg-muted hover:text-foreground;
+        &.ql-active {
+          @apply rounded bg-primary text-primary-foreground;
+          .ql-stroke {
+            @apply stroke-primary-foreground;
+          }
+        }
+      }
+      .ql-stroke {
+        @apply stroke-muted-foreground;
+      }
+      .ql-expanded {
+        .ql-picker-label {
+          @apply rounded border-border;
+        }
+      }
+    }
+  }
+}
+
+.ql-container {
+  @apply min-h-[150px] font-sans text-sm;
+  &.ql-snow {
+    a {
+      @apply text-sky-500 hover:text-sky-500;
+    }
+    @apply rounded-b-md border-border;
+  }
+  .ql-editor {
+    @apply min-h-[150px];
+    .ql-font-monospace {
+      @apply font-mono;
+    }
+    &.ql-blank {
+      &:before {
+        @apply not-italic text-muted-foreground;
+      }
+    }
+  }
+  .ql-tooltip {
+    @apply z-[9999] rounded border-border bg-card px-4 py-2 text-sm text-card-foreground shadow before:cursor-pointer before:font-medium;
+    input[type="text"] {
+      @apply h-8 w-[200px] rounded border-border bg-muted/30 p-2 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-ring;
+    }
+    .ql-preview {
+      @apply text-sm leading-[26px] underline underline-offset-2;
+    }
+    .ql-remove {
+      @apply text-destructive hover:text-destructive;
+    }
+  }
+}
+
+.ql-container.ql-bubble {
+  @apply rounded-md border;
+  .ql-tooltip {
+    @apply z-[9999] rounded-lg border border-border bg-card px-4 py-2 text-sm text-card-foreground shadow before:cursor-pointer before:font-medium;
+    input[type="text"] {
+      @apply h-8 w-[200px] rounded border-border bg-muted/30 p-2 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-ring;
+    }
+    .ql-preview {
+      @apply text-sm leading-[26px] underline underline-offset-2;
+    }
+    .ql-remove {
+      @apply text-destructive hover:text-destructive;
+    }
+    &:not(.ql-flip) .ql-tooltip-arrow {
+      @apply border-b-border;
+    }
+    .ql-toolbar {
+      .ql-stroke {
+        @apply stroke-muted-foreground;
+      }
+      .ql-fill {
+        @apply fill-muted-foreground;
+      }
+
+      button {
+        @apply mx-0.5 rounded hover:bg-muted hover:text-foreground;
+        &:hover {
+          .ql-fill {
+            @apply fill-foreground;
+          }
+          .ql-stroke {
+            @apply stroke-foreground;
+          }
+        }
+        .ql-stroke {
+          @apply stroke-muted-foreground;
+        }
+        &.ql-active {
+          @apply bg-primary text-primary-foreground;
+          .ql-stroke {
+            @apply stroke-primary-foreground;
+          }
+          .ql-fill {
+            @apply fill-primary-foreground;
+          }
+        }
+      }
+      .ql-formats {
+        svg,
+        .ql-picker-label,
+        .ql-picker {
+          @apply text-muted-foreground;
+        }
+        button {
+          @apply mx-0.5 rounded hover:bg-muted hover:text-foreground;
+          &:hover {
+            .ql-fill {
+              @apply fill-foreground;
+            }
+            .ql-stroke {
+              @apply stroke-foreground;
+            }
+          }
+          .ql-fill {
+            @apply fill-muted-foreground;
+          }
+          .ql-stroke {
+            @apply stroke-muted-foreground;
+          }
+          &.ql-active {
+            @apply bg-primary text-primary-foreground;
+            .ql-fill {
+              @apply fill-primary-foreground;
+            }
+            .ql-stroke {
+              @apply stroke-primary-foreground;
+            }
+          }
+        }
+        .ql-picker {
+          @apply rounded;
+          .ql-picker-options {
+            @apply mt-1 rounded border border-border bg-card p-1;
+            .ql-picker-item {
+              @apply rounded px-1 hover:bg-muted hover:text-foreground;
+              &.ql-selected {
+                @apply bg-primary text-primary-foreground;
+              }
+            }
+          }
+        }
+        .ql-align,
+        .ql-color-picker {
+          &:hover {
+            .ql-fill {
+              @apply fill-foreground;
+            }
+            .ql-stroke {
+              @apply stroke-foreground;
+            }
+          }
+          .ql-picker-options {
+            @apply mt-1 rounded border border-border bg-card p-1;
+            .ql-picker-item {
+              &.ql-selected {
+                @apply bg-primary text-primary-foreground;
+                .ql-stroke {
+                  @apply stroke-primary-foreground;
+                }
+              }
+            }
+          }
+        }
+        .ql-picker-label {
+          @apply hover:rounded hover:bg-muted hover:text-foreground;
+          &.ql-active {
+            @apply rounded bg-primary text-primary-foreground;
+            .ql-stroke {
+              @apply stroke-primary-foreground;
+            }
+          }
+        }
+        .ql-stroke {
+          @apply stroke-muted-foreground;
+        }
+        .ql-expanded {
+          .ql-picker-label {
+            @apply rounded border-border;
+          }
+        }
+      }
+    }
+  }
+}

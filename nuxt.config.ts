@@ -9,7 +9,7 @@ const url = process.env.PUBLIC_URL;
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ["~/assets/css/full-calendar.css"],
+  css: ["~/assets/css/full-calendar.css", "~/assets/css/quill.css"],
   vite: {
     optimizeDeps: {
       include: [

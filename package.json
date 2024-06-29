@@ -48,13 +48,14 @@
     "@tiptap/pm": "^2.4.0",
     "@tiptap/starter-kit": "^2.4.0",
     "@tiptap/vue-3": "^2.4.0",
-    "@unovis/ts": "^1.4.1",
+    "@unovis/ts": "^1.4.2",
     "@vee-validate/nuxt": "^4.13.1",
     "@vee-validate/zod": "^4.13.1",
     "@vueform/multiselect": "^2.6.8",
+    "@vueup/vue-quill": "^1.2.0",
     "@vueuse/math": "^10.11.0",
     "@vueuse/nuxt": "^10.11.0",
-    "apexcharts": "^3.49.1",
+    "apexcharts": "^3.49.2",
     "canvas-confetti": "^1.9.3",
     "datatables.net-buttons": "^3.0.2",
     "datatables.net-buttons-dt": "^3.0.2",
@@ -67,6 +68,7 @@
     "jszip": "^3.10.1",
     "nuxt-icon": "^0.6.10",
     "nuxt-swiper": "^1.2.2",
+    "quill-blot-formatter": "^1.0.5",
     "radix-vue": "^1.8.5",
     "tailwind-variants": "^0.2.1",
     "v-wave": "^2.0.0",
@@ -80,7 +82,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
-    "@ianvs/prettier-plugin-sort-imports": "4.2.1",
+    "@ianvs/prettier-plugin-sort-imports": "4.3.0",
     "@internationalized/date": "^3.5.4",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxt/eslint": "^0.3.13",
@@ -96,7 +98,7 @@
     "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.5.2",
-    "vue": "^3.4.30",
+    "vue": "^3.4.31",
     "vue-router": "^4.4.0"
   }
 }

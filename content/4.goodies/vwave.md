@@ -1,7 +1,6 @@
 ---
 title: V-Wave
 description: The material-ripple directive for Vue that actually works!
-label: New
 ---
 
 ## Installation

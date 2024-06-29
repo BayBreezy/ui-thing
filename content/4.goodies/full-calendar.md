@@ -5,7 +5,7 @@ description: Display a full calendar in your nuxt app.
 
 ## Getting Started
 
-To get started, you can install the packge with the following command:
+To get started, you can install the package with the following command:
 
 ```bash
 npm install --save @fullcalendar/core @fullcalendar/vue3
