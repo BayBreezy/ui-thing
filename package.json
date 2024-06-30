@@ -32,7 +32,7 @@
     "@internationalized/number": "^3.5.3",
     "@morev/vue-transitions": "^3.0.2",
     "@nuxt/content": "^2.13.0",
-    "@tanstack/vue-table": "^8.17.3",
+    "@tanstack/vue-table": "^8.19.1",
     "@tiptap/extension-color": "^2.4.0",
     "@tiptap/extension-highlight": "^2.4.0",
     "@tiptap/extension-link": "^2.4.0",
