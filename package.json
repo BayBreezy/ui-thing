@@ -18,7 +18,8 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "prepare": "husky"
   },
   "dependencies": {
     "@fullcalendar/core": "^6.1.14",
@@ -94,6 +95,7 @@
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.13",
     "@types/canvas-confetti": "^1.6.4",
+    "husky": "^9.0.11",
     "nuxt": "^3.12.3",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
