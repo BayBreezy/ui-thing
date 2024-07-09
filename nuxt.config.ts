@@ -10,6 +10,7 @@ const url = process.env.PUBLIC_URL;
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/full-calendar.css", "~/assets/css/quill.css"],
+
   vite: {
     optimizeDeps: {
       include: [
@@ -23,6 +24,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   modules: [
     "@vueuse/nuxt",
     "@nuxtjs/tailwindcss",
@@ -38,8 +40,11 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "nuxt-swiper",
     "v-wave/nuxt",
+    "@nuxt/image"
   ],
+
   build: { transpile: ["vue-sonner"] },
+
   typescript: {
     tsConfig: {
       compilerOptions: {
@@ -47,6 +52,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   vcalendar: {
     calendarOptions: {
       masks: {
@@ -54,11 +60,13 @@ export default defineNuxtConfig({
       },
     },
   },
+
   tailwindcss: {
     exposeConfig: true,
     editorSupport: true,
     cssPath: ["~/assets/css/tailwind.css", { injectPosition: "last" }],
   },
+
   imports: {
     // Add tv and VariantProps to the set of auto imported modules
     imports: [
@@ -67,6 +75,7 @@ export default defineNuxtConfig({
       { from: "vue-sonner", name: "toast", as: "useSonner" },
     ],
   },
+
   app: {
     head: {
       title,
@@ -81,6 +90,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   content: {
     documentDriven: true,
     navigation: { fields: ["icon", "label"] },
@@ -112,7 +122,9 @@ export default defineNuxtConfig({
   routeRules: {
     "/": { redirect: "/getting-started/introduction" },
   },
+
   colorMode: { classSuffix: "" },
+
   pwa: {
     meta: {
       author,
@@ -131,6 +143,7 @@ export default defineNuxtConfig({
       twitterCreator,
     },
   },
+
   site: {
     url,
     name: title,
@@ -140,10 +153,14 @@ export default defineNuxtConfig({
     indexable: true,
     twitter: twitterCreator,
   },
+
   sitemap: { autoLastmod: true },
+
   ogImage: {
     defaults: {
       alt: title,
     },
   },
+
+  compatibilityDate: "2024-07-09",
 });
