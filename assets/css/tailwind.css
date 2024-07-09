@@ -81,7 +81,7 @@ code {
 }
 
 a > code {
-  @apply inline-block border border-dashed border-primary/40 bg-primary/5 px-1  transition hover:border-primary;
+  @apply inline-block border border-dashed border-primary/40 bg-primary/5 px-1 transition hover:border-primary;
 }
 
 pre::-webkit-scrollbar {

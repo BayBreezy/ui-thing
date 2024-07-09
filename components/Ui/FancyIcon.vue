@@ -98,7 +98,7 @@
       {
         color: "primary",
         type: "light",
-        class: { base: "bg-primary/5 ", icon: "text-primary" },
+        class: { base: "bg-primary/5", icon: "text-primary" },
       },
       {
         color: "success",

@@ -19,6 +19,6 @@
   );
 
   const styles = tv({
-    base: "flex items-center p-6 ",
+    base: "flex items-center p-6",
   });
 </script>

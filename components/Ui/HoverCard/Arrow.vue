@@ -20,6 +20,6 @@
   );
 
   const styles = tv({
-    base: " fill-popover",
+    base: "fill-popover",
   });
 </script>

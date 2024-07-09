@@ -40,7 +40,7 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "nuxt-swiper",
     "v-wave/nuxt",
-    "@nuxt/image"
+    "@nuxt/image",
   ],
 
   build: { transpile: ["vue-sonner"] },
