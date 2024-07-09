@@ -617,6 +617,11 @@ export default [
     ],
   },
   {
+    name: "Tree",
+    value: "tree",
+    files: ["Tree/Item.vue", "Tree/Tree.vue", "Tree/Virtualizer.vue"],
+  },
+  {
     name: "Vue Sonner",
     value: "vue-sonner",
     deps: ["vue-sonner"],
