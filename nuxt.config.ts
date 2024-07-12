@@ -29,7 +29,6 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxtjs/tailwindcss",
     "radix-vue/nuxt",
-    "nuxt-icon",
     "@samk-dev/nuxt-vcalendar",
     "@vee-validate/nuxt",
     "@nuxt/content",
@@ -41,6 +40,7 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     "v-wave/nuxt",
     "@nuxt/image",
+    "@nuxt/icon"
   ],
 
   build: { transpile: ["vue-sonner"] },
