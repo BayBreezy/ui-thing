@@ -69,7 +69,7 @@
     "jszip": "^3.10.1",
     "nuxt-swiper": "^1.2.2",
     "quill-blot-formatter": "^1.0.5",
-    "radix-vue": "^1.9.0",
+    "radix-vue": "^1.9.1",
     "tailwind-variants": "^0.2.1",
     "v-wave": "^2.0.0",
     "vaul-vue": "^0.2.0",
