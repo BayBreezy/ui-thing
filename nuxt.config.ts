@@ -40,7 +40,7 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     "v-wave/nuxt",
     "@nuxt/image",
-    "@nuxt/icon"
+    "@nuxt/icon",
   ],
 
   build: { transpile: ["vue-sonner"] },
