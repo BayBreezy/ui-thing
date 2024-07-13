@@ -104,8 +104,5 @@
     "typescript": "^5.5.3",
     "vue": "^3.4.31",
     "vue-router": "^4.4.0"
-  },
-  "overrides": {
-    "shiki": "latest"
   }
 }
