@@ -1,3 +1,22 @@
 {
-  "eslint.experimental.useFlatConfig": true
+  "eslint.useFlatConfig": true,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": true,
+    "comments": "on"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+    [
+      "tv\\(([^)(]*(?:\\([^)(]*(?:\\([^)(]*(?:\\([^)(]*\\)[^)(]*)*\\)[^)(]*)*\\)[^)(]*)*)\\)",
+      "\"(.*?)\""
+    ],
+    "tw`(.*?)`",
+    "tw\\('(.*?)'\\)",
+    "tw\\(\\s*('(.*?)'|\"(.*?)\")\\s*\\)"
+  ]
 }
