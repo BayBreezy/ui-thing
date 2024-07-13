@@ -22,17 +22,16 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@fullcalendar/core": "^6.1.14",
-    "@fullcalendar/daygrid": "^6.1.14",
-    "@fullcalendar/interaction": "^6.1.14",
-    "@fullcalendar/list": "^6.1.14",
-    "@fullcalendar/multimonth": "^6.1.14",
-    "@fullcalendar/scrollgrid": "^6.1.14",
-    "@fullcalendar/timegrid": "^6.1.14",
-    "@fullcalendar/vue3": "^6.1.14",
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/list": "^6.1.15",
+    "@fullcalendar/multimonth": "^6.1.15",
+    "@fullcalendar/scrollgrid": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
+    "@fullcalendar/vue3": "^6.1.15",
     "@internationalized/number": "^3.5.3",
     "@morev/vue-transitions": "^3.0.2",
-    "@nuxt/content": "^2.13.1",
     "@tanstack/vue-table": "^8.19.2",
     "@tiptap/extension-color": "^2.4.0",
     "@tiptap/extension-highlight": "^2.4.0",
@@ -82,9 +81,10 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
-    "@ianvs/prettier-plugin-sort-imports": "4.3.0",
+    "@ianvs/prettier-plugin-sort-imports": "4.3.1",
     "@internationalized/date": "^3.5.4",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
+    "@nuxt/content": "^2.13.1",
     "@nuxt/eslint": "^0.3.13",
     "@nuxt/icon": "^1.0.0",
     "@nuxt/image": "^1.7.0",
@@ -103,5 +103,8 @@
     "typescript": "^5.5.3",
     "vue": "^3.4.31",
     "vue-router": "^4.4.0"
+  },
+  "overrides": {
+    "shiki": "latest"
   }
 }

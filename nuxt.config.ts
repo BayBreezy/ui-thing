@@ -43,7 +43,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
   ],
 
-  build: { transpile: ["vue-sonner"] },
+  build: { transpile: ["vue-sonner", "shiki", "shiki/core"] },
 
   typescript: {
     tsConfig: {
