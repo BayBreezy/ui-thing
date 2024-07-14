@@ -522,6 +522,19 @@ export default [
     files: ["Splitter/Splitter.vue", "Splitter/Panel.vue", "Splitter/Handle.vue"],
   },
   {
+    name: "Stepper",
+    value: "stepper",
+    files: [
+      "Stepper/Description.vue",
+      "Stepper/Indicator.vue",
+      "Stepper/Item.vue",
+      "Stepper/Separator.vue",
+      "Stepper/Stepper.vue",
+      "Stepper/Title.vue",
+      "Stepper/Trigger.vue",
+    ],
+  },
+  {
     name: "Switch",
     value: "switch",
     files: ["Switch/Switch.vue", "Switch/Thumb.vue"],

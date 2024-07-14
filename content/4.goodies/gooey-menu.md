@@ -1,7 +1,6 @@
 ---
 title: Gooey Menu
 description: Display a gooey menu that expands to display a list of items.
-label: New
 ---
 
 ## Credits

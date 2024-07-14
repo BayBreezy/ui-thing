@@ -2019,6 +2019,57 @@ export default [
     plugins: [],
   },
   {
+    name: "Stepper",
+    value: "stepper",
+    files: [
+      {
+        fileName: "Stepper/Description.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <StepperDescription v-slot="slotProps" v-bind="props">\n    <slot v-bind="slotProps" />\n  </StepperDescription>\n</template>\n\n<script lang="ts" setup>\n  import { StepperDescription } from "radix-vue";\n  import type { StepperDescriptionProps } from "radix-vue";\n\n  const props = defineProps<StepperDescriptionProps>();\n</script>\n',
+      },
+      {
+        fileName: "Stepper/Indicator.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <StepperIndicator v-bind="props">\n    <slot />\n  </StepperIndicator>\n</template>\n\n<script lang="ts" setup>\n  import { StepperIndicator } from "radix-vue";\n  import type { StepperIndicatorProps } from "radix-vue";\n\n  const props = defineProps<StepperIndicatorProps>();\n</script>\n',
+      },
+      {
+        fileName: "Stepper/Item.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <StepperItem v-slot="slotProps" v-bind="props">\n    <slot v-bind="slotProps" />\n  </StepperItem>\n</template>\n\n<script lang="ts" setup>\n  import { StepperItem } from "radix-vue";\n  import type { StepperItemProps } from "radix-vue";\n\n  const props = defineProps<StepperItemProps>();\n</script>\n',
+      },
+      {
+        fileName: "Stepper/Separator.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <StepperSeparator v-bind="props">\n    <slot />\n  </StepperSeparator>\n</template>\n\n<script lang="ts" setup>\n  import { StepperSeparator } from "radix-vue";\n  import type { StepperSeparatorProps } from "radix-vue";\n\n  const props = defineProps<StepperSeparatorProps>();\n</script>\n',
+      },
+      {
+        fileName: "Stepper/Stepper.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <StepperRoot v-slot="slotProps" v-bind="forwarded">\n    <slot v-bind="slotProps" />\n  </StepperRoot>\n</template>\n\n<script lang="ts" setup>\n  import { StepperRoot, useForwardPropsEmits } from "radix-vue";\n  import type { StepperRootEmits, StepperRootProps } from "radix-vue";\n\n  const props = defineProps<StepperRootProps>();\n  const emit = defineEmits<StepperRootEmits>();\n  const forwarded = useForwardPropsEmits(props, emit);\n</script>\n',
+      },
+      {
+        fileName: "Stepper/Title.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <StepperTitle v-bind="props">\n    <slot />\n  </StepperTitle>\n</template>\n\n<script lang="ts" setup>\n  import { StepperTitle } from "radix-vue";\n  import type { StepperTitleProps } from "radix-vue";\n\n  const props = defineProps<StepperTitleProps>();\n</script>\n',
+      },
+      {
+        fileName: "Stepper/Trigger.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <StepperTrigger v-bind="props">\n    <slot />\n  </StepperTrigger>\n</template>\n\n<script lang="ts" setup>\n  import { StepperTrigger } from "radix-vue";\n  import type { StepperTriggerProps } from "radix-vue";\n\n  const props = defineProps<StepperTriggerProps>();\n</script>\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Switch",
     value: "switch",
     files: [

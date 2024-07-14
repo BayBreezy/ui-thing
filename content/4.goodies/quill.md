@@ -1,7 +1,6 @@
 ---
 title: Quill
 description: Allow users to create rich text content with the Quill editor.
-label: New
 links:
   - title: Vue Quill
     href: https://vueup.github.io/vue-quill/
