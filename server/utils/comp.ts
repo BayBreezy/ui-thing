@@ -1023,6 +1023,57 @@ export default [
     plugins: [],
   },
   {
+    name: "Editable",
+    value: "editable",
+    files: [
+      {
+        fileName: "Editable/Area.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <EditableArea v-bind="props">\n    <slot />\n  </EditableArea>\n</template>\n\n<script lang="ts" setup>\n  import { EditableArea } from "radix-vue";\n  import type { EditableAreaProps } from "radix-vue";\n\n  const props = defineProps<EditableAreaProps>();\n</script>\n',
+      },
+      {
+        fileName: "Editable/Cancel.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <EditableCancelTrigger v-bind="props">\n    <slot />\n  </EditableCancelTrigger>\n</template>\n\n<script lang="ts" setup>\n  import { EditableCancelTrigger } from "radix-vue";\n  import type { EditableCancelTriggerProps } from "radix-vue";\n\n  const props = defineProps<EditableCancelTriggerProps>();\n</script>\n',
+      },
+      {
+        fileName: "Editable/Edit.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <EditableEditTrigger v-bind="props">\n    <slot />\n  </EditableEditTrigger>\n</template>\n\n<script lang="ts" setup>\n  import { EditableEditTrigger } from "radix-vue";\n  import type { EditableEditTriggerProps } from "radix-vue";\n\n  const props = defineProps<EditableEditTriggerProps>();\n</script>\n',
+      },
+      {
+        fileName: "Editable/Editable.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <EditableRoot :ref="forwardRef" v-slot="slotProps" v-bind="forwarded">\n    <slot v-bind="slotProps" />\n  </EditableRoot>\n</template>\n\n<script lang="ts" setup>\n  import { EditableRoot, useForwardExpose, useForwardPropsEmits } from "radix-vue";\n  import type { EditableRootEmits, EditableRootProps } from "radix-vue";\n\n  const { currentRef, forwardRef } = useForwardExpose();\n  const props = defineProps<EditableRootProps>();\n  const emit = defineEmits<EditableRootEmits & { ready: [v?: any] }>();\n  const forwarded = useForwardPropsEmits(props, emit);\n\n  onMounted(() => {\n    // Emit the ready event with the current ref value\n    emit("ready", currentRef);\n  });\n</script>\n',
+      },
+      {
+        fileName: "Editable/Input.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <EditableInput v-bind="props">\n    <slot />\n  </EditableInput>\n</template>\n\n<script lang="ts" setup>\n  import { EditableInput } from "radix-vue";\n  import type { EditableInputProps } from "radix-vue";\n\n  const props = defineProps<EditableInputProps>();\n</script>\n',
+      },
+      {
+        fileName: "Editable/Preview.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <EditablePreview v-bind="props">\n    <slot />\n  </EditablePreview>\n</template>\n\n<script lang="ts" setup>\n  import { EditablePreview } from "radix-vue";\n  import type { EditablePreviewProps } from "radix-vue";\n\n  const props = defineProps<EditablePreviewProps>();\n</script>\n',
+      },
+      {
+        fileName: "Editable/Submit.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <EditableSubmitTrigger v-bind="props">\n    <slot />\n  </EditableSubmitTrigger>\n</template>\n\n<script lang="ts" setup>\n  import { EditableSubmitTrigger } from "radix-vue";\n  import type { EditableSubmitTriggerProps } from "radix-vue";\n\n  const props = defineProps<EditableSubmitTriggerProps>();\n</script>\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Fancy Icon",
     value: "fancy-icon",
     files: [

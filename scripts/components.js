@@ -269,6 +269,19 @@ export default [
     files: ["Dropfile.vue"],
   },
   {
+    name: "Editable",
+    value: "editable",
+    files: [
+      "Editable/Area.vue",
+      "Editable/Cancel.vue",
+      "Editable/Edit.vue",
+      "Editable/Editable.vue",
+      "Editable/Input.vue",
+      "Editable/Preview.vue",
+      "Editable/Submit.vue",
+    ],
+  },
+  {
     name: "Fancy Icon",
     value: "fancy-icon",
     files: ["FancyIcon.vue"],
