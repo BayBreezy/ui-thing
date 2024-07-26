@@ -11,7 +11,7 @@
           v-slot="{ state }"
           class="group relative w-full"
           :step="step.step"
-          :class="[isLastItem(step.step) && 'w-fit']"
+          :class="[isLastItem(step.step) && '!w-fit']"
         >
           <UiStepperTrigger
             as="div"
