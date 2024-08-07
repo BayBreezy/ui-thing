@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
   import { _border, _gray, _muted, _violet } from "#tailwind-config/theme/colors";
-  import { type ApexOptions } from "apexcharts";
+  import type { ApexOptions } from "apexcharts";
 
   function generateData(baseval: number, count: number, yrange: { min: number; max: number }) {
     let i = 0;

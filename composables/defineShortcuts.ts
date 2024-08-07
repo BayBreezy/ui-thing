@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import { logicAnd, logicNot } from "@vueuse/math";
 import { computed, ref } from "vue";
 import type { ComputedRef, WatchSource } from "vue";

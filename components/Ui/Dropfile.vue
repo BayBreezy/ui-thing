@@ -44,7 +44,7 @@
       /**
        * The function to call when files are dropped.
        */
-      // eslint-disable-next-line @typescript-eslint/ban-types
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
       onDrop?: Function;
       /**
        * Whether or not to allow multiple files to be picked. Does not affect drag and drop.

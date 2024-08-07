@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
   import { _border, _muted, _violet } from "#tailwind-config/theme/colors";
-  import { type ApexOptions } from "apexcharts";
+  import type { ApexOptions } from "apexcharts";
 
   const series: ApexOptions["series"] = [70, 30, 60];
 

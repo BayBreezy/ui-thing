@@ -26,8 +26,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { type DateValue } from "@internationalized/date";
   import { DateFieldInput, DateFieldRoot } from "radix-vue";
+  import type { DateValue } from "@internationalized/date";
   import type { DateFieldRootProps } from "radix-vue";
 
   const props = withDefaults(
