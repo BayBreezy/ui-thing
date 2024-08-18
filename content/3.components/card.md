@@ -19,7 +19,7 @@ npx ui-thing@latest add card
 
 #code
 
-```vue [DocsAspectRatio.vue]
+```vue [DocsCard.vue]
 <template>
   <div class="flex items-center justify-center">
     <form>
@@ -33,7 +33,7 @@ npx ui-thing@latest add card
             <div class="grid w-full items-center gap-4">
               <div class="flex flex-col space-y-1.5">
                 <UiLabel for="name">Name</UiLabel>
-                <UiInput required id="name" placeholder="Name of your project" />
+                <UiInput id="name" required placeholder="Name of your project" />
               </div>
               <div class="flex flex-col space-y-1.5">
                 <UiLabel for="framework">Framework</UiLabel>
@@ -84,7 +84,7 @@ npx ui-thing@latest add card
             <div class="shrink-0 self-start">
               <Icon name="lucide:bell" class="h-6 w-6" />
             </div>
-            <UiLabel for="push" class="flex flex-col text-sm">
+            <UiLabel for="push" class="flex flex-col items-start text-sm">
               <p class="font-medium">Push Notifications</p>
               <p class="text-muted-foreground">Send notifications to device.</p>
             </UiLabel>
@@ -95,7 +95,7 @@ npx ui-thing@latest add card
 
           <ul class="mt-7 flex flex-col gap-6 pl-2">
             <li v-for="(item, i) in items" :key="i" class="flex items-start gap-4">
-              <span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-sky-500"></span>
+              <span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-sky-500" />
               <div class="flex flex-col gap-px text-sm">
                 <p class="font-medium leading-none">{{ item.text }}</p>
                 <span class="text-muted-foreground">{{ item.time }}</span>
@@ -107,7 +107,12 @@ npx ui-thing@latest add card
 
       <template #footer>
         <UiCardFooter>
-          <UiButton class="w-full"> <Icon name="lucide:check" /> Mark all as read </UiButton>
+          <UiButton
+            class="w-full"
+            @click="useSonner.success('Updated', { description: 'All items were marked as read.' })"
+          >
+            <Icon name="lucide:check" /> Mark all as read
+          </UiButton>
         </UiCardFooter>
       </template>
     </UiCard>

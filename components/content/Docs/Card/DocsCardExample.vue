@@ -11,7 +11,7 @@
             <div class="shrink-0 self-start">
               <Icon name="lucide:bell" class="h-6 w-6" />
             </div>
-            <UiLabel for="push" class="flex flex-col text-sm">
+            <UiLabel for="push" class="flex flex-col items-start text-sm">
               <p class="font-medium">Push Notifications</p>
               <p class="text-muted-foreground">Send notifications to device.</p>
             </UiLabel>
@@ -34,7 +34,12 @@
 
       <template #footer>
         <UiCardFooter>
-          <UiButton class="w-full"> <Icon name="lucide:check" /> Mark all as read </UiButton>
+          <UiButton
+            class="w-full"
+            @click="useSonner.success('Updated', { description: 'All items were marked as read.' })"
+          >
+            <Icon name="lucide:check" /> Mark all as read
+          </UiButton>
         </UiCardFooter>
       </template>
     </UiCard>
