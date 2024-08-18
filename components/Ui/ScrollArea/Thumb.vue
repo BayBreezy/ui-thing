@@ -1,8 +1,5 @@
 <template>
-  <ScrollAreaThumb
-    v-bind="reactiveOmit(props, 'class')"
-    :class="styles({ orientation, class: props.class })"
-  >
+  <ScrollAreaThumb v-bind="forwarded" :class="styles({ orientation, class: props.class })">
     <slot />
   </ScrollAreaThumb>
 </template>
@@ -23,7 +20,7 @@
       orientation: "vertical",
     }
   );
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "relative flex-1 rounded-full bg-border",
     variants: {

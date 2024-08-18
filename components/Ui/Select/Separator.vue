@@ -1,5 +1,5 @@
 <template>
-  <SelectSeparator :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')" />
+  <SelectSeparator :class="styles({ class: props.class })" v-bind="forwarded" />
 </template>
 
 <script lang="ts" setup>
@@ -12,7 +12,7 @@
       class?: any;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "-mx-1 my-1 h-px bg-muted",
   });

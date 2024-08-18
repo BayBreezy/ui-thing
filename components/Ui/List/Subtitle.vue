@@ -1,8 +1,5 @@
 <template>
-  <Primitive
-    :class="styles({ class: props.class })"
-    v-bind="reactiveOmit(props, 'class', 'subtitle')"
-  >
+  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">
     <slot>{{ subtitle }}</slot>
   </Primitive>
 </template>
@@ -24,7 +21,7 @@
       as: "p",
     }
   );
-
+  const forwarded = reactiveOmit(props, "class", "subtitle");
   const styles = tv({
     base: "text-sm text-muted-foreground",
   });

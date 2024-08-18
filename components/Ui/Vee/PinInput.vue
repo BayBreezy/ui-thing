@@ -9,10 +9,7 @@
     <div class="relative">
       <UiPinInput
         :id="inputId"
-        v-bind="{
-          ...$attrs,
-          ...reactiveOmit(props, 'label', 'hint', 'id', 'rules', 'validateOnMount', 'modelValue'),
-        }"
+        v-bind="{ ...$attrs, ...forwarded }"
         v-model="value"
         @complete="emits('complete', $event)"
       />
@@ -21,7 +18,6 @@
       <p v-if="hint && !errorMessage" key="hint" class="mt-1.5 text-sm text-muted-foreground">
         {{ hint }}
       </p>
-
       <p v-if="errorMessage" key="errorMessage" class="mt-1.5 text-sm text-destructive">
         {{ errorMessage }}
       </p>
@@ -48,6 +44,15 @@
     complete: [value: string[]];
   }>();
 
+  const forwarded = reactiveOmit(
+    props,
+    "label",
+    "hint",
+    "id",
+    "rules",
+    "validateOnMount",
+    "modelValue"
+  );
   const inputId = props.id || useId();
 
   const { errorMessage, value } = useField(() => props.name || inputId, props.rules, {

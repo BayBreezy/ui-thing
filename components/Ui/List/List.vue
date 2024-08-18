@@ -1,5 +1,5 @@
 <template>
-  <Primitive :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
+  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">
     <slot />
   </Primitive>
 </template>
@@ -19,7 +19,7 @@
       as: "ul",
     }
   );
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "w-full py-2",
   });

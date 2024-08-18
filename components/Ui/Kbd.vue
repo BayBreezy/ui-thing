@@ -1,8 +1,5 @@
 <template>
-  <Primitive
-    :class="styles({ size, class: props.class })"
-    v-bind="reactiveOmit(props, 'class', 'size')"
-  >
+  <Primitive :class="styles({ size, class: props.class })" v-bind="forwarded">
     <slot />
   </Primitive>
 </template>
@@ -24,6 +21,8 @@
       size: "sm",
     }
   );
+
+  const forwarded = reactiveOmit(props, "class", "size");
 
   const styles = tv({
     base: "pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded-md border border-border bg-muted font-sans font-medium",

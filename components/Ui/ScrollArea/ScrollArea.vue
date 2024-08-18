@@ -1,5 +1,5 @@
 <template>
-  <ScrollAreaRoot v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
+  <ScrollAreaRoot v-bind="forwarded" :class="styles({ class: props.class })">
     <UiScrollAreaViewport>
       <slot />
     </UiScrollAreaViewport>
@@ -25,7 +25,7 @@
       orientation: "vertical",
     }
   );
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "relative overflow-hidden",
   });

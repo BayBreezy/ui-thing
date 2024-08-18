@@ -1,5 +1,5 @@
 <template>
-  <SliderRange :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
+  <SliderRange :class="styles({ class: props.class })" v-bind="forwarded">
     <slot />
   </SliderRange>
 </template>
@@ -14,6 +14,7 @@
       class?: any;
     }
   >();
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "absolute h-full bg-primary",
   });

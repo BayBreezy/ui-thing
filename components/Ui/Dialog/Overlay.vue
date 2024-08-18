@@ -1,5 +1,5 @@
 <template>
-  <DialogOverlay :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')" />
+  <DialogOverlay :class="styles({ class: props.class })" v-bind="forwarded" />
 </template>
 
 <script lang="ts" setup>
@@ -12,6 +12,7 @@
       class?: any;
     }
   >();
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=closed]:animate-fadeOut data-[state=open]:animate-fadeIn",
   });

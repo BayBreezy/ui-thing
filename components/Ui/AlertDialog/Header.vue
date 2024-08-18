@@ -1,5 +1,5 @@
 <template>
-  <Primitive :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
+  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">
     <slot />
   </Primitive>
 </template>
@@ -20,7 +20,7 @@
       class: undefined,
     }
   );
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "flex flex-col gap-2 text-center sm:text-left",
   });

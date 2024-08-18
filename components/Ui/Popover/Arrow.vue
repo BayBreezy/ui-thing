@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
   import { PopoverArrow, useForwardProps } from "radix-vue";
-  import type { PopoverArrowProps } from "radix-vue/dist/Popover/PopoverArrow";
+  import type { PopoverArrowProps } from "radix-vue";
 
   const props = withDefaults(defineProps<PopoverArrowProps>(), {
     width: 10,

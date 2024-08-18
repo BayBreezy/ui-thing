@@ -1,5 +1,5 @@
 <template>
-  <HoverCardArrow :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')" />
+  <HoverCardArrow :class="styles({ class: props.class })" v-bind="forwarded" />
 </template>
 
 <script lang="ts" setup>
@@ -18,7 +18,7 @@
       width: 10,
     }
   );
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "fill-popover",
   });

@@ -1,8 +1,5 @@
 <template>
-  <NavigationMenuIndicator
-    v-bind="reactiveOmit(props, 'class')"
-    :class="styles({ class: props.class })"
-  >
+  <NavigationMenuIndicator v-bind="forwarded" :class="styles({ class: props.class })">
     <slot />
     <div class="relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md" />
   </NavigationMenuIndicator>
@@ -18,7 +15,7 @@
       class?: any;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in",
   });

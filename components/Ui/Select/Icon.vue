@@ -1,5 +1,5 @@
 <template>
-  <SelectIcon v-bind="forwarded">
+  <SelectIcon v-bind="forwarded" class="flex items-center justify-center">
     <slot>
       <Icon :class="styles({ class: props.class })" :name="icon || 'lucide:chevrons-up-down'" />
     </slot>

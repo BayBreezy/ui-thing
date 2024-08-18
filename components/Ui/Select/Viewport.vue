@@ -1,8 +1,5 @@
 <template>
-  <SelectViewport
-    :class="styles({ position, class: props.class })"
-    v-bind="reactiveOmit(props, 'class')"
-  >
+  <SelectViewport :class="styles({ position, class: props.class })" v-bind="forwarded">
     <slot />
   </SelectViewport>
 </template>
@@ -18,7 +15,7 @@
       class?: any;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "p-1",
     variants: {

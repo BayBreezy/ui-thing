@@ -1,8 +1,5 @@
 <template>
-  <AvatarFallback
-    :class="styles({ class: props.class })"
-    v-bind="reactiveOmit(props, 'class', 'fallback')"
-  >
+  <AvatarFallback :class="styles({ class: props.class })" v-bind="forwarded">
     <slot>
       {{ fallback }}
     </slot>
@@ -21,6 +18,7 @@
       class?: any;
     }
   >();
+  const forwarded = reactiveOmit(props, "class", "fallback");
   const styles = tv({
     base: "flex h-full w-full items-center justify-center rounded-full bg-muted font-medium",
   });

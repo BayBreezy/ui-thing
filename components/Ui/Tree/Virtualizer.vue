@@ -9,6 +9,5 @@
   import type { TreeVirtualizerProps } from "radix-vue";
 
   const props = defineProps<TreeVirtualizerProps>();
-
   const forwarded = useForwardPropsEmits(props);
 </script>

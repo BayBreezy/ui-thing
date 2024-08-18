@@ -1,5 +1,5 @@
 <template>
-  <SelectScrollUpButton v-bind="reactiveOmit(props, 'icon')">
+  <SelectScrollUpButton v-bind="forwarded">
     <slot>
       <Icon :name="icon || 'lucide:chevron-up'" class="h-5 w-5" />
     </slot>
@@ -16,4 +16,5 @@
       icon?: string;
     }
   >();
+  const forwarded = reactiveOmit(props, "icon");
 </script>

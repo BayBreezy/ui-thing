@@ -1,8 +1,5 @@
 <template>
-  <ToastDescription
-    :class="styles({ class: props.class })"
-    v-bind="reactiveOmit(props, 'class', 'description')"
-  >
+  <ToastDescription :class="styles({ class: props.class })" v-bind="forwarded">
     <slot>{{ description }}</slot>
   </ToastDescription>
 </template>
@@ -19,7 +16,7 @@
       class?: any;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class", "description");
   const styles = tv({
     base: "text-sm opacity-90",
   });

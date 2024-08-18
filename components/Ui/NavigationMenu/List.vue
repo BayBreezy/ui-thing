@@ -1,5 +1,5 @@
 <template>
-  <NavigationMenuList v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
+  <NavigationMenuList v-bind="forwarded" :class="styles({ class: props.class })">
     <slot />
   </NavigationMenuList>
 </template>
@@ -14,7 +14,7 @@
       class?: any;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "group flex flex-1 list-none items-center justify-center space-x-1",
   });

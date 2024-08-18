@@ -1,5 +1,5 @@
 <template>
-  <PaginationPrev v-bind="reactiveOmit(props, 'icon')">
+  <PaginationPrev v-bind="forwarded">
     <slot>
       <UiButton v-if="icon" variant="ghost" size="icon-sm">
         <Icon :name="icon" />
@@ -18,4 +18,6 @@
       icon?: string;
     }
   >();
+
+  const forwarded = reactiveOmit(props, "icon");
 </script>

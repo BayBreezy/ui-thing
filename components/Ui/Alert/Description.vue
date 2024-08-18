@@ -1,8 +1,5 @@
 <template>
-  <Primitive
-    v-bind="reactiveOmit(props, 'description', 'class')"
-    :class="styles({ class: props.class })"
-  >
+  <Primitive v-bind="forwarded" :class="styles({ class: props.class })">
     <slot>{{ description }}</slot>
   </Primitive>
 </template>
@@ -22,6 +19,8 @@
     >(),
     { as: "div", class: undefined, description: undefined }
   );
+
+  const forwarded = reactiveOmit(props, "class", "description");
 
   const styles = tv({
     base: "text-sm [&_p]:leading-relaxed",

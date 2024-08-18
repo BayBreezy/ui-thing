@@ -1,5 +1,5 @@
 <template>
-  <SliderTrack :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
+  <SliderTrack :class="styles({ class: props.class })" v-bind="forwarded">
     <slot />
   </SliderTrack>
 </template>
@@ -14,7 +14,7 @@
       class?: any;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "relative h-2 w-full grow overflow-hidden rounded-full bg-secondary",
   });

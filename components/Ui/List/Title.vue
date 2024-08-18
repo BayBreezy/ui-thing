@@ -1,5 +1,5 @@
 <template>
-  <Primitive :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class', 'title')">
+  <Primitive :class="styles({ class: props.class })" v-bind="forwarded">
     <slot>{{ title }}</slot>
   </Primitive>
 </template>
@@ -21,7 +21,7 @@
       as: "p",
     }
   );
-
+  const forwarded = reactiveOmit(props, "class", "title");
   const styles = tv({
     base: "font-semibold",
   });

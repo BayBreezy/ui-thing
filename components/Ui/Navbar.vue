@@ -1,5 +1,5 @@
 <template>
-  <Primitive :class="styles({ sticky, class: props.class })" v-bind="reactiveOmit(props, 'class')">
+  <Primitive :class="styles({ sticky, class: props.class })" v-bind="forwarded">
     <slot />
   </Primitive>
 </template>
@@ -11,7 +11,9 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
+        /** Custom class(es) to add to the parent */
         class?: any;
+        /** Whether the navbar should be sticky */
         sticky?: boolean;
       }
     >(),
@@ -19,6 +21,8 @@
       as: "header",
     }
   );
+
+  const forwarded = reactiveOmit(props, "class", "sticky");
 
   const styles = tv({
     base: "z-20 border-b bg-background/90 backdrop-blur",

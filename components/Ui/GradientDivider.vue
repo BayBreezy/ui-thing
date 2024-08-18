@@ -1,5 +1,5 @@
 <template>
-  <Separator v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })" />
+  <Separator v-bind="forwarded" :class="styles({ class: props.class })" />
 </template>
 
 <script lang="ts" setup>
@@ -17,6 +17,8 @@
       as: "hr",
     }
   );
+
+  const forwarded = reactiveOmit(props, "class");
 
   const styles = tv({
     base: 'h-px w-full border-t-0 bg-[linear-gradient(90deg,theme("colors.input/10%"),_theme("colors.input"),_theme("colors.input/10%"))]',

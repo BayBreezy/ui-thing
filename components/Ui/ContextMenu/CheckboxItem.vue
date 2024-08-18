@@ -1,8 +1,5 @@
 <template>
-  <ContextMenuCheckboxItem
-    v-bind="{ ...reactiveOmit(props, 'class', 'shortcut', 'title'), ...useEmitAsProps(emits) }"
-    :class="styles({ class: props.class })"
-  >
+  <ContextMenuCheckboxItem v-bind="forwarded" :class="styles({ class: props.class })">
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center text-primary">
       <UiContextMenuItemIndicator icon="lucide:check" />
     </span>
@@ -16,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ContextMenuCheckboxItem, useEmitAsProps } from "radix-vue";
+  import { ContextMenuCheckboxItem, useForwardPropsEmits } from "radix-vue";
   import type { ContextMenuCheckboxItemEmits, ContextMenuCheckboxItemProps } from "radix-vue";
 
   const props = defineProps<
@@ -31,7 +28,7 @@
   >();
 
   const emits = defineEmits<ContextMenuCheckboxItemEmits>();
-
+  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class", "shortcut", "title"), emits);
   const styles = tv({
     base: "relative flex cursor-pointer select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:cursor-not-allowed data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
   });

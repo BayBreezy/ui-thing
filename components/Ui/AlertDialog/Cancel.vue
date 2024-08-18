@@ -1,6 +1,6 @@
 <template>
   <AlertDialogCancel
-    v-bind="reactiveOmit(props, 'class', 'text', 'variant', 'size')"
+    v-bind="forwarded"
     :class="buttonStyles({ variant, size, disabled, class: props.class })"
   >
     <slot>{{ text }}</slot>
@@ -36,4 +36,6 @@
       onClick: undefined,
     }
   );
+
+  const forwarded = reactiveOmit(props, "class", "text", "variant", "size");
 </script>

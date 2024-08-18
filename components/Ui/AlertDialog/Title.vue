@@ -1,5 +1,5 @@
 <template>
-  <AlertDialogTitle v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
+  <AlertDialogTitle v-bind="forwarded" :class="styles({ class: props.class })">
     <slot>{{ title }}</slot>
   </AlertDialogTitle>
 </template>
@@ -16,7 +16,7 @@
       class?: any;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class", "title");
   const styles = tv({
     base: "text-lg font-semibold",
   });

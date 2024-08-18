@@ -1,5 +1,5 @@
 <template>
-  <TabsContent v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
+  <TabsContent v-bind="forwarded" :class="styles({ class: props.class })">
     <slot />
   </TabsContent>
 </template>
@@ -14,7 +14,7 @@
       class?: any;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
   });

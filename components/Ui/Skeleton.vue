@@ -1,8 +1,5 @@
 <template>
-  <Primitive
-    :class="styles({ loading, class: props.class })"
-    v-bind="reactiveOmit(props, 'class', 'loading')"
-  >
+  <Primitive :class="styles({ loading, class: props.class })" v-bind="forwarded">
     <slot />
   </Primitive>
 </template>
@@ -31,4 +28,6 @@
       as: "div",
     }
   );
+
+  const forwarded = reactiveOmit(props, "class", "loading");
 </script>

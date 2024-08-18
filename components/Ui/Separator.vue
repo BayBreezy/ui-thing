@@ -1,8 +1,5 @@
 <template>
-  <Separator
-    v-bind="useForwardProps(reactiveOmit(props, 'class'))"
-    :class="styles({ orientation, class: props.class })"
-  />
+  <Separator v-bind="forwarded" :class="styles({ orientation, class: props.class })" />
 </template>
 
 <script lang="ts" setup>
@@ -12,6 +9,8 @@
   const props = withDefaults(defineProps<SeparatorProps & { class?: any }>(), {
     orientation: "horizontal",
   });
+
+  const forwarded = useForwardProps(reactiveOmit(props, "class"));
 
   const styles = tv({
     base: "shrink-0 bg-border",

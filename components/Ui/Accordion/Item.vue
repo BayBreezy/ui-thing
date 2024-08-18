@@ -1,9 +1,5 @@
 <template>
-  <AccordionItem
-    v-slot="slotProps"
-    v-bind="reactiveOmit(props, 'class')"
-    :class="styles({ class: props.class })"
-  >
+  <AccordionItem v-slot="slotProps" v-bind="forwarded" :class="styles({ class: props.class })">
     <slot v-bind="slotProps" />
   </AccordionItem>
 </template>
@@ -14,9 +10,12 @@
 
   const props = defineProps<
     AccordionItemProps & {
+      /** Custom class(es) to add to the parent */
       class?: any;
     }
   >();
+
+  const forwarded = reactiveOmit(props, "class");
 
   const styles = tv({
     base: "border-b",

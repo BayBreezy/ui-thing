@@ -1,8 +1,5 @@
 <template>
-  <ComboboxGroup
-    :class="styles({ class: props.class })"
-    v-bind="reactiveOmit(props, 'class', 'heading')"
-  >
+  <ComboboxGroup :class="styles({ class: props.class })" v-bind="forwarded">
     <slot name="heading">
       <UiCommandLabel v-if="heading" :label="heading" />
     </slot>
@@ -22,7 +19,7 @@
       class?: any;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class", "heading");
   const styles = tv({
     base: "overflow-hidden p-1 text-foreground",
   });

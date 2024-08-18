@@ -1,8 +1,5 @@
 <template>
-  <AccordionTrigger
-    v-bind="reactiveOmit(props, 'class', 'icon', 'title')"
-    :class="styles({ class: props.class })"
-  >
+  <AccordionTrigger v-bind="forwarded" :class="styles({ class: props.class })">
     <slot :props="props">
       {{ title }}
     </slot>
@@ -19,8 +16,11 @@
   const props = withDefaults(
     defineProps<
       AccordionTriggerProps & {
+        /** Custom class(es) to add to the parent */
         class?: any;
+        /** The title of the accordion trigger */
         title?: string;
+        /** The icon to show next to the title */
         icon?: string;
       }
     >(),
@@ -30,6 +30,8 @@
       icon: "lucide:chevron-down",
     }
   );
+
+  const forwarded = reactiveOmit(props, "class", "icon", "title");
 
   const styles = tv({
     base: "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background [&[data-state=open]>svg]:rotate-180",

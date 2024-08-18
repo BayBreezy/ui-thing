@@ -1,8 +1,5 @@
 <template>
-  <MenubarLabel
-    :class="styles({ inset, class: props.class })"
-    v-bind="reactiveOmit(props, 'class', 'inset')"
-  >
+  <MenubarLabel :class="styles({ inset, class: props.class })" v-bind="forwarded">
     <slot />
   </MenubarLabel>
 </template>
@@ -17,7 +14,7 @@
       inset?: boolean;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class", "inset");
   const styles = tv({
     base: "px-2 py-1.5 text-sm font-semibold",
     variants: {

@@ -1,5 +1,5 @@
 <template>
-  <TabsList :class="styles({ pill, class: props.class })" v-bind="reactiveOmit(props, 'class')">
+  <TabsList :class="styles({ pill, class: props.class })" v-bind="forwarded">
     <slot />
   </TabsList>
 </template>
@@ -18,7 +18,7 @@
     >(),
     { pill: true }
   );
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "inline-flex h-10 items-center justify-center rounded-md p-1 text-muted-foreground",
     variants: {

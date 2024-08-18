@@ -1,5 +1,5 @@
 <template>
-  <ComboboxTrigger v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
+  <ComboboxTrigger v-bind="forwarded" :class="styles({ class: props.class })">
     <slot />
   </ComboboxTrigger>
 </template>
@@ -13,7 +13,7 @@
       class?: any;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "inline-flex shrink-0 cursor-pointer items-center justify-center",
   });

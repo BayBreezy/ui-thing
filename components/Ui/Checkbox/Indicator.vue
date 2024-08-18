@@ -1,8 +1,5 @@
 <template>
-  <CheckboxIndicator
-    :class="styles({ class: props.class })"
-    v-bind="reactiveOmit(props, 'class', 'icon')"
-  >
+  <CheckboxIndicator :class="styles({ class: props.class })" v-bind="forwarded">
     <slot>
       <Icon :name="checked == 'indeterminate' ? 'lucide:minus' : icon" class="h-4 w-4" />
     </slot>
@@ -31,7 +28,7 @@
       icon: "lucide:check",
     }
   );
-
+  const forwarded = reactiveOmit(props, "class", "icon");
   const styles = tv({
     base: "flex items-center justify-center text-current",
   });

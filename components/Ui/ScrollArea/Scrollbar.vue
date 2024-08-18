@@ -1,8 +1,5 @@
 <template>
-  <ScrollAreaScrollbar
-    v-bind="reactiveOmit(props, 'class')"
-    :class="styles({ orientation, class: props.class })"
-  >
+  <ScrollAreaScrollbar v-bind="forwarded" :class="styles({ orientation, class: props.class })">
     <slot />
     <UiScrollAreaThumb />
   </ScrollAreaScrollbar>
@@ -23,7 +20,7 @@
       orientation: "vertical",
     }
   );
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "flex touch-none select-none transition-colors",
     variants: {

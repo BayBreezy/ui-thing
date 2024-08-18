@@ -1,5 +1,5 @@
 <template>
-  <PaginationEllipsis v-bind="reactiveOmit(props, 'icon')">
+  <PaginationEllipsis v-bind="forwarded">
     <slot>
       <div v-if="icon" class="inline-flex h-9 w-9 items-center justify-center hover:bg-transparent">
         <Icon :name="icon" />
@@ -18,4 +18,5 @@
       icon?: string;
     }
   >();
+  const forwarded = reactiveOmit(props, "icon");
 </script>

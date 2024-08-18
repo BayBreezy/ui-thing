@@ -1,5 +1,5 @@
 <template>
-  <CollapsibleContent :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
+  <CollapsibleContent :class="styles({ class: props.class })" v-bind="forwarded">
     <slot />
   </CollapsibleContent>
 </template>
@@ -14,7 +14,7 @@
       class?: any;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "overflow-hidden transition will-change-auto data-[state=closed]:animate-collapse-up data-[state=open]:animate-collapse-down",
   });

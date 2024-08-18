@@ -1,5 +1,5 @@
 <template>
-  <ComboboxEmpty :class="styles({ class: props.class })" v-bind="reactiveOmit(props, 'class')">
+  <ComboboxEmpty :class="styles({ class: props.class })" v-bind="forwarded">
     <slot />
   </ComboboxEmpty>
 </template>
@@ -14,7 +14,7 @@
       class?: any;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "py-6 text-center text-sm",
   });

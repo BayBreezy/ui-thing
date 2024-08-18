@@ -1,8 +1,5 @@
 <template>
-  <ContextMenuSubTrigger
-    v-bind="reactiveOmit(props, 'class', 'inset', 'icon', 'title')"
-    :class="styles({ inset, class: props.class })"
-  >
+  <ContextMenuSubTrigger v-bind="forwarded" :class="styles({ inset, class: props.class })">
     <slot>
       <span v-if="title">{{ title }}</span>
     </slot>
@@ -26,7 +23,7 @@
       title?: string;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class", "inset", "icon", "title");
   const styles = tv({
     base: "flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[highlighted]:bg-accent data-[state=open]:bg-accent data-[highlighted]:text-accent-foreground data-[state=open]:text-accent-foreground",
     variants: {

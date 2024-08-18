@@ -1,8 +1,5 @@
 <template>
-  <DropdownMenuArrow
-    v-bind="reactiveOmit(props, 'class')"
-    :class="styles({ class: props.class })"
-  />
+  <DropdownMenuArrow v-bind="forwarded" :class="styles({ class: props.class })" />
 </template>
 
 <script lang="ts" setup>
@@ -22,7 +19,7 @@
       height: 5,
     }
   );
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "rotate-45 border bg-muted",
   });

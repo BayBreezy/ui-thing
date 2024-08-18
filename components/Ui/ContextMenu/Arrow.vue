@@ -1,5 +1,5 @@
 <template>
-  <ContextMenuArrow v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })" />
+  <ContextMenuArrow v-bind="forwarded" :class="styles({ class: props.class })" />
 </template>
 
 <script lang="ts" setup>
@@ -12,6 +12,7 @@
       class?: any;
     }
   >();
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "border bg-muted",
   });

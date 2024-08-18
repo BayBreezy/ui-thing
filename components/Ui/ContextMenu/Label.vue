@@ -1,8 +1,5 @@
 <template>
-  <ContextMenuLabel
-    :class="styles({ inset, class: props.class })"
-    v-bind="reactiveOmit(props, 'class', 'inset', 'label')"
-  >
+  <ContextMenuLabel :class="styles({ inset, class: props.class })" v-bind="forwarded">
     <slot>{{ label }}</slot>
   </ContextMenuLabel>
 </template>
@@ -21,7 +18,7 @@
       label?: string;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class", "inset", "label");
   const styles = tv({
     base: "inline-block w-full px-2 py-1.5 text-sm font-semibold text-foreground",
     variants: {

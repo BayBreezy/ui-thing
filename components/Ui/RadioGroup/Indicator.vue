@@ -1,8 +1,5 @@
 <template>
-  <RadioGroupIndicator
-    v-bind="reactiveOmit(props, 'class', 'icon')"
-    :class="styles({ class: props.class })"
-  >
+  <RadioGroupIndicator v-bind="forwarded" :class="styles({ class: props.class })">
     <slot>
       <Icon :name="icon || 'ph:circle-fill'" class="h-2.5 w-2.5 fill-current text-current" />
     </slot>
@@ -21,7 +18,7 @@
       icon?: string;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class", "icon");
   const styles = tv({
     base: "flex items-center justify-center",
   });

@@ -1,5 +1,5 @@
 <template>
-  <AccordionHeader v-bind="reactiveOmit(props, 'class')" :class="styles({ class: props.class })">
+  <AccordionHeader v-bind="forwarded" :class="styles({ class: props.class })">
     <slot />
   </AccordionHeader>
 </template>
@@ -13,6 +13,8 @@
       class?: any;
     }
   >();
+
+  const forwarded = reactiveOmit(props, "class");
 
   const styles = tv({
     base: "flex",

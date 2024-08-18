@@ -1,5 +1,5 @@
 <template>
-  <SelectItemIndicator v-bind="reactiveOmit(props, 'class', 'icon')">
+  <SelectItemIndicator v-bind="forwarded" class="flex items-center justify-center">
     <slot>
       <Icon :class="styles({ class: props.class })" :name="icon || 'lucide:check'" />
     </slot>
@@ -18,7 +18,7 @@
       class?: any;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class", "icon");
   const styles = tv({
     base: "h-4 w-4",
   });

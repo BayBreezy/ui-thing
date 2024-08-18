@@ -1,9 +1,5 @@
 <template>
-  <PaginationList
-    v-slot="{ items }"
-    :class="styles({ class: props.class })"
-    v-bind="reactiveOmit(props, 'class')"
-  >
+  <PaginationList v-slot="{ items }" :class="styles({ class: props.class })" v-bind="forwarded">
     <slot :items="items" />
   </PaginationList>
 </template>
@@ -18,7 +14,7 @@
       class?: any;
     }
   >();
-
+  const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: "flex items-center gap-1",
   });
