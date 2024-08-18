@@ -3,13 +3,14 @@
     <UiContainer class="flex h-16 items-center justify-between lg:h-20">
       <div class="flex items-center gap-10">
         <NuxtLink to="#" class="flex items-center gap-3">
+          <!-- eslint-disable-next-line vue/html-self-closing -->
           <img
             src="/icon.png"
             fit="contain"
             alt="Company Logo"
             title="Company Logo"
             class="h-6 object-contain lg:h-8"
-          >
+          />
           <span class="font-semibold lg:text-lg">UI Thing</span>
         </NuxtLink>
         <UiNavigationMenu as="nav" class="hidden items-center justify-start gap-8 lg:flex">
@@ -31,6 +32,7 @@
                           class="group flex gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 dark:hover:bg-muted/20"
                         >
                           <div class="h-[80px] w-[800px] overflow-hidden rounded-lg shadow-sm">
+                            <!-- eslint-disable-next-line vue/html-self-closing -->
                             <img
                               loading="lazy"
                               :src="`http://unsplash.it/400/90?random=${b}&gravity=center.webp`"
@@ -38,7 +40,7 @@
                               width="400"
                               height="90"
                               class="h-full w-[400px] object-cover transition hover:scale-110 group-hover:scale-110"
-                            >
+                            />
                           </div>
                           <div class="flex flex-col gap-1.5 leading-none">
                             <p class="text-sm font-semibold">Auto layout explained</p>
@@ -108,6 +110,7 @@
                                 class="flex flex-col gap-5 rounded-md transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 dark:hover:bg-muted/20"
                               >
                                 <div class="h-[200px] w-full overflow-hidden rounded-lg shadow-sm">
+                                  <!-- eslint-disable-next-line vue/html-self-closing -->
                                   <img
                                     :src="`http://unsplash.it/400/210?random=${b}&gravity=center.webp`"
                                     alt="Random blog image"
@@ -115,7 +118,7 @@
                                     loading="lazy"
                                     height="200"
                                     class="h-full w-full object-cover transition hover:scale-110 group-hover:scale-110"
-                                  >
+                                  />
                                 </div>
                                 <div class="flex flex-col gap-1.5 leading-none">
                                   <p class="line-clamp-1 overflow-ellipsis font-semibold">

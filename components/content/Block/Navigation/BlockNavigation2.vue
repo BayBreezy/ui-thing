@@ -3,13 +3,14 @@
     <UiContainer class="flex h-16 items-center justify-between lg:h-20">
       <div class="flex items-center gap-10">
         <NuxtLink to="#" class="flex items-center gap-3">
+          <!-- eslint-disable-next-line vue/html-self-closing -->
           <img
             src="/icon.png"
             fit="contain"
             alt="Company Logo"
             title="Company Logo"
             class="h-6 object-contain lg:h-8"
-          >
+          />
           <span class="font-semibold lg:text-lg">UI Thing</span>
         </NuxtLink>
         <UiNavigationMenu as="nav" class="hidden items-center justify-start gap-8 lg:flex">

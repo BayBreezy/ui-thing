@@ -8,6 +8,7 @@
     <div
       class="absolute inset-y-0 right-5 -z-[1] hidden h-full md:block md:w-[400px] lg:w-[700px] xl:w-[800px]"
     >
+      <!-- eslint-disable-next-line vue/html-self-closing -->
       <img
         class="h-full w-full object-cover shadow lg:rounded-bl-[150px] lg:rounded-tr-[150px]"
         src="https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -16,7 +17,7 @@
         width="700"
         height="800"
         :title="`${COMPANY_NAME} hero section one header`"
-      >
+      />
     </div>
     <div class="flex h-full items-center justify-center lg:w-[768px]">
       <div>
@@ -37,6 +38,7 @@
       </div>
     </div>
     <div class="h-[300px] md:hidden">
+      <!-- eslint-disable-next-line vue/html-self-closing -->
       <img
         class="h-full w-full rounded-bl-[40px] rounded-tr-[40px] object-cover"
         src="https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -45,7 +47,7 @@
         width="700"
         height="300"
         :title="`${COMPANY_NAME} hero section four header`"
-      >
+      />
     </div>
   </UiContainer>
 </template>

@@ -8,7 +8,8 @@
     </div>
 
     <h1 class="mb-4 mt-7 text-4xl font-bold lg:mb-6 lg:mt-5 lg:text-center lg:text-5xl xl:text-6xl">
-      High-performing remote teams.<br >The future of work.
+      <!-- eslint-disable-next-line vue/html-self-closing -->
+      High-performing remote teams.<br />The future of work.
     </h1>
     <p class="mx-auto max-w-[760px] text-lg text-muted-foreground lg:text-center lg:text-xl">
       Powerful, self-serve team engagement tools and analytics. Supercharge your managers & keep

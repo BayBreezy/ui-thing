@@ -18,7 +18,8 @@
     <div class="flex h-full items-center justify-center text-center md:w-1/2 md:text-left">
       <div>
         <h1 class="mb-4 text-4xl font-bold md:text-5xl lg:mb-6 lg:mt-5 xl:text-6xl">
-          Super simplified <br >
+          <!-- eslint-disable-next-line vue/html-self-closing -->
+          Super simplified <br />
           customer service
         </h1>
         <p class="text-lg text-muted-foreground lg:text-xl">
@@ -53,13 +54,14 @@
       <div
         class="w-full rounded-md bg-muted/50 px-4 py-10 ring-1 ring-muted/30 dark:bg-muted/5 md:px-10 lg:w-[440px] lg:px-10"
       >
+        <!-- eslint-disable-next-line vue/html-self-closing -->
         <img
           src="/icon.png"
           fit="contain"
           alt="Company Logo"
           title="Company Logo"
           class="mx-auto h-11 object-contain"
-        >
+        />
         <h2 class="text-center text-2xl font-semibold lg:mt-6 lg:text-3xl">Create an account</h2>
         <p class="mt-3 text-center text-muted-foreground">Get started with {{ COMPANY_NAME }}</p>
 

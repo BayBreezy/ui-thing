@@ -25,6 +25,7 @@
       </div>
     </div>
     <div class="h-[350px] md:h-full md:w-1/3 xl:w-1/2">
+      <!-- eslint-disable-next-line vue/html-self-closing -->
       <img
         class="h-full w-full object-cover lg:[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)]"
         src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -33,7 +34,7 @@
         width="700"
         height="800"
         :title="`${COMPANY_NAME} hero section two header`"
-      >
+      />
     </div>
   </UiContainer>
 </template>
