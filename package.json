@@ -82,6 +82,7 @@
   "devDependencies": {
     "@faker-js/faker": "^9.0.0",
     "@ianvs/prettier-plugin-sort-imports": "4.3.1",
+    "@iconify-json/lucide": "^1.2.4",
     "@internationalized/date": "^3.5.5",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxt/content": "^2.13.2",
