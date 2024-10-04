@@ -6,8 +6,6 @@ Set of components created with Radix-Vue. Inspired by shadc/ui & shadcn-vue.
 
 ## Documentation
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1b6e161b-d078-40de-9515-0b2acff08b0a/deploy-status)](https://app.netlify.com/sites/zesty-gnome-29d7ea/deploys)
-
 The documentation can be found here: https://ui-thing.behonbaker.com/
 
 ## Credits
