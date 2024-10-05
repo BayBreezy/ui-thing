@@ -84,6 +84,7 @@
         >
           <Icon name="lucide:search" class="h-[18px] w-[18px]" />
         </UiButton>
+        <ThemePopover />
         <UiButton
           to="https://github.com/BayBreezy/ui-thing"
           target="_blank"

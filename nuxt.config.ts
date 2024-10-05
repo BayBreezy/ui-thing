@@ -9,7 +9,7 @@ const url = process.env.PUBLIC_URL || "https://ui-thing.behonbaker.com";
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ["~/assets/css/full-calendar.css", "~/assets/css/quill.css"],
+  css: ["~/assets/css/full-calendar.css", "~/assets/css/quill.css", "~/assets/css/theme.css"],
 
   vite: {
     optimizeDeps: {
@@ -64,7 +64,7 @@ export default defineNuxtConfig({
   tailwindcss: {
     exposeConfig: true,
     editorSupport: true,
-    cssPath: ["~/assets/css/tailwind.css", { injectPosition: "last" }],
+    cssPath: ["~/assets/css/tailwind.css", { injectPosition: 2 }],
   },
 
   imports: {
