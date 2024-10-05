@@ -18,8 +18,8 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "preview": "nuxt preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "preview": "nuxt preview"
   },
   "dependencies": {
     "@fullcalendar/core": "^6.1.15",
@@ -49,6 +49,7 @@
     "@tiptap/starter-kit": "^3.0.0",
     "@tiptap/vue-3": "^3.0.0",
     "@unovis/ts": "^1.4.4",
+    "@unovis/vue": "^1.4.4",
     "@vee-validate/nuxt": "^4.13.2",
     "@vee-validate/zod": "^4.13.2",
     "@vueform/multiselect": "^2.6.10",

@@ -1,7 +1,6 @@
 ---
 title: Stepper
 description: A set of steps that are used to indicate progress through a multi-step process.
-label: New
 links:
   - title: Radix-Vue
     href: https://www.radix-vue.com/components/stepper.html

@@ -771,4 +771,21 @@ export default [
     components: ["label", "pin-input"],
     files: ["Vee/PinInput.vue"],
   },
+  {
+    name: "Chart",
+    value: "chart",
+    deps: ["@unovis/ts", "@unovis/vue"],
+    components: ["card"],
+    utils: ["chart.ts"],
+    files: [
+      "Chart/Area.vue",
+      "Chart/Bar.vue",
+      "Chart/Crosshair.vue",
+      "Chart/Donut.vue",
+      "Chart/Legend.vue",
+      "Chart/Line.vue",
+      "Chart/SingleTooltip.vue",
+      "Chart/Tooltip.vue",
+    ],
+  },
 ];

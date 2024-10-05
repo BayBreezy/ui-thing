@@ -1,6 +1,5 @@
 ---
 title: Tree
-label: New
 description: A tree view widget displays a hierarchical list of items that can be expanded or collapsed to show or hide their child items, such as in a file system navigator.
 links:
   - title: Radix-Vue
