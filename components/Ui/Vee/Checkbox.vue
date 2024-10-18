@@ -46,7 +46,7 @@
     label?: string;
     icon?: string;
     hint?: string;
-    modelValue?: string;
+    modelValue?: any;
     name?: string;
     id?: string;
     rules?: any;
