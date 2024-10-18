@@ -60,7 +60,7 @@ export default defineNuxtConfig({
       },
     },
   },
-
+  icon: { clientBundle: { scan: true, sizeLimitKb: 0 }, fetchTimeout: 2000, serverBundle: "local" },
   tailwindcss: {
     exposeConfig: true,
     editorSupport: true,
