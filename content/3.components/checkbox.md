@@ -22,6 +22,8 @@ npx ui-thing@latest add checkbox
 
 ## Usage
 
+### Basic
+
 ::ShowCase{component="DocsCheckbox"}
 
 #code
@@ -53,6 +55,36 @@ npx ui-thing@latest add checkbox
 <script lang="ts" setup>
   const terms = ref(false);
   const terms1 = ref(false);
+</script>
+```
+
+::
+
+### Default
+
+We can set the default value of the checkbox by binding the `v-model:checked` prop to a boolean value.
+
+To bind the default value on the [VeeCheckbox](/forms/veecheckbox) component, we need to use the `v-model` prop instead of `v-model:checked`.
+
+::ShowCase{component="DocsCheckboxDefaultValues"}
+
+#code
+
+```vue [DocsCheckboxDefaultValues.vue]
+<template>
+  <div class="flex flex-col items-center justify-center">
+    <div class="items-top mt-5 flex space-x-2">
+      <UiCheckbox id="terms1" v-model:checked="someVariable" />
+      <div class="grid gap-1.5 leading-none">
+        <UiLabel for="terms1"> I will be on by default </UiLabel>
+        <p class="text-sm text-muted-foreground">This checkbox will be true by default.</p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const someVariable = ref(true);
 </script>
 ```
 
