@@ -1,6 +1,6 @@
 <template>
-  <CollapsibleRoot v-bind="forwarded">
-    <slot />
+  <CollapsibleRoot v-slot="slotProps" v-bind="forwarded">
+    <slot v-bind="slotProps" />
   </CollapsibleRoot>
 </template>
 
