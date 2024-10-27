@@ -48,8 +48,8 @@
       @click="
         useSonner.promise(promise, {
           loading: 'Checking API for tools...',
-          success: (d) => d,
-          error: (d) => 'API returned error',
+          success: (d: any) => d,
+          error: (d: any) => 'API returned error',
         })
       "
       >Show promise</UiButton
@@ -57,7 +57,7 @@
     <UiButton
       variant="outline"
       @click="
-        useSonner(markRaw(Headless), {
+        useSonner.custom(markRaw(Headless), {
           duration: Infinity,
         })
       "
