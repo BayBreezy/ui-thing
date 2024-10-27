@@ -82,9 +82,12 @@ export default defineNuxtConfig({
       titleTemplate: "%s - UI Thing",
       script: [
         // Add pdfmake scripts for DataTables.net export buttons
-        { src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/pdfmake.min.js", defer: true },
         {
-          src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/vfs_fonts.min.js",
+          src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.12/pdfmake.min.js",
+          defer: true,
+        },
+        {
+          src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.12/vfs_fonts.min.js",
           defer: true,
         },
       ],
