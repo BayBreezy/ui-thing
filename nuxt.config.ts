@@ -41,6 +41,7 @@ export default defineNuxtConfig({
     "v-wave/nuxt",
     "@nuxt/image",
     "@nuxt/icon",
+    "@nuxt/fonts",
   ],
 
   build: { transpile: ["vue-sonner", "shiki"] },

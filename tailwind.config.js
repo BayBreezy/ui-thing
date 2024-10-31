@@ -17,7 +17,12 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["Inter var", "Inter", ...fontFamily.sans],
+        sans: [
+          `Inter, ${fontFamily.sans.join(", ")}`,
+          {
+            fontFeatureSettings: '"cv02","cv03","cv04","cv11"',
+          },
+        ],
         mono: ["'Fira Code'", ...fontFamily.mono],
       },
       borderRadius: {
@@ -26,6 +31,10 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        shine: {
+          from: { backgroundPosition: "200% 0" },
+          to: { backgroundPosition: "-200% 0" },
+        },
         meteor: {
           "0%": { transform: "rotate(215deg) translateX(0)", opacity: 1 },
           "70%": { opacity: 1 },
@@ -69,6 +78,7 @@ module.exports = {
         },
       },
       animation: {
+        shine: "shine 8s ease-in-out infinite",
         meteor: "meteor 5s linear infinite",
         grid: "grid 15s linear infinite",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
