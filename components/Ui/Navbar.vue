@@ -5,7 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { Primitive } from "radix-vue";
+  import { reactiveOmit } from "@vueuse/core";
+  import { Primitive, useForwardProps } from "radix-vue";
   import type { PrimitiveProps } from "radix-vue";
 
   const props = withDefaults(
@@ -22,7 +23,7 @@
     }
   );
 
-  const forwarded = reactiveOmit(props, "class", "sticky");
+  const forwarded = useForwardProps(reactiveOmit(props, "class", "sticky"));
 
   const styles = tv({
     base: "z-20 border-b bg-background/90 backdrop-blur",

@@ -14,14 +14,14 @@
         </div>
         <nav class="hidden items-center space-x-6 text-sm font-medium lg:flex">
           <NuxtLink
-            :class="[$route.path.includes('/getting-started/') ? '!text-primary' : '']"
+            :class="[route.path.includes('/getting-started/') ? '!text-primary' : '']"
             to="/getting-started/introduction"
             class="text-foreground/60 transition-colors hover:text-foreground"
             >Documentation</NuxtLink
           >
           <NuxtLink
             :class="[
-              $route.path.includes('/components/') || $route.path.includes('/forms/')
+              route.path.includes('/components/') || route.path.includes('/forms/')
                 ? '!text-primary'
                 : '',
             ]"
@@ -96,9 +96,14 @@
         <CommandSearch v-model="isOpen" />
         <UiDropdownMenu>
           <UiDropdownMenuTrigger as-child>
-            <UiButton class="h-9 w-9" variant="ghost" size="icon"
-              ><Icon :name="currentIcon || 'lucide:sun'" class="h-[18px] w-[18px]"
-            /></UiButton>
+            <UiButton class="h-9 w-9" variant="ghost" size="icon">
+              <ClientOnly>
+                <template #fallback>
+                  <Icon :name="'lucide:sun'" class="h-[18px] w-[18px]" />
+                </template>
+                <Icon v-if="currentIcon" :name="currentIcon" class="h-[18px] w-[18px]" />
+              </ClientOnly>
+            </UiButton>
           </UiDropdownMenuTrigger>
           <UiDropdownMenuContent align="end" :side-offset="5">
             <UiDropdownMenuItem
@@ -123,6 +128,8 @@
     { icon: "lucide:moon", title: "Dark", value: "dark" },
     { icon: "lucide:laptop", title: "System", value: "system" },
   ];
+
+  const route = useRoute();
 
   const mobileNav = ref(false);
 
