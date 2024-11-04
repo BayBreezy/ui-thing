@@ -32,7 +32,7 @@
     "@fullcalendar/timegrid": "^6.1.15",
     "@fullcalendar/vue3": "^6.1.15",
     "@internationalized/number": "^3.5.4",
-    "@morev/vue-transitions": "^3.0.3",
+    "@morev/vue-transitions": "3.0.2",
     "@tanstack/vue-table": "^8.20.5",
     "@tiptap/extension-color": "^3.0.0",
     "@tiptap/extension-highlight": "^3.0.0",
