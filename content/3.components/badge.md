@@ -13,21 +13,115 @@ Click :SourceCodeLink{component="Badge.vue"} to see the source code for this com
 npx ui-thing@latest add badge
 ```
 
-## Usage
+## Variants
 
-::ShowCase{component="DocsBadge"}
+### Default
+
+::ShowCase{component="DocsBadgeDefault"}
 
 #code
 
-```vue [DocsBadge.vue]
+<!-- automd:file src="../../components/content/Docs/Badge/DocsBadgeDefault.vue" code lang="vue" -->
+
+```vue [DocsBadgeDefault.vue]
 <template>
-  <div class="flex flex-wrap items-center justify-center gap-5">
+  <div class="text-center">
     <UiBadge>Default</UiBadge>
+  </div>
+</template>
+
+```
+
+<!-- /automd -->
+
+::
+
+### Destructive
+
+::ShowCase{component="DocsBadgeDestructive"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Badge/DocsBadgeDestructive.vue" code lang="vue" -->
+
+```vue [DocsBadgeDestructive.vue]
+<template>
+  <div class="text-center">
     <UiBadge variant="destructive">Destructive</UiBadge>
+  </div>
+</template>
+
+```
+
+<!-- /automd -->
+
+::
+
+### Outline
+
+::ShowCase{component="DocsBadgeOutline"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Badge/DocsBadgeOutline.vue" code lang="vue" -->
+
+```vue [DocsBadgeOutline.vue]
+<template>
+  <div class="text-center">
     <UiBadge variant="outline">Outline</UiBadge>
+  </div>
+</template>
+
+```
+
+<!-- /automd -->
+
+::
+
+### Secondary
+
+::ShowCase{component="DocsBadgeSecondary"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Badge/DocsBadgeSecondary.vue" code lang="vue" -->
+
+```vue [DocsBadgeSecondary.vue]
+<template>
+  <div class="text-center">
     <UiBadge variant="secondary">Secondary</UiBadge>
   </div>
 </template>
+
 ```
+
+<!-- /automd -->
+
+::
+
+### Sizes
+
+Three sizes are available for badges: `sm`, `md`, and `lg`.
+
+::ShowCase{component="DocsBadgeSizes"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Badge/DocsBadgeSizes.vue" code lang="vue" -->
+
+```vue [DocsBadgeSizes.vue]
+<template>
+  <div class="flex items-center justify-center gap-2">
+    <UiBadge v-for="s in sizes" :key="s" :size="s" variant="secondary">Label</UiBadge>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const sizes = ["sm", "md", "lg"] as const;
+</script>
+
+```
+
+<!-- /automd -->
 
 ::
