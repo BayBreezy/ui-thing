@@ -32,7 +32,7 @@
     "@fullcalendar/timegrid": "^6.1.15",
     "@fullcalendar/vue3": "^6.1.15",
     "@internationalized/number": "^3.5.4",
-    "@morev/vue-transitions": "^3.0.2",
+    "@morev/vue-transitions": "^3.0.3",
     "@tanstack/vue-table": "^8.20.5",
     "@tiptap/extension-color": "^3.0.0",
     "@tiptap/extension-highlight": "^3.0.0",
@@ -82,7 +82,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@faker-js/faker": "^9.1.0",
+    "@faker-js/faker": "^9.2.0",
     "@ianvs/prettier-plugin-sort-imports": "4.3.1",
     "@iconify-json/heroicons": "^1.2.1",
     "@iconify-json/icon-park-solid": "^1.2.1",
@@ -106,7 +106,7 @@
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
     "@types/canvas-confetti": "^1.6.4",
-    "eslint": "^9.13.0",
+    "eslint": "^9.14.0",
     "husky": "^9.1.6",
     "nuxt": "^3.13.2",
     "prettier": "^3.3.3",
