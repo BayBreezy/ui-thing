@@ -29,7 +29,6 @@ npx ui-thing@latest add badge
     <UiBadge>Default</UiBadge>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -50,7 +49,6 @@ npx ui-thing@latest add badge
     <UiBadge variant="destructive">Destructive</UiBadge>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -71,7 +69,6 @@ npx ui-thing@latest add badge
     <UiBadge variant="outline">Outline</UiBadge>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -92,7 +89,6 @@ npx ui-thing@latest add badge
     <UiBadge variant="secondary">Secondary</UiBadge>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -119,7 +115,6 @@ Three sizes are available for badges: `sm`, `md`, and `lg`.
 <script lang="ts" setup>
   const sizes = ["sm", "md", "lg"] as const;
 </script>
-
 ```
 
 <!-- /automd -->
