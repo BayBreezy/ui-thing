@@ -99,7 +99,7 @@ npx ui-thing@latest add badge
 
 ::
 
-### Sizes
+## Sizes
 
 Three sizes are available for badges: `sm`, `md`, and `lg`.
 
