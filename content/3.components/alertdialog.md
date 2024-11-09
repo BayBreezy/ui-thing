@@ -28,6 +28,8 @@ npx ui-thing@latest add alert-dialog
 
 #code
 
+<!-- automd:file src="../../components/content/Docs/AlertDialog/DocsAlertDialog.vue" code lang="vue" -->
+
 ```vue [DocsAlertDialog.vue]
 <template>
   <div class="flex justify-center">
@@ -60,6 +62,8 @@ npx ui-thing@latest add alert-dialog
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Stacked Left
@@ -67,6 +71,8 @@ npx ui-thing@latest add alert-dialog
 ::ShowCase{component="DocsAlertDialogStackedLeft"}
 
 #code
+
+<!-- automd:file src="../../components/content/Docs/AlertDialog/DocsAlertDialogStackedLeft.vue" code lang="vue" -->
 
 ```vue [DocsAlertDialogStackedLeft.vue]
 <template>
@@ -94,6 +100,8 @@ npx ui-thing@latest add alert-dialog
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Media
@@ -101,6 +109,8 @@ npx ui-thing@latest add alert-dialog
 ::ShowCase{component="DocsAlertDialogMedia"}
 
 #code
+
+<!-- automd:file src="../../components/content/Docs/AlertDialog/DocsAlertDialogMedia.vue" code lang="vue" -->
 
 ```vue [DocsAlertDialogMedia.vue]
 <template>
@@ -130,5 +140,7 @@ npx ui-thing@latest add alert-dialog
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::
