@@ -2227,7 +2227,7 @@ export default [
         fileName: "Table/Cell.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <td :class="styles({ class: props.class })">\n    <slot />\n  </td>\n</template>\n\n<script lang="ts" setup>\n  const props = defineProps<{\n    class?: any;\n  }>();\n\n  const styles = tv({\n    base: "whitespace-nowrap p-4 align-middle",\n  });\n</script>\n',
+          '<template>\n  <td :class="styles({ class: props.class })">\n    <slot />\n  </td>\n</template>\n\n<script lang="ts" setup>\n  const props = defineProps<{\n    class?: any;\n  }>();\n\n  const styles = tv({\n    base: "whitespace-nowrap p-4 align-middle [&:has([role=checkbox])]:pr-0",\n  });\n</script>\n',
       },
       {
         fileName: "Table/Empty.vue",
@@ -2239,13 +2239,13 @@ export default [
         fileName: "Table/Footer.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <tfoot :class="styles({ class: props.class })">\n    <slot />\n  </tfoot>\n</template>\n\n<script lang="ts" setup>\n  const props = defineProps<{\n    class?: any;\n  }>();\n\n  const styles = tv({\n    base: "bg-primary font-medium text-primary-foreground",\n  });\n</script>\n',
+          '<template>\n  <tfoot :class="styles({ class: props.class })">\n    <slot />\n  </tfoot>\n</template>\n\n<script lang="ts" setup>\n  const props = defineProps<{\n    class?: any;\n  }>();\n\n  const styles = tv({\n    base: "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",\n  });\n</script>\n',
       },
       {
         fileName: "Table/Head.vue",
         dirPath: "components/UI",
         fileContent:
-          '<template>\n  <th :class="styles({ class: props.class })">\n    <slot />\n  </th>\n</template>\n\n<script lang="ts" setup>\n  const props = defineProps<{\n    class?: any;\n  }>();\n\n  const styles = tv({\n    base: "h-12 px-4 text-left align-middle font-medium text-muted-foreground hover:text-foreground",\n  });\n</script>\n',
+          '<template>\n  <th :class="styles({ class: props.class })">\n    <slot />\n  </th>\n</template>\n\n<script lang="ts" setup>\n  const props = defineProps<{\n    class?: any;\n  }>();\n\n  const styles = tv({\n    base: "h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0",\n  });\n</script>\n',
       },
       {
         fileName: "Table/Header.vue",

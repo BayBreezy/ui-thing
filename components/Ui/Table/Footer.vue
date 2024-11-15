@@ -10,6 +10,6 @@
   }>();
 
   const styles = tv({
-    base: "bg-primary font-medium text-primary-foreground",
+    base: "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
   });
 </script>
