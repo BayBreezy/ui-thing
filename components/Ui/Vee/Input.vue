@@ -13,6 +13,14 @@
           <Icon v-if="icon" :name="icon" class="h-4 w-4 text-muted-foreground/70" />
         </span>
       </slot>
+      <slot name="trailingIcon">
+        <span
+          v-if="hasTrailingIcon"
+          class="absolute inset-y-0 right-3 flex items-center justify-center"
+        >
+          <Icon v-if="trailingIcon" :name="trailingIcon" class="h-4 w-4 text-muted-foreground/70" />
+        </span>
+      </slot>
       <UiInput
         :id="inputId"
         v-model="value"
@@ -21,7 +29,7 @@
         :name="name"
         :disabled="disabled"
         v-bind="$attrs"
-        :class="[hasIcon && 'pl-9']"
+        :class="[hasIcon && 'pl-9', hasTrailingIcon && 'pr-9']"
         :placeholder="placeholder"
         @blur="handleBlur"
       />
@@ -43,6 +51,7 @@
     label?: string;
     labelHint?: string;
     icon?: string;
+    trailingIcon?: string;
     hint?: string;
     disabled?: boolean;
     modelValue?: string;
@@ -55,9 +64,14 @@
     required?: boolean;
   }>();
 
+  defineOptions({ inheritAttrs: false });
+
   const inputId = props.id || useId();
 
   const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));
+  const hasTrailingIcon = computed(
+    () => Boolean(props.trailingIcon) || Boolean(useSlots().trailingIcon)
+  );
 
   const { errorMessage, value, handleBlur } = useField(() => props.name || inputId, props.rules, {
     initialValue: props.modelValue,
