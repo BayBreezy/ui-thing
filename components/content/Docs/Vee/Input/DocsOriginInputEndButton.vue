@@ -1,0 +1,15 @@
+<template>
+  <div class="flex items-center justify-center">
+    <UiVeeInput label="Input with end button" class="peer pe-9" placeholder="Email" type="email">
+      <template #trailingIcon>
+        <button
+          type="button"
+          aria-label="Send email"
+          class="absolute inset-y-0 end-0 flex h-full items-center justify-center rounded-e-md border border-transparent border-l-input px-3 text-sm ring-offset-background transition-shadow hover:bg-muted/50 hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          Send
+        </button>
+      </template>
+    </UiVeeInput>
+  </div>
+</template>

@@ -1,5 +1,5 @@
 <template>
-  <Primitive :class="styles({ size, class: props.class })" v-bind="forwarded">
+  <Primitive :class="styles({ size, variant, class: props.class })" v-bind="forwarded">
     <slot />
   </Primitive>
 </template>
@@ -14,6 +14,8 @@
         size?: VariantProps<typeof styles>["size"];
         /** Custom class(es) to add to the parent */
         class?: any;
+        /** The variant of the component */
+        variant?: VariantProps<typeof styles>["variant"];
       }
     >(),
     {
@@ -32,9 +34,14 @@
         sm: "h-6 min-h-[20px] px-1.5 text-[11px]",
         md: "h-7 min-h-[24px] px-2 text-[12px]",
       },
+      variant: {
+        solid: "bg-muted",
+        outline: "bg-transparent",
+      },
     },
     defaultVariants: {
       size: "sm",
+      variant: "solid",
     },
   });
 </script>

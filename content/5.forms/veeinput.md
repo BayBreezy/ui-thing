@@ -607,6 +607,296 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ::
 
+### Input with End Button
+
+::ShowCase{component="DocsOriginInputEndButton"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputEndButton.vue" code lang="vue" -->
+
+```vue [DocsOriginInputEndButton.vue]
+<template>
+  <div class="flex items-center justify-center">
+    <UiVeeInput label="Input with end button" class="peer pe-9" placeholder="Email" type="email">
+      <template #trailingIcon>
+        <button
+          type="button"
+          aria-label="Send email"
+          class="absolute inset-y-0 end-0 flex h-full items-center justify-center rounded-e-md border border-transparent border-l-input px-3 text-sm ring-offset-background transition-shadow hover:bg-muted/50 hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          Send
+        </button>
+      </template>
+    </UiVeeInput>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+### Input with Button
+
+::ShowCase{component="DocsOriginInputWithButton"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputWithButton.vue" code lang="vue" -->
+
+```vue [DocsOriginInputWithButton.vue]
+<template>
+  <div class="flex items-center justify-center gap-2">
+    <UiVeeInput label="Input with button" placeholder="Email" type="email" />
+    <UiButton aria-label="Send the email" class="mt-7" variant="outline">Send</UiButton>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+### Input with Show/Hide Password
+
+::ShowCase{component="DocsOriginInputShowHidePassword"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputShowHidePassword.vue" code lang="vue" -->
+
+```vue [DocsOriginInputShowHidePassword.vue]
+<template>
+  <div class="flex items-center justify-center">
+    <UiVeeInput
+      label="Show/hide password input"
+      :type="isVisible ? 'text' : 'password'"
+      placeholder="••••••••"
+    >
+      <template #trailingIcon>
+        <UiTooltip disable-closing-trigger>
+          <UiTooltipTrigger as-child>
+            <button
+              type="button"
+              aria-label="Login password"
+              class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+              @click="toggleVisibility"
+            >
+              <Icon :name="isVisible ? 'lucide:eye-off' : 'lucide:eye'" class="size-4" />
+            </button>
+          </UiTooltipTrigger>
+          <UiTooltipContent align="center">
+            {{ isVisible ? "Hide" : "Show" }} password
+          </UiTooltipContent>
+        </UiTooltip>
+      </template>
+    </UiVeeInput>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const isVisible = ref(false);
+  const toggleVisibility = () => (isVisible.value = !isVisible.value);
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Input with Clear Button
+
+::ShowCase{component="DocsOriginInputClearButton"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputClearButton.vue" code lang="vue" -->
+
+```vue [DocsOriginInputClearButton.vue]
+<template>
+  <div class="flex items-center justify-center">
+    <UiVeeInput v-model="value" label="Input with clear button" placeholder="Enter a value">
+      <template #trailingIcon>
+        <UiTooltip disable-closing-trigger>
+          <TransitionScale>
+            <UiTooltipTrigger v-if="value" as-child>
+              <button
+                type="button"
+                aria-label="Clear input"
+                class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+                @click="value = ''"
+              >
+                <Icon name="lucide:circle-x" class="size-4" />
+              </button>
+            </UiTooltipTrigger>
+          </TransitionScale>
+          <UiTooltipContent align="center"> Clear </UiTooltipContent>
+        </UiTooltip>
+      </template>
+    </UiVeeInput>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const value = ref("Click to clear");
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Input with &lt;kbd&gt;
+
+::ShowCase{component="DocsOriginInputWithKDB"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputWithKDB.vue" code lang="vue" -->
+
+```vue [DocsOriginInputWithKDB.vue]
+<template>
+  <div class="flex items-center justify-center">
+    <UiVeeInput
+      label="Search input with &lt;kbd&gt;"
+      class="pe-11"
+      placeholder="Search..."
+      type="search"
+    >
+      <template #trailingIcon>
+        <div
+          class="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-2 text-muted-foreground"
+        >
+          <UiKbd variant="outline"> ⌘K </UiKbd>
+        </div>
+      </template>
+    </UiVeeInput>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+### Search Input with Icon & Button
+
+::ShowCase{component="DocsOriginInputSearchWithIconButton"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputSearchWithIconButton.vue" code lang="vue" -->
+
+```vue [DocsOriginInputSearchWithIconButton.vue]
+<template>
+  <div class="flex items-center justify-center">
+    <UiVeeInput
+      label="Search input with icon and button"
+      class="peer pe-9"
+      placeholder="Search..."
+      type="search"
+      icon="lucide:search"
+    >
+      <template #trailingIcon>
+        <button
+          type="button"
+          aria-label="Subscribe"
+          class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          <Icon name="lucide:arrow-right" class="size-4" />
+        </button>
+      </template>
+    </UiVeeInput>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+### Search Input with Loader Icon
+
+::ShowCase{component="DocsOriginInputSearchWithLoader"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputSearchWithLoader.vue" code lang="vue" -->
+
+```vue [DocsOriginInputSearchWithLoader.vue]
+<template>
+  <div class="flex items-center justify-center">
+    <UiVeeInput
+      v-model.trim="search"
+      label="Search input with loader"
+      class="peer pe-9"
+      placeholder="Search..."
+      type="search"
+      :icon="!loading ? 'lucide:search' : 'svg-spinners:6-dots-rotate'"
+    >
+      <template #trailingIcon>
+        <button
+          type="button"
+          aria-label="Start/Stop recording"
+          class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+          @click="useSonner.success('Recording started!')"
+        >
+          <Icon name="lucide:mic" class="size-4" />
+        </button>
+      </template>
+    </UiVeeInput>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const search = ref("");
+  const dSearch = refDebounced(search, 300);
+  const loading = ref(false);
+
+  const fakeApiCall = async () => {
+    loading.value = true;
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    loading.value = false;
+  };
+
+  watch(dSearch, () => {
+    fakeApiCall();
+  });
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Input with Overlapping Label
+
+::ShowCase{component="DocsOriginInputOverlappingLabel"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputOverlappingLabel.vue" code lang="vue" -->
+
+```vue [DocsOriginInputOverlappingLabel.vue]
+<template>
+  <div class="relative flex items-center justify-center">
+    <UiLabel
+      for="input-overlapping-label"
+      class="absolute start-1 top-0 z-10 block -translate-y-1/2 bg-background px-2 text-xs font-medium text-foreground group-has-[:disabled]:opacity-50"
+    >
+      Input with overlapping label
+    </UiLabel>
+
+    <UiVeeInput id="input-overlapping-label" placeholder="Email" type="email" />
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
 ### Input with Password Strength Indicator
 
 ::ShowCase{component="DocsOriginInputPasswordStrengthIndicator"}
@@ -624,18 +914,24 @@ Not all examples are copied but these should give you a good idea of what you ca
       class="peer pe-9"
       placeholder="Password"
       :type="isVisible ? 'text' : 'password'"
-      :aria-invalid="strengthScore < 4"
-      aria-describedby="password-strength"
+      :aria-invalid="strengthScore < requirements.length"
     >
       <template #trailingIcon>
-        <button
-          type="button"
-          aria-label="Subscribe"
-          class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
-          @click="toggleVisibility"
-        >
-          <Icon :name="isVisible ? 'lucide:eye-off' : 'lucide:eye'" class="size-4" />
-        </button>
+        <UiTooltip disable-closing-trigger>
+          <UiTooltipTrigger as-child>
+            <button
+              type="button"
+              aria-label="Subscribe"
+              class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+              @click="toggleVisibility"
+            >
+              <Icon :name="isVisible ? 'lucide:eye-off' : 'lucide:eye'" class="size-4" />
+            </button>
+          </UiTooltipTrigger>
+          <UiTooltipContent align="center">
+            {{ isVisible ? "Hide" : "Show" }} password
+          </UiTooltipContent>
+        </UiTooltip>
       </template>
     </UiVeeInput>
 
@@ -644,12 +940,12 @@ Not all examples are copied but these should give you a good idea of what you ca
       role="progressbar"
       :aria-valuenow="strengthScore"
       :aria-valuemin="0"
-      :aria-valuemax="4"
+      :aria-valuemax="requirements.length"
       aria-label="Password strength"
     >
       <div
         :class="[`h-full ${getStrengthColor(strengthScore)} transition-all duration-500 ease-out`]"
-        :style="{ width: `${(strengthScore / 4) * 100}%` }"
+        :style="{ width: `${(strengthScore / requirements.length) * 100}%` }"
       />
     </div>
 
@@ -689,14 +985,14 @@ Not all examples are copied but these should give you a good idea of what you ca
   const isVisible = ref(false);
   const toggleVisibility = () => (isVisible.value = !isVisible.value);
 
+  const requirements = [
+    { regex: /.{8,}/, text: "At least 8 characters" },
+    { regex: /[^A-Za-z0-9]/, text: "At least 1 special character" },
+    { regex: /[0-9]/, text: "At least 1 number" },
+    { regex: /[a-z]/, text: "At least 1 lowercase letter" },
+    { regex: /[A-Z]/, text: "At least 1 uppercase letter" },
+  ];
   const checkStrength = (pass: string) => {
-    const requirements = [
-      { regex: /.{8,}/, text: "At least 8 characters" },
-      { regex: /[0-9]/, text: "At least 1 number" },
-      { regex: /[a-z]/, text: "At least 1 lowercase letter" },
-      { regex: /[A-Z]/, text: "At least 1 uppercase letter" },
-    ];
-
     return requirements.map((req) => ({
       met: req.regex.test(pass),
       text: req.text,
@@ -709,15 +1005,15 @@ Not all examples are copied but these should give you a good idea of what you ca
   const getStrengthColor = (score: number) => {
     if (score === 0) return "bg-border";
     if (score <= 1) return "bg-red-500";
-    if (score <= 2) return "bg-orange-500";
-    if (score === 3) return "bg-amber-500";
+    if (score <= 3) return "bg-orange-500";
+    if (score === 4) return "bg-amber-500";
     return "bg-emerald-500";
   };
 
   const getStrengthText = (score: number) => {
     if (score === 0) return "Enter a password";
-    if (score <= 2) return "Weak password";
-    if (score === 3) return "Medium password";
+    if (score <= 3) return "Weak password";
+    if (score === 4) return "Medium password";
     return "Strong password";
   };
 </script>
