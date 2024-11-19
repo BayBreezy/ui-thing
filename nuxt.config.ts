@@ -67,6 +67,17 @@ export default defineNuxtConfig({
     editorSupport: true,
     cssPath: ["~/assets/css/tailwind.css", { injectPosition: 2 }],
   },
+  experimental: {
+    defaults: {
+      nuxtLink: {
+        prefetch: false,
+        prefetchOn: {
+          visibility: false,
+          interaction: true,
+        },
+      },
+    },
+  },
 
   imports: {
     // Add tv and VariantProps to the set of auto imported modules
