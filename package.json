@@ -68,7 +68,7 @@
     "date-fns": "4.1.0",
     "dayjs": "^1.11.13",
     "jszip": "^3.10.1",
-    "nuxt-swiper": "^1.2.2",
+    "nuxt-swiper": "^2.0.0",
     "quill-blot-formatter": "^1.0.5",
     "radix-vue": "^1.9.10",
     "tailwind-variants": "^0.3.0",
