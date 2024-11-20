@@ -17,6 +17,12 @@
         '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
       }"
     >
+      <VisuallyHidden>
+        <UiSheetTitle>Mobile Sidebar</UiSheetTitle>
+        <UiSheetDescription>
+          This is the mobile sidebar. You can use this to navigate the site.
+        </UiSheetDescription>
+      </VisuallyHidden>
       <div :class="sideBarStyles().mobileInner()">
         <slot />
       </div>
