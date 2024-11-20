@@ -132,6 +132,7 @@ module.exports = {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
+          input: "hsl(var(--sidebar-input))",
         },
       },
       typography: ({ theme }) => ({
