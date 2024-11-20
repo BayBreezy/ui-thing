@@ -1,13 +1,16 @@
 <template>
   <UiButton
+    :title="label"
     data-sidebar="trigger"
     variant="ghost"
     size="icon"
     :class="sideBarTriggerStyles({ class: props.class })"
     @click="toggleSidebar"
   >
-    <Icon v-if="icon" :name="icon" />
-    <span class="sr-only">{{ label }}</span>
+    <slot v-bind="{ state }">
+      <Icon v-if="icon" :name="icon" />
+      <span class="sr-only">{{ label }}</span>
+    </slot>
   </UiButton>
 </template>
 
@@ -43,5 +46,5 @@
     }
   );
 
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar, state } = useSidebar();
 </script>

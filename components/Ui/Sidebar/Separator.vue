@@ -8,7 +8,7 @@
   import type { HTMLAttributes } from "vue";
 
   export const sideBarSeparatorStyles = tv({
-    base: "bg-sidebar-border mx-2 w-auto",
+    base: "mx-2 w-auto bg-sidebar-border",
   });
 </script>
 

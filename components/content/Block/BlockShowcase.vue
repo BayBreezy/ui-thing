@@ -12,7 +12,7 @@
           default-value="100"
           @update:model-value="
             (value) => {
-              resizableRef?.resize(parseInt(value));
+              resizableRef?.resize(parseInt(value as string));
             }
           "
         >

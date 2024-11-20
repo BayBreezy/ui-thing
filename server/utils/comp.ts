@@ -1722,6 +1722,21 @@ export default [
     plugins: [],
   },
   {
+    name: "Placeholder",
+    value: "placeholder",
+    files: [
+      {
+        fileName: "Placeholder.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <Primitive :as :as-child :class="placeHolderStyles().wrapper({ class: props.class })">\n    <svg :class="placeHolderStyles().svg()" fill="none">\n      <defs>\n        <pattern\n          id="pattern-5c1e4f0e-62d5-498b-8ff0-cf77bb448c8e"\n          x="0"\n          y="0"\n          width="10"\n          height="10"\n          patternUnits="userSpaceOnUse"\n        >\n          <path d="M-3 13 15-5M-5 5l18-18M-1 21 17 3" />\n        </pattern>\n      </defs>\n      <rect\n        stroke="none"\n        fill="url(#pattern-5c1e4f0e-62d5-498b-8ff0-cf77bb448c8e)"\n        width="100%"\n        height="100%"\n      />\n    </svg>\n\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const placeHolderStyles = tv({\n    slots: {\n      wrapper:\n        "relative flex items-center justify-center overflow-hidden rounded-md border border-dashed px-4 opacity-75",\n      svg: "absolute inset-0 size-full stroke-foreground/10",\n    },\n  });\n</script>\n\n<script lang="ts" setup>\n  const props = defineProps<\n    PrimitiveProps & {\n      /**\n       * Additional classes to add to the parent element.\n       */\n      class?: HTMLAttributes["class"];\n    }\n  >();\n</script>\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Popover",
     value: "popover",
     files: [
@@ -2057,6 +2072,166 @@ export default [
       },
     ],
     utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "Sidebar",
+    value: "sidebar",
+    files: [
+      {
+        fileName: "Sidebar/Content.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <div data-sidebar="content" :class="sideBarContentStyles({ class: props.class })">\n    <slot />\n  </div>\n</template>\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarContentStyles = tv({\n    base: "flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden",\n  });\n</script>\n<script setup lang="ts">\n  const props = defineProps<{\n    /**\n     * Additional classes to apply to the sidebar content.\n     */\n    class?: HTMLAttributes["class"];\n  }>();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/Footer.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <div data-sidebar="footer" :class="sideBarFooterStyles({ class: props.class })">\n    <slot />\n  </div>\n</template>\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarFooterStyles = tv({\n    base: "flex flex-col gap-2 p-2",\n  });\n</script>\n<script setup lang="ts">\n  const props = defineProps<{\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  }>();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/Group.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <div data-sidebar="group" :class="sideBarGroupStyles({ class: props.class })">\n    <slot />\n  </div>\n</template>\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarGroupStyles = tv({\n    base: "relative flex w-full min-w-0 flex-col p-2",\n  });\n</script>\n<script setup lang="ts">\n  const props = defineProps<{\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  }>();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/GroupAction.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <Primitive\n    data-sidebar="group-action"\n    :as="as"\n    :as-child="asChild"\n    :class="sideBarGroupActionStyles({ class: props.class })"\n  >\n    <slot />\n  </Primitive>\n</template>\n<script lang="ts">\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarGroupActionStyles = tv({\n    base: "absolute right-3 top-3.5 flex aspect-square w-5 items-center justify-center rounded-md p-0 text-sidebar-foreground outline-none ring-sidebar-ring transition-transform after:absolute after:-inset-2 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 group-data-[collapsible=icon]:hidden after:md:hidden [&>svg]:size-4 [&>svg]:shrink-0",\n  });\n</script>\n<script setup lang="ts">\n  const props = defineProps<\n    PrimitiveProps & {\n      /**\n       * Additional classes to apply to the parent element.\n       */\n      class?: HTMLAttributes["class"];\n    }\n  >();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/GroupContent.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <div data-sidebar="group-content" :class="sideBarGroupContentStyles({ class: props.class })">\n    <slot />\n  </div>\n</template>\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarGroupContentStyles = tv({\n    base: "w-full text-sm",\n  });\n</script>\n<script setup lang="ts">\n  const props = defineProps<{\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  }>();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/GroupLabel.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <Primitive\n    data-sidebar="group-label"\n    :as="as"\n    :as-child="asChild"\n    :class="sideBarGroupLabelStyles({ class: props.class })"\n  >\n    <slot>{{ props.label }}</slot>\n  </Primitive>\n</template>\n<script lang="ts">\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarGroupLabelStyles = tv({\n    base: "flex h-8 shrink-0 items-center rounded-md px-2 text-xs font-medium text-sidebar-foreground/70 outline-none ring-sidebar-ring transition-[margin,opa] duration-200 ease-linear focus-visible:ring-2 group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0 [&>svg]:size-4 [&>svg]:shrink-0",\n  });\n</script>\n<script setup lang="ts">\n  const props = defineProps<\n    PrimitiveProps & {\n      /**\n       * Additional classes to apply to the parent element.\n       */\n      class?: HTMLAttributes["class"];\n      /**\n       * The label for the group.\n       */\n      label?: string;\n    }\n  >();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/Header.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <div data-sidebar="header" :class="sideBarHeaderStyles({ class: props.class })">\n    <slot />\n  </div>\n</template>\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarHeaderStyles = tv({\n    base: "flex flex-col gap-2 p-2",\n  });\n</script>\n<script setup lang="ts">\n  const props = defineProps<{\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  }>();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/Input.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <UiInput v-model="model" data-sidebar="input" :class="sideBarInputStyles({ class: props.class })">\n    <slot />\n  </UiInput>\n</template>\n\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarInputStyles = tv({\n    base: "h-8 w-full bg-background shadow-none focus-visible:ring-2 focus-visible:ring-sidebar-ring",\n  });\n</script>\n<script setup lang="ts">\n  const props = defineProps<{\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  }>();\n\n  const model = defineModel<any>();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/Inset.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <main :class="sideBarInsetStyles({ class: props.class })">\n    <slot />\n  </main>\n</template>\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarInsetStyles = tv({\n    base: "relative flex min-h-svh flex-1 flex-col bg-background peer-data-[variant=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[variant=inset]:m-2 md:peer-data-[state=collapsed]:peer-data-[variant=inset]:ml-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow",\n  });\n</script>\n<script setup lang="ts">\n  const props = defineProps<{\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  }>();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/Menu.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <ul data-sidebar="menu" :class="sideBarMenuStyles({ class: props.class })">\n    <slot />\n  </ul>\n</template>\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarMenuStyles = tv({\n    base: "flex w-full min-w-0 flex-col gap-1",\n  });\n</script>\n<script setup lang="ts">\n  const props = defineProps<{\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  }>();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/MenuAction.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <Primitive\n    data-sidebar="menu-action"\n    :class="sideBarMenuAction({ showOnHover, class: props.class })"\n    :as="as"\n    :as-child="asChild"\n  >\n    <slot />\n  </Primitive>\n</template>\n<script lang="ts">\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n  import type { VariantProps } from "tailwind-variants";\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarMenuAction = tv({\n    base: [\n      "absolute right-1 top-1.5 flex aspect-square w-5 items-center justify-center rounded-md p-0 text-sidebar-foreground outline-none ring-sidebar-ring transition-transform hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 peer-hover/menu-button:text-sidebar-accent-foreground [&>svg]:size-4 [&>svg]:shrink-0",\n      // Increases the hit area of the button on mobile.\n      "after:absolute after:-inset-2 after:md:hidden",\n      "peer-data-[size=sm]/menu-button:top-1",\n      "peer-data-[size=default]/menu-button:top-1.5",\n      "peer-data-[size=lg]/menu-button:top-2.5",\n      "group-data-[collapsible=icon]:hidden",\n    ],\n    variants: {\n      showOnHover: {\n        true: "group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 peer-data-[active=true]/menu-button:text-sidebar-accent-foreground md:opacity-0",\n      },\n    },\n  });\n\n  export type SidebarMenuActionProps = PrimitiveProps & {\n    /**\n     * Whether the menu should be shown on hover.\n     */\n    showOnHover?: VariantProps<typeof sideBarMenuAction>["showOnHover"];\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n<script setup lang="ts">\n  const props = withDefaults(defineProps<SidebarMenuActionProps>(), {\n    as: "button",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/MenuBadge.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <div data-sidebar="menu-badge" :class="sideBarMenuBadgeStyles({ class: props.class })">\n    <slot />\n  </div>\n</template>\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarMenuBadgeStyles = tv({\n    base: [\n      "pointer-events-none absolute right-1 flex h-5 min-w-5 select-none items-center justify-center rounded-md px-1 text-xs font-medium tabular-nums text-sidebar-foreground",\n      "peer-hover/menu-button:text-sidebar-accent-foreground peer-data-[active=true]/menu-button:text-sidebar-accent-foreground",\n      "peer-data-[size=sm]/menu-button:top-1",\n      "peer-data-[size=default]/menu-button:top-1.5",\n      "peer-data-[size=lg]/menu-button:top-2.5",\n      "group-data-[collapsible=icon]:hidden",\n    ],\n  });\n</script>\n\n<script setup lang="ts">\n  const props = defineProps<{\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  }>();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/MenuButton.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <UiSidebarMenuButtonChild v-if="!tooltip" v-bind="{ ...delegatedProps, ...$attrs }">\n    <slot />\n  </UiSidebarMenuButtonChild>\n\n  <UiTooltip v-else>\n    <UiTooltipTrigger as-child>\n      <UiSidebarMenuButtonChild v-bind="{ ...delegatedProps, ...$attrs }">\n        <slot />\n      </UiSidebarMenuButtonChild>\n    </UiTooltipTrigger>\n    <UiTooltipContent side="right" align="center" :hidden="state !== \'collapsed\' || isMobile">\n      <template v-if="typeof tooltip === \'string\'">\n        {{ tooltip }}\n      </template>\n      <component :is="tooltip" v-else />\n    </UiTooltipContent>\n  </UiTooltip>\n</template>\n\n<script lang="ts">\n  import type { SidebarMenuButtonProps } from "./MenuButtonChild.vue";\n  import type { Component } from "vue";\n</script>\n<script setup lang="ts">\n  defineOptions({ inheritAttrs: false });\n\n  const props = withDefaults(\n    defineProps<\n      SidebarMenuButtonProps & {\n        tooltip?: string | Component;\n      }\n    >(),\n    {\n      as: "button",\n      variant: "default",\n      size: "default",\n    }\n  );\n\n  const { isMobile, state } = useSidebar();\n\n  const delegatedProps = computed(() => {\n    const { tooltip, ...delegated } = props;\n    return delegated;\n  });\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/MenuButtonChild.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <Primitive\n    data-sidebar="menu-button"\n    :data-size="size"\n    :data-active="isActive"\n    :class="sidebarMenuButtonVariants({ variant, size, class: props.class })"\n    :as="as"\n    :as-child="asChild"\n    v-bind="$attrs"\n  >\n    <slot />\n  </Primitive>\n</template>\n<script lang="ts">\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n  import type { HTMLAttributes } from "vue";\n\n  export interface SidebarMenuButtonProps extends PrimitiveProps {\n    /**\n     * The variant of the button.\n     * @default "default"\n     */\n    variant?: SidebarMenuButtonVariants["variant"];\n    /**\n     * The size of the button.\n     * @default "default"\n     */\n    size?: SidebarMenuButtonVariants["size"];\n    /**\n     * Whether the button is active.\n     */\n    isActive?: boolean;\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  }\n</script>\n\n<script setup lang="ts">\n  const props = withDefaults(defineProps<SidebarMenuButtonProps>(), {\n    as: "button",\n    variant: "default",\n    size: "default",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/MenuItem.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <li data-sidebar="menu-item" :class="sideBarMenuItemStyles({ class: props.class })">\n    <slot />\n  </li>\n</template>\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarMenuItemStyles = tv({\n    base: "group/menu-item relative",\n  });\n</script>\n<script setup lang="ts">\n  const props = defineProps<{\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  }>();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/MenuSkeleton.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <div\n    data-sidebar="menu-skeleton"\n    :class="sideBarMenuSkeletonStyles().wrapper({ class: props.class })"\n  >\n    <UiSkeleton\n      v-if="showIcon"\n      :class="sideBarMenuSkeletonStyles().skeleton1()"\n      data-sidebar="menu-skeleton-icon"\n    />\n\n    <UiSkeleton\n      :class="sideBarMenuSkeletonStyles().skeleton2()"\n      data-sidebar="menu-skeleton-text"\n      :style="{ \'--skeleton-width\': width }"\n    />\n  </div>\n</template>\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarMenuSkeletonStyles = tv({\n    slots: {\n      wrapper: "flex h-8 items-center gap-2 rounded-md px-2",\n      skeleton1: "size-4 rounded-md",\n      skeleton2: "h-4 max-w-[--skeleton-width] flex-1",\n    },\n  });\n</script>\n<script setup lang="ts">\n  const props = defineProps<{\n    /**\n     * Whether to show the icon skeleton.\n     */\n    showIcon?: boolean;\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  }>();\n\n  const width = computed(() => {\n    return `${Math.floor(Math.random() * 40) + 50}%`;\n  });\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/MenuSub.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <ul data-sidebar="menu-badge" :class="sideBarMenuSubStyles({ class: props.class })">\n    <slot />\n  </ul>\n</template>\n\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarMenuSubStyles = tv({\n    base: [\n      "mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-sidebar-border px-2.5 py-0.5",\n      "group-data-[collapsible=icon]:hidden",\n    ],\n  });\n</script>\n\n<script setup lang="ts">\n  const props = defineProps<{\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  }>();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/MenuSubButton.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <Primitive\n    data-sidebar="menu-sub-button"\n    :as="as"\n    :as-child="asChild"\n    :data-size="size"\n    :data-active="isActive"\n    :class="sideBarMenuSubButtonStyles({ size, class: props.class })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n  import type { VariantProps } from "tailwind-variants";\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarMenuSubButtonStyles = tv({\n    base: [\n      "flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 text-sidebar-foreground outline-none ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground",\n      "data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground",\n      "group-data-[collapsible=icon]:hidden",\n    ],\n    variants: {\n      size: {\n        sm: "text-xs",\n        md: "text-sm",\n      },\n    },\n  });\n\n  export type SideBarMenuSubButtonProps = PrimitiveProps & {\n    /**\n     * The size of the button.\n     * @default "md"\n     */\n    size?: VariantProps<typeof sideBarMenuSubButtonStyles>["size"];\n    /**\n     * Whether the button is active.\n     */\n    isActive?: boolean;\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script setup lang="ts">\n  const props = withDefaults(defineProps<SideBarMenuSubButtonProps>(), {\n    as: "a",\n    size: "md",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/MenuSubItem.vue",
+        dirPath: "components/UI",
+        fileContent: "<template>\n  <li>\n    <slot />\n  </li>\n</template>\n",
+      },
+      {
+        fileName: "Sidebar/Provider.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <UiTooltipProvider :delay-duration="0">\n    <div\n      :style="{\n        \'--sidebar-width\': SIDEBAR_WIDTH,\n        \'--sidebar-width-icon\': SIDEBAR_WIDTH_ICON,\n      }"\n      :class="sideBarProviderStyles({ class: props.class })"\n    >\n      <slot />\n    </div>\n  </UiTooltipProvider>\n</template>\n\n<script lang="ts">\n  import type { HTMLAttributes, Ref } from "vue";\n\n  export const sideBarProviderStyles = tv({\n    base: "group/sidebar-wrapper flex min-h-svh w-full text-sidebar-foreground has-[[data-variant=inset]]:bg-sidebar",\n  });\n</script>\n\n<script setup lang="ts">\n  const props = withDefaults(\n    defineProps<{\n      /**\n       * Default open state of the sidebar.\n       * @default true\n       */\n      defaultOpen?: boolean;\n      /**\n       * Open state of the sidebar (controlled).\n       * @default undefined\n       */\n      open?: boolean;\n      /**\n       * Additional classes to apply to the parent element.\n       */\n      class?: HTMLAttributes["class"];\n    }>(),\n    {\n      defaultOpen: true,\n      open: undefined,\n    }\n  );\n\n  // This sets the cookie to keep the sidebar state.\n  const SIDEBAR_COOKIE = useCookie<boolean>(SIDEBAR_COOKIE_NAME, {\n    path: "/",\n    maxAge: SIDEBAR_COOKIE_MAX_AGE,\n    default: () => false,\n  });\n\n  const emits = defineEmits<{\n    "update:open": [open: boolean];\n  }>();\n\n  const isMobile = useMediaQuery("(max-width: 768px)");\n  const openMobile = ref(false);\n\n  const open = useVModel(props, "open", emits, {\n    defaultValue: props.defaultOpen ? props.defaultOpen : SIDEBAR_COOKIE.value,\n    passive: (props.open === undefined) as false,\n  }) as Ref<boolean>;\n\n  function setOpen(value: boolean) {\n    open.value = value; // emits(\'update:open\', value)\n    SIDEBAR_COOKIE.value = value;\n  }\n\n  function setOpenMobile(value: boolean) {\n    openMobile.value = value;\n  }\n\n  // Helper to toggle the sidebar.\n  function toggleSidebar() {\n    return isMobile.value ? setOpenMobile(!openMobile.value) : setOpen(!open.value);\n  }\n\n  useEventListener("keydown", (event: KeyboardEvent) => {\n    if (event.key === SIDEBAR_KEYBOARD_SHORTCUT && (event.metaKey || event.ctrlKey)) {\n      event.preventDefault();\n      toggleSidebar();\n    }\n  });\n\n  // We add a state so that we can do data-state="expanded" or "collapsed".\n  // This makes it easier to style the sidebar with Tailwind classes.\n  const state = computed(() => (open.value ? "expanded" : "collapsed"));\n\n  provideSidebarContext({\n    state,\n    open,\n    setOpen,\n    isMobile,\n    openMobile,\n    setOpenMobile,\n    toggleSidebar,\n  });\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/Rail.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <button\n    data-sidebar="rail"\n    aria-label="Toggle Sidebar"\n    :tabindex="-1"\n    title="Toggle Sidebar"\n    :class="sideBarRailStyles({ class: props.class })"\n    @click="toggleSidebar"\n  >\n    <slot />\n  </button>\n</template>\n\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarRailStyles = tv({\n    base: [\n      "absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] hover:after:bg-sidebar-border group-data-[side=left]:-right-4 group-data-[side=right]:left-0 sm:flex",\n      "[[data-side=left]_&]:cursor-w-resize [[data-side=right]_&]:cursor-e-resize",\n      "[[data-side=left][data-state=collapsed]_&]:cursor-e-resize [[data-side=right][data-state=collapsed]_&]:cursor-w-resize",\n      "group-data-[collapsible=offcanvas]:translate-x-0 group-data-[collapsible=offcanvas]:after:left-full group-data-[collapsible=offcanvas]:hover:bg-sidebar",\n      "[[data-side=left][data-collapsible=offcanvas]_&]:-right-2",\n      "[[data-side=right][data-collapsible=offcanvas]_&]:-left-2",\n    ],\n  });\n</script>\n<script setup lang="ts">\n  const props = defineProps<{\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  }>();\n\n  const { toggleSidebar } = useSidebar();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/Separator.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <UiSeparator data-sidebar="separator" :class="sideBarSeparatorStyles({ class: props.class })">\n    <slot />\n  </UiSeparator>\n</template>\n\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarSeparatorStyles = tv({\n    base: "mx-2 w-auto bg-sidebar-border",\n  });\n</script>\n\n<script setup lang="ts">\n  const props = defineProps<{\n    /**\n     * Additional classes to apply to the parent element.\n     */\n    class?: HTMLAttributes["class"];\n  }>();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/Sidebar.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <div\n    v-if="collapsible === \'none\'"\n    :class="sideBarStyles().collapsible({ class: props.class })"\n    v-bind="$attrs"\n  >\n    <slot />\n  </div>\n\n  <UiSheet v-else-if="isMobile" :open="openMobile" v-bind="$attrs" @update:open="setOpenMobile">\n    <UiSheetContent\n      data-sidebar="sidebar"\n      data-mobile="true"\n      :side="side"\n      :class="sideBarStyles().mobileSheet()"\n      :style="{\n        \'--sidebar-width\': SIDEBAR_WIDTH_MOBILE,\n      }"\n    >\n      <div :class="sideBarStyles().mobileInner()">\n        <slot />\n      </div>\n    </UiSheetContent>\n  </UiSheet>\n\n  <div\n    v-else\n    class="group peer hidden md:block"\n    :data-state="state"\n    :data-collapsible="state === \'collapsed\' ? collapsible : \'\'"\n    :data-variant="variant"\n    :data-side="side"\n  >\n    <!-- This is what handles the sidebar gap on desktop  -->\n    <div :class="sideBarStyles().sideBarWrapper({ variant })" />\n    <div\n      :class="sideBarStyles().sideBarWrapper2({ collapsible, side, variant, class: props.class })"\n      v-bind="$attrs"\n    >\n      <div data-sidebar="sidebar" :class="sideBarStyles().sideBarInner()">\n        <slot />\n      </div>\n    </div>\n  </div>\n</template>\n\n<script lang="ts">\n  import type { VariantProps } from "tailwind-variants";\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarStyles = tv({\n    slots: {\n      collapsible: "bg-sidebar text-sidebar-foreground flex h-full w-[--sidebar-width] flex-col",\n      mobileSheet: "bg-sidebar text-sidebar-foreground w-[--sidebar-width] p-0 [&>button]:hidden",\n      mobileInner: "flex h-full w-full flex-col",\n      sideBarWrapper:\n        "relative h-svh w-[--sidebar-width] bg-transparent transition-[width] duration-200 ease-linear group-data-[collapsible=offcanvas]:w-0 group-data-[side=right]:rotate-180",\n      sideBarWrapper2:\n        "fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] duration-200 ease-linear md:flex",\n      sideBarInner:\n        "bg-sidebar group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow",\n    },\n    variants: {\n      side: {\n        left: {\n          sideBarWrapper2:\n            "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]",\n        },\n        right: {\n          sideBarWrapper2:\n            "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",\n        },\n      },\n      variant: {\n        sidebar: {\n          sideBarWrapper: "group-data-[collapsible=icon]:w-[--sidebar-width-icon]",\n          sideBarWrapper2:\n            "group-data-[collapsible=icon]:w-[--sidebar-width-icon] group-data-[side=left]:border-r group-data-[side=right]:border-l",\n        },\n        floating: {\n          sideBarWrapper:\n            "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4))]",\n          sideBarWrapper2:\n            "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]",\n        },\n        inset: {\n          sideBarWrapper:\n            "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4))]",\n          sideBarWrapper2:\n            "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]",\n        },\n      },\n      collapsible: {\n        offcanvas: {},\n        icon: {},\n        none: {},\n      },\n    },\n    defaultVariants: {\n      side: "left",\n      variant: "sidebar",\n      collapsible: "offcanvas",\n    },\n  });\n\n  export type SideBarProps = {\n    /**\n     * The side that the sidebar is on\n     * @default "left"\n     */\n    side?: VariantProps<typeof sideBarStyles>["side"];\n    /**\n     * The variant of the sidebar\n     * @default "sidebar"\n     */\n    variant?: VariantProps<typeof sideBarStyles>["variant"];\n    /**\n     * The collapsible state of the sidebar\n     * @default "offcanvas"\n     */\n    collapsible?: VariantProps<typeof sideBarStyles>["collapsible"];\n    /**\n     * Additional classes to add to the sidebar\n     */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n<script setup lang="ts">\n  defineOptions({ inheritAttrs: false });\n\n  const props = withDefaults(defineProps<SideBarProps>(), {\n    side: "left",\n    variant: "sidebar",\n    collapsible: "offcanvas",\n  });\n\n  const { isMobile, state, openMobile, setOpenMobile } = useSidebar();\n</script>\n',
+      },
+      {
+        fileName: "Sidebar/Trigger.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <UiButton\n    :title="label"\n    data-sidebar="trigger"\n    variant="ghost"\n    size="icon"\n    :class="sideBarTriggerStyles({ class: props.class })"\n    @click="toggleSidebar"\n  >\n    <slot v-bind="{ state }">\n      <Icon v-if="icon" :name="icon" />\n      <span class="sr-only">{{ label }}</span>\n    </slot>\n  </UiButton>\n</template>\n\n<script lang="ts">\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarTriggerStyles = tv({\n    base: "size-7",\n  });\n</script>\n\n<script setup lang="ts">\n  const props = withDefaults(\n    defineProps<{\n      /**\n       * The icon to display in the trigger.\n       * @default "lucide:panel-left"\n       */\n      icon?: string;\n      /**\n       * Additional classes to apply to the parent element.\n       */\n      class?: HTMLAttributes["class"];\n      /**\n       * The label for the trigger.\n       * @default "Toggle Sidebar"\n       */\n      label?: string;\n    }>(),\n    {\n      icon: "lucide:panel-left",\n      label: "Toggle Sidebar",\n    }\n  );\n\n  const { toggleSidebar, state } = useSidebar();\n</script>\n',
+      },
+    ],
+    components: ["input", "tooltip", "skeleton", "separator", "sheet", "button"],
+    utils: [
+      {
+        fileName: "sidebar.ts",
+        dirPath: "utils",
+        fileContent:
+          'import { createContext } from "radix-vue";\nimport type { ComputedRef, Ref } from "vue";\n\nexport const SIDEBAR_COOKIE_NAME = "sidebar:state";\nexport const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;\nexport const SIDEBAR_WIDTH = "16rem";\nexport const SIDEBAR_WIDTH_MOBILE = "18rem";\nexport const SIDEBAR_WIDTH_ICON = "3rem";\nexport const SIDEBAR_KEYBOARD_SHORTCUT = "b";\n\nexport const sidebarMenuButtonVariants = tv({\n  base: "peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm outline-none ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",\n\n  variants: {\n    variant: {\n      default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",\n      outline:\n        "bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]",\n    },\n    size: {\n      default: "h-8 text-sm",\n      sm: "h-7 text-xs",\n      lg: "h-12 text-sm group-data-[collapsible=icon]:!p-0",\n    },\n  },\n  defaultVariants: {\n    variant: "default",\n    size: "default",\n  },\n});\n\nexport type SidebarMenuButtonVariants = VariantProps<typeof sidebarMenuButtonVariants>;\n\nexport const [useSidebar, provideSidebarContext] = createContext<{\n  state: ComputedRef<"expanded" | "collapsed">;\n  open: Ref<boolean>;\n  setOpen: (value: boolean) => void;\n  isMobile: Ref<boolean>;\n  openMobile: Ref<boolean>;\n  setOpenMobile: (value: boolean) => void;\n  toggleSidebar: () => void;\n}>("Sidebar");\n',
+      },
+    ],
     composables: [],
     plugins: [],
   },
@@ -2398,7 +2573,7 @@ export default [
           'import type { ToastProps } from "@/components/Ui/Toast/Toast.vue";\n\nconst TOAST_LIMIT = 3;\nconst TOAST_REMOVE_DELAY = 7000;\n\nexport type StringOrVNode = string | VNode | (() => VNode);\n\ntype ToasterToast = ToastProps & {\n  id: string;\n  title?: string;\n  description?: StringOrVNode;\n  action?: Component;\n  icon?: string;\n};\n\nconst actionTypes = {\n  ADD_TOAST: "ADD_TOAST",\n  UPDATE_TOAST: "UPDATE_TOAST",\n  DISMISS_TOAST: "DISMISS_TOAST",\n  REMOVE_TOAST: "REMOVE_TOAST",\n} as const;\n\nlet count = 0;\n\nfunction genId() {\n  count = (count + 1) % Number.MAX_VALUE;\n  return count.toString();\n}\n\ntype ActionType = typeof actionTypes;\n\ntype Action =\n  | {\n      type: ActionType["ADD_TOAST"];\n      toast: ToasterToast;\n    }\n  | {\n      type: ActionType["UPDATE_TOAST"];\n      toast: Partial<ToasterToast>;\n    }\n  | {\n      type: ActionType["DISMISS_TOAST"];\n      toastId?: ToasterToast["id"];\n    }\n  | {\n      type: ActionType["REMOVE_TOAST"];\n      toastId?: ToasterToast["id"];\n    };\n\ninterface State {\n  toasts: ToasterToast[];\n}\n\nconst toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>();\n\nfunction addToRemoveQueue(toastId: string) {\n  if (toastTimeouts.has(toastId)) return;\n\n  const timeout = setTimeout(() => {\n    toastTimeouts.delete(toastId);\n    dispatch({\n      type: actionTypes.REMOVE_TOAST,\n      toastId,\n    });\n  }, TOAST_REMOVE_DELAY);\n\n  toastTimeouts.set(toastId, timeout);\n}\n\nconst state = ref<State>({\n  toasts: [],\n});\n\nfunction dispatch(action: Action) {\n  switch (action.type) {\n    case actionTypes.ADD_TOAST:\n      state.value.toasts = [action.toast, ...state.value.toasts].slice(0, TOAST_LIMIT);\n      break;\n\n    case actionTypes.UPDATE_TOAST:\n      state.value.toasts = state.value.toasts.map((t) =>\n        t.id === action.toast.id ? { ...t, ...action.toast } : t\n      );\n      break;\n\n    case actionTypes.DISMISS_TOAST: {\n      const { toastId } = action;\n\n      if (toastId) {\n        addToRemoveQueue(toastId);\n      } else {\n        state.value.toasts.forEach((toast) => {\n          addToRemoveQueue(toast.id);\n        });\n      }\n\n      state.value.toasts = state.value.toasts.map((t) =>\n        t.id === toastId || toastId === undefined\n          ? {\n              ...t,\n              open: false,\n            }\n          : t\n      );\n      break;\n    }\n\n    case actionTypes.REMOVE_TOAST:\n      if (action.toastId === undefined) state.value.toasts = [];\n      else state.value.toasts = state.value.toasts.filter((t) => t.id !== action.toastId);\n\n      break;\n  }\n}\n\nfunction useToast() {\n  return {\n    toasts: computed(() => state.value.toasts),\n    toast,\n    dismiss: (toastId?: string) => dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),\n  };\n}\n\ntype Toast = Omit<ToasterToast, "id">;\n\nfunction toast(props: Toast) {\n  const id = genId();\n\n  const update = (props: ToasterToast) =>\n    dispatch({\n      type: actionTypes.UPDATE_TOAST,\n      toast: { ...props, id },\n    });\n\n  const dismiss = () => dispatch({ type: actionTypes.DISMISS_TOAST, toastId: id });\n\n  dispatch({\n    type: actionTypes.ADD_TOAST,\n    toast: {\n      ...props,\n      id,\n      open: true,\n      onOpenChange: (open: boolean) => {\n        if (!open) dismiss();\n      },\n    },\n  });\n\n  return {\n    id,\n    dismiss,\n    update,\n  };\n}\n\nexport { toast, useToast };\n',
       },
     ],
-    instructions: ["Remeber to add <UiToastToaster /> to your app.vue/layout file."],
+    instructions: ["Remember to add <UiToastToaster /> to your app.vue/layout file."],
     files: [
       {
         fileName: "Toast/Action.vue",

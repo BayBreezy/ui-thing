@@ -5,7 +5,7 @@
     :as-child="asChild"
     :class="sideBarGroupLabelStyles({ class: props.class })"
   >
-    <slot />
+    <slot>{{ props.label }}</slot>
   </Primitive>
 </template>
 <script lang="ts">
@@ -14,7 +14,7 @@
   import type { HTMLAttributes } from "vue";
 
   export const sideBarGroupLabelStyles = tv({
-    base: "text-sidebar-foreground/70 ring-sidebar-ring flex h-8 shrink-0 items-center rounded-md px-2 text-xs font-medium outline-none transition-[margin,opa] duration-200 ease-linear focus-visible:ring-2 group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0 [&>svg]:size-4 [&>svg]:shrink-0",
+    base: "flex h-8 shrink-0 items-center rounded-md px-2 text-xs font-medium text-sidebar-foreground/70 outline-none ring-sidebar-ring transition-[margin,opa] duration-200 ease-linear focus-visible:ring-2 group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0 [&>svg]:size-4 [&>svg]:shrink-0",
   });
 </script>
 <script setup lang="ts">
@@ -24,6 +24,10 @@
        * Additional classes to apply to the parent element.
        */
       class?: HTMLAttributes["class"];
+      /**
+       * The label for the group.
+       */
+      label?: string;
     }
   >();
 </script>

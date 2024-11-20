@@ -1,0 +1,218 @@
+<template>
+  <UiSidebarProvider class="[--sidebar-width:19rem_!important]">
+    <!-- App Sidebar -->
+    <UiSidebar variant="floating">
+      <UiSidebarHeader>
+        <!-- Version switcher -->
+        <UiSidebarMenu>
+          <UiSidebarMenuItem>
+            <UiDropdownMenu>
+              <UiDropdownMenuTrigger as-child>
+                <UiSidebarMenuButton
+                  size="lg"
+                  class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                >
+                  <div
+                    class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"
+                  >
+                    <Icon name="lucide:gallery-vertical-end" class="size-4" />
+                  </div>
+                  <div class="flex flex-col gap-0.5 leading-none">
+                    <span class="font-semibold">Documentation</span>
+                    <span class="">v{{ selectedVersion }}</span>
+                  </div>
+                  <Icon name="lucide:chevrons-up-down" class="ml-auto" />
+                </UiSidebarMenuButton>
+              </UiDropdownMenuTrigger>
+              <UiDropdownMenuContent class="w-[--radix-dropdown-menu-trigger-width]" align="start">
+                <UiDropdownMenuItem
+                  v-for="version in data.versions"
+                  :key="version"
+                  class="cursor-pointer"
+                  @select="selectedVersion = version"
+                >
+                  v{{ version }}
+                  <Icon v-if="version === selectedVersion" name="lucide:check" class="ml-auto" />
+                </UiDropdownMenuItem>
+              </UiDropdownMenuContent>
+            </UiDropdownMenu>
+          </UiSidebarMenuItem>
+        </UiSidebarMenu>
+      </UiSidebarHeader>
+      <UiSidebarContent>
+        <UiSidebarGroup>
+          <UiSidebarMenu class="gap-2">
+            <UiSidebarMenuItem v-for="item in data.navMain" :key="item.title">
+              <UiSidebarMenuButton as-child>
+                <NuxtLink :href="item.url" class="font-medium">
+                  {{ item.title }}
+                </NuxtLink>
+              </UiSidebarMenuButton>
+              <UiSidebarMenuSub v-if="item.items?.length" class="border-l-0 px-1.5">
+                <UiSidebarMenuSubItem v-for="child in item.items" :key="child.title">
+                  <UiSidebarMenuSubButton as-child :is-active="child.isActive">
+                    <NuxtLink :href="child.url">{{ child.title }}</NuxtLink>
+                  </UiSidebarMenuSubButton>
+                </UiSidebarMenuSubItem>
+              </UiSidebarMenuSub>
+            </UiSidebarMenuItem>
+          </UiSidebarMenu>
+        </UiSidebarGroup>
+      </UiSidebarContent>
+      <UiSidebarRail />
+    </UiSidebar>
+    <!-- Sidebar main content -->
+    <UiSidebarInset>
+      <!-- Navbar -->
+      <UiNavbar sticky class="flex h-14 shrink-0 items-center gap-2 border-b-0 px-4">
+        <UiSidebarTrigger class="-ml-1" />
+        <UiSeparator orientation="vertical" class="mr-2 h-4" />
+        <UiBreadcrumbs :items="breadcrumbItems" />
+      </UiNavbar>
+      <div class="grid auto-rows-min gap-4 p-4 md:grid-cols-3">
+        <UiPlaceholder v-for="n in 30" :key="n" class="aspect-video rounded-lg" />
+      </div>
+    </UiSidebarInset>
+  </UiSidebarProvider>
+</template>
+
+<script lang="ts" setup>
+  // Breadcrumb items
+  const breadcrumbItems = [
+    { label: "Building Your Application", link: "#" },
+    { label: "Data Fetching", link: "#" },
+  ];
+  // This is sample data.
+  const data = {
+    versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
+    navMain: [
+      {
+        title: "Getting Started",
+        url: "#",
+        items: [
+          {
+            title: "Installation",
+            url: "#",
+          },
+          {
+            title: "Project Structure",
+            url: "#",
+          },
+        ],
+      },
+      {
+        title: "Building Your Application",
+        url: "#",
+        items: [
+          {
+            title: "Routing",
+            url: "#",
+          },
+          {
+            title: "Data Fetching",
+            url: "#",
+            isActive: true,
+          },
+          {
+            title: "Rendering",
+            url: "#",
+          },
+          {
+            title: "Caching",
+            url: "#",
+          },
+          {
+            title: "Styling",
+            url: "#",
+          },
+          {
+            title: "Optimizing",
+            url: "#",
+          },
+          {
+            title: "Configuring",
+            url: "#",
+          },
+          {
+            title: "Testing",
+            url: "#",
+          },
+          {
+            title: "Authentication",
+            url: "#",
+          },
+          {
+            title: "Deploying",
+            url: "#",
+          },
+          {
+            title: "Upgrading",
+            url: "#",
+          },
+          {
+            title: "Examples",
+            url: "#",
+          },
+        ],
+      },
+      {
+        title: "API Reference",
+        url: "#",
+        items: [
+          {
+            title: "Components",
+            url: "#",
+          },
+          {
+            title: "File Conventions",
+            url: "#",
+          },
+          {
+            title: "Functions",
+            url: "#",
+          },
+          {
+            title: "next.config.js Options",
+            url: "#",
+          },
+          {
+            title: "CLI",
+            url: "#",
+          },
+          {
+            title: "Edge Runtime",
+            url: "#",
+          },
+        ],
+      },
+      {
+        title: "Architecture",
+        url: "#",
+        items: [
+          {
+            title: "Accessibility",
+            url: "#",
+          },
+          {
+            title: "Fast Refresh",
+            url: "#",
+          },
+          {
+            title: "Next.js Compiler",
+            url: "#",
+          },
+          {
+            title: "Supported Browsers",
+            url: "#",
+          },
+          {
+            title: "Turbopack",
+            url: "#",
+          },
+        ],
+      },
+    ],
+  };
+  const selectedVersion = ref(data.versions[0]);
+  useSeoMeta({ title: "A floating sidebar with submenus." });
+</script>

@@ -16,7 +16,7 @@
   import type { HTMLAttributes, Ref } from "vue";
 
   export const sideBarProviderStyles = tv({
-    base: "group/sidebar-wrapper text-sidebar-foreground has-[[data-variant=inset]]:bg-sidebar flex min-h-svh w-full",
+    base: "group/sidebar-wrapper flex min-h-svh w-full text-sidebar-foreground has-[[data-variant=inset]]:bg-sidebar",
   });
 </script>
 
@@ -24,12 +24,12 @@
   const props = withDefaults(
     defineProps<{
       /**
-       * Whether the sidebar is open by default.
+       * Default open state of the sidebar.
        * @default true
        */
       defaultOpen?: boolean;
       /**
-       * Whether the sidebar is open.
+       * Open state of the sidebar (controlled).
        * @default undefined
        */
       open?: boolean;
@@ -44,6 +44,13 @@
     }
   );
 
+  // This sets the cookie to keep the sidebar state.
+  const SIDEBAR_COOKIE = useCookie<boolean>(SIDEBAR_COOKIE_NAME, {
+    path: "/",
+    maxAge: SIDEBAR_COOKIE_MAX_AGE,
+    default: () => false,
+  });
+
   const emits = defineEmits<{
     "update:open": [open: boolean];
   }>();
@@ -52,7 +59,7 @@
   const openMobile = ref(false);
 
   const open = useVModel(props, "open", emits, {
-    defaultValue: props.defaultOpen ?? false,
+    defaultValue: props.defaultOpen ? props.defaultOpen : SIDEBAR_COOKIE.value,
     passive: (props.open === undefined) as false,
   }) as Ref<boolean>;
 

@@ -50,15 +50,15 @@
 
   export const sideBarStyles = tv({
     slots: {
-      collapsible: "bg-sidebar text-sidebar-foreground flex h-full w-[--sidebar-width] flex-col",
-      mobileSheet: "bg-sidebar text-sidebar-foreground w-[--sidebar-width] p-0 [&>button]:hidden",
+      collapsible: "flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground",
+      mobileSheet: "w-[--sidebar-width] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden",
       mobileInner: "flex h-full w-full flex-col",
       sideBarWrapper:
         "relative h-svh w-[--sidebar-width] bg-transparent transition-[width] duration-200 ease-linear group-data-[collapsible=offcanvas]:w-0 group-data-[side=right]:rotate-180",
       sideBarWrapper2:
         "fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] duration-200 ease-linear md:flex",
       sideBarInner:
-        "bg-sidebar group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow",
+        "flex h-full w-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow",
     },
     variants: {
       side: {
@@ -108,21 +108,21 @@
      * The side that the sidebar is on
      * @default "left"
      */
-    side: VariantProps<typeof sideBarStyles>["side"];
+    side?: VariantProps<typeof sideBarStyles>["side"];
     /**
      * The variant of the sidebar
      * @default "sidebar"
      */
-    variant: VariantProps<typeof sideBarStyles>["variant"];
+    variant?: VariantProps<typeof sideBarStyles>["variant"];
     /**
      * The collapsible state of the sidebar
      * @default "offcanvas"
      */
-    collapsible: VariantProps<typeof sideBarStyles>["collapsible"];
+    collapsible?: VariantProps<typeof sideBarStyles>["collapsible"];
     /**
      * Additional classes to add to the sidebar
      */
-    class: HTMLAttributes["class"];
+    class?: HTMLAttributes["class"];
   };
 </script>
 <script setup lang="ts">
