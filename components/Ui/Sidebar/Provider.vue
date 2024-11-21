@@ -7,7 +7,7 @@
       }"
       :class="sideBarProviderStyles({ class: props.class })"
     >
-      <slot />
+      <slot v-bind="{ state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar }" />
     </div>
   </UiTooltipProvider>
 </template>
