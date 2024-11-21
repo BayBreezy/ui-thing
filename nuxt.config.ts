@@ -170,6 +170,7 @@ export default defineNuxtConfig({
   },
 
   sitemap: { autoLastmod: true },
+  schemaOrg: { enabled: false },
 
   ogImage: {
     defaults: {

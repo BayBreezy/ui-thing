@@ -28,7 +28,7 @@ On smaller screens it shows the text at the top and the actions at the bottom.
 This one requires the [Nuxt Swiper Module](https://github.com/cpreston321/nuxt-swiper?tab=readme-ov-file#features).
 
 ```bash
-npm install nuxt-swiper
+npx nuxi@latest module add swiper
 ```
 
 Then add it to your `nuxt.config` file.
