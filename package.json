@@ -53,7 +53,7 @@
     "@unovis/vue": "^1.4.4",
     "@vee-validate/nuxt": "^4.14.7",
     "@vee-validate/zod": "^4.14.7",
-    "@vueform/multiselect": "^2.6.10",
+    "@vueform/multiselect": "^2.6.11",
     "@vueup/vue-quill": "^1.2.0",
     "@vueuse/math": "^11.3.0",
     "@vueuse/nuxt": "^11.3.0",
