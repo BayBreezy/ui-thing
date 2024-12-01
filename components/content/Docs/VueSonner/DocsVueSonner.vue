@@ -36,10 +36,10 @@
       :key="i"
       variant="outline"
       @click="
-        useSonner[t](t),
-          {
-            description: `This is a ${t} message`,
-          }
+        (useSonner[t](t),
+        {
+          description: `This is a ${t} message`,
+        })
       "
       >Show {{ t }}</UiButton
     >
