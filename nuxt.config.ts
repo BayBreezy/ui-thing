@@ -1,11 +1,4 @@
-const author = "Behon Baker";
-const description = "UI Thing is a collection of UI components for Nuxt 3.";
-const lang = "en";
-const title = "UI Thing";
-const themeColor = "#111827";
-const twitterCard = "summary_large_image";
-const twitterCreator = "@iAm_BayBreezy";
-const url = process.env.PUBLIC_URL || "https://ui-thing.behonbaker.com";
+import * as SEO from "./utils/seo";
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -34,7 +27,6 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@nuxtjs/color-mode",
     "@morev/vue-transitions/nuxt",
-    "@kevinmarrec/nuxt-pwa",
     "@nuxt/eslint",
     "nuxt-swiper",
     "v-wave/nuxt",
@@ -42,6 +34,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/fonts",
     "@nuxtjs/seo",
+    "@vite-pwa/nuxt",
   ],
 
   build: { transpile: ["vue-sonner", "shiki"] },
@@ -90,8 +83,8 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title,
-      titleTemplate: "%s - UI Thing",
+      title: SEO.SITE_TITLE,
+      titleTemplate: `%s | ${SEO.SITE_NAME}`,
       script: [
         // Add pdfmake scripts for DataTables.net export buttons
         {
@@ -141,42 +134,60 @@ export default defineNuxtConfig({
   colorMode: { classSuffix: "" },
 
   pwa: {
-    meta: {
-      author,
-      description,
-      lang,
-      name: title,
-      ogDescription: description,
-      ogSiteName: title,
-      ogTitle: title,
-      ogType: "website",
-      ogUrl: url,
-      theme_color: themeColor,
-      ogImage: "/cover.png",
-      title,
-      twitterCard,
-      twitterCreator,
+    client: { installPrompt: "" },
+    includeAssets: ["favicon.ico", "robots.txt"],
+    registerType: "autoUpdate",
+    manifest: {
+      background_color: "#ffffff",
+      description: SEO.SITE_DESCRIPTION,
+      icons: [
+        {
+          src: "/icons/pwa-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+          purpose: "any",
+        },
+        {
+          src: "/icons/pwa-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "any",
+        },
+        {
+          src: "/icons/pwa-maskable-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+          purpose: "maskable",
+        },
+        {
+          src: "/icons/pwa-maskable-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "maskable",
+        },
+      ],
+      lang: SEO.SITE_LANG,
+      name: SEO.SITE_NAME,
+      short_name: SEO.SITE_NAME,
+      theme_color: SEO.SITE_THEME_COLOR,
     },
   },
 
   site: {
-    url,
-    name: title,
-    description,
-    defaultLocale: lang,
+    url: SEO.SITE_URL,
+    name: SEO.SITE_NAME,
+    description: SEO.SITE_DESCRIPTION,
+    defaultLocale: SEO.SITE_LANG,
     identity: { type: "Person" },
     indexable: true,
-    twitter: twitterCreator,
+    twitter: SEO.SITE_TWITTER_CREATOR,
   },
 
   sitemap: { autoLastmod: true },
   schemaOrg: { enabled: false },
 
   ogImage: {
-    defaults: {
-      alt: title,
-    },
+    defaults: { alt: SEO.SITE_NAME },
   },
-
-  compatibilityDate: "2024-07-09",
+  compatibilityDate: "2024-12-01",
 });

@@ -1,5 +1,5 @@
 <template>
-  <a :href="sourceCodeUrl" target="_blank">
+  <a :href="sourceCodeUrl" target="_blank" :title="titleText">
     {{ text || "here" }}
   </a>
 </template>
@@ -11,6 +11,11 @@
   }>();
 
   const sourceCodeUrl = computed(() => {
-    return `https://github.com/BayBreezy/ui-thing/tree/main/components/Ui/${props.component}`;
+    return `https://github.com/baybreezy/ui-thing/tree/main/components/Ui/${props.component}`;
   });
+
+  const { page } = useContent();
+  const titleText = computed(() =>
+    page?.value ? `View source code for ${page.value.title}` : "View source code"
+  );
 </script>
