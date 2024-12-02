@@ -2736,7 +2736,7 @@ export default [
     plugins: [],
   },
   {
-    name: "VeeCheckbox",
+    name: "Vee Checkbox",
     value: "vee-checkbox",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -2755,7 +2755,7 @@ export default [
     plugins: [],
   },
   {
-    name: "VeeCurrencyInput",
+    name: "Vee CurrencyInput",
     value: "vee-currency-input",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -2774,7 +2774,7 @@ export default [
     plugins: [],
   },
   {
-    name: "VeeDateField",
+    name: "Vee DateField",
     value: "vee-date-field",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions", "@internationalized/date"],
     askValidator: true,
@@ -2793,7 +2793,7 @@ export default [
     plugins: [],
   },
   {
-    name: "VeeDatepicker",
+    name: "Vee Datepicker",
     value: "vee-datepicker",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -2812,7 +2812,7 @@ export default [
     plugins: [],
   },
   {
-    name: "VeeFileInput",
+    name: "Vee FileInput",
     value: "vee-file-input",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -2831,7 +2831,7 @@ export default [
     plugins: [],
   },
   {
-    name: "VeeInput",
+    name: "Vee Input",
     value: "vee-input",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -2850,7 +2850,7 @@ export default [
     plugins: [],
   },
   {
-    name: "VeeMultiSelect",
+    name: "Vee MultiSelect",
     value: "vee-multi-select",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions", "@vueform/multiselect"],
     askValidator: true,
@@ -2869,7 +2869,7 @@ export default [
     plugins: [],
   },
   {
-    name: "VeeNumberField",
+    name: "Vee NumberField",
     value: "vee-number-field",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions", "@internationalized/number"],
     askValidator: true,
@@ -2888,7 +2888,7 @@ export default [
     plugins: [],
   },
   {
-    name: "Vee Pin Input",
+    name: "Vee Pin-Input",
     value: "vee-pin-input",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -2907,7 +2907,7 @@ export default [
     plugins: [],
   },
   {
-    name: "VeeRadioGroup",
+    name: "Vee RadioGroup",
     value: "vee-radio-group",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -2926,7 +2926,7 @@ export default [
     plugins: [],
   },
   {
-    name: "VeeSelect",
+    name: "Vee Select",
     value: "vee-select",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -2945,7 +2945,7 @@ export default [
     plugins: [],
   },
   {
-    name: "VeeTagsInput",
+    name: "Vee Tags-Input",
     value: "vee-tags-input",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -2964,7 +2964,7 @@ export default [
     plugins: [],
   },
   {
-    name: "VeeTextarea",
+    name: "Vee Textarea",
     value: "vee-textarea",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -2976,6 +2976,25 @@ export default [
         dirPath: "components/UI",
         fileContent:
           '<template>\n  <div class="w-full">\n    <UiLabel v-if="label" :for="inputId" :class="[errorMessage && \'text-destructive\', \'mb-2\']">\n      <span>{{ label }} <span v-if="required" class="text-destructive">*</span></span>\n    </UiLabel>\n    <div class="relative">\n      <slot name="icon">\n        <span v-if="hasIcon" class="absolute left-3 top-3 flex items-center justify-center">\n          <Icon v-if="icon" :name="icon" class="h-4 w-4 text-muted-foreground/70" />\n        </span>\n      </slot>\n      <UiTextarea\n        :id="inputId"\n        v-model="value"\n        :required="required"\n        :rows="rows"\n        :name="name"\n        v-bind="$attrs"\n        :class="[hasIcon && \'pl-9\']"\n        :placeholder="placeholder"\n        @blur="handleBlur"\n      />\n    </div>\n    <TransitionSlide group tag="div">\n      <p v-if="hint && !errorMessage" key="hint" class="mt-1.5 text-sm text-muted-foreground">\n        {{ hint }}\n      </p>\n\n      <p v-if="errorMessage" key="errorMessage" class="mt-1.5 text-sm text-destructive">\n        {{ errorMessage }}\n      </p>\n    </TransitionSlide>\n  </div>\n</template>\n\n<script lang="ts" setup>\n  const props = defineProps<{\n    label?: string;\n    icon?: string;\n    hint?: string;\n    modelValue?: string;\n    name?: string;\n    id?: string;\n    rules?: any;\n    validateOnMount?: boolean;\n    placeholder?: string;\n    rows?: number;\n    required?: boolean;\n  }>();\n\n  const inputId = props.id || useId();\n\n  const hasIcon = computed(() => Boolean(props.icon) || Boolean(useSlots().icon));\n\n  const { errorMessage, value, handleBlur } = useField(() => props.name || inputId, props.rules, {\n    initialValue: props.modelValue,\n    label: props.label,\n    validateOnMount: props.validateOnMount,\n    syncVModel: true,\n  });\n</script>\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "Vee VueFormSlider",
+    value: "vee-vue-form-slider",
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions", "@vueform/slider"],
+    askValidator: true,
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
+    components: [],
+    files: [
+      {
+        fileName: "Vee/VueFormSlider.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <Slider v-bind="{ ...forwarded, ...$attrs }" v-model="model" />\n  <TransitionSlide group tag="div">\n    <p v-if="hint && !errorMessage" key="hint" class="mt-1.5 text-sm text-muted-foreground">\n      {{ hint }}\n    </p>\n\n    <p v-if="errorMessage" key="errorMessage" class="mt-1.5 text-sm text-destructive">\n      {{ errorMessage }}\n    </p>\n  </TransitionSlide>\n</template>\n\n<script lang="ts">\n  import Slider from "@vueform/slider";\n  import { useForwardPropsEmits } from "radix-vue";\n\n  export type SliderFormatObject = {\n    /**\n     * Prefix to prepend to the value.\n     * @example "$"\n     */\n    prefix?: string;\n    /**\n     * Suffix to append to the value.\n     * @example "USD"\n     */\n    suffix?: string;\n    /**\n     * Number of decimals to show.\n     * @example 2\n     */\n    decimals?: number;\n    /**\n     * Character to use as thousand separator.\n     * @example ","\n     */\n    thousand?: string;\n  };\n\n  export interface SliderProps {\n    /**\n     * The hint to display below the slider.\n     */\n    hint?: string;\n    /**\n     * The rules for the slider. Used with vee-validate for validation.\n     */\n    rules?: any;\n    /**\n     * Whether the slider should be validated on mount.\n     */\n    validateOnMount?: boolean;\n    /**\n     * The label of the slider. Used with vee-validate for error messages\n     */\n    label?: string;\n    /**\n     * The name we want to give this slider in the form.\n     */\n    name?: string;\n    /**\n     * The id attribute of slider container DOM.\n     * @default "slider"\n     */\n    id?: string;\n    /**\n     * Whether to update v-model only when the slider value is set and not while dragging.\n     *\n     * If disabled you must not use inline objects as props (eg. format, options, classes) but outsource them to a data property.\n     *\n     * @default true\n     */\n    lazy?: boolean;\n    /**\n     * Whether the slider should be disabled.\n     * @default false\n     */\n    disabled?: boolean;\n    /**\n     * Minimum value of the slider.\n     * @default 0\n     */\n    min?: number;\n    /**\n     * Maximum value of the slider.\n     * @default 100\n     */\n    max?: number;\n    /**\n     * The jump between intervals. If `-1` it enables fractions (eg. `1.23`).\n     * @default 1\n     */\n    step?: number;\n    /**\n     * Whether tooltips should show above handlers.\n     * @default true\n     */\n    tooltips?: boolean;\n    /**\n     * When tooltips should be shown.\n     * @default "always"\n     */\n    showTooltip?: "always" | "focus" | "drag";\n    /**\n     * The step distance between two handles when their tooltips should be merged (when step is `-1` then `1` is assumed).\n     *\n     * @example\n     *\n     * ```js\n     * { merge: 5, step: 10 }\n     * // values: 0, <=50 will merge\n     * // values: 0, 60 will not merge\n     *\n     * { merge: 5, step: -1 }\n     *\n     * // values: 0, <=5 will merge\n     * // values: 0, 5.01 will not merge\n     *\n     * ```\n     * @default -1\n     */\n    merge?: number;\n    /**\n     * Formats the tooltip.\n     *\n     * It can be either a function that receives a `value` param and expects a string or number as return or an object with the following properties:\n     *\n     *\n     * prefix - eg $ -> $100\n     *\n     * suffix - eg USD -> 100USD\n     *\n     * decimals - eg 2 -> 100.00\n     *\n     * thousand - eg , - 1,000\n     */\n    format?: SliderFormatObject | ((value: number) => string | number);\n    /**\n     * The orientation of the slider.\n     * @default "horizontal"\n     */\n    orientation?: "horizontal" | "vertical";\n    /**\n     * The direction of the slider.\n     *\n     * By default value increases left-to-right and top-to-bottom, which is reversed when using `rtl`.\n     *\n     * @default "ltr"\n     */\n    direction?: "ltr" | "rtl";\n    /**\n     * The position of the slider tooltips.\n     *\n     * Possible values: `null` | `top` | `bottom` | `left` | `right` depending on orientation prop.\n     *\n     * When null it equals to orientation default (`top` for `horizontal` and `left` for `vertical`).\n     * @default null\n     */\n    tooltipPosition?: null | "top" | "bottom" | "left" | "right";\n    /**\n     * An object containing aria attributes to be added for each handle.\n     */\n    aria?: Record<string, any>;\n    /**\n     * Sets the aria-labelledby attribute of handles.\n     */\n    ariaLabelledby?: string;\n    /**\n     * Additional options for noUiSlider.\n     * @see https://refreshless.com/nouislider/slider-options/\n     */\n    options?: Record<string, any>;\n    /**\n     * Initial value of the slider.\n     */\n    modelValue?: any;\n    value?: any;\n    /**\n     * An object of class names that gets merged with the default values\n     */\n    classes?: Record<string, any>;\n  }\n\n  export type SliderEmits = {\n    /**\n     * Emitted when dragging the slider is finished or it\'s value changed by clicking, keyboard or programmatically set.\n     */\n    change: [v: any];\n    /**\n     * Emitted in the same scenarios as in `@change`, but also when the slider is being dragged if `lazy` option is disabled.\n     */\n    update: [v: any];\n    /**\n     * Emitted in the same scenarios as in `@change`, but also when the slider\'s `.set()` method is called.\n     */\n    set: [v: any];\n    /**\n     * Emitted while the slider moves.\n     */\n    slide: [v: any];\n    /**\n     * Emitted the slider connect moves while dragging.\n     */\n    drag: [v: any];\n    /**\n     * Emitted when the handle is activated and dragging started.\n     */\n    start: [v: any];\n    /**\n     * Emitted when the dragging ended.\n     */\n    end: [v: any];\n  };\n</script>\n<script lang="ts" setup>\n  defineOptions({ inheritAttrs: false });\n  const props = defineProps<SliderProps>();\n\n  const emits = defineEmits<SliderEmits>();\n\n  const forwarded = useForwardPropsEmits(props, emits);\n\n  const { errorMessage, value: model } = useField(\n    () => props.name || props.id || useId(),\n    props.rules,\n    {\n      initialValue: props.modelValue,\n      label: props.label,\n      validateOnMount: props.validateOnMount,\n      syncVModel: true,\n    }\n  );\n</script>\n\n<style src="@vueform/slider/themes/default.css"></style>\n\n<style>\n  :root {\n    --slider-bg: theme(colors.muted.DEFAULT);\n    --slider-connect-bg: theme(colors.primary.DEFAULT);\n    --slider-connect-bg-disabled: theme(colors.primary.DEFAULT/45%);\n    --slider-height: 8px;\n    --slider-vertical-height: 300px;\n    --slider-radius: 999999px;\n\n    --slider-handle-bg: #ffffff;\n    --slider-handle-border: 0;\n    --slider-handle-width: 20px;\n    --slider-handle-height: 20px;\n    --slider-handle-radius: 99999px;\n    --slider-handle-shadow: 0.5px 0.5px 2px 1px rgba(0, 0, 0, 0.32);\n    --slider-handle-shadow-active: 0.5px 0.5px 2px 1px rgba(0, 0, 0, 0.42);\n    --slider-handle-ring-width: 3px;\n    --slider-handle-ring-color: theme(colors.primary.DEFAULT/20%);\n\n    --slider-tooltip-font-size: 0.875rem;\n    --slider-tooltip-line-height: 1.25rem;\n    --slider-tooltip-font-weight: 600;\n    --slider-tooltip-min-width: 24px;\n    --slider-tooltip-bg: theme(colors.primary.DEFAULT);\n    --slider-tooltip-bg-disabled: theme(colors.primary.DEFAULT/90%);\n    --slider-tooltip-color: theme(colors.primary.foreground);\n    --slider-tooltip-radius: theme(borderRadius.sm);\n    --slider-tooltip-py: 2px;\n    --slider-tooltip-px: 6px;\n    --slider-tooltip-arrow-size: 5px;\n    --slider-tooltip-distance: 4px;\n  }\n</style>\n',
       },
     ],
     utils: [],

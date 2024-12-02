@@ -691,7 +691,7 @@ export default [
     files: ["VueSonner.client.vue"],
   },
   {
-    name: "VeeCheckbox",
+    name: "Vee Checkbox",
     value: "vee-checkbox",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -700,7 +700,7 @@ export default [
     files: ["Vee/Checkbox.vue"],
   },
   {
-    name: "VeeCurrencyInput",
+    name: "Vee CurrencyInput",
     value: "vee-currency-input",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -709,7 +709,7 @@ export default [
     files: ["Vee/CurrencyInput.vue"],
   },
   {
-    name: "VeeDateField",
+    name: "Vee DateField",
     value: "vee-date-field",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions", "@internationalized/date"],
     askValidator: true,
@@ -718,7 +718,7 @@ export default [
     files: ["Vee/DateField.vue"],
   },
   {
-    name: "VeeDatepicker",
+    name: "Vee Datepicker",
     value: "vee-datepicker",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -727,7 +727,7 @@ export default [
     files: ["Vee/Datepicker.vue"],
   },
   {
-    name: "VeeFileInput",
+    name: "Vee FileInput",
     value: "vee-file-input",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -736,7 +736,7 @@ export default [
     files: ["Vee/FileInput.vue"],
   },
   {
-    name: "VeeInput",
+    name: "Vee Input",
     value: "vee-input",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -745,7 +745,7 @@ export default [
     files: ["Vee/Input.vue"],
   },
   {
-    name: "VeeRadioGroup",
+    name: "Vee RadioGroup",
     value: "vee-radio-group",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -754,7 +754,7 @@ export default [
     files: ["Vee/RadioGroup.vue"],
   },
   {
-    name: "VeeSelect",
+    name: "Vee Select",
     value: "vee-select",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -763,7 +763,7 @@ export default [
     files: ["Vee/Select.vue"],
   },
   {
-    name: "VeeTextarea",
+    name: "Vee Textarea",
     value: "vee-textarea",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -772,7 +772,7 @@ export default [
     files: ["Vee/Textarea.vue"],
   },
   {
-    name: "VeeTagsInput",
+    name: "Vee Tags-Input",
     value: "vee-tags-input",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -781,7 +781,7 @@ export default [
     files: ["Vee/TagsInput.vue"],
   },
   {
-    name: "VeeMultiSelect",
+    name: "Vee MultiSelect",
     value: "vee-multi-select",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions", "@vueform/multiselect"],
     askValidator: true,
@@ -790,7 +790,16 @@ export default [
     files: ["Vee/MultiSelect.vue"],
   },
   {
-    name: "VeeNumberField",
+    name: "Vee VueFormSlider",
+    value: "vee-vue-form-slider",
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions", "@vueform/slider"],
+    askValidator: true,
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
+    components: [],
+    files: ["Vee/VueFormSlider.vue"],
+  },
+  {
+    name: "Vee NumberField",
     value: "vee-number-field",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions", "@internationalized/number"],
     askValidator: true,
@@ -799,7 +808,7 @@ export default [
     files: ["Vee/NumberField.vue"],
   },
   {
-    name: "Vee Pin Input",
+    name: "Vee Pin-Input",
     value: "vee-pin-input",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
