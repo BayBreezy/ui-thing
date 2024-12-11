@@ -28,11 +28,13 @@ npx ui-thing@latest add dropdown-menu
 
 #code
 
-```vue [DocsDropdownMenuBasic.vue],
+<!-- automd:file src="../../components/content/Docs/DropdownMenu/DocsDropdownMenuBasic.vue" code lang="vue" -->
+
+```vue [DocsDropdownMenuBasic.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiDropdownMenu>
-      <UiDropdownMenuTrigger asChild>
+      <UiDropdownMenuTrigger as-child>
         <UiButton variant="outline">Open menu</UiButton>
       </UiDropdownMenuTrigger>
       <UiDropdownMenuContent class="w-56">
@@ -50,7 +52,7 @@ npx ui-thing@latest add dropdown-menu
             <UiDropdownMenuSubTrigger
               :title="item.title"
               :icon="item.icon"
-              :textValue="item.title"
+              :text-value="item.title"
             />
             <UiDropdownMenuSubContent>
               <template v-for="(child, k) in item.items" :key="`child-${k}`">
@@ -71,10 +73,6 @@ npx ui-thing@latest add dropdown-menu
 </template>
 
 <script lang="ts" setup>
-  const showBookmark = ref(true);
-  const showFullUrls = ref(false);
-  const person = ref("1");
-
   const menuitems = [
     { label: "My Account" },
     { divider: true },
@@ -107,6 +105,8 @@ npx ui-thing@latest add dropdown-menu
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Checkbox Menu Items
@@ -115,7 +115,9 @@ npx ui-thing@latest add dropdown-menu
 
 #code
 
-```vue [DocsDropdownMenuCheckItems.vue],
+<!-- automd:file src="../../components/content/Docs/DropdownMenu/DocsDropdownMenuCheckItems.vue" code lang="vue" -->
+
+```vue [DocsDropdownMenuCheckItems.vue]
 <template>
   <div class="flex w-full items-center justify-center">
     <UiDropdownMenu>
@@ -128,8 +130,8 @@ npx ui-thing@latest add dropdown-menu
         <template v-for="h in heroList" :key="h.id">
           <UiDropdownMenuCheckboxItem
             :checked="selectedHeros.includes(h.id)"
-            @select="(e) => e.preventDefault()"
             class="mb-1"
+            @select="(e) => e.preventDefault()"
             @update:checked="
               selectedHeros.includes(h.id)
                 ? selectedHeros.splice(selectedHeros.indexOf(h.id), 1)
@@ -171,6 +173,8 @@ npx ui-thing@latest add dropdown-menu
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Radio Menu Items
@@ -178,6 +182,8 @@ npx ui-thing@latest add dropdown-menu
 ::ShowCase{component="DocsDropdownMenuRadioItems"}
 
 #code
+
+<!-- automd:file src="../../components/content/Docs/DropdownMenu/DocsDropdownMenuRadioItems.vue" code lang="vue" -->
 
 ```vue [DocsDropdownMenuRadioItems.vue]
 <template>
@@ -192,6 +198,7 @@ npx ui-thing@latest add dropdown-menu
         <UiDropdownMenuSeparator />
         <UiDropdownMenuRadioGroup v-model="placement">
           <UiDropdownMenuRadioItem
+            @select="(e) => e.preventDefault()"
             v-for="item in placements"
             :key="item"
             :value="item"
@@ -222,5 +229,7 @@ npx ui-thing@latest add dropdown-menu
   ];
 </script>
 ```
+
+<!-- /automd -->
 
 ::

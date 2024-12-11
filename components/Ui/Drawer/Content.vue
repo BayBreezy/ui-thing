@@ -7,7 +7,7 @@
       <DrawerContent v-bind="{ ...props, ...$attrs }" :class="styles({ class: props.class })">
         <slot name="knob">
           <div
-            className="mx-auto shrink-0 cursor-grab active:cursor-grabbing my-5 h-2 w-[60px] rounded-full bg-muted"
+            class="mx-auto my-5 h-2 w-[60px] shrink-0 cursor-grab rounded-full bg-muted active:cursor-grabbing"
           />
         </slot>
         <slot />

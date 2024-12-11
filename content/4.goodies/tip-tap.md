@@ -17,12 +17,14 @@ Create the component `Tiptap.client.vue` in the `components` directory. The comp
 
 The one used here looks like this. Like I said earlier, you have to install a lot of packages to get the functionality you want.
 
+<!-- automd:file src="../../components/Ui/Tiptap.client.vue" code lang="vue" -->
+
 ```vue [Tiptap.client.vue]
 <template>
   <div v-if="editor">
     <EditorContent :editor="editor" />
     <div
-      className="border border-input bg-transparent rounded-br-md rounded-bl-md p-1 flex flex-wrap  items-center gap-1"
+      class="flex flex-wrap items-center gap-1 rounded-bl-md rounded-br-md border border-input bg-transparent p-1"
     >
       <UiButton
         size="sm"
@@ -257,6 +259,8 @@ The one used here looks like this. Like I said earlier, you have to install a lo
 </script>
 ```
 
+<!-- /automd -->
+
 ## Usage
 
 ### Basic
@@ -266,6 +270,8 @@ In this example, we are just passing the model to the editor. We are also custom
 ::ShowCase{component="DocsTiptap"}
 
 #code
+
+<!-- automd:file src="../../components/content/Docs/Tiptap/DocsTiptap.vue" code lang="vue" -->
 
 ```vue [DocsTiptap.vue]
 <template>
@@ -437,5 +443,7 @@ In this example, we are just passing the model to the editor. We are also custom
   }
 </style>
 ```
+
+<!-- /automd -->
 
 ::

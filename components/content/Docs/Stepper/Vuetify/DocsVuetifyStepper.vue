@@ -159,6 +159,7 @@
 
 <script lang="ts" setup>
   import { get, set } from "@vueuse/core";
+  import { VisuallyHidden } from "radix-vue";
 
   const stepper = ref(1);
   const steps = [

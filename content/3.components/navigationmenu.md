@@ -60,6 +60,8 @@ The default orientation of the Navigation Menu is horizontal.
 
 #code
 
+<!-- automd:file src="../../components/content/Docs/NavigationMenu/DocsNavigationMenu.vue" code lang="vue" -->
+
 ```vue [DocsNavigationMenu.vue]
 <template>
   <div class="flex w-full items-center justify-center">
@@ -69,6 +71,7 @@ The default orientation of the Navigation Menu is horizontal.
           <UiNavigationMenuTrigger title="Beach day" />
           <UiNavigationMenuContent>
             <div class="grid w-[600px] grid-cols-2 gap-5 p-4">
+              <!-- eslint-disable-next-line vue/html-self-closing -->
               <img
                 src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"
                 alt="Beach"
@@ -106,6 +109,7 @@ The default orientation of the Navigation Menu is horizontal.
           <UiNavigationMenuTrigger title="Learn more" />
           <UiNavigationMenuContent>
             <div class="grid w-[500px] grid-cols-2 place-items-center gap-5 p-3">
+              <!-- eslint-disable-next-line vue/html-self-closing -->
               <img
                 src="https://www.radix-vue.com/logo.svg"
                 alt="Radix Vue Logo"
@@ -122,7 +126,7 @@ The default orientation of the Navigation Menu is horizontal.
           </UiNavigationMenuContent>
         </UiNavigationMenuItem>
         <UiNavigationMenuItem>
-          <UiNavigationMenuLink asChild>
+          <UiNavigationMenuLink as-child>
             <UiButton variant="ghost">Documentation</UiButton>
           </UiNavigationMenuLink>
         </UiNavigationMenuItem>
@@ -187,6 +191,8 @@ The default orientation of the Navigation Menu is horizontal.
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Vertical Navigation Menu
@@ -199,15 +205,18 @@ To get things to look how we want, we would then need to add some custom styles.
 
 #code
 
+<!-- automd:file src="../../components/content/Docs/NavigationMenu/DocsNavigationMenuVertical.vue" code lang="vue" -->
+
 ```vue [DocsNavigationMenuVertical.vue]
 <template>
   <div class="flex w-full items-center">
-    <UiNavigationMenu defaultValue="1" orientation="vertical" class="w-full rounded-md border p-2">
+    <UiNavigationMenu default-value="1" orientation="vertical" class="w-full rounded-md border p-2">
       <UiNavigationMenuList class="w-[300px] max-w-none flex-col items-start gap-1 space-x-0">
         <UiNavigationMenuItem value="1" class="w-full">
           <UiNavigationMenuTrigger class="w-full justify-between" title="Beach day" />
           <UiNavigationMenuContent>
             <div class="grid w-[300px] gap-5 p-4">
+              <!-- eslint-disable-next-line vue/html-self-closing -->
               <img
                 src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"
                 alt="Beach"
@@ -245,6 +254,7 @@ To get things to look how we want, we would then need to add some custom styles.
           <UiNavigationMenuTrigger class="w-full justify-between" title="Learn more" />
           <UiNavigationMenuContent>
             <div class="grid w-[300px] grid-cols-1 place-items-center gap-5 p-3">
+              <!-- eslint-disable-next-line vue/html-self-closing -->
               <img
                 src="https://www.radix-vue.com/logo.svg"
                 alt="Radix Vue Logo"
@@ -261,7 +271,7 @@ To get things to look how we want, we would then need to add some custom styles.
           </UiNavigationMenuContent>
         </UiNavigationMenuItem>
         <UiNavigationMenuItem class="w-full">
-          <UiNavigationMenuLink asChild>
+          <UiNavigationMenuLink as-child>
             <UiButton class="w-full justify-start" variant="ghost">Documentation</UiButton>
           </UiNavigationMenuLink>
         </UiNavigationMenuItem>
@@ -271,7 +281,7 @@ To get things to look how we want, we would then need to add some custom styles.
           <UiNavigationMenuViewport
             class="origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-[0.97] data-[state=open]:zoom-in-95 md:w-[var(--radix-navigation-menu-viewport-width)]"
           >
-            <slot></slot>
+            <slot />
           </UiNavigationMenuViewport>
         </div>
       </template>
@@ -317,5 +327,7 @@ To get things to look how we want, we would then need to add some custom styles.
   ];
 </script>
 ```
+
+<!-- /automd -->
 
 ::

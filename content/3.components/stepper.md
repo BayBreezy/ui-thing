@@ -36,6 +36,8 @@ So here is how I think this should be implemented. Take a look at the source cod
 
 #code
 
+<!-- automd:file src="../../components/content/Docs/Stepper/UntitledUI/DocsUntitledUIStepperIconHorizontal.vue" code lang="vue" -->
+
 ```vue [DocsUntitledUIStepperIconHorizontal.vue]
 <template>
   <div>
@@ -104,6 +106,8 @@ So here is how I think this should be implemented. Take a look at the source cod
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Stepper with Icon - Vertical
@@ -113,6 +117,8 @@ For the vertical variation, this is how I think it should be implemented.
 ::ShowCase{component="DocsUntitledUIStepperIconVertical"}
 
 #code
+
+<!-- automd:file src="../../components/content/Docs/Stepper/UntitledUI/DocsUntitledUIStepperIconVertical.vue" code lang="vue" -->
 
 ```vue [DocsUntitledUIStepperIconVertical.vue]
 <template>
@@ -187,6 +193,8 @@ For the vertical variation, this is how I think it should be implemented.
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Stepper with Top Line
@@ -194,6 +202,8 @@ For the vertical variation, this is how I think it should be implemented.
 ::ShowCase{component="DocsUntitledUIStepperIconTopLine"}
 
 #code
+
+<!-- automd:file src="../../components/content/Docs/Stepper/UntitledUI/DocsUntitledUIStepperIconTopLine.vue" code lang="vue" -->
 
 ```vue [DocsUntitledUIStepperIconTopLine.vue]
 <template>
@@ -252,6 +262,8 @@ For the vertical variation, this is how I think it should be implemented.
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ## Vuetify
@@ -261,6 +273,8 @@ Now our friends over at [Vuetify](https://vuetifyjs.com/en/components/steppers/)
 ::ShowCase{component="DocsVuetifyStepper"}
 
 #code
+
+<!-- automd:file src="../../components/content/Docs/Stepper/Vuetify/DocsVuetifyStepper.vue" code lang="vue" -->
 
 ```vue [DocsVuetifyStepper.vue]
 <template>
@@ -276,7 +290,7 @@ Now our friends over at [Vuetify](https://vuetifyjs.com/en/components/steppers/)
           v-slot="{ state }"
           class="group relative w-full"
           :step="step.step"
-          :class="[isLastItem(step.step) && 'w-fit']"
+          :class="[isLastItem(step.step) && '!w-fit']"
         >
           <UiStepperTrigger
             as="div"
@@ -424,6 +438,7 @@ Now our friends over at [Vuetify](https://vuetifyjs.com/en/components/steppers/)
 
 <script lang="ts" setup>
   import { get, set } from "@vueuse/core";
+  import { VisuallyHidden } from "radix-vue";
 
   const stepper = ref(1);
   const steps = [
@@ -495,5 +510,7 @@ Now our friends over at [Vuetify](https://vuetifyjs.com/en/components/steppers/)
   };
 </script>
 ```
+
+<!-- /automd -->
 
 ::

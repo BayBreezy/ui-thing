@@ -26,11 +26,13 @@ We can bring the different components together to make a simple drawer.
 
 #code
 
+<!-- automd:file src="../../components/content/Docs/Drawer/DocsDrawerBasic.vue" code lang="vue" -->
+
 ```vue [DocsDrawerBasic.vue]
 <template>
   <div class="text-center">
     <UiDrawer>
-      <UiDrawerTrigger asChild>
+      <UiDrawerTrigger as-child>
         <UiButton variant="outline">Open Drawer</UiButton>
       </UiDrawerTrigger>
       <UiDrawerContent>
@@ -38,26 +40,33 @@ We can bring the different components together to make a simple drawer.
           <UiDrawerTitle class="mb-1.5">Drawer Title</UiDrawerTitle>
           <UiDrawerDescription>
             This is a basic drawer with a title and description.
+            <!-- eslint-disable-next-line vue/html-self-closing -->
             <br />
-            For some strange reason the Vaul won't pull to close when a form i s present inside it
+            For some strange reason the Vaul won't pull to close when a form is present inside it
           </UiDrawerDescription>
 
           <div class="relative">
-            <form @submit="submit" class="mt-7">
+            <form class="mt-7" @submit="submit">
               <fieldset :disabled="isSubmitting" class="grid gap-6">
                 <UiVeeInput
                   name="email"
                   label="Email"
                   type="email"
-                  modelValue="baybreezy@example.com"
+                  model-value="baybreezy@example.com"
                 />
-                <UiVeeInput name="username" label="Username" modelValue="baybreezy" />
-                <UiDrawerClose asChild>
+                <UiVeeInput name="username" label="Username" model-value="baybreezy" />
+                <UiDrawerClose as-child>
                   <UiButton type="submit">Update</UiButton>
                 </UiDrawerClose>
               </fieldset>
             </form>
           </div>
+
+          <UiDrawerClose class="absolute right-4 top-3 h-7 w-7" as-child>
+            <UiButton variant="ghost" size="icon-sm" class="opacity-50 hover:opacity-100">
+              <Icon name="lucide:x" />
+            </UiButton>
+          </UiDrawerClose>
         </div>
       </UiDrawerContent>
     </UiDrawer>
@@ -75,13 +84,15 @@ We can bring the different components together to make a simple drawer.
       })
     ),
   });
-  const submit = handleSubmit((values) => {
+  const submit = handleSubmit((_) => {
     useSonner.success("Updated", {
       description: "Your account has been updated",
     });
   });
 </script>
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -93,11 +104,13 @@ We can add an image inside as well.
 
 #code
 
+<!-- automd:file src="../../components/content/Docs/Drawer/DocsDrawerImage.vue" code lang="vue" -->
+
 ```vue [DocsDrawerImage.vue]
 <template>
   <div class="text-center">
     <UiDrawer>
-      <UiDrawerTrigger asChild>
+      <UiDrawerTrigger as-child>
         <UiButton variant="outline">View image</UiButton>
       </UiDrawerTrigger>
       <UiDrawerContent>
@@ -111,7 +124,8 @@ We can add an image inside as well.
           <div class="relative min-h-[400px]">
             <UiAspectRatio :ratio="16 / 9" class="mt-6">
               <UiContextMenu>
-                <UiContextMenuTrigger asChild>
+                <UiContextMenuTrigger as-child>
+                  <!-- eslint-disable-next-line vue/html-self-closing -->
                   <img
                     src="https://cdn.pixabay.com/photo/2023/05/02/21/08/river-7966163_1280.png"
                     alt="Snow Lake"
@@ -142,7 +156,7 @@ We can add an image inside as well.
             </UiAspectRatio>
           </div>
 
-          <UiDrawerClose class="absolute right-4 top-3 h-7 w-7" asChild>
+          <UiDrawerClose class="absolute right-4 top-3 h-7 w-7" as-child>
             <UiButton variant="ghost" size="icon-sm" class="opacity-50 hover:opacity-100">
               <Icon name="lucide:x" />
             </UiButton>
@@ -159,5 +173,7 @@ We can add an image inside as well.
   };
 </script>
 ```
+
+<!-- /automd -->
 
 ::

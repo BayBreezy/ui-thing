@@ -16,7 +16,7 @@
     <slot name="iconLeft">
       <div
         v-if="icon && iconPlacement == 'left'"
-        className="w-0 flex items-center shrink-0 justify-center translate-x-[0%] pr-0 opacity-0 transition-all duration-200 group-hover:w-6 group-hover:translate-x-100 group-hover:pr-2 group-hover:opacity-100"
+        class="group-hover:translate-x-100 flex w-0 shrink-0 translate-x-[0%] items-center justify-center pr-0 opacity-0 transition-all duration-200 group-hover:w-6 group-hover:pr-2 group-hover:opacity-100"
       >
         <Icon :name="icon" class="size-5" />
       </div>
@@ -27,7 +27,7 @@
     <slot name="iconRight">
       <div
         v-if="icon && iconPlacement == 'right'"
-        className="w-0 flex items-center justify-center shrink-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-6 group-hover:translate-x-0 group-hover:pl-2 group-hover:opacity-100"
+        class="flex w-0 shrink-0 translate-x-[100%] items-center justify-center pl-0 opacity-0 transition-all duration-200 group-hover:w-6 group-hover:translate-x-0 group-hover:pl-2 group-hover:opacity-100"
       >
         <Icon :name="icon" class="size-5" />
       </div>

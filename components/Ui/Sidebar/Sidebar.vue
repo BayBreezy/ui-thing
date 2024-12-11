@@ -51,6 +51,7 @@
 </template>
 
 <script lang="ts">
+  import { VisuallyHidden } from "radix-vue";
   import type { VariantProps } from "tailwind-variants";
   import type { HTMLAttributes } from "vue";
 

@@ -28,6 +28,8 @@ npx ui-thing@latest add context-menu
 
 #code
 
+<!-- automd:file src="../../components/content/Docs/ContextMenu/DocsContextMenuBasic.vue" code lang="vue" -->
+
 ```vue [DocsContextMenuBasic.vue]
 <template>
   <UiContextMenu>
@@ -55,33 +57,33 @@ npx ui-thing@latest add context-menu
       <UiContextMenuSeparator />
       <UiContextMenuCheckboxItem
         v-model:checked="showBookmark"
-        @select="(e) => e.preventDefault()"
         title="Show Bookmarks Bar"
         inset
         shortcut="⌘⇧B"
+        @select="(e) => e.preventDefault()"
       />
       <UiContextMenuCheckboxItem
         v-model:checked="showFullUrls"
-        @select="(e) => e.preventDefault()"
         title="Show full URLs"
         inset
         shortcut="⌘⇧U"
+        @select="(e) => e.preventDefault()"
       />
       <UiContextMenuSeparator />
       <UiContextMenuLabel inset label="Choose a person" />
       <UiContextMenuSeparator />
       <UiContextMenuRadioGroup v-model="person">
         <UiContextMenuRadioItem
-          @select="(e) => e.preventDefault()"
           title="Paul Rafael"
           inset
           value="1"
+          @select="(e) => e.preventDefault()"
         />
         <UiContextMenuRadioItem
-          @select="(e) => e.preventDefault()"
           title="Sarah Lindsey"
           inset
           value="2"
+          @select="(e) => e.preventDefault()"
         />
       </UiContextMenuRadioGroup>
     </UiContextMenuContent>
@@ -95,6 +97,8 @@ npx ui-thing@latest add context-menu
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Checkbox Items
@@ -102,6 +106,8 @@ npx ui-thing@latest add context-menu
 ::ShowCase{component="DocsContextMenuCheckItems"}
 
 #code
+
+<!-- automd:file src="../../components/content/Docs/ContextMenu/DocsContextMenuCheckItems.vue" code lang="vue" -->
 
 ```vue [DocsContextMenuCheckItems.vue]
 <template>
@@ -118,12 +124,12 @@ npx ui-thing@latest add context-menu
       <UiContextMenuSeparator />
       <UiContextMenuGroup>
         <UiContextMenuCheckboxItem
-          inset
           v-for="hero in heroList"
           :key="hero.id"
-          @select="(e) => e.preventDefault()"
+          inset
           class="mb-1"
           :checked="selectedHeros.includes(hero.id)"
+          @select="(e) => e.preventDefault()"
           @click="
             selectedHeros.includes(hero.id)
               ? selectedHeros.splice(selectedHeros.indexOf(hero.id), 1)
@@ -164,6 +170,8 @@ npx ui-thing@latest add context-menu
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Radio Items
@@ -171,6 +179,8 @@ npx ui-thing@latest add context-menu
 ::ShowCase{component="DocsContextMenuRadioItems"}
 
 #code
+
+<!-- automd:file src="../../components/content/Docs/ContextMenu/DocsContextMenuRadioItems.vue" code lang="vue" -->
 
 ```vue [DocsContextMenuRadioItems.vue]
 <template>
@@ -217,5 +227,7 @@ npx ui-thing@latest add context-menu
   ];
 </script>
 ```
+
+<!-- /automd -->
 
 ::

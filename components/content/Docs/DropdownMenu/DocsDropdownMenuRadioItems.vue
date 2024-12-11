@@ -15,6 +15,7 @@
             :value="item"
             :title="item"
             :text-value="item"
+            @select="(e) => e.preventDefault()"
           />
         </UiDropdownMenuRadioGroup>
       </UiDropdownMenuContent>
