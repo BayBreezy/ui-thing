@@ -1,6 +1,7 @@
 ---
 title: Button
 description: A button is a component that is used to trigger an action.
+label: New Examples
 ---
 
 ## Source code
@@ -417,6 +418,388 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 <template>
   <div class="text-center">
     <UiButton variant="linkHover2">Link Hover 2</UiButton>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+## Origin UI Examples
+
+These are some examples that I found today over here [Origin UI](https://originui.com/buttons). I think they are cool.
+
+To use these examples you will have to copy the code and adjust it for your own use.
+
+### Animated Close Button
+
+::ShowCase{component="DocsButtonAnimatedMenu"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Button/DocsButtonAnimatedMenu.vue" code lang="vue" -->
+
+```vue [DocsButtonAnimatedMenu.vue]
+<template>
+  <div class="text-center">
+    <UiButton
+      @click="open = !open"
+      class="group"
+      variant="outline"
+      size="icon"
+      :aria-expanded="open"
+      :aria-label="open ? 'Close menu' : 'Open menu'"
+    >
+      <svg
+        class="pointer-events-none"
+        :width="16"
+        :height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 12L20 12"
+          class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
+        />
+        <path
+          d="M4 12H20"
+          class="origin-center transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.8)] group-aria-expanded:rotate-45"
+        />
+        <path
+          d="M4 12H20"
+          class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
+        />
+      </svg>
+    </UiButton>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const open = ref(false);
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Animated Rotate Plus
+
+::ShowCase{component="DocsButtonRotatePlus"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Button/DocsButtonRotatePlus.vue" code lang="vue" -->
+
+```vue [DocsButtonRotatePlus.vue]
+<template>
+  <div class="text-center">
+    <UiButton
+      @click="open = !open"
+      class="group rounded-full"
+      variant="outline"
+      size="icon"
+      :aria-expanded="open"
+      :aria-label="open ? 'Close menu' : 'Open menu'"
+    >
+      <Icon
+        name="lucide:plus"
+        class="size-4 transition-transform duration-500 [transition-timing-function:cubic-bezier(0.68,-0.6,0.32,1.6)] group-aria-expanded:rotate-[135deg]"
+      />
+    </UiButton>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const open = ref(false);
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Group Outline Counter
+
+::ShowCase{component="DocsButtonGroupOutlineCounter"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Button/DocsButtonGroupOutlineCounter.vue" code lang="vue" -->
+
+```vue [DocsButtonGroupOutlineCounter.vue]
+<template>
+  <div class="text-center">
+    <div class="inline-flex -space-x-px rounded-lg shadow-sm shadow-black/5 rtl:space-x-reverse">
+      <UiButton
+        @click="increment"
+        class="rounded-none shadow-none first:rounded-s-lg last:rounded-e-lg focus-visible:z-10"
+        variant="outline"
+        size="icon"
+        aria-label="Upvote"
+      >
+        <Icon name="lucide:chevron-up" class="size-4" :aria-hidden="true" />
+      </UiButton>
+      <span class="flex items-center border border-input px-3 text-sm font-medium">{{
+        counter
+      }}</span>
+      <UiButton
+        @click="decrement"
+        class="rounded-none shadow-none first:rounded-s-lg last:rounded-e-lg focus-visible:z-10"
+        variant="outline"
+        size="icon"
+        aria-label="Downvote"
+      >
+        <Icon name="lucide:chevron-down" class="size-4" :aria-hidden="true" />
+      </UiButton>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const counter = ref(256);
+  const increment = () => counter.value++;
+  const decrement = () => counter.value--;
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Volume Control
+
+::ShowCase{component="DocsButtonVolume"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Button/DocsButtonVolume.vue" code lang="vue" -->
+
+```vue [DocsButtonVolume.vue]
+<template>
+  <div class="text-center">
+    <div class="inline-flex items-center" role="group" aria-labelledby="volume-control">
+      <span id="volume-control" class="sr-only"> Volume Control </span>
+      <UiButton
+        class="rounded-full"
+        variant="outline"
+        size="icon"
+        aria-label="Decrease volume"
+        @click="decreaseVolume"
+        :disabled="volume === 0"
+      >
+        <Icon name="lucide:minus" size="16" aria-hidden="true" />
+      </UiButton>
+      <div class="flex items-center px-3 text-sm font-medium tabular-nums" aria-live="polite">
+        <Icon :name="VolumeIcon" size="16" aria-hidden="true" />
+        <span class="ms-2" :aria-label="`Current volume is ${volume}`">
+          {{ volume }}
+        </span>
+      </div>
+      <UiButton
+        class="rounded-full"
+        variant="outline"
+        size="icon"
+        aria-label="Increase volume"
+        @click="increaseVolume"
+        :disabled="volume === 6"
+      >
+        <Icon name="lucide:plus" size="16" aria-hidden="true" />
+      </UiButton>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const volume = ref(3);
+  const decreaseVolume = () => {
+    volume.value === 0 ? (volume.value = 0) : volume.value--;
+  };
+  const increaseVolume = () => {
+    volume.value === 6 ? (volume.value = 6) : volume.value++;
+  };
+
+  const VolumeIcon = computed(() =>
+    volume.value === 0
+      ? "lucide:volume-x"
+      : volume.value < 3
+        ? "lucide:volume"
+        : volume.value < 5
+          ? "lucide:volume-1"
+          : "lucide:volume-2"
+  );
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Animated Copy
+
+::ShowCase{component="DocsButtonAnimatedCopy"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Button/DocsButtonAnimatedCopy.vue" code lang="vue" -->
+
+```vue [DocsButtonAnimatedCopy.vue]
+<template>
+  <div class="text-center">
+    <UiTooltip>
+      <UiTooltipTrigger as-child>
+        <UiButton
+          variant="outline"
+          size="icon"
+          class="disabled:opacity-100"
+          @click="copy('string to copy')"
+          :aria-label="copied ? 'Copied' : 'Copy to clipboard'"
+          :disabled="copied"
+        >
+          <TransitionScale mode="out-in">
+            <Icon v-if="!copied" name="lucide:copy" size="16" aria-hidden="true" />
+            <Icon
+              v-else
+              name="lucide:check"
+              size="16"
+              aria-hidden="true"
+              class="text-emerald-500"
+            />
+          </TransitionScale>
+        </UiButton>
+      </UiTooltipTrigger>
+      <UiTooltipContent align="center" class="px-2 py-1 text-xs"> Click to copy </UiTooltipContent>
+    </UiTooltip>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const { copied, copy } = useClipboard();
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Upload Button w/ Icon
+
+::ShowCase{component="DocsButtonUpload"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Button/DocsButtonUpload.vue" code lang="vue" -->
+
+```vue [DocsButtonUpload.vue]
+<template>
+  <div class="mx-auto text-center">
+    <div class="inline-flex items-center gap-2 align-top">
+      <div
+        class="relative flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-input"
+        :aria-label="previewUrl ? 'Preview of uploaded image' : 'Default user avatar'"
+      >
+        <Icon
+          v-if="!previewUrl"
+          aria-hidden="true"
+          class="size-4 opacity-60"
+          name="lucide:circle-user"
+        />
+
+        <img
+          v-if="previewUrl"
+          :src="previewUrl"
+          alt="Preview of uploaded image"
+          class="size-full object-cover"
+        />
+      </div>
+      <div class="relative inline-block">
+        <UiButton @click="open()" aria-haspopup="dialog">
+          {{ fileName ? "Change image" : "Upload image" }}
+        </UiButton>
+      </div>
+    </div>
+
+    <TransitionExpand>
+      <div v-if="fileName" class="mt-2">
+        <div class="inline-flex gap-2 text-xs">
+          <p class="truncate text-muted-foreground" aria-live="polite">
+            {{ fileName }}
+          </p>
+          <button
+            @click="handleRemove"
+            class="font-medium text-red-500 hover:underline"
+            :aria-label="`Remove ${fileName}`"
+          >
+            Remove
+          </button>
+        </div>
+      </div>
+    </TransitionExpand>
+
+    <div class="sr-only" aria-live="polite" role="status">
+      {{ previewUrl ? "Image uploaded and preview available" : "No image uploaded" }}
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const { open, onChange } = useFileDialog({ accept: "image/*", multiple: false, reset: true });
+  const previewUrl = ref<string | null>(null);
+  const fileName = ref<string | null>(null);
+  onChange(async (files) => {
+    if (!files) return;
+    const file = files[0];
+    if (!file) return;
+    fileName.value = file.name;
+    const { execute } = useBase64(file);
+    previewUrl.value = await execute();
+  });
+
+  const handleRemove = () => {
+    previewUrl.value = null;
+    fileName.value = null;
+  };
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Arrows
+
+::ShowCase{component="DocsButtonArrows"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Button/DocsButtonArrows.vue" code lang="vue" -->
+
+```vue [DocsButtonArrows.vue]
+<template>
+  <div class="text-center">
+    <div class="inline-grid w-fit grid-cols-3 gap-1">
+      <UiButton class="col-start-2" variant="outline" size="icon" aria-label="Pan camera up">
+        <Icon name="lucide:chevron-up" class="size-4" aria-hidden="true" />
+      </UiButton>
+      <UiButton class="col-start-1" variant="outline" size="icon" aria-label="Pan camera left">
+        <Icon name="lucide:chevron-left" class="size-4" aria-hidden="true" />
+      </UiButton>
+      <div class="flex items-center justify-center" aria-hidden="true">
+        <Icon name="lucide:circle" class="size-5 opacity-60" />
+      </div>
+      <UiButton variant="outline" size="icon" aria-label="Pan camera right">
+        <Icon name="lucide:chevron-right" class="size-4" aria-hidden="true" />
+      </UiButton>
+      <UiButton class="col-start-2" variant="outline" size="icon" aria-label="Pan camera down">
+        <Icon name="lucide:chevron-down" class="size-4" aria-hidden="true" />
+      </UiButton>
+    </div>
   </div>
 </template>
 ```

@@ -198,12 +198,12 @@ npx ui-thing@latest add dropdown-menu
         <UiDropdownMenuSeparator />
         <UiDropdownMenuRadioGroup v-model="placement">
           <UiDropdownMenuRadioItem
-            @select="(e) => e.preventDefault()"
             v-for="item in placements"
             :key="item"
             :value="item"
             :title="item"
             :text-value="item"
+            @select="(e) => e.preventDefault()"
           />
         </UiDropdownMenuRadioGroup>
       </UiDropdownMenuContent>

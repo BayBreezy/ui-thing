@@ -3,6 +3,23 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## December 11, 2024 - More Examples & Refactor
+
+### Refactor
+
+In this update, I made some minor fixes to some components that were using `className` instead of `class`.
+
+Some of the code examples were also updated:
+
+- [Dropdown Menu](/components/dropdownmenu)
+- [Navigation Menu](/components/navigationmenu)
+- [Sidebar](/components/sidebar)
+- [Stepper](/components/stepper)
+
+### Button Examples
+
+I added more button examples to the [Button](/components/button) page. Shoutout to the [Origin UI](https://originui.com/) team for providing these examples 🙏.
+
 ## December 1, 2024 - VueForm Slider
 
 Let me start by giving credit to the [VueForm Slider](https://github.com/vueform/slider) creators ❤️.
