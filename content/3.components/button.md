@@ -444,12 +444,12 @@ To use these examples you will have to copy the code and adjust it for your own 
 <template>
   <div class="text-center">
     <UiButton
-      @click="open = !open"
       class="group"
       variant="outline"
       size="icon"
       :aria-expanded="open"
       :aria-label="open ? 'Close menu' : 'Open menu'"
+      @click="open = !open"
     >
       <svg
         class="pointer-events-none"
@@ -501,12 +501,12 @@ To use these examples you will have to copy the code and adjust it for your own 
 <template>
   <div class="text-center">
     <UiButton
-      @click="open = !open"
       class="group rounded-full"
       variant="outline"
       size="icon"
       :aria-expanded="open"
       :aria-label="open ? 'Close menu' : 'Open menu'"
+      @click="open = !open"
     >
       <Icon
         name="lucide:plus"
@@ -538,11 +538,11 @@ To use these examples you will have to copy the code and adjust it for your own 
   <div class="text-center">
     <div class="inline-flex -space-x-px rounded-lg shadow-sm shadow-black/5 rtl:space-x-reverse">
       <UiButton
-        @click="increment"
         class="rounded-none shadow-none first:rounded-s-lg last:rounded-e-lg focus-visible:z-10"
         variant="outline"
         size="icon"
         aria-label="Upvote"
+        @click="increment"
       >
         <Icon name="lucide:chevron-up" class="size-4" :aria-hidden="true" />
       </UiButton>
@@ -550,11 +550,11 @@ To use these examples you will have to copy the code and adjust it for your own 
         counter
       }}</span>
       <UiButton
-        @click="decrement"
         class="rounded-none shadow-none first:rounded-s-lg last:rounded-e-lg focus-visible:z-10"
         variant="outline"
         size="icon"
         aria-label="Downvote"
+        @click="decrement"
       >
         <Icon name="lucide:chevron-down" class="size-4" :aria-hidden="true" />
       </UiButton>
@@ -591,8 +591,8 @@ To use these examples you will have to copy the code and adjust it for your own 
         variant="outline"
         size="icon"
         aria-label="Decrease volume"
-        @click="decreaseVolume"
         :disabled="volume === 0"
+        @click="decreaseVolume"
       >
         <Icon name="lucide:minus" size="16" aria-hidden="true" />
       </UiButton>
@@ -607,8 +607,8 @@ To use these examples you will have to copy the code and adjust it for your own 
         variant="outline"
         size="icon"
         aria-label="Increase volume"
-        @click="increaseVolume"
         :disabled="volume === 6"
+        @click="increaseVolume"
       >
         <Icon name="lucide:plus" size="16" aria-hidden="true" />
       </UiButton>
@@ -619,10 +619,12 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const volume = ref(3);
   const decreaseVolume = () => {
-    volume.value === 0 ? (volume.value = 0) : volume.value--;
+    if (volume.value === 0) return;
+    volume.value--;
   };
   const increaseVolume = () => {
-    volume.value === 6 ? (volume.value = 6) : volume.value++;
+    if (volume.value === 6) return;
+    volume.value++;
   };
 
   const VolumeIcon = computed(() =>
@@ -658,9 +660,9 @@ To use these examples you will have to copy the code and adjust it for your own 
           variant="outline"
           size="icon"
           class="disabled:opacity-100"
-          @click="copy('string to copy')"
           :aria-label="copied ? 'Copied' : 'Copy to clipboard'"
           :disabled="copied"
+          @click="copy('string to copy')"
         >
           <TransitionScale mode="out-in">
             <Icon v-if="!copied" name="lucide:copy" size="16" aria-hidden="true" />
@@ -719,7 +721,7 @@ To use these examples you will have to copy the code and adjust it for your own 
         />
       </div>
       <div class="relative inline-block">
-        <UiButton @click="open()" aria-haspopup="dialog">
+        <UiButton aria-haspopup="dialog" @click="open()">
           {{ fileName ? "Change image" : "Upload image" }}
         </UiButton>
       </div>
@@ -732,9 +734,9 @@ To use these examples you will have to copy the code and adjust it for your own 
             {{ fileName }}
           </p>
           <button
-            @click="handleRemove"
             class="font-medium text-red-500 hover:underline"
             :aria-label="`Remove ${fileName}`"
+            @click="handleRemove"
           >
             Remove
           </button>

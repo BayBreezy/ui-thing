@@ -42,6 +42,7 @@
 
   const emits = defineEmits<{
     complete: [value: string[]];
+    "update:modelValue": [value: string[]];
   }>();
 
   const forwarded = reactiveOmit(

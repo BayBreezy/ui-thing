@@ -145,3 +145,47 @@ npx ui-thing@latest add alert-dialog
 <!-- /automd -->
 
 ::
+
+### Alert w/ Icon
+
+::ShowCase{component="DocsAlertDialogWithIcon"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/AlertDialog/DocsAlertDialogWithIcon.vue" code lang="vue" -->
+
+```vue [DocsAlertDialogWithIcon.vue]
+<template>
+  <div>
+    <UiAlertDialog>
+      <UiAlertDialogTrigger as-child>
+        <UiButton variant="outline">Alert dialog with icon</UiButton>
+      </UiAlertDialogTrigger>
+      <UiAlertDialogContent>
+        <div class="flex flex-col gap-2 max-sm:items-center sm:flex-row sm:gap-4">
+          <div
+            class="flex size-9 shrink-0 items-center justify-center rounded-full border border-border"
+            aria-hidden="true"
+          >
+            <Icon name="lucide:circle-alert" class="size-4 opacity-80" />
+          </div>
+          <UiAlertDialogHeader>
+            <UiAlertDialogTitle>Are you sure?</UiAlertDialogTitle>
+            <UiAlertDialogDescription>
+              Are you sure you want to delete your account? All your data will be removed.
+            </UiAlertDialogDescription>
+          </UiAlertDialogHeader>
+        </div>
+        <UiAlertDialogFooter>
+          <UiAlertDialogCancel>Cancel</UiAlertDialogCancel>
+          <UiAlertDialogAction>Confirm</UiAlertDialogAction>
+        </UiAlertDialogFooter>
+      </UiAlertDialogContent>
+    </UiAlertDialog>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::

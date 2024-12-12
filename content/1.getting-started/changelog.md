@@ -20,6 +20,10 @@ Some of the code examples were also updated:
 
 I added more button examples to the [Button](/components/button) page. Shoutout to the [Origin UI](https://originui.com/) team for providing these examples 🙏.
 
+### Dialogs
+
+Some dialog examples were added to the [Dialog](/components/dialog) page. These examples are taken from the [Origin UI](https://originui.com/) library as well. I hope to add some more examples soon.
+
 ## December 1, 2024 - VueForm Slider
 
 Let me start by giving credit to the [VueForm Slider](https://github.com/vueform/slider) creators ❤️.

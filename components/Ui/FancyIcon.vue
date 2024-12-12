@@ -1,7 +1,7 @@
 <template>
   <div :class="styles().base({ class: props.class, color, type, size, circle })">
     <slot :styles="styles().icon({ color, type, size, circle })">
-      <Icon :name="icon" :class="styles().icon({ color, type, size, circle })" />
+      <Icon v-if="icon" :name="icon" :class="styles().icon({ color, type, size, circle })" />
     </slot>
   </div>
 </template>
@@ -10,7 +10,7 @@
   const props = withDefaults(
     defineProps<{
       class?: any;
-      icon: string;
+      icon?: string;
       color?: VariantProps<typeof styles>["color"];
       type?: VariantProps<typeof styles>["type"];
       size?: VariantProps<typeof styles>["size"];
