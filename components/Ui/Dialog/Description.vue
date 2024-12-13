@@ -18,6 +18,6 @@
   >();
   const forwarded = reactiveOmit(props, "class", "description");
   const styles = tv({
-    base: "text-sm text-muted-foreground",
+    base: "text-base text-muted-foreground md:text-sm",
   });
 </script>

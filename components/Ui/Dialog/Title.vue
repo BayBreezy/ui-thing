@@ -18,6 +18,6 @@
   >();
   const forwarded = reactiveOmit(props, "class", "title");
   const styles = tv({
-    base: "text-lg font-semibold leading-none tracking-tight",
+    base: "text-xl font-semibold leading-none tracking-tight md:text-lg",
   });
 </script>
