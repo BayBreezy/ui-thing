@@ -18,38 +18,28 @@
         </div>
 
         <form class="space-y-5">
-          <div class="space-y-4">
-            <UiRadioGroup class="grid-cols-2" default-value="yearly">
-              <!-- Monthly -->
+          <div class="space-y-6 md:space-y-4">
+            <UiRadioGroup orientation="horizontal" class="grid-cols-2" default-value="yearly">
               <label
-                class="relative flex cursor-pointer flex-col gap-1 rounded-lg border border-input px-4 py-3 shadow-sm shadow-black/5 outline-offset-2 transition-colors has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent/70 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring/70"
+                v-for="plan in plans"
+                :key="plan.id"
+                :for="`radio-${plan.id}`"
+                class="relative flex cursor-pointer flex-col gap-1 rounded-lg border border-input p-4 shadow-sm shadow-black/5 outline-offset-2 transition-colors has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent/70 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring/70"
               >
                 <UiRadioGroupItem
-                  id="radio-monthly"
-                  value="monthly"
-                  class="sr-only after:absolute after:inset-0"
-                />
-                <p class="text-sm font-medium text-foreground">Monthly</p>
-                <p class="text-sm text-muted-foreground">$32/month</p>
-              </label>
-              <!-- Yearly -->
-              <label
-                class="relative flex cursor-pointer flex-col gap-1 rounded-lg border border-input px-4 py-3 shadow-sm shadow-black/5 outline-offset-2 transition-colors has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent/70 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring/70"
-              >
-                <UiRadioGroupItem
-                  id="radio-yearly"
-                  value="yearly"
+                  :id="`radio-${plan.id}`"
+                  :value="plan.id"
                   class="sr-only after:absolute after:inset-0"
                 />
                 <div class="inline-flex items-start justify-between gap-2">
-                  <p class="text-sm font-medium text-foreground">Yearly</p>
-                  <UiBadge>Popular</UiBadge>
+                  <p class="font-medium text-foreground md:text-sm">{{ plan.name }}</p>
+                  <UiBadge v-if="plan.popular">Popular</UiBadge>
                 </div>
-                <p class="text-sm text-muted-foreground">$320/month</p>
+                <p class="text-sm text-muted-foreground">{{ plan.price }}</p>
               </label>
             </UiRadioGroup>
-            <UiVeeInput name="nameOnCard" label="Name on card" required />
 
+            <UiVeeInput name="nameOnCard" label="Name on card" required />
             <div class="space-y-2">
               <legend class="text-sm font-medium text-foreground">Card Details</legend>
               <div class="rounded-lg shadow-sm shadow-black/5">
@@ -89,7 +79,7 @@
             <button
               v-if="!showCouponInput"
               type="button"
-              class="text-sm underline hover:no-underline"
+              class="text-base underline underline-offset-2 hover:no-underline md:text-sm"
               @click="showCouponInput = true"
             >
               + Add coupon
@@ -112,4 +102,8 @@
 
 <script lang="ts" setup>
   const showCouponInput = ref(false);
+  const plans = [
+    { id: "monthly", name: "Monthly", price: "$32/month", popular: false },
+    { id: "yearly", name: "Yearly", price: "$320/month", popular: true },
+  ];
 </script>
