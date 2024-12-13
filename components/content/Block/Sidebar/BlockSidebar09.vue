@@ -96,7 +96,7 @@
                   <UiDropdownMenuGroup>
                     <UiDropdownMenuItem icon="lucide:sparkles" title="Upgrade to Pro" />
                   </UiDropdownMenuGroup>
-                  <DropdownMenuSeparator />
+                  <UiDropdownMenuSeparator />
                   <UiDropdownMenuGroup>
                     <UiDropdownMenuItem icon="lucide:badge-check" title="Account" />
                     <UiDropdownMenuItem icon="lucide:credit-card" title="Billing" />

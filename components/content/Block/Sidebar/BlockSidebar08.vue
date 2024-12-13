@@ -148,7 +148,7 @@
                     <Icon name="lucide:forward" class="text-muted-foreground" />
                     <span>Share Project</span>
                   </UiDropdownMenuItem>
-                  <DropdownMenuSeparator />
+                  <UiDropdownMenuSeparator />
                   <UiDropdownMenuItem>
                     <Icon name="lucide:trash-2" class="text-muted-foreground" />
                     <span>Delete Project</span>
@@ -228,7 +228,7 @@
                 <UiDropdownMenuGroup>
                   <UiDropdownMenuItem icon="lucide:sparkles" title="Upgrade to Pro" />
                 </UiDropdownMenuGroup>
-                <DropdownMenuSeparator />
+                <UiDropdownMenuSeparator />
                 <UiDropdownMenuGroup>
                   <UiDropdownMenuItem icon="lucide:badge-check" title="Account" />
                   <UiDropdownMenuItem icon="lucide:credit-card" title="Billing" />
