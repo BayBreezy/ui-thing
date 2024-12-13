@@ -156,7 +156,7 @@ npx ui-thing@latest add alert-dialog
 
 ```vue [DocsAlertDialogWithIcon.vue]
 <template>
-  <div>
+  <div class="flex justify-center">
     <UiAlertDialog>
       <UiAlertDialogTrigger as-child>
         <UiButton variant="outline">Alert dialog with icon</UiButton>

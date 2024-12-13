@@ -934,6 +934,18 @@ export default [
           '<template>\n  <DrawerRoot v-bind="forwarded">\n    <slot />\n  </DrawerRoot>\n</template>\n\n<script lang="ts" setup>\n  import { useForwardPropsEmits } from "radix-vue";\n  import { DrawerRoot } from "vaul-vue";\n  import type { DrawerRootEmits, DrawerRootProps } from "vaul-vue";\n\n  const props = defineProps<DrawerRootProps>();\n  const emits = defineEmits<DrawerRootEmits>();\n  const forwarded = useForwardPropsEmits(props, emits);\n</script>\n',
       },
       {
+        fileName: "Drawer/Footer.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <Primitive v-bind="forwarded" :class="drawerFooterStyles({ class: props.class })">\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { reactiveOmit } from "@vueuse/core";\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  export const drawerFooterStyles = tv({\n    base: "mt-auto flex flex-col gap-2 p-4",\n  });\n\n  export type DrawerHeaderProps = PrimitiveProps & {\n    /**\n     * Classes to add to the parent.\n     */\n    class?: any;\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<DrawerHeaderProps>(), {\n    as: "div",\n  });\n  const forwarded = useForwardProps(reactiveOmit(props, ["class"]));\n</script>\n',
+      },
+      {
+        fileName: "Drawer/Header.vue",
+        dirPath: "components/UI",
+        fileContent:
+          '<template>\n  <Primitive v-bind="forwarded" :class="drawerHeaderStyles({ class: props.class })">\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { reactiveOmit } from "@vueuse/core";\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  export const drawerHeaderStyles = tv({\n    base: "grid gap-1.5 p-4 text-center sm:text-left",\n  });\n\n  export type DrawerHeaderProps = PrimitiveProps & {\n    /**\n     * Classes to add to the header.\n     */\n    class?: any;\n  };\n</script>\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<DrawerHeaderProps>(), {\n    as: "div",\n  });\n  const forwarded = useForwardProps(reactiveOmit(props, ["class"]));\n</script>\n',
+      },
+      {
         fileName: "Drawer/Overlay.vue",
         dirPath: "components/UI",
         fileContent:

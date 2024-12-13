@@ -234,6 +234,8 @@ export default [
       "Drawer/Content.vue",
       "Drawer/Description.vue",
       "Drawer/Drawer.vue",
+      "Drawer/Footer.vue",
+      "Drawer/Header.vue",
       "Drawer/Overlay.vue",
       "Drawer/Portal.vue",
       "Drawer/Title.vue",

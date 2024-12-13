@@ -31,7 +31,7 @@ We can bring the different components together to make a simple drawer.
 ```vue [DocsDrawerBasic.vue]
 <template>
   <div class="text-center">
-    <UiDrawer>
+    <UiDrawer should-scale-background>
       <UiDrawerTrigger as-child>
         <UiButton variant="outline">Open Drawer</UiButton>
       </UiDrawerTrigger>
@@ -171,6 +171,81 @@ We can add an image inside as well.
   const showMessage = (message: string) => {
     useSonner(message);
   };
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Responsive Dialog
+
+You can combine the `Dialog` and `Drawer` components to create a responsive dialog. This renders a `Dialog` component on desktop and a `Drawer` on mobile.
+
+::ShowCase{component="DocsDrawerResponsiveDialog"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Drawer/DocsDrawerResponsiveDialog.vue" code lang="vue" -->
+
+```vue [DocsDrawerResponsiveDialog.vue]
+<template>
+  <div class="flex justify-center">
+    <DefinedForm>
+      <form class="">
+        <fieldset class="grid items-start gap-4">
+          <UiVeeInput name="email" label="Email" type="email" model-value="baybreezy@example.com" />
+          <UiVeeInput name="username" label="Username" model-value="baybreezy" />
+          <UiButton type="submit"> Save changes </UiButton>
+        </fieldset>
+      </form>
+    </DefinedForm>
+
+    <UiDialog v-if="isDesktop" v-model:open="isOpen">
+      <UiDialogTrigger as-child>
+        <UiButton variant="outline" text="Edit Profile" />
+      </UiDialogTrigger>
+      <UiDialogContent class="sm:max-w-[400px]">
+        <UiDialogHeader>
+          <UiDialogTitle>Edit profile</UiDialogTitle>
+          <UiDialogDescription>
+            Make changes to your profile here. Click save when you're done.
+          </UiDialogDescription>
+        </UiDialogHeader>
+        <ReusableForm />
+      </UiDialogContent>
+    </UiDialog>
+
+    <UiDrawer v-else v-model:open="isOpen" should-scale-background>
+      <UiDrawerTrigger as-child>
+        <UiButton variant="outline" text="Edit Profile" />
+      </UiDrawerTrigger>
+      <UiDrawerContent class="mx-2">
+        <UiDrawerHeader class="text-left">
+          <UiDrawerTitle>Edit profile</UiDrawerTitle>
+          <UiDrawerDescription>
+            Make changes to your profile here. Click save when you're done.
+          </UiDrawerDescription>
+        </UiDrawerHeader>
+        <div class="px-4">
+          <ReusableForm />
+        </div>
+        <UiDrawerFooter class="pt-2">
+          <UiDrawerClose as-child>
+            <UiButton variant="outline"> Cancel </UiButton>
+          </UiDrawerClose>
+        </UiDrawerFooter>
+      </UiDrawerContent>
+    </UiDrawer>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  // Reuse `form` section
+  const [DefinedForm, ReusableForm] = createReusableTemplate();
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+
+  const isOpen = ref(false);
 </script>
 ```
 

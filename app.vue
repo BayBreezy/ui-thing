@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div vaul-drawer-wrapper>
     <NuxtPwaManifest />
     <NuxtLoadingIndicator />
     <NuxtPage />

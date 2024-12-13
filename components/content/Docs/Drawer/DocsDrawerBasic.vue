@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <UiDrawer>
+    <UiDrawer should-scale-background>
       <UiDrawerTrigger as-child>
         <UiButton variant="outline">Open Drawer</UiButton>
       </UiDrawerTrigger>

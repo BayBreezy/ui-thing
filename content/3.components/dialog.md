@@ -746,10 +746,10 @@ I just made them work with my setup.
           </UiDialogHeader>
         </div>
         <UiDialogFooter class="border-t border-border px-6 py-4">
-          <UiDialogClose asChild>
+          <UiDialogClose as-child>
             <UiButton type="button" variant="outline" text="Cancel" />
           </UiDialogClose>
-          <UiDialogClose asChild>
+          <UiDialogClose as-child>
             <UiButton type="button" text="Okay" />
           </UiDialogClose>
         </UiDialogFooter>
@@ -929,7 +929,7 @@ I just made them work with my setup.
 <template>
   <div class="flex justify-center">
     <UiDialog>
-      <UiDialogTrigger asChild>
+      <UiDialogTrigger as-child>
         <UiButton variant="outline">Newsletter</UiButton>
       </UiDialogTrigger>
       <UiDialogContent class="sm:max-w-[400px]">
@@ -996,7 +996,7 @@ I just made them work with my setup.
 <template>
   <div class="flex justify-center">
     <UiDialog>
-      <UiDialogTrigger asChild>
+      <UiDialogTrigger as-child>
         <UiButton variant="outline">Feedback</UiButton>
       </UiDialogTrigger>
       <UiDialogContent class="max-w-[430px]">
@@ -1040,7 +1040,7 @@ I just made them work with my setup.
 <template>
   <div class="flex justify-center">
     <UiDialog>
-      <UiDialogTrigger asChild>
+      <UiDialogTrigger as-child>
         <UiButton variant="outline">Rating</UiButton>
       </UiDialogTrigger>
       <UiDialogContent
@@ -1088,8 +1088,8 @@ I just made them work with my setup.
               </div>
 
               <UiVeeTextarea
-                label="Why did you give this rating?"
                 id="feedback"
+                label="Why did you give this rating?"
                 placeholder="How can we improve UI Thing?"
                 aria-label="Send feedback"
               />
@@ -1162,7 +1162,7 @@ I just made them work with my setup.
           <div v-else class="space-y-4">
             <div class="flex justify-center">
               <div>
-                <UiVeePinInput v-model="value" @complete="checkCode" otp :input-count="4" />
+                <UiVeePinInput v-model="value" otp :input-count="4" @complete="checkCode" />
               </div>
             </div>
 
@@ -1222,43 +1222,47 @@ I just made them work with my setup.
 ```vue [DocsDialogSignUp.vue]
 <template>
   <div class="flex justify-center">
-    <UiDialog>
-      <UiDialogTrigger asChild>
+    <UiDialog v-model:open="open">
+      <UiDialogTrigger as-child>
         <UiButton variant="outline">Sign up</UiButton>
       </UiDialogTrigger>
-      <UiDialogContent>
-        <div class="flex flex-col items-center gap-2">
-          <UiFancyIcon icon="">
-            <Icon name="lucide:circle" mode="svg" class="fill-foreground" />
+      <UiDialogContent class="max-w-[400px] gap-4">
+        <div class="flex flex-col items-center gap-4">
+          <UiFancyIcon circle>
+            <Icon name="lucide:user" mode="svg" />
           </UiFancyIcon>
-          <UiDialogHeader>
-            <UiDialogTitle class="sm:text-center">Sign up Origin UI</UiDialogTitle>
+          <UiDialogHeader class="mb-6">
+            <UiDialogTitle class="sm:text-center">Sign up UI Thing</UiDialogTitle>
             <UiDialogDescription class="sm:text-center">
               We just need a few details to get you started.
             </UiDialogDescription>
           </UiDialogHeader>
         </div>
 
-        <form class="space-y-5">
-          <fieldset class="grid grid-cols-1 gap-4">
-            <UiVeeInput label="Full name" placeholder="John Doe" required />
-            <UiVeeInput label="Email" placeholder="hi@mycompany.com" type="email" required />
+        <form @submit="submit">
+          <fieldset :disabled="isSubmitting" class="grid grid-cols-1 gap-4">
+            <UiVeeInput label="Full name" placeholder="John Doe" name="fullName" required />
+            <UiVeeInput
+              label="Email"
+              placeholder="hi@mycompany.com"
+              name="email"
+              type="email"
+              required
+            />
             <UiVeeInput
               label="Password"
               placeholder="Enter your password"
+              name="password"
               type="password"
               required
             />
+            <UiButton type="submit" class="w-full"> Sign up </UiButton>
+            <UiDivider label="Or" />
+            <UiButton variant="outline" type="button" class="w-full"
+              ><Icon name="logos:google-icon" /> Continue with Google</UiButton
+            >
           </fieldset>
-          <UiButton type="submit" class="w-full"> Sign up </UiButton>
         </form>
-
-        <UiDivider label="or" />
-
-        <UiButton variant="outline"
-          ><Icon name="logos:google-icon" /> Continue with Google</UiButton
-        >
-
         <p class="text-center text-xs text-muted-foreground">
           By signing up you agree to our <a class="underline hover:no-underline" href="#">Terms</a>.
         </p>
@@ -1267,7 +1271,523 @@ I just made them work with my setup.
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { z } from "zod";
+
+  const { handleSubmit, isSubmitting } = useForm({
+    name: "dialog-sign-up",
+    validationSchema: toTypedSchema(
+      z.object({
+        fullName: z.string().min(3).max(50),
+        email: z.string().email(),
+        password: z.string().min(8).max(50),
+      })
+    ),
+  });
+
+  const open = defineModel<boolean>({ default: false });
+
+  const submit = handleSubmit(async (values) => {
+    try {
+      useSonner.success("You have successfully signed up", {
+        description: `Welcome ${values.fullName}`,
+      });
+      open.value = false;
+    } catch (error: any) {
+      useSonner.error("An error occurred while signing up", {
+        description: error.message,
+      });
+    }
+  });
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Sign In
+
+::ShowCase{component="DocsDialogSignIn"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogSignIn.vue" code lang="vue" -->
+
+```vue [DocsDialogSignIn.vue]
+<template>
+  <div class="flex justify-center">
+    <UiDialog v-model:open="open">
+      <UiDialogTrigger as-child>
+        <UiButton variant="outline">Sign in</UiButton>
+      </UiDialogTrigger>
+      <UiDialogContent class="max-w-[400px] gap-4">
+        <div class="flex flex-col items-center gap-4">
+          <UiFancyIcon circle>
+            <Icon name="lucide:user" mode="svg" />
+          </UiFancyIcon>
+          <UiDialogHeader class="mb-6">
+            <UiDialogTitle class="sm:text-center">Welcome back</UiDialogTitle>
+            <UiDialogDescription class="sm:text-center"
+              >Enter your credentials to login to your account.</UiDialogDescription
+            >
+          </UiDialogHeader>
+        </div>
+
+        <form @submit="submit">
+          <fieldset :disabled="isSubmitting" class="grid grid-cols-1 gap-4">
+            <UiVeeInput
+              label="Email"
+              placeholder="hi@mycompany.com"
+              name="email"
+              type="email"
+              required
+            />
+            <UiVeeInput
+              label="Password"
+              placeholder="Enter your password"
+              name="password"
+              type="password"
+              required
+            />
+            <div class="flex items-center justify-between py-2">
+              <UiVeeCheckbox name="rememberMe" label="Remember me" />
+              <NuxtLink class="text-sm underline underline-offset-2" to="#"
+                >Forgot password?</NuxtLink
+              >
+            </div>
+            <UiButton type="submit" class="w-full" text="Sign in" />
+            <UiDivider label="Or" />
+            <UiButton variant="outline" type="button" class="w-full"
+              ><Icon name="logos:google-icon" /> Sign in with Google</UiButton
+            >
+          </fieldset>
+        </form>
+        <p class="text-center text-xs text-muted-foreground">
+          By logging in, you agree to our
+          <a class="underline hover:no-underline" href="#">Terms</a>.
+        </p>
+      </UiDialogContent>
+    </UiDialog>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import { z } from "zod";
+
+  const { handleSubmit, isSubmitting } = useForm({
+    name: "dialog-sign-in",
+    validationSchema: toTypedSchema(
+      z.object({
+        email: z.string().email(),
+        password: z.string().min(8).max(50),
+        rememberMe: z.boolean().optional().default(true),
+      })
+    ),
+  });
+
+  const open = defineModel<boolean>({ default: false });
+
+  const submit = handleSubmit(async () => {
+    try {
+      useSonner.success("You have successfully signed in", {
+        description: `Welcome back!`,
+      });
+      open.value = false;
+    } catch (error: any) {
+      useSonner.error("An error occurred while signing in", {
+        description: error.message,
+      });
+    }
+  });
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Invite Members
+
+::ShowCase{component="DocsDialogInviteMembers"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogInviteMembers.vue" code lang="vue" -->
+
+```vue [DocsDialogInviteMembers.vue]
+<template>
+  <div class="flex justify-center">
+    <UiDialog v-model:open="open">
+      <UiDialogTrigger as-child>
+        <UiButton variant="outline" text="Invite members" />
+      </UiDialogTrigger>
+      <UiDialogContent class="max-w-[400px] gap-4">
+        <div class="flex flex-col gap-4">
+          <UiFancyIcon circle>
+            <Icon name="lucide:user-round-plus" mode="svg" />
+          </UiFancyIcon>
+          <UiDialogHeader class="*:text-left">
+            <UiDialogTitle>Invite team members</UiDialogTitle>
+            <UiDialogDescription>Invite teammates to earn free components.</UiDialogDescription>
+          </UiDialogHeader>
+        </div>
+
+        <form @submit="submit">
+          <UiLabel>Invite via email</UiLabel>
+
+          <fieldset :disabled="isSubmitting" class="mt-2 grid grid-cols-1 gap-4">
+            <UiScrollArea type="auto" class="max-h-[300px] pr-3">
+              <TransitionSlide
+                :offset="[0, 16]"
+                :move-duration="300"
+                group
+                class="grid grid-cols-1 p-1"
+              >
+                <template v-for="(field, idx) in fields" :key="field.key">
+                  <div class="flex items-center gap-2 pb-4">
+                    <UiVeeInput
+                      v-model="field.value as string"
+                      placeholder="hi@mycompany.com"
+                      type="email"
+                      required
+                    />
+                    <UiButton
+                      v-if="fields.length > 1"
+                      class="shrink-0"
+                      size="icon"
+                      variant="ghost"
+                      @click="remove(idx)"
+                    >
+                      <span class="sr-only">Delete this record</span>
+                      <Icon class="text-muted-foreground" name="lucide:trash-2" size="16" />
+                    </UiButton>
+                  </div>
+                </template>
+              </TransitionSlide>
+            </UiScrollArea>
+            <div>
+              <button
+                type="button"
+                class="text-sm underline underline-offset-2 hover:no-underline"
+                @click="prepend('')"
+              >
+                <span>+ Add another</span>
+              </button>
+            </div>
+            <UiButton type="submit" class="w-full" text="Send invites" />
+          </fieldset>
+        </form>
+        <UiDivider class="mt-2" />
+        <UiVeeInput
+          label="Invite via magic link"
+          readonly
+          model-value="https://ui-thing.com/refer/87689"
+        >
+          <template #trailingIcon>
+            <UiTooltip>
+              <UiTooltipTrigger as-child>
+                <button
+                  type="button"
+                  class="absolute inset-y-0 right-3 flex items-center justify-center disabled:opacity-100"
+                  :aria-label="copied ? 'Copied' : 'Copy to clipboard'"
+                  :disabled="copied"
+                  @click="copy('https://ui-thing.com/refer/87689')"
+                >
+                  <TransitionScale mode="out-in">
+                    <Icon
+                      v-if="!copied"
+                      class="text-muted-foreground/60"
+                      name="lucide:copy"
+                      size="16"
+                      aria-hidden="true"
+                    />
+                    <Icon
+                      v-else
+                      name="lucide:check"
+                      size="16"
+                      aria-hidden="true"
+                      class="text-emerald-500"
+                    />
+                  </TransitionScale>
+                </button>
+              </UiTooltipTrigger>
+              <UiTooltipContent align="center" class="px-2 py-1 text-xs">
+                Click to copy
+              </UiTooltipContent>
+            </UiTooltip>
+          </template>
+        </UiVeeInput>
+      </UiDialogContent>
+    </UiDialog>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import { z } from "zod";
+
+  const { copied, copy } = useClipboard();
+  const { handleSubmit, isSubmitting } = useForm({
+    name: "dialog-invite-members",
+    initialValues: {
+      members: ["", "mur@ha.pw"],
+    },
+    validationSchema: toTypedSchema(
+      z.object({
+        members: z.array(z.string().email()).min(1),
+      })
+    ),
+  });
+
+  const { remove, fields, prepend } = useFieldArray("members");
+  const open = defineModel<boolean>({ default: false });
+  const submit = handleSubmit(async (v) => {
+    try {
+      useSonner.success("Invitations Sent", {
+        description: `${v.members.length} invitations were successfully sent`,
+      });
+      open.value = false;
+    } catch (error: any) {
+      useSonner.error("An error occurred while sending invitations", {
+        description: error.message,
+      });
+    }
+  });
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Card Details
+
+This implementation requires the use of [Maska](https://beholdr.github.io/maska/v3/#/install)
+
+::ShowCase{component="DocsDialogCardDetails"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogCardDetails.vue" code lang="vue" -->
+
+```vue [DocsDialogCardDetails.vue]
+<template>
+  <div class="flex justify-center">
+    <UiDialog v-model:open="open">
+      <UiDialogTrigger as-child>
+        <UiButton variant="outline">Card details</UiButton>
+      </UiDialogTrigger>
+      <UiDialogContent class="max-w-[400px]">
+        <div class="flex flex-col gap-3">
+          <UiFancyIcon circle>
+            <Icon name="lucide:wallet" class="size-5 opacity-80" />
+          </UiFancyIcon>
+          <UiDialogHeader>
+            <UiDialogTitle class="text-left">Update your card</UiDialogTitle>
+            <UiDialogDescription class="text-left">
+              Your new card will replace your current card.
+            </UiDialogDescription>
+          </UiDialogHeader>
+        </div>
+        <form class="mt-4 space-y-6" @submit="submit">
+          <fieldset :disabled="isSubmitting" class="space-y-6 md:space-y-4">
+            <UiVeeInput name="nameOnCard" label="Name on card" required />
+            <UiVeeInput
+              v-maska="'#### #### #### ####'"
+              name="cardNumber"
+              trailing-icon="lucide:credit-card"
+              label="Card number"
+              required
+            />
+            <div class="flex gap-4">
+              <div class="flex-1 space-y-2">
+                <UiVeeInput
+                  v-maska="'##/##'"
+                  name="expiryDate"
+                  placeholder="MM/YY"
+                  label="Expiry date"
+                  required
+                />
+              </div>
+              <div class="flex-1 space-y-2">
+                <UiVeeInput v-maska="'###'" name="cvc" label="CVC" required />
+              </div>
+            </div>
+          </fieldset>
+          <UiVeeCheckbox
+            name="saveCard"
+            class="text-muted-foreground"
+            label="Save card for future payments"
+          />
+          <UiButton type="submit" class="w-full"> Update card </UiButton>
+        </form>
+      </UiDialogContent>
+    </UiDialog>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import dayjs from "dayjs";
+  import { z } from "zod";
+
+  const { handleSubmit, isSubmitting } = useForm({
+    name: "dialog-card-details",
+    validationSchema: toTypedSchema(
+      z.object({
+        nameOnCard: z.string().min(2).max(50).default("Elijah Baker"),
+        cardNumber: z.string().length(19, "Must be 16 digits").default("4242 4242 4242 4242"),
+        expiryDate: z.string().length(5, "Invalid").default(dayjs().format("MM/YY")),
+        cvc: z.string().length(3, "Invalid").default("123"),
+        saveCard: z.boolean().optional().default(true),
+      })
+    ),
+  });
+  const open = defineModel<boolean>({ default: false });
+  const submit = handleSubmit(async (values) => {
+    try {
+      useSonner.success("Card updated successfully", {
+        description: `Your card ending with ${values.cardNumber.slice(-4)} has been updated successfully.`,
+      });
+      open.value = false;
+    } catch (error: any) {
+      useSonner.error("Unable to update card", {
+        description: error.message,
+      });
+    }
+  });
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Checkout
+
+This implementation requires the use of [Maska](https://beholdr.github.io/maska/v3/#/install)
+
+::ShowCase{component="DocsDialogCheckout"}
+
+#code
+
+<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogCheckout.vue" code lang="vue" -->
+
+```vue [DocsDialogCheckout.vue]
+<template>
+  <div class="flex justify-center">
+    <UiDialog>
+      <UiDialogTrigger as-child>
+        <UiButton variant="outline">Checkout</UiButton>
+      </UiDialogTrigger>
+      <UiDialogContent class="max-w-[400px]">
+        <div class="mb-2 flex flex-col gap-2">
+          <UiFancyIcon circle class="mb-2">
+            <Icon name="lucide:store" class="size-5 opacity-80" />
+          </UiFancyIcon>
+          <UiDialogHeader>
+            <UiDialogTitle class="text-left">Confirm and pay</UiDialogTitle>
+            <UiDialogDescription class="text-left">
+              Pay securely and cancel any time.
+            </UiDialogDescription>
+          </UiDialogHeader>
+        </div>
+
+        <form class="space-y-5">
+          <div class="space-y-4">
+            <UiRadioGroup class="grid-cols-2" default-value="yearly">
+              <!-- Monthly -->
+              <label
+                class="relative flex cursor-pointer flex-col gap-1 rounded-lg border border-input px-4 py-3 shadow-sm shadow-black/5 outline-offset-2 transition-colors has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent/70 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring/70"
+              >
+                <UiRadioGroupItem
+                  id="radio-monthly"
+                  value="monthly"
+                  class="sr-only after:absolute after:inset-0"
+                />
+                <p class="text-sm font-medium text-foreground">Monthly</p>
+                <p class="text-sm text-muted-foreground">$32/month</p>
+              </label>
+              <!-- Yearly -->
+              <label
+                class="relative flex cursor-pointer flex-col gap-1 rounded-lg border border-input px-4 py-3 shadow-sm shadow-black/5 outline-offset-2 transition-colors has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent/70 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring/70"
+              >
+                <UiRadioGroupItem
+                  id="radio-yearly"
+                  value="yearly"
+                  class="sr-only after:absolute after:inset-0"
+                />
+                <div class="inline-flex items-start justify-between gap-2">
+                  <p class="text-sm font-medium text-foreground">Yearly</p>
+                  <UiBadge>Popular</UiBadge>
+                </div>
+                <p class="text-sm text-muted-foreground">$320/month</p>
+              </label>
+            </UiRadioGroup>
+            <UiVeeInput name="nameOnCard" label="Name on card" required />
+
+            <div class="space-y-2">
+              <legend class="text-sm font-medium text-foreground">Card Details</legend>
+              <div class="rounded-lg shadow-sm shadow-black/5">
+                <div class="relative focus-within:z-10">
+                  <UiVeeInput
+                    v-maska="'#### #### #### ####'"
+                    placeholder="Card number"
+                    aria-label="Card number"
+                    trailing-icon="lucide:credit-card"
+                    name="cardNumber"
+                    class="peer rounded-b-none pe-9 shadow-none [direction:inherit]"
+                  />
+                </div>
+                <div class="-mt-px flex">
+                  <div class="min-w-0 flex-1 focus-within:z-10">
+                    <UiVeeInput
+                      v-maska="'##/##'"
+                      placeholder="MM/YY"
+                      aria-label="Expiry date"
+                      name="expiryDate"
+                      class="rounded-e-none rounded-t-none shadow-none [direction:inherit]"
+                    />
+                  </div>
+                  <div class="-ms-px min-w-0 flex-1 focus-within:z-10">
+                    <UiVeeInput
+                      v-maska="'###'"
+                      placeholder="CVC"
+                      aria-label="CVC"
+                      name="cvc"
+                      class="rounded-s-none rounded-t-none shadow-none [direction:inherit]"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              v-if="!showCouponInput"
+              type="button"
+              class="text-sm underline hover:no-underline"
+              @click="showCouponInput = true"
+            >
+              + Add coupon
+            </button>
+
+            <div v-else>
+              <UiVeeInput name="coupon" label="Coupon code" placeholder="Enter your code" />
+            </div>
+          </div>
+          <UiButton type="button" class="w-full"> Subscribe </UiButton>
+        </form>
+
+        <p class="text-center text-xs text-muted-foreground">
+          Payments are non-refundable. Cancel anytime.
+        </p>
+      </UiDialogContent>
+    </UiDialog>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const showCouponInput = ref(false);
+</script>
 ```
 
 <!-- /automd -->
