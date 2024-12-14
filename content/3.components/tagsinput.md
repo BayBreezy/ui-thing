@@ -28,65 +28,25 @@ npx ui-thing@latest add tags-input
 
 #code
 
+<!-- automd:file src="../../components/content/Docs/TagsInput/DocsTagsInput.vue" code lang="vue" -->
+
 ```vue [DocsTagsInput.vue]
 <template>
-  <div class="flex w-full justify-center">
-    <UiTabs class="w-[400px]" default-value="account">
-      <UiTabsList class="grid w-full grid-cols-2">
-        <UiTabsTrigger value="account">Account</UiTabsTrigger>
-        <UiTabsTrigger value="password">Password</UiTabsTrigger>
-      </UiTabsList>
-      <UiTabsContent value="account">
-        <UiCard
-          title="Account"
-          description="Make changes to your account here. Click save when you're done."
-        >
-          <template #content>
-            <UiCardContent class="space-y-2">
-              <div class="space-y-1">
-                <UiLabel for="name">Name</UiLabel>
-                <UiInput id="name" value="Pedro Duarte" />
-              </div>
-              <div class="space-y-1">
-                <UiLabel htmlFor="username">Username</UiLabel>
-                <UiInput id="username" value="@peduarte" />
-              </div>
-            </UiCardContent>
-          </template>
-          <template #footer>
-            <UiCardFooter>
-              <UiButton>Save changes</UiButton>
-            </UiCardFooter>
-          </template>
-        </UiCard>
-      </UiTabsContent>
-      <UiTabsContent value="password">
-        <UiCard
-          title="Password"
-          description="Change your password here. After saving, you'll be logged out."
-        >
-          <template #content>
-            <UiCardContent class="space-y-2">
-              <div class="space-y-1">
-                <UiLabel htmlFor="current">Current password</UiLabel>
-                <UiInput id="current" type="password" />
-              </div>
-              <div class="space-y-1">
-                <UiLabel htmlFor="new">New password</UiLabel>
-                <UiInput id="new" type="password" />
-              </div>
-            </UiCardContent>
-          </template>
-          <template #footer>
-            <UiCardFooter>
-              <UiButton>Save password</UiButton>
-            </UiCardFooter>
-          </template>
-        </UiCard>
-      </UiTabsContent>
-    </UiTabs>
+  <div class="">
+    <UiTagsInput v-model="tags">
+      <UiTagsInputItem v-for="tag in tags" :key="tag" :value="tag" />
+      <UiTagsInputField placeholder="Add a tag..." />
+      <UiTagsInputClear />
+    </UiTagsInput>
   </div>
 </template>
+
+<script lang="ts" setup>
+  const tags = ref(["Cars", "House", "Dogs"]);
+</script>
+
 ```
+
+<!-- /automd -->
 
 ::
