@@ -1,7 +1,6 @@
 ---
 title: Placeholder
 description: A placeholder box that can be used as any filler content.
-label: New
 ---
 
 ## Source code

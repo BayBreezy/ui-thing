@@ -1,6 +1,5 @@
 ---
 title: VeeInput
-label: Updated
 description: An input component that uses the composition API provided by Vee-Validate to perform validation.
 links:
   - title: Input Source

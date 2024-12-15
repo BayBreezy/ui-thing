@@ -1,7 +1,6 @@
 ---
 title: VeeVueFormSlider
 description: Displays a slider for the user to pick a value from.
-label: New
 links:
   - title: NPM Package
     href: https://github.com/vueform/slider?tab=readme-ov-file#demo

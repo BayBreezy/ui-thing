@@ -1,6 +1,5 @@
 ---
 title: Sidebar
-label: New
 description: A composable, themeable and customizable sidebar component.
 ---
 
