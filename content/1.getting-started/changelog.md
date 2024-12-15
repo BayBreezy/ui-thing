@@ -3,6 +3,20 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## December 15, 2024 - Sliders Sliders Sliders
+
+In this update, the `Slider` component was updated to accommodate `vertical` orientation.
+
+While adding some examples from the [Origin UI](https://originui.com/) library, I noticed that the `Slider` component was missing the necessary classes that would make it work in a vertical orientation.
+
+### Vertical Slider
+
+You can check out all the awesome examples here: [Sliders](/components/slider#origin-ui-examples).
+
+### Checkboxes?
+
+I also add some examples of checkboxes from the [Origin UI](https://originui.com/) library. You can check them out here: [Checkboxes](/forms/veecheckbox#origin-ui-examples).
+
 ## December 11, 2024 - More Examples & Refactor
 
 ### Refactor

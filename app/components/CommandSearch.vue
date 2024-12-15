@@ -1,7 +1,7 @@
 <template>
   <div>
     <UiCommandDialog v-model:open="localModel">
-      <UiDialogTitle class="sr-only">Doumnetation search modal</UiDialogTitle>
+      <UiDialogTitle class="sr-only">Documentation search modal</UiDialogTitle>
       <UiDialogDescription class="sr-only">
         Search the documentation for components, utilities, and more.
       </UiDialogDescription>

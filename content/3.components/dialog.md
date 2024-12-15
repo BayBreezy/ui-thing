@@ -28,6 +28,8 @@ npx ui-thing@latest add dialog
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialog.vue" code lang="vue" -->
+
 ```vue [DocsDialog.vue]
 <template>
   <div class="flex w-full items-center justify-center">
@@ -56,13 +58,13 @@ npx ui-thing@latest add dialog
         <template #footer>
           <UiDialogFooter>
             <UiButton
-              @click="closeDialog(false)"
               variant="outline"
               type="button"
               class="mt-2 sm:mt-0"
+              @click="closeDialog(false)"
               >Cancel</UiButton
             >
-            <UiButton @click="closeDialog(true)" type="submit">Save</UiButton>
+            <UiButton type="submit" @click="closeDialog(true)">Save</UiButton>
           </UiDialogFooter>
         </template>
       </UiDialogContent>
@@ -85,6 +87,8 @@ npx ui-thing@latest add dialog
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Custom Close Button
@@ -92,6 +96,8 @@ npx ui-thing@latest add dialog
 ::ShowCase{component="DocsDialogCustomClose"}
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogCustomClose.vue" code lang="vue" -->
 
 ```vue [DocsDialogCustomClose.vue]
 <template>
@@ -110,9 +116,9 @@ npx ui-thing@latest add dialog
           <div class="flex items-center space-x-2">
             <div class="grid flex-1 gap-2">
               <UiLabel for="link" class="sr-only"> Link </UiLabel>
-              <UiInput id="link" model-value="https://ui.shadcn.com/docs/installation" readOnly />
+              <UiInput id="link" model-value="https://ui.shadcn.com/docs/installation" read-only />
             </div>
-            <UiButton @click="copyValue" type="submit" size="icon" class="px-3">
+            <UiButton type="submit" size="icon" class="px-3" @click="copyValue">
               <span class="sr-only">Copy</span>
               <Icon name="lucide:copy" class="h-4 w-4" />
             </UiButton>
@@ -154,6 +160,8 @@ npx ui-thing@latest add dialog
   };
 </script>
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -2268,6 +2276,107 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
       step.value = 1;
     }
   });
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Command Pallette Search
+
+::ShowCase{component="DocsDialogSearch"}
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogSearch.vue" code lang="vue" -->
+
+```vue [DocsDialogSearch.vue]
+<template>
+  <div class="mx-auto flex max-w-sm justify-center">
+    <UiButton class="w-full" variant="outline" @click="dialog = !dialog">
+      <Icon
+        name="lucide:search"
+        class="size-4 shrink-0 text-muted-foreground/80"
+        aria-hidden="true"
+      />
+      <span class="font-normal text-muted-foreground/70">Search</span>
+
+      <UiKbd class="ml-auto"> ⌘+Shift+K </UiKbd>
+    </UiButton>
+    <UiCommandDialog v-model:open="dialog">
+      <UiDialogTitle class="sr-only">Search commands</UiDialogTitle>
+      <UiDialogDescription class="sr-only">
+        Use the arrow keys to navigate and press Enter to select a command.
+      </UiDialogDescription>
+      <UiCommandInput placeholder="Type a UiCommand or search..." />
+      <UiCommandList>
+        <UiCommandEmpty>No results found.</UiCommandEmpty>
+        <template v-for="(group, i) in groups" :key="i">
+          <UiCommandGroup class="p-2" :heading="group.heading">
+            <UiCommandItem v-for="(child, j) in group.items" :key="j" :value="child.value">
+              <Icon :name="child.icon" class="size-4 opacity-60" aria-hidden="true" />
+              <span>{{ child.text }}</span>
+              <UiCommandShortcut v-if="child.shortcut" class="justify-center">{{
+                child.shortcut
+              }}</UiCommandShortcut>
+            </UiCommandItem>
+          </UiCommandGroup>
+          <UiCommandSeparator v-if="i < groups.length - 1" />
+        </template>
+      </UiCommandList>
+    </UiCommandDialog>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const dialog = ref(false);
+
+  useEventListener("keydown", (e) => {
+    if (e.key === "k" && (e.metaKey || e.ctrlKey) && e.shiftKey) {
+      e.preventDefault();
+      dialog.value = !dialog.value;
+    }
+  });
+
+  const groups = [
+    {
+      heading: "Quick start",
+      items: [
+        { icon: "lucide:folder-plus", text: "New folder", shortcut: "⌘N", value: "new-folder" },
+        {
+          icon: "lucide:file-input",
+          text: "Import document",
+          shortcut: "⌘I",
+          value: "import-document",
+        },
+        {
+          icon: "lucide:circle-fading-plus",
+          text: "Add block",
+          shortcut: "⌘B",
+          value: "add-block",
+        },
+      ],
+    },
+    {
+      heading: "Navigation",
+      items: [
+        {
+          icon: "lucide:arrow-up-right",
+          text: "Go to dashboard",
+          value: "go-to-dashboard",
+          shortcut: "",
+        },
+        { icon: "lucide:arrow-up-right", text: "Go to apps", value: "go-to-apps", shortcut: "" },
+        {
+          icon: "lucide:arrow-up-right",
+          text: "Go to connections",
+          value: "go-to-connections",
+          shortcut: "",
+        },
+      ],
+    },
+  ];
 </script>
 ```
 
