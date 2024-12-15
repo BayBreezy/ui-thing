@@ -7,7 +7,7 @@ import componentsData from "./components.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const outputTSPath = path.join(__dirname, "..", "server/utils", "comp.ts");
-const folderName = "app/components/UI";
+const folderName = "app/components/Ui";
 const folderPath = path.join(__dirname, "..", folderName);
 
 // Define a function to read the content of a file
