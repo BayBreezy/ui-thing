@@ -1,9 +1,9 @@
-import * as SEO from "./utils/seo";
+import * as SEO from "./app/utils/seo";
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/full-calendar.css", "~/assets/css/quill.css", "~/assets/css/theme.css"],
-
+  future: { compatibilityVersion: 4 },
   vite: {
     optimizeDeps: {
       include: [
@@ -128,9 +128,8 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    "/": { redirect: "/getting-started/introduction" },
+    "/": { redirect: "/getting-started/introduction", prerender: true },
   },
-
   colorMode: { classSuffix: "" },
 
   pwa: {

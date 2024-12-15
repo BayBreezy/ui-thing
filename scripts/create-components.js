@@ -7,7 +7,7 @@ import componentsData from "./components.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const outputTSPath = path.join(__dirname, "..", "server/utils", "comp.ts");
-const folderName = "components/UI";
+const folderName = "app/components/UI";
 const folderPath = path.join(__dirname, "..", folderName);
 
 // Define a function to read the content of a file
@@ -28,21 +28,21 @@ const newComponentsData = componentsData.map((component) => {
   });
   // check if utils prop exists and load those files too
   const utilsFiles = component.utils?.map((fileName) => {
-    const filePath = path.join(__dirname, "../utils", fileName);
+    const filePath = path.join(__dirname, "../app/utils", fileName);
     const dirPath = "utils";
     const fileContent = readFileContent(filePath);
     return { fileName, dirPath, fileContent };
   });
   // Check if composables exist and load those files too
   const composablesFiles = component.composables?.map((fileName) => {
-    const filePath = path.join(__dirname, "../composables", fileName);
+    const filePath = path.join(__dirname, "../app/composables", fileName);
     const dirPath = "composables";
     const fileContent = readFileContent(filePath);
     return { fileName, dirPath, fileContent };
   });
   // Check if plugins exist and load those files too
   const pluginsFiles = component.plugins?.map((fileName) => {
-    const filePath = path.join(__dirname, "../plugins", fileName);
+    const filePath = path.join(__dirname, "../app/plugins", fileName);
     const dirPath = "plugins";
     const fileContent = readFileContent(filePath);
     return { fileName, dirPath, fileContent };
