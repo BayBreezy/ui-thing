@@ -17,7 +17,7 @@ Create the component `Tiptap.client.vue` in the `components` directory. The comp
 
 The one used here looks like this. Like I said earlier, you have to install a lot of packages to get the functionality you want.
 
-<!-- automd:file src="../../components/Ui/Tiptap.client.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/Ui/Tiptap.client.vue" code lang="vue" -->
 
 ```vue [Tiptap.client.vue]
 <template>
@@ -271,7 +271,7 @@ In this example, we are just passing the model to the editor. We are also custom
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Tiptap/DocsTiptap.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Tiptap/DocsTiptap.vue" code lang="vue" -->
 
 ```vue [DocsTiptap.vue]
 <template>

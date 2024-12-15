@@ -28,7 +28,7 @@ npx ui-thing@latest add tags-input
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/TagsInput/DocsTagsInput.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/TagsInput/DocsTagsInput.vue" code lang="vue" -->
 
 ```vue [DocsTagsInput.vue]
 <template>

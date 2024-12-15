@@ -36,7 +36,7 @@ So here is how I think this should be implemented. Take a look at the source cod
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Stepper/UntitledUI/DocsUntitledUIStepperIconHorizontal.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Stepper/UntitledUI/DocsUntitledUIStepperIconHorizontal.vue" code lang="vue" -->
 
 ```vue [DocsUntitledUIStepperIconHorizontal.vue]
 <template>
@@ -118,7 +118,7 @@ For the vertical variation, this is how I think it should be implemented.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Stepper/UntitledUI/DocsUntitledUIStepperIconVertical.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Stepper/UntitledUI/DocsUntitledUIStepperIconVertical.vue" code lang="vue" -->
 
 ```vue [DocsUntitledUIStepperIconVertical.vue]
 <template>
@@ -203,7 +203,7 @@ For the vertical variation, this is how I think it should be implemented.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Stepper/UntitledUI/DocsUntitledUIStepperIconTopLine.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Stepper/UntitledUI/DocsUntitledUIStepperIconTopLine.vue" code lang="vue" -->
 
 ```vue [DocsUntitledUIStepperIconTopLine.vue]
 <template>
@@ -274,7 +274,7 @@ Now our friends over at [Vuetify](https://vuetifyjs.com/en/components/steppers/)
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Stepper/Vuetify/DocsVuetifyStepper.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Stepper/Vuetify/DocsVuetifyStepper.vue" code lang="vue" -->
 
 ```vue [DocsVuetifyStepper.vue]
 <template>

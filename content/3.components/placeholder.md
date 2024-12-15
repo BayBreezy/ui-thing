@@ -19,7 +19,7 @@ npx ui-thing@latest add placeholder
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Placeholder/DocsPlaceholder.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Placeholder/DocsPlaceholder.vue" code lang="vue" -->
 
 ```vue [DocsPlaceholder.vue]
 <template>

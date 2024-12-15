@@ -27,7 +27,7 @@ In the form below, we are using the `useForm` composition function provided by V
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsVeeInput.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsVeeInput.vue" code lang="vue" -->
 
 ```vue [DocsVeeInput.vue]
 <template>
@@ -89,7 +89,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputRequired.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputRequired.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputRequired.vue]
 <template>
@@ -109,7 +109,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputHelperText.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputHelperText.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputHelperText.vue]
 <template>
@@ -134,7 +134,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputLabelHint.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputLabelHint.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputLabelHint.vue]
 <template>
@@ -159,7 +159,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputColoredBorder.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputColoredBorder.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputColoredBorder.vue]
 <template>
@@ -180,7 +180,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputGrayBg.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputGrayBg.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputGrayBg.vue]
 <template>
@@ -205,7 +205,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputDisabled.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputDisabled.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputDisabled.vue]
 <template>
@@ -225,7 +225,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputStartIcon.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputStartIcon.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputStartIcon.vue]
 <template>
@@ -250,7 +250,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputEndIcon.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputEndIcon.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputEndIcon.vue]
 <template>
@@ -275,7 +275,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputStartInlineAddOn.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputStartInlineAddOn.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputStartInlineAddOn.vue]
 <template>
@@ -303,7 +303,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputEndInlineAddOn.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputEndInlineAddOn.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputEndInlineAddOn.vue]
 <template>
@@ -331,7 +331,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputInlineAddOns.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputInlineAddOns.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputInlineAddOns.vue]
 <template>
@@ -366,7 +366,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputStartAddon.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputStartAddon.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputStartAddon.vue]
 <template>
@@ -399,7 +399,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputEndAddon.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputEndAddon.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputEndAddon.vue]
 <template>
@@ -432,7 +432,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputInlineStartEndAddon.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputInlineStartEndAddon.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputInlineStartEndAddon.vue]
 <template>
@@ -472,7 +472,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputStartSelect.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputStartSelect.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputStartSelect.vue]
 <template>
@@ -511,7 +511,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputEndSelect.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputEndSelect.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputEndSelect.vue]
 <template>
@@ -542,7 +542,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputEndInlineButton.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputEndInlineButton.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputEndInlineButton.vue]
 <template>
@@ -577,7 +577,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputEndIconButton.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputEndIconButton.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputEndIconButton.vue]
 <template>
@@ -612,7 +612,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputEndButton.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputEndButton.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputEndButton.vue]
 <template>
@@ -642,7 +642,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputWithButton.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputWithButton.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputWithButton.vue]
 <template>
@@ -663,7 +663,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputShowHidePassword.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputShowHidePassword.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputShowHidePassword.vue]
 <template>
@@ -710,7 +710,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputClearButton.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputClearButton.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputClearButton.vue]
 <template>
@@ -752,7 +752,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputWithKDB.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputWithKDB.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputWithKDB.vue]
 <template>
@@ -785,7 +785,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputSearchWithIconButton.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputSearchWithIconButton.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputSearchWithIconButton.vue]
 <template>
@@ -821,7 +821,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputSearchWithLoader.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputSearchWithLoader.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputSearchWithLoader.vue]
 <template>
@@ -875,7 +875,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputOverlappingLabel.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputOverlappingLabel.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputOverlappingLabel.vue]
 <template>
@@ -902,7 +902,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Input/DocsOriginInputPasswordStrengthIndicator.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsOriginInputPasswordStrengthIndicator.vue" code lang="vue" -->
 
 ```vue [DocsOriginInputPasswordStrengthIndicator.vue]
 <template>

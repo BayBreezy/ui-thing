@@ -21,7 +21,7 @@ npx ui-thing@latest add table
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Table/DocsTable.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Table/DocsTable.vue" code lang="vue" -->
 
 ```vue [DocsTable.vue]
 <template>
@@ -91,7 +91,7 @@ npx ui-thing@latest add table
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Table/DocsTableSimple.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Table/DocsTableSimple.vue" code lang="vue" -->
 
 ```vue [DocsTableSimple.vue]
 <template>
@@ -169,7 +169,7 @@ npx ui-thing@latest add table
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Table/DocsTableStackedMobile.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Table/DocsTableStackedMobile.vue" code lang="vue" -->
 
 ```vue [DocsTableStackedMobile.vue]
 <template>
@@ -261,7 +261,7 @@ npx ui-thing@latest add table
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Table/DocsTableStickyHeader.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Table/DocsTableStickyHeader.vue" code lang="vue" -->
 
 ```vue [DocsTableStickyHeader.vue]
 <template>

@@ -24,7 +24,7 @@ Here we have a few examples of the plain buttons.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonDefault.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonDefault.vue" code lang="vue" -->
 
 ```vue [DocsButtonDefault.vue]
 <template>
@@ -44,7 +44,7 @@ Here we have a few examples of the plain buttons.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonSecondary.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonSecondary.vue" code lang="vue" -->
 
 ```vue [DocsButtonSecondary.vue]
 <template>
@@ -64,7 +64,7 @@ Here we have a few examples of the plain buttons.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonWithIcon.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonWithIcon.vue" code lang="vue" -->
 
 ```vue [DocsButtonWithIcon.vue]
 <template>
@@ -84,7 +84,7 @@ Here we have a few examples of the plain buttons.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonLoading.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonLoading.vue" code lang="vue" -->
 
 ```vue [DocsButtonLoading.vue]
 <template>
@@ -106,7 +106,7 @@ Here we have a few examples of the plain buttons.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonOutline.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonOutline.vue" code lang="vue" -->
 
 ```vue [DocsButtonOutline.vue]
 <template>
@@ -126,7 +126,7 @@ Here we have a few examples of the plain buttons.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonDestructive.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonDestructive.vue" code lang="vue" -->
 
 ```vue [DocsButtonDestructive.vue]
 <template>
@@ -146,7 +146,7 @@ Here we have a few examples of the plain buttons.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonGhost.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonGhost.vue" code lang="vue" -->
 
 ```vue [DocsButtonGhost.vue]
 <template>
@@ -166,7 +166,7 @@ Here we have a few examples of the plain buttons.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonLink.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonLink.vue" code lang="vue" -->
 
 ```vue [DocsButtonLink.vue]
 <template>
@@ -186,7 +186,7 @@ Here we have a few examples of the plain buttons.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonIconOnly.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonIconOnly.vue" code lang="vue" -->
 
 ```vue [DocsButtonIconOnly.vue]
 <template>
@@ -212,7 +212,7 @@ Here are the different sizes that are available for the buttons.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonSizes.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonSizes.vue" code lang="vue" -->
 
 ```vue [DocsButtonSizes.vue]
 <template>
@@ -238,7 +238,7 @@ Here are the different sizes that are available for the buttons.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonIconSizes.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonIconSizes.vue" code lang="vue" -->
 
 ```vue [DocsButtonIconSizes.vue]
 <template>
@@ -268,7 +268,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonExpandIconRight.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonExpandIconRight.vue" code lang="vue" -->
 
 ```vue [DocsButtonExpandIconRight.vue]
 <template>
@@ -290,7 +290,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonExpandIconLeft.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonExpandIconLeft.vue" code lang="vue" -->
 
 ```vue [DocsButtonExpandIconLeft.vue]
 <template>
@@ -312,7 +312,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonGooeyLeft.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonGooeyLeft.vue" code lang="vue" -->
 
 ```vue [DocsButtonGooeyLeft.vue]
 <template>
@@ -332,7 +332,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonGooeyRight.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonGooeyRight.vue" code lang="vue" -->
 
 ```vue [DocsButtonGooeyRight.vue]
 <template>
@@ -352,7 +352,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonShine.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonShine.vue" code lang="vue" -->
 
 ```vue [DocsButtonShine.vue]
 <template>
@@ -372,7 +372,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonRingHover.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonRingHover.vue" code lang="vue" -->
 
 ```vue [DocsButtonRingHover.vue]
 <template>
@@ -392,7 +392,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonLinkHover1.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonLinkHover1.vue" code lang="vue" -->
 
 ```vue [DocsButtonLinkHover1.vue]
 <template>
@@ -412,7 +412,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonLinkHover2.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonLinkHover2.vue" code lang="vue" -->
 
 ```vue [DocsButtonLinkHover2.vue]
 <template>
@@ -438,7 +438,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonAnimatedMenu.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonAnimatedMenu.vue" code lang="vue" -->
 
 ```vue [DocsButtonAnimatedMenu.vue]
 <template>
@@ -495,7 +495,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonRotatePlus.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonRotatePlus.vue" code lang="vue" -->
 
 ```vue [DocsButtonRotatePlus.vue]
 <template>
@@ -531,7 +531,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonGroupOutlineCounter.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonGroupOutlineCounter.vue" code lang="vue" -->
 
 ```vue [DocsButtonGroupOutlineCounter.vue]
 <template>
@@ -579,7 +579,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonVolume.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonVolume.vue" code lang="vue" -->
 
 ```vue [DocsButtonVolume.vue]
 <template>
@@ -649,7 +649,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonAnimatedCopy.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonAnimatedCopy.vue" code lang="vue" -->
 
 ```vue [DocsButtonAnimatedCopy.vue]
 <template>
@@ -696,7 +696,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonUpload.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonUpload.vue" code lang="vue" -->
 
 ```vue [DocsButtonUpload.vue]
 <template>
@@ -780,7 +780,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Button/DocsButtonArrows.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonArrows.vue" code lang="vue" -->
 
 ```vue [DocsButtonArrows.vue]
 <template>

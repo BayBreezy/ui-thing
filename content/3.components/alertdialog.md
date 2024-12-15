@@ -28,7 +28,7 @@ npx ui-thing@latest add alert-dialog
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/AlertDialog/DocsAlertDialog.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/AlertDialog/DocsAlertDialog.vue" code lang="vue" -->
 
 ```vue [DocsAlertDialog.vue]
 <template>
@@ -72,7 +72,7 @@ npx ui-thing@latest add alert-dialog
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/AlertDialog/DocsAlertDialogStackedLeft.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/AlertDialog/DocsAlertDialogStackedLeft.vue" code lang="vue" -->
 
 ```vue [DocsAlertDialogStackedLeft.vue]
 <template>
@@ -110,7 +110,7 @@ npx ui-thing@latest add alert-dialog
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/AlertDialog/DocsAlertDialogMedia.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/AlertDialog/DocsAlertDialogMedia.vue" code lang="vue" -->
 
 ```vue [DocsAlertDialogMedia.vue]
 <template>
@@ -152,7 +152,7 @@ npx ui-thing@latest add alert-dialog
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/AlertDialog/DocsAlertDialogWithIcon.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/AlertDialog/DocsAlertDialogWithIcon.vue" code lang="vue" -->
 
 ```vue [DocsAlertDialogWithIcon.vue]
 <template>

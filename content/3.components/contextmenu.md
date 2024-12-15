@@ -28,7 +28,7 @@ npx ui-thing@latest add context-menu
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/ContextMenu/DocsContextMenuBasic.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/ContextMenu/DocsContextMenuBasic.vue" code lang="vue" -->
 
 ```vue [DocsContextMenuBasic.vue]
 <template>
@@ -107,7 +107,7 @@ npx ui-thing@latest add context-menu
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/ContextMenu/DocsContextMenuCheckItems.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/ContextMenu/DocsContextMenuCheckItems.vue" code lang="vue" -->
 
 ```vue [DocsContextMenuCheckItems.vue]
 <template>
@@ -180,7 +180,7 @@ npx ui-thing@latest add context-menu
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/ContextMenu/DocsContextMenuRadioItems.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/ContextMenu/DocsContextMenuRadioItems.vue" code lang="vue" -->
 
 ```vue [DocsContextMenuRadioItems.vue]
 <template>

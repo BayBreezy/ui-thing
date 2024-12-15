@@ -26,7 +26,7 @@ We can bring the different components together to make a simple drawer.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Drawer/DocsDrawerBasic.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Drawer/DocsDrawerBasic.vue" code lang="vue" -->
 
 ```vue [DocsDrawerBasic.vue]
 <template>
@@ -104,7 +104,7 @@ We can add an image inside as well.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Drawer/DocsDrawerImage.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Drawer/DocsDrawerImage.vue" code lang="vue" -->
 
 ```vue [DocsDrawerImage.vue]
 <template>
@@ -186,7 +186,7 @@ You can combine the `Dialog` and `Drawer` components to create a responsive dial
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Drawer/DocsDrawerResponsiveDialog.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Drawer/DocsDrawerResponsiveDialog.vue" code lang="vue" -->
 
 ```vue [DocsDrawerResponsiveDialog.vue]
 <template>

@@ -60,7 +60,7 @@ The default orientation of the Navigation Menu is horizontal.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/NavigationMenu/DocsNavigationMenu.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/NavigationMenu/DocsNavigationMenu.vue" code lang="vue" -->
 
 ```vue [DocsNavigationMenu.vue]
 <template>
@@ -205,7 +205,7 @@ To get things to look how we want, we would then need to add some custom styles.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/NavigationMenu/DocsNavigationMenuVertical.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/NavigationMenu/DocsNavigationMenuVertical.vue" code lang="vue" -->
 
 ```vue [DocsNavigationMenuVertical.vue]
 <template>

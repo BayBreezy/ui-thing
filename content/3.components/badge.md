@@ -21,7 +21,7 @@ npx ui-thing@latest add badge
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Badge/DocsBadgeDefault.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Badge/DocsBadgeDefault.vue" code lang="vue" -->
 
 ```vue [DocsBadgeDefault.vue]
 <template>
@@ -41,7 +41,7 @@ npx ui-thing@latest add badge
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Badge/DocsBadgeDestructive.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Badge/DocsBadgeDestructive.vue" code lang="vue" -->
 
 ```vue [DocsBadgeDestructive.vue]
 <template>
@@ -61,7 +61,7 @@ npx ui-thing@latest add badge
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Badge/DocsBadgeOutline.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Badge/DocsBadgeOutline.vue" code lang="vue" -->
 
 ```vue [DocsBadgeOutline.vue]
 <template>
@@ -81,7 +81,7 @@ npx ui-thing@latest add badge
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Badge/DocsBadgeSecondary.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Badge/DocsBadgeSecondary.vue" code lang="vue" -->
 
 ```vue [DocsBadgeSecondary.vue]
 <template>
@@ -103,7 +103,7 @@ Three sizes are available for badges: `sm`, `md`, and `lg`.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Badge/DocsBadgeSizes.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Badge/DocsBadgeSizes.vue" code lang="vue" -->
 
 ```vue [DocsBadgeSizes.vue]
 <template>

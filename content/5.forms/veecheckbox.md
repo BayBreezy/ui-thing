@@ -28,7 +28,7 @@ Checkboxes can be tricky to implement with validation libraries. Luckily, Vee-Va
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckbox.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckbox.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckbox.vue]
 <template>
@@ -76,7 +76,7 @@ Checkboxes can be tricky to implement with validation libraries. Luckily, Vee-Va
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckboxSingle.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckboxSingle.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckboxSingle.vue]
 <template>
@@ -128,7 +128,7 @@ We can use the `v-model` prop to set the default value of the VeeCheckbox.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckboxDefault.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckboxDefault.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckboxDefault.vue]
 <template>
@@ -164,7 +164,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckboxColored.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckboxColored.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckboxColored.vue]
 <template>
@@ -190,7 +190,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckboxSimpleTodo.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckboxSimpleTodo.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckboxSimpleTodo.vue]
 <template>
@@ -213,7 +213,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckboxFancyTodo.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckboxFancyTodo.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckboxFancyTodo.vue]
 <template>
@@ -243,7 +243,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckboxTerms.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckboxTerms.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckboxTerms.vue]
 <template>
@@ -270,7 +270,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckboxFrameworks.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckboxFrameworks.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckboxFrameworks.vue]
 <template>
@@ -299,7 +299,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckboxRightAligned.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckboxRightAligned.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckboxRightAligned.vue]
 <template>
@@ -320,7 +320,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckboxLabelSublabel.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckboxLabelSublabel.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckboxLabelSublabel.vue]
 <template>
@@ -352,7 +352,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckboxInputExpansion.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckboxInputExpansion.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckboxInputExpansion.vue]
 <template>
@@ -389,7 +389,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckboxRightAlignedSublabel.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckboxRightAlignedSublabel.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckboxRightAlignedSublabel.vue]
 <template>
@@ -420,7 +420,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckboxRightAlignedSublabelBorder.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckboxRightAlignedSublabelBorder.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckboxRightAlignedSublabelBorder.vue]
 <template>
@@ -453,7 +453,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckboxGridBox.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckboxGridBox.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckboxGridBox.vue]
 <template>
@@ -505,7 +505,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/Checkbox/DocsVeeCheckboxDaysOfTheWeek.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/Checkbox/DocsVeeCheckboxDaysOfTheWeek.vue" code lang="vue" -->
 
 ```vue [DocsVeeCheckboxDaysOfTheWeek.vue]
 <template>

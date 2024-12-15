@@ -89,7 +89,7 @@ The code. Take note of the `UiSidebarTrigger` component. This is what toggles th
 
 Also, the `UiSidebarInset` component! When I just started using this component, I was confused as to where the page content should go.
 
-<!-- automd:file src="../../components/content/Block/Sidebar/BlockSidebarFirstSidebar.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Block/Sidebar/BlockSidebarFirstSidebar.vue" code lang="vue" -->
 
 ```vue [BlockSidebarFirstSidebar.vue]
 <template>

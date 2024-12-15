@@ -171,7 +171,7 @@ I just made them work with my setup.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogScrollNative.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogScrollNative.vue" code lang="vue" -->
 
 ```vue [DocsDialogScrollNative.vue]
 <template>
@@ -320,7 +320,7 @@ I just made them work with my setup.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogScrollCustom.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogScrollCustom.vue" code lang="vue" -->
 
 ```vue [DocsDialogScrollCustom.vue]
 <template>
@@ -469,7 +469,7 @@ I just made them work with my setup.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogScrollStickyHeader.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogScrollStickyHeader.vue" code lang="vue" -->
 
 ```vue [DocsDialogScrollStickyHeader.vue]
 <template>
@@ -618,7 +618,7 @@ I just made them work with my setup.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogScrollStickyFooter.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogScrollStickyFooter.vue" code lang="vue" -->
 
 ```vue [DocsDialogScrollStickyFooter.vue]
 <template>
@@ -769,7 +769,7 @@ I just made them work with my setup.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogTermsCondition.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogTermsCondition.vue" code lang="vue" -->
 
 ```vue [DocsDialogTermsCondition.vue]
 <template>
@@ -923,7 +923,7 @@ I just made them work with my setup.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogNewsletter.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogNewsletter.vue" code lang="vue" -->
 
 ```vue [DocsDialogNewsletter.vue]
 <template>
@@ -990,7 +990,7 @@ I just made them work with my setup.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogFeedback.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogFeedback.vue" code lang="vue" -->
 
 ```vue [DocsDialogFeedback.vue]
 <template>
@@ -1034,7 +1034,7 @@ I just made them work with my setup.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogRating.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogRating.vue" code lang="vue" -->
 
 ```vue [DocsDialogRating.vue]
 <template>
@@ -1113,7 +1113,7 @@ I just made them work with my setup.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogOTPCode.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogOTPCode.vue" code lang="vue" -->
 
 ```vue [DocsDialogOTPCode.vue]
 <template>
@@ -1217,7 +1217,7 @@ I just made them work with my setup.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogSignUp.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogSignUp.vue" code lang="vue" -->
 
 ```vue [DocsDialogSignUp.vue]
 <template>
@@ -1312,7 +1312,7 @@ I just made them work with my setup.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogSignIn.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogSignIn.vue" code lang="vue" -->
 
 ```vue [DocsDialogSignIn.vue]
 <template>
@@ -1413,7 +1413,7 @@ I just made them work with my setup.
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogInviteMembers.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogInviteMembers.vue" code lang="vue" -->
 
 ```vue [DocsDialogInviteMembers.vue]
 <template>
@@ -1568,7 +1568,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogCardDetails.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogCardDetails.vue" code lang="vue" -->
 
 ```vue [DocsDialogCardDetails.vue]
 <template>
@@ -1670,7 +1670,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogCheckout.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogCheckout.vue" code lang="vue" -->
 
 ```vue [DocsDialogCheckout.vue]
 <template>
@@ -1794,7 +1794,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogChangePlan.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogChangePlan.vue" code lang="vue" -->
 
 ```vue [DocsDialogChangePlan.vue]
 <template>
@@ -1897,7 +1897,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogEditProfile.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogEditProfile.vue" code lang="vue" -->
 
 ```vue [DocsDialogEditProfile.vue]
 <!-- eslint-disable vue/html-self-closing -->
@@ -2139,7 +2139,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Dialog/DocsDialogOnboarding.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogOnboarding.vue" code lang="vue" -->
 
 ```vue [DocsDialogOnboarding.vue]
 <!-- eslint-disable vue/html-self-closing -->

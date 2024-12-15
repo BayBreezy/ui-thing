@@ -28,7 +28,7 @@ npx ui-thing@latest add dropdown-menu
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/DropdownMenu/DocsDropdownMenuBasic.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/DropdownMenu/DocsDropdownMenuBasic.vue" code lang="vue" -->
 
 ```vue [DocsDropdownMenuBasic.vue]
 <template>
@@ -115,7 +115,7 @@ npx ui-thing@latest add dropdown-menu
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/DropdownMenu/DocsDropdownMenuCheckItems.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/DropdownMenu/DocsDropdownMenuCheckItems.vue" code lang="vue" -->
 
 ```vue [DocsDropdownMenuCheckItems.vue]
 <template>
@@ -183,7 +183,7 @@ npx ui-thing@latest add dropdown-menu
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/DropdownMenu/DocsDropdownMenuRadioItems.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/DropdownMenu/DocsDropdownMenuRadioItems.vue" code lang="vue" -->
 
 ```vue [DocsDropdownMenuRadioItems.vue]
 <template>

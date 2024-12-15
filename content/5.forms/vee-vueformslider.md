@@ -30,7 +30,7 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/VueFormSlider/DocsVeeVueFormSliderSingle.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/VueFormSlider/DocsVeeVueFormSliderSingle.vue" code lang="vue" -->
 
 ```vue [DocsVeeVueFormSliderSingle.vue]
 <template>
@@ -54,7 +54,7 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/VueFormSlider/DocsVeeVueFormSliderMultiple.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/VueFormSlider/DocsVeeVueFormSliderMultiple.vue" code lang="vue" -->
 
 ```vue [DocsVeeVueFormSliderMultiple.vue]
 <template>
@@ -78,7 +78,7 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/VueFormSlider/DocsVeeVueFormSliderTooltip.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/VueFormSlider/DocsVeeVueFormSliderTooltip.vue" code lang="vue" -->
 
 ```vue [DocsVeeVueFormSliderTooltip.vue]
 <template>
@@ -118,7 +118,7 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/VueFormSlider/DocsVeeVueFormSliderMerging.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/VueFormSlider/DocsVeeVueFormSliderMerging.vue" code lang="vue" -->
 
 ```vue [DocsVeeVueFormSliderMerging.vue]
 <template>
@@ -142,7 +142,7 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/VueFormSlider/DocsVeeVueFormSliderVertical.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/VueFormSlider/DocsVeeVueFormSliderVertical.vue" code lang="vue" -->
 
 ```vue [DocsVeeVueFormSliderVertical.vue]
 <template>
@@ -171,7 +171,7 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 #code
 
-<!-- automd:file src="../../components/content/Docs/Vee/VueFormSlider/DocsVeeVueFormSliderValidate.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Vee/VueFormSlider/DocsVeeVueFormSliderValidate.vue" code lang="vue" -->
 
 ```vue [DocsVeeVueFormSliderValidate.vue]
 <template>
