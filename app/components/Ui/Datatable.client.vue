@@ -255,6 +255,9 @@
       transform: translate(24px, 0);
     }
   }
+  .dtfh-floatingparent.dtfh-floatingparent-head {
+    @apply z-10 bg-background/90 backdrop-blur;
+  }
   table.dataTable.nowrap th,
   table.dataTable.nowrap td {
     white-space: nowrap;
@@ -780,7 +783,7 @@
     @apply m-0 block w-full list-none p-0;
   }
   table.dataTable > tbody > tr.child ul.dtr-details > li {
-    @apply border-b p-3 px-7 hover:bg-muted;
+    @apply flex items-center gap-6 border-b p-3 px-7 hover:bg-muted;
   }
 
   table.dataTable > tbody > tr.child ul.dtr-details > li:last-child {
@@ -794,7 +797,7 @@
     @apply fixed left-0 top-0 z-[1000] box-border size-full;
   }
   div.dtr-modal div.dtr-modal-display {
-    @apply absolute left-1/2 top-1/2 z-[102] max-h-[80%] w-full max-w-screen-sm -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-md border bg-background p-4 pb-0 md:px-7 md:py-4 md:pb-0 lg:max-h-[90%];
+    @apply absolute left-1/2 top-1/2 z-[102] max-h-[80%] w-full max-w-screen-sm -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-md border bg-background p-4 md:px-7 md:py-4 lg:max-h-[90%];
   }
   div.dtr-modal div.dtr-modal-content {
     @apply relative flex flex-col p-0 text-[15px];
