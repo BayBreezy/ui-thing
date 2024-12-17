@@ -3,6 +3,18 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## December 17, 2024 - Alert
+
+In this update, the `Alert` component was updated.
+
+Some cool examples were added from the [Origin UI](https://originui.com/) library.
+
+To update just run this command in your project
+
+```bash
+npx ui-thing@latest add alert
+```
+
 ## December 15, 2024 - Sliders Sliders Sliders
 
 In this update, the `Slider` component was updated to accommodate `vertical` orientation.
