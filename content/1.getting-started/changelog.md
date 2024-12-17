@@ -15,6 +15,12 @@ To update just run this command in your project
 npx ui-thing@latest add alert
 ```
 
+### Vue Tippy
+
+The Goodies section was updated with the [Vue Tippy](/goodies/vue-tippy) package.
+
+You can create cool tooltips with it. The `Tooltip` component still works so now you have two options to choose from 🎉.
+
 ## December 15, 2024 - Sliders Sliders Sliders
 
 In this update, the `Slider` component was updated to accommodate `vertical` orientation.

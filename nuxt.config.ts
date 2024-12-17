@@ -2,7 +2,12 @@ import * as SEO from "./app/utils/seo";
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ["~/assets/css/full-calendar.css", "~/assets/css/quill.css", "~/assets/css/theme.css"],
+  css: [
+    "~/assets/css/full-calendar.css",
+    "~/assets/css/quill.css",
+    "~/assets/css/theme.css",
+    "~/assets/css/tippy.css",
+  ],
   future: { compatibilityVersion: 4 },
   vite: {
     optimizeDeps: {
