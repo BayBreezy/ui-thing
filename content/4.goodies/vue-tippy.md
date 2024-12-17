@@ -1,6 +1,7 @@
 ---
 title: Vue Tippy
 description: VueTippy is a Vue 3 wrapper for the Tippy.js library, which allows you to use the tooltips as a Vue component and as a directive.
+label: New
 links:
   - title: Vue Tippy
     href: https://vue-tippy.netlify.app/
