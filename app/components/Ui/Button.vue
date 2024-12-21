@@ -3,7 +3,7 @@
     :is="elementType"
     :class="
       buttonStyles({
-        hasIcon: !!icon,
+        hasIcon: !!icon || loading,
         disabled: disabled || loading,
         variant: variant,
         size: size,
@@ -13,25 +13,27 @@
     :disabled="disabled || loading"
     v-bind="forwarded"
   >
-    <slot name="iconLeft">
-      <div
-        v-if="icon && iconPlacement == 'left'"
-        class="group-hover:translate-x-100 flex w-0 shrink-0 translate-x-[0%] items-center justify-center pr-0 opacity-0 transition-all duration-200 group-hover:w-6 group-hover:pr-2 group-hover:opacity-100"
-      >
-        <Icon :name="icon" class="size-5" />
-      </div>
-    </slot>
-    <slot>
-      <span v-if="text">{{ text }}</span>
-    </slot>
-    <slot name="iconRight">
-      <div
-        v-if="icon && iconPlacement == 'right'"
-        class="flex w-0 shrink-0 translate-x-[100%] items-center justify-center pl-0 opacity-0 transition-all duration-200 group-hover:w-6 group-hover:translate-x-0 group-hover:pl-2 group-hover:opacity-100"
-      >
-        <Icon :name="icon" class="size-5" />
-      </div>
-    </slot>
+    <div class="flex items-center justify-center gap-2">
+      <slot name="iconLeft">
+        <Icon
+          v-if="loading ? iconPlacement !== 'right' : !!icon && iconPlacement === 'left'"
+          :name="loading ? 'line-md:loading-loop' : icon || ''"
+          class="size-5"
+        />
+      </slot>
+
+      <slot>
+        <span v-if="text" :class="{ 'opacity-0': loading }">{{ text }}</span>
+      </slot>
+
+      <slot name="iconRight">
+        <Icon
+          v-if="loading ? iconPlacement === 'right' : !!icon && iconPlacement === 'right'"
+          :name="loading ? 'line-md:loading-loop' : icon || ''"
+          class="size-5"
+        />
+      </slot>
+    </div>
   </component>
 </template>
 
@@ -44,7 +46,7 @@
   const props = withDefaults(
     defineProps<
       NuxtLinkProps & {
-        /** The type fro the button */
+        /** The type for the button */
         type?: "button" | "submit" | "reset";
         /** Whether the button is disabled */
         disabled?: boolean;
@@ -70,6 +72,8 @@
     >(),
     {
       type: "button",
+      iconPlacement: "left",
+      loading: false,
     }
   );
 
