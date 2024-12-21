@@ -88,9 +88,7 @@ Here we have a few examples of the plain buttons.
 ```vue [DocsButtonLoading.vue]
 <template>
   <div class="text-center">
-    <UiButton loading
-      ><Icon class="size-4 animate-spin" name="lucide:loader-2" /> Please wait...</UiButton
-    >
+    <UiButton loading>Please wait...</UiButton>
   </div>
 </template>
 ```
