@@ -108,6 +108,19 @@ export default [
     ],
   },
   {
+    name: "Carousel",
+    value: "carousel",
+    files: [
+      "Carousel/Carousel.vue",
+      "Carousel/Content.vue",
+      "Carousel/Item.vue",
+      "Carousel/Next.vue",
+      "Carousel/Previous.vue",
+    ],
+    deps: ["embla-carousel-vue", "embla-carousel"],
+    composables: ["useCarousel.ts"],
+  },
+  {
     name: "Checkbox",
     value: "checkbox",
     files: ["Checkbox/Checkbox.vue", "Checkbox/Indicator.vue"],

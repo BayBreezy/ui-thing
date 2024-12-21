@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto max-w-sm">
     <div class="space-y-3">
-      <UiLabel class="tabular-nums">{value[0]} credits/mo</UiLabel>
+      <UiLabel class="tabular-nums">{{ value[0] }} credits/mo</UiLabel>
       <div class="flex items-center gap-4">
         <div>
           <UiButton

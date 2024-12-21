@@ -1,7 +1,6 @@
 ---
 title: Button
 description: A button is a component that is used to trigger an action.
-label: New Examples
 ---
 
 ## Source code

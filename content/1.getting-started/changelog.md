@@ -3,6 +3,18 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## December 21, 2024 - Carousel
+
+In this update, the `Carousel` component was added.
+
+Thanks to the [Shadcn Vue](https://www.shadcn-vue.com/) team for doing the heavy lifting.
+
+You can try it out by running
+
+```bash
+npx ui-thing@latest add carousel
+```
+
 ## December 17, 2024 - Alert
 
 In this update, the `Alert` component was updated.

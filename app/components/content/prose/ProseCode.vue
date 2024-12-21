@@ -1,16 +1,45 @@
 <template>
   <div class="relative">
-    <div class="absolute right-3 top-2">
-      <UiButton variant="outline" size="icon" class="h-7 w-7" @click="copyCode()">
-        <Icon name="lucide:copy" />
-      </UiButton>
+    <div class="absolute right-3.5 top-2">
+      <UiTooltip>
+        <UiTooltipTrigger as-child>
+          <UiButton
+            variant="outline"
+            size="icon-xs"
+            class="border-transparent bg-transparent hover:bg-muted/20 disabled:opacity-100 dark:hover:bg-white/20"
+            :aria-label="copied ? 'Copied' : 'Copy to clipboard'"
+            :disabled="copied"
+            @click="copy(code || '')"
+          >
+            <TransitionScale mode="out-in">
+              <Icon
+                v-if="!copied"
+                name="lucide:copy"
+                size="16"
+                aria-hidden="true"
+                class="text-white"
+              />
+              <Icon
+                v-else
+                name="lucide:check"
+                size="16"
+                aria-hidden="true"
+                class="text-emerald-500"
+              />
+            </TransitionScale>
+          </UiButton>
+        </UiTooltipTrigger>
+        <UiTooltipContent align="center" class="px-2 py-1 text-xs">
+          Click to copy
+        </UiTooltipContent>
+      </UiTooltip>
     </div>
     <slot />
   </div>
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{
+  defineProps<{
     code?: string;
     language?: string;
     filename?: string;
@@ -18,16 +47,5 @@
     meta?: string;
   }>();
 
-  const copyCode = () => {
-    const el = document.createElement("textarea");
-    el.value = props.code || "";
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand("copy");
-    document.body.removeChild(el);
-    useSonner.success("", {
-      description: "Copied to clipboard",
-      duration: 3000,
-    });
-  };
+  const { copied, copy } = useClipboard();
 </script>

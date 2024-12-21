@@ -408,6 +408,53 @@ export default [
     plugins: [],
   },
   {
+    name: "Carousel",
+    value: "carousel",
+    files: [
+      {
+        fileName: "Carousel/Carousel.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <div\n    :class="styles({ class: props.class })"\n    role="region"\n    aria-roledescription="carousel"\n    tabindex="0"\n    @keydown="onKeyDown"\n  >\n    <slot\n      :can-scroll-next\n      :can-scroll-prev\n      :carousel-api\n      :carousel-ref\n      :orientation\n      :scroll-next\n      :scroll-prev\n    />\n  </div>\n</template>\n\n<script setup lang="ts">\n  import type { CarouselEmits, CarouselProps, WithClassAsProps } from "~/composables/useCarousel";\n\n  const styles = tv({\n    base: "relative focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border",\n  });\n  const props = withDefaults(defineProps<CarouselProps & WithClassAsProps>(), {\n    orientation: "horizontal",\n  });\n  const emits = defineEmits<CarouselEmits>();\n\n  const {\n    canScrollNext,\n    canScrollPrev,\n    carouselApi,\n    carouselRef,\n    orientation,\n    scrollNext,\n    scrollPrev,\n  } = useProvideCarousel(props, emits);\n\n  defineExpose({\n    canScrollNext,\n    canScrollPrev,\n    carouselApi,\n    carouselRef,\n    orientation: props.orientation,\n    scrollNext,\n    scrollPrev,\n  });\n\n  function onKeyDown(event: KeyboardEvent) {\n    const prevKey = props.orientation === "vertical" ? "ArrowUp" : "ArrowLeft";\n    const nextKey = props.orientation === "vertical" ? "ArrowDown" : "ArrowRight";\n\n    if (event.key === prevKey) {\n      event.preventDefault();\n      scrollPrev();\n      return;\n    }\n\n    if (event.key === nextKey) {\n      event.preventDefault();\n      scrollNext();\n    }\n  }\n</script>\n',
+      },
+      {
+        fileName: "Carousel/Content.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <div ref="carouselRef" :class="styles().base({ orientation })">\n    <div :class="styles().content({ orientation, class: props.class })" v-bind="$attrs">\n      <slot />\n    </div>\n  </div>\n</template>\n\n<script setup lang="ts">\n  import type { WithClassAsProps } from "~/composables/useCarousel";\n\n  defineOptions({ inheritAttrs: false });\n  const props = defineProps<WithClassAsProps>();\n  const { carouselRef, orientation } = useCarousel();\n\n  const styles = tv({\n    slots: {\n      base: "overflow-hidden",\n      content: "flex",\n    },\n    variants: {\n      orientation: {\n        horizontal: { content: "-ml-4" },\n        vertical: { content: "-mt-4 flex-col" },\n      },\n    },\n  });\n</script>\n',
+      },
+      {
+        fileName: "Carousel/Item.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <div\n    role="group"\n    aria-roledescription="slide"\n    :class="styles({ orientation, class: `${props.class} ${grabbingClass}` })"\n    @mousedown="isGrabbing = true"\n    @mouseup="isGrabbing = false"\n    @mouseleave="isGrabbing = false"\n  >\n    <slot />\n  </div>\n</template>\n\n<script setup lang="ts">\n  import type { WithClassAsProps } from "~/composables/useCarousel";\n\n  const props = defineProps<\n    WithClassAsProps & {\n      /**\n       * Whether to show the grab cursor when hovering over the item.\n       * @default false\n       */\n      grabCursor?: boolean;\n    }\n  >();\n\n  const { orientation } = useCarousel();\n\n  const styles = tv({\n    base: "min-w-0 shrink-0 grow-0 basis-full",\n    variants: {\n      orientation: {\n        horizontal: "pl-4",\n        vertical: "pt-4",\n      },\n    },\n  });\n\n  const isGrabbing = ref(false);\n\n  const grabbingClass = computed(() => {\n    if (!props.grabCursor) return "";\n    return isGrabbing.value ? "cursor-grabbing" : "cursor-grab";\n  });\n</script>\n',
+      },
+      {
+        fileName: "Carousel/Next.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <UiButton\n    :disabled="!canScrollNext"\n    :class="styles().base({ orientation, class: props.class })"\n    :variant\n    @click="scrollNext"\n  >\n    <slot>\n      <Icon :name="props.icon" :class="styles().icon({ orientation, class: props.iconClass })" />\n      <span class="sr-only">{{ props.srText }}</span>\n    </slot>\n  </UiButton>\n</template>\n\n<script setup lang="ts">\n  import type { WithClassAsProps } from "~/composables/useCarousel";\n\n  const props = withDefaults(\n    defineProps<\n      WithClassAsProps & {\n        icon?: string;\n        srText?: string;\n        iconClass?: any;\n        variant?: VariantProps<typeof buttonStyles>["variant"];\n      }\n    >(),\n    {\n      icon: "lucide:arrow-right",\n      srText: "Next Slide",\n      variant: "outline",\n    }\n  );\n\n  const { orientation, canScrollNext, scrollNext } = useCarousel();\n\n  const styles = tv({\n    slots: {\n      base: "absolute h-8 w-8 touch-manipulation rounded-full p-0",\n      icon: "size-4 text-current",\n    },\n    variants: {\n      orientation: {\n        horizontal: { base: "-right-12 top-1/2 -translate-y-1/2" },\n        vertical: { base: "-bottom-12 left-1/2 -translate-x-1/2 rotate-90" },\n      },\n    },\n  });\n</script>\n',
+      },
+      {
+        fileName: "Carousel/Previous.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <UiButton\n    :disabled="!canScrollPrev"\n    :class="styles().base({ orientation, class: props.class })"\n    :variant\n    @click="scrollPrev"\n  >\n    <slot>\n      <Icon :name="props.icon" :class="styles().icon({ orientation, class: props.iconClass })" />\n      <span class="sr-only">{{ props.srText }}</span>\n    </slot>\n  </UiButton>\n</template>\n\n<script setup lang="ts">\n  import type { WithClassAsProps } from "~/composables/useCarousel";\n\n  const props = withDefaults(\n    defineProps<\n      WithClassAsProps & {\n        icon?: string;\n        srText?: string;\n        iconClass?: any;\n        variant?: VariantProps<typeof buttonStyles>["variant"];\n      }\n    >(),\n    {\n      icon: "lucide:arrow-left",\n      srText: "Previous Slide",\n      variant: "outline",\n    }\n  );\n\n  const { orientation, canScrollPrev, scrollPrev } = useCarousel();\n\n  const styles = tv({\n    slots: {\n      base: "absolute h-8 w-8 touch-manipulation rounded-full p-0",\n      icon: "size-4 text-current",\n    },\n    variants: {\n      orientation: {\n        horizontal: { base: "-left-12 top-1/2 -translate-y-1/2" },\n        vertical: { base: "-top-12 left-1/2 -translate-x-1/2 rotate-90" },\n      },\n    },\n  });\n</script>\n',
+      },
+    ],
+    deps: ["embla-carousel-vue", "embla-carousel"],
+    composables: [
+      {
+        fileName: "useCarousel.ts",
+        dirPath: "composables",
+        fileContent:
+          'import { createInjectionState } from "@vueuse/core";\nimport emblaCarouselVue from "embla-carousel-vue";\nimport type useEmblaCarousel from "embla-carousel-vue";\nimport type { EmblaCarouselVueType } from "embla-carousel-vue";\nimport type { HTMLAttributes, UnwrapRef } from "vue";\n\ntype CApi = EmblaCarouselVueType[1];\ntype UseCarouselParameters = Parameters<typeof useEmblaCarousel>;\ntype CarouselOptions = UseCarouselParameters[0];\ntype CarouselPlugin = UseCarouselParameters[1];\n\nexport type CarouselApi = UnwrapRef<CApi>;\n\nexport interface CarouselProps {\n  /**\n   * The options to be passed to the EmblaCarousel instance\n   */\n  opts?: CarouselOptions;\n  /**\n   * The plugins to be passed to the EmblaCarousel instance\n   */\n  plugins?: CarouselPlugin;\n  /**\n   * The orientation of the carousel\n   * @default "horizontal"\n   */\n  orientation?: "horizontal" | "vertical";\n}\n\nexport interface CarouselEmits {\n  (e: "init-api", payload: CarouselApi): void;\n}\n\nexport interface WithClassAsProps {\n  /**\n   * The class name to be applied to the root element of the component\n   * @default undefined\n   */\n  class?: HTMLAttributes["class"];\n}\n\nconst [useProvideCarousel, useInjectCarousel] = createInjectionState(\n  ({ opts, orientation, plugins }: CarouselProps, emits: CarouselEmits) => {\n    const [emblaNode, emblaApi] = emblaCarouselVue(\n      {\n        ...opts,\n        axis: orientation === "horizontal" ? "x" : "y",\n      },\n      plugins\n    );\n\n    /**\n     * Scroll to the previous slide\n     */\n    function scrollPrev() {\n      emblaApi.value?.scrollPrev();\n    }\n    /**\n     * Scroll to the next slide\n     */\n    function scrollNext() {\n      emblaApi.value?.scrollNext();\n    }\n    /**\n     * Whether the carousel can scroll to the next slide\n     */\n    const canScrollNext = ref(false);\n    /**\n     * Whether the carousel can scroll to the previous slide\n     */\n    const canScrollPrev = ref(false);\n    /**\n     * Method used to update the canScrollNext and canScrollPrev values\n     */\n    function onSelect(api: CarouselApi) {\n      canScrollNext.value = api?.canScrollNext() || false;\n      canScrollPrev.value = api?.canScrollPrev() || false;\n    }\n\n    onMounted(() => {\n      if (!emblaApi.value) return;\n      emblaApi.value?.on("init", onSelect);\n      emblaApi.value?.on("reInit", onSelect);\n      emblaApi.value?.on("select", onSelect);\n\n      emits("init-api", emblaApi.value);\n    });\n\n    return {\n      carouselRef: emblaNode,\n      carouselApi: emblaApi,\n      canScrollPrev,\n      canScrollNext,\n      scrollPrev,\n      scrollNext,\n      orientation,\n    };\n  }\n);\n\n/**\n * A composable function to be used within a <UiCarousel /> component\n */\nfunction useCarousel() {\n  const carouselState = useInjectCarousel();\n  if (!carouselState) throw new Error("useCarousel must be used within a <UiCarousel />");\n  return carouselState;\n}\n\nexport { useCarousel, useProvideCarousel };\n',
+      },
+    ],
+    utils: [],
+    plugins: [],
+  },
+  {
     name: "Chart",
     value: "chart",
     deps: ["@unovis/ts", "@unovis/vue"],

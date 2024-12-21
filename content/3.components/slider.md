@@ -717,7 +717,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 <template>
   <div class="mx-auto max-w-sm">
     <div class="space-y-3">
-      <UiLabel class="tabular-nums">{value[0]} credits/mo</UiLabel>
+      <UiLabel class="tabular-nums">{{ value[0] }} credits/mo</UiLabel>
       <div class="flex items-center gap-4">
         <div>
           <UiButton
