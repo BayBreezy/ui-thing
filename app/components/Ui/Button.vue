@@ -3,7 +3,7 @@
     :is="elementType"
     :class="
       buttonStyles({
-        hasIcon: !!icon,
+        hasIcon: !!icon || loading,
         disabled: disabled || loading,
         variant: variant,
         size: size,
@@ -76,6 +76,8 @@
     {
       type: "button",
       loadingIcon: "line-md:loading-loop",
+      iconPlacement: "left",
+      loading: false,
     }
   );
 
