@@ -3,7 +3,7 @@
     :is="elementType"
     :class="
       buttonStyles({
-        hasIcon: !!icon || loading,
+        hasIcon: !!icon,
         disabled: disabled || loading,
         variant: variant,
         size: size,
