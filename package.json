@@ -57,7 +57,7 @@
     "@vueform/slider": "^2.1.10",
     "@vueup/vue-quill": "^1.2.0",
     "@vueuse/math": "^12.0.0",
-    "@vueuse/nuxt": "^12.0.0",
+    "@vueuse/nuxt": "^12.1.0",
     "apexcharts": "^4.3.0",
     "canvas-confetti": "^1.9.3",
     "datatables.net-buttons": "^3.2.0",
