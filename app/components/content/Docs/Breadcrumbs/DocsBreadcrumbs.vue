@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-  import type { Crumbs } from "@/components/UI/Breadcrumbs.vue";
+  import type { Crumbs } from "~/components/Ui/Breadcrumbs.vue";
 
   const crumbs: Crumbs[] = [
     {
@@ -14,10 +14,7 @@
         console.log("clicked");
       },
     },
-    {
-      label: "Sales",
-      link: "#",
-    },
+    { label: "Sales", link: "#" },
     {
       label: "Dashboard",
       link: "/examples/dashboard",

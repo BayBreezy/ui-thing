@@ -3,6 +3,39 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## December 23, 2024 - Breadcrumbs & Pagination
+
+In this update the [`Breadcrumbs`](/components/breadcrumbs) component got a little update. You can now pass a `slot` in the array of items & customize what is displayed in that slot.
+
+```html
+<template>
+  <UiBreadcrumbs :items="items" class="justify-center">
+    <template #select>
+      <UiSelect default-value="s1">
+        <UiSelectTrigger class="h-9 w-36" />
+        <UiSelectContent>
+          <UiSelectItem value="s1">Orion</UiSelectItem>
+          <UiSelectItem value="s2">Sigma</UiSelectItem>
+          <UiSelectItem value="s3">Dorado</UiSelectItem>
+        </UiSelectContent>
+      </UiSelect>
+    </template>
+  </UiBreadcrumbs>
+</template>
+
+<script lang="ts" setup>
+  import type { Crumbs } from "~/components/Ui/Breadcrumbs.vue";
+
+  const items: Crumbs[] = [{ label: "Databases" }, { slot: "select" }];
+</script>
+```
+
+You can try it out by running
+
+```bash
+npx ui-thing@latest add breadcrumbs
+```
+
 ## December 21, 2024 - Carousel
 
 In this update, the `Carousel` component was added.
