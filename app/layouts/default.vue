@@ -12,7 +12,12 @@
         </UiScrollArea>
       </div>
       <!-- Page content -->
-      <div class="xl:grid xl:grid-cols-[1fr,250px] xl:gap-5">
+      <div
+        class="xl:grid xl:gap-5"
+        :class="[
+          toc && toc.links && toc.links.length ? 'xl:grid-cols-[1fr,250px]' : 'xl:grid-cols-[1fr]',
+        ]"
+      >
         <!-- Page content -->
         <div
           class="prose prose-lg mx-auto w-full min-w-0 max-w-none py-5 dark:prose-invert lg:prose-base prose-headings:scroll-mt-16 prose-headings:tracking-tight prose-h2:mt-6 prose-h2:border-b prose-h2:pb-3 first:prose-h2:mt-10 prose-a:decoration-primary prose-a:decoration-wavy prose-a:underline-offset-2 hover:prose-a:text-primary prose-pre:text-lg lg:prose-pre:text-base"
@@ -52,4 +57,6 @@
     replaceHash: true,
     overlayHeight: 80,
   });
+
+  defineOgImageScreenshot();
 </script>

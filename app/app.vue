@@ -15,10 +15,8 @@
     keywords: SITE_KEYWORDS.join(", "),
     ogTitle: SITE_TITLE,
     ogDescription: SITE_DESCRIPTION,
-    ogImage: SITE_COVER,
     twitterTitle: SITE_TITLE,
     twitterDescription: SITE_DESCRIPTION,
-    twitterImage: SITE_COVER,
     twitterCard: "summary_large_image",
   });
 

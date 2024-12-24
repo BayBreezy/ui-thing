@@ -134,8 +134,11 @@ export default defineNuxtConfig({
 
   routeRules: {
     "/": { redirect: "/getting-started/introduction", prerender: true },
+    "/components": { redirect: "/components/accordion", prerender: true },
+    "/examples": { redirect: "/examples/cards", prerender: true },
+    "/blocks": { redirect: "/blocks/app-empty-state", prerender: true },
   },
-  colorMode: { classSuffix: "" },
+  colorMode: { classSuffix: "", fallback: "dark", preference: "system" },
 
   pwa: {
     client: { installPrompt: "" },
@@ -191,7 +194,16 @@ export default defineNuxtConfig({
   schemaOrg: { enabled: false },
 
   ogImage: {
-    defaults: { alt: SEO.SITE_NAME },
+    defaults: {
+      alt: SEO.SITE_NAME,
+      width: 1380,
+      height: 700,
+      screenshot: {
+        colorScheme: "dark",
+        height: 880,
+        width: 1400,
+      },
+    },
   },
   compatibilityDate: "2024-12-01",
 });

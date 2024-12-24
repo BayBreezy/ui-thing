@@ -11,4 +11,6 @@
 
 <script lang="ts" setup>
   const params = useUrlSearchParams();
+
+  defineOgImageScreenshot();
 </script>
