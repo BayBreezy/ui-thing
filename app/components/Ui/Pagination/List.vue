@@ -5,6 +5,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { reactiveOmit } from "@vueuse/core";
   import { PaginationList } from "radix-vue";
   import type { PaginationListProps } from "radix-vue";
 

@@ -22,6 +22,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { reactiveOmit } from "@vueuse/core";
   import { PaginationRoot, useForwardPropsEmits } from "radix-vue";
   import type { PaginationRootEmits, PaginationRootProps } from "radix-vue";
 

@@ -36,6 +36,18 @@ You can try it out by running
 npx ui-thing@latest add breadcrumbs
 ```
 
+### Pagination
+
+The [`Pagination`](/components/pagination) component got a little update too. For the core components, only an additional import statement was added from the Vue Use library.
+
+Some nice examples were copied over from the [Origin UI](https://originui.com/) library.
+
+You can try it out by running
+
+```bash
+npx ui-thing@latest add pagination
+```
+
 ## December 21, 2024 - Carousel
 
 In this update, the `Carousel` component was added.

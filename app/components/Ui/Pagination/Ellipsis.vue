@@ -9,6 +9,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { reactiveOmit } from "@vueuse/core";
   import { PaginationEllipsis } from "radix-vue";
   import type { PaginationEllipsisProps } from "radix-vue";
 

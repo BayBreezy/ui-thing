@@ -9,6 +9,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { reactiveOmit } from "@vueuse/core";
   import { PaginationFirst } from "radix-vue";
   import type { PaginationFirstProps } from "radix-vue";
 
