@@ -11,6 +11,10 @@
 
 <script lang="ts" setup>
   const params = useUrlSearchParams();
+  console.log(params?.component);
 
-  defineOgImageScreenshot();
+  defineOgImageComponent("UIThing", {
+    title: "Blocks",
+    description: "Copy and paste blocks of code into your project.",
+  });
 </script>

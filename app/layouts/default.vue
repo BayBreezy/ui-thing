@@ -44,7 +44,7 @@
 <script lang="ts" setup>
   import { useActiveScroll } from "vue-use-active-scroll";
 
-  const { toc, navigation } = useContent();
+  const { toc, navigation, page } = useContent();
 
   const targets = computed(() =>
     toc.value.links.flatMap(({ id, children = [] }: any) => [
@@ -58,5 +58,8 @@
     overlayHeight: 80,
   });
 
-  defineOgImageScreenshot();
+  defineOgImageComponent("UIThing", {
+    title: page.value.title,
+    description: page.value.description,
+  });
 </script>

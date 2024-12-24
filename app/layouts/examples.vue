@@ -6,5 +6,9 @@
 </template>
 
 <script lang="ts" setup>
-  defineOgImageScreenshot();
+  const { page } = useContent();
+  defineOgImageComponent("UIThing", {
+    title: page.value.title,
+    description: page.value.description,
+  });
 </script>
