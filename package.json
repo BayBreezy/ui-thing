@@ -10,7 +10,7 @@
   "type": "module",
   "scripts": {
     "automd": "npx automd@latest --input **/*.md --watch",
-    "build": "nuxt build",
+    "build": "NODE_OPTIONS=--max_old_space_size=8192 nuxt build",
     "clean": "rm -rf .nuxt dist .output node_modules yarn.lock package-lock.json && npm cache clean --force && npm i",
     "dev": "nuxt dev --host",
     "format": "npx prettier --write .",
