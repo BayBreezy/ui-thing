@@ -39,7 +39,7 @@
   };
 
   const props = defineProps<{
-    links: Link[];
+    links?: Link[];
     class?: any;
   }>();
 

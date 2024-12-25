@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-full bg-cover bg-center" :style="{ backgroundImage: `url(${image})` }">
+  <div class="h-full w-full bg-cover bg-center" :style="{ backgroundImage: 'url(https://ui-thing.behonbaker.com/cover-blank.png)' }">
     <div class="flex h-full w-full flex-col items-center justify-center">
       <h1 class="text-center text-8xl font-bold capitalize tracking-tight text-white">
         {{ title }}
@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts" setup>
-  const image = SITE_URL + "/cover-blank.png";
   withDefaults(
     defineProps<{
       title?: string;
