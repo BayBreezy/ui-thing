@@ -50,7 +50,9 @@ build: {
 
 ### Full example
 
-::ShowCase{component="DocsVueSonner"}
+::ShowCase
+
+:DocsVueSonner
 
 #code
 

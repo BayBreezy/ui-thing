@@ -19,7 +19,9 @@ Here we have a few examples of the plain buttons.
 
 ### Default Button
 
-::ShowCase{component="DocsButtonDefault"}
+::ShowCase
+
+:DocsButtonDefault
 
 #code
 
@@ -39,7 +41,9 @@ Here we have a few examples of the plain buttons.
 
 ### Secondary Button
 
-::ShowCase{component="DocsButtonSecondary"}
+::ShowCase
+
+:DocsButtonSecondary
 
 #code
 
@@ -59,7 +63,9 @@ Here we have a few examples of the plain buttons.
 
 ### With Icon
 
-::ShowCase{component="DocsButtonWithIcon"}
+::ShowCase
+
+:DocsButtonWithIcon
 
 #code
 
@@ -79,7 +85,9 @@ Here we have a few examples of the plain buttons.
 
 ### Loading
 
-::ShowCase{component="DocsButtonLoading"}
+::ShowCase
+
+:DocsButtonLoading
 
 #code
 
@@ -99,7 +107,9 @@ Here we have a few examples of the plain buttons.
 
 ### Outline
 
-::ShowCase{component="DocsButtonOutline"}
+::ShowCase
+
+:DocsButtonOutline
 
 #code
 
@@ -119,7 +129,9 @@ Here we have a few examples of the plain buttons.
 
 ### Destructive
 
-::ShowCase{component="DocsButtonDestructive"}
+::ShowCase
+
+:DocsButtonDestructive
 
 #code
 
@@ -139,7 +151,9 @@ Here we have a few examples of the plain buttons.
 
 ### Ghost
 
-::ShowCase{component="DocsButtonGhost"}
+::ShowCase
+
+:DocsButtonGhost
 
 #code
 
@@ -159,7 +173,9 @@ Here we have a few examples of the plain buttons.
 
 ### Link
 
-::ShowCase{component="DocsButtonLink"}
+::ShowCase
+
+:DocsButtonLink
 
 #code
 
@@ -179,7 +195,9 @@ Here we have a few examples of the plain buttons.
 
 ### Icon
 
-::ShowCase{component="DocsButtonIconOnly"}
+::ShowCase
+
+:DocsButtonIconOnly
 
 #code
 
@@ -205,7 +223,9 @@ Here are the different sizes that are available for the buttons.
 
 ### Regular Button Sizes
 
-::ShowCase{component="DocsButtonSizes"}
+::ShowCase
+
+:DocsButtonSizes
 
 #code
 
@@ -231,7 +251,9 @@ Here are the different sizes that are available for the buttons.
 
 ### Icon Button Sizes
 
-::ShowCase{component="DocsButtonIconSizes"}
+::ShowCase
+
+:DocsButtonIconSizes
 
 #code
 
@@ -261,7 +283,9 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Expand Icon - Right
 
-::ShowCase{component="DocsButtonExpandIconRight"}
+::ShowCase
+
+:DocsButtonExpandIconRight
 
 #code
 
@@ -283,7 +307,9 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Expand Icon - Left
 
-::ShowCase{component="DocsButtonExpandIconLeft"}
+::ShowCase
+
+:DocsButtonExpandIconLeft
 
 #code
 
@@ -305,7 +331,9 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Gooey - Left
 
-::ShowCase{component="DocsButtonGooeyLeft"}
+::ShowCase
+
+:DocsButtonGooeyLeft
 
 #code
 
@@ -325,7 +353,9 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Gooey - Right
 
-::ShowCase{component="DocsButtonGooeyRight"}
+::ShowCase
+
+:DocsButtonGooeyRight
 
 #code
 
@@ -345,7 +375,9 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Shine
 
-::ShowCase{component="DocsButtonShine"}
+::ShowCase
+
+:DocsButtonShine
 
 #code
 
@@ -365,7 +397,9 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Ring Hover
 
-::ShowCase{component="DocsButtonRingHover"}
+::ShowCase
+
+:DocsButtonRingHover
 
 #code
 
@@ -385,7 +419,9 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Link Hover 1
 
-::ShowCase{component="DocsButtonLinkHover1"}
+::ShowCase
+
+:DocsButtonLinkHover1
 
 #code
 
@@ -405,7 +441,9 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Link Hover 2
 
-::ShowCase{component="DocsButtonLinkHover2"}
+::ShowCase
+
+:DocsButtonLinkHover2
 
 #code
 
@@ -431,7 +469,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Animated Close Button
 
-::ShowCase{component="DocsButtonAnimatedMenu"}
+::ShowCase
+
+:DocsButtonAnimatedMenu
 
 #code
 
@@ -488,7 +528,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Animated Rotate Plus
 
-::ShowCase{component="DocsButtonRotatePlus"}
+::ShowCase
+
+:DocsButtonRotatePlus
 
 #code
 
@@ -524,7 +566,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Group Outline Counter
 
-::ShowCase{component="DocsButtonGroupOutlineCounter"}
+::ShowCase
+
+:DocsButtonGroupOutlineCounter
 
 #code
 
@@ -572,7 +616,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Volume Control
 
-::ShowCase{component="DocsButtonVolume"}
+::ShowCase
+
+:DocsButtonVolume
 
 #code
 
@@ -642,7 +688,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Animated Copy
 
-::ShowCase{component="DocsButtonAnimatedCopy"}
+::ShowCase
+
+:DocsButtonAnimatedCopy
 
 #code
 
@@ -689,7 +737,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Upload Button w/ Icon
 
-::ShowCase{component="DocsButtonUpload"}
+::ShowCase
+
+:DocsButtonUpload
 
 #code
 
@@ -773,7 +823,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Arrows
 
-::ShowCase{component="DocsButtonArrows"}
+::ShowCase
+
+:DocsButtonArrows
 
 #code
 

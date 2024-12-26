@@ -17,7 +17,9 @@ npx ui-thing@latest add chart
 
 ### Basic
 
-::ShowCase{component="DocsAreaChart"}
+::ShowCase
+
+:DocsAreaChart
 
 #code
 
@@ -53,7 +55,9 @@ npx ui-thing@latest add chart
 
 We can turn the chart into sparkline chart by hiding axis, gridline and legends.
 
-::ShowCase{component="DocsAreaChartSparkline"}
+::ShowCase
+
+:DocsAreaChartSparkline
 
 #code
 
@@ -100,7 +104,9 @@ We can turn the chart into sparkline chart by hiding axis, gridline and legends.
 
 If you want to render custom tooltip, you can easily pass in a custom component. Refer to prop definition [here](/charts#custom-tooltip).
 
-::ShowCase{component="DocsAreaChartCustomTooltip"}
+::ShowCase
+
+:DocsAreaChartCustomTooltip
 
 #code
 

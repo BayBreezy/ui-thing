@@ -20,11 +20,11 @@
                 :value="child.title"
                 @select="
                   $event.preventDefault();
-                  navigateTo(child._path);
+                  navigateTo(child.path);
                   localModel = false;
                 "
               >
-                <Icon :name="nav.icon" class="h-4 w-4 text-muted-foreground/80" />
+                <Icon v-if="nav.icon" :name="nav.icon" class="h-4 w-4 text-muted-foreground/80" />
                 <span>{{ child.title }}</span>
                 <UiBadge v-if="child.label" class="ml-4 px-2 py-0 text-[10px] dark:bg-lime-500">{{
                   child.label
@@ -51,6 +51,10 @@
 </template>
 
 <script lang="ts" setup>
+  import type { ContentNavigationItem } from "@nuxt/content";
+
+  type L = ContentNavigationItem & { icon?: string };
+
   const props = defineProps<{
     modelValue?: boolean;
   }>();
@@ -65,7 +69,7 @@
   }>();
   const localModel = useVModel(props, "modelValue", emits, { passive: true });
 
-  const { navigation } = useContent();
+  const navigation = inject<Ref<L[]>>("navigation", ref([]));
 
   const colorMode = useColorMode();
   const setTheme = (e: Event, val: string) => {

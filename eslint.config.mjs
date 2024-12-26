@@ -8,6 +8,7 @@ export default withNuxt({
     "vue/require-default-prop": "off",
     "@typescript-eslint/no-empty-object-type": "off",
     "@typescript-eslint/ban-types": "off",
+    "vue/no-multiple-template-root": "off",
   },
   ignores: [".nuxt", "node_modules"],
 });

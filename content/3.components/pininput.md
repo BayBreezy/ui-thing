@@ -26,7 +26,9 @@ npx ui-thing@latest add pin-input
 
 Passing a value to the placeholder prop will render a placeholder character in each input.
 
-::ShowCase{component="DocsPinInput"}
+::ShowCase
+
+:DocsPinInput
 
 #code
 
@@ -47,7 +49,9 @@ Passing a value to the placeholder prop will render a placeholder character in e
 
 Passing a value to the separator prop will render a separator character between each input.
 
-::ShowCase{component="DocsPinInputSeparator"}
+::ShowCase
+
+:DocsPinInputSeparator
 
 #code
 
@@ -68,7 +72,9 @@ Passing a value to the separator prop will render a separator character between 
 
 The complete event is emitted when the user has entered a value in all inputs.
 
-::ShowCase{component="DocsPinInputComplete"}
+::ShowCase
+
+:DocsPinInputComplete
 
 #code
 

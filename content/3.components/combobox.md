@@ -83,7 +83,9 @@ See installation instructions for the [Popover](/components/popover) and the [Co
 
 ### Combobox
 
-::ShowCase{component="DocsCombobox"}
+::ShowCase
+
+:DocsCombobox
 
 #code
 

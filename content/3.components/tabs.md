@@ -24,7 +24,9 @@ npx ui-thing@latest add tabs
 
 ### Basic example
 
-::ShowCase{component="DocsTabs"}
+::ShowCase
+
+:DocsTabs
 
 #code
 
@@ -95,7 +97,9 @@ npx ui-thing@latest add tabs
 
 Passing `:pill="false"` to the List and Trigger components will remove the background color from both components. This allows us to use the Indicator component to create a custom indicator.
 
-::ShowCase{component="DocsTabsIndicator"}
+::ShowCase
+
+:DocsTabsIndicator
 
 #code
 

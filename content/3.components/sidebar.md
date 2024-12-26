@@ -9,13 +9,25 @@ I just want to start by thanking the shadcn-vue & shadcn-ui team for doing the h
 
 ## The Setup
 
-1. To get started, you should add the component to your project.
+<Steps>
+
+<Step>
+
+### Install the component
+
+To get started, you should add the component to your project.
 
 ```bash
 npx ui-thing@latest add sidebar
 ```
 
-2. Next you will need to update your `tailwind.css` file to include the following:
+</Step>
+
+<Step>
+
+### Update the Tailwind CSS file
+
+Next you will need to update your `tailwind.css` file to include the following:
 
 ```css
 @layer base {
@@ -45,7 +57,13 @@ npx ui-thing@latest add sidebar
 }
 ```
 
-3. Now update the `tailwind.config.js` file to include the following:
+</Step>
+
+<Step>
+
+### Update the Tailwind Config file
+
+Now update the `tailwind.config.js` file to include the following:
 
 ```js
 // ...
@@ -62,6 +80,10 @@ sidebar: {
 },
 // ...
 ```
+
+</Step>
+
+</Steps>
 
 ## Source code
 

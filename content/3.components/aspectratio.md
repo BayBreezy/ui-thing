@@ -24,7 +24,9 @@ npx ui-thing@latest add aspect-ratio
 
 Right click the image to perform different actions.
 
-::ShowCase{component="DocsAspectRatio"}
+::ShowCase
+
+:DocsAspectRatio
 
 #code
 

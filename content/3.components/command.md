@@ -22,7 +22,9 @@ npx ui-thing@latest add command
 
 ## Usage
 
-::ShowCase{component="DocsCommand"}
+::ShowCase
+
+:DocsCommand
 
 #code
 

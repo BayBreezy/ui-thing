@@ -17,7 +17,9 @@ npx ui-thing@latest add skeleton
 
 ### Basic example
 
-::ShowCase{component="DocsSkeleton"}
+::ShowCase
+
+:DocsSkeleton
 
 #code
 

@@ -24,7 +24,9 @@ npx ui-thing@latest add toggle
 
 ### Basic example
 
-::ShowCase{component="DocsToggle"}
+::ShowCase
+
+:DocsToggle
 
 #code
 

@@ -83,7 +83,9 @@ Create the component `UiBorderBeam.vue` in the `components` directory.
 
 Just place the border beam component inside a div with relative positioning, width, and height. You will notice the beam automatically moves around the perimeter of it's container.
 
-::ShowCase{component="DocsBorderBeam"}
+::ShowCase
+
+:DocsBorderBeam
 
 #code
 

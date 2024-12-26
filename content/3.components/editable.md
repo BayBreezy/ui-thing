@@ -26,7 +26,9 @@ The `Editable` component is one that will be used differently in different parts
 
 Since we already have styled buttons and inputs, it kinda makes no sense to force a specific style on the `Editable` component when we can just use the `asChild` prop to pass in the children we want to use.
 
-::ShowCase{component="DocsEditable"}
+::ShowCase
+
+:DocsEditable
 
 #code
 

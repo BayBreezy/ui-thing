@@ -22,7 +22,9 @@ npx ui-thing@latest add date-field
 
 ## Usage
 
-::ShowCase{component="DocsDateField"}
+::ShowCase
+
+:DocsDateField
 
 #code
 

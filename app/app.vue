@@ -1,8 +1,10 @@
 <template>
-  <div vaul-drawer-wrapper>
+  <div>
     <NuxtPwaManifest />
     <NuxtLoadingIndicator />
-    <NuxtPage />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
     <UiToastToaster />
     <UiVueSonner />
   </div>

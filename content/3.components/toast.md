@@ -36,7 +36,9 @@ Remember to add the `<UiToastToaster />` component to your app layout.
 
 ### Full example
 
-::ShowCase{component="DocsToast"}
+::ShowCase
+
+:DocsToast
 
 #code
 

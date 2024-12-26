@@ -17,7 +17,9 @@ npx ui-thing@latest add kbd
 
 ### Basic example
 
-::ShowCase{component="DocsKbd"}
+::ShowCase
+
+:DocsKbd
 
 #code
 

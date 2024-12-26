@@ -26,7 +26,9 @@ npx ui-thing@latest add tree
 
 The `Tree` component can be styled to look like anything you want. For that reason, I decided to not style the tree component at all. Instead, I provide a basic example of how to use the tree component.
 
-::ShowCase{component="DocsTree"}
+::ShowCase
+
+:DocsTree
 
 #code
 
@@ -281,7 +283,9 @@ We can render a large number of items using the `Virtualizer` component.
 
 Click on one of the items to see the details.
 
-::ShowCase{component="DocsTreeVirtualizer"}
+::ShowCase
+
+:DocsTreeVirtualizer
 
 #code
 

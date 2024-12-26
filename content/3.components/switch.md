@@ -24,7 +24,9 @@ npx ui-thing@latest add switch
 
 ### Basic example
 
-::ShowCase{component="DocsSwitch"}
+::ShowCase
+
+:DocsSwitch
 
 #code
 
@@ -43,7 +45,9 @@ npx ui-thing@latest add switch
 
 ### Form
 
-::ShowCase{component="DocsSwitchForm"}
+::ShowCase
+
+:DocsSwitchForm
 
 #code
 

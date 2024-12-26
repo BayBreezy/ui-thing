@@ -61,8 +61,8 @@ app: {
     head: {
       script: [
         // Add pdfmake scripts for DataTables.net export buttons
-        { src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/pdfmake.min.js" },
-        { src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/vfs_fonts.min.js" },
+        { src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.12/pdfmake.min.js" },
+        { src: "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.12/vfs_fonts.min.js" },
       ],
     },
   },
@@ -76,7 +76,9 @@ If you are not going to use the PDF export feature, you can remove the `script` 
 
 Take note of how the [`dom`](https://datatables.net/reference/option/dom) option is configured in the code. We use it to structure the layout of the table.
 
-::ShowCase{component="DocsDatatableBasic"}
+::ShowCase
+
+:DocsDatatableBasic
 
 #code
 
@@ -154,7 +156,9 @@ Take note of how the [`dom`](https://datatables.net/reference/option/dom) option
 
 With the new version of DataTables.net, you can now use custom Vue components in your table.
 
-::ShowCase{component="DocsDatatableComponent"}
+::ShowCase
+
+:DocsDatatableComponent
 
 #code
 
@@ -263,7 +267,9 @@ You can read more about it [here](https://datatables.net/reference/option/layout
 
 For this, you will actually need to add some custom classes for things to look how you want.
 
-::ShowCase{component="DocsDatatableLayout"}
+::ShowCase
+
+:DocsDatatableLayout
 
 #code
 

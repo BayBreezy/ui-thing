@@ -81,7 +81,9 @@ npx ui-thing@latest add form
 
 ### User profile form
 
-::ShowCase{component="DocsFormUser"}
+::ShowCase
+
+:DocsFormUser
 
 #code
 

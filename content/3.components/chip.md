@@ -17,7 +17,9 @@ npx ui-thing@latest add chip
 
 ### Basic
 
-::ShowCase{component="DocsChip"}
+::ShowCase
+
+:DocsChip
 
 #code
 
@@ -39,7 +41,9 @@ npx ui-thing@latest add chip
 
 Pass a size to the `size` prop to change the size of the chip.
 
-::ShowCase{component="DocsChipSize"}
+::ShowCase
+
+:DocsChipSize
 
 #code
 
@@ -65,7 +69,9 @@ Pass a size to the `size` prop to change the size of the chip.
 
 You can change the color of the chip by passing any tailwind color `bg` class to the `color` prop.
 
-::ShowCase{component="DocsChipColor"}
+::ShowCase
+
+:DocsChipColor
 
 #code
 
@@ -89,7 +95,9 @@ You can change the color of the chip by passing any tailwind color `bg` class to
 
 You can display a text inside the chip by passing a `string` to the `text` prop.
 
-::ShowCase{component="DocsChipText"}
+::ShowCase
+
+:DocsChipText
 
 #code
 
@@ -116,7 +124,9 @@ You can display a text inside the chip by passing a `string` to the `text` prop.
 
 The `inset` prop can be used to move the indicator closer to the element.
 
-::ShowCase{component="DocsChipInset"}
+::ShowCase
+
+:DocsChipInset
 
 #code
 

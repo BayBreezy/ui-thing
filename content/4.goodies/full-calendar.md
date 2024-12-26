@@ -159,7 +159,9 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
 
 ### Month View
 
-::ShowCase{component="DocsFullCalendar"}
+::ShowCase
+
+:DocsFullCalendar
 
 #code
 
@@ -219,7 +221,9 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
 
 ### List View
 
-::ShowCase{component="DocsFullCalendarList"}
+::ShowCase
+
+:DocsFullCalendarList
 
 #code
 
@@ -274,7 +278,9 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
 
 ### TimeGrid View
 
-::ShowCase{component="DocsFullCalendarTimeGrid"}
+::ShowCase
+
+:DocsFullCalendarTimeGrid
 
 #code
 
@@ -342,7 +348,9 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
 
 ### MultiMonth View
 
-::ShowCase{component="DocsFullCalendarMultiMonth"}
+::ShowCase
+
+:DocsFullCalendarMultiMonth
 
 #code
 

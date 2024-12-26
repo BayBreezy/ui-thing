@@ -24,7 +24,9 @@ npx ui-thing@latest add listbox
 
 ### Basic
 
-::ShowCase{component="DocsListboxBasic"}
+::ShowCase
+
+:DocsListboxBasic
 
 #code
 
@@ -86,7 +88,9 @@ npx ui-thing@latest add listbox
 
 ### Objects
 
-::ShowCase{component="DocsListboxObjects"}
+::ShowCase
+
+:DocsListboxObjects
 
 #code
 
@@ -151,7 +155,9 @@ npx ui-thing@latest add listbox
 
 ### Multiple - Strings
 
-::ShowCase{component="DocsListboxStringMultiple"}
+::ShowCase
+
+:DocsListboxStringMultiple
 
 #code
 
@@ -213,7 +219,9 @@ npx ui-thing@latest add listbox
 
 ### Multiple - Objects
 
-::ShowCase{component="DocsListboxObjectsMultiple"}
+::ShowCase
+
+:DocsListboxObjectsMultiple
 
 #code
 
@@ -278,7 +286,9 @@ npx ui-thing@latest add listbox
 
 ### Virtualizer - Strings
 
-::ShowCase{component="DocsListboxStringVirtualizer"}
+::ShowCase
+
+:DocsListboxStringVirtualizer
 
 #code
 

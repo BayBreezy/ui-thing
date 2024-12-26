@@ -38,7 +38,9 @@ export default useConfetti;
 
 We can just call the `useConfetti` method to trigger the confetti.
 
-::ShowCase{component="DocsConfetti"}
+::ShowCase
+
+:DocsConfetti
 
 #code
 
@@ -62,7 +64,9 @@ We can just call the `useConfetti` method to trigger the confetti.
 
 This is how you can shoot confetti off in a random direction.
 
-::ShowCase{component="DocsConfettiRandomDirection"}
+::ShowCase
+
+:DocsConfettiRandomDirection
 
 #code
 
@@ -92,7 +96,9 @@ This is how you can shoot confetti off in a random direction.
 
 ### Fireworks
 
-::ShowCase{component="DocsConfettiFireworks"}
+::ShowCase
+
+:DocsConfettiFireworks
 
 #code
 
@@ -139,7 +145,9 @@ This is how you can shoot confetti off in a random direction.
 
 ### Stars
 
-::ShowCase{component="DocsConfettiStars"}
+::ShowCase
+
+:DocsConfettiStars
 
 #code
 
@@ -188,7 +196,9 @@ This is how you can shoot confetti off in a random direction.
 
 ### Snow
 
-::ShowCase{component="DocsConfettiSnow"}
+::ShowCase
+
+:DocsConfettiSnow
 
 #code
 
@@ -244,7 +254,9 @@ This is how you can shoot confetti off in a random direction.
 
 ### Side Cannon
 
-::ShowCase{component="DocsConfettiSideCannon"}
+::ShowCase
+
+:DocsConfettiSideCannon
 
 #code
 
@@ -288,7 +300,9 @@ This is how you can shoot confetti off in a random direction.
 
 ### Emoji
 
-::ShowCase{component="DocsConfettiEmoji"}
+::ShowCase
+
+:DocsConfettiEmoji
 
 #code
 

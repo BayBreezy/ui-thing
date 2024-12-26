@@ -24,7 +24,9 @@ npx ui-thing@latest add tooltip
 
 ### Basic example
 
-::ShowCase{component="DocsTooltip"}
+::ShowCase
+
+:DocsTooltip
 
 #code
 

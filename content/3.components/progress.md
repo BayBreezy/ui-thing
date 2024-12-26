@@ -34,7 +34,9 @@ npx ui-thing@latest add progress
 
 ### Full example
 
-::ShowCase{component="DocsProgress"}
+::ShowCase
+
+:DocsProgress
 
 #code
 

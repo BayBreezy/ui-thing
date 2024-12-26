@@ -15,7 +15,9 @@ npx ui-thing@latest add placeholder
 
 ## Usage
 
-::ShowCase{component="DocsPlaceholder"}
+::ShowCase
+
+:DocsPlaceholder
 
 #code
 

@@ -15,7 +15,9 @@ npx ui-thing@latest add card
 
 ## Usage
 
-::ShowCase{component="DocsCard"}
+::ShowCase
+
+:DocsCard
 
 #code
 
@@ -66,7 +68,9 @@ npx ui-thing@latest add card
 
 ## Example
 
-::ShowCase{component="DocsCardExample"}
+::ShowCase
+
+:DocsCardExample
 
 #code
 

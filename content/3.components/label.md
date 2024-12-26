@@ -24,7 +24,9 @@ npx ui-thing@latest add label
 
 ### Input
 
-::ShowCase{component="DocsInputLabel"}
+::ShowCase
+
+:DocsInputLabel
 
 #code
 

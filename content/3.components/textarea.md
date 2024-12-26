@@ -21,7 +21,9 @@ npx ui-thing@latest add textarea
 
 ### Basic example
 
-::ShowCase{component="DocsTextarea"}
+::ShowCase
+
+:DocsTextarea
 
 #code
 
@@ -37,7 +39,9 @@ npx ui-thing@latest add textarea
 
 ### Label
 
-::ShowCase{component="DocsTextareaLabel"}
+::ShowCase
+
+:DocsTextareaLabel
 
 #code
 
@@ -56,7 +60,9 @@ npx ui-thing@latest add textarea
 
 ### Form
 
-::ShowCase{component="DocsTextareaForm"}
+::ShowCase
+
+:DocsTextareaForm
 
 #code
 

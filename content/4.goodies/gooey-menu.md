@@ -13,7 +13,9 @@ Shout out to [Julien Thibeaut](https://ibelick.com/) for the source code. I disc
 
 This may not be a component that can be reused across multiple projects, but it's a fun one to have in your back pocket.
 
-::ShowCase{component="DocsGooeyMenu"}
+::ShowCase
+
+:DocsGooeyMenu
 
 #code
 

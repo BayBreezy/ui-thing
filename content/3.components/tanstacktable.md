@@ -22,7 +22,9 @@ npx ui-thing@latest add tanstacktable
 
 ## Usage
 
-::ShowCase{component="DocsTanStackTable"}
+::ShowCase
+
+:DocsTanStackTable
 
 #code
 

@@ -35,7 +35,9 @@ npx ui-thing@latest add radio-group
 
 ### Default value
 
-::ShowCase{component="DocsRadioGroup"}
+::ShowCase
+
+:DocsRadioGroup
 
 #code
 
@@ -64,7 +66,9 @@ npx ui-thing@latest add radio-group
 
 ### Form
 
-::ShowCase{component="DocsRadioGroupForm"}
+::ShowCase
+
+:DocsRadioGroupForm
 
 #code
 

@@ -39,7 +39,9 @@ The default configuration for the currency input component is as follows:
 
 ### Basic
 
-::ShowCase{component="DocsCurrencyInputBasic"}
+::ShowCase
+
+:DocsCurrencyInputBasic
 
 #code
 
@@ -57,7 +59,9 @@ The default configuration for the currency input component is as follows:
 
 You can change the configuration by passing the `options` prop.
 
-::ShowCase{component="DocsCurrencyInputOptions"}
+::ShowCase
+
+:DocsCurrencyInputOptions
 
 #code
 
@@ -81,7 +85,9 @@ You can change the configuration by passing the `options` prop.
 
 ### Form
 
-::ShowCase{component="DocsCurrencyInputForm"}
+::ShowCase
+
+:DocsCurrencyInputForm
 
 #code
 

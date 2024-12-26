@@ -36,7 +36,9 @@ vcalendar: {
 
 ### Datetime Mode
 
-::ShowCase{component="DocsDatepickerMode"}
+::ShowCase
+
+:DocsDatepickerMode
 
 #code
 
@@ -58,7 +60,9 @@ vcalendar: {
 
 ### Custom Title
 
-::ShowCase{component="DocsDatepickerTitle"}
+::ShowCase
+
+:DocsDatepickerTitle
 
 #code
 
@@ -81,7 +85,9 @@ vcalendar: {
 
 ### Button Slot
 
-::ShowCase{component="DocsDatepickerButton"}
+::ShowCase
+
+:DocsDatepickerButton
 
 #code
 
@@ -114,7 +120,9 @@ vcalendar: {
 
 ### Input Slot
 
-::ShowCase{component="DocsDatepickerInput"}
+::ShowCase
+
+:DocsDatepickerInput
 
 #code
 

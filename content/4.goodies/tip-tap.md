@@ -267,7 +267,9 @@ The one used here looks like this. Like I said earlier, you have to install a lo
 
 In this example, we are just passing the model to the editor. We are also customizing the look and feel of this single instance of the editor. Feel free to customize it to your liking.
 
-::ShowCase{component="DocsTiptap"}
+::ShowCase
+
+:DocsTiptap
 
 #code
 

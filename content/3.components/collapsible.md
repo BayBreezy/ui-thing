@@ -22,7 +22,9 @@ npx ui-thing@latest add collapsible
 
 ## Usage
 
-::ShowCase{component="DocsCollapsible"}
+::ShowCase
+
+:DocsCollapsible
 
 #code
 

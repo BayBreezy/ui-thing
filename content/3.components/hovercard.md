@@ -24,7 +24,9 @@ npx ui-thing@latest add hover-card
 
 ### Basic
 
-::ShowCase{component="DocsHoverCard"}
+::ShowCase
+
+:DocsHoverCard
 
 #code
 
@@ -81,7 +83,9 @@ npx ui-thing@latest add hover-card
 
 ### Vue
 
-::ShowCase{component="DocsHoverCardVue"}
+::ShowCase
+
+:DocsHoverCardVue
 
 #code
 

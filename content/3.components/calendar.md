@@ -34,7 +34,9 @@ vcalendar: {
 
 ## Usage
 
-::ShowCase{component="DocsCalendar"}
+::ShowCase
+
+:DocsCalendar
 
 #code
 

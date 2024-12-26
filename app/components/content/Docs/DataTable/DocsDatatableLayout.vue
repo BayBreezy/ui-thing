@@ -90,13 +90,21 @@
     layout: {
       top1: "searchBuilder",
       top1Start: {
-        buttons: true,
+        features: {
+          buttons: true,
+        },
+        className: tw`pb-5`,
       },
       topStart: null,
       topEnd: null,
       bottomStart: null,
       bottomEnd: {
-        paging: true,
+        features: [
+          {
+            paging: true,
+          },
+        ],
+        className: tw`pt-5`,
       },
     },
   };

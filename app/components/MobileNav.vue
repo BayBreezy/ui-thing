@@ -17,7 +17,7 @@
             </div>
             <UiSeparator class="mt-4" />
           </div>
-          <DocsNavlink :links="navigation" />
+          <DocsNav :links="navigation" />
         </UiScrollArea>
       </template>
     </UiSheetContent>
@@ -25,7 +25,9 @@
 </template>
 
 <script lang="ts" setup>
-  const { navigation } = useContent();
+  import type { ContentNavigationItem } from "@nuxt/content";
+
+  const navigation = inject<Ref<ContentNavigationItem[]>>("navigation", ref([]));
 
   const props = defineProps<{
     modelValue?: boolean;

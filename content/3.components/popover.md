@@ -37,7 +37,9 @@ npx ui-thing@latest add popover
 
 ### Full example
 
-::ShowCase{component="DocsPopover"}
+::ShowCase
+
+:DocsPopover
 
 #code
 

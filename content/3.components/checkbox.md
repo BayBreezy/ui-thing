@@ -24,7 +24,9 @@ npx ui-thing@latest add checkbox
 
 ### Basic
 
-::ShowCase{component="DocsCheckbox"}
+::ShowCase
+
+:DocsCheckbox
 
 #code
 
@@ -66,7 +68,9 @@ We can set the default value of the checkbox by binding the `v-model:checked` pr
 
 To bind the default value on the [VeeCheckbox](/forms/veecheckbox) component, we need to use the `v-model` prop instead of `v-model:checked`.
 
-::ShowCase{component="DocsCheckboxDefaultValues"}
+::ShowCase
+
+:DocsCheckboxDefaultValues
 
 #code
 

@@ -17,7 +17,9 @@ npx ui-thing@latest add badge
 
 ### Default
 
-::ShowCase{component="DocsBadgeDefault"}
+::ShowCase
+
+:DocsBadgeDefault
 
 #code
 
@@ -37,7 +39,9 @@ npx ui-thing@latest add badge
 
 ### Destructive
 
-::ShowCase{component="DocsBadgeDestructive"}
+::ShowCase
+
+:DocsBadgeDestructive
 
 #code
 
@@ -57,7 +61,9 @@ npx ui-thing@latest add badge
 
 ### Outline
 
-::ShowCase{component="DocsBadgeOutline"}
+::ShowCase
+
+:DocsBadgeOutline
 
 #code
 
@@ -77,7 +83,9 @@ npx ui-thing@latest add badge
 
 ### Secondary
 
-::ShowCase{component="DocsBadgeSecondary"}
+::ShowCase
+
+:DocsBadgeSecondary
 
 #code
 
@@ -99,7 +107,9 @@ npx ui-thing@latest add badge
 
 Three sizes are available for badges: `sm`, `md`, and `lg`.
 
-::ShowCase{component="DocsBadgeSizes"}
+::ShowCase
+
+:DocsBadgeSizes
 
 #code
 

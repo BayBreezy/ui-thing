@@ -26,7 +26,9 @@ npx ui-thing@latest add accordion
 
 The most common way to use the accordion is by just passing an array of items to the `items` prop. Each item should have a `value`, `title`, and `content`.
 
-::ShowCase{component="DocsAccordion"}
+::ShowCase
+
+:DocsAccordion
 
 #code
 
@@ -62,7 +64,9 @@ The most common way to use the accordion is by just passing an array of items to
 
 If you want to change the way that the items look, you can do so by using the different components that the accordion is composed of.
 
-::ShowCase{component="DocsAccordionVariant"}
+::ShowCase
+
+:DocsAccordionVariant
 
 #code
 
@@ -116,7 +120,9 @@ If you want to change the way that the items look, you can do so by using the di
 
 You can change the `icon` that is displayed based on the open state of an item. Just override the the `trigger` slot and then override the `icon` slot.
 
-::ShowCase{component="DocsAccordionIcon"}
+::ShowCase
+
+:DocsAccordionIcon
 
 #code
 

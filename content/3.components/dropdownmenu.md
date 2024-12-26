@@ -24,7 +24,9 @@ npx ui-thing@latest add dropdown-menu
 
 ### Menu Items w/ Submenu
 
-::ShowCase{component="DocsDropdownMenuBasic"}
+::ShowCase
+
+:DocsDropdownMenuBasic
 
 #code
 
@@ -111,7 +113,9 @@ npx ui-thing@latest add dropdown-menu
 
 ### Checkbox Menu Items
 
-::ShowCase{component="DocsDropdownMenuCheckItems"}
+::ShowCase
+
+:DocsDropdownMenuCheckItems
 
 #code
 
@@ -179,7 +183,9 @@ npx ui-thing@latest add dropdown-menu
 
 ### Radio Menu Items
 
-::ShowCase{component="DocsDropdownMenuRadioItems"}
+::ShowCase
+
+:DocsDropdownMenuRadioItems
 
 #code
 

@@ -36,7 +36,9 @@ npx ui-thing@latest add scroll-area
 
 ### Basic example
 
-::ShowCase{component="DocsScrollArea"}
+::ShowCase
+
+:DocsScrollArea
 
 #code
 

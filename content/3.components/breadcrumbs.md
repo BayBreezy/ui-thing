@@ -18,7 +18,9 @@ npx ui-thing@latest add breadcrumbs
 
 ### Basic
 
-::ShowCase{component="DocsBreadcrumbs"}
+::ShowCase
+
+:DocsBreadcrumbs
 
 #code
 
@@ -64,7 +66,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Dots Dropdown
 
-::ShowCase{component="DocsBreadcrumbsDotDropdown"}
+::ShowCase
+
+:DocsBreadcrumbsDotDropdown
 
 #code
 
@@ -115,7 +119,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Icon Dropdown
 
-::ShowCase{component="DocsBreadcrumbsIconDropdown"}
+::ShowCase
+
+:DocsBreadcrumbsIconDropdown
 
 #code
 
@@ -166,7 +172,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Icons
 
-::ShowCase{component="DocsBreadcrumbsIcons"}
+::ShowCase
+
+:DocsBreadcrumbsIcons
 
 #code
 
@@ -194,7 +202,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Separator
 
-::ShowCase{component="DocsBreadcrumbsSeparator"}
+::ShowCase
+
+:DocsBreadcrumbsSeparator
 
 #code
 
@@ -225,7 +235,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Bordered
 
-::ShowCase{component="DocsBreadcrumbsBordered"}
+::ShowCase
+
+:DocsBreadcrumbsBordered
 
 #code
 
@@ -256,7 +268,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Select
 
-::ShowCase{component="DocsBreadcrumbsSelect"}
+::ShowCase
+
+:DocsBreadcrumbsSelect
 
 #code
 

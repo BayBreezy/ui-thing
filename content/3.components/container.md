@@ -17,7 +17,9 @@ npx ui-thing@latest add container
 
 ### Basic
 
-::ShowCase{component="DocsContainer"}
+::ShowCase
+
+:DocsContainer
 
 #code
 

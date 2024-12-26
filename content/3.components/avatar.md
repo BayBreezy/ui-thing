@@ -22,7 +22,9 @@ npx ui-thing@latest add avatar
 
 ## Usage
 
-::ShowCase{component="DocsAvatar"}
+::ShowCase
+
+:DocsAvatar
 
 #code
 

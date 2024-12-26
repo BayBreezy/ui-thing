@@ -24,7 +24,9 @@ npx ui-thing@latest add tags-input
 
 ### Basic example
 
-::ShowCase{component="DocsTagsInput"}
+::ShowCase
+
+:DocsTagsInput
 
 #code
 

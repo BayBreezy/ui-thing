@@ -17,7 +17,9 @@ npx ui-thing@latest add list
 
 ### Basic
 
-::ShowCase{component="DocsListBasic"}
+::ShowCase
+
+:DocsListBasic
 
 #code
 
@@ -56,7 +58,9 @@ npx ui-thing@latest add list
 
 ### Mini cart
 
-::ShowCase{component="DocsListProducts"}
+::ShowCase
+
+:DocsListProducts
 
 #code
 
@@ -99,7 +103,9 @@ npx ui-thing@latest add list
 
 ### Navigation list
 
-::ShowCase{component="DocsListNav"}
+::ShowCase
+
+:DocsListNav
 
 #code
 

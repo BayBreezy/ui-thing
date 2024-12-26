@@ -14,7 +14,10 @@
     return `https://github.com/baybreezy/ui-thing/tree/main/components/Ui/${props.component}`;
   });
 
-  const { page } = useContent();
+  const route = useRoute();
+  const { data: page } = await useAsyncData(route.path, () => {
+    return queryCollection("content").path(route.path).first();
+  });
   const titleText = computed(() =>
     page?.value ? `View source code for ${page.value.title}` : "View source code"
   );

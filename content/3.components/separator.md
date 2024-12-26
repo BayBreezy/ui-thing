@@ -24,7 +24,9 @@ npx ui-thing@latest add separator
 
 ### Basic example
 
-::ShowCase{component="DocsSeparator"}
+::ShowCase
+
+:DocsSeparator
 
 #code
 

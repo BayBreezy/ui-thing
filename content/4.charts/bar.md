@@ -17,7 +17,9 @@ npx ui-thing@latest add chart
 
 ### Basic
 
-::ShowCase{component="DocsBarChart"}
+::ShowCase
+
+:DocsBarChart
 
 #code
 
@@ -63,7 +65,9 @@ npx ui-thing@latest add chart
 
 You can stack the bar chart by settings prop `type` to `stacked`.
 
-::ShowCase{component="DocsBarChartStacked"}
+::ShowCase
+
+:DocsBarChartStacked
 
 #code
 
@@ -108,7 +112,9 @@ You can stack the bar chart by settings prop `type` to `stacked`.
 
 ### Rounded Corners
 
-::ShowCase{component="DocsBarChartRounded"}
+::ShowCase
+
+:DocsBarChartRounded
 
 #code
 
@@ -155,7 +161,9 @@ You can stack the bar chart by settings prop `type` to `stacked`.
 
 If you want to render custom tooltip, you can easily pass in a custom component. Refer to prop definition [here](/charts#custom-tooltip).
 
-::ShowCase{component="DocsBarChartCustomTooltip"}
+::ShowCase
+
+:DocsBarChartCustomTooltip
 
 #code
 

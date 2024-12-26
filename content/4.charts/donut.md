@@ -17,7 +17,9 @@ npx ui-thing@latest add chart
 
 ### Basic
 
-::ShowCase{component="DocsDonutChart"}
+::ShowCase
+
+:DocsDonutChart
 
 #code
 
@@ -51,7 +53,9 @@ npx ui-thing@latest add chart
 
 If you want to render pie chart instead, pass `type` as `pie`.
 
-::ShowCase{component="DocsPieChart"}
+::ShowCase
+
+:DocsPieChart
 
 #code
 
@@ -85,7 +89,9 @@ If you want to render pie chart instead, pass `type` as `pie`.
 
 We generate colors automatically based on the primary and secondary color and assigned them accordingly. Feel free to pass in your own array of colors.
 
-::ShowCase{component="DocsDonutChartColor"}
+::ShowCase
+
+:DocsDonutChartColor
 
 #code
 
@@ -128,7 +134,9 @@ We generate colors automatically based on the primary and secondary color and as
 
 If you want to render custom tooltip, you can easily pass in a custom component. Refer to prop definition [here](/charts#custom-tooltip).
 
-::ShowCase{component="DocsDonutChartCustomTooltip"}
+::ShowCase
+
+:DocsDonutChartCustomTooltip
 
 #code
 

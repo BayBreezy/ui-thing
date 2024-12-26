@@ -24,7 +24,9 @@ npx ui-thing@latest add select
 
 ### Basic example
 
-::ShowCase{component="DocsSelect"}
+::ShowCase
+
+:DocsSelect
 
 #code
 
@@ -61,7 +63,9 @@ npx ui-thing@latest add select
 
 ### Form
 
-::ShowCase{component="DocsSelectForm"}
+::ShowCase
+
+:DocsSelectForm
 
 #code
 

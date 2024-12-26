@@ -24,7 +24,9 @@ npx ui-thing@latest add toggle-group
 
 ### Basic
 
-::ShowCase{component="DocsToggleGroupBasic"}
+::ShowCase
+
+:DocsToggleGroupBasic
 
 #code
 
@@ -44,7 +46,9 @@ npx ui-thing@latest add toggle-group
 
 ### Outline
 
-::ShowCase{component="DocsToggleGroupOutline"}
+::ShowCase
+
+:DocsToggleGroupOutline
 
 #code
 
@@ -64,7 +68,9 @@ npx ui-thing@latest add toggle-group
 
 ### Multiple
 
-::ShowCase{component="DocsToggleGroupMultiple"}
+::ShowCase
+
+:DocsToggleGroupMultiple
 
 #code
 
@@ -84,7 +90,9 @@ npx ui-thing@latest add toggle-group
 
 ### Sizes
 
-::ShowCase{component="DocsToggleGroupSize"}
+::ShowCase
+
+:DocsToggleGroupSize
 
 #code
 

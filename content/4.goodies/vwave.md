@@ -25,7 +25,9 @@ modules: ["v-wave/nuxt"];
 
 You can add the `v-wave` directive to any button. Be sure to check out the available options in the repo.
 
-::ShowCase{component="DocsVWaveButton"}
+::ShowCase
+
+:DocsVWaveButton
 
 #code
 
@@ -43,7 +45,9 @@ You can add the `v-wave` directive to any button. Be sure to check out the avail
 
 You can change the color of the ripple effect by passing a color to the directive. Even background images are allowed.
 
-::ShowCase{component="DocsVWaveColor"}
+::ShowCase
+
+:DocsVWaveColor
 
 #code
 

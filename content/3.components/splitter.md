@@ -26,7 +26,9 @@ npx ui-thing@latest add splitter
 
 We can put the parts together to build a simple layout with a resizable sidebar.
 
-::ShowCase{component="DocsSplitterBasic"}
+::ShowCase
+
+:DocsSplitterBasic
 
 #code
 
@@ -72,7 +74,9 @@ We can even pass in a custom icon to display for the handle.
 
 Do note that the handle will be rotated because of this class that is added to it `[&[data-orientation=vertical]>div]:rotate-90`.
 
-::ShowCase{component="DocsSplitterHandle"}
+::ShowCase
+
+:DocsSplitterHandle
 
 #code
 
@@ -114,7 +118,9 @@ Do note that the handle will be rotated because of this class that is added to i
 
 We can use the `collapsible` prop to make the panels go down to the `collapsedSize` when the `minSize` is reached.
 
-::ShowCase{component="DocsSplitterCollapsible"}
+::ShowCase
+
+:DocsSplitterCollapsible
 
 #code
 
@@ -158,7 +164,9 @@ We can use the `autoSaveId` prop to persist the layout data into the local stora
 
 Try changing the layout and then refresh the page to see the layout persist.
 
-::ShowCase{component="DocsSplitterPersist"}
+::ShowCase
+
+:DocsSplitterPersist
 
 #code
 

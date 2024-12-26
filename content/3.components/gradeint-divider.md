@@ -15,7 +15,9 @@ npx ui-thing@latest add gradient-divider
 
 ## Usage
 
-::ShowCase{component="DocsGradientDivider"}
+::ShowCase
+
+:DocsGradientDivider
 
 #code
 

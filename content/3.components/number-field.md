@@ -24,7 +24,9 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 
 ### Basic
 
-::ShowCase{component="DocsNumberField"}
+::ShowCase
+
+:DocsNumberField
 
 #code
 
@@ -42,7 +44,9 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 
 ### Disabled
 
-::ShowCase{component="DocsNumberFieldDisabled"}
+::ShowCase
+
+:DocsNumberFieldDisabled
 
 #code
 
@@ -60,7 +64,9 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 
 ### Decimal
 
-::ShowCase{component="DocsNumberFieldDecimal"}
+::ShowCase
+
+:DocsNumberFieldDecimal
 
 #code
 
@@ -85,7 +91,9 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 
 ### Percent
 
-::ShowCase{component="DocsNumberFieldPercent"}
+::ShowCase
+
+:DocsNumberFieldPercent
 
 #code
 
@@ -111,7 +119,9 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 
 ### Currency
 
-::ShowCase{component="DocsNumberFieldCurrency"}
+::ShowCase
+
+:DocsNumberFieldCurrency
 
 #code
 
@@ -136,7 +146,9 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 
 ### Custom
 
-::ShowCase{component="DocsNumberFieldCustom"}
+::ShowCase
+
+:DocsNumberFieldCustom
 
 #code
 

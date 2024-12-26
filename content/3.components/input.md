@@ -17,7 +17,9 @@ npx ui-thing@latest add input
 
 ### Email
 
-::ShowCase{component="DocsInputEmail"}
+::ShowCase
+
+:DocsInputEmail
 
 #code
 
@@ -33,7 +35,9 @@ npx ui-thing@latest add input
 
 ### Label
 
-::ShowCase{component="DocsInputLabel"}
+::ShowCase
+
+:DocsInputLabel
 
 #code
 
@@ -52,7 +56,9 @@ npx ui-thing@latest add input
 
 ### Form
 
-::ShowCase{component="DocsInputForm"}
+::ShowCase
+
+:DocsInputForm
 
 #code
 

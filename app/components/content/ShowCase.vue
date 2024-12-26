@@ -23,13 +23,13 @@
         class="mt-3 flex min-h-[300px] items-center justify-center rounded-lg border p-5 lg:p-10"
       >
         <div class="not-prose mx-auto w-full">
-          <component :is="component" />
+          <slot />
         </div>
       </div>
     </TabsContent>
     <TabsContent value="code">
       <div v-if="$slots?.code">
-        <ContentSlot :use="$slots.code" unwrap="p" />
+        <slot name="code" mdc-unwrap="p" />
       </div>
     </TabsContent>
   </TabsRoot>
@@ -37,8 +37,4 @@
 
 <script lang="ts" setup>
   import { TabsContent, TabsList, TabsRoot, TabsTrigger } from "radix-vue";
-
-  defineProps<{
-    component: string;
-  }>();
 </script>

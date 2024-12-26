@@ -17,7 +17,9 @@ npx ui-thing@latest add fancy-icon
 
 ### Basic
 
-::ShowCase{component="DocsFancyIcon"}
+::ShowCase
+
+:DocsFancyIcon
 
 #code
 
@@ -34,7 +36,9 @@ npx ui-thing@latest add fancy-icon
 ### Colors
 
 For the colors to show, you have to change the type from `modern`.
-::ShowCase{component="DocsFancyIconColor"}
+::ShowCase
+
+:DocsFancyIconColor
 
 #code
 
@@ -54,7 +58,9 @@ For the colors to show, you have to change the type from `modern`.
 
 ### Types
 
-::ShowCase{component="DocsFancyIconType"}
+::ShowCase
+
+:DocsFancyIconType
 
 #code
 
@@ -72,7 +78,9 @@ For the colors to show, you have to change the type from `modern`.
 
 ### Sizes
 
-::ShowCase{component="DocsFancyIconSize"}
+::ShowCase
+
+:DocsFancyIconSize
 
 #code
 
@@ -99,7 +107,9 @@ For the colors to show, you have to change the type from `modern`.
 
 ### Circle prop
 
-::ShowCase{component="DocsFancyIconCircle"}
+::ShowCase
+
+:DocsFancyIconCircle
 
 #code
 

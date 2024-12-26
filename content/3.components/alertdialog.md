@@ -24,7 +24,9 @@ npx ui-thing@latest add alert-dialog
 
 ### Simple
 
-::ShowCase{component="DocsAlertDialog"}
+::ShowCase
+
+:DocsAlertDialog
 
 #code
 
@@ -68,7 +70,9 @@ npx ui-thing@latest add alert-dialog
 
 ### Stacked Left
 
-::ShowCase{component="DocsAlertDialogStackedLeft"}
+::ShowCase
+
+:DocsAlertDialogStackedLeft
 
 #code
 
@@ -106,7 +110,9 @@ npx ui-thing@latest add alert-dialog
 
 ### Media
 
-::ShowCase{component="DocsAlertDialogMedia"}
+::ShowCase
+
+:DocsAlertDialogMedia
 
 #code
 
@@ -148,7 +154,9 @@ npx ui-thing@latest add alert-dialog
 
 ### Alert w/ Icon
 
-::ShowCase{component="DocsAlertDialogWithIcon"}
+::ShowCase
+
+:DocsAlertDialogWithIcon
 
 #code
 

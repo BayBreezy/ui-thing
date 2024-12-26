@@ -24,7 +24,9 @@ npx ui-thing@latest add sheet
 
 ### Basic example
 
-::ShowCase{component="DocsSheet"}
+::ShowCase
+
+:DocsSheet
 
 #code
 

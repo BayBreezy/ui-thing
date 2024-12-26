@@ -19,7 +19,9 @@ npx ui-thing@latest add vee-datepicker
 
 ## Usage
 
-::ShowCase{component="DocsVeeDatepicker"}
+::ShowCase
+
+:DocsVeeDatepicker
 
 #code
 

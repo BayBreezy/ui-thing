@@ -17,7 +17,9 @@ npx ui-thing@latest add table
 
 ### Basic example
 
-::ShowCase{component="DocsTable"}
+::ShowCase
+
+:DocsTable
 
 #code
 
@@ -87,7 +89,9 @@ npx ui-thing@latest add table
 
 ### Simple
 
-::ShowCase{component="DocsTableSimple"}
+::ShowCase
+
+:DocsTableSimple
 
 #code
 
@@ -165,7 +169,9 @@ npx ui-thing@latest add table
 
 ### Stacked on mobile
 
-::ShowCase{component="DocsTableStackedMobile"}
+::ShowCase
+
+:DocsTableStackedMobile
 
 #code
 
@@ -257,7 +263,9 @@ npx ui-thing@latest add table
 
 ### Sticky header
 
-::ShowCase{component="DocsTableStickyHeader"}
+::ShowCase
+
+:DocsTableStickyHeader
 
 #code
 

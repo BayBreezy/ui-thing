@@ -17,7 +17,9 @@ npx ui-thing@latest add divider
 
 ### Basic
 
-::ShowCase{component="DocsDivider"}
+::ShowCase
+
+:DocsDivider
 
 #code
 
@@ -33,7 +35,9 @@ npx ui-thing@latest add divider
 
 ### Label
 
-::ShowCase{component="DocsDividerLabel"}
+::ShowCase
+
+:DocsDividerLabel
 
 #code
 
@@ -49,7 +53,9 @@ npx ui-thing@latest add divider
 
 ### Icon
 
-::ShowCase{component="DocsDividerIcon"}
+::ShowCase
+
+:DocsDividerIcon
 
 #code
 
@@ -65,7 +71,9 @@ npx ui-thing@latest add divider
 
 ### Avatar
 
-::ShowCase{component="DocsDividerAvatar"}
+::ShowCase
+
+:DocsDividerAvatar
 
 #code
 
@@ -81,7 +89,9 @@ npx ui-thing@latest add divider
 
 ### Vertical
 
-::ShowCase{component="DocsDividerVertical"}
+::ShowCase
+
+:DocsDividerVertical
 
 #code
 

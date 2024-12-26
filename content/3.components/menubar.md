@@ -24,7 +24,9 @@ npx ui-thing@latest add menubar
 
 ### Full example
 
-::ShowCase{component="DocsMenubar"}
+::ShowCase
+
+:DocsMenubar
 
 #code
 

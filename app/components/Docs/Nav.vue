@@ -4,8 +4,8 @@
       <div v-if="!l.children" class="flex items-center gap-4">
         <NuxtLink
           class="line-clamp-1 shrink-0 text-ellipsis text-base text-muted-foreground underline-offset-2 hover:underline sm:text-sm"
-          exact-active-class="underline underline-offset-2"
-          :to="l._path"
+          exact-active-class="underline underline-offset-2 text-primary"
+          :to="l.path"
           :title="l.title"
         >
           {{ l.title }}
@@ -20,7 +20,7 @@
           <p class="text-[17px] font-medium sm:text-sm">{{ l.title }}</p>
         </div>
         <div class="pl-7">
-          <DocsNavlink class="gap-4" :links="l.children" />
+          <DocsNav class="gap-4" :links="l.children" />
         </div>
       </div>
     </template>
@@ -29,17 +29,11 @@
 
 <script lang="ts" setup>
   import { tv } from "tailwind-variants";
+  import type { ContentNavigationItem } from "@nuxt/content";
 
-  type Link = {
-    _path: string;
-    title: string;
-    icon?: string;
-    children?: Link[];
-    label?: string;
-  };
-
+  type L = ContentNavigationItem & { icon?: string };
   const props = defineProps<{
-    links?: Link[];
+    links?: L[];
     class?: any;
   }>();
 

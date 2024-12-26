@@ -51,7 +51,9 @@ npx ui-thing@latest add pagination
 
 ### Full example
 
-::ShowCase{component="DocsPagination"}
+::ShowCase
+
+:DocsPagination
 
 #code
 
@@ -77,7 +79,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Apart
 
-::ShowCase{component="DocsPaginationApart"}
+::ShowCase
+
+:DocsPaginationApart
 
 #code
 
@@ -138,7 +142,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Info Center
 
-::ShowCase{component="DocsPaginationInfoCenter"}
+::ShowCase
+
+:DocsPaginationInfoCenter
 
 #code
 
@@ -204,7 +210,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Info Start & End
 
-::ShowCase{component="DocsPaginationInfoStartEnd"}
+::ShowCase
+
+:DocsPaginationInfoStartEnd
 
 #code
 
@@ -314,7 +322,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Bootstrap
 
-::ShowCase{component="DocsPaginationBootstrap"}
+::ShowCase
+
+:DocsPaginationBootstrap
 
 #code
 
@@ -359,7 +369,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Table
 
-::ShowCase{component="DocsPaginationTable"}
+::ShowCase
+
+:DocsPaginationTable
 
 #code
 
@@ -384,8 +396,8 @@ To use these examples you will have to copy the code and adjust it for your own 
       </div>
     </div>
     <UiPagination
-      class="basis-1/2"
       v-model:page="page1"
+      class="basis-1/2"
       :items-per-page="Number(itemsPerPage)"
       :sibling-count="1"
       :total

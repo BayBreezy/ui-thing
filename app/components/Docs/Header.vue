@@ -20,5 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-  const { page } = useContent();
+  defineProps<{
+    page: any;
+  }>();
 </script>

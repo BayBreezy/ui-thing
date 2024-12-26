@@ -26,7 +26,9 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
 
 ### Objects
 
-::ShowCase{component="DocsVeeMultiselectObject"}
+::ShowCase
+
+:DocsVeeMultiselectObject
 
 #code
 
@@ -100,7 +102,9 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
 
 ### Groups
 
-::ShowCase{component="DocsVeeMultiselectGroup"}
+::ShowCase
+
+:DocsVeeMultiselectGroup
 
 #code
 
@@ -172,7 +176,9 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
 
 ### Search
 
-::ShowCase{component="DocsVeeMultiselectSearch"}
+::ShowCase
+
+:DocsVeeMultiselectSearch
 
 #code
 

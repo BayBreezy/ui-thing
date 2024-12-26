@@ -59,22 +59,16 @@ export default defineNuxtConfig({
       },
     },
   },
-  icon: { clientBundle: { scan: true, sizeLimitKb: 0 }, fetchTimeout: 2000, serverBundle: "local" },
+  icon: {
+    mode: "svg",
+    clientBundle: { scan: true, sizeLimitKb: 0 },
+    fetchTimeout: 2000,
+    serverBundle: "local",
+  },
   tailwindcss: {
     exposeConfig: true,
     editorSupport: true,
     cssPath: ["~/assets/css/tailwind.css", { injectPosition: 2 }],
-  },
-  experimental: {
-    defaults: {
-      nuxtLink: {
-        prefetch: false,
-        prefetchOn: {
-          visibility: false,
-          interaction: true,
-        },
-      },
-    },
   },
 
   imports: {
@@ -87,6 +81,10 @@ export default defineNuxtConfig({
   },
 
   app: {
+    rootAttrs: {
+      "vaul-drawer-wrapper": "",
+      class: "bg-background",
+    },
     head: {
       title: SEO.SITE_TITLE,
       titleTemplate: `%s | ${SEO.SITE_NAME}`,
@@ -105,29 +103,30 @@ export default defineNuxtConfig({
   },
 
   content: {
-    documentDriven: true,
-    navigation: { fields: ["icon", "label"] },
-    markdown: {
-      toc: { depth: 4, searchDepth: 4 },
-    },
-    highlight: {
-      preload: [
-        "json",
-        "js",
-        "ts",
-        "css",
-        "html",
-        "md",
-        "yaml",
-        "vue",
-        "vue-html",
-        "bash",
-        "typescript",
-        "javascript",
-      ],
-      theme: {
-        default: "material-theme-palenight",
-        dark: "one-dark-pro",
+    build: {
+      pathMeta: {},
+      markdown: {
+        toc: { depth: 4, searchDepth: 4 },
+        highlight: {
+          langs: [
+            "json",
+            "js",
+            "ts",
+            "css",
+            "html",
+            "md",
+            "yaml",
+            "vue",
+            "vue-html",
+            "bash",
+            "typescript",
+            "javascript",
+          ],
+          theme: {
+            default: "material-theme-palenight",
+            dark: "one-dark-pro",
+          },
+        },
       },
     },
   },
@@ -190,7 +189,9 @@ export default defineNuxtConfig({
     twitter: SEO.SITE_TWITTER_CREATOR,
   },
 
-  sitemap: { autoLastmod: true },
+  sitemap: { autoLastmod: true, enabled: false },
+  linkChecker: { enabled: false },
+  robots: { enabled: false },
   schemaOrg: { enabled: false },
 
   ogImage: {

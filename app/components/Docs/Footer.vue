@@ -1,10 +1,10 @@
 <template>
   <div class="not-prose mt-10 py-10">
-    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:items-center md:justify-between">
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
       <NuxtLink
         v-if="prev"
-        :to="prev._path"
-        class="flex basis-full gap-4 rounded-lg border p-5 transition hover:border-primary md:basis-1/2"
+        :to="prev.path"
+        class="flex gap-4 rounded-lg border p-5 transition hover:border-primary"
       >
         <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border">
           <Icon name="lucide:arrow-left" class="h-5 w-5 text-muted-foreground" />
@@ -18,8 +18,8 @@
       </NuxtLink>
       <NuxtLink
         v-if="next"
-        :to="next._path"
-        class="flex basis-full justify-between gap-4 rounded-lg border p-5 transition hover:border-primary md:basis-1/2"
+        :to="next.path"
+        class="flex justify-between gap-4 rounded-lg border p-5 transition hover:border-primary"
       >
         <div class="flex flex-col gap-1">
           <p class="font-semibold lg:text-sm">{{ next.title }}</p>
@@ -36,5 +36,12 @@
 </template>
 
 <script lang="ts" setup>
-  const { prev, next } = useContent();
+  const route = useRoute();
+  const { data: surround } = await useAsyncData("surround", () =>
+    queryCollectionItemSurroundings("content", route.path, {
+      fields: ["title", "description", "path"],
+    })
+  );
+  const prev = computed(() => surround.value?.[0]);
+  const next = computed(() => surround.value?.[1]);
 </script>

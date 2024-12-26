@@ -56,7 +56,9 @@ Create the component `RetroGrid.vue` in the `components` directory.
 
 ### Basic
 
-::ShowCase{component="DocsRetroGrid"}
+::ShowCase
+
+:DocsRetroGrid
 
 #code
 

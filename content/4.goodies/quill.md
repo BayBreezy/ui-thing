@@ -24,7 +24,9 @@ npm install @vueup/vue-quill@latest --save
 
 Here is a basic example of how to use the Quill component. We are using a technique called `Slot Forwarding` so that if the developer wants to create a component and pass through the `toolbar` slot, they can do so.
 
-::ShowCase{component="DocsQuill"}
+::ShowCase
+
+:DocsQuill
 
 #code
 
@@ -48,7 +50,9 @@ Here is a basic example of how to use the Quill component. We are using a techni
 
 We can add our custom toolbar configuration by using the `toolbar` prop.
 
-::ShowCase{component="DocsQuillToolbar"}
+::ShowCase
+
+:DocsQuillToolbar
 
 #code
 
@@ -94,7 +98,9 @@ We can add our custom toolbar configuration by using the `toolbar` prop.
 
 Another way of customizing the toolbar is by using the `toolbar` slot. This way, we can create a custom toolbar with our own components.
 
-::ShowCase{component="DocsQuillToolbar2"}
+::ShowCase
+
+:DocsQuillToolbar2
 
 #code
 
@@ -138,7 +144,9 @@ We can pass the `bubble` value to the `theme` prop to use the snow theme.
 
 You have to select something in the editor to see the toolbar.
 
-::ShowCase{component="DocsQuillBubble"}
+::ShowCase
+
+:DocsQuillBubble
 
 #code
 
@@ -193,7 +201,9 @@ const modules: ModuleObject = {
 
 Upload an image to see the module in action.
 
-::ShowCase{component="DocsQuillModule"}
+::ShowCase
+
+:DocsQuillModule
 
 #code
 

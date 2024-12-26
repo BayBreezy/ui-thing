@@ -136,6 +136,6 @@
   const { copied, copy } = useClipboard({ copiedDuring: 2500, legacy: true });
 
   const externalViewLink = computed(() => {
-    return `/block-renderer?component=${props.component}&containerClass=${props.containerClass ?? ""}`;
+    return `/block-renderer?component=${props.component}&path=${props.blockPath}&containerClass=${props.containerClass ?? ""}`;
   });
 </script>

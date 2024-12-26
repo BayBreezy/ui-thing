@@ -17,7 +17,9 @@ npx ui-thing@latest add navbar
 
 ### Basic
 
-::ShowCase{component="DocsNavbar"}
+::ShowCase
+
+:DocsNavbar
 
 #code
 

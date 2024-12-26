@@ -96,7 +96,9 @@ Create the component `UiMeteors.client.vue` in the `components` directory.
 
 We can add the `UiMeteors` component to trigger the meteors.
 
-::ShowCase{component="DocsMeteors"}
+::ShowCase
+
+:DocsMeteors
 
 #code
 

@@ -24,7 +24,9 @@ npx ui-thing@latest add autocomplete
 
 ### Basic
 
-::ShowCase{component="DocsAutoCompleteBasic"}
+::ShowCase
+
+:DocsAutoCompleteBasic
 
 #code
 
@@ -86,7 +88,9 @@ npx ui-thing@latest add autocomplete
 
 ### Objects
 
-::ShowCase{component="DocsAutoCompleteObjects"}
+::ShowCase
+
+:DocsAutoCompleteObjects
 
 #code
 
@@ -139,7 +143,9 @@ npx ui-thing@latest add autocomplete
 
 ### Multiple
 
-::ShowCase{component="DocsAutoCompleteMultiple"}
+::ShowCase
+
+:DocsAutoCompleteMultiple
 
 #code
 
