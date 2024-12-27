@@ -1,26 +1,35 @@
 <template>
+  <!-- eslint-disable-next-line vue/html-self-closing -->
   <input
     v-bind="props"
+    :class="styles({ class: props.class })"
     :value="modelValue"
     @input="handleInput"
-    :class="styles({ class: props.class })"
   />
 </template>
 
 <script lang="ts" setup>
-  import { computed } from "vue";
-
   const props = withDefaults(
     defineProps<{
+      /** Additional classes to add to the input */
       class?: any;
+      /** The id of the input */
       id?: string;
+      /** The name of the input */
       name?: string;
+      /** The placeholder of the input */
       placeholder?: string;
+      /** Whether the input is disabled */
       disabled?: boolean;
+      /** Whether the input is required */
       required?: boolean;
+      /** The type of the input */
       type?: string;
-      modelValue?: string;
+      /** The value of the input */
+      modelValue?: any;
+      /** The maximum length of the input */
       maxlength?: number;
+      /** The `RegExp` pattern of the input */
       pattern?: string;
     }>(),
     {
