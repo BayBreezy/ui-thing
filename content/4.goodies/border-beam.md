@@ -35,7 +35,7 @@ module.exports = {
 
 Create the component `UiBorderBeam.vue` in the `components` directory.
 
-```vue [UiMeteors.vue]
+```vue [UiBorderBeam.vue]
 <template>
   <div
     :style="{
@@ -89,15 +89,14 @@ Just place the border beam component inside a div with relative positioning, wid
 
 ```vue [DocsBorderBeam.vue]
 <template>
-  <div
-    class="relative mx-auto flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border bg-background p-20 md:shadow-xl"
-  >
-    <UiMeteors :number="30" />
-    <p
-      class="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter text-black dark:text-white"
-    >
-      Meteors
-    </p>
+  <div class="relative overflow-hidden rounded-xl">
+    <img
+      src="https://store-wp.mui.com/wp-content/uploads/2019/08/tabler-react.com_-min-e1565617941333.png"
+      alt="Hero Image"
+      class="w-full rounded-xl border object-cover"
+    />
+
+    <UiBorderBeam :size="350" :duration="12" :delay="9" />
   </div>
 </template>
 ```
