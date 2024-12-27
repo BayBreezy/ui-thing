@@ -3,6 +3,18 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## December 27, 2024 - Input & Textarea
+
+In this update, the [`Input`](/components/input) and [`Textarea`](/components/textarea) components were updated.
+
+A new `pattern` & `maxlength` props was added to them both. Thanks to [arshx86](https://github.com/arshx86).
+
+You can try them out by running
+
+```bash
+npx ui-thing@latest add input textarea
+```
+
 ## December 23, 2024 - Breadcrumbs & Pagination
 
 In this update the [`Breadcrumbs`](/components/breadcrumbs) component got a little update. You can now pass a `slot` in the array of items & customize what is displayed in that slot.

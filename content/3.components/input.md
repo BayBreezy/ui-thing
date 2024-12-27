@@ -1,6 +1,11 @@
 ---
 title: Input
 description: Displays a form input field or a component that looks like an input field.
+label: Updated
+links:
+  - title: Input Docs
+    href: https://www.w3schools.com/tags/tag_input.asp
+    icon: "icon-park-solid:api"
 ---
 
 ## Source code
@@ -108,6 +113,58 @@ npx ui-thing@latest add input
     alert(JSON.stringify(values, null, 2));
   });
 </script>
+```
+
+<!-- /automd -->
+
+::
+
+### Max Length
+
+Restrict the number of characters that can be entered into the input field.
+
+::ShowCase{component="DocsInputMaxLength"}
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Input/DocsInputMaxLength.vue" code lang="vue" -->
+
+```vue [DocsInputMaxLength.vue]
+<template>
+  <div class="mx-auto max-w-md">
+    <div class="flex w-full flex-col gap-3">
+      <UiInput :maxlength="5" placeholder="Enter username" />
+      <p class="text-sm text-muted-foreground">No more than 5 characters</p>
+    </div>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+### Pattern
+
+Restrict the type of characters that can be entered into the input field.
+
+You don't need to use `/` at the beginning and end of the pattern as the RegExp is being created internally with the `new RegExp()` constructor.
+
+::ShowCase{component="DocsInputPattern"}
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Input/DocsInputPattern.vue" code lang="vue" -->
+
+```vue [DocsInputPattern.vue]
+<template>
+  <div class="mx-auto max-w-md">
+    <div class="flex w-full flex-col gap-3">
+      <UiInput pattern="[^\s]" placeholder="Enter username" />
+      <p class="text-sm text-muted-foreground">No spaces can be entered</p>
+    </div>
+  </div>
+</template>
 ```
 
 <!-- /automd -->

@@ -1,6 +1,7 @@
 ---
 title: Textarea
 description: Displays a form textarea or a component that looks like a textarea.
+label: Updated
 links:
   - title: Textarea Docs
     href: https://www.w3schools.com/tags/tag_textarea.asp
@@ -115,6 +116,54 @@ npx ui-thing@latest add textarea
     });
   });
 </script>
+```
+
+<!-- /automd -->
+
+::
+
+### Max Length
+
+Restrict the number of characters that can be entered into the textarea.
+
+::ShowCase{component="DocsTextareaMaxLength"}
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Textarea/DocsTextareaMaxLength.vue" code lang="vue" -->
+
+```vue [DocsTextareaMaxLength.vue]
+<template>
+  <div class="mx-auto flex max-w-md flex-col gap-3">
+    <UiTextarea :maxlength="5" placeholder="Quick chat..." />
+    <p class="text-sm text-muted-foreground">No more than 5 letters</p>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+### Pattern
+
+Restrict the type of characters that can be entered into the textarea.
+
+You don't need to use `/` at the beginning and end of the pattern as the RegExp is being created internally with the `new RegExp()` constructor.
+
+::ShowCase{component="DocsTextareaPattern"}
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Textarea/DocsTextareaPattern.vue" code lang="vue" -->
+
+```vue [DocsTextareaPattern.vue]
+<template>
+  <div class="mx-auto flex max-w-md flex-col gap-3">
+    <UiTextarea pattern="^[a-z\s]" placeholder="Say something" />
+    <p class="text-sm text-muted-foreground">Only lower case letters</p>
+  </div>
+</template>
 ```
 
 <!-- /automd -->
