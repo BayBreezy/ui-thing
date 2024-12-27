@@ -36,9 +36,13 @@ vcalendar: {
 
 ### Datetime Mode
 
-::ShowCase{component="DocsDatepickerMode"}
+::ShowCase
+
+:DocsDatepickerMode
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Datepicker/DocsDatepickerMode.vue" code lang="vue" -->
 
 ```vue [DocsDatepickerMode.vue]
 <template>
@@ -54,13 +58,19 @@ vcalendar: {
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Custom Title
 
-::ShowCase{component="DocsDatepickerTitle"}
+::ShowCase
+
+:DocsDatepickerTitle
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Datepicker/DocsDatepickerTitle.vue" code lang="vue" -->
 
 ```vue [DocsDatepickerTitle.vue]
 <template>
@@ -77,13 +87,19 @@ vcalendar: {
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Button Slot
 
-::ShowCase{component="DocsDatepickerButton"}
+::ShowCase
+
+:DocsDatepickerButton
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Datepicker/DocsDatepickerButton.vue" code lang="vue" -->
 
 ```vue [DocsDatepickerButton.vue]
 <template>
@@ -104,19 +120,25 @@ vcalendar: {
 </template>
 
 <script lang="ts" setup>
-  import { addDays, format } from "date-fns";
+  import { format } from "date-fns";
 
   const date = ref();
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Input Slot
 
-::ShowCase{component="DocsDatepickerInput"}
+::ShowCase
+
+:DocsDatepickerInput
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Datepicker/DocsDatepickerInput.vue" code lang="vue" -->
 
 ```vue [DocsDatepickerInput.vue]
 <template>
@@ -133,5 +155,7 @@ vcalendar: {
   const date = ref();
 </script>
 ```
+
+<!-- /automd -->
 
 ::

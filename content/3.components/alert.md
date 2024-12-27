@@ -18,7 +18,9 @@ npx ui-thing@latest add alert
 
 ### Basic
 
-::ShowCase{component="DocsAlert"}
+::ShowCase
+
+:DocsAlert
 
 #code
 
@@ -38,7 +40,9 @@ npx ui-thing@latest add alert
 
 ### Destructive
 
-::ShowCase{component="DocsAlertDestructive"}
+::ShowCase
+
+:DocsAlertDestructive
 
 #code
 
@@ -64,7 +68,9 @@ npx ui-thing@latest add alert
 
 ### Border
 
-::ShowCase{component="DocsAlertBorder"}
+::ShowCase
+
+:DocsAlertBorder
 
 #code
 
@@ -95,7 +101,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Warning
 
-::ShowCase{component="DocsAlertWarning"}
+::ShowCase
+
+:DocsAlertWarning
 
 #code
 
@@ -123,7 +131,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Warning Outline
 
-::ShowCase{component="DocsAlertWarningOutline"}
+::ShowCase
+
+:DocsAlertWarningOutline
 
 #code
 
@@ -146,7 +156,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Error
 
-::ShowCase{component="DocsAlertError"}
+::ShowCase
+
+:DocsAlertError
 
 #code
 
@@ -170,7 +182,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Error Outline
 
-::ShowCase{component="DocsAlertErrorOutline"}
+::ShowCase
+
+:DocsAlertErrorOutline
 
 #code
 
@@ -193,7 +207,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Info
 
-::ShowCase{component="DocsAlertInfo"}
+::ShowCase
+
+:DocsAlertInfo
 
 #code
 
@@ -217,7 +233,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Info Outline
 
-::ShowCase{component="DocsAlertInfoOutline"}
+::ShowCase
+
+:DocsAlertInfoOutline
 
 #code
 
@@ -235,7 +253,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Success
 
-::ShowCase{component="DocsAlertSuccess"}
+::ShowCase
+
+:DocsAlertSuccess
 
 #code
 
@@ -263,7 +283,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Success Outline
 
-::ShowCase{component="DocsAlertSuccessOutline"}
+::ShowCase
+
+:DocsAlertSuccessOutline
 
 #code
 
@@ -286,7 +308,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### End Link
 
-::ShowCase{component="DocsAlertEndLink"}
+::ShowCase
+
+:DocsAlertEndLink
 
 #code
 
@@ -322,7 +346,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Sub Data
 
-::ShowCase{component="DocsAlertSubData"}
+::ShowCase
+
+:DocsAlertSubData
 
 #code
 
@@ -352,7 +378,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Close Button
 
-::ShowCase{component="DocsAlertCloseButton"}
+::ShowCase
+
+:DocsAlertCloseButton
 
 #code
 
@@ -399,7 +427,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Close Button w/ Undo
 
-::ShowCase{component="DocsAlertNotificationSingleButton"}
+::ShowCase
+
+:DocsAlertNotificationSingleButton
 
 #code
 
@@ -446,7 +476,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Double Button
 
-::ShowCase{component="DocsAlertNotificationDoubleButton"}
+::ShowCase
+
+:DocsAlertNotificationDoubleButton
 
 #code
 
@@ -495,7 +527,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Success Learn More
 
-::ShowCase{component="DocsAlertNotificationSuccessMore"}
+::ShowCase
+
+:DocsAlertNotificationSuccessMore
 
 #code
 
@@ -540,7 +574,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Privacy
 
-::ShowCase{component="DocsAlertNotificationPrivacy"}
+::ShowCase
+
+:DocsAlertNotificationPrivacy
 
 #code
 
@@ -588,7 +624,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Version Update
 
-::ShowCase{component="DocsAlertNotificationVersion"}
+::ShowCase
+
+:DocsAlertNotificationVersion
 
 #code
 
@@ -641,7 +679,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Mentioned
 
-::ShowCase{component="DocsAlertNotificationMention"}
+::ShowCase
+
+:DocsAlertNotificationMention
 
 #code
 

@@ -24,9 +24,13 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 
 ### Basic
 
-::ShowCase{component="DocsNumberField"}
+::ShowCase
+
+:DocsNumberField
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/NumberField/DocsNumberField.vue" code lang="vue" -->
 
 ```vue [DocsNumberField.vue]
 <template>
@@ -38,13 +42,19 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Disabled
 
-::ShowCase{component="DocsNumberFieldDisabled"}
+::ShowCase
+
+:DocsNumberFieldDisabled
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/NumberField/DocsNumberFieldDisabled.vue" code lang="vue" -->
 
 ```vue [DocsNumberFieldDisabled.vue]
 <template>
@@ -56,13 +66,19 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Decimal
 
-::ShowCase{component="DocsNumberFieldDecimal"}
+::ShowCase
+
+:DocsNumberFieldDecimal
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/NumberField/DocsNumberFieldDecimal.vue" code lang="vue" -->
 
 ```vue [DocsNumberFieldDecimal.vue]
 <template>
@@ -81,13 +97,19 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Percent
 
-::ShowCase{component="DocsNumberFieldPercent"}
+::ShowCase
+
+:DocsNumberFieldPercent
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/NumberField/DocsNumberFieldPercent.vue" code lang="vue" -->
 
 ```vue [DocsNumberFieldPercent.vue]
 <template>
@@ -107,13 +129,19 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Currency
 
-::ShowCase{component="DocsNumberFieldCurrency"}
+::ShowCase
+
+:DocsNumberFieldCurrency
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/NumberField/DocsNumberFieldCurrency.vue" code lang="vue" -->
 
 ```vue [DocsNumberFieldCurrency.vue]
 <template>
@@ -132,13 +160,19 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Custom
 
-::ShowCase{component="DocsNumberFieldCustom"}
+::ShowCase
+
+:DocsNumberFieldCustom
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/NumberField/DocsNumberFieldCustom.vue" code lang="vue" -->
 
 ```vue [DocsNumberFieldCustom.vue]
 <template>
@@ -153,5 +187,7 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

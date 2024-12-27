@@ -39,17 +39,23 @@ The default configuration for the currency input component is as follows:
 
 ### Basic
 
-::ShowCase{component="DocsCurrencyInputBasic"}
+::ShowCase
+
+:DocsCurrencyInputBasic
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/CurrencyInput/DocsCurrencyInputBasic.vue" code lang="vue" -->
 
 ```vue [DocsCurrencyInputBasic.vue]
 <template>
   <div class="flex w-full items-center justify-center">
-    <UiCurrencyInput placeholder="How much?" :modelValue="25367" />
+    <UiCurrencyInput placeholder="How much?" :model-value="25367" />
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -57,9 +63,13 @@ The default configuration for the currency input component is as follows:
 
 You can change the configuration by passing the `options` prop.
 
-::ShowCase{component="DocsCurrencyInputOptions"}
+::ShowCase
+
+:DocsCurrencyInputOptions
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/CurrencyInput/DocsCurrencyInputOptions.vue" code lang="vue" -->
 
 ```vue [DocsCurrencyInputOptions.vue]
 <template>
@@ -71,19 +81,25 @@ You can change the configuration by passing the `options` prop.
         precision: { min: 0, max: 4 },
       }"
       placeholder="What is the total?"
-      :modelValue="8518"
+      :model-value="8518"
     />
   </div>
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Form
 
-::ShowCase{component="DocsCurrencyInputForm"}
+::ShowCase
+
+:DocsCurrencyInputForm
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/CurrencyInput/DocsCurrencyInputForm.vue" code lang="vue" -->
 
 ```vue [DocsCurrencyInputForm.vue]
 <template>
@@ -128,5 +144,7 @@ You can change the configuration by passing the `options` prop.
   });
 </script>
 ```
+
+<!-- /automd -->
 
 ::

@@ -24,9 +24,13 @@ npx ui-thing@latest add tabs
 
 ### Basic example
 
-::ShowCase{component="DocsTabs"}
+::ShowCase
+
+:DocsTabs
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Tabs/DocsTabs.vue" code lang="vue" -->
 
 ```vue [DocsTabs.vue]
 <template>
@@ -48,7 +52,7 @@ npx ui-thing@latest add tabs
                 <UiInput id="name" value="Pedro Duarte" />
               </div>
               <div class="space-y-1">
-                <UiLabel htmlFor="username">Username</UiLabel>
+                <UiLabel html-for="username">Username</UiLabel>
                 <UiInput id="username" value="@peduarte" />
               </div>
             </UiCardContent>
@@ -68,11 +72,11 @@ npx ui-thing@latest add tabs
           <template #content>
             <UiCardContent class="space-y-2">
               <div class="space-y-1">
-                <UiLabel htmlFor="current">Current password</UiLabel>
+                <UiLabel html-for="current">Current password</UiLabel>
                 <UiInput id="current" type="password" />
               </div>
               <div class="space-y-1">
-                <UiLabel htmlFor="new">New password</UiLabel>
+                <UiLabel html-for="new">New password</UiLabel>
                 <UiInput id="new" type="password" />
               </div>
             </UiCardContent>
@@ -89,15 +93,21 @@ npx ui-thing@latest add tabs
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### With Indicator
 
 Passing `:pill="false"` to the List and Trigger components will remove the background color from both components. This allows us to use the Indicator component to create a custom indicator.
 
-::ShowCase{component="DocsTabsIndicator"}
+::ShowCase
+
+:DocsTabsIndicator
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Tabs/DocsTabsIndicator.vue" code lang="vue" -->
 
 ```vue [DocsTabsIndicator.vue]
 <template>
@@ -117,11 +127,11 @@ Passing `:pill="false"` to the List and Trigger components will remove the backg
             <UiCardContent class="space-y-2">
               <div class="space-y-1">
                 <UiLabel for="name">Name</UiLabel>
-                <UiInput id="name" modelValue="Pedro Duarte" />
+                <UiInput id="name" model-value="Pedro Duarte" />
               </div>
               <div class="space-y-1">
-                <UiLabel htmlFor="username">Username</UiLabel>
-                <UiInput id="username" modelValue="@peduarte" />
+                <UiLabel html-for="username">Username</UiLabel>
+                <UiInput id="username" model-value="@peduarte" />
               </div>
             </UiCardContent>
           </template>
@@ -140,11 +150,11 @@ Passing `:pill="false"` to the List and Trigger components will remove the backg
           <template #content>
             <UiCardContent class="space-y-2">
               <div class="space-y-1">
-                <UiLabel htmlFor="current">Current password</UiLabel>
+                <UiLabel html-for="current">Current password</UiLabel>
                 <UiInput id="current" type="password" />
               </div>
               <div class="space-y-1">
-                <UiLabel htmlFor="new">New password</UiLabel>
+                <UiLabel html-for="new">New password</UiLabel>
                 <UiInput id="new" type="password" />
               </div>
             </UiCardContent>
@@ -160,5 +170,7 @@ Passing `:pill="false"` to the List and Trigger components will remove the backg
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

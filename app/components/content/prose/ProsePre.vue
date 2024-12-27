@@ -14,6 +14,7 @@
             <TransitionScale mode="out-in">
               <Icon
                 v-if="!copied"
+                mode="svg"
                 name="lucide:copy"
                 size="16"
                 aria-hidden="true"
@@ -21,6 +22,7 @@
               />
               <Icon
                 v-else
+                mode="svg"
                 name="lucide:check"
                 size="16"
                 aria-hidden="true"
@@ -34,7 +36,7 @@
         </UiTooltipContent>
       </UiTooltip>
     </div>
-    <slot />
+    <pre><slot /></pre>
   </div>
 </template>
 

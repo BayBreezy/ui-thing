@@ -35,63 +35,74 @@ npx ui-thing@latest add radio-group
 
 ### Default value
 
-::ShowCase{component="DocsRadioGroup"}
+::ShowCase
+
+:DocsRadioGroup
 
 #code
 
-```vue [DocsRadioGroup.vue]
+<!-- automd:file src="../../app/components/content/Docs/RadioGroup/DocsRadioGroup.vue" code lang="vue -->
+
+```"vue [DocsRadioGroup.vue]
 <template>
   <div class="flex w-full justify-center">
-    <UiRadioGroup defaultValue="comfortable">
+    <UiRadioGroup default-value="comfortable">
       <div class="flex items-center space-x-2">
-        <UiRadioGroupItem value="default" id="r1" />
+        <UiRadioGroupItem id="r1" value="default" />
         <UiLabel for="r1">Default</UiLabel>
       </div>
       <div class="flex items-center space-x-2">
-        <UiRadioGroupItem value="comfortable" id="r2" />
+        <UiRadioGroupItem id="r2" value="comfortable" />
         <UiLabel for="r2">Comfortable</UiLabel>
       </div>
       <div class="flex items-center space-x-2">
-        <UiRadioGroupItem value="compact" id="r3" />
+        <UiRadioGroupItem id="r3" value="compact" />
         <UiLabel for="r3">Compact</UiLabel>
       </div>
     </UiRadioGroup>
   </div>
 </template>
+
 ```
+
+<!-- /automd -->
 
 ::
 
 ### Form
 
-::ShowCase{component="DocsRadioGroupForm"}
+::ShowCase
+
+:DocsRadioGroupForm
 
 #code
 
-```vue [DocsRadioGroupForm.vue]
+<!-- automd:file src="../../app/components/content/Docs/RadioGroup/DocsRadioGroupForm.vue" code lang="vue -->
+
+```"vue [DocsRadioGroupForm.vue]
 <template>
   <div class="flex w-full justify-center">
     <form @submit="onSubmit">
-      <Field name="type" v-slot="{ componentField }">
+      <Field v-slot="{ componentField }" name="type">
         <UiFormItem class="space-y-5">
           <p class="font-medium">What type of notifications should we send?</p>
           <UiRadioGroup v-bind="componentField">
             <UiFormItem
-              hideMessage
+              hide-message
               class="flex flex-row-reverse items-center justify-center gap-3 space-y-0"
               label="All notifications"
             >
               <UiRadioGroupItem value="all" />
             </UiFormItem>
             <UiFormItem
-              hideMessage
+              hide-message
               class="flex flex-row-reverse items-center justify-center gap-3 space-y-0"
               label="Only mentions"
             >
               <UiRadioGroupItem value="mentions" />
             </UiFormItem>
             <UiFormItem
-              hideMessage
+              hide-message
               class="flex flex-row-reverse items-center justify-center gap-3 space-y-0"
               label="Nothing"
             >
@@ -128,6 +139,9 @@ npx ui-thing@latest add radio-group
     });
   });
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::

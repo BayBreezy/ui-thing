@@ -51,7 +51,9 @@ npx ui-thing@latest add carousel
 
 To set the size of the items, you can use the `basis` utility class on the `<UiCarouselItem />`.
 
-::ShowCase{component="DocsCarouselSizes"}
+::ShowCase
+
+:DocsCarouselSizes
 
 #code
 
@@ -141,7 +143,9 @@ You can always adjust this in your own project if you need to.
 
 </Callout>
 
-::ShowCase{component="DocsCarouselSpacing"}
+::ShowCase
+
+:DocsCarouselSpacing
 
 #code
 
@@ -218,7 +222,9 @@ Responsive
 
 Use the `orientation` prop to set the orientation of the carousel.
 
-::ShowCase{component="DocsCarouselOrientation"}
+::ShowCase
+
+:DocsCarouselOrientation
 
 #code
 
@@ -256,7 +262,9 @@ Use the `orientation` prop to set the orientation of the carousel.
 
 ### Thumbnail
 
-::ShowCase{component="DocsCarouselThumbnail"}
+::ShowCase
+
+:DocsCarouselThumbnail
 
 #code
 
@@ -360,7 +368,9 @@ You can pass options to the carousel using the `opts` prop. See the [Embla Carou
 
 Use the `@init-api` emit method on `<UiCarousel />` component to set the instance of the API.
 
-::ShowCase{component="DocsCarouselMethod1"}
+::ShowCase
+
+:DocsCarouselMethod1
 
 #code
 
@@ -500,7 +510,9 @@ npm i embla-carousel-autoplay
 </script>
 ```
 
-::ShowCase{component="DocsCarouselPlugin"}
+::ShowCase
+
+:DocsCarouselPlugin
 
 #code
 

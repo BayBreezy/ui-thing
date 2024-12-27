@@ -26,7 +26,9 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 ### Single Slider
 
-::ShowCase{component="DocsVeeVueFormSliderSingle"}
+::ShowCase
+
+:DocsVeeVueFormSliderSingle
 
 #code
 
@@ -50,7 +52,9 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 ### Multiple Sliders
 
-::ShowCase{component="DocsVeeVueFormSliderMultiple"}
+::ShowCase
+
+:DocsVeeVueFormSliderMultiple
 
 #code
 
@@ -74,7 +78,9 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 ### Tooltip Formatting
 
-::ShowCase{component="DocsVeeVueFormSliderTooltip"}
+::ShowCase
+
+:DocsVeeVueFormSliderTooltip
 
 #code
 
@@ -114,7 +120,9 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 ### Tooltip Merging
 
-::ShowCase{component="DocsVeeVueFormSliderMerging"}
+::ShowCase
+
+:DocsVeeVueFormSliderMerging
 
 #code
 
@@ -138,7 +146,9 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 ### Vertical Slider
 
-::ShowCase{component="DocsVeeVueFormSliderVertical"}
+::ShowCase
+
+:DocsVeeVueFormSliderVertical
 
 #code
 
@@ -167,7 +177,9 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 ### Form Validation
 
-::ShowCase{component="DocsVeeVueFormSliderValidate"}
+::ShowCase
+
+:DocsVeeVueFormSliderValidate
 
 #code
 

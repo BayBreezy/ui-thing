@@ -37,9 +37,13 @@ npx ui-thing@latest add popover
 
 ### Full example
 
-::ShowCase{component="DocsPopover"}
+::ShowCase
+
+:DocsPopover
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Popover/DocsPopover.vue" code lang="vue" -->
 
 ```vue [DocsPopover.vue]
 <template>
@@ -76,5 +80,7 @@ npx ui-thing@latest add popover
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

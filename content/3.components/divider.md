@@ -17,9 +17,13 @@ npx ui-thing@latest add divider
 
 ### Basic
 
-::ShowCase{component="DocsDivider"}
+::ShowCase
+
+:DocsDivider
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Divider/DocsDivider.vue" code lang="vue" -->
 
 ```vue [DocsDivider.vue]
 <template>
@@ -29,13 +33,19 @@ npx ui-thing@latest add divider
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Label
 
-::ShowCase{component="DocsDividerLabel"}
+::ShowCase
+
+:DocsDividerLabel
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Divider/DocsDividerLabel.vue" code lang="vue" -->
 
 ```vue [DocsDividerLabel.vue]
 <template>
@@ -45,13 +55,19 @@ npx ui-thing@latest add divider
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Icon
 
-::ShowCase{component="DocsDividerIcon"}
+::ShowCase
+
+:DocsDividerIcon
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Divider/DocsDividerIcon.vue" code lang="vue" -->
 
 ```vue [DocsDividerIcon.vue]
 <template>
@@ -61,13 +77,19 @@ npx ui-thing@latest add divider
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Avatar
 
-::ShowCase{component="DocsDividerAvatar"}
+::ShowCase
+
+:DocsDividerAvatar
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Divider/DocsDividerAvatar.vue" code lang="vue" -->
 
 ```vue [DocsDividerAvatar.vue]
 <template>
@@ -77,13 +99,19 @@ npx ui-thing@latest add divider
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Vertical
 
-::ShowCase{component="DocsDividerVertical"}
+::ShowCase
+
+:DocsDividerVertical
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Divider/DocsDividerVertical.vue" code lang="vue" -->
 
 ```vue [DocsDividerVertical.vue]
 <template>
@@ -92,5 +120,7 @@ npx ui-thing@latest add divider
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

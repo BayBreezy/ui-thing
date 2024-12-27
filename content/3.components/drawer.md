@@ -22,7 +22,9 @@ npx ui-thing@latest add drawer
 
 We can bring the different components together to make a simple drawer.
 
-::ShowCase{component="DocsDrawerBasic"}
+::ShowCase
+
+:DocsDrawerBasic
 
 #code
 
@@ -100,7 +102,9 @@ We can bring the different components together to make a simple drawer.
 
 We can add an image inside as well.
 
-::ShowCase{component="DocsDrawerImage"}
+::ShowCase
+
+:DocsDrawerImage
 
 #code
 
@@ -182,7 +186,9 @@ We can add an image inside as well.
 
 You can combine the `Dialog` and `Drawer` components to create a responsive dialog. This renders a `Dialog` component on desktop and a `Drawer` on mobile.
 
-::ShowCase{component="DocsDrawerResponsiveDialog"}
+::ShowCase
+
+:DocsDrawerResponsiveDialog
 
 #code
 

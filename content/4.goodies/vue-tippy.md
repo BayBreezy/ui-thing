@@ -108,7 +108,9 @@ The directive accepts a string with the content of the tooltip OR an object with
 
 Check out the [Directive Docs](https://vue-tippy.netlify.app/flavor/directive) to learn more.
 
-::ShowCase{component="DocsTippyUsageDirective"}
+::ShowCase
+
+:DocsTippyUsageDirective
 
 #code
 
@@ -144,7 +146,9 @@ We can use the `<Tippy/>` component to show a tooltip.
 
 You can visit the [Component Docs](https://vue-tippy.netlify.app/flavor/component) to see some more examples of how this component can be used.
 
-::ShowCase{component="DocsTippyUsageComponent"}
+::ShowCase
+
+:DocsTippyUsageComponent
 
 #code
 
@@ -217,7 +221,9 @@ This is a low-level, flexible composition, ideal for building tooltips with comp
 
 You can visit the [Composition API Docs](https://vue-tippy.netlify.app/flavor/composition-api) to see some more examples of how this composition can be used.
 
-::ShowCase{component="DocsTippyUsageComposition"}
+::ShowCase
+
+:DocsTippyUsageComposition
 
 #code
 
@@ -256,7 +262,9 @@ Here are some examples taken from the [Vue Tippy](https://vue-tippy.netlify.app/
 
 This example shows how to create a tooltip that follows the mouse.
 
-::ShowCase{component="DocsTippyFollowMouse"}
+::ShowCase
+
+:DocsTippyFollowMouse
 
 #code
 
@@ -315,7 +323,9 @@ This example shows how to create a tooltip that follows the mouse.
 
 This example shows how to create a context menu using Vue Tippy.
 
-::ShowCase{component="DocsTippyContextMenu"}
+::ShowCase
+
+:DocsTippyContextMenu
 
 #code
 
@@ -416,7 +426,9 @@ This example shows how to create a context menu using Vue Tippy.
 
 This example shows how to create a tooltip that is triggered by another element.
 
-::ShowCase{component="DocsTippyTargetEl"}
+::ShowCase
+
+:DocsTippyTargetEl
 
 #code
 
@@ -458,7 +470,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Title
 
-::ShowCase{component="DocsTippyTitle"}
+::ShowCase
+
+:DocsTippyTitle
 
 #code
 
@@ -490,7 +504,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Icon
 
-::ShowCase{component="DocsTippyIcon"}
+::ShowCase
+
+:DocsTippyIcon
 
 #code
 
@@ -524,7 +540,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Image
 
-::ShowCase{component="DocsTippyImage"}
+::ShowCase
+
+:DocsTippyImage
 
 #code
 
@@ -565,7 +583,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Pan
 
-::ShowCase{component="DocsTippyPan"}
+::ShowCase
+
+:DocsTippyPan
 
 #code
 
@@ -624,7 +644,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Stats
 
-::ShowCase{component="DocsTippyStats"}
+::ShowCase
+
+:DocsTippyStats
 
 #code
 
@@ -668,7 +690,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Chart
 
-::ShowCase{component="DocsTippyChart"}
+::ShowCase
+
+:DocsTippyChart
 
 #code
 

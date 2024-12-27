@@ -24,9 +24,13 @@ npx ui-thing@latest add toggle-group
 
 ### Basic
 
-::ShowCase{component="DocsToggleGroupBasic"}
+::ShowCase
+
+:DocsToggleGroupBasic
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/ToggleGroup/DocsToggleGroupBasic.vue" code lang="vue" -->
 
 ```vue [DocsToggleGroupBasic.vue]
 <template>
@@ -40,13 +44,19 @@ npx ui-thing@latest add toggle-group
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Outline
 
-::ShowCase{component="DocsToggleGroupOutline"}
+::ShowCase
+
+:DocsToggleGroupOutline
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/ToggleGroup/DocsToggleGroupOutline.vue" code lang="vue" -->
 
 ```vue [DocsToggleGroupOutline.vue]
 <template>
@@ -60,13 +70,19 @@ npx ui-thing@latest add toggle-group
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Multiple
 
-::ShowCase{component="DocsToggleGroupMultiple"}
+::ShowCase
+
+:DocsToggleGroupMultiple
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/ToggleGroup/DocsToggleGroupMultiple.vue" code lang="vue" -->
 
 ```vue [DocsToggleGroupMultiple.vue]
 <template>
@@ -80,13 +96,19 @@ npx ui-thing@latest add toggle-group
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Sizes
 
-::ShowCase{component="DocsToggleGroupSize"}
+::ShowCase
+
+:DocsToggleGroupSize
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/ToggleGroup/DocsToggleGroupSize.vue" code lang="vue" -->
 
 ```vue [DocsToggleGroupSize.vue]
 <template>
@@ -104,5 +126,7 @@ npx ui-thing@latest add toggle-group
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

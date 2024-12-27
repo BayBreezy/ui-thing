@@ -16,45 +16,42 @@
             }
           "
         >
-          <UiToggleGroupItem class="size-6 rounded-sm p-0" value="100">
+          <UiToggleGroupItem v-tippy="'Desktop View'" class="size-6 rounded-sm p-0" value="100">
             <Icon class="size-3.5" name="lucide:monitor" />
           </UiToggleGroupItem>
-          <UiToggleGroupItem class="size-6 rounded-sm p-0" value="60">
+          <UiToggleGroupItem v-tippy="'Tablet View'" class="size-6 rounded-sm p-0" value="60">
             <Icon class="size-3.5" name="lucide:tablet" />
           </UiToggleGroupItem>
-          <UiToggleGroupItem value="40" class="size-6 rounded-sm p-0">
+          <UiToggleGroupItem v-tippy="'Mobile View'" value="40" class="size-6 rounded-sm p-0">
             <Icon class="size-3.5" name="lucide:smartphone" />
           </UiToggleGroupItem>
         </UiToggleGroup>
       </div>
       <div class="flex items-center gap-3">
-        <UiTooltip v-if="externalViewLink">
-          <UiTooltipTrigger as-child>
-            <UiButton
-              target="_blank"
-              :href="externalViewLink"
-              class="size-8 rounded-md"
-              size="icon-sm"
-              variant="outline"
-            >
-              <Icon name="lucide:square-arrow-out-up-right" class="size-3.5" />
-            </UiButton>
-          </UiTooltipTrigger>
-          <UiTooltipContent align="center">External view</UiTooltipContent>
-        </UiTooltip>
-        <UiTooltip v-if="codeBlock">
-          <UiTooltipTrigger as-child>
-            <UiButton
-              class="size-8 rounded-md"
-              size="icon-sm"
-              variant="outline"
-              @click="copy(codeBlock)"
-            >
-              <Icon :name="copied ? 'lucide:check' : 'lucide:copy'" class="size-3.5" />
-            </UiButton>
-          </UiTooltipTrigger>
-          <UiTooltipContent align="center">Click to copy the source code</UiTooltipContent>
-        </UiTooltip>
+        <UiButton
+          v-if="externalViewLink"
+          v-tippy="'External View'"
+          target="_blank"
+          :href="externalViewLink"
+          class="size-8 rounded-md"
+          size="icon-sm"
+          variant="outline"
+        >
+          <Icon name="lucide:square-arrow-out-up-right" class="size-3.5" />
+          <span class="sr-only">External View</span>
+        </UiButton>
+
+        <UiButton
+          v-if="codeBlock"
+          v-tippy="'Copy Source Code'"
+          class="size-8 rounded-md"
+          size="icon-sm"
+          variant="outline"
+          @click="copy(codeBlock)"
+        >
+          <Icon :name="copied ? 'lucide:check' : 'lucide:copy'" class="size-3.5" />
+          <span class="sr-only">Copy Source Code</span>
+        </UiButton>
       </div>
     </div>
 
@@ -118,8 +115,7 @@
       import: "default",
     });
     const path = blockImports[`./${props.blockPath}.vue`];
-    codeBlock.value = await path();
-
+    codeBlock.value = (await path?.()) ?? null;
     isLoading.value = false;
   };
 
@@ -136,6 +132,6 @@
   const { copied, copy } = useClipboard({ copiedDuring: 2500, legacy: true });
 
   const externalViewLink = computed(() => {
-    return `/block-renderer?component=${props.component}&containerClass=${props.containerClass ?? ""}`;
+    return `/block-renderer?component=${props.component}&path=${props.blockPath}&containerClass=${props.containerClass ?? ""}`;
   });
 </script>

@@ -26,9 +26,13 @@ npx ui-thing@latest add pin-input
 
 Passing a value to the placeholder prop will render a placeholder character in each input.
 
-::ShowCase{component="DocsPinInput"}
+::ShowCase
+
+:DocsPinInput
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/PinInput/DocsPinInput.vue" code lang="vue" -->
 
 ```vue [DocsPinInput.vue]
 <template>
@@ -41,15 +45,21 @@ Passing a value to the placeholder prop will render a placeholder character in e
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Separator
 
 Passing a value to the separator prop will render a separator character between each input.
 
-::ShowCase{component="DocsPinInputSeparator"}
+::ShowCase
+
+:DocsPinInputSeparator
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/PinInput/DocsPinInputSeparator.vue" code lang="vue" -->
 
 ```vue [DocsPinInputSeparator.vue]
 <template>
@@ -62,15 +72,21 @@ Passing a value to the separator prop will render a separator character between 
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Complete event
 
 The complete event is emitted when the user has entered a value in all inputs.
 
-::ShowCase{component="DocsPinInputComplete"}
+::ShowCase
+
+:DocsPinInputComplete
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/PinInput/DocsPinInputComplete.vue" code lang="vue" -->
 
 ```vue [DocsPinInputComplete.vue]
 <template>
@@ -82,5 +98,7 @@ The complete event is emitted when the user has entered a value in all inputs.
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

@@ -1,5 +1,5 @@
 <template>
-  <div class="h-[600px] overflow-y-auto">
+  <div class="overflow-y-auto">
     <div class="grid grid-cols-1 gap-5 md:flex md:items-center md:justify-between">
       <div class="flex flex-col">
         <h1 class="font-semibold">Users</h1>
@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div class="mt-10">
+    <div class="mt-10 h-[500px] overflow-auto">
       <UiTable>
         <UiTableHeader>
           <UiTableRow>

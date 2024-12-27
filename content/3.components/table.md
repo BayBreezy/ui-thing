@@ -17,7 +17,9 @@ npx ui-thing@latest add table
 
 ### Basic example
 
-::ShowCase{component="DocsTable"}
+::ShowCase
+
+:DocsTable
 
 #code
 
@@ -25,7 +27,7 @@ npx ui-thing@latest add table
 
 ```vue [DocsTable.vue]
 <template>
-  <div class="overflow-x-auto rounded-md border pb-4">
+  <div class="grid overflow-x-auto rounded-md border pb-4">
     <UiTable>
       <UiTableCaption>A list of your recent invoices.</UiTableCaption>
       <UiTableHeader>
@@ -87,7 +89,9 @@ npx ui-thing@latest add table
 
 ### Simple
 
-::ShowCase{component="DocsTableSimple"}
+::ShowCase
+
+:DocsTableSimple
 
 #code
 
@@ -107,9 +111,8 @@ npx ui-thing@latest add table
         <UiButton size="sm">Add user</UiButton>
       </div>
     </div>
-
-    <div class="mt-10 overflow-x-auto">
-      <UiTable>
+    <div class="mt-10 grid overflow-x-auto">
+      <UiTable class="w-full table-auto">
         <UiTableHeader>
           <UiTableRow>
             <UiTableHead class="pl-0 font-semibold text-foreground">Name</UiTableHead>
@@ -165,7 +168,9 @@ npx ui-thing@latest add table
 
 ### Stacked on mobile
 
-::ShowCase{component="DocsTableStackedMobile"}
+::ShowCase
+
+:DocsTableStackedMobile
 
 #code
 
@@ -186,7 +191,7 @@ npx ui-thing@latest add table
       </div>
     </div>
 
-    <div class="mt-10 overflow-x-auto">
+    <div class="mt-10 grid overflow-x-auto">
       <UiTable>
         <UiTableHeader>
           <UiTableRow>
@@ -257,7 +262,9 @@ npx ui-thing@latest add table
 
 ### Sticky header
 
-::ShowCase{component="DocsTableStickyHeader"}
+::ShowCase
+
+:DocsTableStickyHeader
 
 #code
 
@@ -265,7 +272,7 @@ npx ui-thing@latest add table
 
 ```vue [DocsTableStickyHeader.vue]
 <template>
-  <div class="h-[600px] overflow-y-auto">
+  <div class="overflow-y-auto">
     <div class="grid grid-cols-1 gap-5 md:flex md:items-center md:justify-between">
       <div class="flex flex-col">
         <h1 class="font-semibold">Users</h1>
@@ -278,7 +285,7 @@ npx ui-thing@latest add table
       </div>
     </div>
 
-    <div class="mt-10">
+    <div class="mt-10 h-[500px] overflow-auto">
       <UiTable>
         <UiTableHeader>
           <UiTableRow>

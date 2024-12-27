@@ -15,9 +15,13 @@ npx ui-thing@latest add gradient-divider
 
 ## Usage
 
-::ShowCase{component="DocsGradientDivider"}
+::ShowCase
+
+:DocsGradientDivider
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/DocsGradientDivider.vue" code lang="vue" -->
 
 ```vue [DocsGradientDivider.vue]
 <template>
@@ -26,5 +30,7 @@ npx ui-thing@latest add gradient-divider
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

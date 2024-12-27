@@ -24,16 +24,20 @@ npx ui-thing@latest add autocomplete
 
 ### Basic
 
-::ShowCase{component="DocsAutoCompleteBasic"}
+::ShowCase
+
+:DocsAutoCompleteBasic
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Autocomplete/DocsAutoCompleteBasic.vue" code lang="vue" -->
 
 ```vue [DocsAutoCompleteBasic.vue]
 <template>
   <div>
     <UiAutocomplete>
       <UiAutocompleteAnchor>
-        <UiAutocompleteInput />
+        <UiAutocompleteInput placeholder="Select an item" />
         <UiAutocompleteTrigger>
           <Icon name="lucide:chevron-down" class="size-4 text-muted-foreground" />
         </UiAutocompleteTrigger>
@@ -43,7 +47,7 @@ npx ui-thing@latest add autocomplete
         <UiAutocompleteEmpty />
         <UiAutocompleteGroup>
           <UiAutocompleteLabel>Fruits</UiAutocompleteLabel>
-          <template v-for="(f, i) in fruits" :key="f">
+          <template v-for="f in fruits" :key="f">
             <UiAutocompleteItem :value="f" icon="lucide:check">{{ f }}</UiAutocompleteItem>
           </template>
         </UiAutocompleteGroup>
@@ -82,13 +86,19 @@ npx ui-thing@latest add autocomplete
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Objects
 
-::ShowCase{component="DocsAutoCompleteObjects"}
+::ShowCase
+
+:DocsAutoCompleteObjects
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Autocomplete/DocsAutoCompleteObjects.vue" code lang="vue" -->
 
 ```vue [DocsAutoCompleteObjects.vue]
 <template>
@@ -135,20 +145,31 @@ npx ui-thing@latest add autocomplete
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Multiple
 
-::ShowCase{component="DocsAutoCompleteMultiple"}
+::ShowCase
+
+:DocsAutoCompleteMultiple
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Autocomplete/DocsAutoCompleteMultiple.vue" code lang="vue" -->
 
 ```vue [DocsAutoCompleteMultiple.vue]
 <template>
   <div>
-    <UiAutocomplete v-model="selected" :display-value="displaySelected">
+    <UiAutocomplete
+      v-model="selectedPeople"
+      multiple
+      :display-value="displaySelected"
+      :filter-function="filtered"
+    >
       <UiAutocompleteAnchor>
-        <UiAutocompleteInput placeholder="Select a car..." />
+        <UiAutocompleteInput placeholder="Select people..." />
         <UiAutocompleteTrigger>
           <Icon name="lucide:chevron-down" class="size-4 text-muted-foreground" />
         </UiAutocompleteTrigger>
@@ -157,9 +178,9 @@ npx ui-thing@latest add autocomplete
       <UiAutocompleteContent>
         <UiAutocompleteEmpty />
         <UiAutocompleteGroup>
-          <UiAutocompleteLabel>Cars</UiAutocompleteLabel>
-          <template v-for="(c, i) in cars" :key="i">
-            <UiAutocompleteItem :value="c" icon="lucide:check">{{ c.name }}</UiAutocompleteItem>
+          <UiAutocompleteLabel>People</UiAutocompleteLabel>
+          <template v-for="(p, i) in people" :key="i">
+            <UiAutocompleteItem :value="p" icon="lucide:check">{{ p.name }}</UiAutocompleteItem>
           </template>
         </UiAutocompleteGroup>
       </UiAutocompleteContent>
@@ -168,24 +189,26 @@ npx ui-thing@latest add autocomplete
 </template>
 
 <script lang="ts" setup>
-  const cars = [
-    { name: "Audi", value: "audi" },
-    { name: "BMW", value: "bmw" },
-    { name: "Chevrolet", value: "chevrolet" },
-    { name: "Dodge", value: "dodge" },
-    { name: "Ford", value: "ford" },
-    { name: "GMC", value: "gmc" },
-    { name: "Honda", value: "honda" },
-    { name: "Infiniti", value: "infiniti" },
-    { name: "Jeep", value: "jeep" },
-    { name: "Kia", value: "kia" },
-    { name: "Lexus", value: "lexus" },
+  const people = [
+    { id: 1, name: "Durward Reynolds" },
+    { id: 2, name: "Kenton Towne" },
+    { id: 3, name: "Therese Wunsch" },
+    { id: 4, name: "Benedict Kessler" },
+    { id: 5, name: "Katelyn Rohan" },
   ];
+  const selectedPeople = ref([people[0], people[1]]);
 
-  const selected = ref(cars[2]);
+  const displaySelected = (p: any) => {
+    console.log(p);
+    return p;
+  };
 
-  const displaySelected = (car: any) => car.name;
+  function filtered(list: any[], searchTerm: string) {
+    return list.filter((p) => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  }
 </script>
 ```
+
+<!-- /automd -->
 
 ::

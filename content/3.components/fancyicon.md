@@ -17,9 +17,13 @@ npx ui-thing@latest add fancy-icon
 
 ### Basic
 
-::ShowCase{component="DocsFancyIcon"}
+::ShowCase
+
+:DocsFancyIcon
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIcon.vue" code lang="vue" -->
 
 ```vue [DocsFancyIcon.vue]
 <template>
@@ -29,14 +33,20 @@ npx ui-thing@latest add fancy-icon
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Colors
 
 For the colors to show, you have to change the type from `modern`.
-::ShowCase{component="DocsFancyIconColor"}
+::ShowCase
+
+:DocsFancyIconColor
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconColor.vue" code lang="vue" -->
 
 ```vue [DocsFancyIconColor.vue]
 <template>
@@ -50,13 +60,19 @@ For the colors to show, you have to change the type from `modern`.
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Types
 
-::ShowCase{component="DocsFancyIconType"}
+::ShowCase
+
+:DocsFancyIconType
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconType.vue" code lang="vue" -->
 
 ```vue [DocsFancyIconType.vue]
 <template>
@@ -68,13 +84,19 @@ For the colors to show, you have to change the type from `modern`.
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Sizes
 
-::ShowCase{component="DocsFancyIconSize"}
+::ShowCase
+
+:DocsFancyIconSize
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconSize.vue" code lang="vue" -->
 
 ```vue [DocsFancyIconSize.vue]
 <template>
@@ -95,13 +117,19 @@ For the colors to show, you have to change the type from `modern`.
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Circle prop
 
-::ShowCase{component="DocsFancyIconCircle"}
+::ShowCase
+
+:DocsFancyIconCircle
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconCircle.vue" code lang="vue" -->
 
 ```vue [DocsFancyIconCircle.vue]
 <template>
@@ -110,5 +138,7 @@ For the colors to show, you have to change the type from `modern`.
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

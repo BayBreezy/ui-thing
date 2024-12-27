@@ -22,9 +22,13 @@ npx ui-thing@latest add command
 
 ## Usage
 
-::ShowCase{component="DocsCommand"}
+::ShowCase
+
+:DocsCommand
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/DocsCommand.vue" code lang="vue" -->
 
 ```vue [DocsCommand.vue]
 <template>
@@ -97,5 +101,7 @@ npx ui-thing@latest add command
   };
 </script>
 ```
+
+<!-- /automd -->
 
 ::

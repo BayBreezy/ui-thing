@@ -1,7 +1,10 @@
 <template>
-  <div>
-    <h1 class="mb-0 text-4xl">{{ page?.title }}</h1>
-    <p v-if="page?.description" class="text-lg text-muted-foreground">{{ page?.description }}</p>
+  <div class="not-prose">
+    <UiBreadcrumbs :items="items" class="mb-6" />
+    <h1 class="text-4xl font-bold leading-none">{{ page?.title }}</h1>
+    <p v-if="page?.description" class="mb-6 mt-3 text-lg text-muted-foreground">
+      {{ page?.description }}
+    </p>
     <div v-if="page?.links && page?.links?.length" class="not-prose flex flex-wrap gap-2">
       <template v-for="(link, i) in page?.links" :key="i">
         <a
@@ -20,5 +23,16 @@
 </template>
 
 <script lang="ts" setup>
-  const { page } = useContent();
+  import { compact, startCase } from "lodash-es";
+  import type { ContentCollectionItem } from "@nuxt/content";
+
+  const props = defineProps<{
+    page: ContentCollectionItem;
+  }>();
+
+  const items = computed(() => {
+    const starting = startCase(compact(props.page?.path?.split("/"))[0] || "");
+    const title = startCase(props.page?.title || "");
+    return [{ label: starting }, { label: title }];
+  });
 </script>

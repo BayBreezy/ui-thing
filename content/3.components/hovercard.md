@@ -24,9 +24,13 @@ npx ui-thing@latest add hover-card
 
 ### Basic
 
-::ShowCase{component="DocsHoverCard"}
+::ShowCase
+
+:DocsHoverCard
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/HoverCard/DocsHoverCard.vue" code lang="vue" -->
 
 ```vue [DocsHoverCard.vue]
 <template>
@@ -77,13 +81,19 @@ npx ui-thing@latest add hover-card
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Vue
 
-::ShowCase{component="DocsHoverCardVue"}
+::ShowCase
+
+:DocsHoverCardVue
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/HoverCard/DocsHoverCardVue.vue" code lang="vue" -->
 
 ```vue [DocsHoverCardVue.vue]
 <template>
@@ -114,5 +124,7 @@ npx ui-thing@latest add hover-card
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

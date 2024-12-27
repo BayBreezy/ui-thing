@@ -24,15 +24,19 @@ npx ui-thing@latest add checkbox
 
 ### Basic
 
-::ShowCase{component="DocsCheckbox"}
+::ShowCase
+
+:DocsCheckbox
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Checkbox/DocsCheckbox.vue" code lang="vue" -->
 
 ```vue [DocsCheckbox.vue]
 <template>
   <div class="flex flex-col items-center justify-center">
     <div class="flex items-center gap-2">
-      <UiCheckbox v-model="terms" id="checkbox-terms" />
+      <UiCheckbox id="checkbox-terms" v-model:checked="terms" />
       <UiLabel for="checkbox-terms">
         <span class="ml-2"
           >I agree to the <a href="#" class="text-primary underline">terms and conditions</a></span
@@ -41,7 +45,7 @@ npx ui-thing@latest add checkbox
     </div>
 
     <div class="items-top mt-5 flex space-x-2">
-      <UiCheckbox id="terms1" v-model="terms1" />
+      <UiCheckbox id="terms1" v-model:checked="terms1" />
       <div class="grid gap-1.5 leading-none">
         <UiLabel for="terms1"> Accept terms and conditions </UiLabel>
         <p class="text-sm text-muted-foreground">
@@ -58,6 +62,8 @@ npx ui-thing@latest add checkbox
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Default
@@ -66,9 +72,13 @@ We can set the default value of the checkbox by binding the `v-model:checked` pr
 
 To bind the default value on the [VeeCheckbox](/forms/veecheckbox) component, we need to use the `v-model` prop instead of `v-model:checked`.
 
-::ShowCase{component="DocsCheckboxDefaultValues"}
+::ShowCase
+
+:DocsCheckboxDefaultValues
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Checkbox/DocsCheckboxDefaultValues.vue" code lang="vue" -->
 
 ```vue [DocsCheckboxDefaultValues.vue]
 <template>
@@ -87,5 +97,7 @@ To bind the default value on the [VeeCheckbox](/forms/veecheckbox) component, we
   const someVariable = ref(true);
 </script>
 ```
+
+<!-- /automd -->
 
 ::

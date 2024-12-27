@@ -19,13 +19,17 @@ npx ui-thing@latest add vee-datepicker
 
 ## Usage
 
-::ShowCase{component="DocsVeeDatepicker"}
+::ShowCase
+
+:DocsVeeDatepicker
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Vee/Datepicker/DocsVeeDatepicker.vue" code lang="vue" -->
+
 ```vue [DocsVeeDatepicker.vue]
 <template>
-  <form @submit="onSubmit" class="mx-auto max-w-md">
+  <form class="mx-auto max-w-md" @submit="onSubmit">
     <fieldset :disabled="isSubmitting" class="space-y-5">
       <UiVeeDatepicker
         :date-picker-props="{
@@ -60,11 +64,13 @@ npx ui-thing@latest add vee-datepicker
     const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
     useSonner.promise(promise, {
       loading: `Updating to ${values.startDate}`,
-      success: (d) => "We updated your information.",
-      error: (e) => "Error! Your information could not be sent to our servers!",
+      success: (_) => "We updated your information.",
+      error: (_) => "Error! Your information could not be sent to our servers!",
     });
   });
 </script>
 ```
+
+<!-- /automd -->
 
 ::

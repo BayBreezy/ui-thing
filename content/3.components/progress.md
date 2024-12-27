@@ -34,9 +34,13 @@ npx ui-thing@latest add progress
 
 ### Full example
 
-::ShowCase{component="DocsProgress"}
+::ShowCase
+
+:DocsProgress
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Progress/DocsProgress.vue" code lang="vue" -->
 
 ```vue [DocsProgress.vue]
 <template>
@@ -54,5 +58,7 @@ npx ui-thing@latest add progress
   }, 3000);
 </script>
 ```
+
+<!-- /automd -->
 
 ::

@@ -24,11 +24,15 @@ npx ui-thing@latest add select
 
 ### Basic example
 
-::ShowCase{component="DocsSelect"}
+::ShowCase
+
+:DocsSelect
 
 #code
 
-```vue [DocsSelect.vue]
+<!-- automd:file src="../../app/components/content/Docs/Select/DocsSelect.vue" code lang="vue -->
+
+```"vue [DocsSelect.vue]
 <template>
   <div class="flex justify-center">
     <UiSelect v-model="option">
@@ -55,21 +59,28 @@ npx ui-thing@latest add select
   const fruits = ["Apple", "Banana", "Blueberry", "Grapes", "Pineapple"];
   const vegetables = ["Aubergine", "Broccoli", "Carrot", "Courgette", "Leek"];
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
 ### Form
 
-::ShowCase{component="DocsSelectForm"}
+::ShowCase
+
+:DocsSelectForm
 
 #code
 
-```vue [DocsSelectForm.vue]
+<!-- automd:file src="../../app/components/content/Docs/Select/DocsSelectForm.vue" code lang="vue -->
+
+```"vue [DocsSelectForm.vue]
 <template>
   <div class="flex w-full justify-center">
     <form class="w-full" @submit="onSubmit">
-      <Field name="email" v-slot="{ componentField }">
+      <Field v-slot="{ componentField }" name="email">
         <UiFormItem label="Primary email" description="This will be shown to the public">
           <UiSelect v-bind="componentField">
             <UiSelectTrigger placeholder="Select primary email" />
@@ -113,6 +124,9 @@ npx ui-thing@latest add select
     });
   });
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::

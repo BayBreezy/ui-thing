@@ -1,4 +1,8 @@
+import { createResolver } from "@nuxt/kit";
+
 import * as SEO from "./app/utils/seo";
+
+const { resolve } = createResolver(import.meta.url);
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -38,8 +42,18 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/icon",
     "@nuxt/fonts",
-    "@nuxtjs/seo",
     "@vite-pwa/nuxt",
+    "nuxt-og-image",
+    (_, nuxt) => {
+      nuxt.hook("components:dirs", (dirs) => {
+        dirs.unshift({
+          path: resolve("./app/components/content"),
+          pathPrefix: false,
+          prefix: "",
+          global: true,
+        });
+      });
+    },
   ],
 
   build: { transpile: ["vue-sonner", "shiki"] },
@@ -59,22 +73,15 @@ export default defineNuxtConfig({
       },
     },
   },
-  icon: { clientBundle: { scan: true, sizeLimitKb: 0 }, fetchTimeout: 2000, serverBundle: "local" },
+  icon: {
+    clientBundle: { scan: true, sizeLimitKb: 0 },
+    fetchTimeout: 2000,
+    serverBundle: "local",
+  },
   tailwindcss: {
     exposeConfig: true,
     editorSupport: true,
     cssPath: ["~/assets/css/tailwind.css", { injectPosition: 2 }],
-  },
-  experimental: {
-    defaults: {
-      nuxtLink: {
-        prefetch: false,
-        prefetchOn: {
-          visibility: false,
-          interaction: true,
-        },
-      },
-    },
   },
 
   imports: {
@@ -87,6 +94,10 @@ export default defineNuxtConfig({
   },
 
   app: {
+    rootAttrs: {
+      "vaul-drawer-wrapper": "",
+      class: "bg-background",
+    },
     head: {
       title: SEO.SITE_TITLE,
       titleTemplate: `%s | ${SEO.SITE_NAME}`,
@@ -105,38 +116,40 @@ export default defineNuxtConfig({
   },
 
   content: {
-    documentDriven: true,
-    navigation: { fields: ["icon", "label"] },
-    markdown: {
-      toc: { depth: 4, searchDepth: 4 },
-    },
-    highlight: {
-      preload: [
-        "json",
-        "js",
-        "ts",
-        "css",
-        "html",
-        "md",
-        "yaml",
-        "vue",
-        "vue-html",
-        "bash",
-        "typescript",
-        "javascript",
-      ],
-      theme: {
-        default: "material-theme-palenight",
-        dark: "one-dark-pro",
+    build: {
+      pathMeta: {},
+      markdown: {
+        toc: { depth: 4, searchDepth: 4 },
+        highlight: {
+          langs: [
+            "json",
+            "js",
+            "ts",
+            "css",
+            "html",
+            "md",
+            "yaml",
+            "vue",
+            "vue-html",
+            "bash",
+            "typescript",
+            "javascript",
+          ],
+          theme: {
+            default: "material-theme-palenight",
+            dark: "one-dark-pro",
+          },
+        },
       },
     },
   },
 
   routeRules: {
-    "/": { redirect: "/getting-started/introduction", prerender: true },
-    "/components": { redirect: "/components/accordion", prerender: true },
-    "/examples": { redirect: "/examples/cards", prerender: true },
-    "/blocks": { redirect: "/blocks/app-empty-state", prerender: true },
+    "/": { redirect: "/getting-started/introduction" },
+    "/getting-started": { redirect: "/getting-started/introduction" },
+    "/components": { redirect: "/components/accordion" },
+    "/examples": { redirect: "/examples/cards" },
+    "/blocks": { redirect: "/blocks/app-empty-state" },
   },
   colorMode: { classSuffix: "", fallback: "dark", preference: "system" },
 
@@ -189,9 +202,6 @@ export default defineNuxtConfig({
     indexable: true,
     twitter: SEO.SITE_TWITTER_CREATOR,
   },
-
-  sitemap: { autoLastmod: true },
-  schemaOrg: { enabled: false },
 
   ogImage: {
     defaults: {

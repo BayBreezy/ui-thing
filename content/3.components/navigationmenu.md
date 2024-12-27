@@ -56,7 +56,9 @@ npx ui-thing@latest add navigation-menu
 
 The default orientation of the Navigation Menu is horizontal.
 
-::ShowCase{component="DocsNavigationMenu"}
+::ShowCase
+
+:DocsNavigationMenu
 
 #code
 
@@ -201,7 +203,9 @@ We can change the orientation of the Navigation Menu to vertical by using the `o
 
 To get things to look how we want, we would then need to add some custom styles.
 
-::ShowCase{component="DocsNavigationMenuVertical"}
+::ShowCase
+
+:DocsNavigationMenuVertical
 
 #code
 

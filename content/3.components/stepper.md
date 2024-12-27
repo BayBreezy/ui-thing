@@ -32,7 +32,9 @@ Now we will look at how Jordan from [Untitled UI](https://www.untitledui.com/) s
 
 So here is how I think this should be implemented. Take a look at the source code. Feel free to move things around and try out different things. Of course, you can turn this into a component if you want to.
 
-::ShowCase{component="DocsUntitledUIStepperIconHorizontal"}
+::ShowCase
+
+:DocsUntitledU_IStepperIconHorizontal
 
 #code
 
@@ -114,7 +116,9 @@ So here is how I think this should be implemented. Take a look at the source cod
 
 For the vertical variation, this is how I think it should be implemented.
 
-::ShowCase{component="DocsUntitledUIStepperIconVertical"}
+::ShowCase
+
+:DocsUntitledU_IStepperIconVertical
 
 #code
 
@@ -199,7 +203,9 @@ For the vertical variation, this is how I think it should be implemented.
 
 ### Stepper with Top Line
 
-::ShowCase{component="DocsUntitledUIStepperIconTopLine"}
+::ShowCase
+
+:DocsUntitledU_IStepperIconTopLine
 
 #code
 
@@ -270,7 +276,9 @@ For the vertical variation, this is how I think it should be implemented.
 
 Now our friends over at [Vuetify](https://vuetifyjs.com/en/components/steppers/) takes a different approach to the whole stepper thing.
 
-::ShowCase{component="DocsVuetifyStepper"}
+::ShowCase
+
+:DocsVuetifyStepper
 
 #code
 

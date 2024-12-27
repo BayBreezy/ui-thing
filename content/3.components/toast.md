@@ -36,9 +36,13 @@ Remember to add the `<UiToastToaster />` component to your app layout.
 
 ### Full example
 
-::ShowCase{component="DocsToast"}
+::ShowCase
+
+:DocsToast
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Toast/DocsToast.vue" code lang="vue" -->
 
 ```vue [DocsToast.vue]
 <template>
@@ -109,5 +113,7 @@ Remember to add the `<UiToastToaster />` component to your app layout.
   };
 </script>
 ```
+
+<!-- /automd -->
 
 ::

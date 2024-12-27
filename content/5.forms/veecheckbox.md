@@ -24,7 +24,9 @@ npx ui-thing@latest add vee-checkbox
 
 Checkboxes can be tricky to implement with validation libraries. Luckily, Vee-Validate takes care of the heavy lifting for us. Take a look at the [`Building Checkboxes Docs`](https://vee-validate.logaretm.com/v4/guide/composition-api/custom-inputs/#building-checkboxes) for more information on how this works.
 
-::ShowCase{component="DocsVeeCheckbox"}
+::ShowCase
+
+:DocsVeeCheckbox
 
 #code
 
@@ -72,7 +74,9 @@ Checkboxes can be tricky to implement with validation libraries. Luckily, Vee-Va
 
 ### Single checkbox
 
-::ShowCase{component="DocsVeeCheckboxSingle"}
+::ShowCase
+
+:DocsVeeCheckboxSingle
 
 #code
 
@@ -124,7 +128,9 @@ Checkboxes can be tricky to implement with validation libraries. Luckily, Vee-Va
 
 We can use the `v-model` prop to set the default value of the VeeCheckbox.
 
-::ShowCase{component="DocsVeeCheckboxDefault"}
+::ShowCase
+
+:DocsVeeCheckboxDefault
 
 #code
 
@@ -160,7 +166,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Colored Checkbox
 
-::ShowCase{component="DocsVeeCheckboxColored"}
+::ShowCase
+
+:DocsVeeCheckboxColored
 
 #code
 
@@ -186,7 +194,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Simple Todo
 
-::ShowCase{component="DocsVeeCheckboxSimpleTodo"}
+::ShowCase
+
+:DocsVeeCheckboxSimpleTodo
 
 #code
 
@@ -209,7 +219,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Fancy Todo
 
-::ShowCase{component="DocsVeeCheckboxFancyTodo"}
+::ShowCase
+
+:DocsVeeCheckboxFancyTodo
 
 #code
 
@@ -239,7 +251,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Terms of Service
 
-::ShowCase{component="DocsVeeCheckboxTerms"}
+::ShowCase
+
+:DocsVeeCheckboxTerms
 
 #code
 
@@ -266,7 +280,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Frameworks
 
-::ShowCase{component="DocsVeeCheckboxFrameworks"}
+::ShowCase
+
+:DocsVeeCheckboxFrameworks
 
 #code
 
@@ -295,7 +311,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Right Aligned
 
-::ShowCase{component="DocsVeeCheckboxRightAligned"}
+::ShowCase
+
+:DocsVeeCheckboxRightAligned
 
 #code
 
@@ -316,7 +334,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Label w/ Sublabel
 
-::ShowCase{component="DocsVeeCheckboxLabelSublabel"}
+::ShowCase
+
+:DocsVeeCheckboxLabelSublabel
 
 #code
 
@@ -348,7 +368,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Input Expansion
 
-::ShowCase{component="DocsVeeCheckboxInputExpansion"}
+::ShowCase
+
+:DocsVeeCheckboxInputExpansion
 
 #code
 
@@ -385,7 +407,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Right Aligned w/ Sublabel
 
-::ShowCase{component="DocsVeeCheckboxRightAlignedSublabel"}
+::ShowCase
+
+:DocsVeeCheckboxRightAlignedSublabel
 
 #code
 
@@ -416,7 +440,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Right Aligned w/ Sublabel Bordered
 
-::ShowCase{component="DocsVeeCheckboxRightAlignedSublabelBorder"}
+::ShowCase
+
+:DocsVeeCheckboxRightAlignedSublabelBorder
 
 #code
 
@@ -449,7 +475,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Grid Box
 
-::ShowCase{component="DocsVeeCheckboxGridBox"}
+::ShowCase
+
+:DocsVeeCheckboxGridBox
 
 #code
 
@@ -501,7 +529,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Days of the Week
 
-::ShowCase{component="DocsVeeCheckboxDaysOfTheWeek"}
+::ShowCase
+
+:DocsVeeCheckboxDaysOfTheWeek
 
 #code
 

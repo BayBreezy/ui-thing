@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
       <NuxtLink
         v-if="prev"
-        :to="prev._path"
+        :to="prev.path"
         class="flex gap-4 rounded-lg border p-5 transition hover:border-primary"
       >
         <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border">
@@ -18,7 +18,7 @@
       </NuxtLink>
       <NuxtLink
         v-if="next"
-        :to="next._path"
+        :to="next.path"
         class="flex justify-between gap-4 rounded-lg border p-5 transition hover:border-primary"
       >
         <div class="flex flex-col gap-1">
@@ -36,5 +36,12 @@
 </template>
 
 <script lang="ts" setup>
-  const { prev, next } = useContent();
+  const route = useRoute();
+  const { data: surround } = await useAsyncData("surround", () =>
+    queryCollectionItemSurroundings("content", route.path, {
+      fields: ["title", "description", "path"],
+    }).where("path", "NOT LIKE", "%/.navigation")
+  );
+  const prev = computed(() => surround.value?.[0]);
+  const next = computed(() => surround.value?.[1]);
 </script>

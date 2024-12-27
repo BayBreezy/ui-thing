@@ -25,9 +25,13 @@ npx ui-thing@latest add slider
 
 ### Basic example
 
-::ShowCase{component="DocsSlider"}
+::ShowCase
+
+:DocsSlider
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Slider/DocsSlider.vue" code lang="vue" -->
 
 ```vue [DocsSlider.vue]
 <template>
@@ -42,13 +46,19 @@ npx ui-thing@latest add slider
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Multiple thumbs
 
-::ShowCase{component="DocsSliderMultiple"}
+::ShowCase
+
+:DocsSliderMultiple
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Slider/DocsSliderMultiple.vue" code lang="vue" -->
 
 ```vue [DocsSliderMultiple.vue]
 <template>
@@ -63,6 +73,8 @@ npx ui-thing@latest add slider
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ## Origin UI Examples
@@ -73,7 +85,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Square Thumb
 
-::ShowCase{component="DocsSliderSquareThumb"}
+::ShowCase
+
+:DocsSliderSquareThumb
 
 #code
 
@@ -106,7 +120,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Solid Thumb
 
-::ShowCase{component="DocsSliderSolidThumb"}
+::ShowCase
+
+:DocsSliderSolidThumb
 
 #code
 
@@ -137,7 +153,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Tiny Thumb
 
-::ShowCase{component="DocsSliderTinyThumb"}
+::ShowCase
+
+:DocsSliderTinyThumb
 
 #code
 
@@ -168,7 +186,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Reference Labels
 
-::ShowCase{component="DocsSliderReferenceLabels"}
+::ShowCase
+
+:DocsSliderReferenceLabels
 
 #code
 
@@ -203,7 +223,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Ticks
 
-::ShowCase{component="DocsSliderTicks"}
+::ShowCase
+
+:DocsSliderTicks
 
 #code
 
@@ -248,7 +270,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Slider w/ Output
 
-::ShowCase{component="DocsSliderOutput"}
+::ShowCase
+
+:DocsSliderOutput
 
 #code
 
@@ -278,7 +302,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Slider w/ Labels
 
-::ShowCase{component="DocsSliderLabels"}
+::ShowCase
+
+:DocsSliderLabels
 
 #code
 
@@ -314,7 +340,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Slider w/ Labels & Tooltip
 
-::ShowCase{component="DocsSliderLabelsTooltips"}
+::ShowCase
+
+:DocsSliderLabelsTooltips
 
 #code
 
@@ -364,7 +392,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Dual Range
 
-::ShowCase{component="DocsSliderDualRange"}
+::ShowCase
+
+:DocsSliderDualRange
 
 #code
 
@@ -391,7 +421,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Dual Range w/ Output
 
-::ShowCase{component="DocsSliderDualRangeOutput"}
+::ShowCase
+
+:DocsSliderDualRangeOutput
 
 #code
 
@@ -421,7 +453,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Volume
 
-::ShowCase{component="DocsSliderVolume"}
+::ShowCase
+
+:DocsSliderVolume
 
 #code
 
@@ -455,7 +489,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Temperature
 
-::ShowCase{component="DocsSliderTemperature"}
+::ShowCase
+
+:DocsSliderTemperature
 
 #code
 
@@ -530,7 +566,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Input
 
-::ShowCase{component="DocsSliderInput"}
+::ShowCase
+
+:DocsSliderInput
 
 #code
 
@@ -575,7 +613,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Rate your experience
 
-::ShowCase{component="DocsSliderRateExp1"}
+::ShowCase
+
+:DocsSliderRateExp1
 
 #code
 
@@ -612,7 +652,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Rate your experience (tooltip)
 
-::ShowCase{component="DocsSliderRateExpTooltip"}
+::ShowCase
+
+:DocsSliderRateExpTooltip
 
 #code
 
@@ -655,7 +697,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Dual Range w/ Input
 
-::ShowCase{component="DocsSliderDualRangeInput"}
+::ShowCase
+
+:DocsSliderDualRangeInput
 
 #code
 
@@ -707,7 +751,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Credits per Month
 
-::ShowCase{component="DocsSliderCreditsPerMonth"}
+::ShowCase
+
+:DocsSliderCreditsPerMonth
 
 #code
 
@@ -781,7 +827,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Money Range
 
-::ShowCase{component="DocsSliderMoneyRange"}
+::ShowCase
+
+:DocsSliderMoneyRange
 
 #code
 
@@ -824,7 +872,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Vertical
 
-::ShowCase{component="DocsSliderVertical"}
+::ShowCase
+
+:DocsSliderVertical
 
 #code
 
@@ -853,7 +903,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Vertical Input
 
-::ShowCase{component="DocsSliderVerticalInput"}
+::ShowCase
+
+:DocsSliderVerticalInput
 
 #code
 
@@ -899,7 +951,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Vertical Dual Range w/ Tooltip
 
-::ShowCase{component="DocsSliderVerticalDualTooltip"}
+::ShowCase
+
+:DocsSliderVerticalDualTooltip
 
 #code
 
@@ -939,7 +993,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Object Position
 
-::ShowCase{component="DocsSliderObjectPosition"}
+::ShowCase
+
+:DocsSliderObjectPosition
 
 #code
 
@@ -1015,7 +1071,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Price
 
-::ShowCase{component="DocsSliderPrice"}
+::ShowCase
+
+:DocsSliderPrice
 
 #code
 
@@ -1265,7 +1323,9 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Equalizer
 
-::ShowCase{component="DocsSliderEqualizer"}
+::ShowCase
+
+:DocsSliderEqualizer
 
 #code
 

@@ -24,7 +24,9 @@ npx ui-thing@latest add context-menu
 
 ### Basic
 
-::ShowCase{component="DocsContextMenuBasic"}
+::ShowCase
+
+:DocsContextMenuBasic
 
 #code
 
@@ -103,7 +105,9 @@ npx ui-thing@latest add context-menu
 
 ### Checkbox Items
 
-::ShowCase{component="DocsContextMenuCheckItems"}
+::ShowCase
+
+:DocsContextMenuCheckItems
 
 #code
 
@@ -176,7 +180,9 @@ npx ui-thing@latest add context-menu
 
 ### Radio Items
 
-::ShowCase{component="DocsContextMenuRadioItems"}
+::ShowCase
+
+:DocsContextMenuRadioItems
 
 #code
 

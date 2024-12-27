@@ -22,9 +22,13 @@ npx ui-thing@latest add avatar
 
 ## Usage
 
-::ShowCase{component="DocsAvatar"}
+::ShowCase
+
+:DocsAvatar
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Avatar/DocsAvatar.vue" code lang="vue" -->
 
 ```vue [DocsAvatar.vue]
 <template>
@@ -39,5 +43,7 @@ npx ui-thing@latest add avatar
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

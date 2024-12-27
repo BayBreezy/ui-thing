@@ -24,16 +24,21 @@ npx ui-thing@latest add aspect-ratio
 
 Right click the image to perform different actions.
 
-::ShowCase{component="DocsAspectRatio"}
+::ShowCase
+
+:DocsAspectRatio
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/AspectRatio/DocsAspectRatio.vue" code lang="vue" -->
 
 ```vue [DocsAspectRatio.vue]
 <template>
   <div>
     <UiAspectRatio :ratio="16 / 9">
       <UiContextMenu>
-        <UiContextMenuTrigger asChild>
+        <UiContextMenuTrigger as-child>
+          <!-- eslint-disable-next-line vue/html-self-closing -->
           <img
             src="https://cdn.pixabay.com/photo/2023/05/02/21/08/river-7966163_1280.png"
             alt="Snow Lake"
@@ -66,5 +71,7 @@ Right click the image to perform different actions.
   };
 </script>
 ```
+
+<!-- /automd -->
 
 ::

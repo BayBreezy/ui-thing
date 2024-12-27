@@ -24,9 +24,13 @@ npx ui-thing@latest add listbox
 
 ### Basic
 
-::ShowCase{component="DocsListboxBasic"}
+::ShowCase
+
+:DocsListboxBasic
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Listbox/DocsListboxBasic.vue" code lang="vue" -->
 
 ```vue [DocsListboxBasic.vue]
 <template>
@@ -82,13 +86,19 @@ npx ui-thing@latest add listbox
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Objects
 
-::ShowCase{component="DocsListboxObjects"}
+::ShowCase
+
+:DocsListboxObjects
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Listbox/DocsListboxObjects.vue" code lang="vue" -->
 
 ```vue [DocsListboxObjects.vue]
 <template>
@@ -147,13 +157,19 @@ npx ui-thing@latest add listbox
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Multiple - Strings
 
-::ShowCase{component="DocsListboxStringMultiple"}
+::ShowCase
+
+:DocsListboxStringMultiple
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Listbox/DocsListboxStringMultiple.vue" code lang="vue" -->
 
 ```vue [DocsListboxStringMultiple.vue]
 <template>
@@ -209,13 +225,19 @@ npx ui-thing@latest add listbox
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Multiple - Objects
 
-::ShowCase{component="DocsListboxObjectsMultiple"}
+::ShowCase
+
+:DocsListboxObjectsMultiple
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Listbox/DocsListboxObjectsMultiple.vue" code lang="vue" -->
 
 ```vue [DocsListboxObjectsMultiple.vue]
 <template>
@@ -274,13 +296,19 @@ npx ui-thing@latest add listbox
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Virtualizer - Strings
 
-::ShowCase{component="DocsListboxStringVirtualizer"}
+::ShowCase
+
+:DocsListboxStringVirtualizer
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Listbox/DocsListboxStringVirtualizer.vue" code lang="vue" -->
 
 ```vue [DocsListboxStringVirtualizer.vue]
 <template>
@@ -309,5 +337,7 @@ npx ui-thing@latest add listbox
   });
 </script>
 ```
+
+<!-- /automd -->
 
 ::

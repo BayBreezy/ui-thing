@@ -23,7 +23,9 @@ npx ui-thing@latest add vee-input
 
 In the form below, we are using the `useForm` composition function provided by Vee-Validate to handle the form submission and validation. The `useForm` composable accepts a `validationSchema` option that we can use to define our validation rules. We are using the `zod` library to define our validation rules. You can use any validation library you want as long as it is supported by Vee-Validate and can be passed to the `toTypedSchema` function.
 
-::ShowCase{component="DocsVeeInput"}
+::ShowCase
+
+:DocsVeeInput
 
 #code
 
@@ -85,7 +87,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Required Input
 
-::ShowCase{component="DocsOriginInputRequired"}
+::ShowCase
+
+:DocsOriginInputRequired
 
 #code
 
@@ -105,7 +109,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Helper Text
 
-::ShowCase{component="DocsOriginInputHelperText"}
+::ShowCase
+
+:DocsOriginInputHelperText
 
 #code
 
@@ -130,7 +136,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with label hint
 
-::ShowCase{component="DocsOriginInputLabelHint"}
+::ShowCase
+
+:DocsOriginInputLabelHint
 
 #code
 
@@ -155,7 +163,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Colored Ring
 
-::ShowCase{component="DocsOriginInputColoredBorder"}
+::ShowCase
+
+:DocsOriginInputColoredBorder
 
 #code
 
@@ -176,7 +186,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Gray Background
 
-::ShowCase{component="DocsOriginInputGrayBg"}
+::ShowCase
+
+:DocsOriginInputGrayBg
 
 #code
 
@@ -201,7 +213,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Disabled Input
 
-::ShowCase{component="DocsOriginInputDisabled"}
+::ShowCase
+
+:DocsOriginInputDisabled
 
 #code
 
@@ -221,7 +235,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Start Icon
 
-::ShowCase{component="DocsOriginInputStartIcon"}
+::ShowCase
+
+:DocsOriginInputStartIcon
 
 #code
 
@@ -246,7 +262,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with End Icon
 
-::ShowCase{component="DocsOriginInputEndIcon"}
+::ShowCase
+
+:DocsOriginInputEndIcon
 
 #code
 
@@ -271,7 +289,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Start Inline Addon
 
-::ShowCase{component="DocsOriginInputStartInlineAddOn"}
+::ShowCase
+
+:DocsOriginInputStartInlineAddOn
 
 #code
 
@@ -299,7 +319,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with End Inline Addon
 
-::ShowCase{component="DocsOriginInputEndInlineAddOn"}
+::ShowCase
+
+:DocsOriginInputEndInlineAddOn
 
 #code
 
@@ -327,7 +349,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Inline Addons
 
-::ShowCase{component="DocsOriginInputInlineAddOns"}
+::ShowCase
+
+:DocsOriginInputInlineAddOns
 
 #code
 
@@ -362,7 +386,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Start Addon
 
-::ShowCase{component="DocsOriginInputStartAddon"}
+::ShowCase
+
+:DocsOriginInputStartAddon
 
 #code
 
@@ -395,7 +421,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with End Addon
 
-::ShowCase{component="DocsOriginInputEndAddon"}
+::ShowCase
+
+:DocsOriginInputEndAddon
 
 #code
 
@@ -428,7 +456,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Inline Start & End Addon
 
-::ShowCase{component="DocsOriginInputInlineStartEndAddon"}
+::ShowCase
+
+:DocsOriginInputInlineStartEndAddon
 
 #code
 
@@ -468,7 +498,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Start Select
 
-::ShowCase{component="DocsOriginInputStartSelect"}
+::ShowCase
+
+:DocsOriginInputStartSelect
 
 #code
 
@@ -507,7 +539,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with End Select
 
-::ShowCase{component="DocsOriginInputEndSelect"}
+::ShowCase
+
+:DocsOriginInputEndSelect
 
 #code
 
@@ -538,7 +572,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with End Inline Button
 
-::ShowCase{component="DocsOriginInputEndInlineButton"}
+::ShowCase
+
+:DocsOriginInputEndInlineButton
 
 #code
 
@@ -573,7 +609,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with End Icon Button
 
-::ShowCase{component="DocsOriginInputEndIconButton"}
+::ShowCase
+
+:DocsOriginInputEndIconButton
 
 #code
 
@@ -608,7 +646,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with End Button
 
-::ShowCase{component="DocsOriginInputEndButton"}
+::ShowCase
+
+:DocsOriginInputEndButton
 
 #code
 
@@ -638,7 +678,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Button
 
-::ShowCase{component="DocsOriginInputWithButton"}
+::ShowCase
+
+:DocsOriginInputWithButton
 
 #code
 
@@ -659,7 +701,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Show/Hide Password
 
-::ShowCase{component="DocsOriginInputShowHidePassword"}
+::ShowCase
+
+:DocsOriginInputShowHidePassword
 
 #code
 
@@ -706,7 +750,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Clear Button
 
-::ShowCase{component="DocsOriginInputClearButton"}
+::ShowCase
+
+:DocsOriginInputClearButton
 
 #code
 
@@ -748,7 +794,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with &lt;kbd&gt;
 
-::ShowCase{component="DocsOriginInputWithKDB"}
+::ShowCase
+
+:DocsOriginInputWithKDB
 
 #code
 
@@ -781,7 +829,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Search Input with Icon & Button
 
-::ShowCase{component="DocsOriginInputSearchWithIconButton"}
+::ShowCase
+
+:DocsOriginInputSearchWithIconButton
 
 #code
 
@@ -817,7 +867,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Search Input with Loader Icon
 
-::ShowCase{component="DocsOriginInputSearchWithLoader"}
+::ShowCase
+
+:DocsOriginInputSearchWithLoader
 
 #code
 
@@ -871,7 +923,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Overlapping Label
 
-::ShowCase{component="DocsOriginInputOverlappingLabel"}
+::ShowCase
+
+:DocsOriginInputOverlappingLabel
 
 #code
 
@@ -898,7 +952,9 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Password Strength Indicator
 
-::ShowCase{component="DocsOriginInputPasswordStrengthIndicator"}
+::ShowCase
+
+:DocsOriginInputPasswordStrengthIndicator
 
 #code
 

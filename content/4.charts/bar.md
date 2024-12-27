@@ -17,11 +17,15 @@ npx ui-thing@latest add chart
 
 ### Basic
 
-::ShowCase{component="DocsBarChart"}
+::ShowCase
+
+:DocsBarChart
 
 #code
 
-```vue-html [DocsBarChart.vue]
+<!-- automd:file src="../../app/components/content/Docs/Chart/Bar/DocsBarChart.vue" code lang="vue -->
+
+```"vue [DocsBarChart.vue]
 <template>
   <UiChartBar
     :data="data"
@@ -55,7 +59,10 @@ npx ui-thing@latest add chart
     { default: () => [] }
   );
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -63,11 +70,15 @@ npx ui-thing@latest add chart
 
 You can stack the bar chart by settings prop `type` to `stacked`.
 
-::ShowCase{component="DocsBarChartStacked"}
+::ShowCase
+
+:DocsBarChartStacked
 
 #code
 
-```vue [DocsBarChartStacked.vue]
+<!-- automd:file src="../../app/components/content/Docs/Chart/Bar/DocsBarChartStacked.vue" code lang="vue -->
+
+```"vue [DocsBarChartStacked.vue]
 <template>
   <UiChartBar
     index="name"
@@ -102,17 +113,24 @@ You can stack the bar chart by settings prop `type` to `stacked`.
     { default: () => [] }
   );
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
 ### Rounded Corners
 
-::ShowCase{component="DocsBarChartRounded"}
+::ShowCase
+
+:DocsBarChartRounded
 
 #code
 
-```vue [DocsBarChartRounded.vue]
+<!-- automd:file src="../../app/components/content/Docs/Chart/Bar/DocsBarChartRounded.vue" code lang="vue -->
+
+```"vue [DocsBarChartRounded.vue]
 <template>
   <UiChartBar
     :data="data"
@@ -147,7 +165,10 @@ You can stack the bar chart by settings prop `type` to `stacked`.
     { default: () => [] }
   );
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -155,11 +176,15 @@ You can stack the bar chart by settings prop `type` to `stacked`.
 
 If you want to render custom tooltip, you can easily pass in a custom component. Refer to prop definition [here](/charts#custom-tooltip).
 
-::ShowCase{component="DocsBarChartCustomTooltip"}
+::ShowCase
+
+:DocsBarChartCustomTooltip
 
 #code
 
-```vue [DocsBarChartCustomTooltip.vue]
+<!-- automd:file src="../../app/components/content/Docs/Chart/Bar/DocsBarChartCustomTooltip.vue" code lang="vue -->
+
+```"vue [DocsBarChartCustomTooltip.vue]
 <template>
   <UiChartBar
     :data="data"
@@ -196,4 +221,7 @@ If you want to render custom tooltip, you can easily pass in a custom component.
     { default: () => [] }
   );
 </script>
+
 ```
+
+<!-- /automd -->

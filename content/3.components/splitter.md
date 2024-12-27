@@ -26,22 +26,26 @@ npx ui-thing@latest add splitter
 
 We can put the parts together to build a simple layout with a resizable sidebar.
 
-::ShowCase{component="DocsSplitterBasic"}
+::ShowCase
+
+:DocsSplitterBasic
 
 #code
 
-```vue [DocsSplitterBasic.vue]
+<!-- automd:file src="../../app/components/content/Docs/Splitter/DocsSplitterBasic.vue" code lang="vue -->
+
+```"vue [DocsSplitterBasic.vue]
 <template>
   <div class="flex items-center justify-center">
     <ClientOnly>
       <UiSplitter class="max-w-md rounded-lg border">
-        <UiSplitterPanel :minSize="35" :defaultSize="50">
+        <UiSplitterPanel :min-size="35" :default-size="50">
           <div class="flex h-[200px] items-center justify-center p-6">
             <span class="font-semibold">One</span>
           </div>
         </UiSplitterPanel>
         <UiSplitterHandle />
-        <UiSplitterPanel :minSize="20" :defaultSize="50">
+        <UiSplitterPanel :min-size="20" :default-size="50">
           <UiSplitter direction="vertical">
             <UiSplitterPanel>
               <div class="flex h-full items-center justify-center p-6">
@@ -60,7 +64,10 @@ We can put the parts together to build a simple layout with a resizable sidebar.
     </ClientOnly>
   </div>
 </template>
+
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -72,29 +79,33 @@ We can even pass in a custom icon to display for the handle.
 
 Do note that the handle will be rotated because of this class that is added to it `[&[data-orientation=vertical]>div]:rotate-90`.
 
-::ShowCase{component="DocsSplitterHandle"}
+::ShowCase
+
+:DocsSplitterHandle
 
 #code
 
-```vue [DocsSplitterHandle.vue]
+<!-- automd:file src="../../app/components/content/Docs/Splitter/DocsSplitterHandle.vue" code lang="vue -->
+
+```"vue [DocsSplitterHandle.vue]
 <template>
   <div class="flex items-center justify-center">
     <ClientOnly>
       <UiSplitter class="max-w-md rounded-lg border">
-        <UiSplitterPanel :minSize="35" :defaultSize="50">
+        <UiSplitterPanel :min-size="35" :default-size="50">
           <div class="flex h-[200px] items-center justify-center p-6">
             <span class="font-semibold">One</span>
           </div>
         </UiSplitterPanel>
-        <UiSplitterHandle withHandle />
-        <UiSplitterPanel :minSize="20" :defaultSize="50">
+        <UiSplitterHandle with-handle />
+        <UiSplitterPanel :min-size="20" :default-size="50">
           <UiSplitter direction="vertical">
             <UiSplitterPanel>
               <div class="flex h-full items-center justify-center p-6">
                 <span class="font-semibold">Two</span>
               </div>
             </UiSplitterPanel>
-            <UiSplitterHandle withHandle icon="lucide:circle-dashed" />
+            <UiSplitterHandle with-handle icon="lucide:circle-dashed" />
             <UiSplitterPanel>
               <div class="flex h-full items-center justify-center p-6">
                 <span class="font-semibold">Three</span>
@@ -106,7 +117,10 @@ Do note that the handle will be rotated because of this class that is added to i
     </ClientOnly>
   </div>
 </template>
+
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -114,29 +128,33 @@ Do note that the handle will be rotated because of this class that is added to i
 
 We can use the `collapsible` prop to make the panels go down to the `collapsedSize` when the `minSize` is reached.
 
-::ShowCase{component="DocsSplitterCollapsible"}
+::ShowCase
+
+:DocsSplitterCollapsible
 
 #code
 
-```vue [DocsSplitterCollapsible.vue]
+<!-- automd:file src="../../app/components/content/Docs/Splitter/DocsSplitterCollapsible.vue" code lang="vue -->
+
+```"vue [DocsSplitterCollapsible.vue]
 <template>
   <div class="flex items-center justify-center">
     <ClientOnly>
       <UiSplitter class="max-w-md rounded-lg border">
-        <UiSplitterPanel collapsible :collapsedSize="10" :minSize="35" :defaultSize="50">
+        <UiSplitterPanel collapsible :collapsed-size="10" :min-size="35" :default-size="50">
           <div class="flex h-[200px] items-center justify-center p-6">
             <span class="font-semibold">One</span>
           </div>
         </UiSplitterPanel>
-        <UiSplitterHandle withHandle />
-        <UiSplitterPanel :minSize="20" :defaultSize="50">
+        <UiSplitterHandle with-handle />
+        <UiSplitterPanel :min-size="20" :default-size="50">
           <UiSplitter direction="vertical">
             <UiSplitterPanel>
               <div class="flex h-full items-center justify-center p-6">
                 <span class="font-semibold">Two</span>
               </div>
             </UiSplitterPanel>
-            <UiSplitterHandle withHandle />
+            <UiSplitterHandle with-handle />
             <UiSplitterPanel>
               <div class="flex h-full items-center justify-center p-6">
                 <span class="font-semibold">Three</span>
@@ -148,7 +166,10 @@ We can use the `collapsible` prop to make the panels go down to the `collapsedSi
     </ClientOnly>
   </div>
 </template>
+
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -158,11 +179,15 @@ We can use the `autoSaveId` prop to persist the layout data into the local stora
 
 Try changing the layout and then refresh the page to see the layout persist.
 
-::ShowCase{component="DocsSplitterPersist"}
+::ShowCase
+
+:DocsSplitterPersist
 
 #code
 
-```vue [DocsSplitterPersist.vue]
+<!-- automd:file src="../../app/components/content/Docs/Splitter/DocsSplitterPersist.vue" code lang="vue -->
+
+```"vue [DocsSplitterPersist.vue]
 <template>
   <div class="flex items-center justify-center">
     <ClientOnly>
@@ -170,20 +195,20 @@ Try changing the layout and then refresh the page to see the layout persist.
         <UiSkeleton class="max-w-md rounded-lg" />
       </template>
 
-      <UiSplitter autoSaveId="splitter-persist-1" class="max-w-md rounded-lg border">
+      <UiSplitter auto-save-id="splitter-persist-1" class="max-w-md rounded-lg border">
         <UiSplitterPanel
           v-slot="{ isCollapsed }"
           collapsible
-          :collapsedSize="10"
-          :minSize="30"
-          :defaultSize="40"
+          :collapsed-size="10"
+          :min-size="30"
+          :default-size="40"
         >
           <div class="flex h-[200px] items-center justify-center p-6">
             <UiButton
-              @click="$router.go(0)"
               variant="outline"
               :size="isCollapsed ? 'icon-sm' : 'sm'"
               class="shrink-0 whitespace-nowrap"
+              @click="$router.go(0)"
             >
               <span v-if="!isCollapsed">Reload page</span>
               <Icon v-else name="lucide:rotate-ccw" class="size-4" />
@@ -191,7 +216,7 @@ Try changing the layout and then refresh the page to see the layout persist.
           </div>
         </UiSplitterPanel>
         <UiSplitterHandle />
-        <UiSplitterPanel :minSize="20" :defaultSize="50">
+        <UiSplitterPanel :min-size="20" :default-size="50">
           <div class="flex h-full items-center justify-center p-6">
             <span class="font-semibold">Main</span>
           </div>
@@ -200,6 +225,9 @@ Try changing the layout and then refresh the page to see the layout persist.
     </ClientOnly>
   </div>
 </template>
+
 ```
+
+<!-- /automd -->
 
 ::

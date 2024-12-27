@@ -24,9 +24,13 @@ npx ui-thing@latest add sheet
 
 ### Basic example
 
-::ShowCase{component="DocsSheet"}
+::ShowCase
+
+:DocsSheet
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Sheet/DocsSheet.vue" code lang="vue" -->
 
 ```vue [DocsSheet.vue]
 <template>
@@ -37,6 +41,7 @@ npx ui-thing@latest add sheet
       </UiSheetTrigger>
 
       <UiSheetContent
+        class="sm:max-w-none md:w-[450px]"
         side="right"
         title="Edit profile"
         description="Make changes to your profile here. Click save when you're done."
@@ -45,11 +50,11 @@ npx ui-thing@latest add sheet
           <div class="grid gap-4 py-4">
             <div class="grid grid-cols-4 items-center gap-4">
               <UiLabel for="name" class="text-right"> Name </UiLabel>
-              <UiInput id="name" value="Pedro Duarte" class="col-span-3" />
+              <UiInput id="name" model-value="Pedro Duarte" class="col-span-3" />
             </div>
             <div class="grid grid-cols-4 items-center gap-4">
               <UiLabel for="username" class="text-right"> Username </UiLabel>
-              <UiInput id="username" value="@peduarte" class="col-span-3" />
+              <UiInput id="username" model-value="@peduarte" class="col-span-3" />
             </div>
           </div>
         </template>
@@ -68,5 +73,7 @@ npx ui-thing@latest add sheet
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

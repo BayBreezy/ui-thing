@@ -24,7 +24,9 @@ npx ui-thing@latest add dialog
 
 ### Profile Dialog
 
-::ShowCase{component="DocsDialog"}
+::ShowCase
+
+:DocsDialog
 
 #code
 
@@ -93,7 +95,9 @@ npx ui-thing@latest add dialog
 
 ### Custom Close Button
 
-::ShowCase{component="DocsDialogCustomClose"}
+::ShowCase
+
+:DocsDialogCustomClose
 
 #code
 
@@ -175,7 +179,9 @@ I just made them work with my setup.
 
 ### Scrollable (native scrollbar)
 
-::ShowCase{component="DocsDialogScrollNative"}
+::ShowCase
+
+:DocsDialogScrollNative
 
 #code
 
@@ -324,7 +330,9 @@ I just made them work with my setup.
 
 ### Scrollable (custom scrollbar)
 
-::ShowCase{component="DocsDialogScrollCustom"}
+::ShowCase
+
+:DocsDialogScrollCustom
 
 #code
 
@@ -473,7 +481,9 @@ I just made them work with my setup.
 
 ### Scrollable (sticky header)
 
-::ShowCase{component="DocsDialogScrollStickyHeader"}
+::ShowCase
+
+:DocsDialogScrollStickyHeader
 
 #code
 
@@ -622,7 +632,9 @@ I just made them work with my setup.
 
 ### Scrollable (sticky footer)
 
-::ShowCase{component="DocsDialogScrollStickyFooter"}
+::ShowCase
+
+:DocsDialogScrollStickyFooter
 
 #code
 
@@ -773,7 +785,9 @@ I just made them work with my setup.
 
 ### Terms & Condition
 
-::ShowCase{component="DocsDialogTermsCondition"}
+::ShowCase
+
+:DocsDialogTermsCondition
 
 #code
 
@@ -927,7 +941,9 @@ I just made them work with my setup.
 
 ### Newsletter
 
-::ShowCase{component="DocsDialogNewsletter"}
+::ShowCase
+
+:DocsDialogNewsletter
 
 #code
 
@@ -994,7 +1010,9 @@ I just made them work with my setup.
 
 ### Feedback
 
-::ShowCase{component="DocsDialogFeedback"}
+::ShowCase
+
+:DocsDialogFeedback
 
 #code
 
@@ -1038,7 +1056,9 @@ I just made them work with my setup.
 
 ### Rating
 
-::ShowCase{component="DocsDialogRating"}
+::ShowCase
+
+:DocsDialogRating
 
 #code
 
@@ -1117,13 +1137,15 @@ I just made them work with my setup.
 
 ### OTP Code
 
-::ShowCase{component="DocsDialogOTPCode"}
+::ShowCase
+
+:DocsDialogOtpCode
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogOTPCode.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/Dialog/DocsDialogOtpCode.vue" code lang="vue" -->
 
-```vue [DocsDialogOTPCode.vue]
+```vue [DocsDialogOtpCode.vue]
 <template>
   <div class="flex justify-center">
     <UiDialog>
@@ -1221,7 +1243,9 @@ I just made them work with my setup.
 
 ### Sign Up
 
-::ShowCase{component="DocsDialogSignUp"}
+::ShowCase
+
+:DocsDialogSignUp
 
 #code
 
@@ -1316,7 +1340,9 @@ I just made them work with my setup.
 
 ### Sign In
 
-::ShowCase{component="DocsDialogSignIn"}
+::ShowCase
+
+:DocsDialogSignIn
 
 #code
 
@@ -1417,7 +1443,9 @@ I just made them work with my setup.
 
 ### Invite Members
 
-::ShowCase{component="DocsDialogInviteMembers"}
+::ShowCase
+
+:DocsDialogInviteMembers
 
 #code
 
@@ -1572,7 +1600,9 @@ I just made them work with my setup.
 
 This implementation requires the use of [Maska](https://beholdr.github.io/maska/v3/#/install)
 
-::ShowCase{component="DocsDialogCardDetails"}
+::ShowCase
+
+:DocsDialogCardDetails
 
 #code
 
@@ -1674,7 +1704,9 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
 
 This implementation requires the use of [Maska](https://beholdr.github.io/maska/v3/#/install)
 
-::ShowCase{component="DocsDialogCheckout"}
+::ShowCase
+
+:DocsDialogCheckout
 
 #code
 
@@ -1798,7 +1830,9 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
 
 ### Change Plan
 
-::ShowCase{component="DocsDialogChangePlan"}
+::ShowCase
+
+:DocsDialogChangePlan
 
 #code
 
@@ -1901,7 +1935,9 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
 
 ### Edit Profile
 
-::ShowCase{component="DocsDialogEditProfile"}
+::ShowCase
+
+:DocsDialogEditProfile
 
 #code
 
@@ -2143,7 +2179,9 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
 
 ### Onboarding
 
-::ShowCase{component="DocsDialogOnboarding"}
+::ShowCase
+
+:DocsDialogOnboarding
 
 #code
 
@@ -2285,7 +2323,9 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
 
 ### Command Pallette Search
 
-::ShowCase{component="DocsDialogSearch"}
+::ShowCase
+
+:DocsDialogSearch
 
 #code
 

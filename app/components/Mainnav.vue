@@ -7,7 +7,7 @@
             size="icon-sm"
             variant="outline"
             class="h-9 w-9 lg:hidden"
-            @click="mobileNav = true"
+            @click="mobileNavState = true"
             ><Icon name="heroicons:bars-2" class="h-4 w-4" />
           </UiButton>
           <NuxtLink to="/" class="text-lg font-bold">UI Thing</NuxtLink>
@@ -118,7 +118,7 @@
         </UiDropdownMenu>
       </div>
     </div>
-    <MobileNav v-model="mobileNav" />
+    <MobileNav />
   </header>
 </template>
 
@@ -131,7 +131,7 @@
 
   const route = useRoute();
 
-  const mobileNav = ref(false);
+  const mobileNavState = useMobileNavState();
 
   const colorMode = useColorMode();
   const setTheme = (val: string) => {

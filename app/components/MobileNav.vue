@@ -1,38 +1,34 @@
 <template>
-  <UiSheet v-model:open="localModel">
-    <UiSheetContent class="p-1">
-      <template #content>
-        <UiSheetTitle title="Mobile menu" class="sr-only" />
-        <UiSheetDescription description="A list of navigation items for mobile" class="sr-only" />
-        <UiScrollArea class="h-[calc(100dvh-20px)] w-full p-5">
-          <div class="sticky top-0 mb-3 w-full bg-background">
-            <div class="flex items-center gap-3.5">
-              <div class="flex h-8 w-8 items-center justify-center rounded bg-foreground/10">
-                <DocsLogo />
-              </div>
-              <p class="text-xl font-bold">UI Thing</p>
-              <UiSheetClose class="ml-auto">
-                <Icon name="lucide:x" />
-              </UiSheetClose>
-            </div>
-            <UiSeparator class="mt-4" />
-          </div>
-          <DocsNavlink :links="navigation" />
-        </UiScrollArea>
+  <UiDrawer v-model:open="mobileNavState" should-scale-background>
+    <UiDrawerContent class="h-[600px]">
+      <template #knob>
+        <div
+          class="mx-auto my-5 h-1 w-[60px] shrink-0 cursor-grab rounded-full bg-muted active:cursor-grabbing"
+        />
       </template>
-    </UiSheetContent>
-  </UiSheet>
+      <div>
+        <UiDrawerTitle class="sr-only mb-1.5">Mobile Menu</UiDrawerTitle>
+        <UiDrawerDescription class="sr-only">
+          A list of navigation items for mobile
+        </UiDrawerDescription>
+
+        <div class="relative h-[calc(100dvh-230px)] overflow-y-auto pl-6 pr-2">
+          <DocsNav :links="navigation" @clicked="mobileNavState = false" />
+        </div>
+
+        <UiDrawerClose class="absolute right-4 top-3 h-7 w-7" as-child>
+          <UiButton variant="ghost" size="icon-sm" class="opacity-50 hover:opacity-100">
+            <Icon name="lucide:x" />
+          </UiButton>
+        </UiDrawerClose>
+      </div>
+    </UiDrawerContent>
+  </UiDrawer>
 </template>
 
 <script lang="ts" setup>
-  const { navigation } = useContent();
+  import type { ContentNavigationItem } from "@nuxt/content";
 
-  const props = defineProps<{
-    modelValue?: boolean;
-  }>();
-  const emits = defineEmits<{
-    "update:modelValue": [value: boolean];
-  }>();
-
-  const localModel = useVModel(props, "modelValue", emits, { passive: true });
+  const navigation = inject<Ref<ContentNavigationItem[]>>("navigation", ref([]));
+  const mobileNavState = useMobileNavState();
 </script>

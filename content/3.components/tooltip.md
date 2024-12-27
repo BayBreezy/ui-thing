@@ -24,9 +24,13 @@ npx ui-thing@latest add tooltip
 
 ### Basic example
 
-::ShowCase{component="DocsTooltip"}
+::ShowCase
+
+:DocsTooltip
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Tooltip/DocsTooltip.vue" code lang="vue" -->
 
 ```vue [DocsTooltip.vue]
 <template>
@@ -46,5 +50,7 @@ npx ui-thing@latest add tooltip
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div class="mt-10 overflow-x-auto">
+    <div class="mt-10 grid overflow-x-auto">
       <UiTable>
         <UiTableHeader>
           <UiTableRow>

@@ -17,9 +17,13 @@ npx ui-thing@latest add skeleton
 
 ### Basic example
 
-::ShowCase{component="DocsSkeleton"}
+::ShowCase
+
+:DocsSkeleton
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Skeleton/DocsSkeleton.vue" code lang="vue" -->
 
 ```vue [DocsSkeleton.vue]
 <template>
@@ -34,5 +38,7 @@ npx ui-thing@latest add skeleton
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

@@ -15,9 +15,13 @@ npx ui-thing@latest add card
 
 ## Usage
 
-::ShowCase{component="DocsCard"}
+::ShowCase
+
+:DocsCard
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Card/DocsCard.vue" code lang="vue" -->
 
 ```vue [DocsCard.vue]
 <template>
@@ -62,13 +66,19 @@ npx ui-thing@latest add card
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ## Example
 
-::ShowCase{component="DocsCardExample"}
+::ShowCase
+
+:DocsCardExample
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Card/DocsCardExample.vue" code lang="vue" -->
 
 ```vue [DocsCardExample.vue]
 <template>
@@ -129,5 +139,7 @@ npx ui-thing@latest add card
   ];
 </script>
 ```
+
+<!-- /automd -->
 
 ::

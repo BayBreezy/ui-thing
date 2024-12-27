@@ -26,9 +26,13 @@ npx ui-thing@latest add accordion
 
 The most common way to use the accordion is by just passing an array of items to the `items` prop. Each item should have a `value`, `title`, and `content`.
 
-::ShowCase{component="DocsAccordion"}
+::ShowCase
+
+:DocsAccordion
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Accordion/DocsAccordion.vue" code lang="vue" -->
 
 ```vue [DocsAccordion.vue]
 <template>
@@ -56,15 +60,21 @@ The most common way to use the accordion is by just passing an array of items to
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Custom styling
 
 If you want to change the way that the items look, you can do so by using the different components that the accordion is composed of.
 
-::ShowCase{component="DocsAccordionVariant"}
+::ShowCase
+
+:DocsAccordionVariant
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Accordion/DocsAccordionVariant.vue" code lang="vue" -->
 
 ```vue [DocsAccordionVariant.vue]
 <template>
@@ -110,15 +120,21 @@ If you want to change the way that the items look, you can do so by using the di
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Custom icon
 
 You can change the `icon` that is displayed based on the open state of an item. Just override the the `trigger` slot and then override the `icon` slot.
 
-::ShowCase{component="DocsAccordionIcon"}
+::ShowCase
+
+:DocsAccordionIcon
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Accordion/DocsAccordionIcon.vue" code lang="vue" -->
 
 ```vue [DocsAccordionIcon.vue]
 <template>
@@ -161,5 +177,7 @@ You can change the `icon` that is displayed based on the open state of an item. 
   ];
 </script>
 ```
+
+<!-- /automd -->
 
 ::

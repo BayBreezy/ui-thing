@@ -7,7 +7,13 @@ description: Display some confetti effect in your nuxt app.
 
 Shout out to [Magic UI](https://magicui.design/docs/components/confetti) for the inspiration. I actually discovered this package while browsing their website.
 
-## Installation
+## Getting Started
+
+:::Steps
+
+::Step
+
+### Installation
 
 To get started, you will need to install the package. You can visit the [Canvas Confetti](https://github.com/catdad/canvas-confetti) page for more details... All the details 🙂.
 
@@ -15,7 +21,11 @@ To get started, you will need to install the package. You can visit the [Canvas 
 npm install canvas-confetti
 ```
 
-## Create Composable
+::
+
+::Step
+
+### Create Composable
 
 Create a composable in your `composables` directory. You can name it `useConfetti.ts`.
 
@@ -23,7 +33,7 @@ Add this to the file:
 
 ```ts
 /**
- * Easily add confetti effects to your Nuxt 3 application
+ * Easily add confetti effects to your Nuxt application
  *
  * @see https://github.com/catdad/canvas-confetti
  */
@@ -32,17 +42,25 @@ import useConfetti from "canvas-confetti";
 export default useConfetti;
 ```
 
+::
+
+:::
+
 ## Usage
 
 ### Basic
 
 We can just call the `useConfetti` method to trigger the confetti.
 
-::ShowCase{component="DocsConfetti"}
+::ShowCase
+
+:DocsConfetti
 
 #code
 
-```vue [DocsConfetti.vue]
+<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfetti.vue" code lang="vue -->
+
+```"vue [DocsConfetti.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiButton @click="triggerConfetti()">Trigger Basic Cannon</UiButton>
@@ -54,7 +72,10 @@ We can just call the `useConfetti` method to trigger the confetti.
     useConfetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
   };
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -62,11 +83,15 @@ We can just call the `useConfetti` method to trigger the confetti.
 
 This is how you can shoot confetti off in a random direction.
 
-::ShowCase{component="DocsConfettiRandomDirection"}
+::ShowCase
+
+:DocsConfettiRandomDirection
 
 #code
 
-```vue [DocsConfettiRandomDirection.vue]
+<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiRandomDirection.vue" code lang="vue -->
+
+```"vue [DocsConfettiRandomDirection.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiButton @click="triggerConfetti()">Random Direction</UiButton>
@@ -86,17 +111,24 @@ This is how you can shoot confetti off in a random direction.
     });
   };
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
 ### Fireworks
 
-::ShowCase{component="DocsConfettiFireworks"}
+::ShowCase
+
+:DocsConfettiFireworks
 
 #code
 
-```vue [DocsConfettiFireworks.vue]
+<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiFireworks.vue" code lang="vue -->
+
+```"vue [DocsConfettiFireworks.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiButton @click="triggerConfetti()">Fireworks</UiButton>
@@ -133,17 +165,24 @@ This is how you can shoot confetti off in a random direction.
     }, 250);
   };
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
 ### Stars
 
-::ShowCase{component="DocsConfettiStars"}
+::ShowCase
+
+:DocsConfettiStars
 
 #code
 
-```vue [DocsConfettiStars.vue]
+<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiStars.vue" code lang="vue -->
+
+```"vue [DocsConfettiStars.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiButton @click="triggerConfetti()">Trigger Stars</UiButton>
@@ -182,17 +221,24 @@ This is how you can shoot confetti off in a random direction.
     setTimeout(shoot, 200);
   };
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
 ### Snow
 
-::ShowCase{component="DocsConfettiSnow"}
+::ShowCase
+
+:DocsConfettiSnow
 
 #code
 
-```vue [DocsConfettiSnow.vue]
+<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiSnow.vue" code lang="vue -->
+
+```"vue [DocsConfettiSnow.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiButton @click="triggerConfetti()">Trigger Snow</UiButton>
@@ -238,17 +284,24 @@ This is how you can shoot confetti off in a random direction.
     requestAnimationFrame(frame);
   };
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
 ### Side Cannon
 
-::ShowCase{component="DocsConfettiSideCannon"}
+::ShowCase
+
+:DocsConfettiSideCannon
 
 #code
 
-```vue [DocsConfettiSideCannon.vue]
+<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiSideCannon.vue" code lang="vue -->
+
+```"vue [DocsConfettiSideCannon.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiButton @click="triggerConfetti()">Side Cannon</UiButton>
@@ -282,17 +335,24 @@ This is how you can shoot confetti off in a random direction.
     requestAnimationFrame(frame);
   };
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
 ### Emoji
 
-::ShowCase{component="DocsConfettiEmoji"}
+::ShowCase
+
+:DocsConfettiEmoji
 
 #code
 
-```vue [DocsConfettiEmoji.vue]
+<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiEmoji.vue" code lang="vue -->
+
+```"vue [DocsConfettiEmoji.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiButton @click="triggerConfetti()">Trigger Emojis</UiButton>
@@ -340,6 +400,9 @@ This is how you can shoot confetti off in a random direction.
     setTimeout(shoot, 200);
   };
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::

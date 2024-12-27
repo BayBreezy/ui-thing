@@ -5,13 +5,23 @@ description: Display a full calendar in your nuxt app.
 
 ## Getting Started
 
+:::Steps
+
+::Step
+
+### Installation
+
 To get started, you can install the package with the following command:
 
 ```bash
 npm install --save @fullcalendar/core @fullcalendar/vue3
 ```
 
-## Plugins
+::
+
+::Step
+
+### Add Plugins
 
 You can also install the plugins for Full Calendar:
 
@@ -19,11 +29,17 @@ You can also install the plugins for Full Calendar:
 npm i @fullcalendar/daygrid @fullcalendar/interaction @fullcalendar/timegrid @fullcalendar/list @fullcalendar/multimonth @fullcalendar/scrollgrid
 ```
 
-## CSS
+::
+
+::Step
+
+### Update CSS
 
 In order to make the calendar match the UI Thing theme, I had to create the `full-calendar.css` file and import it in the `nuxt.config.ts` file.
 
-```css [full-calendar.css]
+<!-- automd:file src="../../app/assets/css/full-calendar.css" code lang="css -->
+
+```"css [full-calendar.css]
 /*
 for css vars only.
 these values are automatically known in all stylesheets.
@@ -153,17 +169,27 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     @apply text-base/10 font-bold tracking-tight;
   }
 }
+
 ```
+
+<!-- /automd -->
+
+::
+:::
 
 ## Usage
 
 ### Month View
 
-::ShowCase{component="DocsFullCalendar"}
+::ShowCase
+
+:DocsFullCalendar
 
 #code
 
-```vue [DocsFullCalendar.vue]
+<!-- automd:file src="../../app/components/content/Docs/FullCalendar/DocsFullCalendar.vue" code lang="vue -->
+
+```"vue [DocsFullCalendar.vue]
 <template>
   <FullCalendar :options="calendarOptions" />
 </template>
@@ -213,17 +239,24 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     top: 55px;
   }
 </style>
+
 ```
+
+<!-- /automd -->
 
 ::
 
 ### List View
 
-::ShowCase{component="DocsFullCalendarList"}
+::ShowCase
+
+:DocsFullCalendarList
 
 #code
 
-```vue [DocsFullCalendarList.vue]
+<!-- automd:file src="../../app/components/content/Docs/FullCalendar/DocsFullCalendarList.vue" code lang="vue -->
+
+```"vue [DocsFullCalendarList.vue]
 <template>
   <FullCalendar :options="calendarOptions" />
 </template>
@@ -268,17 +301,24 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     ],
   };
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
 ### TimeGrid View
 
-::ShowCase{component="DocsFullCalendarTimeGrid"}
+::ShowCase
+
+:DocsFullCalendarTimeGrid
 
 #code
 
-```vue [DocsFullCalendarTimeGrid.vue]
+<!-- automd:file src="../../app/components/content/Docs/FullCalendar/DocsFullCalendarTimeGrid.vue" code lang="vue -->
+
+```"vue [DocsFullCalendarTimeGrid.vue]
 <template>
   <FullCalendar :options="calendarOptions" />
 </template>
@@ -336,17 +376,24 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     ],
   };
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
 ### MultiMonth View
 
-::ShowCase{component="DocsFullCalendarMultiMonth"}
+::ShowCase
+
+:DocsFullCalendarMultiMonth
 
 #code
 
-```vue [DocsFullCalendarMultiMonth.vue]
+<!-- automd:file src="../../app/components/content/Docs/FullCalendar/DocsFullCalendarMultiMonth.vue" code lang="vue -->
+
+```"vue [DocsFullCalendarMultiMonth.vue]
 <template>
   <FullCalendar :options="calendarOptions" />
 </template>
@@ -404,6 +451,9 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     ],
   };
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::

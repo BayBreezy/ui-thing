@@ -34,11 +34,15 @@ vcalendar: {
 
 ## Usage
 
-::ShowCase{component="DocsCalendar"}
+::ShowCase
+
+:DocsCalendar
 
 #code
 
-```vue [DocsBadge.vue]
+<!-- automd:file src="../../app/components/content/Docs/DocsCalendar.vue" code lang="vue" -->
+
+```vue [DocsCalendar.vue]
 <template>
   <div>
     <div class="flex flex-wrap justify-center gap-5">
@@ -118,5 +122,7 @@ vcalendar: {
   ]);
 </script>
 ```
+
+<!-- /automd -->
 
 ::

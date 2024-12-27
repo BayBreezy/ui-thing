@@ -17,9 +17,13 @@ npx ui-thing@latest add list
 
 ### Basic
 
-::ShowCase{component="DocsListBasic"}
+::ShowCase
+
+:DocsListBasic
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/List/DocsListBasic.vue" code lang="vue" -->
 
 ```vue [DocsListBasic.vue]
 <template>
@@ -52,13 +56,19 @@ npx ui-thing@latest add list
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Mini cart
 
-::ShowCase{component="DocsListProducts"}
+::ShowCase
+
+:DocsListProducts
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/List/DocsListProducts.vue" code lang="vue" -->
 
 ```vue [DocsListProducts.vue]
 <template>
@@ -95,13 +105,19 @@ npx ui-thing@latest add list
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Navigation list
 
-::ShowCase{component="DocsListNav"}
+::ShowCase
+
+:DocsListNav
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/List/DocsListNav.vue" code lang="vue" -->
 
 ```vue [DocsListNav.vue]
 <template>
@@ -134,5 +150,7 @@ npx ui-thing@latest add list
   ];
 </script>
 ```
+
+<!-- /automd -->
 
 ::

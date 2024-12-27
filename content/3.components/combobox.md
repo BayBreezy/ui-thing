@@ -83,9 +83,13 @@ See installation instructions for the [Popover](/components/popover) and the [Co
 
 ### Combobox
 
-::ShowCase{component="DocsCombobox"}
+::ShowCase
+
+:DocsCombobox
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Combobox/DocsCombobox.vue" code lang="vue" -->
 
 ```vue [DocsCombobox.vue]
 <template>
@@ -104,7 +108,7 @@ See installation instructions for the [Popover](/components/popover) and the [Co
         </UiButton>
       </UiPopoverTrigger>
       <UiPopoverContent class="w-[250px] p-0">
-        <UiCommand :filter-function="filterFunction" v-model="value">
+        <UiCommand v-model="value" :filter-function="filterFunction">
           <UiCommandInput placeholder="Search framework..." />
           <UiCommandList>
             <UiCommandEmpty>No framework found.</UiCommandEmpty>
@@ -152,5 +156,7 @@ See installation instructions for the [Popover](/components/popover) and the [Co
     list.filter((i) => i.value.toLowerCase().includes(search.toLowerCase()));
 </script>
 ```
+
+<!-- /automd -->
 
 ::

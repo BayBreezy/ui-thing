@@ -24,9 +24,13 @@ npx ui-thing@latest add toggle
 
 ### Basic example
 
-::ShowCase{component="DocsToggle"}
+::ShowCase
+
+:DocsToggle
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Toggle/DocsToggle.vue" code lang="vue" -->
 
 ```vue [DocsToggle.vue]
 <template>
@@ -37,5 +41,7 @@ npx ui-thing@latest add toggle
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

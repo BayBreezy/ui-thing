@@ -36,11 +36,15 @@ npx ui-thing@latest add scroll-area
 
 ### Basic example
 
-::ShowCase{component="DocsScrollArea"}
+::ShowCase
+
+:DocsScrollArea
 
 #code
 
-```vue [DocsScrollArea.vue]
+<!-- automd:file src="../../app/components/content/Docs/ScrollArea/DocsScrollArea.vue" code lang="vue -->
+
+```"vue [DocsScrollArea.vue]
 <template>
   <div class="flex w-full justify-center">
     <UiScrollArea class="h-72 w-48 rounded-md border">
@@ -58,6 +62,9 @@ npx ui-thing@latest add scroll-area
 <script lang="ts" setup>
   const tags = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::

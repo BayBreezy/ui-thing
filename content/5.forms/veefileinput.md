@@ -23,13 +23,17 @@ npx ui-thing@latest add vee-file-input
 
 Why not use the `VeeInput` to accept file uploads? Well, we cannot force select a file from a user's device so the way how data binding works with file inputs and `vee-validate` is a bit different. According to the [docs](https://vee-validate.logaretm.com/v4/api/field#rendering-complex-fields-with-scoped-slots) it is better to use the `handleChange` and `handleBlur` methods to handle the file input changes.
 
-::ShowCase{component="DocsVeeInputFiles"}
+::ShowCase
+
+:DocsVeeInputFiles
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Vee/Input/DocsVeeInputFiles.vue" code lang="vue" -->
+
 ```vue [DocsVeeInputFiles.vue]
 <template>
-  <form @submit="onSubmit" class="mx-auto max-w-md">
+  <form class="mx-auto max-w-md" @submit="onSubmit">
     <fieldset :disabled="isSubmitting" class="space-y-5">
       <UiVeeFileInput multiple label="Certificates" name="certs" hint="Add at least 2 files" />
       <UiButton type="submit"> Upload files </UiButton>
@@ -87,11 +91,13 @@ Why not use the `VeeInput` to accept file uploads? Well, we cannot force select 
     const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
     useSonner.promise(promise, {
       loading: "We are updating your information...",
-      success: (d) => "We updated your information.",
-      error: (e) => "Error! Your information could not be sent to our servers!",
+      success: (_) => "We updated your information.",
+      error: (_) => "Error! Your information could not be sent to our servers!",
     });
   });
 </script>
 ```
+
+<!-- /automd -->
 
 ::

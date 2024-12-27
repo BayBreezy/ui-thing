@@ -24,9 +24,13 @@ npx ui-thing@latest add label
 
 ### Input
 
-::ShowCase{component="DocsInputLabel"}
+::ShowCase
+
+:DocsInputLabel
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Input/DocsInputLabel.vue" code lang="vue" -->
 
 ```vue [DocsInputLabel.vue]
 <template>
@@ -38,5 +42,7 @@ npx ui-thing@latest add label
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

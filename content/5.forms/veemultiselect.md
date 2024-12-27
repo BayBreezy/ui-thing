@@ -26,16 +26,20 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
 
 ### Objects
 
-::ShowCase{component="DocsVeeMultiselectObject"}
+::ShowCase
+
+:DocsVeeMultiselectObject
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Vee/Multiselect/DocsVeeMultiselectObject.vue" code lang="vue" -->
+
 ```vue [DocsVeeMultiselectObject.vue]
 <template>
-  <form @submit="submit" class="mx-auto max-w-md">
+  <form class="mx-auto max-w-md" @submit="submit">
     <UiVeeMultiSelect
-      formLabel="Hero"
-      valueProp="id"
+      form-label="Hero"
+      value-prop="id"
       label="name"
       placeholder="Select a hero"
       :options="options"
@@ -96,13 +100,19 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Groups
 
-::ShowCase{component="DocsVeeMultiselectGroup"}
+::ShowCase
+
+:DocsVeeMultiselectGroup
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Vee/Multiselect/DocsVeeMultiselectGroup.vue" code lang="vue" -->
 
 ```vue [DocsVeeMultiselectGroup.vue]
 <template>
@@ -110,7 +120,7 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
     <form @submit="submit">
       <UiVeeMultiSelect
         name="hero"
-        formLabel="Hero"
+        form-label="Hero"
         groups
         placeholder="Select a hero"
         :options="options"
@@ -168,21 +178,27 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Search
 
-::ShowCase{component="DocsVeeMultiselectSearch"}
+::ShowCase
+
+:DocsVeeMultiselectSearch
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Vee/Multiselect/DocsVeeMultiselectSearch.vue" code lang="vue" -->
 
 ```vue [DocsVeeMultiselectSearch.vue]
 <template>
   <div class="mx-auto max-w-md">
     <UiVeeMultiSelect
       searchable
-      formLabel="Hero"
-      valueProp="id"
+      form-label="Hero"
+      value-prop="id"
       label="name"
       placeholder="Search heroes..."
       :options="options"
@@ -206,5 +222,7 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
   ];
 </script>
 ```
+
+<!-- /automd -->
 
 ::
