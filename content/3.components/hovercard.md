@@ -30,6 +30,8 @@ npx ui-thing@latest add hover-card
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/HoverCard/DocsHoverCard.vue" code lang="vue" -->
+
 ```vue [DocsHoverCard.vue]
 <template>
   <div class="flex items-center justify-center">
@@ -79,6 +81,8 @@ npx ui-thing@latest add hover-card
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Vue
@@ -88,6 +92,8 @@ npx ui-thing@latest add hover-card
 :DocsHoverCardVue
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/HoverCard/DocsHoverCardVue.vue" code lang="vue" -->
 
 ```vue [DocsHoverCardVue.vue]
 <template>
@@ -118,5 +124,7 @@ npx ui-thing@latest add hover-card
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

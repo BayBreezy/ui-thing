@@ -29,6 +29,8 @@ In the form below, we are using the `useForm` composition provided by Vee-Valida
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Vee/DateField/DocsVeeDateField.vue" code lang="vue" -->
+
 ```vue [DocsVeeDateField.vue]
 <template>
   <form @submit="submit">
@@ -40,6 +42,7 @@ In the form below, we are using the `useForm` composition provided by Vee-Valida
 </template>
 
 <script lang="ts" setup>
+  import { getLocalTimeZone, parseDate, today } from "@internationalized/date";
   import { mixed, object } from "yup";
   import type { DateValue } from "@internationalized/date";
   import type { InferType } from "yup";
@@ -50,6 +53,10 @@ In the form below, we are using the `useForm` composition provided by Vee-Valida
 
   const { handleSubmit, isSubmitting } = useForm<InferType<typeof schema>>({
     validationSchema: schema,
+    initialValues: {
+      // use `parseDate` to convert a `Date` object to a `CalendarDate`
+      dob: parseDate(today(getLocalTimeZone()).toString()),
+    },
   });
   const submit = handleSubmit(async (values) => {
     useSonner.success("Awesome!", {
@@ -58,5 +65,7 @@ In the form below, we are using the `useForm` composition provided by Vee-Valida
   });
 </script>
 ```
+
+<!-- /automd -->
 
 ::

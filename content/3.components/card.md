@@ -21,6 +21,8 @@ npx ui-thing@latest add card
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Card/DocsCard.vue" code lang="vue" -->
+
 ```vue [DocsCard.vue]
 <template>
   <div class="flex items-center justify-center">
@@ -64,6 +66,8 @@ npx ui-thing@latest add card
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ## Example
@@ -73,6 +77,8 @@ npx ui-thing@latest add card
 :DocsCardExample
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Card/DocsCardExample.vue" code lang="vue" -->
 
 ```vue [DocsCardExample.vue]
 <template>
@@ -133,5 +139,7 @@ npx ui-thing@latest add card
   ];
 </script>
 ```
+
+<!-- /automd -->
 
 ::

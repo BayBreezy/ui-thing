@@ -30,6 +30,8 @@ npx ui-thing@latest add label
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Input/DocsInputLabel.vue" code lang="vue" -->
+
 ```vue [DocsInputLabel.vue]
 <template>
   <div class="flex w-full items-center justify-center">
@@ -40,5 +42,7 @@ npx ui-thing@latest add label
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

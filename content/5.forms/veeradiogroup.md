@@ -29,14 +29,16 @@ In the form below, we are using the `<UiVeeRadioGroup/>` component to create a r
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Vee/Radio/DocsVeeRadioGroup.vue" code lang="vue" -->
+
 ```vue [DocsVeeRadioGroup.vue]
 <template>
-  <form @submit="onSubmit" class="mx-auto max-w-md">
+  <form class="mx-auto max-w-md" @submit="onSubmit">
     <fieldset :disabled="isSubmitting" class="space-y-5">
       <UiVeeRadioGroup name="notify" label="Select how you want to be notified">
         <template v-for="(opt, i) in options" :key="i">
           <div class="mb-2 flex items-center gap-3">
-            <UiRadioGroupItem :value="opt.value" :id="opt.value" />
+            <UiRadioGroupItem :id="opt.value" :value="opt.value" />
             <UiLabel :for="opt.value">{{ opt.text }}</UiLabel>
           </div>
         </template>
@@ -71,7 +73,7 @@ In the form below, we are using the `<UiVeeRadioGroup/>` component to create a r
     await new Promise<void>((res, rej) => {
       useSonner.promise(promise, {
         loading: "Updating your settings...",
-        success: (d) => {
+        success: (_) => {
           res();
           return values.notify === "none"
             ? "You will no longer receive notifications"
@@ -86,5 +88,7 @@ In the form below, we are using the `<UiVeeRadioGroup/>` component to create a r
   });
 </script>
 ```
+
+<!-- /automd -->
 
 ::

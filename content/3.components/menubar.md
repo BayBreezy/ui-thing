@@ -30,6 +30,8 @@ npx ui-thing@latest add menubar
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Menubar/DocsMenubar.vue" code lang="vue" -->
+
 ```vue [DocsMenubar.vue]
 <template>
   <div class="flex w-full items-center justify-center">
@@ -44,19 +46,19 @@ npx ui-thing@latest add menubar
             <template v-for="(child, k) in item.items" :key="`child-${k}`">
               <UiMenubarSeparator v-if="child.divider" />
               <UiMenubarCheckboxItem
-                @select="(e) => e.preventDefault()"
                 v-else-if="child.type === 'check'"
+                v-model:checked="child.model.value"
                 :title="child.title"
                 :shortcut="child.shortcut"
-                v-model:checked="child.model.value"
+                @select="(e) => e.preventDefault()"
               />
               <UiMenubarRadioGroup v-else-if="child.type === 'radio'" v-model="child.model.value">
                 <template v-for="(o, m) in child.options" :key="m">
                   <UiMenubarRadioItem
-                    @select="(e) => e.preventDefault()"
                     :title="o.title"
                     :shortcut="o.shortcut"
                     :value="o.value"
+                    @select="(e) => e.preventDefault()"
                   />
                 </template>
               </UiMenubarRadioGroup>
@@ -72,7 +74,7 @@ npx ui-thing@latest add menubar
                 <UiMenubarSubContent class="w-44">
                   <template v-for="(kid, j) in child.items" :key="`kid-${j}`">
                     <UiMenubarSeparator v-if="kid.divider" />
-                    <UiMenubarItem :inset="kid.inset" v-else :title="kid.title" :icon="kid.icon" />
+                    <UiMenubarItem v-else :inset="kid.inset" :title="kid.title" :icon="kid.icon" />
                   </template>
                 </UiMenubarSubContent>
               </UiMenubarSub>
@@ -167,5 +169,7 @@ npx ui-thing@latest add menubar
   ];
 </script>
 ```
+
+<!-- /automd -->
 
 ::

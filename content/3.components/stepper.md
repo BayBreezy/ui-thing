@@ -34,7 +34,7 @@ So here is how I think this should be implemented. Take a look at the source cod
 
 ::ShowCase
 
-:DocsUntitledUIStepperIconHorizontal
+:DocsUntitledU_IStepperIconHorizontal
 
 #code
 
@@ -118,7 +118,7 @@ For the vertical variation, this is how I think it should be implemented.
 
 ::ShowCase
 
-:DocsUntitledUIStepperIconVertical
+:DocsUntitledU_IStepperIconVertical
 
 #code
 
@@ -205,7 +205,7 @@ For the vertical variation, this is how I think it should be implemented.
 
 ::ShowCase
 
-:DocsUntitledUIStepperIconTopLine
+:DocsUntitledU_IStepperIconTopLine
 
 #code
 

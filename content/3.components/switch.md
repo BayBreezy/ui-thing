@@ -30,6 +30,8 @@ npx ui-thing@latest add switch
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Switch/DocsSwitch.vue" code lang="vue" -->
+
 ```vue [DocsSwitch.vue]
 <template>
   <div class="flex w-full justify-center">
@@ -41,6 +43,8 @@ npx ui-thing@latest add switch
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Form
@@ -51,11 +55,13 @@ npx ui-thing@latest add switch
 
 #code
 
-```vue [DocsSwitchForm.vue]
+<!-- automd:file src="../../app/components/content/Docs/Switch/DocsSwitchForm.vue" code lang="vue -->
+
+```"vue [DocsSwitchForm.vue]
 <template>
-  <form @submit="onSubmit" class="flex w-full justify-center">
+  <form class="flex w-full justify-center" @submit="onSubmit">
     <div class="w-full">
-      <Field name="mode" v-slot="{ handleChange, value }">
+      <Field v-slot="{ handleChange, value }" name="mode">
         <UiFormItem class="flex flex-col">
           <div class="flex items-center gap-3">
             <UiSwitch :checked="value" @update:checked="handleChange" />
@@ -76,7 +82,7 @@ npx ui-thing@latest add switch
     validationSchema: toTypedSchema(
       z.object({
         mode: z.literal(true, {
-          errorMap: (iss, ctx) => {
+          errorMap: (_, __) => {
             return { message: "Please turn on airplane mode" };
           },
         }),
@@ -90,6 +96,9 @@ npx ui-thing@latest add switch
     });
   });
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::

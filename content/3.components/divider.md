@@ -23,6 +23,8 @@ npx ui-thing@latest add divider
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Divider/DocsDivider.vue" code lang="vue" -->
+
 ```vue [DocsDivider.vue]
 <template>
   <div class="flex w-full items-center">
@@ -30,6 +32,8 @@ npx ui-thing@latest add divider
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -41,6 +45,8 @@ npx ui-thing@latest add divider
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Divider/DocsDividerLabel.vue" code lang="vue" -->
+
 ```vue [DocsDividerLabel.vue]
 <template>
   <div class="flex w-full items-center">
@@ -48,6 +54,8 @@ npx ui-thing@latest add divider
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -59,6 +67,8 @@ npx ui-thing@latest add divider
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Divider/DocsDividerIcon.vue" code lang="vue" -->
+
 ```vue [DocsDividerIcon.vue]
 <template>
   <div class="flex w-full items-center">
@@ -66,6 +76,8 @@ npx ui-thing@latest add divider
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -77,6 +89,8 @@ npx ui-thing@latest add divider
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Divider/DocsDividerAvatar.vue" code lang="vue" -->
+
 ```vue [DocsDividerAvatar.vue]
 <template>
   <div class="flex w-full items-center">
@@ -84,6 +98,8 @@ npx ui-thing@latest add divider
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -95,6 +111,8 @@ npx ui-thing@latest add divider
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Divider/DocsDividerVertical.vue" code lang="vue" -->
+
 ```vue [DocsDividerVertical.vue]
 <template>
   <div class="flex h-[200px] w-full items-center">
@@ -102,5 +120,7 @@ npx ui-thing@latest add divider
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

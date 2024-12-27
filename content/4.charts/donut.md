@@ -23,7 +23,9 @@ npx ui-thing@latest add chart
 
 #code
 
-```vue-html [DocsDonutChart.vue]
+<!-- automd:file src="../../app/components/content/Docs/Chart/Donut/DocsDonutChart.vue" code lang="vue -->
+
+```"vue [DocsDonutChart.vue]
 <template>
   <UiChartDonut index="name" :category="'Total'" :data="data" />
 </template>
@@ -45,7 +47,10 @@ npx ui-thing@latest add chart
     { default: () => [] }
   );
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -59,7 +64,9 @@ If you want to render pie chart instead, pass `type` as `pie`.
 
 #code
 
-```vue [DocsPieChart.vue]
+<!-- automd:file src="../../app/components/content/Docs/Chart/Donut/DocsPieChart.vue" code lang="vue -->
+
+```"vue [DocsPieChart.vue]
 <template>
   <UiChartDonut index="name" :category="'Total'" :data="data" type="pie" />
 </template>
@@ -81,7 +88,10 @@ If you want to render pie chart instead, pass `type` as `pie`.
     { default: () => [] }
   );
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -95,7 +105,9 @@ We generate colors automatically based on the primary and secondary color and as
 
 #code
 
-```vue [DocsDonutChartColor.vue]
+<!-- automd:file src="../../app/components/content/Docs/Chart/Donut/DocsDonutChartColor.vue" code lang="vue -->
+
+```"vue [DocsDonutChartColor.vue]
 <template>
   <UiChartDonut
     index="name"
@@ -126,7 +138,10 @@ We generate colors automatically based on the primary and secondary color and as
     { default: () => [] }
   );
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -140,7 +155,9 @@ If you want to render custom tooltip, you can easily pass in a custom component.
 
 #code
 
-```vue [DocsDonutChartCustomTooltip.vue]
+<!-- automd:file src="../../app/components/content/Docs/Chart/Donut/DocsDonutChartCustomTooltip.vue" code lang="vue -->
+
+```"vue [DocsDonutChartCustomTooltip.vue]
 <template>
   <UiChartDonut
     index="name"
@@ -168,7 +185,10 @@ If you want to render custom tooltip, you can easily pass in a custom component.
     { default: () => [] }
   );
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -176,7 +196,9 @@ If you want to render custom tooltip, you can easily pass in a custom component.
 
 This is what the `CustomChartTooltip` component looks like:
 
-```vue
+<!-- automd:file src="../../app/components/CustomChartTooltip.vue" code lang="vue -->
+
+```"vue [CustomChartTooltip.vue]
 <template>
   <UiCard class="text-sm">
     <UiCardContent class="flex min-w-[180px] flex-col gap-2 p-3">
@@ -201,4 +223,7 @@ This is what the `CustomChartTooltip` component looks like:
     }[];
   }>();
 </script>
+
 ```
+
+<!-- /automd -->

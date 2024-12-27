@@ -23,6 +23,8 @@ npx ui-thing@latest add list
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/List/DocsListBasic.vue" code lang="vue" -->
+
 ```vue [DocsListBasic.vue]
 <template>
   <div class="flex items-center justify-center">
@@ -54,6 +56,8 @@ npx ui-thing@latest add list
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Mini cart
@@ -63,6 +67,8 @@ npx ui-thing@latest add list
 :DocsListProducts
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/List/DocsListProducts.vue" code lang="vue" -->
 
 ```vue [DocsListProducts.vue]
 <template>
@@ -99,6 +105,8 @@ npx ui-thing@latest add list
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Navigation list
@@ -108,6 +116,8 @@ npx ui-thing@latest add list
 :DocsListNav
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/List/DocsListNav.vue" code lang="vue" -->
 
 ```vue [DocsListNav.vue]
 <template>
@@ -140,5 +150,7 @@ npx ui-thing@latest add list
   ];
 </script>
 ```
+
+<!-- /automd -->
 
 ::

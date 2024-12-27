@@ -21,6 +21,8 @@ npx ui-thing@latest add gradient-divider
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/DocsGradientDivider.vue" code lang="vue" -->
+
 ```vue [DocsGradientDivider.vue]
 <template>
   <div class="flex w-full">
@@ -28,5 +30,7 @@ npx ui-thing@latest add gradient-divider
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

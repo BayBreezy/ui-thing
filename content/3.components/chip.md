@@ -23,6 +23,8 @@ npx ui-thing@latest add chip
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Chip/DocsChip.vue" code lang="vue" -->
+
 ```vue [DocsChip.vue]
 <template>
   <div class="flex w-full justify-center">
@@ -35,6 +37,8 @@ npx ui-thing@latest add chip
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Size
@@ -46,6 +50,8 @@ Pass a size to the `size` prop to change the size of the chip.
 :DocsChipSize
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Chip/DocsChipSize.vue" code lang="vue" -->
 
 ```vue [DocsChipSize.vue]
 <template>
@@ -63,6 +69,8 @@ Pass a size to the `size` prop to change the size of the chip.
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Color
@@ -75,19 +83,21 @@ You can change the color of the chip by passing any tailwind color `bg` class to
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Chip/DocsChipColor.vue" code lang="vue" -->
+
 ```vue [DocsChipColor.vue]
 <template>
-  <template>
-    <div class="flex w-full justify-center">
-      <UiChip color="bg-destructive">
-        <UiButton size="icon-sm" variant="outline">
-          <Icon name="lucide:inbox" class="size-5" />
-        </UiButton>
-      </UiChip>
-    </div>
-  </template>
+  <div class="flex w-full justify-center">
+    <UiChip color="bg-destructive">
+      <UiButton size="icon-sm" variant="outline">
+        <Icon name="lucide:inbox" class="size-5" />
+      </UiButton>
+    </UiChip>
+  </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -100,6 +110,8 @@ You can display a text inside the chip by passing a `string` to the `text` prop.
 :DocsChipText
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Chip/DocsChipText.vue" code lang="vue" -->
 
 ```vue [DocsChipText.vue]
 <template>
@@ -118,6 +130,8 @@ You can display a text inside the chip by passing a `string` to the `text` prop.
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Inset
@@ -129,6 +143,8 @@ The `inset` prop can be used to move the indicator closer to the element.
 :DocsChipInset
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Chip/DocsChipInset.vue" code lang="vue" -->
 
 ```vue [DocsChipInset.vue]
 <template>
@@ -146,5 +162,7 @@ The `inset` prop can be used to move the indicator closer to the element.
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

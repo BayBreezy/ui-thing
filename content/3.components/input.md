@@ -23,6 +23,8 @@ npx ui-thing@latest add input
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Input/DocsInputEmail.vue" code lang="vue" -->
+
 ```vue [DocsInputEmail.vue]
 <template>
   <div class="flex w-full items-center justify-center">
@@ -30,6 +32,8 @@ npx ui-thing@latest add input
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -40,6 +44,8 @@ npx ui-thing@latest add input
 :DocsInputLabel
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Input/DocsInputLabel.vue" code lang="vue" -->
 
 ```vue [DocsInputLabel.vue]
 <template>
@@ -52,6 +58,8 @@ npx ui-thing@latest add input
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Form
@@ -62,11 +70,13 @@ npx ui-thing@latest add input
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Input/DocsInputForm.vue" code lang="vue" -->
+
 ```vue [DocsInputForm.vue]
 <template>
   <div class="mx-auto flex w-full max-w-lg items-center justify-center">
-    <form @submit="onSubmit" class="w-full space-y-4">
-      <Field name="username" v-slot="{ componentField }">
+    <form class="w-full space-y-4" @submit="onSubmit">
+      <Field v-slot="{ componentField }" name="username">
         <UiFormItem label="Username" description="Others will be able to see this">
           <UiInput v-bind="componentField" />
         </UiFormItem>
@@ -99,5 +109,7 @@ npx ui-thing@latest add input
   });
 </script>
 ```
+
+<!-- /automd -->
 
 ::

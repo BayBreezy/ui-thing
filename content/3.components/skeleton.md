@@ -23,6 +23,8 @@ npx ui-thing@latest add skeleton
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Skeleton/DocsSkeleton.vue" code lang="vue" -->
+
 ```vue [DocsSkeleton.vue]
 <template>
   <div class="flex w-full justify-center">
@@ -36,5 +38,7 @@ npx ui-thing@latest add skeleton
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

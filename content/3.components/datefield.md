@@ -28,10 +28,12 @@ npx ui-thing@latest add date-field
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/DateField/DocsDateField.vue" code lang="vue" -->
+
 ```vue [DocsDateField.vue]
 <template>
   <div class="flex w-full flex-col justify-center">
-    <UiLabel for="text-date" v-if="value" class="mb-2 text-sm text-muted-foreground">
+    <UiLabel v-if="value" for="text-date" class="mb-2 text-sm text-muted-foreground">
       The entered date is {{ formattedValue }}
     </UiLabel>
     <UiDateField id="text-date" v-model="value" />
@@ -49,5 +51,7 @@ npx ui-thing@latest add date-field
   );
 </script>
 ```
+
+<!-- /automd -->
 
 ::

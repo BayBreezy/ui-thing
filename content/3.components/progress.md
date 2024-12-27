@@ -40,6 +40,8 @@ npx ui-thing@latest add progress
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Progress/DocsProgress.vue" code lang="vue" -->
+
 ```vue [DocsProgress.vue]
 <template>
   <div class="flex w-full justify-center">
@@ -56,5 +58,7 @@ npx ui-thing@latest add progress
   }, 3000);
 </script>
 ```
+
+<!-- /automd -->
 
 ::

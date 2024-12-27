@@ -30,6 +30,8 @@ npx ui-thing@latest add toggle
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Toggle/DocsToggle.vue" code lang="vue" -->
+
 ```vue [DocsToggle.vue]
 <template>
   <div class="flex w-full items-center justify-center">
@@ -39,5 +41,7 @@ npx ui-thing@latest add toggle
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

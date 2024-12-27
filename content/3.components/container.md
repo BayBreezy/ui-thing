@@ -23,14 +23,18 @@ npx ui-thing@latest add container
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/DocsContainer.vue" code lang="vue" -->
+
 ```vue [DocsContainer.vue]
 <template>
   <div>
     <UiContainer>
-      <div class="h-[200px] w-full rounded-lg bg-muted shadow"></div>
+      <div class="h-[200px] w-full rounded-lg bg-muted shadow" />
     </UiContainer>
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

@@ -1,4 +1,8 @@
+import { createResolver } from "@nuxt/kit";
+
 import * as SEO from "./app/utils/seo";
+
+const { resolve } = createResolver(import.meta.url);
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -38,8 +42,18 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/icon",
     "@nuxt/fonts",
-    "@nuxtjs/seo",
     "@vite-pwa/nuxt",
+    "nuxt-og-image",
+    (_, nuxt) => {
+      nuxt.hook("components:dirs", (dirs) => {
+        dirs.unshift({
+          path: resolve("./app/components/content"),
+          pathPrefix: false,
+          prefix: "",
+          global: true,
+        });
+      });
+    },
   ],
 
   build: { transpile: ["vue-sonner", "shiki"] },
@@ -60,7 +74,6 @@ export default defineNuxtConfig({
     },
   },
   icon: {
-    mode: "svg",
     clientBundle: { scan: true, sizeLimitKb: 0 },
     fetchTimeout: 2000,
     serverBundle: "local",
@@ -132,10 +145,11 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    "/": { redirect: "/getting-started/introduction", prerender: true },
-    "/components": { redirect: "/components/accordion", prerender: true },
-    "/examples": { redirect: "/examples/cards", prerender: true },
-    "/blocks": { redirect: "/blocks/app-empty-state", prerender: true },
+    "/": { redirect: "/getting-started/introduction" },
+    "/getting-started": { redirect: "/getting-started/introduction" },
+    "/components": { redirect: "/components/accordion" },
+    "/examples": { redirect: "/examples/cards" },
+    "/blocks": { redirect: "/blocks/app-empty-state" },
   },
   colorMode: { classSuffix: "", fallback: "dark", preference: "system" },
 
@@ -188,11 +202,6 @@ export default defineNuxtConfig({
     indexable: true,
     twitter: SEO.SITE_TWITTER_CREATOR,
   },
-
-  sitemap: { autoLastmod: true, enabled: false },
-  linkChecker: { enabled: false },
-  robots: { enabled: false },
-  schemaOrg: { enabled: false },
 
   ogImage: {
     defaults: {

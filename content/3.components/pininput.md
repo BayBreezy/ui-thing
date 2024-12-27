@@ -32,6 +32,8 @@ Passing a value to the placeholder prop will render a placeholder character in e
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/PinInput/DocsPinInput.vue" code lang="vue" -->
+
 ```vue [DocsPinInput.vue]
 <template>
   <div class="flex items-center justify-center">
@@ -42,6 +44,8 @@ Passing a value to the placeholder prop will render a placeholder character in e
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -55,6 +59,8 @@ Passing a value to the separator prop will render a separator character between 
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/PinInput/DocsPinInputSeparator.vue" code lang="vue" -->
+
 ```vue [DocsPinInputSeparator.vue]
 <template>
   <div class="flex items-center justify-center">
@@ -65,6 +71,8 @@ Passing a value to the separator prop will render a separator character between 
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -78,6 +86,8 @@ The complete event is emitted when the user has entered a value in all inputs.
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/PinInput/DocsPinInputComplete.vue" code lang="vue" -->
+
 ```vue [DocsPinInputComplete.vue]
 <template>
   <div class="flex items-center justify-center">
@@ -88,5 +98,7 @@ The complete event is emitted when the user has entered a value in all inputs.
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

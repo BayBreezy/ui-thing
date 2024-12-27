@@ -19,6 +19,8 @@ This may not be a component that can be reused across multiple projects, but it'
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/GooeyMenu/DocsGooeyMenu.vue" code lang="vue" -->
+
 ```vue [DocsGooeyMenu.vue]
 <template>
   <div>
@@ -76,5 +78,7 @@ This may not be a component that can be reused across multiple projects, but it'
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

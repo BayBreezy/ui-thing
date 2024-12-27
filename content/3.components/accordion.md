@@ -32,6 +32,8 @@ The most common way to use the accordion is by just passing an array of items to
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Accordion/DocsAccordion.vue" code lang="vue" -->
+
 ```vue [DocsAccordion.vue]
 <template>
   <UiAccordion type="single" default-value="item-2" :items="accordionItems" />
@@ -58,6 +60,8 @@ The most common way to use the accordion is by just passing an array of items to
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Custom styling
@@ -69,6 +73,8 @@ If you want to change the way that the items look, you can do so by using the di
 :DocsAccordionVariant
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Accordion/DocsAccordionVariant.vue" code lang="vue" -->
 
 ```vue [DocsAccordionVariant.vue]
 <template>
@@ -114,6 +120,8 @@ If you want to change the way that the items look, you can do so by using the di
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Custom icon
@@ -125,6 +133,8 @@ You can change the `icon` that is displayed based on the open state of an item. 
 :DocsAccordionIcon
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Accordion/DocsAccordionIcon.vue" code lang="vue" -->
 
 ```vue [DocsAccordionIcon.vue]
 <template>
@@ -167,5 +177,7 @@ You can change the `icon` that is displayed based on the open state of an item. 
   ];
 </script>
 ```
+
+<!-- /automd -->
 
 ::

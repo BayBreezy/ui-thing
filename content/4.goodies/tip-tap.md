@@ -3,7 +3,12 @@ title: Tiptap
 description: Tiptap is an open source headless content editor and real-time collaboration framework to craft exactly the content experience you’d like to have – built for developers.
 ---
 
-## Installation
+## Getting Started
+
+:::Steps
+::Step
+
+### Installation
 
 First wee need to install basic packages that we need. To make a great editor, you will need to install a whole lot more extensions. But for now, we will just install the basic packages.
 
@@ -11,7 +16,10 @@ First wee need to install basic packages that we need. To make a great editor, y
 npm install @tiptap/vue-3 @tiptap/pm @tiptap/starter-kit
 ```
 
-## Create Editor Component
+::
+::Step
+
+### Create Editor Component
 
 Create the component `Tiptap.client.vue` in the `components` directory. The component has to be a client only component.
 
@@ -260,6 +268,9 @@ The one used here looks like this. Like I said earlier, you have to install a lo
 ```
 
 <!-- /automd -->
+
+::
+:::
 
 ## Usage
 

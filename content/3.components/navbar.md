@@ -23,6 +23,8 @@ npx ui-thing@latest add navbar
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Navbar/DocsNavbar.vue" code lang="vue" -->
+
 ```vue [DocsNavbar.vue]
 <template>
   <div>
@@ -31,9 +33,9 @@ npx ui-thing@latest add navbar
         <p class="font-semibold">UI Thing</p>
         <nav class="hidden items-center gap-5 sm:flex">
           <NuxtLink
-            class="text-sm text-muted-foreground transition-colors hover:text-foreground"
             v-for="l in ['Home', 'About', 'Contact', 'Projects']"
             :key="l"
+            class="text-sm text-muted-foreground transition-colors hover:text-foreground"
             to="/"
             >{{ l }}</NuxtLink
           >
@@ -43,5 +45,7 @@ npx ui-thing@latest add navbar
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

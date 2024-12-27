@@ -12,7 +12,7 @@
   const params = useUrlSearchParams();
 
   defineOgImageComponent("UIThing", {
-    title: "Blocks",
+    title: params?.component || "Blocks",
     description: "Copy and paste blocks of code into your project.",
   });
 </script>

@@ -29,6 +29,8 @@ In the form below, we are using the `useForm` composition function provided by V
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Vee/NumberField/DocsVeeNumberField.vue" code lang="vue" -->
+
 ```vue [DocsVeeNumberField.vue]
 <template>
   <div class="flex w-full items-center justify-center">
@@ -76,5 +78,7 @@ In the form below, we are using the `useForm` composition function provided by V
   });
 </script>
 ```
+
+<!-- /automd -->
 
 ::

@@ -28,6 +28,8 @@ npx ui-thing@latest add avatar
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Avatar/DocsAvatar.vue" code lang="vue" -->
+
 ```vue [DocsAvatar.vue]
 <template>
   <div class="flex flex-wrap items-center justify-center gap-3">
@@ -41,5 +43,7 @@ npx ui-thing@latest add avatar
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

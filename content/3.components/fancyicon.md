@@ -23,6 +23,8 @@ npx ui-thing@latest add fancy-icon
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIcon.vue" code lang="vue" -->
+
 ```vue [DocsFancyIcon.vue]
 <template>
   <div class="flex items-center justify-center">
@@ -30,6 +32,8 @@ npx ui-thing@latest add fancy-icon
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -41,6 +45,8 @@ For the colors to show, you have to change the type from `modern`.
 :DocsFancyIconColor
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconColor.vue" code lang="vue" -->
 
 ```vue [DocsFancyIconColor.vue]
 <template>
@@ -54,6 +60,8 @@ For the colors to show, you have to change the type from `modern`.
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Types
@@ -63,6 +71,8 @@ For the colors to show, you have to change the type from `modern`.
 :DocsFancyIconType
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconType.vue" code lang="vue" -->
 
 ```vue [DocsFancyIconType.vue]
 <template>
@@ -74,6 +84,8 @@ For the colors to show, you have to change the type from `modern`.
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Sizes
@@ -83,6 +95,8 @@ For the colors to show, you have to change the type from `modern`.
 :DocsFancyIconSize
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconSize.vue" code lang="vue" -->
 
 ```vue [DocsFancyIconSize.vue]
 <template>
@@ -103,6 +117,8 @@ For the colors to show, you have to change the type from `modern`.
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Circle prop
@@ -113,6 +129,8 @@ For the colors to show, you have to change the type from `modern`.
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconCircle.vue" code lang="vue" -->
+
 ```vue [DocsFancyIconCircle.vue]
 <template>
   <div class="flex flex-wrap items-center justify-center gap-5">
@@ -120,5 +138,7 @@ For the colors to show, you have to change the type from `modern`.
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

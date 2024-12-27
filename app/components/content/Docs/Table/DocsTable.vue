@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-x-auto rounded-md border pb-4">
+  <div class="grid overflow-x-auto rounded-md border pb-4">
     <UiTable>
       <UiTableCaption>A list of your recent invoices.</UiTableCaption>
       <UiTableHeader>

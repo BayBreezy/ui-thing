@@ -23,7 +23,9 @@ npx ui-thing@latest add chart
 
 #code
 
-```vue-html [DocsBarChart.vue]
+<!-- automd:file src="../../app/components/content/Docs/Chart/Bar/DocsBarChart.vue" code lang="vue -->
+
+```"vue [DocsBarChart.vue]
 <template>
   <UiChartBar
     :data="data"
@@ -57,7 +59,10 @@ npx ui-thing@latest add chart
     { default: () => [] }
   );
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -71,7 +76,9 @@ You can stack the bar chart by settings prop `type` to `stacked`.
 
 #code
 
-```vue [DocsBarChartStacked.vue]
+<!-- automd:file src="../../app/components/content/Docs/Chart/Bar/DocsBarChartStacked.vue" code lang="vue -->
+
+```"vue [DocsBarChartStacked.vue]
 <template>
   <UiChartBar
     index="name"
@@ -106,7 +113,10 @@ You can stack the bar chart by settings prop `type` to `stacked`.
     { default: () => [] }
   );
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -118,7 +128,9 @@ You can stack the bar chart by settings prop `type` to `stacked`.
 
 #code
 
-```vue [DocsBarChartRounded.vue]
+<!-- automd:file src="../../app/components/content/Docs/Chart/Bar/DocsBarChartRounded.vue" code lang="vue -->
+
+```"vue [DocsBarChartRounded.vue]
 <template>
   <UiChartBar
     :data="data"
@@ -153,7 +165,10 @@ You can stack the bar chart by settings prop `type` to `stacked`.
     { default: () => [] }
   );
 </script>
+
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -167,7 +182,9 @@ If you want to render custom tooltip, you can easily pass in a custom component.
 
 #code
 
-```vue [DocsBarChartCustomTooltip.vue]
+<!-- automd:file src="../../app/components/content/Docs/Chart/Bar/DocsBarChartCustomTooltip.vue" code lang="vue -->
+
+```"vue [DocsBarChartCustomTooltip.vue]
 <template>
   <UiChartBar
     :data="data"
@@ -204,4 +221,7 @@ If you want to render custom tooltip, you can easily pass in a custom component.
     { default: () => [] }
   );
 </script>
+
 ```
+
+<!-- /automd -->

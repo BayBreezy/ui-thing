@@ -7,7 +7,13 @@ description: An animated beam of light which travels along the border of its con
 
 Shout out to [Magic UI](https://magicui.design/docs/components/border-beam) for the inspiration. I actually discovered this package while browsing their website.
 
-## Add Animation
+## Getting Started
+
+:::Steps
+
+::Step
+
+### Add Animation
 
 You will need to add this to your `tailwind.config.js` file.
 
@@ -31,11 +37,17 @@ module.exports = {
 };
 ```
 
-## Create Component
+::
+
+::Step
+
+### Create Component
 
 Create the component `UiBorderBeam.vue` in the `components` directory.
 
-```vue [UiMeteors.vue]
+<!-- automd:file src="../../app/components/Ui/BorderBeam.vue" code lang="vue -->
+
+```"vue [BorderBeam.vue]
 <template>
   <div
     :style="{
@@ -75,7 +87,14 @@ Create the component `UiBorderBeam.vue` in the `components` directory.
     delay: 0,
   });
 </script>
+
 ```
+
+<!-- /automd -->
+
+::
+
+:::
 
 ## Usage
 
@@ -89,19 +108,24 @@ Just place the border beam component inside a div with relative positioning, wid
 
 #code
 
-```vue [DocsBorderBeam.vue]
+<!-- automd:file src="../../app/components/content/Docs/BorderBeam/DocsBorderBeam.vue" code lang="vue -->
+
+```"vue [DocsBorderBeam.vue]
 <template>
-  <div
-    class="relative mx-auto flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border bg-background p-20 md:shadow-xl"
-  >
-    <UiMeteors :number="30" />
-    <p
-      class="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter text-black dark:text-white"
-    >
-      Meteors
-    </p>
+  <div class="relative overflow-hidden rounded-xl">
+    <!-- eslint-disable-next-line vue/html-self-closing -->
+    <img
+      src="https://store-wp.mui.com/wp-content/uploads/2019/08/tabler-react.com_-min-e1565617941333.png"
+      alt="Hero Image"
+      class="w-full rounded-xl border object-cover"
+    />
+
+    <UiBorderBeam :size="350" :duration="12" :delay="9" />
   </div>
 </template>
+
 ```
+
+<!-- /automd -->
 
 ::

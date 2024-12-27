@@ -11,6 +11,9 @@ interface CodeConfig {
   utilsPath: string;
 }
 
+/** The open/closed state of the mobile drawer */
+export const useMobileNavState = () => useState("mobile_nav_state", () => false);
+
 export const RADII = [0, 0.25, 0.5, 0.75, 1];
 
 export function useConfigStore() {

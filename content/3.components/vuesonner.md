@@ -56,6 +56,8 @@ build: {
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/VueSonner/DocsVueSonner.vue" code lang="vue" -->
+
 ```vue [DocsVueSonner.vue]
 <template>
   <div class="flex flex-wrap items-center justify-center gap-3">
@@ -137,11 +139,15 @@ build: {
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 For the custom element, this is what the code looks like
 
-```vue
+<!-- automd:file src="../../app/components/content/Docs/VueSonner/DocsVueSonnerHeadless.vue" code lang="vue" -->
+
+```vue [DocsVueSonnerHeadless.vue]
 <template>
   <div
     class="relative z-[999] box-border flex w-full gap-4 rounded-md border bg-background p-3 px-5 shadow-lg md:w-[360px]"
@@ -159,7 +165,7 @@ For the custom element, this is what the code looks like
       </p>
       <div class="mt-2 flex items-center gap-2">
         <UiButton class="h-7 text-xs" @click="addUser">Yes</UiButton>
-        <UiButton @click="cancel" variant="outline" class="h-7 text-xs">No</UiButton>
+        <UiButton variant="outline" class="h-7 text-xs" @click="cancel">No</UiButton>
       </div>
     </div>
   </div>
@@ -180,3 +186,5 @@ For the custom element, this is what the code looks like
   };
 </script>
 ```
+
+<!-- /automd -->

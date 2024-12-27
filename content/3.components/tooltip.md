@@ -30,6 +30,8 @@ npx ui-thing@latest add tooltip
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Tooltip/DocsTooltip.vue" code lang="vue" -->
+
 ```vue [DocsTooltip.vue]
 <template>
   <div class="flex w-full justify-center">
@@ -48,5 +50,7 @@ npx ui-thing@latest add tooltip
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

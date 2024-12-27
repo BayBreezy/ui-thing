@@ -11,9 +11,8 @@
         <UiButton size="sm">Add user</UiButton>
       </div>
     </div>
-
-    <div class="mt-10 overflow-x-auto">
-      <UiTable>
+    <div class="mt-10 grid overflow-x-auto">
+      <UiTable class="w-full table-auto">
         <UiTableHeader>
           <UiTableRow>
             <UiTableHead class="pl-0 font-semibold text-foreground">Name</UiTableHead>

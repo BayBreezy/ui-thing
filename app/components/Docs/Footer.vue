@@ -40,7 +40,7 @@
   const { data: surround } = await useAsyncData("surround", () =>
     queryCollectionItemSurroundings("content", route.path, {
       fields: ["title", "description", "path"],
-    })
+    }).where("path", "NOT LIKE", "%/.navigation")
   );
   const prev = computed(() => surround.value?.[0]);
   const next = computed(() => surround.value?.[1]);

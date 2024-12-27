@@ -7,12 +7,15 @@
           exact-active-class="underline underline-offset-2 text-primary"
           :to="l.path"
           :title="l.title"
+          @click="mobileNavState = false"
         >
           {{ l.title }}
         </NuxtLink>
-        <UiBadge v-if="l.label" class="px-2 py-0 text-[10px] dark:bg-lime-500">{{
-          l.label
-        }}</UiBadge>
+        <UiBadge
+          v-if="l.label"
+          class="rounded-md px-2 py-0 text-xs dark:bg-lime-500 md:rounded-full md:text-[10px]"
+          >{{ l.label }}</UiBadge
+        >
       </div>
       <div v-else class="flex flex-col gap-4">
         <div class="flex items-center gap-2.5">
@@ -40,4 +43,6 @@
   const styles = tv({
     base: "flex flex-col gap-6 sm:text-sm",
   });
+
+  const mobileNavState = useMobileNavState();
 </script>

@@ -1,11 +1,12 @@
 <template>
   <div>
-    <Mainnav />
+    <MainNav />
     <ContentRenderer v-if="page" :value="page" />
   </div>
 </template>
 
 <script lang="ts" setup>
+  definePageMeta({ layout: "blank" });
   const route = useRoute();
   const { data: page } = await useAsyncData(route.path, () => {
     return queryCollection("content").path(route.path).first();

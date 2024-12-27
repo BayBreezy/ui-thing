@@ -43,6 +43,8 @@ npx ui-thing@latest add popover
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Popover/DocsPopover.vue" code lang="vue" -->
+
 ```vue [DocsPopover.vue]
 <template>
   <div class="flex w-full justify-center">
@@ -78,5 +80,7 @@ npx ui-thing@latest add popover
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

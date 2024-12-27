@@ -82,10 +82,12 @@ Take note of how the [`dom`](https://datatables.net/reference/option/dom) option
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableBasic.vue" code lang="vue" -->
+
 ```vue [DocsDatatableBasic.vue]
 <template>
   <div>
-    <UiDatatable @ready="tableRef = $event" :data="users" :options="options" />
+    <UiDatatable :data="users" :options="options" @ready="tableRef = $event" />
   </div>
 </template>
 
@@ -107,7 +109,7 @@ Take note of how the [`dom`](https://datatables.net/reference/option/dom) option
       "print",
       {
         text: "Select all",
-        action: function (e, dt, node, config) {
+        action: function (e, dt, _, __) {
           dt.rows().select();
         },
       },
@@ -116,7 +118,7 @@ Take note of how the [`dom`](https://datatables.net/reference/option/dom) option
       {
         data: "id.value",
         title: "ID",
-        render(data, type, row, meta) {
+        render(_, __, row, ___) {
           return row.id?.value ? row.id?.value : "N/A";
         },
       },
@@ -127,7 +129,7 @@ Take note of how the [`dom`](https://datatables.net/reference/option/dom) option
       {
         data: "dob.date",
         title: "DOB",
-        render(data, type, row, meta) {
+        render(_, __, row, ___) {
           const formattedDob = useDateFormat(row.dob.date, "MMM DD, YYYY [at] h:mm A");
           return formattedDob.value;
         },
@@ -150,6 +152,8 @@ Take note of how the [`dom`](https://datatables.net/reference/option/dom) option
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Custom component
@@ -161,6 +165,8 @@ With the new version of DataTables.net, you can now use custom Vue components in
 :DocsDatatableComponent
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableComponent.vue" code lang="vue" -->
 
 ```vue [DocsDatatableComponent.vue]
 <template>
@@ -184,6 +190,7 @@ With the new version of DataTables.net, you can now use custom Vue components in
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   import type { DataTablesNamedSlotProps } from "~/components/Ui/Datatable.client.vue";
   import type { Config, ConfigColumns } from "datatables.net";
 
@@ -257,6 +264,8 @@ With the new version of DataTables.net, you can now use custom Vue components in
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Layout
@@ -272,6 +281,8 @@ For this, you will actually need to add some custom classes for things to look h
 :DocsDatatableLayout
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableLayout.vue" code lang="vue" -->
 
 ```vue [DocsDatatableLayout.vue]
 <template>
@@ -366,17 +377,27 @@ For this, you will actually need to add some custom classes for things to look h
     layout: {
       top1: "searchBuilder",
       top1Start: {
-        buttons: true,
+        features: {
+          buttons: true,
+        },
+        className: tw`pb-5`,
       },
       topStart: null,
       topEnd: null,
       bottomStart: null,
       bottomEnd: {
-        paging: true,
+        features: [
+          {
+            paging: true,
+          },
+        ],
+        className: tw`pt-5`,
       },
     },
   };
 </script>
 ```
+
+<!-- /automd -->
 
 ::

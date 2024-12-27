@@ -7,7 +7,12 @@ description: Display an animated scrolling grid of retro squares.
 
 Shout out to [Magic UI](https://magicui.design/docs/components/retro-grid) for the inspiration. I actually discovered this package while browsing their website.
 
-## Add Animation
+## Getting Started
+
+:::Steps
+::Step
+
+### Add Animation
 
 You will need to add this to your `tailwind.config.js` file.
 
@@ -30,11 +35,16 @@ module.exports = {
 };
 ```
 
-## Create Component
+::
+::Step
+
+### Create Component
 
 Create the component `RetroGrid.vue` in the `components` directory.
 
-```vue [RetroGrid.vue]
+<!-- automd:file src="../../app/components/Ui/RetroGrid.vue" code lang="vue -->
+
+```"vue [RetroGrid.vue]
 <template>
   <div
     class="pointer-events-none absolute h-full w-full overflow-hidden opacity-50 [perspective:200px]"
@@ -45,12 +55,16 @@ Create the component `RetroGrid.vue` in the `components` directory.
       />
     </div>
 
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-white to-transparent to-90% dark:from-black"
-    />
+    <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent to-90%" />
   </div>
 </template>
+
 ```
+
+<!-- /automd -->
+
+::
+:::
 
 ## Usage
 
@@ -62,10 +76,12 @@ Create the component `RetroGrid.vue` in the `components` directory.
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/RetroGrid/DocsRetroGrid.vue" code lang="vue" -->
+
 ```vue [DocsRetroGrid.vue]
 <template>
   <div
-    class="relative mx-auto flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border bg-background p-20 md:shadow-xl"
+    class="relative mx-auto flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border bg-background p-20"
   >
     <span
       class="pointer-events-none z-10 whitespace-pre-wrap bg-gradient-to-b from-[#ffd319] via-[#ff2975] to-[#8c1eff] bg-clip-text text-center text-7xl font-bold leading-none tracking-tighter text-transparent"
@@ -77,5 +93,7 @@ Create the component `RetroGrid.vue` in the `components` directory.
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

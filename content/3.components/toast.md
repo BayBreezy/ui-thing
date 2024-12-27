@@ -42,6 +42,8 @@ Remember to add the `<UiToastToaster />` component to your app layout.
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Toast/DocsToast.vue" code lang="vue" -->
+
 ```vue [DocsToast.vue]
 <template>
   <div>
@@ -111,5 +113,7 @@ Remember to add the `<UiToastToaster />` component to your app layout.
   };
 </script>
 ```
+
+<!-- /automd -->
 
 ::

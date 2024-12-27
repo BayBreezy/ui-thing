@@ -29,11 +29,13 @@ In the form below, we are using the `useForm` composition function provided by V
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Vee/PinInput/DocsVeePinInput.vue" code lang="vue" -->
+
 ```vue [DocsVeePinInput.vue]
 <template>
-  <form @submit="onSubmit" class="mx-auto max-w-md">
+  <form class="mx-auto max-w-md" @submit="onSubmit">
     <fieldset :disabled="isSubmitting" class="space-y-5">
-      <UiVeePinInput :inputCount="6" name="otp" label="Enter your 2FA code below" otp />
+      <UiVeePinInput :input-count="6" name="otp" label="Enter your 2FA code below" otp />
       <UiButton type="submit"> Submit </UiButton>
     </fieldset>
   </form>
@@ -73,5 +75,7 @@ In the form below, we are using the `useForm` composition function provided by V
   });
 </script>
 ```
+
+<!-- /automd -->
 
 ::

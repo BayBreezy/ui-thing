@@ -27,9 +27,11 @@ In the form below, we are using the `useForm` composition function provided by V
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Vee/TagsInput/DocsVeeTagsInput.vue" code lang="vue" -->
+
 ```vue [DocsVeeTagsInput.vue]
 <template>
-  <form @submit="onSubmit" class="mx-auto max-w-md">
+  <form class="mx-auto max-w-md" @submit="onSubmit">
     <fieldset :disabled="isSubmitting" class="space-y-5">
       <UiVeeTagsInput
         :max="5"
@@ -58,14 +60,17 @@ In the form below, we are using the `useForm` composition function provided by V
   });
 
   const onSubmit = handleSubmit(async (values) => {
+    console.log(values);
     const promise = () => new Promise((resolve) => setTimeout(resolve, 3000));
     useSonner.promise(promise, {
-      loading: "Saving brancds...",
-      success: (d) => "Success! Your information has been saved!",
-      error: (e) => "Error! Your information could not be sent to our servers!",
+      loading: "Saving brands...",
+      success: (_) => "Success! Your information has been saved!",
+      error: (_) => "Error! Your information could not be sent to our servers!",
     });
   });
 </script>
 ```
+
+<!-- /automd -->
 
 ::

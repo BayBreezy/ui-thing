@@ -28,6 +28,8 @@ npx ui-thing@latest add command
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/DocsCommand.vue" code lang="vue" -->
+
 ```vue [DocsCommand.vue]
 <template>
   <div class="flex w-full items-center justify-center">
@@ -99,5 +101,7 @@ npx ui-thing@latest add command
   };
 </script>
 ```
+
+<!-- /automd -->
 
 ::

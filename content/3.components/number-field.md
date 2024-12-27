@@ -30,6 +30,8 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/NumberField/DocsNumberField.vue" code lang="vue" -->
+
 ```vue [DocsNumberField.vue]
 <template>
   <div class="flex w-full items-center justify-center">
@@ -39,6 +41,8 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::
 
@@ -50,6 +54,8 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/NumberField/DocsNumberFieldDisabled.vue" code lang="vue" -->
+
 ```vue [DocsNumberFieldDisabled.vue]
 <template>
   <div class="flex w-full items-center justify-center">
@@ -60,6 +66,8 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Decimal
@@ -69,6 +77,8 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 :DocsNumberFieldDecimal
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/NumberField/DocsNumberFieldDecimal.vue" code lang="vue" -->
 
 ```vue [DocsNumberFieldDecimal.vue]
 <template>
@@ -87,6 +97,8 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Percent
@@ -96,6 +108,8 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 :DocsNumberFieldPercent
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/NumberField/DocsNumberFieldPercent.vue" code lang="vue" -->
 
 ```vue [DocsNumberFieldPercent.vue]
 <template>
@@ -115,6 +129,8 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Currency
@@ -124,6 +140,8 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 :DocsNumberFieldCurrency
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/NumberField/DocsNumberFieldCurrency.vue" code lang="vue" -->
 
 ```vue [DocsNumberFieldCurrency.vue]
 <template>
@@ -142,6 +160,8 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 </template>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Custom
@@ -151,6 +171,8 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
 :DocsNumberFieldCustom
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/NumberField/DocsNumberFieldCustom.vue" code lang="vue" -->
 
 ```vue [DocsNumberFieldCustom.vue]
 <template>
@@ -165,5 +187,7 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
   </div>
 </template>
 ```
+
+<!-- /automd -->
 
 ::

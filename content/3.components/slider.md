@@ -31,6 +31,8 @@ npx ui-thing@latest add slider
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Slider/DocsSlider.vue" code lang="vue" -->
+
 ```vue [DocsSlider.vue]
 <template>
   <div class="flex w-full flex-col gap-4">
@@ -44,6 +46,8 @@ npx ui-thing@latest add slider
 </script>
 ```
 
+<!-- /automd -->
+
 ::
 
 ### Multiple thumbs
@@ -53,6 +57,8 @@ npx ui-thing@latest add slider
 :DocsSliderMultiple
 
 #code
+
+<!-- automd:file src="../../app/components/content/Docs/Slider/DocsSliderMultiple.vue" code lang="vue" -->
 
 ```vue [DocsSliderMultiple.vue]
 <template>
@@ -66,6 +72,8 @@ npx ui-thing@latest add slider
   const rangeValue = ref([25, 75, 150]);
 </script>
 ```
+
+<!-- /automd -->
 
 ::
 

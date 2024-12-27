@@ -12,234 +12,27 @@ links:
 
 ## Getting Started
 
+:::Steps
+::Step
+
+### Installation
+
 To get started, you can install the package with the following command:
 
 ```bash
 npm install @vueup/vue-quill@latest --save
 ```
 
-## Usage
-
-### Basic
-
-Here is a basic example of how to use the Quill component. We are using a technique called `Slot Forwarding` so that if the developer wants to create a component and pass through the `toolbar` slot, they can do so.
-
-::ShowCase
-
-:DocsQuill
-
-#code
-
-```vue [DocsQuill.vue]
-<template>
-  <QuillEditor theme="snow" placeholder="Write something...">
-    <template v-for="(_, name) of $slots" #[name]="slotData">
-      <slot :name="name" v-bind="slotData" />
-    </template>
-  </QuillEditor>
-</template>
-
-<script lang="ts" setup>
-  import { QuillEditor } from "@vueup/vue-quill";
-</script>
-```
-
 ::
+::Step
 
-### Toolbar
-
-We can add our custom toolbar configuration by using the `toolbar` prop.
-
-::ShowCase
-
-:DocsQuillToolbar
-
-#code
-
-```vue [DocsQuillToolbar.vue]
-<template>
-  <QuillEditor
-    v-model:content="model"
-    :toolbar="toolbarOptions"
-    theme="snow"
-    placeholder="Write something..."
-    content-type="html"
-  />
-</template>
-
-<script lang="ts" setup>
-  import { QuillEditor } from "@vueup/vue-quill";
-
-  const toolbarOptions = [
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-    ["bold", "italic", "underline", "strike", { align: [] }],
-    [{ align: [] }, { list: "ordered" }, { list: "bullet" }],
-    ["blockquote", "code-block"],
-    [{ script: "sub" }, { script: "super" }],
-    [{ indent: "-1" }, { indent: "+1" }],
-    [{ size: ["small", false, "large", "huge"] }],
-    [{ color: [] }, { background: [] }],
-    [{ font: [] }],
-    ["link", "image", "video"],
-    ["clean"],
-  ];
-
-  const model = ref(
-    `<h3><b>Quill Editor</b></h3>
-<p>Quill is a free, open source WYSIWYG editor built for the modern web. With its modular architecture and expressive API, it is completely customizable to fit any need.</p>
-`
-  );
-</script>
-```
-
-::
-
-### Slot - Toolbar
-
-Another way of customizing the toolbar is by using the `toolbar` slot. This way, we can create a custom toolbar with our own components.
-
-::ShowCase
-
-:DocsQuillToolbar2
-
-#code
-
-```vue [DocsQuillToolbar2.vue]
-<template>
-  <QuillEditor
-    v-model:content="model"
-    toolbar="#my-toolbar"
-    theme="snow"
-    placeholder="Write something..."
-    content-type="html"
-  >
-    <template #toolbar>
-      <div id="my-toolbar">
-        <!-- Add buttons as you would before -->
-        <button class="ql-bold" />
-        <button class="ql-header" value="1" aria-label="header: 1" />
-        <button class="ql-header" value="2" aria-label="header: 2" />
-        <button class="ql-italic" />
-      </div>
-    </template>
-  </QuillEditor>
-</template>
-
-<script lang="ts" setup>
-  import { QuillEditor } from "@vueup/vue-quill";
-
-  const model = ref(
-    `<h3><b>Quill Editor</b></h3>
-<p>Quill is a free, open source WYSIWYG editor built for the modern web. With its modular architecture and expressive API, it is completely customizable to fit any need.</p>
-`
-  );
-</script>
-```
-
-::
-
-### Bubble Theme
-
-We can pass the `bubble` value to the `theme` prop to use the snow theme.
-
-You have to select something in the editor to see the toolbar.
-
-::ShowCase
-
-:DocsQuillBubble
-
-#code
-
-```vue [DocsQuillBubble.vue]
-<template>
-  <QuillEditor
-    v-model:content="model"
-    theme="bubble"
-    toolbar="full"
-    placeholder="Write something..."
-    content-type="html"
-  />
-</template>
-
-<script lang="ts" setup>
-  import { QuillEditor } from "@vueup/vue-quill";
-
-  const model = ref(
-    `<h3><b>Quill Editor</b></h3>
-<p>Quill is a free, open source WYSIWYG editor built for the modern web. With its modular architecture and expressive API, it is completely customizable to fit any need.</p>
-`
-  );
-</script>
-```
-
-::
-
-### Module
-
-We can pass an object or an array of objects to the `module` prop to use any Quill module.
-
-Something like this:
-
-```ts
-import BlotFormatter from "quill-blot-formatter";
-
-type SingleModule = {
-  name: string;
-  module: any;
-  options?: any;
-};
-type ModuleObject = SingleModule | SingleModule[];
-
-const modules: ModuleObject = {
-  name: "blotFormatter",
-  module: BlotFormatter,
-  options: {
-    /* options */
-  },
-};
-```
-
-Upload an image to see the module in action.
-
-::ShowCase
-
-:DocsQuillModule
-
-#code
-
-```vue [DocsQuillModule.vue]
-<template>
-  <QuillEditor toolbar="full" :modules theme="snow" placeholder="Write something..." />
-</template>
-
-<script lang="ts" setup>
-  import { QuillEditor } from "@vueup/vue-quill";
-  import BlotFormatter from "quill-blot-formatter";
-
-  type SingleModule = {
-    name: string;
-    module: any;
-    options?: any;
-  };
-  type ModuleObject = SingleModule | SingleModule[];
-
-  const modules: ModuleObject = {
-    name: "blotFormatter",
-    module: BlotFormatter,
-    options: {
-      /* options */
-    },
-  };
-</script>
-```
-
-::
-
-## CSS
+## Create CSS File
 
 In order to make the editor match the design of this website (and the whole shadcn/ui theme), I had to add this css file: You should copy this and add it to your project.
 
-```css
+<!-- automd:file src="../../app/assets/css/quill.css" code lang="css -->
+
+```"css [quill.css]
 @import "@vueup/vue-quill/dist/vue-quill.snow.css";
 @import "@vueup/vue-quill/dist/vue-quill.bubble.css";
 
@@ -531,4 +324,252 @@ In order to make the editor match the design of this website (and the whole shad
     }
   }
 }
+
 ```
+
+<!-- /automd -->
+
+::
+:::
+
+## Usage
+
+### Basic
+
+Here is a basic example of how to use the Quill component. We are using a technique called `Slot Forwarding` so that if the developer wants to create a component and pass through the `toolbar` slot, they can do so.
+
+::ShowCase
+
+:DocsQuill
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuill.client.vue" code lang="vue -->
+
+```"vue [DocsQuill.client.vue]
+<template>
+  <QuillEditor theme="snow" placeholder="Write something...">
+    <template v-for="(_, name) of $slots" #[name]="slotData">
+      <slot :name="name" v-bind="slotData" />
+    </template>
+  </QuillEditor>
+</template>
+
+<script lang="ts" setup>
+  import { QuillEditor } from "@vueup/vue-quill";
+</script>
+
+```
+
+<!-- /automd -->
+
+::
+
+### Toolbar
+
+We can add our custom toolbar configuration by using the `toolbar` prop.
+
+::ShowCase
+
+:DocsQuillToolbar
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuillToolbar.client.vue" code lang="vue -->
+
+```"vue [DocsQuillToolbar.client.vue]
+<template>
+  <QuillEditor
+    v-model:content="model"
+    :toolbar="toolbarOptions"
+    theme="snow"
+    placeholder="Write something..."
+    content-type="html"
+  />
+</template>
+
+<script lang="ts" setup>
+  import { QuillEditor } from "@vueup/vue-quill";
+
+  const toolbarOptions = [
+    [{ header: [1, 2, 3, 4, 5, 6, false] }],
+    ["bold", "italic", "underline", "strike", { align: [] }],
+    [{ align: [] }, { list: "ordered" }, { list: "bullet" }],
+    ["blockquote", "code-block"],
+    [{ script: "sub" }, { script: "super" }],
+    [{ indent: "-1" }, { indent: "+1" }],
+    [{ size: ["small", false, "large", "huge"] }],
+    [{ color: [] }, { background: [] }],
+    [{ font: [] }],
+    ["link", "image", "video"],
+    ["clean"],
+  ];
+
+  const model = ref(
+    `<h3><b>Quill Editor</b></h3>
+<p>Quill is a free, open source WYSIWYG editor built for the modern web. With its modular architecture and expressive API, it is completely customizable to fit any need.</p>
+`
+  );
+</script>
+
+```
+
+<!-- /automd -->
+
+::
+
+### Slot - Toolbar
+
+Another way of customizing the toolbar is by using the `toolbar` slot. This way, we can create a custom toolbar with our own components.
+
+::ShowCase
+
+:DocsQuillToolbar2
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuillToolbar2.client.vue" code lang="vue -->
+
+```"vue [DocsQuillToolbar2.client.vue]
+<template>
+  <QuillEditor
+    v-model:content="model"
+    toolbar="#my-toolbar"
+    theme="snow"
+    placeholder="Write something..."
+    content-type="html"
+  >
+    <template #toolbar>
+      <div id="my-toolbar">
+        <!-- Add buttons as you would before -->
+        <button class="ql-bold" />
+        <button class="ql-header" value="1" aria-label="header: 1" />
+        <button class="ql-header" value="2" aria-label="header: 2" />
+        <button class="ql-italic" />
+      </div>
+    </template>
+  </QuillEditor>
+</template>
+
+<script lang="ts" setup>
+  import { QuillEditor } from "@vueup/vue-quill";
+
+  const model = ref(
+    `<h3><b>Quill Editor</b></h3>
+<p>Quill is a free, open source WYSIWYG editor built for the modern web. With its modular architecture and expressive API, it is completely customizable to fit any need.</p>
+`
+  );
+</script>
+
+```
+
+<!-- /automd -->
+
+::
+
+### Bubble Theme
+
+We can pass the `bubble` value to the `theme` prop to use the snow theme.
+
+You have to select something in the editor to see the toolbar.
+
+::ShowCase
+
+:DocsQuillBubble
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuillBubble.client.vue" code lang="vue -->
+
+```"vue [DocsQuillBubble.client.vue]
+<template>
+  <QuillEditor
+    v-model:content="model"
+    theme="bubble"
+    toolbar="full"
+    placeholder="Write something..."
+    content-type="html"
+  />
+</template>
+
+<script lang="ts" setup>
+  import { QuillEditor } from "@vueup/vue-quill";
+
+  const model = ref(
+    `<h3><b>Quill Editor</b></h3>
+<p>Quill is a free, open source WYSIWYG editor built for the modern web. With its modular architecture and expressive API, it is completely customizable to fit any need.</p>
+`
+  );
+</script>
+
+```
+
+<!-- /automd -->
+
+::
+
+### Module
+
+We can pass an object or an array of objects to the `module` prop to use any Quill module.
+
+Something like this:
+
+```ts
+import BlotFormatter from "quill-blot-formatter";
+
+type SingleModule = {
+  name: string;
+  module: any;
+  options?: any;
+};
+type ModuleObject = SingleModule | SingleModule[];
+
+const modules: ModuleObject = {
+  name: "blotFormatter",
+  module: BlotFormatter,
+  options: {
+    /* options */
+  },
+};
+```
+
+Upload an image to see the module in action.
+
+::ShowCase
+
+:DocsQuillModule
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuillModule.client.vue" code lang="vue -->
+
+```"vue [DocsQuillModule.client.vue]
+<template>
+  <QuillEditor toolbar="full" :modules theme="snow" placeholder="Write something..." />
+</template>
+
+<script lang="ts" setup>
+  import { QuillEditor } from "@vueup/vue-quill";
+  import BlotFormatter from "quill-blot-formatter";
+
+  type SingleModule = {
+    name: string;
+    module: any;
+    options?: any;
+  };
+  type ModuleObject = SingleModule | SingleModule[];
+
+  const modules: ModuleObject = {
+    name: "blotFormatter",
+    module: BlotFormatter,
+    options: {
+      /* options */
+    },
+  };
+</script>
+
+```
+
+<!-- /automd -->
+
+::

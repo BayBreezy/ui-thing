@@ -32,6 +32,8 @@ Since we already have styled buttons and inputs, it kinda makes no sense to forc
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Editable/DocsEditable.vue" code lang="vue" -->
+
 ```vue [DocsEditable.vue]
 <template>
   <div>
@@ -95,5 +97,7 @@ Since we already have styled buttons and inputs, it kinda makes no sense to forc
   ]);
 </script>
 ```
+
+<!-- /automd -->
 
 ::

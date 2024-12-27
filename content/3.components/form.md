@@ -87,6 +87,8 @@ npx ui-thing@latest add form
 
 #code
 
+<!-- automd:file src="../../app/components/content/Docs/Form/DocsFormUser.vue" code lang="vue" -->
+
 ```vue [DocsFormUser.vue]
 <template>
   <UiCard
@@ -95,7 +97,7 @@ npx ui-thing@latest add form
     description="Update your profile information below"
   >
     <template #content>
-      <UiCardContent as="form" @submit="onSubmit" class="flex flex-col gap-4">
+      <UiCardContent as="form" class="flex flex-col gap-4" @submit="onSubmit">
         <Field v-slot="{ componentField }" name="fullName">
           <UiFormItem label="Full name" description="This will be displayed to the public">
             <UiInput v-bind="componentField" />
@@ -137,7 +139,7 @@ npx ui-thing@latest add form
           .email("Email must be a valid email"),
         phone: z
           .string()
-          .transform((value) => (!!!value ? null : value))
+          .transform((value) => (!value ? null : value))
           .refine((value) => !value || value.length === 10, {
             message: "Phone must be 10 digits",
           })
@@ -151,5 +153,7 @@ npx ui-thing@latest add form
   });
 </script>
 ```
+
+<!-- /automd -->
 
 ::
