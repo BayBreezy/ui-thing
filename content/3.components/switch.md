@@ -55,9 +55,9 @@ npx ui-thing@latest add switch
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Switch/DocsSwitchForm.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Switch/DocsSwitchForm.vue" code lang="vue" -->
 
-```"vue [DocsSwitchForm.vue]
+```vue [DocsSwitchForm.vue]
 <template>
   <form class="flex w-full justify-center" @submit="onSubmit">
     <div class="w-full">
@@ -96,7 +96,6 @@ npx ui-thing@latest add switch
     });
   });
 </script>
-
 ```
 
 <!-- /automd -->

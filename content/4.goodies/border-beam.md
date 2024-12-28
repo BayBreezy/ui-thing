@@ -45,9 +45,9 @@ module.exports = {
 
 Create the component `UiBorderBeam.vue` in the `components` directory.
 
-<!-- automd:file src="../../app/components/Ui/BorderBeam.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/Ui/BorderBeam.vue" code lang="vue" -->
 
-```"vue [BorderBeam.vue]
+```vue [BorderBeam.vue]
 <template>
   <div
     :style="{
@@ -87,7 +87,6 @@ Create the component `UiBorderBeam.vue` in the `components` directory.
     delay: 0,
   });
 </script>
-
 ```
 
 <!-- /automd -->
@@ -108,9 +107,9 @@ Just place the border beam component inside a div with relative positioning, wid
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/BorderBeam/DocsBorderBeam.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/BorderBeam/DocsBorderBeam.vue" code lang="vue" -->
 
-```"vue [DocsBorderBeam.vue]
+```vue [DocsBorderBeam.vue]
 <template>
   <div class="relative overflow-hidden rounded-xl">
     <!-- eslint-disable-next-line vue/html-self-closing -->
@@ -123,7 +122,6 @@ Just place the border beam component inside a div with relative positioning, wid
     <UiBorderBeam :size="350" :duration="12" :delay="9" />
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

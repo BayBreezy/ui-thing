@@ -23,9 +23,9 @@ npx ui-thing@latest add chart
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Chart/Line/DocsLineChart.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Chart/Line/DocsLineChart.vue" code lang="vue" -->
 
-```"vue [DocsLineChart.vue]
+```vue [DocsLineChart.vue]
 <template>
   <UiChartLine
     :data="data"
@@ -59,7 +59,6 @@ npx ui-thing@latest add chart
     { default: () => [] }
   );
 </script>
-
 ```
 
 <!-- /automd -->
@@ -76,9 +75,9 @@ We can turn the chart into sparkline chart by hiding axis, gridline and legends.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Chart/Line/DocsLineChartSparkline.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Chart/Line/DocsLineChartSparkline.vue" code lang="vue" -->
 
-```"vue [DocsLineChartSparkline.vue]
+```vue [DocsLineChartSparkline.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiChartLine
@@ -120,7 +119,6 @@ We can turn the chart into sparkline chart by hiding axis, gridline and legends.
     { default: () => [] }
   );
 </script>
-
 ```
 
 <!-- /automd -->
@@ -137,9 +135,9 @@ If you want to render custom tooltip, you can easily pass in a custom component.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Chart/Line/DocsLineChartCustomTooltip.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Chart/Line/DocsLineChartCustomTooltip.vue" code lang="vue" -->
 
-```"vue [DocsLineChartCustomTooltip.vue]
+```vue [DocsLineChartCustomTooltip.vue]
 <template>
   <UiChartLine
     index="name"
@@ -168,7 +166,6 @@ If you want to render custom tooltip, you can easily pass in a custom component.
     { default: () => [] }
   );
 </script>
-
 ```
 
 <!-- /automd -->
@@ -179,9 +176,9 @@ If you want to render custom tooltip, you can easily pass in a custom component.
 
 This is what the `CustomChartTooltip` component looks like:
 
-<!-- automd:file src="../../app/components/CustomChartTooltip.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/CustomChartTooltip.vue" code lang="vue" -->
 
-```"vue [CustomChartTooltip.vue]
+```vue [CustomChartTooltip.vue]
 <template>
   <UiCard class="text-sm">
     <UiCardContent class="flex min-w-[180px] flex-col gap-2 p-3">
@@ -206,7 +203,6 @@ This is what the `CustomChartTooltip` component looks like:
     }[];
   }>();
 </script>
-
 ```
 
 <!-- /automd -->

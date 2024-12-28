@@ -42,9 +42,9 @@ module.exports = {
 
 Create the component `RetroGrid.vue` in the `components` directory.
 
-<!-- automd:file src="../../app/components/Ui/RetroGrid.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/Ui/RetroGrid.vue" code lang="vue" -->
 
-```"vue [RetroGrid.vue]
+```vue [RetroGrid.vue]
 <template>
   <div
     class="pointer-events-none absolute h-full w-full overflow-hidden opacity-50 [perspective:200px]"
@@ -58,7 +58,6 @@ Create the component `RetroGrid.vue` in the `components` directory.
     <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent to-90%" />
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

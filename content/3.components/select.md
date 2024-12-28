@@ -30,9 +30,9 @@ npx ui-thing@latest add select
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Select/DocsSelect.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Select/DocsSelect.vue" code lang="vue" -->
 
-```"vue [DocsSelect.vue]
+```vue [DocsSelect.vue]
 <template>
   <div class="flex justify-center">
     <UiSelect v-model="option">
@@ -59,7 +59,6 @@ npx ui-thing@latest add select
   const fruits = ["Apple", "Banana", "Blueberry", "Grapes", "Pineapple"];
   const vegetables = ["Aubergine", "Broccoli", "Carrot", "Courgette", "Leek"];
 </script>
-
 ```
 
 <!-- /automd -->
@@ -74,9 +73,9 @@ npx ui-thing@latest add select
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Select/DocsSelectForm.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Select/DocsSelectForm.vue" code lang="vue" -->
 
-```"vue [DocsSelectForm.vue]
+```vue [DocsSelectForm.vue]
 <template>
   <div class="flex w-full justify-center">
     <form class="w-full" @submit="onSubmit">
@@ -124,7 +123,6 @@ npx ui-thing@latest add select
     });
   });
 </script>
-
 ```
 
 <!-- /automd -->

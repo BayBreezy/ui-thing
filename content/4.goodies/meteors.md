@@ -48,9 +48,9 @@ module.exports = {
 
 Create the component `UiMeteors.client.vue` in the `components` directory.
 
-<!-- automd:file src="../../app/components/Ui/Meteors.client.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/Ui/Meteors.client.vue" code lang="vue" -->
 
-```"vue [Meteors.client.vue]
+```vue [Meteors.client.vue]
 <template>
   <span v-for="(s, i) in meteorStyles" :key="i" :class="localStyles().wrapper()" :style="s">
     <div :class="localStyles().tail()" />
@@ -100,7 +100,6 @@ Create the component `UiMeteors.client.vue` in the `components` directory.
     },
   });
 </script>
-
 ```
 
 <!-- /automd -->
@@ -120,9 +119,9 @@ We can add the `UiMeteors` component to trigger the meteors.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Meteors/DocsMeteors.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Meteors/DocsMeteors.vue" code lang="vue" -->
 
-```"vue [DocsMeteors.vue]
+```vue [DocsMeteors.vue]
 <template>
   <div
     class="relative mx-auto flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border bg-background p-20 md:shadow-xl"
@@ -135,7 +134,6 @@ We can add the `UiMeteors` component to trigger the meteors.
     </p>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

@@ -344,9 +344,9 @@ Here is a basic example of how to use the Quill component. We are using a techni
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuill.client.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuill.client.vue" code lang="vue" -->
 
-```"vue [DocsQuill.client.vue]
+```vue [DocsQuill.client.vue]
 <template>
   <QuillEditor theme="snow" placeholder="Write something...">
     <template v-for="(_, name) of $slots" #[name]="slotData">
@@ -358,7 +358,6 @@ Here is a basic example of how to use the Quill component. We are using a techni
 <script lang="ts" setup>
   import { QuillEditor } from "@vueup/vue-quill";
 </script>
-
 ```
 
 <!-- /automd -->
@@ -375,9 +374,9 @@ We can add our custom toolbar configuration by using the `toolbar` prop.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuillToolbar.client.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuillToolbar.client.vue" code lang="vue" -->
 
-```"vue [DocsQuillToolbar.client.vue]
+```vue [DocsQuillToolbar.client.vue]
 <template>
   <QuillEditor
     v-model:content="model"
@@ -411,7 +410,6 @@ We can add our custom toolbar configuration by using the `toolbar` prop.
 `
   );
 </script>
-
 ```
 
 <!-- /automd -->
@@ -428,9 +426,9 @@ Another way of customizing the toolbar is by using the `toolbar` slot. This way,
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuillToolbar2.client.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuillToolbar2.client.vue" code lang="vue" -->
 
-```"vue [DocsQuillToolbar2.client.vue]
+```vue [DocsQuillToolbar2.client.vue]
 <template>
   <QuillEditor
     v-model:content="model"
@@ -460,7 +458,6 @@ Another way of customizing the toolbar is by using the `toolbar` slot. This way,
 `
   );
 </script>
-
 ```
 
 <!-- /automd -->
@@ -479,9 +476,9 @@ You have to select something in the editor to see the toolbar.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuillBubble.client.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuillBubble.client.vue" code lang="vue" -->
 
-```"vue [DocsQuillBubble.client.vue]
+```vue [DocsQuillBubble.client.vue]
 <template>
   <QuillEditor
     v-model:content="model"
@@ -501,7 +498,6 @@ You have to select something in the editor to see the toolbar.
 `
   );
 </script>
-
 ```
 
 <!-- /automd -->
@@ -541,9 +537,9 @@ Upload an image to see the module in action.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuillModule.client.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Quill/DocsQuillModule.client.vue" code lang="vue" -->
 
-```"vue [DocsQuillModule.client.vue]
+```vue [DocsQuillModule.client.vue]
 <template>
   <QuillEditor toolbar="full" :modules theme="snow" placeholder="Write something..." />
 </template>
@@ -567,7 +563,6 @@ Upload an image to see the module in action.
     },
   };
 </script>
-
 ```
 
 <!-- /automd -->

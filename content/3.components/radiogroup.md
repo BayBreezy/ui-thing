@@ -41,9 +41,9 @@ npx ui-thing@latest add radio-group
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/RadioGroup/DocsRadioGroup.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/RadioGroup/DocsRadioGroup.vue" code lang="vue" -->
 
-```"vue [DocsRadioGroup.vue]
+```vue [DocsRadioGroup.vue]
 <template>
   <div class="flex w-full justify-center">
     <UiRadioGroup default-value="comfortable">
@@ -62,7 +62,6 @@ npx ui-thing@latest add radio-group
     </UiRadioGroup>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -77,9 +76,9 @@ npx ui-thing@latest add radio-group
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/RadioGroup/DocsRadioGroupForm.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/RadioGroup/DocsRadioGroupForm.vue" code lang="vue" -->
 
-```"vue [DocsRadioGroupForm.vue]
+```vue [DocsRadioGroupForm.vue]
 <template>
   <div class="flex w-full justify-center">
     <form @submit="onSubmit">
@@ -139,7 +138,6 @@ npx ui-thing@latest add radio-group
     });
   });
 </script>
-
 ```
 
 <!-- /automd -->

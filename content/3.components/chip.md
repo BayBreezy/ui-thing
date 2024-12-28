@@ -1,6 +1,7 @@
 ---
 title: Chip
 description: A component used to display some sort of indicator on another component.
+label: Updated
 ---
 
 ## Source code

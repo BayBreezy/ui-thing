@@ -32,9 +32,9 @@ We can put the parts together to build a simple layout with a resizable sidebar.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Splitter/DocsSplitterBasic.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Splitter/DocsSplitterBasic.vue" code lang="vue" -->
 
-```"vue [DocsSplitterBasic.vue]
+```vue [DocsSplitterBasic.vue]
 <template>
   <div class="flex items-center justify-center">
     <ClientOnly>
@@ -64,7 +64,6 @@ We can put the parts together to build a simple layout with a resizable sidebar.
     </ClientOnly>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -85,9 +84,9 @@ Do note that the handle will be rotated because of this class that is added to i
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Splitter/DocsSplitterHandle.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Splitter/DocsSplitterHandle.vue" code lang="vue" -->
 
-```"vue [DocsSplitterHandle.vue]
+```vue [DocsSplitterHandle.vue]
 <template>
   <div class="flex items-center justify-center">
     <ClientOnly>
@@ -117,7 +116,6 @@ Do note that the handle will be rotated because of this class that is added to i
     </ClientOnly>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -134,9 +132,9 @@ We can use the `collapsible` prop to make the panels go down to the `collapsedSi
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Splitter/DocsSplitterCollapsible.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Splitter/DocsSplitterCollapsible.vue" code lang="vue" -->
 
-```"vue [DocsSplitterCollapsible.vue]
+```vue [DocsSplitterCollapsible.vue]
 <template>
   <div class="flex items-center justify-center">
     <ClientOnly>
@@ -166,7 +164,6 @@ We can use the `collapsible` prop to make the panels go down to the `collapsedSi
     </ClientOnly>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -185,9 +182,9 @@ Try changing the layout and then refresh the page to see the layout persist.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Splitter/DocsSplitterPersist.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Splitter/DocsSplitterPersist.vue" code lang="vue" -->
 
-```"vue [DocsSplitterPersist.vue]
+```vue [DocsSplitterPersist.vue]
 <template>
   <div class="flex items-center justify-center">
     <ClientOnly>
@@ -225,7 +222,6 @@ Try changing the layout and then refresh the page to see the layout persist.
     </ClientOnly>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

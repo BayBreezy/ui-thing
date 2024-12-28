@@ -58,9 +58,9 @@ We can just call the `useConfetti` method to trigger the confetti.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfetti.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfetti.vue" code lang="vue" -->
 
-```"vue [DocsConfetti.vue]
+```vue [DocsConfetti.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiButton @click="triggerConfetti()">Trigger Basic Cannon</UiButton>
@@ -72,7 +72,6 @@ We can just call the `useConfetti` method to trigger the confetti.
     useConfetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -89,9 +88,9 @@ This is how you can shoot confetti off in a random direction.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiRandomDirection.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiRandomDirection.vue" code lang="vue" -->
 
-```"vue [DocsConfettiRandomDirection.vue]
+```vue [DocsConfettiRandomDirection.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiButton @click="triggerConfetti()">Random Direction</UiButton>
@@ -111,7 +110,6 @@ This is how you can shoot confetti off in a random direction.
     });
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -126,9 +124,9 @@ This is how you can shoot confetti off in a random direction.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiFireworks.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiFireworks.vue" code lang="vue" -->
 
-```"vue [DocsConfettiFireworks.vue]
+```vue [DocsConfettiFireworks.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiButton @click="triggerConfetti()">Fireworks</UiButton>
@@ -165,7 +163,6 @@ This is how you can shoot confetti off in a random direction.
     }, 250);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -180,9 +177,9 @@ This is how you can shoot confetti off in a random direction.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiStars.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiStars.vue" code lang="vue" -->
 
-```"vue [DocsConfettiStars.vue]
+```vue [DocsConfettiStars.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiButton @click="triggerConfetti()">Trigger Stars</UiButton>
@@ -221,7 +218,6 @@ This is how you can shoot confetti off in a random direction.
     setTimeout(shoot, 200);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -236,9 +232,9 @@ This is how you can shoot confetti off in a random direction.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiSnow.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiSnow.vue" code lang="vue" -->
 
-```"vue [DocsConfettiSnow.vue]
+```vue [DocsConfettiSnow.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiButton @click="triggerConfetti()">Trigger Snow</UiButton>
@@ -284,7 +280,6 @@ This is how you can shoot confetti off in a random direction.
     requestAnimationFrame(frame);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -299,9 +294,9 @@ This is how you can shoot confetti off in a random direction.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiSideCannon.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiSideCannon.vue" code lang="vue" -->
 
-```"vue [DocsConfettiSideCannon.vue]
+```vue [DocsConfettiSideCannon.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiButton @click="triggerConfetti()">Side Cannon</UiButton>
@@ -335,7 +330,6 @@ This is how you can shoot confetti off in a random direction.
     requestAnimationFrame(frame);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -350,9 +344,9 @@ This is how you can shoot confetti off in a random direction.
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiEmoji.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/Confetti/DocsConfettiEmoji.vue" code lang="vue" -->
 
-```"vue [DocsConfettiEmoji.vue]
+```vue [DocsConfettiEmoji.vue]
 <template>
   <div class="flex items-center justify-center">
     <UiButton @click="triggerConfetti()">Trigger Emojis</UiButton>
@@ -400,7 +394,6 @@ This is how you can shoot confetti off in a random direction.
     setTimeout(shoot, 200);
   };
 </script>
-
 ```
 
 <!-- /automd -->

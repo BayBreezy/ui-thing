@@ -3,7 +3,7 @@
     <slot />
     <TransitionScale>
       <span
-        v-if="show"
+        v-if="localModel"
         :class="[styles({ position, size, inset, class: [props.color, props.class] })]"
       >
         <slot name="content">
@@ -18,16 +18,53 @@
   defineOptions({ inheritAttrs: false });
   const props = withDefaults(
     defineProps<{
+      /**
+       * The text to display in the chip.
+       *
+       * Can be overridden by the `content` slot.
+       */
       text?: string;
+      /**
+       * The color of the chip.
+       *
+       * @default `bg-primary`
+       */
       color?: string;
+      /**
+       * The size of the chip.
+       *
+       * @default `sm`
+       */
       size?: VariantProps<typeof styles>["size"];
+      /**
+       * The position of the chip.
+       *
+       * @default `top-right`
+       */
       position?: VariantProps<typeof styles>["position"];
+      /**
+       * Whether the chip should be inset.
+       *
+       * @default `false`
+       */
       inset?: boolean;
+      /**
+       * Whether the chip should be visible.
+       *
+       * Can be used with `v-model` to control visibility.
+       *
+       * @default `true`
+       */
       show?: boolean;
+      /**
+       * Additional classes to apply to the chip.
+       */
       class?: any;
     }>(),
     { show: true, color: "bg-primary", inset: false }
   );
+
+  const localModel = defineModel<boolean>("show", { default: true });
 
   const styles = tv({
     base: "absolute flex items-center justify-center whitespace-nowrap rounded-full font-medium text-foreground ring-[2px] ring-background",

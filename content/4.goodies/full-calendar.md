@@ -187,9 +187,9 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/FullCalendar/DocsFullCalendar.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/FullCalendar/DocsFullCalendar.vue" code lang="vue" -->
 
-```"vue [DocsFullCalendar.vue]
+```vue [DocsFullCalendar.vue]
 <template>
   <FullCalendar :options="calendarOptions" />
 </template>
@@ -239,7 +239,6 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     top: 55px;
   }
 </style>
-
 ```
 
 <!-- /automd -->
@@ -254,9 +253,9 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/FullCalendar/DocsFullCalendarList.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/FullCalendar/DocsFullCalendarList.vue" code lang="vue" -->
 
-```"vue [DocsFullCalendarList.vue]
+```vue [DocsFullCalendarList.vue]
 <template>
   <FullCalendar :options="calendarOptions" />
 </template>
@@ -301,7 +300,6 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     ],
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -316,9 +314,9 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/FullCalendar/DocsFullCalendarTimeGrid.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/FullCalendar/DocsFullCalendarTimeGrid.vue" code lang="vue" -->
 
-```"vue [DocsFullCalendarTimeGrid.vue]
+```vue [DocsFullCalendarTimeGrid.vue]
 <template>
   <FullCalendar :options="calendarOptions" />
 </template>
@@ -376,7 +374,6 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     ],
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -391,9 +388,9 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/FullCalendar/DocsFullCalendarMultiMonth.vue" code lang="vue -->
+<!-- automd:file src="../../app/components/content/Docs/FullCalendar/DocsFullCalendarMultiMonth.vue" code lang="vue" -->
 
-```"vue [DocsFullCalendarMultiMonth.vue]
+```vue [DocsFullCalendarMultiMonth.vue]
 <template>
   <FullCalendar :options="calendarOptions" />
 </template>
@@ -451,7 +448,6 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     ],
   };
 </script>
-
 ```
 
 <!-- /automd -->
