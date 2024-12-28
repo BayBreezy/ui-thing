@@ -68,6 +68,7 @@
     twitterTitle: page.value.title,
     twitterDescription: page.value.description,
     twitterCard: "summary_large_image",
+    ogUrl: `${SITE_URL}${route.path}`,
   });
 
   defineOgImageComponent("UIThing", {
