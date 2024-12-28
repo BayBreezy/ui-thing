@@ -126,7 +126,9 @@ npx ui-thing@latest add textarea
 
 Restrict the number of characters that can be entered into the textarea.
 
-::ShowCase{component="DocsTextareaMaxLength"}
+::ShowCase
+
+:DocsTextareaMaxLength
 
 #code
 
@@ -151,7 +153,9 @@ Restrict the type of characters that can be entered into the textarea.
 
 You don't need to use `/` at the beginning and end of the pattern as the RegExp is being created internally with the `new RegExp()` constructor.
 
-::ShowCase{component="DocsTextareaPattern"}
+::ShowCase
+
+:DocsTextareaPattern
 
 #code
 

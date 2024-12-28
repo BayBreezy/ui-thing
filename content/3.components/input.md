@@ -123,7 +123,9 @@ npx ui-thing@latest add input
 
 Restrict the number of characters that can be entered into the input field.
 
-::ShowCase{component="DocsInputMaxLength"}
+::ShowCase
+
+:DocsInputMaxLength
 
 #code
 
@@ -150,7 +152,9 @@ Restrict the type of characters that can be entered into the input field.
 
 You don't need to use `/` at the beginning and end of the pattern as the RegExp is being created internally with the `new RegExp()` constructor.
 
-::ShowCase{component="DocsInputPattern"}
+::ShowCase
+
+:DocsInputPattern
 
 #code
 

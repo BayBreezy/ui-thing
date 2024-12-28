@@ -796,7 +796,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ::ShowCase
 
-:DocsOriginInputWithKDB
+:DocsOriginInputWithK_D_B
 
 #code
 
