@@ -52,7 +52,7 @@
                   </UiSelectContent>
                 </template>
               </UiFormSelect>
-              <UiVeeInput label="CVC" name="cvc" maxlength="3" placeholder="CVC" />
+              <UiVeeInput label="CVC" name="cvc" :maxlength="3" placeholder="CVC" />
             </div>
           </div>
         </UiCardContent>
@@ -87,11 +87,11 @@
     await new Promise<void>((res, rej) => {
       useSonner.promise(promise, {
         loading: "Adding your payment method...",
-        success: (_) => {
+        success: (_: any) => {
           res();
           return "Payment method added!";
         },
-        error: (e) => {
+        error: (e: any) => {
           rej(e);
           return "Error! Your information could not be sent to our servers!";
         },

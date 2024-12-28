@@ -11,7 +11,10 @@
 </template>
 
 <script lang="ts" setup>
-  useSeoMeta({
+  import { withoutTrailingSlash } from "ufo";
+
+  const route = useRoute();
+  useServerSeoMeta({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     keywords: SITE_KEYWORDS.join(", "),
@@ -24,6 +27,9 @@
 
   useHead({
     htmlAttrs: { lang: "en" },
-    link: [{ rel: "icon", type: "image/png", href: "/icon.png" }],
+    link: [
+      { rel: "icon", type: "image/png", href: "/icon.png" },
+      { rel: "canonical", href: `${SITE_URL}${withoutTrailingSlash(route.path)}` },
+    ],
   });
 </script>

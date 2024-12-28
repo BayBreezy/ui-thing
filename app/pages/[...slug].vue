@@ -38,6 +38,9 @@
   const { data: page } = await useAsyncData(route.path, () => {
     return queryCollection("content").path(route.path).first();
   });
+  if (!page.value) {
+    throw createError({ statusCode: 404, statusMessage: "Page not found", fatal: true });
+  }
   const toc = computed(() => {
     if (!page.value) return;
     return page.value?.body?.toc;
@@ -55,8 +58,20 @@
     overlayHeight: 80,
   });
 
+  useSeoMeta({
+    title: page.value.title,
+    titleTemplate: `%s | ${SITE_NAME}`,
+    description: page.value.description,
+    keywords: SITE_KEYWORDS.join(", "),
+    ogTitle: page.value.title,
+    ogDescription: page.value.description,
+    twitterTitle: page.value.title,
+    twitterDescription: page.value.description,
+    twitterCard: "summary_large_image",
+  });
+
   defineOgImageComponent("UIThing", {
-    title: page.value?.title,
-    description: page.value?.description,
+    title: page.value.title,
+    description: page.value.description,
   });
 </script>

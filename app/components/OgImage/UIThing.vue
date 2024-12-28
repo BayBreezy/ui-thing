@@ -15,14 +15,9 @@
 </template>
 
 <script lang="ts" setup>
-  withDefaults(
-    defineProps<{
-      title?: string;
-      description?: string;
-    }>(),
-    {
-      title: "Blank Page",
-      description: "This is a blank page",
-    }
-  );
+  defineOptions({ inheritAttrs: false });
+  defineProps<{
+    title: string;
+    description: string;
+  }>();
 </script>
