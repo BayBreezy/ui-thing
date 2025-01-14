@@ -44,6 +44,7 @@ npx ui-thing@latest add navbar
     </UiNavbar>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

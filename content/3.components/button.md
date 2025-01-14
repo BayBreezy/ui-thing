@@ -33,6 +33,7 @@ Here we have a few examples of the plain buttons.
     <UiButton>Default</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -55,6 +56,7 @@ Here we have a few examples of the plain buttons.
     <UiButton variant="secondary">Secondary</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -77,6 +79,7 @@ Here we have a few examples of the plain buttons.
     <UiButton><Icon class="size-4" name="lucide:mail" /> Login with Email</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -99,6 +102,7 @@ Here we have a few examples of the plain buttons.
     <UiButton loading>Please wait...</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -121,6 +125,7 @@ Here we have a few examples of the plain buttons.
     <UiButton variant="outline">Outline</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -143,6 +148,7 @@ Here we have a few examples of the plain buttons.
     <UiButton variant="destructive">Destructive</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -165,6 +171,7 @@ Here we have a few examples of the plain buttons.
     <UiButton variant="ghost"><Icon name="lucide:ghost" class="size-4" />Ghost</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -187,6 +194,7 @@ Here we have a few examples of the plain buttons.
     <UiButton variant="link">Visit Page</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -211,6 +219,7 @@ Here we have a few examples of the plain buttons.
     </UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -243,6 +252,7 @@ Here are the different sizes that are available for the buttons.
 <script lang="ts" setup>
   const sizes = ["xs", "sm", "default", "lg"] as const;
 </script>
+
 ```
 
 <!-- /automd -->
@@ -271,6 +281,7 @@ Here are the different sizes that are available for the buttons.
 <script lang="ts" setup>
   const sizes = ["icon-xs", "icon-sm", "icon"] as const;
 </script>
+
 ```
 
 <!-- /automd -->
@@ -299,6 +310,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
     >
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -323,6 +335,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
     >
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -345,6 +358,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
     <UiButton variant="gooeyLeft">Gooey Left</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -367,6 +381,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
     <UiButton variant="gooeyRight">Gooey Right</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -389,6 +404,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
     <UiButton variant="shine">Shining ✨</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -411,6 +427,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
     <UiButton variant="ringHover">Ring Hover</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -433,6 +450,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
     <UiButton variant="linkHover1">Link Hover 1</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -455,6 +473,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
     <UiButton variant="linkHover2">Link Hover 2</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -520,6 +539,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const open = ref(false);
 </script>
+
 ```
 
 <!-- /automd -->
@@ -558,6 +578,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const open = ref(false);
 </script>
+
 ```
 
 <!-- /automd -->
@@ -608,6 +629,7 @@ To use these examples you will have to copy the code and adjust it for your own 
   const increment = () => counter.value++;
   const decrement = () => counter.value--;
 </script>
+
 ```
 
 <!-- /automd -->
@@ -680,6 +702,7 @@ To use these examples you will have to copy the code and adjust it for your own 
           : "lucide:volume-2"
   );
 </script>
+
 ```
 
 <!-- /automd -->
@@ -729,6 +752,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const { copied, copy } = useClipboard();
 </script>
+
 ```
 
 <!-- /automd -->
@@ -815,6 +839,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     fileName.value = null;
   };
 </script>
+
 ```
 
 <!-- /automd -->
@@ -853,6 +878,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

@@ -36,6 +36,7 @@ npx ui-thing@latest add input
     <UiInput type="email" placeholder="Email" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -61,6 +62,7 @@ npx ui-thing@latest add input
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -113,6 +115,7 @@ npx ui-thing@latest add input
     alert(JSON.stringify(values, null, 2));
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -140,6 +143,7 @@ Restrict the number of characters that can be entered into the input field.
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -169,6 +173,7 @@ You don't need to use `/` at the beginning and end of the pattern as the RegExp 
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

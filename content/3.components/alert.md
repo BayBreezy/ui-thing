@@ -32,6 +32,7 @@ npx ui-thing@latest add alert
     <UiAlert title="Heads up" description="You have 23 new messages" icon="lucide:mail" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -60,6 +61,7 @@ npx ui-thing@latest add alert
     />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -87,6 +89,7 @@ npx ui-thing@latest add alert
     />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -123,6 +126,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiAlert>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -148,6 +152,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     icon-class="mt-0.5"
   />
 </template>
+
 ```
 
 <!-- /automd -->
@@ -174,6 +179,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiAlert>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -199,6 +205,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     description="An error occurred!"
   />
 </template>
+
 ```
 
 <!-- /automd -->
@@ -225,6 +232,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiAlert>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -245,6 +253,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 <template>
   <UiAlert icon="lucide:info" variant="info" description="Just a quick note!" icon-class="mt-0.5" />
 </template>
+
 ```
 
 <!-- /automd -->
@@ -275,6 +284,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiAlert>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -300,6 +310,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     description="Some information is missing!"
   />
 </template>
+
 ```
 
 <!-- /automd -->
@@ -338,6 +349,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiAlert>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -370,6 +382,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </div>
   </UiAlert>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -417,6 +430,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     }
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -468,6 +482,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     }
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -519,6 +534,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     }
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -566,6 +582,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     }
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -616,6 +633,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     }
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -671,6 +689,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     }
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -731,6 +750,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     }
   });
 </script>
+
 ```
 
 <!-- /automd -->

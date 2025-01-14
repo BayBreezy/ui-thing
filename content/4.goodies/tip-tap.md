@@ -265,6 +265,7 @@ The one used here looks like this. Like I said earlier, you have to install a lo
     ],
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -455,6 +456,7 @@ In this example, we are just passing the model to the editor. We are also custom
     }
   }
 </style>
+
 ```
 
 <!-- /automd -->

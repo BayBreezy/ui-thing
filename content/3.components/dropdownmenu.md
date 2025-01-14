@@ -105,6 +105,7 @@ npx ui-thing@latest add dropdown-menu
     { title: "Sign out", icon: "ph:sign-out" },
   ];
 </script>
+
 ```
 
 <!-- /automd -->
@@ -175,6 +176,7 @@ npx ui-thing@latest add dropdown-menu
   ];
   const selectedHeros = ref<string[]>([]);
 </script>
+
 ```
 
 <!-- /automd -->
@@ -234,6 +236,7 @@ npx ui-thing@latest add dropdown-menu
     "left-end",
   ];
 </script>
+
 ```
 
 <!-- /automd -->

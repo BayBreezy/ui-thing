@@ -166,6 +166,7 @@ npx ui-thing@latest add tanstacktable
     },
   ];
 </script>
+
 ```
 
 <!-- /automd -->

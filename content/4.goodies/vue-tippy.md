@@ -1,7 +1,6 @@
 ---
 title: Vue Tippy
 description: VueTippy is a Vue 3 wrapper for the Tippy.js library, which allows you to use the tooltips as a Vue component and as a directive.
-label: New
 links:
   - title: Vue Tippy
     href: https://vue-tippy.netlify.app/
@@ -61,6 +60,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     },
   } satisfies TippyPluginOptions);
 });
+
 ```
 
 <!-- /automd -->
@@ -88,6 +88,7 @@ Create a new CSS file and add the following code to it.
     @apply bg-destructive text-destructive-foreground ring-destructive;
   }
 }
+
 ```
 
 <!-- /automd -->
@@ -134,6 +135,7 @@ Check out the [Directive Docs](https://vue-tippy.netlify.app/flavor/directive) t
     hideOnClick: false,
   };
 </script>
+
 ```
 
 <!-- /automd -->
@@ -196,6 +198,7 @@ You can visit the [Component Docs](https://vue-tippy.netlify.app/flavor/componen
     interactive: true,
   };
 </script>
+
 ```
 
 <!-- /automd -->
@@ -248,6 +251,7 @@ You can visit the [Composition API Docs](https://vue-tippy.netlify.app/flavor/co
     content: h(DocsAlertSubData, { class: tw`border-none p-2` }),
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -313,6 +317,7 @@ This example shows how to create a tooltip that follows the mouse.
   // Sticky alternative
   watch([x, y], () => tippy.value?.popperInstance?.update());
 </script>
+
 ```
 
 <!-- /automd -->
@@ -416,6 +421,7 @@ This example shows how to create a context menu using Vue Tippy.
     }
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -456,6 +462,7 @@ This example shows how to create a tooltip that is triggered by another element.
     content: "Look at me, I'm a tippy!",
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -496,6 +503,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </Tippy>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -532,6 +540,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </Tippy>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -575,6 +584,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </Tippy>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -636,6 +646,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -682,6 +693,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </Tippy>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -723,6 +735,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </Tippy>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

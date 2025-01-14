@@ -47,6 +47,7 @@ npx ui-thing@latest add chart
     { default: () => [] }
   );
 </script>
+
 ```
 
 <!-- /automd -->
@@ -87,6 +88,7 @@ If you want to render pie chart instead, pass `type` as `pie`.
     { default: () => [] }
   );
 </script>
+
 ```
 
 <!-- /automd -->
@@ -136,6 +138,7 @@ We generate colors automatically based on the primary and secondary color and as
     { default: () => [] }
   );
 </script>
+
 ```
 
 <!-- /automd -->
@@ -182,6 +185,7 @@ If you want to render custom tooltip, you can easily pass in a custom component.
     { default: () => [] }
   );
 </script>
+
 ```
 
 <!-- /automd -->
@@ -219,6 +223,7 @@ This is what the `CustomChartTooltip` component looks like:
     }[];
   }>();
 </script>
+
 ```
 
 <!-- /automd -->

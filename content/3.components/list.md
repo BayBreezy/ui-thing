@@ -54,6 +54,7 @@ npx ui-thing@latest add list
     </UiList>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -103,6 +104,7 @@ npx ui-thing@latest add list
     { product: "Ruler", price: 2.0, quantity: 1 },
   ];
 </script>
+
 ```
 
 <!-- /automd -->
@@ -149,6 +151,7 @@ npx ui-thing@latest add list
     { title: "Tooltip", icon: "lucide:message-circle", link: "/components/tooltip" },
   ];
 </script>
+
 ```
 
 <!-- /automd -->

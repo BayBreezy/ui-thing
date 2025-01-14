@@ -59,6 +59,7 @@ npx ui-thing@latest add chart
     { default: () => [] }
   );
 </script>
+
 ```
 
 <!-- /automd -->
@@ -119,6 +120,7 @@ We can turn the chart into sparkline chart by hiding axis, gridline and legends.
     { default: () => [] }
   );
 </script>
+
 ```
 
 <!-- /automd -->
@@ -166,6 +168,7 @@ If you want to render custom tooltip, you can easily pass in a custom component.
     { default: () => [] }
   );
 </script>
+
 ```
 
 <!-- /automd -->
@@ -203,6 +206,7 @@ This is what the `CustomChartTooltip` component looks like:
     }[];
   }>();
 </script>
+
 ```
 
 <!-- /automd -->

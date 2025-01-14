@@ -69,6 +69,7 @@ npx ui-thing@latest add vee-datepicker
     });
   });
 </script>
+
 ```
 
 <!-- /automd -->

@@ -53,6 +53,7 @@ The default configuration for the currency input component is as follows:
     <UiCurrencyInput placeholder="How much?" :model-value="25367" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -85,6 +86,7 @@ You can change the configuration by passing the `options` prop.
     />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -143,6 +145,7 @@ You can change the configuration by passing the `options` prop.
     });
   });
 </script>
+
 ```
 
 <!-- /automd -->

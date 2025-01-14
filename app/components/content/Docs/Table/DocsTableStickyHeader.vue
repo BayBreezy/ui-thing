@@ -12,27 +12,21 @@
       </div>
     </div>
 
-    <div class="mt-10 h-[500px] overflow-auto">
-      <UiTable>
-        <UiTableHeader>
+    <div class="mt-10 [&>div]:max-h-[500px]">
+      <UiTable class="">
+        <UiTableHeader class="sticky top-0 z-10 bg-background/90 backdrop-blur-sm">
           <UiTableRow>
+            <UiTableHead class="pl-0 font-semibold text-foreground backdrop-blur">Name</UiTableHead>
             <UiTableHead
-              class="sticky top-0 z-10 bg-background/90 pl-0 font-semibold text-foreground backdrop-blur"
-              >Name</UiTableHead
-            >
-            <UiTableHead
-              class="sticky top-0 z-10 hidden bg-background/90 pl-0 font-semibold text-foreground backdrop-blur lg:table-cell"
+              class="hidden bg-background/90 pl-0 font-semibold text-foreground backdrop-blur lg:table-cell"
               >Title</UiTableHead
             >
             <UiTableHead
-              class="sticky top-0 z-10 hidden bg-background/90 pl-0 font-semibold text-foreground backdrop-blur md:table-cell"
+              class="hidden bg-background/90 pl-0 font-semibold text-foreground backdrop-blur md:table-cell"
               >Email</UiTableHead
             >
-            <UiTableHead
-              class="sticky top-0 z-10 bg-background/90 pl-0 font-semibold text-foreground backdrop-blur"
-              >Role</UiTableHead
-            >
-            <UiTableHead class="sticky top-0 z-10 bg-background/90 pl-0 backdrop-blur">
+            <UiTableHead class="pl-0 font-semibold text-foreground backdrop-blur">Role</UiTableHead>
+            <UiTableHead class="pl-0 backdrop-blur">
               <span class="sr-only">Actions</span>
             </UiTableHead>
           </UiTableRow>

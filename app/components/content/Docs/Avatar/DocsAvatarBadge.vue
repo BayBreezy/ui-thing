@@ -3,7 +3,7 @@
     <UiChip size="3xl" class="h-auto min-w-fit translate-x-0 bg-background p-0 ring-1">
       <template #content>
         <div class="flex items-center justify-center">
-          <Icon name="heroicons:check-badge-solid" class="size-5 text-background" />
+          <Icon name="heroicons:check-badge-solid" class="size-5 text-foreground" />
         </div>
       </template>
       <UiAvatar>

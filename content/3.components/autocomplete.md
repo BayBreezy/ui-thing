@@ -84,6 +84,7 @@ npx ui-thing@latest add autocomplete
     "Zucchini",
   ];
 </script>
+
 ```
 
 <!-- /automd -->
@@ -143,6 +144,7 @@ npx ui-thing@latest add autocomplete
 
   const displaySelected = (car: any) => car.name;
 </script>
+
 ```
 
 <!-- /automd -->
@@ -207,6 +209,7 @@ npx ui-thing@latest add autocomplete
     return list.filter((p) => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
   }
 </script>
+
 ```
 
 <!-- /automd -->

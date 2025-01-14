@@ -91,6 +91,7 @@ npx ui-thing@latest add tabs
     </UiTabs>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -169,6 +170,7 @@ Passing `:pill="false"` to the List and Trigger components will remove the backg
     </UiTabs>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

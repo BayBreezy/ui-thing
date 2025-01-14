@@ -36,6 +36,7 @@ npx ui-thing@latest add textarea
     <UiTextarea placeholder="Bio" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -61,6 +62,7 @@ npx ui-thing@latest add textarea
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -116,6 +118,7 @@ npx ui-thing@latest add textarea
     });
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -141,6 +144,7 @@ Restrict the number of characters that can be entered into the textarea.
     <p class="text-sm text-muted-foreground">No more than 5 letters</p>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -168,6 +172,7 @@ You don't need to use `/` at the beginning and end of the pattern as the RegExp 
     <p class="text-sm text-muted-foreground">Only lower case letters</p>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

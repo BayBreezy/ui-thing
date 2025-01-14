@@ -49,6 +49,7 @@ npx ui-thing@latest add separator
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

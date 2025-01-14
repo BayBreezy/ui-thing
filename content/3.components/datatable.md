@@ -150,6 +150,7 @@ Take note of how the [`dom`](https://datatables.net/reference/option/dom) option
 
   const tableRef = shallowRef<InstanceType<typeof DataTableRef<any[]>> | null>(null);
 </script>
+
 ```
 
 <!-- /automd -->
@@ -262,6 +263,7 @@ With the new version of DataTables.net, you can now use custom Vue components in
     select: true,
   };
 </script>
+
 ```
 
 <!-- /automd -->
@@ -396,6 +398,7 @@ For this, you will actually need to add some custom classes for things to look h
     },
   };
 </script>
+
 ```
 
 <!-- /automd -->

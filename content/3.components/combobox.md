@@ -155,6 +155,7 @@ See installation instructions for the [Popover](/components/popover) and the [Co
   const filterFunction = (list: typeof frameworks, search: string) =>
     list.filter((i) => i.value.toLowerCase().includes(search.toLowerCase()));
 </script>
+
 ```
 
 <!-- /automd -->

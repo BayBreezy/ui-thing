@@ -87,6 +87,7 @@ Create the component `UiBorderBeam.vue` in the `components` directory.
     delay: 0,
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -122,6 +123,7 @@ Just place the border beam component inside a div with relative positioning, wid
     <UiBorderBeam :size="350" :duration="12" :delay="9" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

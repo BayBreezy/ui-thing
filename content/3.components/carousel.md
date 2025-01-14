@@ -1,7 +1,6 @@
 ---
 title: Carousel
 description: A carousel with motion and swipe built using Embla.
-label: New
 links:
   - title: Embla Carousel
     href: https://www.embla-carousel.com/
@@ -41,6 +40,7 @@ npx ui-thing@latest add carousel
     <UiCarouselNext />
   </UiCarousel>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -84,6 +84,7 @@ To set the size of the items, you can use the `basis` utility class on the `<UiC
     </UiCarousel>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -105,6 +106,7 @@ Other Size Example
     </UiCarouselContent>
   </UiCarousel>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -124,6 +126,7 @@ Responsive
     </UiCarouselContent>
   </UiCarousel>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -176,6 +179,7 @@ You can always adjust this in your own project if you need to.
     </UiCarousel>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -196,6 +200,7 @@ Other Spacing Example
     </UiCarouselContent>
   </UiCarousel>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -214,6 +219,7 @@ Responsive
     </UiCarouselContent>
   </UiCarousel>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -254,6 +260,7 @@ Use the `orientation` prop to set the orientation of the carousel.
     </UiCarousel>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -340,6 +347,7 @@ Use the `orientation` prop to set the orientation of the carousel.
     emblaMainApi.on("reInit", onSelect);
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -423,6 +431,7 @@ Use the `@init-api` emit method on `<UiCarousel />` component to set the instanc
     });
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -553,6 +562,7 @@ npm i embla-carousel-autoplay
     stopOnInteraction: false,
   });
 </script>
+
 ```
 
 <!-- /automd -->

@@ -40,6 +40,7 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -64,6 +65,7 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -95,6 +97,7 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -127,6 +130,7 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -158,6 +162,7 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -186,6 +191,7 @@ npx --yes ui-thing@latest add number-field && npm add @internationalized/number
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

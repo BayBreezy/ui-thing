@@ -77,6 +77,7 @@ This may not be a component that can be reused across multiple projects, but it'
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

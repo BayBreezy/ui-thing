@@ -57,6 +57,7 @@ npx ui-thing@latest add progress
     value.value = Math.floor(Math.random() * 100);
   }, 3000);
 </script>
+
 ```
 
 <!-- /automd -->

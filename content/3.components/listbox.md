@@ -84,6 +84,7 @@ npx ui-thing@latest add listbox
     { debounce: 300, maxWait: 2000, immediate: true }
   );
 </script>
+
 ```
 
 <!-- /automd -->
@@ -155,6 +156,7 @@ npx ui-thing@latest add listbox
     return people.value?.filter((p) => p.name.toLowerCase().includes(search.value.toLowerCase()));
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -223,6 +225,7 @@ npx ui-thing@latest add listbox
     { debounce: 300, maxWait: 2000, immediate: true }
   );
 </script>
+
 ```
 
 <!-- /automd -->
@@ -294,6 +297,7 @@ npx ui-thing@latest add listbox
     return people.value?.filter((p) => p.name.toLowerCase().includes(search.value.toLowerCase()));
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -336,6 +340,7 @@ npx ui-thing@latest add listbox
     default: () => [],
   });
 </script>
+
 ```
 
 <!-- /automd -->

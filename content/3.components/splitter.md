@@ -64,6 +64,7 @@ We can put the parts together to build a simple layout with a resizable sidebar.
     </ClientOnly>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -116,6 +117,7 @@ Do note that the handle will be rotated because of this class that is added to i
     </ClientOnly>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -164,6 +166,7 @@ We can use the `collapsible` prop to make the panels go down to the `collapsedSi
     </ClientOnly>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -222,6 +225,7 @@ Try changing the layout and then refresh the page to see the layout persist.
     </ClientOnly>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

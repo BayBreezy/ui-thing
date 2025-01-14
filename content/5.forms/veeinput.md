@@ -73,6 +73,7 @@ In the form below, we are using the `useForm` composition function provided by V
     });
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -101,6 +102,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     <UiVeeInput label="Required input" placeholder="Email" type="email" required />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -128,6 +130,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -155,6 +158,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -178,6 +182,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     <UiVeeInput label="Input with colored ring" placeholder="Email" type="email" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -205,6 +210,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -227,6 +233,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     <UiVeeInput label="Disabled input" disabled placeholder="Email" type="email" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -254,6 +261,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -281,6 +289,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -311,6 +320,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     </UiVeeInput>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -341,6 +351,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     </UiVeeInput>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -378,6 +389,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     </UiVeeInput>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -413,6 +425,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     </UiVeeInput>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -448,6 +461,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     </UiVeeInput>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -490,6 +504,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     </UiVeeInput>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -531,6 +546,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     </UiVeeInput>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -564,6 +580,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     </UiVeeInput>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -601,6 +618,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     </UiVeeInput>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -638,6 +656,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     </UiVeeInput>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -670,6 +689,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     </UiVeeInput>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -693,6 +713,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     <UiButton aria-label="Send the email" class="mt-7" variant="outline">Send</UiButton>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -742,6 +763,7 @@ Not all examples are copied but these should give you a good idea of what you ca
   const isVisible = ref(false);
   const toggleVisibility = () => (isVisible.value = !isVisible.value);
 </script>
+
 ```
 
 <!-- /automd -->
@@ -786,6 +808,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 <script lang="ts" setup>
   const value = ref("Click to clear");
 </script>
+
 ```
 
 <!-- /automd -->
@@ -821,6 +844,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     </UiVeeInput>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -859,6 +883,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     </UiVeeInput>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -915,6 +940,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     fakeApiCall();
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -944,6 +970,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     <UiVeeInput id="input-overlapping-label" placeholder="Email" type="email" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -1072,6 +1099,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     return "Strong password";
   };
 </script>
+
 ```
 
 <!-- /automd -->

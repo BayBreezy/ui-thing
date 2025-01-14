@@ -275,6 +275,7 @@ The `Tree` component can be styled to look like anything you want. For that reas
     },
   ];
 </script>
+
 ```
 
 <!-- /automd -->
@@ -349,6 +350,7 @@ Click on one of the items to see the details.
     }
   );
 </script>
+
 ```
 
 <!-- /automd -->

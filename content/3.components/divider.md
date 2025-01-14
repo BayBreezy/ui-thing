@@ -31,6 +31,7 @@ npx ui-thing@latest add divider
     <UiDivider />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -53,6 +54,7 @@ npx ui-thing@latest add divider
     <UiDivider label="OR" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -75,6 +77,7 @@ npx ui-thing@latest add divider
     <UiDivider icon="lucide:activity" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -97,6 +100,7 @@ npx ui-thing@latest add divider
     <UiDivider avatar="https://behonbaker.com/icon.png" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -119,6 +123,7 @@ npx ui-thing@latest add divider
     <UiDivider orientation="vertical" avatar="https://behonbaker.com/icon.png" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

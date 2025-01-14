@@ -106,6 +106,7 @@ So here is how I think this should be implemented. Take a look at the source cod
     },
   ];
 </script>
+
 ```
 
 <!-- /automd -->
@@ -195,6 +196,7 @@ For the vertical variation, this is how I think it should be implemented.
     },
   ];
 </script>
+
 ```
 
 <!-- /automd -->
@@ -266,6 +268,7 @@ For the vertical variation, this is how I think it should be implemented.
     },
   ];
 </script>
+
 ```
 
 <!-- /automd -->
@@ -517,6 +520,7 @@ Now our friends over at [Vuetify](https://vuetifyjs.com/en/components/steppers/)
     }
   };
 </script>
+
 ```
 
 <!-- /automd -->

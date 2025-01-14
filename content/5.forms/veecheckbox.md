@@ -5,7 +5,6 @@ links:
   - title: Checkbox Source
     href: /components/checkbox
     icon: lucide:check-square
-label: New Examples
 ---
 
 ## Source code
@@ -66,6 +65,7 @@ Checkboxes can be tricky to implement with validation libraries. Luckily, Vee-Va
     });
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -118,6 +118,7 @@ Checkboxes can be tricky to implement with validation libraries. Luckily, Vee-Va
     });
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -152,6 +153,7 @@ We can use the `v-model` prop to set the default value of the VeeCheckbox.
 <script lang="ts" setup>
   const someVariable = ref(true);
 </script>
+
 ```
 
 <!-- /automd -->
@@ -186,6 +188,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     <UiVeeCheckbox :model-value="true" label="Colored checkbox" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -211,6 +214,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiLabel>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -243,6 +247,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiLabel>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -272,6 +277,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiVeeCheckbox>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -303,6 +309,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const frameworks = ["Vue", "Nuxt", "Svelte"];
 </script>
+
 ```
 
 <!-- /automd -->
@@ -326,6 +333,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     <UiVeeCheckbox id="checkbox-09" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -360,6 +368,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiVeeCheckbox>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -399,6 +408,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const open = ref(false);
 </script>
+
 ```
 
 <!-- /automd -->
@@ -432,6 +442,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     <UiVeeCheckbox id="checkbox-12" aria-describedby="checkbox-12-description" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -467,6 +478,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     <UiVeeCheckbox id="checkbox-13" aria-describedby="checkbox-13-description" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -521,6 +533,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     { id: "checkbox-16-c4", value: "c4", label: "Cut", icon: "lucide:scissors" },
   ];
 </script>
+
 ```
 
 <!-- /automd -->
@@ -577,6 +590,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     { id: "checkbox-18-c7", value: "c7", label: "Sunday", disabled: true },
   ];
 </script>
+
 ```
 
 <!-- /automd -->

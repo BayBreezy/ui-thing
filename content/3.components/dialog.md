@@ -87,6 +87,7 @@ npx ui-thing@latest add dialog
     dialog.value = false;
   };
 </script>
+
 ```
 
 <!-- /automd -->
@@ -163,6 +164,7 @@ npx ui-thing@latest add dialog
     }
   };
 </script>
+
 ```
 
 <!-- /automd -->
@@ -322,6 +324,7 @@ I just made them work with my setup.
     </UiDialog>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -473,6 +476,7 @@ I just made them work with my setup.
     </UiDialog>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -624,6 +628,7 @@ I just made them work with my setup.
     </UiDialog>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -777,6 +782,7 @@ I just made them work with my setup.
     </UiDialog>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -933,6 +939,7 @@ I just made them work with my setup.
   const contentRef = ref<HTMLDivElement | null>(null);
   const { arrivedState } = useScroll(contentRef);
 </script>
+
 ```
 
 <!-- /automd -->
@@ -1002,6 +1009,7 @@ I just made them work with my setup.
     </UiDialog>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -1048,6 +1056,7 @@ I just made them work with my setup.
     </UiDialog>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -1129,6 +1138,7 @@ I just made them work with my setup.
     </UiDialog>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -1235,6 +1245,7 @@ I just made them work with my setup.
     value.value = [];
   };
 </script>
+
 ```
 
 <!-- /automd -->
@@ -1332,6 +1343,7 @@ I just made them work with my setup.
     }
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -1435,6 +1447,7 @@ I just made them work with my setup.
     }
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -1590,6 +1603,7 @@ I just made them work with my setup.
     }
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -1694,6 +1708,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
     }
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -1822,6 +1837,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
     { id: "yearly", name: "Yearly", price: "$320/month", popular: true },
   ];
 </script>
+
 ```
 
 <!-- /automd -->
@@ -1927,6 +1943,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
 
   const open = defineModel<boolean>({ default: false });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -2171,6 +2188,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
     }
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -2315,6 +2333,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
     }
   });
 </script>
+
 ```
 
 <!-- /automd -->
@@ -2418,6 +2437,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
     },
   ];
 </script>
+
 ```
 
 <!-- /automd -->

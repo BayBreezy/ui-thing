@@ -37,6 +37,7 @@ npx ui-thing@latest add skeleton
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

@@ -35,6 +35,7 @@ npx ui-thing@latest add kbd
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

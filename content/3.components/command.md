@@ -100,6 +100,7 @@ npx ui-thing@latest add command
     ],
   };
 </script>
+
 ```
 
 <!-- /automd -->

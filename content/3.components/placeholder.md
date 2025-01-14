@@ -29,6 +29,7 @@ npx ui-thing@latest add placeholder
     <UiPlaceholder class="h-[400px]" />
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

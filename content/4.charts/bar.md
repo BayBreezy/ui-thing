@@ -59,6 +59,7 @@ npx ui-thing@latest add chart
     { default: () => [] }
   );
 </script>
+
 ```
 
 <!-- /automd -->
@@ -112,6 +113,7 @@ You can stack the bar chart by settings prop `type` to `stacked`.
     { default: () => [] }
   );
 </script>
+
 ```
 
 <!-- /automd -->
@@ -163,6 +165,7 @@ You can stack the bar chart by settings prop `type` to `stacked`.
     { default: () => [] }
   );
 </script>
+
 ```
 
 <!-- /automd -->
@@ -218,6 +221,7 @@ If you want to render custom tooltip, you can easily pass in a custom component.
     { default: () => [] }
   );
 </script>
+
 ```
 
 <!-- /automd -->

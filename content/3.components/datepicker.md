@@ -56,6 +56,7 @@ vcalendar: {
 
   const today = addDays(new Date(), 3);
 </script>
+
 ```
 
 <!-- /automd -->
@@ -85,6 +86,7 @@ vcalendar: {
     </UiDatepicker>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -124,6 +126,7 @@ vcalendar: {
 
   const date = ref();
 </script>
+
 ```
 
 <!-- /automd -->
@@ -154,6 +157,7 @@ vcalendar: {
 <script lang="ts" setup>
   const date = ref();
 </script>
+
 ```
 
 <!-- /automd -->

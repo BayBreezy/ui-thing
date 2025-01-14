@@ -239,6 +239,7 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     top: 55px;
   }
 </style>
+
 ```
 
 <!-- /automd -->
@@ -300,6 +301,7 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     ],
   };
 </script>
+
 ```
 
 <!-- /automd -->
@@ -374,6 +376,7 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     ],
   };
 </script>
+
 ```
 
 <!-- /automd -->
@@ -448,6 +451,7 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     ],
   };
 </script>
+
 ```
 
 <!-- /automd -->

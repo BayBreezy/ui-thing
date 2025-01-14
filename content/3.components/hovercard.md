@@ -79,6 +79,7 @@ npx ui-thing@latest add hover-card
     </UiHoverCard>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
@@ -123,6 +124,7 @@ npx ui-thing@latest add hover-card
     </UiHoverCard>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

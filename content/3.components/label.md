@@ -41,6 +41,7 @@ npx ui-thing@latest add label
     </div>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

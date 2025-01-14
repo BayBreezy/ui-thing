@@ -79,6 +79,7 @@ npx ui-thing@latest add popover
     </UiPopover>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

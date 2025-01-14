@@ -40,6 +40,7 @@ npx ui-thing@latest add toggle
     </UiToggle>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->

@@ -51,6 +51,7 @@ npx ui-thing@latest add collapsible
     </UiCollapsible>
   </div>
 </template>
+
 ```
 
 <!-- /automd -->
