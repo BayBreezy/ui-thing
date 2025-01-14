@@ -29,7 +29,6 @@ npx ui-thing@latest add gradient-divider
     <UiGradientDivider />
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

@@ -62,7 +62,6 @@ npx ui-thing@latest add scroll-area
 <script lang="ts" setup>
   const tags = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);
 </script>
-
 ```
 
 <!-- /automd -->

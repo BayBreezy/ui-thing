@@ -75,7 +75,6 @@ npx ui-thing@latest add dropfile
     files.value.splice(index, 1);
   };
 </script>
-
 ```
 
 <!-- /automd-->

@@ -92,7 +92,6 @@ We can bring the different components together to make a simple drawer.
     });
   });
 </script>
-
 ```
 
 <!-- /automd -->
@@ -177,7 +176,6 @@ We can add an image inside as well.
     useSonner(message);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -255,7 +253,6 @@ You can combine the `Dialog` and `Drawer` components to create a responsive dial
 
   const isOpen = ref(false);
 </script>
-
 ```
 
 <!-- /automd -->

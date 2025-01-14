@@ -62,7 +62,6 @@ npx ui-thing@latest add radio-group
     </UiRadioGroup>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -139,7 +138,6 @@ npx ui-thing@latest add radio-group
     });
   });
 </script>
-
 ```
 
 <!-- /automd -->

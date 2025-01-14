@@ -112,7 +112,6 @@ Remember to add the `<UiToastToaster />` component to your app layout.
     }
   };
 </script>
-
 ```
 
 <!-- /automd -->

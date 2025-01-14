@@ -31,7 +31,6 @@ npx ui-thing@latest add fancy-icon
     <UiFancyIcon icon="lucide:mail" />
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -59,7 +58,6 @@ For the colors to show, you have to change the type from `modern`.
     <UiFancyIcon type="dark" color="info" icon="lucide:mail" />
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -84,7 +82,6 @@ For the colors to show, you have to change the type from `modern`.
     <UiFancyIcon type="modern" color="error" icon="lucide:mail" />
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -118,7 +115,6 @@ For the colors to show, you have to change the type from `modern`.
 <script lang="ts" setup>
   const sizes = ["sm", "md", "lg", "xl"] as const;
 </script>
-
 ```
 
 <!-- /automd -->
@@ -141,7 +137,6 @@ For the colors to show, you have to change the type from `modern`.
     <UiFancyIcon circle icon="lucide:mail" />
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

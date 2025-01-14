@@ -64,7 +64,6 @@ npx ui-thing@latest add card
     </form>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -139,7 +138,6 @@ npx ui-thing@latest add card
     { text: "Your order has been shipped.", time: "2h ago" },
   ];
 </script>
-
 ```
 
 <!-- /automd -->

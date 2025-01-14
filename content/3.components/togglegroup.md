@@ -42,7 +42,6 @@ npx ui-thing@latest add toggle-group
     </UiToggleGroup>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -69,7 +68,6 @@ npx ui-thing@latest add toggle-group
     </UiToggleGroup>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -96,7 +94,6 @@ npx ui-thing@latest add toggle-group
     </UiToggleGroup>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -128,7 +125,6 @@ npx ui-thing@latest add toggle-group
     </UiToggleGroup>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

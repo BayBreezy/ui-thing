@@ -191,7 +191,6 @@ The default orientation of the Navigation Menu is horizontal.
     },
   ];
 </script>
-
 ```
 
 <!-- /automd -->
@@ -331,7 +330,6 @@ To get things to look how we want, we would then need to add some custom styles.
     },
   ];
 </script>
-
 ```
 
 <!-- /automd -->

@@ -77,7 +77,6 @@ In the form below, we are using the `useForm` composition function provided by V
     });
   });
 </script>
-
 ```
 
 <!-- /automd -->

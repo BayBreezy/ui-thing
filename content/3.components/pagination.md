@@ -65,7 +65,6 @@ npx ui-thing@latest add pagination
     <UiPagination :total="100" :sibling-count="1" />
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -135,7 +134,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiPagination>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -204,7 +202,6 @@ To use these examples you will have to copy the code and adjust it for your own 
   const total = 100;
   const itemsPerPage = 10;
 </script>
-
 ```
 
 <!-- /automd -->
@@ -317,7 +314,6 @@ To use these examples you will have to copy the code and adjust it for your own 
   const total = 100;
   const itemsPerPage = 10;
 </script>
-
 ```
 
 <!-- /automd -->
@@ -365,7 +361,6 @@ To use these examples you will have to copy the code and adjust it for your own 
   const total = 100;
   const itemsPerPage = 10;
 </script>
-
 ```
 
 <!-- /automd -->
@@ -426,7 +421,6 @@ To use these examples you will have to copy the code and adjust it for your own 
 
   const pageTotal = computed(() => Math.ceil(total / Number(itemsPerPage.value)));
 </script>
-
 ```
 
 <!-- /automd -->

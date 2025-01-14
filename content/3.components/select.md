@@ -59,7 +59,6 @@ npx ui-thing@latest add select
   const fruits = ["Apple", "Banana", "Blueberry", "Grapes", "Pineapple"];
   const vegetables = ["Aubergine", "Broccoli", "Carrot", "Courgette", "Leek"];
 </script>
-
 ```
 
 <!-- /automd -->
@@ -124,7 +123,6 @@ npx ui-thing@latest add select
     });
   });
 </script>
-
 ```
 
 <!-- /automd -->

@@ -72,7 +72,6 @@ We can just call the `useConfetti` method to trigger the confetti.
     useConfetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -111,7 +110,6 @@ This is how you can shoot confetti off in a random direction.
     });
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -165,7 +163,6 @@ This is how you can shoot confetti off in a random direction.
     }, 250);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -221,7 +218,6 @@ This is how you can shoot confetti off in a random direction.
     setTimeout(shoot, 200);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -284,7 +280,6 @@ This is how you can shoot confetti off in a random direction.
     requestAnimationFrame(frame);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -335,7 +330,6 @@ This is how you can shoot confetti off in a random direction.
     requestAnimationFrame(frame);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -400,7 +394,6 @@ This is how you can shoot confetti off in a random direction.
     setTimeout(shoot, 200);
   };
 </script>
-
 ```
 
 <!-- /automd -->

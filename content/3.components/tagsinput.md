@@ -46,7 +46,6 @@ npx ui-thing@latest add tags-input
 <script lang="ts" setup>
   const tags = ref(["Cars", "House", "Dogs"]);
 </script>
-
 ```
 
 <!-- /automd -->

@@ -44,7 +44,6 @@ npx ui-thing@latest add slider
 <script lang="ts" setup>
   const sliderValue = ref([50]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -72,7 +71,6 @@ npx ui-thing@latest add slider
 <script lang="ts" setup>
   const rangeValue = ref([25, 75, 150]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -114,7 +112,6 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const value = ref([50]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -148,7 +145,6 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const value = ref([50]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -182,7 +178,6 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const value = ref([50]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -220,7 +215,6 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const value = ref([15]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -268,7 +262,6 @@ To use these examples you will have to copy the code and adjust it for your own 
   const ticks = [...Array(max + 1)].map((_, i) => i);
   const value = ref([5]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -301,7 +294,6 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const value = ref([50]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -340,7 +332,6 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const value = ref([50]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -393,7 +384,6 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const value = ref([50]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -423,7 +413,6 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const value = ref([25, 75]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -456,7 +445,6 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const value = ref([25, 75]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -493,7 +481,6 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const value = ref([25]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -571,7 +558,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     }
   });
 </script>
-
 ```
 
 <!-- /automd -->
@@ -619,7 +605,6 @@ To use these examples you will have to copy the code and adjust it for your own 
   const initialValue = [25];
   const value = ref(initialValue);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -659,7 +644,6 @@ To use these examples you will have to copy the code and adjust it for your own 
   const labels = ["Awful", "Poor", "Okay", "Good", "Amazing"];
   const value = ref([3]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -705,7 +689,6 @@ To use these examples you will have to copy the code and adjust it for your own 
   const labels = ["Awful", "Poor", "Okay", "Good", "Amazing"];
   const value = ref([3]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -760,7 +743,6 @@ To use these examples you will have to copy the code and adjust it for your own 
   const initialValue = [50, 150];
   const value = ref(initialValue);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -837,7 +819,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     }
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -883,7 +864,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     return price === max_price ? `$${price.toLocaleString()}+` : `$${price.toLocaleString()}`;
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -915,7 +895,6 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const value = ref([5]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -964,7 +943,6 @@ To use these examples you will have to copy the code and adjust it for your own 
   const initialValue = [25];
   const value = ref(initialValue);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -1007,7 +985,6 @@ To use these examples you will have to copy the code and adjust it for your own 
 <script lang="ts" setup>
   const value = ref([2, 7]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -1086,7 +1063,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     z.value = [0];
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -1339,7 +1315,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     );
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -1486,7 +1461,6 @@ To use these examples you will have to copy the code and adjust it for your own 
   const v4 = ref([-3]);
   const v5 = ref([2]);
 </script>
-
 ```
 
 <!-- /automd -->

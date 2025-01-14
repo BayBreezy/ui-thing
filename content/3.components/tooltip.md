@@ -49,7 +49,6 @@ npx ui-thing@latest add tooltip
     </UiTooltip>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

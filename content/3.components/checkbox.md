@@ -60,7 +60,6 @@ npx ui-thing@latest add checkbox
   const terms = ref(false);
   const terms1 = ref(false);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -97,7 +96,6 @@ To bind the default value on the [VeeCheckbox](/forms/veecheckbox) component, we
 <script lang="ts" setup>
   const someVariable = ref(true);
 </script>
-
 ```
 
 <!-- /automd -->

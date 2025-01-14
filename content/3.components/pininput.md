@@ -43,7 +43,6 @@ Passing a value to the placeholder prop will render a placeholder character in e
     </UiLabel>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -71,7 +70,6 @@ Passing a value to the separator prop will render a separator character between 
     </UiLabel>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -99,7 +97,6 @@ The complete event is emitted when the user has entered a value in all inputs.
     </UiLabel>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

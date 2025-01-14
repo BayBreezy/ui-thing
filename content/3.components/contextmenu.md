@@ -97,7 +97,6 @@ npx ui-thing@latest add context-menu
   const showFullUrls = ref(false);
   const person = ref("1");
 </script>
-
 ```
 
 <!-- /automd -->
@@ -173,7 +172,6 @@ npx ui-thing@latest add context-menu
   ];
   const selectedHeros = ref<string[]>([]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -234,7 +232,6 @@ npx ui-thing@latest add context-menu
     "left-end",
   ];
 </script>
-
 ```
 
 <!-- /automd -->

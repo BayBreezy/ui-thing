@@ -52,7 +52,6 @@ npx ui-thing@latest add breadcrumbs
     },
   ];
 </script>
-
 ```
 
 <!-- /automd -->
@@ -112,7 +111,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     { label: "GitHub", to: "#", icon: "lucide:github" },
   ];
 </script>
-
 ```
 
 <!-- /automd -->
@@ -166,7 +164,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     { label: "GitHub", to: "#", icon: "lucide:github" },
   ];
 </script>
-
 ```
 
 <!-- /automd -->
@@ -197,7 +194,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     { label: "Breadcrumb" },
   ];
 </script>
-
 ```
 
 <!-- /automd -->
@@ -231,7 +227,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     { label: "Breadcrumb" },
   ];
 </script>
-
 ```
 
 <!-- /automd -->
@@ -265,7 +260,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     { label: "Breadcrumb" },
   ];
 </script>
-
 ```
 
 <!-- /automd -->
@@ -303,7 +297,6 @@ To use these examples you will have to copy the code and adjust it for your own 
 
   const items: Crumbs[] = [{ label: "Databases" }, { slot: "select" }];
 </script>
-
 ```
 
 <!-- /automd -->

@@ -358,7 +358,6 @@ Here is a basic example of how to use the Quill component. We are using a techni
 <script lang="ts" setup>
   import { QuillEditor } from "@vueup/vue-quill";
 </script>
-
 ```
 
 <!-- /automd -->
@@ -411,7 +410,6 @@ We can add our custom toolbar configuration by using the `toolbar` prop.
 `
   );
 </script>
-
 ```
 
 <!-- /automd -->
@@ -460,7 +458,6 @@ Another way of customizing the toolbar is by using the `toolbar` slot. This way,
 `
   );
 </script>
-
 ```
 
 <!-- /automd -->
@@ -501,7 +498,6 @@ You have to select something in the editor to see the toolbar.
 `
   );
 </script>
-
 ```
 
 <!-- /automd -->
@@ -567,7 +563,6 @@ Upload an image to see the module in action.
     },
   };
 </script>
-
 ```
 
 <!-- /automd -->

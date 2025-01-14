@@ -50,7 +50,6 @@ You can add the `v-wave` directive to any button. Be sure to check out the avail
     <UiButton v-wave>Button</UiButton>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -82,7 +81,6 @@ You can change the color of the ripple effect by passing a color to the directiv
     />
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

@@ -33,7 +33,6 @@ npx ui-thing@latest add container
     </UiContainer>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

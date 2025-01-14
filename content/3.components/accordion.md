@@ -58,7 +58,6 @@ The most common way to use the accordion is by just passing an array of items to
     },
   ];
 </script>
-
 ```
 
 <!-- /automd -->
@@ -119,7 +118,6 @@ If you want to change the way that the items look, you can do so by using the di
     },
   ];
 </script>
-
 ```
 
 <!-- /automd -->
@@ -178,7 +176,6 @@ You can change the `icon` that is displayed based on the open state of an item. 
     },
   ];
 </script>
-
 ```
 
 <!-- /automd -->

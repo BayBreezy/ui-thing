@@ -62,7 +62,6 @@ npx ui-thing@latest add alert-dialog
   };
   const model = ref(false);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -103,7 +102,6 @@ npx ui-thing@latest add alert-dialog
     </UiAlertDialog>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -148,7 +146,6 @@ npx ui-thing@latest add alert-dialog
     </UiAlertDialog>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -195,7 +192,6 @@ npx ui-thing@latest add alert-dialog
     </UiAlertDialog>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

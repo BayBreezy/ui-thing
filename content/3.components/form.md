@@ -152,7 +152,6 @@ npx ui-thing@latest add form
     alert(JSON.stringify(values, null, 2));
   });
 </script>
-
 ```
 
 <!-- /automd -->

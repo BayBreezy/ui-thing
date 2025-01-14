@@ -58,7 +58,6 @@ Create the component `RetroGrid.vue` in the `components` directory.
     <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent to-90%" />
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -92,7 +91,6 @@ Create the component `RetroGrid.vue` in the `components` directory.
     <UiRetroGrid />
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

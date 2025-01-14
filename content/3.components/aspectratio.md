@@ -70,7 +70,6 @@ Right click the image to perform different actions.
     useSonner(message);
   };
 </script>
-
 ```
 
 <!-- /automd -->

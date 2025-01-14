@@ -44,7 +44,6 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 <script lang="ts" setup>
   const value = ref(20);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -71,7 +70,6 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 <script lang="ts" setup>
   const value = ref([20, 40]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -114,7 +112,6 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
   const format1 = (v: number) =>
     Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(v);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -141,7 +138,6 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 <script lang="ts" setup>
   const value = ref([20, 30, 40]);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -173,7 +169,6 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 <script lang="ts" setup>
   const value = ref(20);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -223,7 +218,6 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
     });
   });
 </script>
-
 ```
 
 <!-- /automd -->

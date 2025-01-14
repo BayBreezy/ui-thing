@@ -82,7 +82,6 @@ npx ui-thing@latest add table
     }).format(value);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -162,7 +161,6 @@ npx ui-thing@latest add table
     });
   });
 </script>
-
 ```
 
 <!-- /automd -->
@@ -257,7 +255,6 @@ npx ui-thing@latest add table
     });
   });
 </script>
-
 ```
 
 <!-- /automd -->
@@ -354,7 +351,6 @@ npx ui-thing@latest add table
     });
   });
 </script>
-
 ```
 
 <!-- /automd -->
@@ -438,7 +434,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     }).format(value);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -518,7 +513,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     }).format(value);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -600,7 +594,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     }).format(value);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -684,7 +677,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     }).format(value);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -766,7 +758,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     }).format(value);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -882,7 +873,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     },
   ];
 </script>
-
 ```
 
 <!-- /automd -->
@@ -970,7 +960,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     }).format(value);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -1060,7 +1049,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     }).format(value);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -1109,7 +1097,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     <p class="mt-4 text-center text-sm text-muted-foreground">Vertical table</p>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -1191,7 +1178,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     }).format(value);
   };
 </script>
-
 ```
 
 <!-- /automd -->
@@ -1336,7 +1322,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     },
   ];
 </script>
-
 ```
 
 <!-- /automd -->

@@ -137,7 +137,6 @@ build: {
       setTimeout(() => resolve("There are 16 tools ready for use"), 2000)
     );
 </script>
-
 ```
 
 <!-- /automd -->
@@ -186,7 +185,6 @@ For the custom element, this is what the code looks like
     emits("closeToast");
   };
 </script>
-
 ```
 
 <!-- /automd -->

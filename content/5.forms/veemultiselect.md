@@ -98,7 +98,6 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
     }
   );
 </script>
-
 ```
 
 <!-- /automd -->
@@ -177,7 +176,6 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
     }
   );
 </script>
-
 ```
 
 <!-- /automd -->
@@ -223,7 +221,6 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
     { name: "Harley Quinn", id: 11 },
   ];
 </script>
-
 ```
 
 <!-- /automd -->

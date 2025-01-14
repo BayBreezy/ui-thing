@@ -100,7 +100,6 @@ Create the component `UiMeteors.client.vue` in the `components` directory.
     },
   });
 </script>
-
 ```
 
 <!-- /automd -->
@@ -135,7 +134,6 @@ We can add the `UiMeteors` component to trigger the meteors.
     </p>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

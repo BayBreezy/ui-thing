@@ -43,7 +43,6 @@ npx ui-thing@latest add avatar
     <UiAvatar fallback="JD" />
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -83,7 +82,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiAvatar>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -114,7 +112,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiAvatar>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -151,7 +148,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiAvatar>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -191,7 +187,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiChip>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -230,7 +225,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiChip>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -309,7 +303,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     },
   ];
 </script>
-
 ```
 
 <!-- /automd -->
@@ -369,7 +362,6 @@ To use these examples you will have to copy the code and adjust it for your own 
     },
   ];
 </script>
-
 ```
 
 <!-- /automd -->

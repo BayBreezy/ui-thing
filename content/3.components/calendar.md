@@ -121,7 +121,6 @@ vcalendar: {
     },
   ]);
 </script>
-
 ```
 
 <!-- /automd -->

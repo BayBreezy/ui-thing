@@ -41,7 +41,6 @@ npx ui-thing@latest add switch
     </div>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -97,7 +96,6 @@ npx ui-thing@latest add switch
     });
   });
 </script>
-
 ```
 
 <!-- /automd -->

@@ -64,7 +64,6 @@ In the form below, we are using the `useForm` composition provided by Vee-Valida
     });
   });
 </script>
-
 ```
 
 <!-- /automd -->

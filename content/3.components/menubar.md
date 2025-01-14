@@ -168,7 +168,6 @@ npx ui-thing@latest add menubar
     },
   ];
 </script>
-
 ```
 
 <!-- /automd -->

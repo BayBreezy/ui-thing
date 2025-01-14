@@ -72,7 +72,6 @@ npx ui-thing@latest add sheet
     </UiSheet>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->

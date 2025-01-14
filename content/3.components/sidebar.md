@@ -155,7 +155,6 @@ Also, the `UiSidebarInset` component! When I just started using this component, 
     { title: "Settings", url: "#", icon: "lucide:settings" },
   ];
 </script>
-
 ```
 
 <!-- /automd -->

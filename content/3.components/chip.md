@@ -36,7 +36,6 @@ npx ui-thing@latest add chip
     </UiChip>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -69,7 +68,6 @@ Pass a size to the `size` prop to change the size of the chip.
 <script lang="ts" setup>
   const sizes = ["3xs", "2xs", "xs", "sm", "md", "lg", "xl", "2xl", "3xl"] as const;
 </script>
-
 ```
 
 <!-- /automd -->
@@ -98,7 +96,6 @@ You can change the color of the chip by passing any tailwind color `bg` class to
     </UiChip>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
@@ -132,7 +129,6 @@ You can display a text inside the chip by passing a `string` to the `text` prop.
 <script lang="ts" setup>
   const text = ref(3);
 </script>
-
 ```
 
 <!-- /automd -->
@@ -166,7 +162,6 @@ The `inset` prop can be used to move the indicator closer to the element.
     </UiChip>
   </div>
 </template>
-
 ```
 
 <!-- /automd -->
