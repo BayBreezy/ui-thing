@@ -3,6 +3,20 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## January 15, 2025 - Tabs
+
+Im this update, I added some examples for the [`Tabs`](/components/tabs) component.
+
+The examples are taken from the [Origin UI](https://originui.com/) library.
+
+Thanks to the team over there for all the great free examples ❤️.
+
+You can run this command to add the updated tabs component to your project
+
+```bash
+npx ui-thing@latest add tabs
+```
+
 ## January 15, 2025 - Datatable
 
 Im this update, I added some examples for the [`Datatables`](/components/datatable) component.
