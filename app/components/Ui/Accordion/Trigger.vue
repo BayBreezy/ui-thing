@@ -4,7 +4,12 @@
       {{ title }}
     </slot>
     <slot name="icon" :props="props">
-      <Icon v-if="icon" :name="icon" class="h-4 w-4 shrink-0 transition-transform duration-200" />
+      <Icon
+        v-if="icon"
+        mode="svg"
+        :name="icon"
+        class="h-4 w-4 shrink-0 transition-transform duration-200"
+      />
     </slot>
   </AccordionTrigger>
 </template>

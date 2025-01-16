@@ -29,6 +29,7 @@
     value: string;
     disabled?: boolean;
     icon?: string;
+    [key: string]: any;
   }
 
   const props = withDefaults(
