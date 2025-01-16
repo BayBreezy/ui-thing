@@ -157,7 +157,7 @@
   table.dataTable thead > tr > th.dt-orderable-desc:before,
   table.dataTable thead > tr > td.dt-orderable-asc:before,
   table.dataTable thead > tr > td.dt-orderable-desc:before {
-    @apply bottom-[43%] size-[14px] bg-[url('https://api.iconify.design/lucide:chevron-up.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-up.svg?color=white')];
+    @apply bottom-[43%] size-[14px] shrink-0 bg-[url('https://api.iconify.design/lucide:chevron-up.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-up.svg?color=white')];
   }
   table.dataTable thead > tr > th.sorting:after,
   table.dataTable thead > tr > th.sorting_asc:after,
@@ -174,7 +174,7 @@
   table.dataTable thead > tr > th.dt-orderable-desc:after,
   table.dataTable thead > tr > td.dt-orderable-asc:after,
   table.dataTable thead > tr > td.dt-orderable-desc:after {
-    @apply top-[43%] size-[14px] bg-[url('https://api.iconify.design/lucide:chevron-down.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-down.svg?color=white')];
+    @apply top-[43%] size-[14px] shrink-0 bg-[url('https://api.iconify.design/lucide:chevron-down.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-down.svg?color=white')];
   }
   table.dataTable thead > tr > th.sorting_asc:before,
   table.dataTable thead > tr > th.sorting_desc:after,
@@ -203,34 +203,39 @@
     @apply hidden;
   }
 
-  div.dataTables_processing {
-    @apply absolute left-[50%] top-[50%] ml-[-100px] mt-[-26px] w-[200px] p-0.5 text-center;
-  }
-  div.dataTables_processing > div:last-child {
-    @apply relative mx-auto my-4 h-4 w-20;
-  }
-  div.dataTables_processing > div:last-child > div {
-    @apply absolute top-0 h-3.5 w-3.5 rounded-full;
-    background: hsl(var(--dt-row-selected));
-    animation-timing-function: cubic-bezier(0, 1, 1, 0);
-  }
-  div.dataTables_processing > div:last-child > div:nth-child(1) {
-    left: 8px;
-    animation: datatables-loader-1 0.6s infinite;
-  }
-  div.dataTables_processing > div:last-child > div:nth-child(2) {
-    left: 8px;
-    animation: datatables-loader-2 0.6s infinite;
-  }
-  div.dataTables_processing > div:last-child > div:nth-child(3) {
-    left: 32px;
-    animation: datatables-loader-2 0.6s infinite;
-  }
-  div.dataTables_processing > div:last-child > div:nth-child(4) {
-    left: 56px;
-    animation: datatables-loader-3 0.6s infinite;
-  }
+  div.dataTables_processing,
+  div.dt-processing {
+    @apply absolute inset-0 z-[999] flex size-full items-center justify-center bg-background/50 backdrop-blur-sm transition;
 
+    > div:last-child {
+      @apply relative mx-auto my-4 h-4 w-20;
+
+      > div {
+        @apply absolute top-0 h-3.5 w-3.5 rounded-full bg-primary;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+      }
+
+      > div:nth-child(1) {
+        left: 8px;
+        animation: datatables-loader-1 0.6s infinite;
+      }
+
+      > div:nth-child(2) {
+        left: 8px;
+        animation: datatables-loader-2 0.6s infinite;
+      }
+
+      > div:nth-child(3) {
+        left: 32px;
+        animation: datatables-loader-2 0.6s infinite;
+      }
+
+      > div:nth-child(4) {
+        left: 56px;
+        animation: datatables-loader-3 0.6s infinite;
+      }
+    }
+  }
   @keyframes datatables-loader-1 {
     0% {
       transform: scale(0);
@@ -727,7 +732,7 @@
 
   table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before,
   table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control:before {
-    @apply mr-2 inline-flex h-4 w-4 bg-[url('https://api.iconify.design/lucide:chevron-right.svg')] bg-contain bg-center bg-no-repeat pb-[3px] content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-right.svg?color=white')];
+    @apply mr-2 inline-flex size-[14px] shrink-0 bg-[url('https://api.iconify.design/lucide:chevron-right.svg')] bg-contain bg-center bg-no-repeat pb-[3px] content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-right.svg?color=white')];
   }
   table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control.arrow-right::before,
   table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control.arrow-right::before {
@@ -737,7 +742,7 @@
   table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th.dtr-control:before,
   table.dataTable.dtr-inline.collapsed > tbody > tr.dtr-expanded > td.dtr-control:before,
   table.dataTable.dtr-inline.collapsed > tbody > tr.dtr-expanded > th.dtr-control:before {
-    @apply mr-2 inline-block h-4 w-4 bg-[url('https://api.iconify.design/lucide:chevron-down.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-down.svg?color=white')];
+    @apply mr-2 inline-block size-[14px] shrink-0 bg-[url('https://api.iconify.design/lucide:chevron-down.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-down.svg?color=white')];
   }
   table.dataTable.dtr-inline.collapsed.compact > tbody > tr > td.dtr-control,
   table.dataTable.dtr-inline.collapsed.compact > tbody > tr > th.dtr-control {
@@ -753,7 +758,7 @@
   table.dataTable.dtr-column > tbody > tr > th.dtr-control:before,
   table.dataTable.dtr-column > tbody > tr > td.control:before,
   table.dataTable.dtr-column > tbody > tr > th.control:before {
-    @apply mr-2 inline-flex h-4 w-4 bg-[url('https://api.iconify.design/lucide:chevron-right.svg')] bg-contain bg-center bg-no-repeat pb-[3px] content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-right.svg?color=white')];
+    @apply mr-2 inline-flex size-[14px] shrink-0 bg-[url('https://api.iconify.design/lucide:chevron-right.svg')] bg-contain bg-center bg-no-repeat pb-[3px] content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-right.svg?color=white')];
   }
   table.dataTable.dtr-column > tbody > tr > td.dtr-control.arrow-right::before,
   table.dataTable.dtr-column > tbody > tr > th.dtr-control.arrow-right::before,
@@ -769,7 +774,7 @@
   table.dataTable.dtr-column > tbody > tr.dtr-expanded th.dtr-control:before,
   table.dataTable.dtr-column > tbody > tr.dtr-expanded td.control:before,
   table.dataTable.dtr-column > tbody > tr.dtr-expanded th.control:before {
-    @apply mr-2 inline-block h-4 w-4 bg-[url('https://api.iconify.design/lucide:chevron-down.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-down.svg?color=white')];
+    @apply mr-2 inline-block size-[14px] shrink-0 bg-[url('https://api.iconify.design/lucide:chevron-down.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-down.svg?color=white')];
   }
 
   table.dataTable > tbody td.child {

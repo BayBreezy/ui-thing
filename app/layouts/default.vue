@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <MainNav />
+    <Mainnav />
     <main class="container grid grid-cols-1 lg:grid-cols-[290px_minmax(0,1fr)] lg:gap-10">
       <!-- Left sidebar with page links -->
       <div class="sticky top-14 z-20 hidden h-[calc(100dvh-57px)] border-r lg:block">

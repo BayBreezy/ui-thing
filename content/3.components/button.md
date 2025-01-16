@@ -760,6 +760,7 @@ To use these examples you will have to copy the code and adjust it for your own 
           name="lucide:circle-user"
         />
 
+        <!-- eslint-disable-next-line vue/html-self-closing -->
         <img
           v-if="previewUrl"
           :src="previewUrl"

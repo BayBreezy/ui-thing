@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MainNav />
+    <Mainnav />
     <ContentRenderer v-if="page" :value="page" />
   </div>
 </template>
