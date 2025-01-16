@@ -8,6 +8,7 @@ links:
   - title: Vue DataTables Docs
     href: https://datatables.net/blog/2022-06-22-vue
     icon: "logos:vue"
+label: New Examples
 ---
 
 ## Source code
@@ -27,6 +28,7 @@ import DataTablesCore from "datatables.net";
 import DataTable from "datatables.net-vue3";
 import JSZip from "jszip";
 
+import "datatables.net-buttons";
 import "datatables.net-buttons-dt";
 import "datatables.net-buttons/js/buttons.colVis.mjs";
 import "datatables.net-buttons/js/buttons.html5.mjs";
@@ -34,8 +36,12 @@ import "datatables.net-buttons/js/buttons.print.mjs";
 import "datatables.net-responsive-dt";
 import "datatables.net-searchbuilder-dt";
 import "datatables.net-select-dt";
+import "datatables.net-fixedcolumns-dt";
+import "datatables.net-fixedcolumns-dt/css/fixedColumns.dataTables.css";
+import "datatables.net-fixedheader-dt";
+import "datatables.net-fixedheader-dt/css/fixedHeader.dataTables.css";
 
-// @ts-ignore
+// @ts-expect-error - We are not creating a declaration file for this library
 window.JSZip = JSZip;
 
 DataTable.use(DataTablesCore);
@@ -396,6 +402,1167 @@ For this, you will actually need to add some custom classes for things to look h
     },
   };
 </script>
+```
+
+<!-- /automd -->
+
+::
+
+### Simple
+
+::ShowCase
+
+:DocsDatatableSimple
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableSimple.vue" code lang="vue" -->
+
+```vue [DocsDatatableSimple.vue]
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import type { Config } from "datatables.net";
+
+  const { data } = await useAsyncData(
+    async () => {
+      return Array.from({ length: 5 }, (item, index) => ({
+        id: index + 1,
+        name: faker.person.fullName(),
+        email: faker.internet.email().toLowerCase(),
+        location: faker.location.city(),
+        status: faker.helpers.arrayElement(["Active", "Inactive"]),
+        balance: faker.number.float({ fractionDigits: 2, min: 0, max: 1200 }),
+      }));
+    },
+    { default: () => [] }
+  );
+
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(value);
+  };
+
+  const options: Config = {
+    dom: `<'${tw`overflow-auto`}'t>`,
+    ordering: false,
+    columns: [
+      { title: "ID", data: "id", visible: false },
+      { title: "Name", data: "name" },
+      { title: "Email", data: "email" },
+      { title: "Location", data: "location" },
+      { title: "Status", data: "status" },
+      {
+        title: "Balance",
+        data: "balance",
+        className: `text-right`,
+        render: (data: number) => formatCurrency(data),
+      },
+    ],
+  };
+</script>
+
+<template>
+  <UiDatatable :data="data" :options />
+  <div class="flex items-center justify-between border-t px-6 py-6 text-sm">
+    <p>Total</p>
+    <p>
+      {{ formatCurrency(data.reduce((acc, item) => acc + item.balance, 0)) }}
+    </p>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+### Image
+
+::ShowCase
+
+:DocsDatatableImages
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableImages.vue" code lang="vue" -->
+
+```vue [DocsDatatableImages.vue]
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import type { Config } from "datatables.net";
+
+  const { data } = await useAsyncData(
+    async () => {
+      return Array.from({ length: 5 }, (item, index) => {
+        return {
+          id: index + 1,
+          name: faker.person.fullName(),
+          username: faker.internet.username().toLowerCase(),
+          image: faker.image.avatar().toLowerCase(),
+          email: faker.internet.email()?.toLowerCase(),
+          location: faker.location.city(),
+          status: faker.helpers.arrayElement(["Active", "Inactive"]),
+          balance: faker.number.float({ fractionDigits: 2, min: 0, max: 1200 }),
+        };
+      });
+    },
+    { default: () => [] }
+  );
+
+  type Item = (typeof data.value)[0];
+
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(value);
+  };
+
+  const options: Config = {
+    dom: `<'${tw`overflow-auto`}'t>`,
+    ordering: false,
+    columns: [
+      { title: "ID", data: "id", visible: false },
+      {
+        title: "Name",
+        data: null,
+        render: {
+          _: "name",
+          display: "#name",
+        },
+        searchable: false,
+      },
+      { title: "Email", data: "email" },
+      { title: "Location", data: "location" },
+      { title: "Status", data: "status" },
+      {
+        title: "Balance",
+        data: "balance",
+        className: `text-right`,
+        render: (data: number) => formatCurrency(data),
+      },
+    ],
+  };
+</script>
+
+<template>
+  <UiDatatable :data="data" :options>
+    <template #name="{ cellData }: { cellData: Item }">
+      <div class="flex items-center gap-3">
+        <UiAvatar class="size-10" :src="cellData.image" :alt="cellData.name" />
+        <div>
+          <div class="font-medium">{{ cellData.name }}</div>
+          <span class="mt-0.5 text-xs text-muted-foreground">@{{ cellData.username }}</span>
+        </div>
+      </div>
+    </template>
+  </UiDatatable>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+### No Horizontal
+
+::ShowCase
+
+:DocsDatatableNoHorizontal
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableNoHorizontal.vue" code lang="vue" -->
+
+```vue [DocsDatatableNoHorizontal.vue]
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import type { Config } from "datatables.net";
+
+  const { data } = await useAsyncData(
+    async () => {
+      return Array.from({ length: 5 }, (item, index) => ({
+        id: index + 1,
+        name: faker.person.fullName(),
+        email: faker.internet.email().toLowerCase(),
+        location: faker.location.city(),
+        status: faker.helpers.arrayElement(["Active", "Inactive"]),
+        balance: faker.number.float({ fractionDigits: 2, min: 0, max: 1200 }),
+      }));
+    },
+    { default: () => [] }
+  );
+
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(value);
+  };
+
+  const options: Config = {
+    dom: `<'${tw`overflow-auto`}'t>`,
+    ordering: false,
+    columns: [
+      { title: "ID", data: "id", visible: false },
+      { title: "Name", data: "name" },
+      { title: "Email", data: "email" },
+      { title: "Location", data: "location" },
+      { title: "Status", data: "status" },
+      {
+        title: "Balance",
+        data: "balance",
+        className: `text-right`,
+        render: (data: number) => formatCurrency(data),
+      },
+    ],
+  };
+</script>
+
+<template>
+  <UiDatatable class="nowrap hover" :data="data" :options />
+  <div class="flex items-center justify-between border-t px-6 py-6 text-sm">
+    <p>Total</p>
+    <p>
+      {{ formatCurrency(data.reduce((acc, item) => acc + item.balance, 0)) }}
+    </p>
+  </div>
+</template>
+
+<style scoped>
+  :deep(table.dataTable td) {
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+  }
+</style>
+```
+
+<!-- /automd -->
+
+::
+
+### Striped
+
+::ShowCase
+
+:DocsDatatableStriped
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableStriped.vue" code lang="vue" -->
+
+```vue [DocsDatatableStriped.vue]
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import type { Config } from "datatables.net";
+
+  const { data } = await useAsyncData(
+    async () => {
+      return Array.from({ length: 5 }, (item, index) => ({
+        id: index + 1,
+        name: faker.person.fullName(),
+        email: faker.internet.email().toLowerCase(),
+        location: faker.location.city(),
+        status: faker.helpers.arrayElement(["Active", "Inactive"]),
+        balance: faker.number.float({ fractionDigits: 2, min: 0, max: 1200 }),
+      }));
+    },
+    { default: () => [] }
+  );
+
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(value);
+  };
+
+  const options: Config = {
+    dom: `<'${tw`overflow-auto`}'t>`,
+    ordering: false,
+    columns: [
+      { title: "ID", data: "id", visible: false },
+      { title: "Name", data: "name" },
+      { title: "Email", data: "email" },
+      { title: "Location", data: "location" },
+      { title: "Status", data: "status" },
+      {
+        title: "Balance",
+        data: "balance",
+        className: `text-right`,
+        render: (data: number) => formatCurrency(data),
+      },
+    ],
+  };
+</script>
+
+<template>
+  <UiDatatable class="nowrap hover" :data="data" :options />
+  <div class="flex items-center justify-between border-t px-6 py-6 text-sm">
+    <p>Total</p>
+    <p>
+      {{ formatCurrency(data.reduce((acc, item) => acc + item.balance, 0)) }}
+    </p>
+  </div>
+</template>
+
+<style scoped>
+  :deep(table.dataTable td) {
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+  }
+  :deep(table.dataTable tbody tr) {
+    @apply border-none odd:bg-muted/50 hover:bg-transparent odd:hover:bg-muted/50;
+  }
+  :deep(table.dataTable tbody) {
+    @apply [&_td:first-child]:rounded-l-lg [&_td:last-child]:rounded-r-lg;
+    tr {
+      @apply rounded-lg;
+    }
+  }
+</style>
+```
+
+<!-- /automd -->
+
+::
+
+### Vertical Lines
+
+::ShowCase
+
+:DocsDatatableVerticalLines
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableVerticalLines.vue" code lang="vue" -->
+
+```vue [DocsDatatableVerticalLines.vue]
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import type { Config } from "datatables.net";
+
+  const { data } = await useAsyncData(
+    async () => {
+      return Array.from({ length: 5 }, (item, index) => ({
+        id: index + 1,
+        name: faker.person.fullName(),
+        email: faker.internet.email().toLowerCase(),
+        location: faker.location.city(),
+        status: faker.helpers.arrayElement(["Active", "Inactive"]),
+        balance: faker.number.float({ fractionDigits: 2, min: 0, max: 1200 }),
+      }));
+    },
+    { default: () => [] }
+  );
+
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(value);
+  };
+
+  const options: Config = {
+    dom: `<'${tw`overflow-auto`}'t>`,
+    ordering: false,
+    columns: [
+      { title: "ID", data: "id", visible: false },
+      { title: "Name", data: "name" },
+      { title: "Email", data: "email" },
+      { title: "Location", data: "location" },
+      { title: "Status", data: "status" },
+      {
+        title: "Balance",
+        data: "balance",
+        className: `text-right`,
+        render: (data: number) => formatCurrency(data),
+      },
+    ],
+  };
+</script>
+
+<template>
+  <UiDatatable class="nowrap hover cell-border" :data="data" :options />
+  <div class="flex items-center justify-between border-t px-6 py-6 text-sm">
+    <p>Total</p>
+    <p>
+      {{ formatCurrency(data.reduce((acc, item) => acc + item.balance, 0)) }}
+    </p>
+  </div>
+</template>
+
+<style scoped>
+  :deep(.dataTable.cell-border tr th) {
+    @apply border-r first:border-l;
+  }
+</style>
+```
+
+<!-- /automd -->
+
+::
+
+### Dense
+
+::ShowCase
+
+:DocsDatatableDense
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableDense.vue" code lang="vue" -->
+
+```vue [DocsDatatableDense.vue]
+<script lang="ts" setup>
+  import type { Config } from "datatables.net";
+
+  const programmingLanguages = [
+    {
+      id: "1",
+      name: "JavaScript",
+      releaseYear: "1995",
+      developer: "Brendan Eich",
+      typing: "Dynamic",
+      paradigm: "Multi-paradigm",
+      extension: ".js",
+      latestVersion: "ES2021",
+      popularity: "High",
+    },
+    {
+      id: "2",
+      name: "Python",
+      releaseYear: "1991",
+      developer: "Guido van Rossum",
+      typing: "Dynamic",
+      paradigm: "Multi-paradigm",
+      extension: ".py",
+      latestVersion: "3.10",
+      popularity: "High",
+    },
+    {
+      id: "3",
+      name: "Java",
+      releaseYear: "1995",
+      developer: "James Gosling",
+      typing: "Static",
+      paradigm: "Object-oriented",
+      extension: ".java",
+      latestVersion: "17",
+      popularity: "High",
+    },
+    {
+      id: "4",
+      name: "C++",
+      releaseYear: "1985",
+      developer: "Bjarne Stroustrup",
+      typing: "Static",
+      paradigm: "Multi-paradigm",
+      extension: ".cpp",
+      latestVersion: "C++20",
+      popularity: "High",
+    },
+    {
+      id: "5",
+      name: "Ruby",
+      releaseYear: "1995",
+      developer: "Yukihiro Matsumoto",
+      typing: "Dynamic",
+      paradigm: "Multi-paradigm",
+      extension: ".rb",
+      latestVersion: "3.0",
+      popularity: "Low",
+    },
+  ];
+
+  const options: Config = {
+    dom: `<'${tw`overflow-auto`}'t>`,
+    ordering: false,
+    columns: [
+      { title: "ID", data: "id", visible: false },
+      { title: "Name", data: "name", className: `font-semibold` },
+      { title: "Release Year", data: "releaseYear" },
+      { title: "Developer", data: "developer" },
+      { title: "Typing", data: "typing" },
+      { title: "Paradigm", data: "paradigm" },
+      { title: "Extension", data: "extension" },
+      { title: "Latest Version", data: "latestVersion" },
+      { title: "Popularity", data: "popularity" },
+    ],
+  };
+</script>
+
+<template>
+  <div class="overflow-hidden rounded-lg border border-border bg-background">
+    <UiDatatable class="nowrap compact hover" :data="programmingLanguages" :options />
+  </div>
+</template>
+
+<style scoped>
+  :deep(.dataTable thead tr) {
+    @apply bg-muted/50;
+  }
+</style>
+```
+
+<!-- /automd -->
+
+::
+
+### Row Selection
+
+::ShowCase
+
+:DocsDatatableRowSelection
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableRowSelection.vue" code lang="vue" -->
+
+```vue [DocsDatatableRowSelection.vue]
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import DataTable from "datatables.net";
+  import type { Config } from "datatables.net";
+
+  const { data } = await useAsyncData(
+    async () => {
+      return Array.from({ length: 5 }, (item, index) => ({
+        id: index + 1,
+        name: faker.person.fullName(),
+        email: faker.internet.email().toLowerCase(),
+        location: faker.location.city(),
+        status: faker.helpers.arrayElement(["Active", "Inactive"]),
+        balance: faker.number.float({ fractionDigits: 2, min: 0, max: 1200 }),
+      }));
+    },
+    { default: () => [] }
+  );
+
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(value);
+  };
+
+  const options: Config = {
+    dom: `<'${tw`overflow-auto`}'t>`,
+    ordering: false,
+    columns: [
+      { data: null, searchable: false, orderable: false, render: DataTable?.render?.select() },
+      { title: "ID", data: "id", visible: false },
+      { title: "Name", data: "name" },
+      { title: "Email", data: "email" },
+      { title: "Location", data: "location" },
+      { title: "Status", data: "status" },
+      {
+        title: "Balance",
+        data: "balance",
+        className: `text-right`,
+        render: (data: number) => formatCurrency(data),
+      },
+    ],
+    select: {
+      style: "multi",
+      selector: "td:first-child",
+    },
+  };
+</script>
+
+<template>
+  <UiDatatable :data="data" :options />
+  <div class="flex items-center justify-between border-t px-6 py-6 text-sm">
+    <p>Total</p>
+    <p>
+      {{ formatCurrency(data.reduce((acc, item) => acc + item.balance, 0)) }}
+    </p>
+  </div>
+</template>
+
+<style scoped>
+  :deep(.dataTable .dt-select-checkbox) {
+    @apply form-checkbox size-[18px] cursor-pointer rounded-sm border-border bg-background checked:bg-sky-500 checked:text-sky-500 indeterminate:bg-sky-500 hover:indeterminate:bg-sky-500 focus:outline-none focus:ring-ring focus:ring-sky-500 focus:ring-offset-background;
+  }
+</style>
+```
+
+<!-- /automd -->
+
+::
+
+### Card
+
+::ShowCase
+
+:DocsDatatableCard
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableCard.vue" code lang="vue" -->
+
+```vue [DocsDatatableCard.vue]
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import DataTable from "datatables.net";
+  import type { Config } from "datatables.net";
+
+  const { data } = await useAsyncData(
+    async () => {
+      return Array.from({ length: 5 }, (item, index) => ({
+        id: index + 1,
+        name: faker.person.fullName(),
+        email: faker.internet.email().toLowerCase(),
+        location: faker.location.city(),
+        status: faker.helpers.arrayElement(["Active", "Inactive"]),
+        balance: faker.number.float({ fractionDigits: 2, min: 0, max: 1200 }),
+      }));
+    },
+    { default: () => [] }
+  );
+
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(value);
+  };
+
+  const options: Config = {
+    dom: `<'${tw`overflow-auto`}'t>`,
+    ordering: false,
+    columns: [
+      { data: null, searchable: false, orderable: false, render: DataTable?.render?.select() },
+      { title: "ID", data: "id", visible: false },
+      { title: "Name", data: "name" },
+      { title: "Email", data: "email" },
+      { title: "Location", data: "location" },
+      { title: "Status", data: "status" },
+      {
+        title: "Balance",
+        data: "balance",
+        className: `text-right`,
+        render: (data: number) => formatCurrency(data),
+      },
+    ],
+    select: {
+      style: "multi",
+      selector: "td:first-child",
+    },
+  };
+</script>
+
+<template>
+  <div class="overflow-hidden rounded-lg border border-border bg-background">
+    <UiDatatable :data="data" :options />
+    <div class="flex items-center justify-between border-t px-6 py-6 text-sm">
+      <p>Total</p>
+      <p>
+        {{ formatCurrency(data.reduce((acc, item) => acc + item.balance, 0)) }}
+      </p>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+  :deep(.dataTable .dt-select-checkbox) {
+    @apply form-checkbox size-[18px] cursor-pointer rounded-sm border-border bg-background checked:bg-sky-500 checked:text-sky-500 indeterminate:bg-sky-500 hover:indeterminate:bg-sky-500 focus:outline-none focus:ring-ring focus:ring-sky-500 focus:ring-offset-background;
+  }
+</style>
+```
+
+<!-- /automd -->
+
+::
+
+### Scroll with Sticky Header
+
+::ShowCase
+
+:DocsDatatableScrollY
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableScrollY.vue" code lang="vue" -->
+
+```vue [DocsDatatableScrollY.vue]
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import DataTable from "datatables.net";
+  import type { Config } from "datatables.net";
+
+  const { data } = await useAsyncData(
+    async () => {
+      return Array.from({ length: 30 }, (item, index) => ({
+        id: index + 1,
+        name: faker.person.fullName(),
+        email: faker.internet.email().toLowerCase(),
+        location: faker.location.city(),
+        status: faker.helpers.arrayElement(["Active", "Inactive"]),
+        balance: faker.number.float({ fractionDigits: 2, min: 0, max: 1200 }),
+      }));
+    },
+    { default: () => [] }
+  );
+
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(value);
+  };
+
+  const options: Config = {
+    dom: `<'${tw`overflow-auto`}'t>`,
+    ordering: false,
+    paging: false,
+    columns: [
+      { data: null, searchable: false, orderable: false, render: DataTable?.render?.select() },
+      { title: "ID", data: "id", visible: false },
+      { title: "Name", data: "name" },
+      { title: "Email", data: "email" },
+      { title: "Location", data: "location" },
+      { title: "Status", data: "status" },
+      {
+        title: "Balance",
+        data: "balance",
+        className: `text-right`,
+        render: (data: number) => formatCurrency(data),
+      },
+    ],
+    select: {
+      style: "multi",
+      selector: "td:first-child",
+    },
+    scrollY: "300px",
+  };
+</script>
+
+<template>
+  <div class="overflow-hidden rounded-lg border border-border bg-background">
+    <UiDatatable :data="data" :options />
+    <div class="flex items-center justify-between border-t px-6 py-6 text-sm">
+      <p>Total</p>
+      <p>
+        {{ formatCurrency(data.reduce((acc, item) => acc + item.balance, 0)) }}
+      </p>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+  :deep(.dataTable .dt-select-checkbox) {
+    @apply form-checkbox size-[18px] cursor-pointer rounded-sm border-border bg-background checked:bg-sky-500 checked:text-sky-500 indeterminate:bg-sky-500 hover:indeterminate:bg-sky-500 focus:outline-none focus:ring-ring focus:ring-sky-500 focus:ring-offset-background;
+  }
+  :deep(.dt-scroll-body table thead tr) {
+    @apply first:hidden;
+  }
+</style>
+```
+
+<!-- /automd -->
+
+::
+
+### Badge & Icons
+
+::ShowCase
+
+:DocsDatatableBadge
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableBadge.vue" code lang="vue" -->
+
+```vue [DocsDatatableBadge.vue]
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import DataTable from "datatables.net";
+  import type { Config } from "datatables.net";
+
+  const { data } = await useAsyncData(
+    async () => {
+      return Array.from({ length: 30 }, (item, index) => ({
+        id: index + 1,
+        name: faker.person.fullName(),
+        email: faker.internet.email().toLowerCase(),
+        location: {
+          city: faker.location.city(),
+          country: faker.location.country(),
+          flag: faker.helpers.arrayElement(["🇺🇸", "🇨🇦", "🇬🇧", "🇦🇺", "🇳🇿"]),
+        },
+        status: faker.helpers.arrayElement(["Active", "Inactive"]),
+        balance: faker.number.float({ fractionDigits: 2, min: 0, max: 1200 }),
+      }));
+    },
+    { default: () => [] }
+  );
+
+  type Item = (typeof data.value)[0];
+
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(value);
+  };
+
+  const options: Config = {
+    dom: `<'${tw`overflow-auto`}'t>`,
+    ordering: false,
+    paging: false,
+    columns: [
+      { data: null, searchable: false, orderable: false, render: DataTable?.render?.select() },
+      { title: "ID", data: "id", visible: false },
+      { title: "Name", data: "name" },
+      { title: "Email", data: "email" },
+      {
+        title: "Location",
+        data: null,
+        render: {
+          _: "location.city",
+          display: "#location",
+        },
+      },
+      {
+        title: "Status",
+        data: null,
+        render: {
+          _: "status",
+          display: "#status",
+        },
+      },
+      {
+        title: "Balance",
+        data: "balance",
+        className: `text-right`,
+        render: (data: number) => formatCurrency(data),
+      },
+    ],
+    select: {
+      style: "multi",
+      selector: "td:first-child",
+    },
+    scrollY: "300px",
+  };
+</script>
+
+<template>
+  <div class="overflow-hidden rounded-lg border border-border bg-background">
+    <UiDatatable :data="data" :options>
+      <template #status="{ cellData }">
+        <UiBadge :variant="cellData.status == 'Inactive' ? 'outline' : 'default'">{{
+          cellData.status
+        }}</UiBadge>
+      </template>
+      <template #location="{ cellData }: { cellData: Item }">
+        <span
+          >{{ cellData.location.flag }} {{ cellData.location.city }},
+          {{ cellData.location.country }}</span
+        >
+      </template>
+    </UiDatatable>
+    <div class="flex items-center justify-between border-t px-6 py-6 text-sm">
+      <p>Total</p>
+      <p>
+        {{ formatCurrency(data.reduce((acc, item) => acc + item.balance, 0)) }}
+      </p>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+  :deep(.dataTable .dt-select-checkbox) {
+    @apply form-checkbox size-[18px] cursor-pointer rounded-sm border-border bg-background checked:bg-sky-500 checked:text-sky-500 indeterminate:bg-sky-500 hover:indeterminate:bg-sky-500 focus:outline-none focus:ring-ring focus:ring-sky-500 focus:ring-offset-background;
+  }
+  :deep(.dt-scroll-body table thead tr) {
+    @apply first:hidden;
+  }
+</style>
+```
+
+<!-- /automd -->
+
+::
+
+### Search & Sort
+
+::ShowCase
+
+:DocsDatatableSearchSort
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableSearchSort.vue" code lang="vue" -->
+
+```vue [DocsDatatableSearchSort.vue]
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import DataTable from "datatables.net";
+  import type { Config } from "datatables.net";
+
+  const { data } = await useAsyncData(
+    async () => {
+      return Array.from({ length: 8 }, (item, index) => ({
+        id: index + 1,
+        keyword: faker.lorem.sentence({ min: 3, max: 5 }),
+        intents: faker.helpers.arrayElements(
+          ["Informational", "Navigational", "Commercial", "Transactional"],
+          { min: 1, max: 2 }
+        ),
+        volume: faker.number.int({ max: 2000, min: 100 }),
+        cpc: faker.number.float({ min: 0.1, max: 10, fractionDigits: 2 }),
+        traffic: faker.number.int({ max: 100, min: 10 }),
+        link: faker.internet.url({ protocol: "https" }),
+      }));
+    },
+    { default: () => [] }
+  );
+
+  type Item = (typeof data.value)[0];
+  const search = ref("");
+
+  const filteredData = computed(() => {
+    if (!search.value) return data.value;
+    return data.value.filter((item) =>
+      item.keyword.toLowerCase().includes(search.value.toLowerCase())
+    );
+  });
+
+  const styles = {
+    Informational: "bg-indigo-400/20 text-indigo-500",
+    Navigational: "bg-emerald-400/20 text-emerald-500",
+    Commercial: "bg-amber-400/20 text-amber-500",
+    Transactional: "bg-rose-400/20 text-rose-500",
+  } as const;
+
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(value);
+  };
+
+  const options: Config = {
+    dom: `<'overflow-hidden rounded-lg border border-border bg-background'<'${tw`overflow-auto`}'t>>`,
+    paging: false,
+    columns: [
+      { data: null, searchable: false, orderable: false, render: DataTable?.render?.select() },
+      { title: "ID", data: "id", visible: false },
+      { title: "Keyword", data: "keyword", className: "font-semibold" },
+      {
+        title: "Intents",
+        searchable: false,
+        orderable: false,
+        data: null,
+        render: {
+          _: "intents",
+          display: "#intents",
+        },
+      },
+      { data: "volume", title: "Volume" },
+      {
+        data: "cpc",
+        title: "CPC",
+        render(d) {
+          return formatCurrency(d);
+        },
+      },
+      { data: "traffic", title: "Traffic" },
+      {
+        title: "Link",
+        orderable: false,
+        data: null,
+        render: {
+          _: "link",
+          display: "#link",
+        },
+      },
+    ],
+    select: {
+      style: "multi",
+      selector: "td:first-child",
+    },
+    order: [[1, "asc"]],
+    language: {
+      search: "",
+      searchPlaceholder: "Search by keyword",
+    },
+  };
+</script>
+
+<template>
+  <div>
+    <div class="mb-6 flex items-center">
+      <div class="w-full md:max-w-sm">
+        <!-- You can use the built in search as well -->
+        <UiVeeInput
+          v-model="search"
+          label="Keyword"
+          placeholder="Search by keyword"
+          icon="lucide:search"
+        />
+      </div>
+    </div>
+
+    <UiDatatable :data="filteredData" :options>
+      <template #intents="{ cellData }: { cellData: Item }">
+        <div class="flex gap-2">
+          <span
+            v-for="intent in cellData.intents"
+            :key="intent"
+            :class="[
+              styles[intent],
+              'flex size-5 items-center justify-center rounded text-xs font-medium',
+            ]"
+          >
+            {{ intent[0] }}
+          </span>
+        </div>
+      </template>
+      <template #link="{ cellData }: { cellData: Item }">
+        <a :href="cellData.link" target="_blank" class="hover:text-sky-500 hover:underline">
+          {{ cellData.link }}
+        </a>
+      </template>
+    </UiDatatable>
+  </div>
+</template>
+
+<style scoped>
+  :deep(.dataTable .dt-select-checkbox) {
+    @apply form-checkbox size-[18px] cursor-pointer rounded-sm border-border bg-background checked:bg-sky-500 checked:text-sky-500 indeterminate:bg-sky-500 hover:indeterminate:bg-sky-500 focus:outline-none focus:ring-ring focus:ring-sky-500 focus:ring-offset-background;
+  }
+</style>
+```
+
+<!-- /automd -->
+
+::
+
+### Fixed Columns
+
+this requires the fixedColumns plugin to be installed.
+
+```bash
+npm install --save datatables.net-fixedcolumns-dt
+```
+
+Then add the following to your `datatables` plugin file
+
+```ts
+import "datatables.net-fixedcolumns-dt";
+import "datatables.net-fixedcolumns-dt/css/fixedColumns.dataTables.css";
+```
+
+::ShowCase
+
+:DocsDatatableFixedColumn
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Datatable/DocsDatatableFixedColumn.vue" code lang="vue" -->
+
+```vue [DocsDatatableFixedColumn.vue]
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import DataTable from "datatables.net";
+  import type { Config } from "datatables.net";
+
+  const { data } = await useAsyncData(
+    async () => {
+      return Array.from({ length: 8 }, (item, index) => {
+        const firstName = faker.person.firstName();
+        const lastName = faker.person.lastName();
+        const email = faker.internet.email({ firstName, lastName }).toLowerCase();
+        return {
+          id: index + 1,
+          firstName,
+          lastName,
+          email,
+          location: `${faker.location.city()} ${faker.location.country()}`,
+          status: faker.helpers.arrayElement(["Active", "Inactive"]),
+          balance: faker.number.float({ min: 100, max: 1000, fractionDigits: 2 }),
+          department: faker.person.jobTitle(),
+          joinDate: faker.date.past({ years: 2 }),
+          lastActive: faker.date.recent({ days: 30 }),
+        };
+      });
+    },
+    { default: () => [] }
+  );
+
+  type Item = (typeof data.value)[0];
+
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(value);
+  };
+
+  const options: Config = {
+    dom: `<'overflow-hidden rounded-lg border border-border bg-background'<'${tw`overflow-auto`}'t>>`,
+    paging: false,
+    ordering: false,
+    columns: [
+      { data: null, searchable: false, orderable: false, render: DataTable?.render?.select() },
+      { title: "ID", data: "id", visible: false },
+      { title: "First name", data: "firstName" },
+      { title: "Last name", data: "lastName" },
+      { title: "Email", data: "email" },
+      { title: "Location", data: "location" },
+      { title: "Status", data: "status" },
+      {
+        title: "Balance",
+        data: "balance",
+        render: (d) => formatCurrency(d),
+      },
+      { title: "Department", data: "department" },
+      {
+        title: "Join date",
+        data: "joinDate",
+        render: (d) => useDateFormat(d, "YYYY-MM-DD").value,
+      },
+      {
+        title: "Last active",
+        data: "lastActive",
+        render: (d) => useDateFormat(d, "YYYY-MM-DD").value,
+      },
+    ],
+    select: {
+      style: "multi",
+      selector: "td:first-child",
+    },
+    order: [[2, "asc"]],
+    fixedColumns: {
+      left: 2,
+    },
+    scrollCollapse: true,
+    scrollX: true,
+    scrollY: "300px",
+  };
+</script>
+
+<template>
+  <div>
+    <UiDatatable :data="data" :options> </UiDatatable>
+  </div>
+</template>
+
+<style scoped>
+  :deep(.dataTable .dt-select-checkbox) {
+    @apply form-checkbox size-[18px] cursor-pointer rounded-sm border-border bg-background checked:bg-sky-500 checked:text-sky-500 indeterminate:bg-sky-500 hover:indeterminate:bg-sky-500 focus:outline-none focus:ring-ring focus:ring-sky-500 focus:ring-offset-background;
+  }
+  :deep(.dt-scroll-body table thead tr) {
+    @apply first:hidden;
+  }
+  :deep(.dtfc-fixed-start, .dtfc-fixed-left) {
+    @apply z-10 !bg-background;
+  }
+</style>
 ```
 
 <!-- /automd -->

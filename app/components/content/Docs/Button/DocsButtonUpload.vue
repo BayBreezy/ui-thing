@@ -17,7 +17,7 @@
           :src="previewUrl"
           alt="Preview of uploaded image"
           class="size-full object-cover"
-        />
+        >
       </div>
       <div class="relative inline-block">
         <UiButton aria-haspopup="dialog" @click="open()">

@@ -193,6 +193,8 @@ export default [
       "datatables.net-buttons-dt",
       "datatables.net-responsive-dt",
       "datatables.net-searchbuilder-dt",
+      "datatables.net-fixedcolumns-dt",
+      "datatables.net-fixedheader-dt",
       "datatables.net-select-dt",
       "datatables.net-vue3",
       "jszip",

@@ -3,6 +3,20 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## January 15, 2025 - Datatable
+
+Im this update, I added some examples for the [`Datatables`](/components/datatable) component.
+
+The examples are taken from the [Origin UI](https://originui.com/) library.
+
+Thanks to the team over there for all the great free examples ❤️.
+
+You can run this command to add the updated table component to your project
+
+```bash
+npx ui-thing@latest add datatable
+```
+
 ## January 14, 2025 - Table
 
 Im this update, I added some examples for the [`Table`](/components/table) component.
@@ -17,7 +31,7 @@ You can run this command to add the updated table component to your project
 npx ui-thing@latest add table
 ```
 
-## December 28, 2024 - Input & Textarea
+## December 28, 2024 - Avatar
 
 Im this update, I added some examples for the [`Avatar`](/components/avatar) component.
 

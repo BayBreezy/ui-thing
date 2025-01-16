@@ -10,6 +10,10 @@ import "datatables.net-buttons/js/buttons.print.mjs";
 import "datatables.net-responsive-dt";
 import "datatables.net-searchbuilder-dt";
 import "datatables.net-select-dt";
+import "datatables.net-fixedcolumns-dt";
+import "datatables.net-fixedcolumns-dt/css/fixedColumns.dataTables.css";
+import "datatables.net-fixedheader-dt";
+import "datatables.net-fixedheader-dt/css/fixedHeader.dataTables.css";
 
 // @ts-expect-error - We are not creating a declaration file for this library
 window.JSZip = JSZip;
