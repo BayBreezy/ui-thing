@@ -12,12 +12,13 @@
           name="lucide:circle-user"
         />
 
+        <!-- eslint-disable-next-line vue/html-self-closing -->
         <img
           v-if="previewUrl"
           :src="previewUrl"
           alt="Preview of uploaded image"
           class="size-full object-cover"
-        >
+        />
       </div>
       <div class="relative inline-block">
         <UiButton aria-haspopup="dialog" @click="open()">
