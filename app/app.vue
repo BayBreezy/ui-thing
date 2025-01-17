@@ -1,7 +1,7 @@
 <template>
   <div>
     <NuxtPwaManifest />
-    <NuxtLoadingIndicator />
+    <NuxtLoadingIndicator color="hsl(var(--primary))" />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

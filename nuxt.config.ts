@@ -138,6 +138,7 @@ export default defineNuxtConfig({
           theme: {
             default: "material-theme-palenight",
             dark: "one-dark-pro",
+            light: "material-theme-palenight",
           },
         },
       },
