@@ -1191,7 +1191,7 @@ For this, you will actually need to add some custom classes for things to look h
         location: {
           city: faker.location.city(),
           country: faker.location.country(),
-          flag: faker.helpers.arrayElement([""]),
+          flag: faker.helpers.arrayElement(["🇺🇸", "🇨🇦", "🇬🇧", "🇦🇺", "🇳🇿"]),
         },
         status: faker.helpers.arrayElement(["Active", "Inactive"]),
         balance: faker.number.float({ fractionDigits: 2, min: 0, max: 1200 }),
@@ -1824,7 +1824,7 @@ import "datatables.net-colreorder-dt/css/colReorder.dataTables.css";
         location: {
           city: faker.location.city(),
           country: faker.location.country(),
-          flag: faker.helpers.arrayElement([""]),
+          flag: faker.helpers.arrayElement(["🇺🇸", "🇨🇦", "🇬🇧", "🇦🇺", "🇳🇿"]),
         },
         status: faker.helpers.arrayElement(["Active", "Inactive"]),
         balance: faker.number.float({ fractionDigits: 2, min: 0, max: 1200 }),
