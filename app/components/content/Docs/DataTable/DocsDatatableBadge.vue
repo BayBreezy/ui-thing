@@ -12,7 +12,7 @@
         location: {
           city: faker.location.city(),
           country: faker.location.country(),
-          flag: faker.helpers.arrayElement(["🇺🇸", "🇨🇦", "🇬🇧", "🇦🇺", "🇳🇿"]),
+          flag: faker.helpers.arrayElement([""]),
         },
         status: faker.helpers.arrayElement(["Active", "Inactive"]),
         balance: faker.number.float({ fractionDigits: 2, min: 0, max: 1200 }),
