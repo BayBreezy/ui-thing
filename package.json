@@ -33,7 +33,7 @@
     "@fullcalendar/vue3": "^6.1.15",
     "@internationalized/number": "^3.6.0",
     "@morev/vue-transitions": "3.0.5",
-    "@nuxt/content": "^3.0.0-alpha.8",
+    "@nuxt/content": "^3.0.0",
     "@tanstack/vue-table": "^8.20.5",
     "@tiptap/extension-color": "^3.0.0",
     "@tiptap/extension-highlight": "^3.0.0",
