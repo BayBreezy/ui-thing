@@ -81,7 +81,7 @@
     "nuxt-swiper": "^2.0.0",
     "quill-blot-formatter": "^1.0.5",
     "radix-vue": "^1.9.12",
-    "tailwind-variants": "^0.3.0",
+    "tailwind-variants": "^0.3.1",
     "v-wave": "^3.0.2",
     "vaul-vue": "^0.2.0",
     "vue-currency-input": "^3.1.0",
