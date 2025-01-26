@@ -77,7 +77,7 @@
     "jszip": "^3.10.1",
     "lodash-es": "^4.17.21",
     "maska": "^3.0.4",
-    "nuxt-og-image": "^4.0.3",
+    "nuxt-og-image": "^4.1.2",
     "nuxt-swiper": "^2.0.0",
     "quill-blot-formatter": "^1.0.5",
     "radix-vue": "^1.9.12",
