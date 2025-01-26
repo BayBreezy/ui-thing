@@ -60,7 +60,7 @@
     "@vueuse/math": "^12.4.0",
     "apexcharts": "^4.3.0",
     "canvas-confetti": "^1.9.3",
-    "datatables.net-buttons": "^3.2.0",
+    "datatables.net-buttons": "^3.2.1",
     "datatables.net-buttons-dt": "^3.2.0",
     "datatables.net-colreorder-dt": "^2.0.4",
     "datatables.net-fixedcolumns-dt": "^5.0.4",
