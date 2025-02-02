@@ -1,7 +1,6 @@
 ---
 title: Pagination
 description: Displays data in paged format and provides navigation between pages.
-label: Updated
 links:
   - title: Radix-Vue
     href: https://www.radix-vue.com/components/pagination.html

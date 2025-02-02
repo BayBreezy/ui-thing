@@ -1,7 +1,6 @@
 ---
 title: Breadcrumbs
 description: Breadcrumbs are a great way to show hierarchy in a page.
-label: Updated
 ---
 
 ## Source code

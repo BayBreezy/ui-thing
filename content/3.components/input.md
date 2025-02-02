@@ -1,7 +1,6 @@
 ---
 title: Input
 description: Displays a form input field or a component that looks like an input field.
-label: Updated
 links:
   - title: Input Docs
     href: https://www.w3schools.com/tags/tag_input.asp

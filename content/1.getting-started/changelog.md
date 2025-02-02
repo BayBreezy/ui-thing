@@ -3,7 +3,9 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
-## January 15, 2025 - Tabs
+## January 15, 2025
+
+### Tabs
 
 Im this update, I added some examples for the [`Tabs`](/components/tabs) component.
 
@@ -17,7 +19,9 @@ You can run this command to add the updated tabs component to your project
 npx ui-thing@latest add tabs
 ```
 
-## January 15, 2025 - Datatable
+## January 15, 2025
+
+### Datatables
 
 Im this update, I added some examples for the [`Datatables`](/components/datatable) component.
 
@@ -31,7 +35,9 @@ You can run this command to add the updated table component to your project
 npx ui-thing@latest add datatable
 ```
 
-## January 14, 2025 - Table
+## January 14, 2025
+
+### Table
 
 Im this update, I added some examples for the [`Table`](/components/table) component.
 
@@ -45,7 +51,9 @@ You can run this command to add the updated table component to your project
 npx ui-thing@latest add table
 ```
 
-## December 28, 2024 - Avatar
+## December 28, 2024
+
+### Avatar
 
 Im this update, I added some examples for the [`Avatar`](/components/avatar) component.
 
@@ -53,7 +61,9 @@ The examples are taken from the [Origin UI](https://originui.com/) library.
 
 Thanks to the team over there for all the great free examples ❤️.
 
-## December 27, 2024 - Input & Textarea
+## December 27, 2024
+
+### Input & Textarea
 
 In this update, the [`Input`](/components/input) and [`Textarea`](/components/textarea) components were updated.
 
@@ -65,7 +75,9 @@ You can try them out by running
 npx ui-thing@latest add input textarea
 ```
 
-## December 23, 2024 - Breadcrumbs & Pagination
+## December 23, 2024
+
+### Breadcrumbs & Pagination
 
 In this update the [`Breadcrumbs`](/components/breadcrumbs) component got a little update. You can now pass a `slot` in the array of items & customize what is displayed in that slot.
 
@@ -110,7 +122,9 @@ You can try it out by running
 npx ui-thing@latest add pagination
 ```
 
-## December 21, 2024 - Carousel
+## December 21, 2024
+
+### Carousel
 
 In this update, the `Carousel` component was added.
 
@@ -122,7 +136,9 @@ You can try it out by running
 npx ui-thing@latest add carousel
 ```
 
-## December 17, 2024 - Alert
+## December 17, 2024
+
+### Alert
 
 In this update, the `Alert` component was updated.
 
@@ -140,7 +156,9 @@ The Goodies section was updated with the [Vue Tippy](/goodies/vue-tippy) package
 
 You can create cool tooltips with it. The `Tooltip` component still works so now you have two options to choose from 🎉.
 
-## December 15, 2024 - Sliders Sliders Sliders
+## December 15, 2024
+
+### Sliders
 
 In this update, the `Slider` component was updated to accommodate `vertical` orientation.
 
@@ -175,7 +193,9 @@ I added more button examples to the [Button](/components/button) page. Shoutout 
 
 Some dialog examples were added to the [Dialog](/components/dialog) page. These examples are taken from the [Origin UI](https://originui.com/) library as well. I hope to add some more examples soon.
 
-## December 1, 2024 - VueForm Slider
+## December 1, 2024
+
+### VueForm Slider
 
 Let me start by giving credit to the [VueForm Slider](https://github.com/vueform/slider) creators ❤️.
 
@@ -193,7 +213,9 @@ You can try it out by running
 npx ui-thing@latest add vee-vue-form-slider
 ```
 
-## November 20, 2024 - Sidebar & Placeholder
+## November 20, 2024
+
+### Sidebar & Placeholder
 
 In this release, the [`Sidebar`](/components/sidebar) component was added to the components section.
 
@@ -211,7 +233,9 @@ If you want to copy and paste some Sidebar blocks, you can check out the [Sideba
 
 The examples are taken from the shadcn-ui library 🙂.
 
-## November 14, 2024 - Input Examples
+## November 14, 2024
+
+### Input Examples
 
 In this update, a tonne of Input examples were added to the [Vee Input](/forms/veeinput) page.
 
@@ -221,7 +245,9 @@ Check them out & let me know what you think.
 
 The [`Password Strength`](/forms/veeinput#input-with-password-strength-indicator) example is really cool 😎.
 
-## October 31, 2024 - Button Styles
+## October 31, 2024
+
+### Button Styles
 
 In this release, I added a few button styles to the [Button](/components/button) page.
 

@@ -1,7 +1,6 @@
 ---
 title: Avatar
 description: An image element with a fallback for representing the user.
-label: New Examples
 links:
   - title: Radix-Vue
     href: https://www.radix-vue.com/components/avatar.html

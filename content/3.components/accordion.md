@@ -8,7 +8,6 @@ links:
   - title: API Reference
     href: https://www.radix-vue.com/components/accordion#api-reference
     icon: "icon-park-solid:api"
-label: New Examples
 ---
 
 ## Source code

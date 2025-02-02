@@ -1,7 +1,6 @@
 ---
 title: Alert
 description: A visually emphasized message that informs the user of an event.
-label: Updated
 ---
 
 ## Source code

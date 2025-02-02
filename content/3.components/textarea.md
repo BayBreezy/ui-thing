@@ -1,7 +1,6 @@
 ---
 title: Textarea
 description: Displays a form textarea or a component that looks like a textarea.
-label: Updated
 links:
   - title: Textarea Docs
     href: https://www.w3schools.com/tags/tag_textarea.asp
