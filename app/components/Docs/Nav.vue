@@ -17,15 +17,32 @@
           >{{ l.label }}</UiBadge
         >
       </div>
-      <div v-else class="flex flex-col gap-4">
-        <div class="flex items-center gap-2.5">
-          <Icon v-if="l.icon" :name="l.icon" class="h-4 w-4" />
-          <p class="text-[17px] font-medium sm:text-sm">{{ l.title }}</p>
-        </div>
-        <div class="pl-7">
+      <UiCollapsible v-else v-slot="{ open }" default-open class="flex flex-col gap-4">
+        <UiCollapsibleTrigger
+          class="flex items-center justify-between rounded-md px-3 py-2 hover:bg-accent"
+          :class="[route.path.startsWith(l.path) ? 'bg-accent' : '']"
+        >
+          <div class="flex items-center gap-2.5">
+            <Icon v-if="l.icon" :name="l.icon" class="h-4 w-4" />
+            <p class="text-[17px] font-medium sm:text-sm">{{ l.title }}</p>
+            <UiBadge
+              v-if="l.label"
+              class="rounded-md px-2 py-0 text-xs dark:bg-lime-500 md:rounded-full md:text-[10px]"
+              >{{ l.label }}</UiBadge
+            >
+          </div>
+          <Icon
+            name="lucide:chevron-down"
+            :class="[
+              'shrink-0 transform text-muted-foreground transition',
+              open ? 'rotate-180' : 'rotate-0',
+            ]"
+          />
+        </UiCollapsibleTrigger>
+        <UiCollapsibleContent class="pl-7">
           <DocsNav class="gap-4" :links="l.children" />
-        </div>
-      </div>
+        </UiCollapsibleContent>
+      </UiCollapsible>
     </template>
   </nav>
 </template>
@@ -34,6 +51,8 @@
   import { tv } from "tailwind-variants";
   import type { ContentNavigationItem } from "@nuxt/content";
 
+  const route = useRoute();
+
   type L = ContentNavigationItem & { icon?: string };
   const props = defineProps<{
     links?: L[];
@@ -41,7 +60,7 @@
   }>();
 
   const styles = tv({
-    base: "flex flex-col gap-6 sm:text-sm",
+    base: "flex flex-col gap-2 sm:text-sm",
   });
 
   const mobileNavState = useMobileNavState();
