@@ -3,6 +3,20 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## February 2, 2025
+
+### Form Builder
+
+In this update, I added the [`Form Builder`](/forms/form-builder) component.
+
+I stumbled across an example in the Vee Validate docs and thought it would be nice to have something like this at hand.
+
+You can try it out by running
+
+```bash
+npx ui-thing@latest add vee-form-builder
+```
+
 ## January 15, 2025
 
 ### Tabs

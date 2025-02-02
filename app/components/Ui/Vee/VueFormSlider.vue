@@ -1,14 +1,22 @@
 <template>
-  <Slider v-bind="{ ...forwarded, ...$attrs }" v-model="model" />
-  <TransitionSlide group tag="div">
-    <p v-if="hint && !errorMessage" key="hint" class="mt-1.5 text-sm text-muted-foreground">
-      {{ hint }}
-    </p>
+  <div class="w-full">
+    <UiLabel
+      v-if="label"
+      :for="inputId"
+      :class="[disabled && 'text-muted-foreground', errorMessage && 'text-destructive', 'mb-2']"
+      ><span>{{ label }} <span v-if="required" class="text-destructive">*</span></span></UiLabel
+    >
+    <Slider v-bind="{ ...forwarded, ...$attrs }" v-model="model" />
+    <TransitionSlide group tag="div">
+      <p v-if="hint && !errorMessage" key="hint" class="mt-1.5 text-sm text-muted-foreground">
+        {{ hint }}
+      </p>
 
-    <p v-if="errorMessage" key="errorMessage" class="mt-1.5 text-sm text-destructive">
-      {{ errorMessage }}
-    </p>
-  </TransitionSlide>
+      <p v-if="errorMessage" key="errorMessage" class="mt-1.5 text-sm text-destructive">
+        {{ errorMessage }}
+      </p>
+    </TransitionSlide>
+  </div>
 </template>
 
 <script lang="ts">
@@ -180,6 +188,12 @@
      * An object of class names that gets merged with the default values
      */
     classes?: Record<string, any>;
+    /**
+     * Whether the slider is required.
+     *
+     * @default false
+     */
+    required?: boolean;
   }
 
   export type SliderEmits = {
@@ -211,13 +225,21 @@
      * Emitted when the dragging ended.
      */
     end: [v: any];
+    /**
+     * Emitted when the slider's value is updated.
+     */
+    "update:modelValue": [v: any];
   };
 </script>
 <script lang="ts" setup>
   defineOptions({ inheritAttrs: false });
-  const props = defineProps<SliderProps>();
+  const props = withDefaults(defineProps<SliderProps>(), {
+    showTooltip: "drag",
+  });
 
   const emits = defineEmits<SliderEmits>();
+
+  const inputId = props.id || useId();
 
   const forwarded = useForwardPropsEmits(props, emits);
 
