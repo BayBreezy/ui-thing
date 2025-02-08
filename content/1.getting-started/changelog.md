@@ -7,7 +7,7 @@ description: See what has changed recently in UI Thing.
 
 ### Loader
 
-In this update, I added the [`Loader`](/forms/loader) component.
+In this update, I added the [`Loader`](/components/loader) component.
 
 It was recommended in this [issue](https://github.com/BayBreezy/ui-thing/issues/77).
 
