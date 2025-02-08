@@ -3,6 +3,20 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## February 7, 2025
+
+### Loader
+
+In this update, I added the [`Loader`](/forms/loader) component.
+
+It was recommended in this [issue](https://github.com/BayBreezy/ui-thing/issues/77).
+
+You can try it out by running
+
+```bash
+npx ui-thing@latest add loader
+```
+
 ## February 2, 2025
 
 ### Form Builder

@@ -376,6 +376,11 @@ export default [
     ],
   },
   {
+    name: "Loader",
+    value: "loader",
+    files: ["Loader.vue"],
+  },
+  {
     name: "Menubar",
     value: "menubar",
     files: [
