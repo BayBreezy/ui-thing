@@ -155,6 +155,17 @@
           </div>
         </slot>
       </template>
+      <template v-if="field.variant === 'NativeCheckbox'">
+        <slot
+          v-if="field.renderIf ? field.renderIf() : true"
+          :name="field.slot ? field.slot : field.name"
+          v-bind="field"
+        >
+          <div :class="field.wrapperClass">
+            <UiVeeNativeCheckbox v-bind="removeFields(field)" />
+          </div>
+        </slot>
+      </template>
     </template>
   </div>
 </template>
@@ -178,6 +189,7 @@
     options?: any[];
     variant:
       | "Checkbox"
+      | "NativeCheckbox"
       | "Input"
       | "Divider"
       | "CurrencyInput"

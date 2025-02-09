@@ -345,5 +345,42 @@
       label: "Volume",
       wrapperClass: tw`col-span-full md:col-span-6`,
     },
+    {
+      variant: "Divider",
+      name: "divider",
+      wrapperClass: tw`col-span-full`,
+      label: "Native Checkbox",
+    },
+    {
+      variant: "NativeCheckbox",
+      name: "vueFormNativeCheckbox",
+      label: "Enable Notifications",
+      wrapperClass: tw`col-span-full mb-8 mt-2`,
+      description: "Receive notifications on your device",
+    },
+    {
+      variant: "NativeCheckbox",
+      name: "vueFormNativeCheckbox2",
+      label: "Email Notifications",
+      value: "email",
+      description: "Get updates via email",
+      wrapperClass: tw`col-span-full md:col-span-4`,
+    },
+    {
+      variant: "NativeCheckbox",
+      name: "vueFormNativeCheckbox2",
+      label: "SMS Notifications",
+      description: "Get updates via sms",
+      value: "sms",
+      wrapperClass: tw`col-span-full md:col-span-4`,
+    },
+    {
+      variant: "NativeCheckbox",
+      name: "vueFormNativeCheckbox2",
+      label: "Call Notifications",
+      description: "Get updates via call",
+      value: "call",
+      wrapperClass: tw`col-span-full md:col-span-4`,
+    },
   ];
 </script>
