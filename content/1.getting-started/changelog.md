@@ -3,6 +3,42 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## February 9, 2025
+
+### Progress
+
+In this update, the [`Progress`](/components/progress) component was updated.
+
+There was an issue with how the transform value was being calculated.
+
+You can update it by running
+
+```bash
+npx ui-thing@latest add progress
+```
+
+### Description List
+
+The [`Description List`](/components/description-list) component was added.
+
+You can try it out by running
+
+```bash
+npx ui-thing@latest add description-list
+```
+
+### Native Checkbox
+
+The [`Native Checkbox`](/forms/veecheckbox-native) component was added.
+
+It was added because of some array issues I had with the Checkbox from Radix Vue.
+
+You can try it out by running
+
+```bash
+npx ui-thing@latest add vee-native-checkbox
+```
+
 ## February 7, 2025
 
 ### Loader

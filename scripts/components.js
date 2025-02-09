@@ -235,6 +235,15 @@ export default [
     ],
   },
   {
+    name: "Description List",
+    value: "description-list",
+    files: [
+      "DescriptionList/DescriptionList.vue",
+      "DescriptionList/Details.vue",
+      "DescriptionList/Term.vue",
+    ],
+  },
+  {
     name: "Divider",
     value: "divider",
     components: ["avatar"],
@@ -716,7 +725,7 @@ export default [
     files: ["VueSonner.client.vue"],
   },
   {
-    name: "Form Builder",
+    name: "Vee Form Builder",
     value: "vee-form-builder",
     deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
     askValidator: true,
@@ -736,6 +745,7 @@ export default [
       "vee-tags-input",
       "vee-radio-group",
       "vee-vue-form-slider",
+      "vee-native-checkbox",
     ],
     files: ["FormBuilder/FormBuilder.vue"],
   },
@@ -747,6 +757,15 @@ export default [
     nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
     components: ["checkbox", "label"],
     files: ["Vee/Checkbox.vue"],
+  },
+  {
+    name: "Vee Checkbox - Native",
+    value: "vee-native-checkbox",
+    deps: ["@vee-validate/nuxt", "@morev/vue-transitions"],
+    askValidator: true,
+    nuxtModules: ["@vee-validate/nuxt", "@morev/vue-transitions/nuxt"],
+    components: ["label"],
+    files: ["Vee/NativeCheckbox.vue"],
   },
   {
     name: "Vee CurrencyInput",

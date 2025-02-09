@@ -153,7 +153,7 @@ It can be closed manually or by pressing the `esc` key.
 ```vue [DocsLoaderBackdrop.vue]
 <template>
   <div class="flex flex-col items-center gap-5">
-    <UiLoader lock-scroll v-model="showLockedLoader" full-page class="size-14">
+    <UiLoader v-model="showLockedLoader" lock-scroll full-page class="size-14">
       <div class="flex flex-col items-center justify-center gap-3">
         <p>Loading... Press <UiKbd variant="outline">esc</UiKbd> to close</p>
         <UiButton size="sm" variant="outline" @click="showLockedLoader = false">
