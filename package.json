@@ -120,7 +120,7 @@
     "@vite-pwa/nuxt": "^0.10.6",
     "@vueuse/core": "^12.5.0",
     "@vueuse/nuxt": "^12.5.0",
-    "eslint": "^9.19.0",
+    "eslint": "^9.20.0",
     "husky": "^9.1.7",
     "nuxt": "^3.15.4",
     "prettier": "^3.4.2",
