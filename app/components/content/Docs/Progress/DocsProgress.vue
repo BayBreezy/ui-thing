@@ -1,5 +1,9 @@
 <template>
-  <div class="flex w-full justify-center">
+  <div class="mx-auto flex w-full max-w-sm flex-col gap-2">
+    <div class="flex justify-between text-sm">
+      <span>Progress</span>
+      <span class="text-muted-foreground">{{ value }}%</span>
+    </div>
     <UiProgress v-model="value" />
   </div>
 </template>
