@@ -2,6 +2,7 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 
 /**@type {import('tailwindcss').Config} */
 module.exports = {
+  content: ["./app/**/*.{vue,ts,js,jsx,tsx}"],
   darkMode: "class",
   theme: {
     extend: {

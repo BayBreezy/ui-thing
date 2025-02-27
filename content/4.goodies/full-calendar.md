@@ -169,7 +169,6 @@ NOTE: for old browsers, will need to restart watcher after changing a variable
     @apply text-base/10 font-bold tracking-tight;
   }
 }
-
 ```
 
 <!-- /automd -->

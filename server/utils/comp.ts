@@ -2655,13 +2655,69 @@ export default [
   {
     name: "Textarea",
     value: "textarea",
-    devDeps: ["@vueuse/core"],
     files: [
       {
         fileName: "Textarea.vue",
         dirPath: "app/components/Ui",
         fileContent:
           '<template>\n  <textarea\n    v-bind="props"\n    :value="modelValue"\n    :class="styles({ class: props.class })"\n    @input="handleInput"\n  />\n</template>\n\n<script lang="ts" setup>\n  const props = withDefaults(\n    defineProps<{\n      /** Additional classes to add to the textarea */\n      class?: any;\n      /** The name of the textarea */\n      name?: string;\n      /** The id of the textarea */\n      id?: string;\n      /** The placeholder of the textarea */\n      placeholder?: string;\n      /** Whether the textarea is required */\n      required?: boolean;\n      /** Whether the textarea is disabled */\n      disabled?: boolean;\n      /** The number of rows to display */\n      rows?: number;\n      /** The value of the textarea */\n      modelValue?: string;\n      /** The maximum number of characters allowed */\n      maxlength?: number;\n      /** The `RegExp` pattern of the textarea */\n      pattern?: string;\n    }>(),\n    {\n      modelValue: "",\n    }\n  );\n\n  const emit = defineEmits<{\n    "update:modelValue": [value: string];\n  }>();\n\n  const handleInput = (event: Event) => {\n    const target = event.target as HTMLTextAreaElement;\n    let value = target.value;\n\n    /* Validate input with pattern */\n    if (props.pattern) {\n      const regex = new RegExp(props.pattern);\n      value = Array.from(value)\n        .filter((char) => regex.test(char))\n        .join("");\n    }\n\n    /* Handle maxlength */\n    if (props.maxlength) {\n      value = value.slice(0, props.maxlength);\n    }\n\n    target.value = value;\n    emit("update:modelValue", value);\n  };\n\n  const styles = tv({\n    base: "form-textarea flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 ring-offset-background placeholder:text-muted-foreground focus:border-input focus:ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:[color-scheme:dark] sm:text-sm",\n  });\n</script>\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "Timeline",
+    value: "timeline",
+    files: [
+      {
+        fileName: "Timeline/Content.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="timeline-content"\n    v-bind="forwarded"\n    :class="styles({ class: props.class })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { reactiveOmit } from "@vueuse/core";\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const styles = tv({\n    base: "text-sm text-muted-foreground",\n  });\n  const props = defineProps<\n    PrimitiveProps & {\n      class?: any;\n    }\n  >();\n\n  const forwarded = useForwardProps(reactiveOmit(props, ["class"]));\n</script>\n',
+      },
+      {
+        fileName: "Timeline/Date.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive data-slot="timeline-date" v-bind="forwarded" :class="styles({ class: props.class })">\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { reactiveOmit } from "@vueuse/core";\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const styles = tv({\n    base: "mb-1 block text-xs font-medium text-muted-foreground sm:max-sm:group-data-[orientation=vertical]/timeline:h-4",\n  });\n  const props = withDefaults(\n    defineProps<\n      PrimitiveProps & {\n        class?: any;\n      }\n    >(),\n    {\n      as: "time",\n    }\n  );\n\n  const forwarded = useForwardProps(reactiveOmit(props, ["class"]));\n</script>\n',
+      },
+      {
+        fileName: "Timeline/Header.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive data-slot="timeline-header" :as :as-child>\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  defineProps<PrimitiveProps>();\n</script>\n',
+      },
+      {
+        fileName: "Timeline/Indicator.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="timeline-indicator"\n    aria-hidden="true"\n    v-bind="forwarded"\n    :class="styles({ class: props.class })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { reactiveOmit } from "@vueuse/core";\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const styles = tv({\n    base: "absolute size-4 rounded-full border-2 border-primary/20 group-data-[orientation=horizontal]/timeline:-top-6 group-data-[orientation=horizontal]/timeline:left-0 group-data-[orientation=vertical]/timeline:-left-6 group-data-[orientation=vertical]/timeline:top-0 group-data-[orientation=horizontal]/timeline:-translate-y-1/2 group-data-[orientation=vertical]/timeline:-translate-x-1/2 group-data-[completed=true]/timeline-item:border-primary",\n  });\n  const props = defineProps<\n    PrimitiveProps & {\n      class?: any;\n    }\n  >();\n\n  const forwarded = useForwardProps(reactiveOmit(props, ["class"]));\n</script>\n',
+      },
+      {
+        fileName: "Timeline/Item.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    :data-completed="timelineData?.model?.value && step <= timelineData?.model?.value"\n    :data-step="step"\n    data-slot="timeline-item"\n    aria-hidden="true"\n    v-bind="forwarded"\n    :class="styles({ class: props.class })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { reactiveOmit } from "@vueuse/core";\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { TimelineData } from "./Timeline.vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  import { timelineDataSymbol } from "./Timeline.vue";\n\n  const timelineData = inject<TimelineData>(timelineDataSymbol);\n\n  const styles = tv({\n    base: "group/timeline-item relative flex flex-1 flex-col gap-0.5 group-data-[orientation=horizontal]/timeline:mt-8 group-data-[orientation=vertical]/timeline:ml-8 group-data-[orientation=horizontal]/timeline:[&:not(:last-child)]:pe-8 group-data-[orientation=vertical]/timeline:[&:not(:last-child)]:pb-12 [&_[data-slot=timeline-separator]]:has-[+[data-completed=true]]:bg-primary",\n  });\n  const props = defineProps<\n    PrimitiveProps & {\n      class?: any;\n      step: number;\n    }\n  >();\n\n  const forwarded = useForwardProps(reactiveOmit(props, ["class", "step"]));\n</script>\n',
+      },
+      {
+        fileName: "Timeline/Separator.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="timeline-separator"\n    aria-hidden="true"\n    v-bind="forwarded"\n    :class="styles({ class: props.class })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { reactiveOmit } from "@vueuse/core";\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const styles = tv({\n    base: "absolute self-start bg-primary/10 group-last/timeline-item:hidden group-data-[orientation=horizontal]/timeline:-top-6 group-data-[orientation=vertical]/timeline:-left-6 group-data-[orientation=horizontal]/timeline:h-0.5 group-data-[orientation=vertical]/timeline:h-[calc(100%-1rem-0.25rem)] group-data-[orientation=horizontal]/timeline:w-[calc(100%-1rem-0.25rem)] group-data-[orientation=vertical]/timeline:w-0.5 group-data-[orientation=horizontal]/timeline:-translate-y-1/2 group-data-[orientation=horizontal]/timeline:translate-x-[1.125rem] group-data-[orientation=vertical]/timeline:-translate-x-1/2 group-data-[orientation=vertical]/timeline:translate-y-[1.125rem]",\n  });\n  const props = defineProps<\n    PrimitiveProps & {\n      class?: any;\n    }\n  >();\n\n  const forwarded = useForwardProps(reactiveOmit(props, ["class"]));\n</script>\n',
+      },
+      {
+        fileName: "Timeline/Timeline.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    :data-orientation="orientation"\n    data-slot="timeline"\n    v-bind="forwarded"\n    :class="styles({ class: props.class })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { reactiveOmit } from "@vueuse/core";\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n  import type { ModelRef } from "vue";\n\n  export type TimelineData = {\n    model: ModelRef<number | undefined, string, number | undefined, number | undefined>;\n    orientation: "horizontal" | "vertical";\n  };\n  export type TimelineProps = PrimitiveProps & {\n    class?: any;\n    orientation?: "horizontal" | "vertical";\n    modelValue?: number | undefined;\n  };\n  export const timelineDataSymbol = Symbol("timeline-data");\n</script>\n\n<script lang="ts" setup>\n  const styles = tv({\n    base: "group/timeline flex data-[orientation=horizontal]:w-full data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col",\n  });\n  const model = defineModel<number | undefined>({ default: 1 });\n  const props = withDefaults(defineProps<TimelineProps>(), {\n    orientation: "vertical",\n  });\n  const forwarded = useForwardProps(reactiveOmit(props, ["modelValue", "class", "orientation"]));\n  provide<TimelineData>(timelineDataSymbol, {\n    model,\n    orientation: props.orientation,\n  });\n</script>\n',
+      },
+      {
+        fileName: "Timeline/Title.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="timeline-title"\n    aria-hidden="true"\n    v-bind="forwarded"\n    :class="styles({ class: props.class })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { reactiveOmit } from "@vueuse/core";\n  import { Primitive, useForwardProps } from "radix-vue";\n  import type { PrimitiveProps } from "radix-vue";\n\n  const styles = tv({\n    base: "text-sm font-medium",\n  });\n  const props = defineProps<\n    PrimitiveProps & {\n      class?: any;\n    }\n  >();\n\n  const forwarded = useForwardProps(reactiveOmit(props, ["class"]));\n</script>\n',
       },
     ],
     utils: [],

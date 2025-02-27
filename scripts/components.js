@@ -670,9 +670,21 @@ export default [
   {
     name: "Textarea",
     value: "textarea",
-    devDeps: ["@vueuse/core"],
-
     files: ["Textarea.vue"],
+  },
+  {
+    name: "Timeline",
+    value: "timeline",
+    files: [
+      "Timeline/Content.vue",
+      "Timeline/Date.vue",
+      "Timeline/Header.vue",
+      "Timeline/Indicator.vue",
+      "Timeline/Item.vue",
+      "Timeline/Separator.vue",
+      "Timeline/Timeline.vue",
+      "Timeline/Title.vue",
+    ],
   },
   {
     name: "Toast",

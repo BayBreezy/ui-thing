@@ -324,7 +324,6 @@ In order to make the editor match the design of this website (and the whole shad
     }
   }
 }
-
 ```
 
 <!-- /automd -->

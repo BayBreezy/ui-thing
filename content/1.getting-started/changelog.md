@@ -3,6 +3,18 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## February 27, 2025
+
+### Timeline
+
+In this update, the [`Timeline`](/components/timline) component was added.
+
+You can add it by running
+
+```bash
+npx ui-thing@latest add timeline
+```
+
 ## February 9, 2025
 
 ### Progress
