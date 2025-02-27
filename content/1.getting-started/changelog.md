@@ -7,7 +7,7 @@ description: See what has changed recently in UI Thing.
 
 ### Timeline
 
-In this update, the [`Timeline`](/components/timline) component was added.
+In this update, the [`Timeline`](/components/timeline) component was added.
 
 You can add it by running
 
