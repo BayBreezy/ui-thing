@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <UiDrawer should-scale-background>
+    <UiDrawer v-model:open="isOpen" should-scale-background>
       <UiDrawerTrigger as-child>
         <UiButton variant="outline">Open Drawer</UiButton>
       </UiDrawerTrigger>
@@ -44,6 +44,8 @@
 
 <script lang="ts" setup>
   import { z } from "zod";
+
+  const isOpen = defineModel<boolean>();
 
   const { handleSubmit, isSubmitting } = useForm({
     validationSchema: toTypedSchema(

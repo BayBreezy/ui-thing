@@ -33,7 +33,7 @@ We can bring the different components together to make a simple drawer.
 ```vue [DocsDrawerBasic.vue]
 <template>
   <div class="text-center">
-    <UiDrawer should-scale-background>
+    <UiDrawer v-model:open="isOpen" should-scale-background>
       <UiDrawerTrigger as-child>
         <UiButton variant="outline">Open Drawer</UiButton>
       </UiDrawerTrigger>
@@ -78,6 +78,8 @@ We can bring the different components together to make a simple drawer.
 <script lang="ts" setup>
   import { z } from "zod";
 
+  const isOpen = defineModel<boolean>();
+
   const { handleSubmit, isSubmitting } = useForm({
     validationSchema: toTypedSchema(
       z.object({
@@ -113,7 +115,7 @@ We can add an image inside as well.
 ```vue [DocsDrawerImage.vue]
 <template>
   <div class="text-center">
-    <UiDrawer>
+    <UiDrawer v-model:open="isOpen">
       <UiDrawerTrigger as-child>
         <UiButton variant="outline">View image</UiButton>
       </UiDrawerTrigger>
@@ -175,6 +177,7 @@ We can add an image inside as well.
   const showMessage = (message: string) => {
     useSonner(message);
   };
+  const isOpen = defineModel<boolean>();
 </script>
 ```
 

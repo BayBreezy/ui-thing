@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <UiDrawer>
+    <UiDrawer v-model:open="isOpen">
       <UiDrawerTrigger as-child>
         <UiButton variant="outline">View image</UiButton>
       </UiDrawerTrigger>
@@ -62,4 +62,5 @@
   const showMessage = (message: string) => {
     useSonner(message);
   };
+  const isOpen = defineModel<boolean>();
 </script>
