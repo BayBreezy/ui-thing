@@ -39,15 +39,8 @@
               </div>
             </UiDropdownMenuTrigger>
             <UiDropdownMenuContent class="min-w-[180px]" align="start" :side-offset="5">
-              <UiDropdownMenuItem as-child>
-                <NuxtLink class="cursor-pointer hover:bg-muted" to="/examples/cards"
-                  >Cards</NuxtLink
-                >
-              </UiDropdownMenuItem>
-              <UiDropdownMenuItem as-child>
-                <NuxtLink class="cursor-pointer hover:bg-muted" to="/examples/dashboard"
-                  >Dashboard</NuxtLink
-                >
+              <UiDropdownMenuItem v-for="l in localProjects" :key="l.name" as-child>
+                <NuxtLink class="cursor-pointer hover:bg-muted" :to="l.link">{{ l.name }}</NuxtLink>
               </UiDropdownMenuItem>
               <template v-for="l in externalProjects" :key="l.name">
                 <UiDropdownMenuItem as-child>
@@ -155,5 +148,11 @@
   const externalProjects = [
     { name: "Settings Dashboard", link: "https://settings-dash.behonbaker.com/" },
     { name: "ETag Topup UI", link: "https://etag-ui.behonbaker.com/" },
+    { name: "UI Todo", link: "https://ui-todo.behonbaker.com/" },
+  ];
+  const localProjects = [
+    { name: "Cards", link: "/examples/cards" },
+    { name: "Dashboard", link: "/examples/dashboard" },
+    { name: "Ticket Dashboard", link: "/examples/ticket-dashboard" },
   ];
 </script>
