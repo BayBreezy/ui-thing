@@ -1,13 +1,18 @@
 <template>
   <div class="mx-auto h-[calc(100vh-57px)] max-w-screen-2xl">
-    <UiSplitter direction="horizontal">
+    <UiSplitter
+      id="ticket-dashboard-splitter-group"
+      direction="horizontal"
+      @layout="layout = $event"
+    >
       <UiSplitterPanel
         v-if="breakpoints.isGreaterOrEqual('md')"
+        id="ticket-dashboard-splitter-panel-1"
         v-slot="{ isCollapsed }"
         collapsible
         :collapsed-size="xlUp ? 4 : lg ? 5 : 8"
         :min-size="xlUp ? 18 : lg ? 20 : 28"
-        :default-size="xlUp ? 22 : lg ? 25 : 35"
+        :default-size="layout[0]"
         :max-size="xlUp ? 26 : lg ? 30 : 40"
         class="group/splitter"
       >
@@ -38,8 +43,12 @@
           </nav>
         </UiScrollArea>
       </UiSplitterPanel>
-      <UiSplitterHandle v-if="breakpoints.isGreaterOrEqual('md')" with-handle />
-      <UiSplitterPanel>
+      <UiSplitterHandle
+        v-if="breakpoints.isGreaterOrEqual('md')"
+        id="ticket-dashboard-splitter-handle-1"
+        with-handle
+      />
+      <UiSplitterPanel id="ticket-dashboard-splitter-panel-2" :default-size="layout[1]">
         <UiNavbar sticky>
           <UiContainer class="flex h-16 items-center justify-between lg:px-6">
             <div class="flex items-center gap-2">
@@ -228,8 +237,11 @@
   const lg = breakpoints.lg.value;
   const xlUp = breakpoints.isGreaterOrEqual("xl");
   const showMenu = ref(false);
+  const period = useState("ticket-dashboard-period", () => "Yearly");
 
-  const period = ref("Yearly");
+  const layout = useCookie<number[]>("ticket-dashboard-layout", {
+    default: () => [xlUp ? 22 : lg ? 25 : 35, xlUp ? 78 : lg ? 75 : 65],
+  });
 
   // return the number formatted as K or M -> 1.2K or 1.2M
   const shortenCurrency = (v: number = 0) => {
