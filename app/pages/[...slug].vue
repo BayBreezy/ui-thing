@@ -31,11 +31,12 @@
 </template>
 
 <script lang="ts" setup>
+  import { kebabCase } from "lodash-es";
   import { useActiveScroll } from "vue-use-active-scroll";
   import type { Targets } from "vue-use-active-scroll";
 
   const route = useRoute();
-  const { data: page } = await useAsyncData(route.path, () => {
+  const { data: page } = await useAsyncData(kebabCase(route.path), () => {
     return queryCollection("content").path(route.path).first();
   });
   if (!page.value) {

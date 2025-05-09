@@ -15,8 +15,10 @@
 </template>
 
 <script lang="ts" setup>
+  import { kebabCase } from "lodash-es";
+
   const route = useRoute();
-  const { data: page } = await useAsyncData(route.path, () => {
+  const { data: page } = await useAsyncData(kebabCase(route.path), () => {
     return queryCollection("content").path(route.path).first();
   });
   const { data: navigation } = await useAsyncData(
