@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-  useServerSeoMeta({
+  useSeoMeta({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     keywords: SITE_KEYWORDS.join(", "),
