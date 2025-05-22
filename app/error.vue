@@ -14,7 +14,7 @@
           :key="index"
           class="group cursor-pointer px-6 py-4 text-left"
           :title="`Click to visit the ${item.title} page`"
-          @click="clearError({ redirect: item._path })"
+          @click="clearError({ redirect: item.path })"
         >
           <h3 class="font-semibold underline-offset-2 group-hover:underline">{{ item.title }}</h3>
           <p class="text-muted-foreground">
@@ -34,7 +34,7 @@
   });
 
   const { data: topComponents } = await useAsyncData("first-six", () =>
-    queryContent("components").skip(1).limit(6).find()
+    queryCollection("content").limit(6).skip(15).all()
   );
 
   const title = computed(() => {
