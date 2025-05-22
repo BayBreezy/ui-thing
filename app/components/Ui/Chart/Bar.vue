@@ -21,6 +21,7 @@
         :color="colors"
         :rounded-corners="roundedCorners"
         :bar-padding="0.05"
+        :orientation="orientation"
         :attributes="{
           [selectorsBar]: {
             opacity: (d: Data, i: number) => {
@@ -125,6 +126,11 @@
      * @default true
      */
     showGridLine?: boolean;
+    /**
+     * Controls the orientation of the chart.
+     * @default "vertical"
+     */
+    orientation?: "vertical" | "horizontal";
   }
 </script>
 
@@ -165,6 +171,7 @@
       showTooltip: true,
       showLegend: true,
       showGridLine: true,
+      orientation: "vertical",
     }
   );
   const emits = defineEmits<{

@@ -1,6 +1,7 @@
 <template>
   <UiChartBar
     :data="data"
+    orientation="horizontal"
     index="name"
     :categories="['Total', 'Predicted']"
     :y-formatter="
