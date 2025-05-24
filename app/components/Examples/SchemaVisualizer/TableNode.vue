@@ -11,12 +11,12 @@
         <span class="font-medium">{{ data.label }}</span>
       </div>
       <UiButton
+        v-tippy="'Open edit menu'"
         size="icon"
         variant="ghost"
         class="-my-2 -me-2 text-muted-foreground/60 shadow-none hover:bg-transparent hover:text-muted-foreground"
         aria-label="Open edit menu"
         title="Open edit menu"
-        v-tippy="'Open edit menu'"
       >
         <Icon name="lucide:ellipsis-vertical" class="size-5" aria-hidden="true" />
       </UiButton>
@@ -49,9 +49,9 @@
               "
             >
               <Handle
+                :id="field.name"
                 :type="field.isPrimary ? 'source' : 'target'"
                 :position="field.isPrimary ? Position.Left : Position.Right"
-                :id="field.name"
                 class="size-2.5 rounded-full border-2 border-background transition"
                 :class="[selected ? '!bg-primary' : '!bg-foreground/60']"
                 :connectable="false"

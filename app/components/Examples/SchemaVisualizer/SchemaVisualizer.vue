@@ -4,7 +4,7 @@
       <Background variant="dots" :gap="20" :size="3" pattern-color="hsl(var(--muted))" />
       <MiniMap
         node-color="hsl(var(--muted))"
-        nodeStrokeColor="hsl(var(--primary))"
+        node-stroke-color="hsl(var(--primary))"
         :node-border-radius="30"
         mask-color="hsl(var(--muted))"
         :mask-border-radius="30"
@@ -76,5 +76,5 @@
   const nodes = ref(initialSchemaNodes);
   const edges = ref(initialSchemaEdges);
 
-  const { fitView, toObject, zoomIn, zoomOut } = useVueFlow();
+  const { fitView, zoomIn, zoomOut } = useVueFlow();
 </script>

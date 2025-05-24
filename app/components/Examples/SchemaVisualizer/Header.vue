@@ -25,10 +25,10 @@
       <div class="flex flex-1 items-center justify-end gap-4">
         <ExamplesSchemaVisualizerParticipants />
         <UiButton
-          @click="handleShare()"
           v-tippy.bottom="'Share with someone new'"
           size="sm"
           class="rounded-lg text-sm"
+          @click="handleShare()"
         >
           Share
         </UiButton>

@@ -1,10 +1,10 @@
 <template>
   <div className="flex -space-x-[0.6rem] max-sm:hidden">
     <UiAvatar
-      v-tippy.bottom="`Already shared with ${item.name.first}`"
-      class="size-8"
       v-for="item in data?.results"
       :key="item.email"
+      v-tippy.bottom="`Already shared with ${item.name.first}`"
+      class="size-8"
     >
       <UiAvatarImage :src="item.picture.thumbnail" :alt="item.name.first" />
     </UiAvatar>
