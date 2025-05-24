@@ -8,7 +8,6 @@ links:
   - title: API Reference
     href: https://tanstack.com/table/v8/docs/api/core/column-def
     icon: "icon-park-solid:api"
-label: New Examples
 ---
 
 ## Source code

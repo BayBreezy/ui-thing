@@ -1,7 +1,6 @@
 ---
 title: Table
 description: A responsive table component.
-label: New Examples
 ---
 
 ## Source code

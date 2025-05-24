@@ -8,7 +8,6 @@ links:
   - title: Vue DataTables Docs
     href: https://datatables.net/blog/2022-06-22-vue
     icon: "logos:vue"
-label: New Examples
 ---
 
 ## Source code

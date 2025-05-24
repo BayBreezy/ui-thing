@@ -154,5 +154,6 @@
     { name: "Cards", link: "/examples/cards" },
     { name: "Dashboard", link: "/examples/dashboard" },
     { name: "Ticket Dashboard", link: "/examples/ticket-dashboard" },
+    { name: "Schema Visualizer", link: "/examples/schema-visualizer" },
   ];
 </script>

@@ -1,7 +1,6 @@
 ---
 title: Checkbox - Native
 description: The native checkbox allows you to do regular checkbox stuff like binding to an array of values.
-label: New
 ---
 
 ## Source code

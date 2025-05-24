@@ -1,7 +1,6 @@
 ---
 title: Loader
 description: A loader indicates an unknown wait time or process duration, keeping users informed and enhancing their experience by providing visual feedback during delays.
-label: New
 ---
 
 ## Source code

@@ -1,7 +1,6 @@
 ---
 title: Tabs
 description: A set of layered sections of content—known as tab panels—that are displayed one at a time.
-label: New Examples
 links:
   - title: Radix-Vue
     href: https://www.radix-vue.com/components/tabs.html

@@ -1,7 +1,6 @@
 ---
 title: Progress
 description: Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
-label: Updated
 links:
   - title: Radix-Vue
     href: https://www.radix-vue.com/components/progress.html

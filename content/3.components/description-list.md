@@ -1,7 +1,6 @@
 ---
 title: Description List
 description: A description list is typically used to display pairs of terms and details, like in invoices or product specifications, enhancing clarity and organization of information.
-label: New
 ---
 
 ## Source code

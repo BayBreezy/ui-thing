@@ -1,7 +1,6 @@
 ---
 title: Timeline
 description: A timeline component to display a series of events in chronological order.
-label: New
 ---
 
 ## Credits
