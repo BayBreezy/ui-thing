@@ -77,7 +77,7 @@
     "datatables.net-select-dt": "^3.1.0",
     "datatables.net-vue3": "^3.0.4",
     "date-fns": "4.1.0",
-    "dayjs": "^1.11.17",
+    "dayjs": "^1.11.18",
     "embla-carousel": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-vue": "^8.6.0",
