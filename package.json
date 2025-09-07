@@ -64,7 +64,7 @@
     "@vueup/vue-quill": "^1.2.0",
     "@vueuse/math": "^13.9.0",
     "@yuta-inoue-ph/nuxt-vcalendar": "^1.1.0",
-    "apexcharts": "^5.3.4",
+    "apexcharts": "^5.3.5",
     "better-sqlite3": "^12.2.0",
     "canvas-confetti": "^1.9.3",
     "datatables.net-buttons": "^3.2.4",
