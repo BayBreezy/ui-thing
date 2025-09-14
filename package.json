@@ -51,7 +51,7 @@
     "@tiptap/pm": "^3.4.2",
     "@tiptap/starter-kit": "^3.4.2",
     "@tiptap/vue-3": "^3.4.2",
-    "@unovis/ts": "^1.6.0",
+    "@unovis/ts": "^1.6.1",
     "@unovis/vue": "^1.6.0",
     "@vee-validate/nuxt": "^4.15.1",
     "@vee-validate/yup": "^4.15.1",
