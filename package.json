@@ -130,7 +130,7 @@
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/mdc": "^0.17.4",
     "@tailwindcss/forms": "^0.5.10",
-    "@tailwindcss/typography": "^0.5.17",
+    "@tailwindcss/typography": "^0.5.18",
     "@types/better-sqlite3": "^7.6.13",
     "@types/canvas-confetti": "^1.9.0",
     "@types/jquery": "^3.5.33",
