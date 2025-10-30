@@ -17,9 +17,7 @@ Shout out to [Magic UI](https://magicui.design/docs/components/confetti) for the
 
 To get started, you will need to install the package. You can visit the [Canvas Confetti](https://github.com/catdad/canvas-confetti) page for more details... All the details 🙂.
 
-```bash
-npm install canvas-confetti
-```
+:prose-pm-install{name="canvas-confetti"}
 
 ::
 
@@ -31,16 +29,7 @@ Create a composable in your `composables` directory. You can name it `useConfett
 
 Add this to the file:
 
-```ts
-/**
- * Easily add confetti effects to your Nuxt application
- *
- * @see https://github.com/catdad/canvas-confetti
- */
-import useConfetti from "canvas-confetti";
-
-export default useConfetti;
-```
+:prose-code-snippet{file="/composables/useConfetti.ts" language="ts" title="useConfetti Composable" meta="noFormat"}
 
 ::
 
