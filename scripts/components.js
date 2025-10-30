@@ -33,6 +33,7 @@ export default [
       "AlertDialog/Trigger.vue",
     ],
   },
+  { name: "Animated Tooltip", value: "animated-tooltip", files: ["AnimatedTooltip.vue"] },
   { name: "Aspect Ratio", value: "aspect-ratio", files: ["AspectRatio.vue"] },
   {
     name: "Autocomplete",

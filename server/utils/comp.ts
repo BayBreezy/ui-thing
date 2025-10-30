@@ -142,6 +142,21 @@ export default [
     plugins: [],
   },
   {
+    name: "Animated Tooltip",
+    value: "animated-tooltip",
+    files: [
+      {
+        fileName: "AnimatedTooltip.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <div\n    v-for="item in constructedItems"\n    :key="item.id"\n    class="group relative -mr-4"\n    @mouseenter="(e) => handleMouseEnter(e, item.id)"\n    @mouseleave="hoveredIndex = null"\n    @mousemove="handleMouseMove"\n  >\n    <!-- Tooltip -->\n    <Motion\n      v-if="hoveredIndex === item.id"\n      :initial="{\n        opacity: 0,\n        y: 20,\n        scale: 0.6,\n      }"\n      :animate="{\n        opacity: 1,\n        y: 0,\n        scale: 1,\n      }"\n      :transition="{\n        type: \'spring\',\n        stiffness: 260,\n        damping: 10,\n      }"\n      :exit="{\n        opacity: 0,\n        y: 20,\n        scale: 0.6,\n      }"\n      :style="{\n        translateX: `${translation}px`,\n        rotate: `${rotation}deg`,\n      }"\n      class="absolute -top-16 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center justify-center rounded-md bg-black px-4 py-2 text-xs whitespace-nowrap shadow-xl"\n    >\n      <div\n        class="absolute right-1/2 -bottom-px z-30 me-1 h-px w-2/5 translate-x-1/2 bg-linear-to-r from-transparent via-emerald-500 to-transparent"\n      />\n      <div\n        class="absolute -bottom-px left-1/2 z-30 ms-1 h-px w-2/5 -translate-x-1/2 bg-linear-to-r from-transparent via-sky-500 to-transparent"\n      />\n      <div class="relative z-30 text-base font-bold text-white">\n        {{ item.title }}\n      </div>\n      <div v-if="item.description" class="text-xs text-white">{{ item.description }}</div>\n    </Motion>\n\n    <!-- Avatar Image -->\n    <img\n      :src="item.image"\n      :alt="item.title"\n      class="relative !m-0 size-14 rounded-full border-2 border-white object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105"\n    />\n  </div>\n</template>\n\n<script setup lang="ts">\n  import { Motion } from "motion-v";\n\n  interface Item {\n    id?: string;\n    title: string;\n    description?: string;\n    image: string;\n  }\n\n  const props = defineProps<{\n    items: Item[];\n  }>();\n\n  // create ids for items\n  const constructedItems = props.items.map((item) => ({\n    ...item,\n    id: item.id || useId(),\n  }));\n\n  const hoveredIndex = ref<string | null>(null);\n  const mouseX = ref<number>(0);\n\n  // Calculate rotation and translation based on mouse position\n  const rotation = computed<number>(() => {\n    const x = mouseX.value;\n    return (x / 100) * 50;\n  });\n\n  const translation = computed<number>(() => {\n    const x = mouseX.value;\n    return (x / 100) * 50;\n  });\n\n  // Handle initial mouse position and hover\n  function handleMouseEnter(event: MouseEvent, itemId: string) {\n    hoveredIndex.value = itemId;\n    // Calculate initial position immediately\n    const rect = (event.target as HTMLElement)?.getBoundingClientRect();\n    const halfWidth = rect.width / 2;\n    mouseX.value = event.clientX - rect.left - halfWidth;\n  }\n\n  // Handle mouse movement\n  function handleMouseMove(event: MouseEvent) {\n    const rect = (event.target as HTMLElement)?.getBoundingClientRect();\n    const halfWidth = rect.width / 2;\n    mouseX.value = event.clientX - rect.left - halfWidth;\n  }\n</script>\n',
+      },
+    ],
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Apexcharts",
     value: "apexcharts",
     deps: ["apexcharts", "vue3-apexcharts"],
