@@ -8,13 +8,21 @@
   >
     <UiContainer class="py-16 lg:py-24">
       <Motion as-child :variants="childVariant">
-        <p class="mb-8 text-center text-muted-foreground">Join 4,000+ companies already growing</p>
+        <div class="mb-12 text-center">
+          <h2 class="mb-3 text-3xl font-bold lg:text-4xl">Trusted by industry leaders</h2>
+          <p class="text-lg text-muted-foreground">
+            Over 10,000+ companies use our platform to grow their business
+          </p>
+        </div>
       </Motion>
-      <div class="flex flex-wrap items-center justify-center gap-5">
-        <Motion v-for="n in companies" :key="n.text" as-child :variants="logoVariant">
-          <div>
-            <span class="sr-only">{{ n.text }}</span>
-            <Icon :name="n.icon" class="h-24 w-24 transition-opacity hover:opacity-70" />
+
+      <div class="grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12">
+        <Motion v-for="company in companies" :key="company.text" as-child :variants="cardVariant">
+          <div
+            class="flex items-center justify-center rounded-lg border bg-card p-6 hover:border-primary/50 hover:shadow-md"
+          >
+            <span class="sr-only">{{ company.text }}</span>
+            <Icon :name="company.icon" class="h-16 w-16 lg:h-20 lg:w-20" />
           </div>
         </Motion>
       </div>
@@ -29,8 +37,12 @@
   const companies = [
     { text: "Company One", icon: "logos:100tb" },
     { text: "Company Two", icon: "logos:aha" },
-    { text: "Company Three", icon: "logos:airbnb" },
+    { text: "Company Three", icon: "logos:airbnb-icon" },
     { text: "Company Four", icon: "logos:akamai" },
+    { text: "Company Five", icon: "logos:asana-icon" },
+    { text: "Company Six", icon: "logos:atlassian" },
+    { text: "Company Seven", icon: "logos:figma" },
+    { text: "Company Eight", icon: "logos:discord-icon" },
   ];
 
   const parentVariant: MotionProps["variants"] = {
@@ -57,11 +69,11 @@
     },
   };
 
-  const logoVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, scale: 0.8 },
+  const cardVariant: MotionProps["variants"] = {
+    initial: { opacity: 0, y: 30 },
     animate: {
       opacity: 1,
-      scale: 1,
+      y: 0,
       transition: {
         type: "spring",
         stiffness: 200,
