@@ -13,9 +13,7 @@ description: Display a full calendar in your nuxt app.
 
 To get started, you can install the package with the following command:
 
-```bash
-npm install --save @fullcalendar/core @fullcalendar/vue3
-```
+:prose-pm-install{name="@fullcalendar/core @fullcalendar/vue3"}
 
 ::
 
@@ -25,9 +23,7 @@ npm install --save @fullcalendar/core @fullcalendar/vue3
 
 You can also install the plugins for Full Calendar:
 
-```bash
-npm i @fullcalendar/daygrid @fullcalendar/interaction @fullcalendar/timegrid @fullcalendar/list @fullcalendar/multimonth @fullcalendar/scrollgrid
-```
+:prose-pm-install{name="@fullcalendar/daygrid @fullcalendar/interaction @fullcalendar/timegrid @fullcalendar/list @fullcalendar/multimonth @fullcalendar/scrollgrid"}
 
 ::
 
@@ -37,143 +33,7 @@ npm i @fullcalendar/daygrid @fullcalendar/interaction @fullcalendar/timegrid @fu
 
 In order to make the calendar match the UI Thing theme, I had to create the `full-calendar.css` file and import it in the `nuxt.config.ts` file.
 
-<!-- automd:file src="../../app/assets/css/full-calendar.css" code lang="css" -->
-
-```css [full-calendar.css]
-/*
-for css vars only.
-these values are automatically known in all stylesheets.
-the :root statement itself is only included in the common stylesheet.
-this file is not processed by postcss when imported into the postcss-custom-properties plugin,
-so only write standard css!
-
-NOTE: for old browsers, will need to restart watcher after changing a variable
-*/
-
-@reference "./tailwind.css";
-
-:root {
-  --fc-small-font-size: var(--text-sm);
-  --fc-page-bg-color: var(--color-background);
-  --fc-neutral-bg-color: var(--color-muted);
-  --fc-neutral-text-color: var(--color-foreground);
-  --fc-border-color: var(--color-border);
-
-  --fc-button-text-color: var(--color-foreground);
-  --fc-button-bg-color: var(--color-background);
-  --fc-button-border-color: var(--color-input);
-  --fc-button-hover-bg-color: var(--color-accent);
-  --fc-button-hover-border-color: var(--color-input);
-  --fc-button-active-bg-color: var(--color-accent);
-  --fc-button-active-border-color: var(--color-input);
-
-  --fc-event-bg-color: var(--color-primary);
-  --fc-event-border-color: var(--color-input);
-  --fc-event-text-color: var(--color-primary-foreground);
-  --fc-event-selected-overlay-color: rgba(0, 0, 0, 0.25);
-
-  --fc-more-link-bg-color: #d0d0d0;
-  --fc-more-link-text-color: inherit;
-
-  --fc-event-resizer-thickness: 8px;
-  --fc-event-resizer-dot-total-width: 8px;
-  --fc-event-resizer-dot-border-width: 1px;
-
-  --fc-non-business-color: rgba(215, 215, 215, 0.3);
-  --fc-bg-event-color: rgb(143, 223, 130);
-  --fc-bg-event-opacity: 0.3;
-  --fc-highlight-color: --alpha(var(--colors-primary) / 10%);
-  --fc-today-bg-color: --alpha(var(--colors-primary) / 10%);
-  --fc-now-indicator-color: red;
-
-  --fc-list-event-hover-bg-color: --alpha(var(--colors-primary) / 10%);
-}
-
-/* Toolbar buttons */
-.fc {
-  .fc-button {
-    @apply inline-flex h-9 min-w-9 items-center justify-center rounded-md px-3 text-sm font-medium capitalize;
-    .fc-icon {
-      @apply text-sm/none;
-    }
-  }
-  .fc-button-primary {
-    @apply z-10 focus:shadow-none focus:ring-[3px] focus:ring-ring/50;
-    &.fc-button-active {
-      @apply z-10 focus:shadow-none focus:ring-[3px] focus:ring-ring/50;
-    }
-  }
-}
-/* Toolbar */
-.fc .fc-toolbar {
-  @apply grid gap-3 md:flex md:items-center md:justify-between;
-  .fc-toolbar-chunk + .fc-toolbar-title {
-    @apply order-1 md:order-none;
-  }
-}
-/* Toolbar title */
-.fc .fc-toolbar-title {
-  @apply text-xl font-bold tracking-tight;
-}
-/* Calendar header cell */
-.fc .fc-col-header-cell-cushion,
-.fc .fc-timegrid-slot-label-cushion,
-.fc .fc-timegrid-axis-cushion {
-  @apply text-base/7 font-semibold;
-}
-/* Calendar: month day number */
-.fc .fc-daygrid-day-number {
-  @apply cursor-pointer text-base/7 font-medium;
-}
-.fc .fc-daygrid-month-start {
-  @apply text-lg/7 font-semibold;
-}
-/* List text */
-.fc-list-day-text,
-.fc-list-day-side-text {
-  @apply text-base/7 font-semibold;
-}
-.fc-h-event .fc-event-main-frame {
-  @apply items-center;
-}
-.fc .fc-list-event-time,
-.fc .fc-event-time {
-  @apply align-middle text-sm/none font-normal;
-}
-.fc .fc-event-time {
-  @apply mr-2;
-}
-
-.fc .fc-list-event-title {
-  @apply align-middle text-sm/none font-semibold;
-}
-
-/* Event inside month view */
-.fc .fc-daygrid-event {
-  @apply rounded-md font-medium;
-}
-.fc .fc-h-event .fc-event-main {
-  @apply px-1;
-}
-/* MultiMonth */
-.fc .fc-multimonth-multicol .fc-daygrid-more-link {
-  @apply border-primary bg-primary text-[10px] leading-4 text-primary-foreground;
-}
-
-/* Mulimonth popup */
-.fc-theme-standard .fc-popover {
-  @apply rounded-md;
-}
-
-.fc-popover-header {
-  @apply px-3;
-  .fc-popover-title {
-    @apply text-base/10 font-bold tracking-tight;
-  }
-}
-```
-
-<!-- /automd -->
+:prose-code-snippet{file="/assets/css/full-calendar.css" language="css" title="Full Calendar"}
 
 ::
 :::
