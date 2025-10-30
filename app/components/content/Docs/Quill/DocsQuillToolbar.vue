@@ -1,11 +1,13 @@
 <template>
-  <QuillEditor
-    v-model:content="model"
-    :toolbar="toolbarOptions"
-    theme="snow"
-    placeholder="Write something..."
-    content-type="html"
-  />
+  <ClientOnly>
+    <QuillEditor
+      v-model:content="model"
+      :toolbar="toolbarOptions"
+      theme="snow"
+      placeholder="Write something..."
+      content-type="html"
+    />
+  </ClientOnly>
 </template>
 
 <script lang="ts" setup>

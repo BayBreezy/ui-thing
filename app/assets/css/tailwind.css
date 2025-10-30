@@ -271,7 +271,7 @@ h3 > a,
 h4 > a,
 h5 > a,
 h6 > a {
-  @apply !font-bold !no-underline hover:!text-foreground hover:!decoration-wavy;
+  @apply font-bold! no-underline! hover:text-foreground! hover:decoration-wavy!;
 }
 
 code {
