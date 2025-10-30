@@ -1,5 +1,5 @@
 <template>
-  <div class="relative hidden min-h-screen min-[400px]:block">
+  <div class="relative min-h-screen">
     <Motion
       v-if="!isExpanded"
       :initial="{ opacity: 0, scale: 0 }"
