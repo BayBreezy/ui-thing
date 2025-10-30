@@ -1,5 +1,8 @@
 <template>
-  <div v-if="editor">
+  <div
+    v-if="editor"
+    :class="['flex flex-col', props.controlPosition === 'top' ? 'flex-col-reverse' : '']"
+  >
     <EditorContent :editor="editor" />
     <div
       class="flex flex-wrap items-center gap-1 rounded-br-md rounded-bl-md border border-input bg-transparent p-1"
@@ -176,7 +179,6 @@
 <script lang="ts" setup>
   import { Color } from "@tiptap/extension-color";
   import Highlight from "@tiptap/extension-highlight";
-  import Link from "@tiptap/extension-link";
   import ListItem from "@tiptap/extension-list-item";
   import SubScript from "@tiptap/extension-subscript";
   import Superscript from "@tiptap/extension-superscript";
@@ -190,21 +192,22 @@
   import { EditorContent, useEditor } from "@tiptap/vue-3";
   import type { HTMLAttributes } from "vue";
 
-  const model = defineModel<any>({ default: "" });
+  const model = defineModel<string>({ default: "" });
 
   const props = withDefaults(
     defineProps<{
       modelType?: "html" | "json";
       class?: HTMLAttributes["class"];
+      controlPosition?: "top" | "bottom";
     }>(),
     {
       modelType: "html",
+      controlPosition: "bottom",
     }
   );
 
   const editor = useEditor({
     content: model.value,
-
     editorProps: {
       attributes: {
         class:
@@ -226,7 +229,6 @@
       }),
       Superscript,
       SubScript,
-      Link,
       Typography,
       Highlight,
       TableRow,
