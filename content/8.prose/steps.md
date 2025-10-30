@@ -281,7 +281,7 @@ Update to the latest versions:
 ::prose-pm-install{name="ui-thing@latest"}
 ::
 
-::callout{variant="warning" title="Breaking Changes"}
+::prose-callout{variant="warning" title="Breaking Changes"}
 Version 2.0 includes breaking changes. Review the changelog before proceeding.
 ::
 
@@ -508,7 +508,7 @@ Components are reusable pieces of UI. They can contain:
 2. **Script** - The component logic
 3. **Style** - The component styling
 
-::callout{variant="info" title="Single File Components"}
+::prose-callout{variant="info" title="Single File Components"}
 Vue uses SFC (Single File Components) that combine all three parts in one `.vue` file.
 ::
 
@@ -543,7 +543,7 @@ Components communicate through
 
 ### Best Practices
 
-::callout{variant="tip" title="Component Guidelines"}
+::prose-callout{variant="tip" title="Component Guidelines"}
 Follow these best practices:
 
 - Keep components small and focused
@@ -694,7 +694,7 @@ If you're still stuck, ask for help with:
 - Relevant code snippets
 - Error messages and stack traces
 
-::callout{variant="info" title="Get Help"}
+::prose-callout{variant="info" title="Get Help"}
 Post your issue on:
 
 - GitHub Issues
@@ -786,7 +786,7 @@ This step has a primary colored indicator.
 
 ## Best Practices
 
-::callout{variant="tip" title="Tips for Using Steps"}
+::prose-callout{variant="tip" title="Tips for Using Steps"}
 
 - Use clear, action-oriented headings (e.g., "Install Dependencies" not "Dependencies")
 - Keep each step focused on one task

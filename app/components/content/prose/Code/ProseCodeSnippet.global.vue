@@ -1,8 +1,8 @@
 <template>
   <MDC v-if="loadedCode" :value="md" class="not-first:mt-5" />
-  <Callout v-else variant="error" title="Code Snippet Error">
+  <ProseCallout v-else variant="error" title="Code Snippet Error">
     Cannot load code: <code>{{ file || url }}</code>
-  </Callout>
+  </ProseCallout>
 </template>
 
 <script setup lang="ts">

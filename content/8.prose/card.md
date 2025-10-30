@@ -7,7 +7,7 @@ description: Display content in elegant cards with animated border beam effects,
 
 The `ProseCard` component creates visually appealing cards with a subtle animated border beam effect on hover. Cards can be static content containers or interactive links, making them perfect for feature highlights, navigation menus, and content organization.
 
-::callout{variant="info" title="Features"}
+::prose-callout{variant="info" title="Features"}
 
 - **Animated Border Beam** - Subtle glowing border animation on hover
 - **Link Support** - Works as NuxtLink with `to` or `href` props
@@ -328,7 +328,7 @@ Everything you need for complex forms:
 
 ## Use Cases
 
-::callout{variant="tip" title="Perfect For"}
+::prose-callout{variant="tip" title="Perfect For"}
 
 - **Feature Highlights** - Showcase product features with icons and descriptions
 - **Navigation Menus** - Create engaging navigation with linked cards

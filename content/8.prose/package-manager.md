@@ -259,7 +259,7 @@ All components support the `in-stack` prop for use within code groups or when yo
 
 Here's a complete example showing a typical project setup workflow:
 
-::callout{variant="tip" title="Getting Started"}
+::prose-callout{variant="tip" title="Getting Started"}
 Follow these steps to set up your new project:
 ::
 
@@ -378,7 +378,7 @@ These will sync together:
 
 Create separate sync groups for different contexts:
 
-::callout{variant="info" title="Frontend Dependencies"}
+::prose-callout{variant="info" title="Frontend Dependencies"}
 ::
 
 ::prose-pm-install{name="react react-dom" sync="frontend"}
@@ -387,7 +387,7 @@ Create separate sync groups for different contexts:
 ::prose-pm-install{name="@types/react" save-dev sync="frontend"}
 ::
 
-::callout{variant="info" title="Backend Dependencies"}
+::prose-callout{variant="info" title="Backend Dependencies"}
 ::
 
 ::prose-pm-install{name="express" sync="backend"}
@@ -407,7 +407,7 @@ Use `no-sync` for standalone examples:
 
 ### React Project Setup
 
-::callout{variant="example" title="Setting up a React + TypeScript Project"}
+::prose-callout{variant="example" title="Setting up a React + TypeScript Project"}
 ::
 
 Create a new Vite project:
@@ -432,7 +432,7 @@ Start the development server:
 
 ### Vue Project Setup
 
-::callout{variant="example" title="Setting up a Vue 3 Project"}
+::prose-callout{variant="example" title="Setting up a Vue 3 Project"}
 ::
 
 Create a new Vue project:
@@ -457,7 +457,7 @@ Run the dev server:
 
 ### Nuxt Project Setup
 
-::callout{variant="example" title="Setting up a Nuxt 3 Project"}
+::prose-callout{variant="example" title="Setting up a Nuxt 3 Project"}
 ::
 
 Initialize a new Nuxt project:
@@ -488,7 +488,7 @@ Start development:
 
 ## Tips
 
-::callout{variant="tip" title="Best Practices"}
+::prose-callout{variant="tip" title="Best Practices"}
 
 - Use syncing to provide a consistent experience across your documentation
 - Disable syncing for isolated examples or tutorials with different contexts
@@ -497,6 +497,6 @@ Start development:
 
 ::
 
-::callout{variant="note" title="Note"}
+::prose-callout{variant="note" title="Note"}
 The package manager selection is persisted in the user's browser, so their preference is remembered across pages and sessions.
 ::

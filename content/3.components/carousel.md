@@ -131,7 +131,7 @@ Responsive
 
 To set the spacing between the items, we use a `pl-[VALUE]` utility on the `<UiCarouselItem />` and a negative `-ml-[VALUE]` on the `<UiCarouselContent />`.
 
-<Callout class="my-6">
+<ProseCallout class="my-6">
 
 **Why:** I tried to use the `gap` property or a `grid` layout on the `
 CarouselContent` but it required a lot of math and mental effort to get the
@@ -140,7 +140,7 @@ use.
 <br/><br/>
 You can always adjust this in your own project if you need to.
 
-</Callout>
+</ProseCallout>
 
 ::ShowCase
 

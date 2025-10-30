@@ -7,7 +7,7 @@ description: Render interactive diagrams and flowcharts using Mermaid syntax wit
 
 The `ProseMermaid` component renders diagrams using [Mermaid](https://mermaid.js.org/), a popular JavaScript-based diagramming and charting tool. It supports flowcharts, sequence diagrams, class diagrams, state diagrams, ER diagrams, and more.
 
-::callout{variant="info" title="Features"}
+::prose-callout{variant="info" title="Features"}
 
 - **Automatic Theme Detection** - Switches between light/dark themes
 - **Lazy Loading** - Only renders when scrolled into view for better performance
@@ -564,7 +564,7 @@ You can customize these settings based on your needs.
 
 ## Best Practices
 
-::callout{variant="tip" title="Tips for Mermaid Diagrams"}
+::prose-callout{variant="tip" title="Tips for Mermaid Diagrams"}
 
 - Keep diagrams simple and focused on one concept
 - Use descriptive labels for better understanding

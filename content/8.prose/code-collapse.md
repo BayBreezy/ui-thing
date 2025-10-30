@@ -7,7 +7,7 @@ description: A collapsible code block wrapper, perfect for showing long code exa
 
 The `ProseCodeCollapse` component wraps code blocks and provides a toggle button to expand or collapse content. It's ideal for lengthy code examples that would take up too much vertical space, starting at a fixed height with a gradient fade effect.
 
-::callout{variant="info" title="Features"}
+::prose-callout{variant="info" title="Features"}
 
 - **Clean Toggle** - Simple expand/collapse functionality
 - **Gradient Fade** - Visual indicator when content is collapsed
@@ -250,7 +250,7 @@ The component includes proper accessibility features:
 
 ## Use Cases
 
-::callout{variant="tip" title="When to Use Code Collapse"}
+::prose-callout{variant="tip" title="When to Use Code Collapse"}
 
 - **Long Examples** - Code snippets over ~30 lines
 - **Complete Files** - Full component implementations

@@ -5,28 +5,28 @@ description: Display important information with icons and variants for different
 
 ## Usage
 
-The `Callout` component is used to highlight important information, tips, warnings, and other contextual messages. It supports multiple variants, optional icons, and can even be turned into a clickable link.
+The `ProseCallout` component is used to highlight important information, tips, warnings, and other contextual messages. It supports multiple variants, optional icons, and can even be turned into a clickable link.
 
 ## Basic Example
 
 :::ShowCase{prose}
 
-::callout
+::prose-callout
 This is a default callout with auto-generated icon.
 ::
 
-::callout{icon="lucide:star"}
+::prose-callout{icon="lucide:star"}
 This is a callout with a custom icon.
 ::
 
 #code
 
 ```mdc
-::callout
+::prose-callout
 This is a default callout with auto-generated icon.
 ::
 
-::callout{icon="lucide:star"}
+::prose-callout{icon="lucide:star"}
 This is a callout with a custom icon.
 ::
 
@@ -42,22 +42,22 @@ The callout component comes with several pre-styled variants, each with its own 
 
 :::ShowCase{prose}
 
-::callout{variant="info"}
+::prose-callout{variant="info"}
 This is an informational message. Use this variant for general information or helpful tips.
 ::
 
-::callout{variant="info" title="Did you know?"}
+::prose-callout{variant="info" title="Did you know?"}
 You can combine the variant with a title to make the callout more prominent and easier to scan.
 ::
 
 #code
 
 ```mdc
-::callout{variant="info"}
+::prose-callout{variant="info"}
 This is an informational message. Use this variant for general information or helpful tips.
 ::
 
-::callout{variant="info" title="Did you know?"}
+::prose-callout{variant="info" title="Did you know?"}
 You can combine the variant with a title to make the callout more prominent and easier to scan.
 ::
 ```
@@ -68,22 +68,22 @@ You can combine the variant with a title to make the callout more prominent and 
 
 :::ShowCase{prose}
 
-::callout{variant="success"}
+::prose-callout{variant="success"}
 Operation completed successfully! Your changes have been saved.
 ::
 
-::callout{variant="success" title="Well done!"}
+::prose-callout{variant="success" title="Well done!"}
 You've successfully completed all the required steps. You can now proceed to the next section.
 ::
 
 #code
 
 ```mdc
-::callout{variant="success"}
+::prose-callout{variant="success"}
 Operation completed successfully! Your changes have been saved.
 ::
 
-::callout{variant="success" title="Well done!"}
+::prose-callout{variant="success" title="Well done!"}
 You've successfully completed all the required steps. You can now proceed to the next section.
 ::
 ```
@@ -94,22 +94,22 @@ You've successfully completed all the required steps. You can now proceed to the
 
 :::ShowCase{prose}
 
-::callout{variant="warning"}
+::prose-callout{variant="warning"}
 Please review your changes carefully before proceeding. This action may have side effects.
 ::
 
-::callout{variant="warning" title="Heads up!"}
+::prose-callout{variant="warning" title="Heads up!"}
 Make sure to backup your data before running this command. It will modify files in your project.
 ::
 
 #code
 
 ```mdc
-::callout{variant="warning"}
+::prose-callout{variant="warning"}
 Please review your changes carefully before proceeding. This action may have side effects.
 ::
 
-::callout{variant="warning" title="Heads up!"}
+::prose-callout{variant="warning" title="Heads up!"}
 Make sure to backup your data before running this command. It will modify files in your project.
 ::
 ```
@@ -120,22 +120,22 @@ Make sure to backup your data before running this command. It will modify files 
 
 :::ShowCase{prose}
 
-::callout{variant="error"}
+::prose-callout{variant="error"}
 An error occurred while processing your request. Please try again later.
 ::
 
-::callout{variant="error" title="Something went wrong"}
+::prose-callout{variant="error" title="Something went wrong"}
 The build failed due to syntax errors. Check the console output for more details.
 ::
 
 #code
 
 ```mdc
-::callout{variant="error"}
+::prose-callout{variant="error"}
 An error occurred while processing your request. Please try again later.
 ::
 
-::callout{variant="error" title="Something went wrong"}
+::prose-callout{variant="error" title="Something went wrong"}
 The build failed due to syntax errors. Check the console output for more details.
 ::
 ```
@@ -146,22 +146,22 @@ The build failed due to syntax errors. Check the console output for more details
 
 :::ShowCase{prose}
 
-::callout{variant="tip"}
+::prose-callout{variant="tip"}
 Here's a helpful tip: You can use keyboard shortcuts to speed up your workflow.
 ::
 
-::callout{variant="tip" title="Pro Tip"}
+::prose-callout{variant="tip" title="Pro Tip"}
 Press `Cmd+K` to open the command palette and quickly navigate to any file in your project.
 ::
 
 #code
 
 ```mdc
-::callout{variant="tip"}
+::prose-callout{variant="tip"}
 Here's a helpful tip: You can use keyboard shortcuts to speed up your workflow.
 ::
 
-::callout{variant="tip" title="Pro Tip"}
+::prose-callout{variant="tip" title="Pro Tip"}
 Press `Cmd+K` to open the command palette and quickly navigate to any file in your project.
 ::
 ```
@@ -172,22 +172,22 @@ Press `Cmd+K` to open the command palette and quickly navigate to any file in yo
 
 :::ShowCase{prose}
 
-::callout{variant="note"}
+::prose-callout{variant="note"}
 This is a general note. Use this variant for supplementary information.
 ::
 
-::callout{variant="note" title="Note"}
+::prose-callout{variant="note" title="Note"}
 The API behavior may vary depending on your subscription plan. Check your plan details for more information.
 ::
 
 #code
 
 ```mdc
-::callout{variant="note"}
+::prose-callout{variant="note"}
 This is a general note. Use this variant for supplementary information.
 ::
 
-::callout{variant="note" title="Note"}
+::prose-callout{variant="note" title="Note"}
 The API behavior may vary depending on your subscription plan. Check your plan details for more information.
 ::
 ```
@@ -198,22 +198,22 @@ The API behavior may vary depending on your subscription plan. Check your plan d
 
 :::ShowCase{prose}
 
-::callout{variant="example"}
+::prose-callout{variant="example"}
 Here's a practical example of how to use this feature in your code.
 ::
 
-::callout{variant="example" title="Code Example"}
+::prose-callout{variant="example" title="Code Example"}
 The following snippet demonstrates how to implement authentication in your application.
 ::
 
 #code
 
 ```mdc
-::callout{variant="example"}
+::prose-callout{variant="example"}
 Here's a practical example of how to use this feature in your code.
 ::
 
-::callout{variant="example" title="Code Example"}
+::prose-callout{variant="example" title="Code Example"}
 The following snippet demonstrates how to implement authentication in your application.
 ::
 ```
@@ -226,38 +226,38 @@ Use the `filled` prop to create a more prominent callout with solid background c
 
 :::ShowCase{prose}
 
-::callout{variant="info" filled title="Filled Info"}
+::prose-callout{variant="info" filled title="Filled Info"}
 This is a filled info callout with solid colors.
 ::
 
-::callout{variant="success" filled title="Filled Success"}
+::prose-callout{variant="success" filled title="Filled Success"}
 This is a filled success callout with solid colors.
 ::
 
-::callout{variant="warning" filled title="Filled Warning"}
+::prose-callout{variant="warning" filled title="Filled Warning"}
 This is a filled warning callout with solid colors.
 ::
 
-::callout{variant="error" filled title="Filled Error"}
+::prose-callout{variant="error" filled title="Filled Error"}
 This is a filled error callout with solid colors.
 ::
 
 #code
 
 ```mdc
-::callout{variant="info" filled title="Filled Info"}
+::prose-callout{variant="info" filled title="Filled Info"}
 This is a filled info callout with solid colors.
 ::
 
-::callout{variant="success" filled title="Filled Success"}
+::prose-callout{variant="success" filled title="Filled Success"}
 This is a filled success callout with solid colors.
 ::
 
-::callout{variant="warning" filled title="Filled Warning"}
+::prose-callout{variant="warning" filled title="Filled Warning"}
 This is a filled warning callout with solid colors.
 ::
 
-::callout{variant="error" filled title="Filled Error"}
+::prose-callout{variant="error" filled title="Filled Error"}
 This is a filled error callout with solid colors.
 ::
 
@@ -271,30 +271,30 @@ Override the default icon for any variant:
 
 :::ShowCase{prose}
 
-::callout{variant="info" icon="lucide:rocket"}
+::prose-callout{variant="info" icon="lucide:rocket"}
 Custom icon callouts let you match the icon to your specific use case.
 ::
 
-::callout{variant="success" icon="lucide:trophy" title="Achievement Unlocked"}
+::prose-callout{variant="success" icon="lucide:trophy" title="Achievement Unlocked"}
 You've earned a new badge! Keep up the great work.
 ::
 
-::callout{variant="tip" icon="lucide:zap" title="Performance Tip"}
+::prose-callout{variant="tip" icon="lucide:zap" title="Performance Tip"}
 Enable caching to improve your application's load time by up to 70%.
 ::
 
 #code
 
 ```mdc
-::callout{variant="info" icon="lucide:rocket"}
+::prose-callout{variant="info" icon="lucide:rocket"}
 Custom icon callouts let you match the icon to your specific use case.
 ::
 
-::callout{variant="success" icon="lucide:trophy" title="Achievement Unlocked"}
+::prose-callout{variant="success" icon="lucide:trophy" title="Achievement Unlocked"}
 You've earned a new badge! Keep up the great work.
 ::
 
-::callout{variant="tip" icon="lucide:zap" title="Performance Tip"}
+::prose-callout{variant="tip" icon="lucide:zap" title="Performance Tip"}
 Enable caching to improve your application's load time by up to 70%.
 ::
 ```
@@ -304,19 +304,19 @@ Enable caching to improve your application's load time by up to 70%.
 ## With Title and Description
 
 :::ShowCase{prose}
-::callout{variant="info" title="Getting Started" description="Follow these steps to set up your development environment and start building your application."}
+::prose-callout{variant="info" title="Getting Started" description="Follow these steps to set up your development environment and start building your application."}
 ::
 
-::callout{variant="warning" title="Breaking Change" description="Version 2.0 introduces breaking changes. Please review the migration guide before upgrading."}
+::prose-callout{variant="warning" title="Breaking Change" description="Version 2.0 introduces breaking changes. Please review the migration guide before upgrading."}
 ::
 
 #code
 
 ```mdc
-::callout{variant="info" title="Getting Started" description="Follow these steps to set up your development environment and start building your application."}
+::prose-callout{variant="info" title="Getting Started" description="Follow these steps to set up your development environment and start building your application."}
 ::
 
-::callout{variant="warning" title="Breaking Change" description="Version 2.0 introduces breaking changes. Please review the migration guide before upgrading."}
+::prose-callout{variant="warning" title="Breaking Change" description="Version 2.0 introduces breaking changes. Please review the migration guide before upgrading."}
 ::
 ```
 
@@ -328,19 +328,19 @@ Make callouts clickable by adding a `url` prop
 
 :::ShowCase{prose}
 
-::callout{variant="info" title="Documentation" url="/components/accordion" description="Click to view the complete documentation."}
+::prose-callout{variant="info" title="Documentation" url="/components/accordion" description="Click to view the complete documentation."}
 ::
 
-::callout{variant="tip" title="Learn More" url="https://example.com" target="\_blank" description="Visit our website for tutorials and guides."}
+::prose-callout{variant="tip" title="Learn More" url="https://example.com" target="\_blank" description="Visit our website for tutorials and guides."}
 ::
 
 #code
 
 ```mdc
-::callout{variant="info" title="Documentation" url="/components/accordion" description="Click to view the complete documentation."}
+::prose-callout{variant="info" title="Documentation" url="/components/accordion" description="Click to view the complete documentation."}
 ::
 
-::callout{variant="tip" title="Learn More" url="https://example.com" target="\_blank" description="Visit our website for tutorials and guides."}
+::prose-callout{variant="tip" title="Learn More" url="https://example.com" target="\_blank" description="Visit our website for tutorials and guides."}
 ::
 ```
 
@@ -352,7 +352,7 @@ Callouts support rich content including lists, code, and formatting
 
 :::ShowCase{prose}
 
-::callout{variant="example" title="Installation Steps"}
+::prose-callout{variant="example" title="Installation Steps"}
 Follow these steps to install the package:
 
 1. Install the package: `npm install my-package`
@@ -362,7 +362,7 @@ Follow these steps to install the package:
 **Note:** Make sure you have Node.js 18+ installed.
 ::
 
-::callout{variant="tip" title="Best Practices"}
+::prose-callout{variant="tip" title="Best Practices"}
 Here are some recommendations:
 
 - Keep your components small and focused
@@ -376,7 +376,7 @@ For more details, check the [style guide](/docs/style-guide).
 #code
 
 ```mdc
-::callout{variant="example" title="Installation Steps"}
+::prose-callout{variant="example" title="Installation Steps"}
 Follow these steps to install the package:
 
 1. Install the package: `npm install my-package`
@@ -386,7 +386,7 @@ Follow these steps to install the package:
 **Note:** Make sure you have Node.js 18+ installed.
 ::
 
-::callout{variant="tip" title="Best Practices"}
+::prose-callout{variant="tip" title="Best Practices"}
 Here are some recommendations:
 
 - Keep your components small and focused
@@ -459,39 +459,39 @@ You can also use the Callout component in your Vue files:
     <div>
       <h3 class="mt-0">All Variants</h3>
       <div class="space-y-4">
-        <Callout variant="default" title="Default" description="This is a default callout." />
-        <Callout variant="info" title="Info" description="This is an info callout." />
-        <Callout variant="success" title="Success" description="This is a success callout." />
-        <Callout variant="warning" title="Warning" description="This is a warning callout." />
-        <Callout variant="error" title="Error" description="This is an error callout." />
-        <Callout variant="tip" title="Tip" description="This is a tip callout." />
-        <Callout variant="note" title="Note" description="This is a note callout." />
-        <Callout variant="example" title="Example" description="This is an example callout." />
+        <ProseCallout variant="default" title="Default" description="This is a default callout." />
+        <ProseCallout variant="info" title="Info" description="This is an info callout." />
+        <ProseCallout variant="success" title="Success" description="This is a success callout." />
+        <ProseCallout variant="warning" title="Warning" description="This is a warning callout." />
+        <ProseCallout variant="error" title="Error" description="This is an error callout." />
+        <ProseCallout variant="tip" title="Tip" description="This is a tip callout." />
+        <ProseCallout variant="note" title="Note" description="This is a note callout." />
+        <ProseCallout variant="example" title="Example" description="This is an example callout." />
       </div>
     </div>
 
     <div>
       <h3>Filled Style</h3>
       <div class="space-y-4">
-        <Callout
+        <ProseCallout
           variant="info"
           title="Filled Info"
           description="This uses the filled style."
           filled
         />
-        <Callout
+        <ProseCallout
           variant="success"
           title="Filled Success"
           description="This uses the filled style."
           filled
         />
-        <Callout
+        <ProseCallout
           variant="warning"
           title="Filled Warning"
           description="This uses the filled style."
           filled
         />
-        <Callout
+        <ProseCallout
           variant="error"
           title="Filled Error"
           description="This uses the filled style."
@@ -502,7 +502,7 @@ You can also use the Callout component in your Vue files:
 
     <div>
       <h3>With Slots</h3>
-      <Callout variant="tip">
+      <ProseCallout variant="tip">
         <template #icon>
           <Icon name="lucide:sparkles" />
         </template>
@@ -515,12 +515,12 @@ You can also use the Callout component in your Vue files:
             <li>Custom content slot</li>
           </ul>
         </template>
-      </Callout>
+      </ProseCallout>
     </div>
 
     <div>
       <h3>Clickable Callout</h3>
-      <Callout
+      <ProseCallout
         variant="info"
         title="Learn More"
         description="Click this callout to navigate to the documentation."
@@ -531,19 +531,19 @@ You can also use the Callout component in your Vue files:
     <div>
       <h3>Custom Icons</h3>
       <div class="space-y-4">
-        <Callout
+        <ProseCallout
           variant="success"
           icon="lucide:trophy"
           title="Achievement Unlocked"
           description="You've earned a new badge!"
         />
-        <Callout
+        <ProseCallout
           variant="info"
           icon="lucide:rocket"
           title="Launch Ready"
           description="Your application is ready to deploy."
         />
-        <Callout
+        <ProseCallout
           variant="tip"
           icon="lucide:zap"
           title="Performance Boost"
@@ -581,14 +581,14 @@ The component uses Tailwind Variants for styling. You can override any part usin
 ### Documentation Page
 
 :::ShowCase{prose}
-::callout{variant="info" title="Before You Begin"}
+::prose-callout{variant="info" title="Before You Begin"}
 This guide assumes you have basic knowledge of Vue.js and TypeScript. If you're new to these technologies, we recommend reviewing the official documentation first.
 ::
 
 #code
 
 ```mdc
-::callout{variant="info" title="Before You Begin"}
+::prose-callout{variant="info" title="Before You Begin"}
 This guide assumes you have basic knowledge of Vue.js and TypeScript. If you're new to these technologies, we recommend reviewing the official documentation first.
 ::
 
@@ -600,7 +600,7 @@ This guide assumes you have basic knowledge of Vue.js and TypeScript. If you're 
 
 :::ShowCase{prose}
 
-::callout
+::prose-callout
 
 ### Breaking Changes in v2.0
 
@@ -614,26 +614,26 @@ The following breaking changes require updates to your code:
 
 #### API Documentation
 
-::callout{variant="note" title="Rate Limiting"}
+::prose-callout{variant="note" title="Rate Limiting"}
 This endpoint is rate-limited to 100 requests per minute per API key. Exceeding this limit will result in a 429 error.
 ::
 
 #### Tutorial
 
-::callout{variant="tip" icon="lucide:sparkles" title="Quick Tip"}
+::prose-callout{variant="tip" icon="lucide:sparkles" title="Quick Tip"}
 You can use the keyboard shortcut `Cmd + /` to quickly toggle comments in your code editor.
 ::
 
 #### Error Handling
 
-::callout{variant="error" title="Authentication Failed" url="https://example.com" target="\_blank"}
+::prose-callout{variant="error" title="Authentication Failed" url="https://example.com" target="\_blank"}
 Your session has expired. Please log in again to continue.
 ::
 
 #code
 
 ```mdc
-::callout
+::prose-callout
 
 ### Breaking Changes in v2.0
 
@@ -647,19 +647,19 @@ The following breaking changes require updates to your code:
 
 #### API Documentation
 
-::callout{variant="note" title="Rate Limiting"}
+::prose-callout{variant="note" title="Rate Limiting"}
 This endpoint is rate-limited to 100 requests per minute per API key. Exceeding this limit will result in a 429 error.
 ::
 
 #### Tutorial
 
-::callout{variant="tip" icon="lucide:sparkles" title="Quick Tip"}
+::prose-callout{variant="tip" icon="lucide:sparkles" title="Quick Tip"}
 You can use the keyboard shortcut `Cmd + /` to quickly toggle comments in your code editor.
 ::
 
 #### Error Handling
 
-::callout{variant="error" title="Authentication Failed" url="https://example.com" target="\_blank"}
+::prose-callout{variant="error" title="Authentication Failed" url="https://example.com" target="\_blank"}
 Your session has expired. Please log in again to continue.
 ::
 ```

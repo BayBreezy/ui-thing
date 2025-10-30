@@ -7,7 +7,7 @@ description: Display multiple code snippets in a tabbed interface with automatic
 
 The `ProseCodeGroup` component creates a tabbed interface for displaying multiple code blocks. It's perfect for showing the same functionality in different languages, comparing implementations, or displaying related configuration files side by side.
 
-::callout{variant="info" title="Features"}
+::prose-callout{variant="info" title="Features"}
 
 - **Automatic Language Icons** - Detects language from code fence and shows appropriate icon
 - **Custom Icons** - Override with custom icons per tab
@@ -370,7 +370,7 @@ bun dev
 
 ::
 
-::callout{variant="tip" title="Try It!"}
+::prose-callout{variant="tip" title="Try It!"}
 Click between tabs above - both groups stay synchronized because they use `sync="package-manager"`.
 ::
 
@@ -806,7 +806,7 @@ export async function trackEvent(event: string, data: any) {
 
 ::
 
-::callout{variant="tip" title="Search Tips"}
+::prose-callout{variant="tip" title="Search Tips"}
 When you have 5 or more tabs, the `Combobox` variant is automatically used to help users find tabs quickly.
 ::
 
@@ -1027,7 +1027,7 @@ jobs:
 
 ## Best Practices
 
-::callout{variant="tip" title="Tips for Code Groups"}
+::prose-callout{variant="tip" title="Tips for Code Groups"}
 
 - Use descriptive tab names that clearly indicate what the code does
 - Keep the number of tabs reasonable (5-10 max for best UX)

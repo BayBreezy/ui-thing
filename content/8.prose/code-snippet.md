@@ -7,7 +7,7 @@ description: Dynamically import and display code from your project files or exte
 
 The `ProseCodeSnippet` component allows you to reference actual source files from your project or external URLs, ensuring your documentation always shows the latest code without manual updates. Perfect for keeping docs in sync with your codebase.
 
-::callout{variant="info" title="Features"}
+::prose-callout{variant="info" title="Features"}
 
 - **Dynamic Imports** - Load code directly from your project files
 - **External URLs** - Fetch code from GitHub, GitLab, or any URL
@@ -18,7 +18,7 @@ The `ProseCodeSnippet` component allows you to reference actual source files fro
 
 ::
 
-::callout{variant="warning" title="Build Consideration"}
+::prose-callout{variant="warning" title="Build Consideration"}
 Files must match the `import.meta.glob` patterns in the component. The current setup includes all `.vue`, `.ts`, `.css`, and `.json` files from `/app/**` (excluding test files). Adjust patterns as needed for your use case.
 
 ::
@@ -361,7 +361,7 @@ Compare related files side by side using tabs:
 ::
 ```
 
-::callout{variant="tip" title="Extending Patterns"}
+::prose-callout{variant="tip" title="Extending Patterns"}
 To include more directories, edit the `import.meta.glob` array in `ProseCodeSnippet.global.vue`.
 ::
 
@@ -418,7 +418,7 @@ The component handles errors gracefully:
 
 Shows error callout: "Cannot load code: /app/nonexistent.ts"
 
-::callout{variant="error" title="Code Snippet Error"}
+::prose-callout{variant="error" title="Code Snippet Error"}
 Cannot load code: `/app/nonexistent.ts`
 ::
 
@@ -430,13 +430,13 @@ Cannot load code: `/app/nonexistent.ts`
 ```
 
 Shows error callout with the URL.
-::callout{variant="error" title="Code Snippet Error"}
+::prose-callout{variant="error" title="Code Snippet Error"}
 Cannot load code: `https://invalid-url-404.com/code.js`
 ::
 
 ## Best Practices
 
-::callout{variant="tip" title="Documentation Tips"}
+::prose-callout{variant="tip" title="Documentation Tips"}
 
 1. **Keep Docs in Sync** - Reference actual source files instead of copying code
 2. **Show Relevant Code** - Use `start` and `offset` to show only what matters

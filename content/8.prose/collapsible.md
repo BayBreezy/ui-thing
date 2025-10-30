@@ -95,7 +95,7 @@ Use icons that match the semantic meaning of your content.
 
 ### FAQ Section
 
-::callout{variant="info" title="Frequently Asked Questions"}
+::prose-callout{variant="info" title="Frequently Asked Questions"}
 ::
 
 **How do I install this library?**
@@ -226,7 +226,7 @@ state.count++; // triggers reactivity
 
 Reveal information step by step:
 
-::callout{variant="tip" title="Tutorial: Building Your First Component"}
+::prose-callout{variant="tip" title="Tutorial: Building Your First Component"}
 ::
 
 **Step 1: Create the Component File**
@@ -294,7 +294,7 @@ Define events your component can emit:
 
 Hide spoilers or answers:
 
-::callout{variant="warning" title="Quiz Question"}
+::prose-callout{variant="warning" title="Quiz Question"}
 What is the time complexity of accessing an element in a hash table?
 ::
 
@@ -431,7 +431,7 @@ The component is built on top of `UiCollapsible` which handles:
 
 ## Best Practices
 
-::callout{variant="tip" title="Tips for Using Collapsibles"}
+::prose-callout{variant="tip" title="Tips for Using Collapsibles"}
 
 - Use descriptive trigger text that clearly indicates what will be revealed
 - Don't hide critical information that users need to see immediately
@@ -446,7 +446,7 @@ The component is built on top of `UiCollapsible` which handles:
 
 ### API Documentation
 
-::callout{variant="info" title="API Reference"}
+::prose-callout{variant="info" title="API Reference"}
 ::
 
 **`createUser(data: UserData): Promise<User>`**
@@ -478,7 +478,7 @@ const user = await createUser({
 
 ### Migration Guide
 
-::callout{variant="warning" title="Breaking Changes in v2.0"}
+::prose-callout{variant="warning" title="Breaking Changes in v2.0"}
 ::
 
 ::prose-collapsible{open-title="Show affected components" close-title="Hide list"}

@@ -7,7 +7,7 @@ description: Display a hierarchical file structure with expandable folders and f
 
 The `ProseCodeTree` component renders an interactive file tree navigator that displays code files in a two-panel layout. The left panel shows the directory structure with expandable folders, while the right panel displays the selected file's content with syntax highlighting.
 
-::callout{variant="info" title="Features"}
+::prose-callout{variant="info" title="Features"}
 
 - **Interactive Navigation** - Click folders to expand/collapse, click files to view content
 - **Material Icons** - Beautiful file and folder icons based on file extensions
@@ -1221,7 +1221,7 @@ You can also use it programmatically:
 
 ## Best Practices
 
-::callout{variant="tip" title="Tips for Code Trees"}
+::prose-callout{variant="tip" title="Tips for Code Trees"}
 
 - Use descriptive file paths that match real project structure
 - Group related files in folders for better organization

@@ -362,7 +362,7 @@ There are several ways to style your components:
 
 ## Testing Strategy
 
-::Callout{variant="success"}
+::prose-callout{variant="success"}
 
 A well-tested application is easier to maintain and refactor.
 
@@ -474,7 +474,7 @@ Want to learn more? Check out these resources:
 - YouTube tutorials and courses
 - GitHub repositories with example projects
 
-::callout{icon="lucide:book-open" title="Further Reading"}
+::prose-callout{icon="lucide:book-open" title="Further Reading"}
 Explore the [official documentation](#) for detailed API references and advanced techniques.
 ::
 
@@ -842,7 +842,7 @@ There are several ways to style your components:
 
 ## Testing Strategy
 
-::callout{variant="success"}
+::prose-callout{variant="success"}
 A well-tested application is easier to maintain and refactor.
 ::
 
@@ -952,7 +952,7 @@ Want to learn more? Check out these resources:
 - YouTube tutorials and courses
 - GitHub repositories with example projects
 
-::callout{icon="lucide:book-open" title="Further Reading"}
+::prose-callout{icon="lucide:book-open" title="Further Reading"}
 Explore the [official documentation](#) for detailed API references and advanced techniques.
 ::
 

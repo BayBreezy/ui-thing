@@ -91,12 +91,12 @@
 
   export const calloutStyles = tv({
     slots: {
-      base: "group relative flex items-start gap-3 rounded-lg border p-4 no-underline transition-colors not-first:mt-6 not-last:mb-6 [&_code]:!bg-inherit [&_code]:!text-inherit [&_li]:marker:!text-inherit [&_ol]:!my-2 [&_ul]:!my-2",
+      base: "group relative flex items-start gap-3 rounded-lg border p-4 no-underline transition-colors not-first:mt-6 not-last:mb-6 [&_code]:bg-inherit! [&_code]:text-inherit! [&_li]:marker:text-inherit! [&_ol]:my-2! [&_ul]:my-2!",
       iconWrapper: "flex items-center justify-center",
       icon: "size-4 shrink-0",
       content: "flex flex-1 flex-col gap-1",
       title: "text-sm leading-none font-semibold",
-      description: "text-sm leading-relaxed [&>*]:my-0",
+      description: "text-sm leading-relaxed *:my-0",
       linkIcon:
         "size-4 shrink-0 opacity-50 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-inherit group-hover:opacity-100",
     },
