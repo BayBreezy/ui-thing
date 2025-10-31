@@ -3,6 +3,200 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## October 31, 2025
+
+### New Field Components
+
+Added new interactive field components to enhance user input experiences:
+
+- **DocsFieldHear** - A hearing-style interactive field component
+- **DocsFieldNotionPrompt** - Notion-style prompt field with mentions and context
+
+### Home Page Refactor
+
+Refactored the home page layout and added new HomeCards components for improved visual presentation.
+
+### Utilities
+
+Added `no-scrollbar` utility class for improved user experience on scrollable elements.
+
+## October 20, 2025
+
+### Prose Components
+
+Added a comprehensive collection of prose components for enhanced content rendering and documentation:
+
+#### Typography Components
+
+- **ProseH1-H6** - Heading components with anchor link support and customizable styles
+- **ProseP** - Paragraph component with customizable classes
+- **ProseLead** - Lead paragraph component for introductory text
+- **ProseStrong** - Strong text rendering component
+- **ProseEm** - Emphasized text component
+- **ProseBlockquote** - Styled blockquote component
+- **ProseA** - Customizable anchor links with styling
+- **ProseHr** - Horizontal rule component
+
+#### List Components
+
+- **ProseUl, ProseOl, ProseLi** - List components with customizable styles
+- **ProseIconList** - Lists with icons and multiple variants
+
+#### Table Components
+
+- Added complete table prose components for documentation tables
+
+#### Code Components
+
+- **ProseCodeGroup** - Tabbed interface for multiple code snippets
+- **ProseCodeSnippet** - Dynamic code imports with syntax highlighting
+- **ProsePre** - Enhanced code blocks with file name display and meta parsing
+- **ProseCodeTree** - Interactive file navigation component
+- Code collapse functionality
+- Copy button for code blocks
+
+#### Documentation Components
+
+- **ProseField & ProseFieldGroup** - Enhanced documentation for component props
+- **ProseCallout** - Callout component with various styles and variants
+- **ProseCard** - Card component with animated border effects
+- **ProseCollapsible** - Collapsible content with customizable icons
+- **ProseTabs** - Tabbed content for documentation
+- **ProseImage** - Custom image with zoom functionality
+- **ProseColorModeImage** - Adaptive images for light/dark modes
+- **ProseSmartIcon** - Smart icon component
+
+#### Package Manager Components
+
+- **ProsePmInstall** - Package installation commands
+- **ProsePmRun** - Package manager script execution
+- **ProsePmX** - Package manager command execution
+- Added `usePm` composable for package manager integration
+
+#### Typography Documentation
+
+Added comprehensive typography documentation showcasing all prose components and their usage.
+
+## October 30, 2025
+
+### New Block Components
+
+Expanded the blocks section with multiple new component categories:
+
+#### Testimonial Blocks
+
+Added 8 new testimonial block variations featuring:
+
+- Carousel sliders with auto-rotation
+- Grid layouts with customer avatars
+- Star ratings and company logos
+- Masonry/Pinterest-style layouts
+
+#### Sign Up Blocks
+
+Added 4 new sign up page designs:
+
+- Two-column layouts with feature showcases
+- Password confirmation fields
+- Social authentication options
+- Compact and minimal card designs
+
+#### Pricing Blocks
+
+Added 4 new pricing section layouts:
+
+- Interactive annual/monthly toggles
+- Feature comparison grids
+- Popular plan badges
+- Four-tier pricing with custom options
+
+#### Login Blocks
+
+Added 4 new login page designs:
+
+- Two-column layouts with security messages
+- Minimal card designs with icon headers
+- Social-first authentication layouts
+- Compact designs with terms notices
+
+#### Metric Blocks
+
+Added 6 new metric display styles:
+
+- Icon-based compact layouts
+- Card-based designs with badges
+- Two-column contextual sections
+- Business metrics with growth indicators
+
+#### Newsletter Blocks
+
+Created 5 new newsletter signup blocks:
+
+- Centered layouts with badges
+- Card-based split designs
+- Multi-field forms with checkboxes
+- Feature showcase grids
+
+### Documentation Updates
+
+Enhanced documentation across multiple sections:
+
+- Updated sidebar documentation with detailed descriptions
+- Improved navigation documentation
+- Enhanced header section documentation with style descriptions
+
+### Component Updates
+
+- **Tiptap Editor**: Added new Tiptap editor block with toolbar and formatting options
+- **Nav Component**: Removed client-only wrapper for better performance
+- **Animated Tooltip**: Added new component with mouse tracking and animations
+
+## October 27, 2025
+
+### New Block Components
+
+#### Password Recovery & Reset
+
+Implemented password recovery and reset components with enhanced layouts and validation.
+
+#### Footer Components
+
+Enhanced footer components with multiple layouts and styles.
+
+#### Feature Blocks
+
+Added multiple feature blocks with animations and responsive design.
+
+#### FAQ Components
+
+Enhanced FAQ components with multiple layouts and animations.
+
+#### Error Pages
+
+Added custom error pages (404, 500, etc.) with animations and helpful suggestions.
+
+#### CTA Components
+
+Enhanced call-to-action components with animations and new styles.
+
+### Infrastructure
+
+- Added Dockerfile for building and running the application
+- Updated to Nuxt v4.2
+
+## September 4, 2023
+
+### UI Thing V2 Launch 🚀
+
+Launched version 2 of UI Thing with a complete rebuild featuring:
+
+- Modern component architecture
+- Enhanced documentation
+- Improved developer experience
+- New component library built on Reka UI
+- Update to Tailwind CSS v4
+- Comprehensive examples and blocks
+
 ## February 27, 2025
 
 ### Timeline
