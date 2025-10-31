@@ -19,7 +19,7 @@
 <script lang="ts" setup>
   definePageMeta({ layout: "home" });
   defineOgImageComponent("UIThing", {
-    title: "UI Thing - Beautiful UI components for your Nuxt projects",
+    title: "Beautiful Nuxt Components",
     description: "Discover a collection of stunning UI components for your next Nuxt project.",
   });
 </script>
