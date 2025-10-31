@@ -20,6 +20,10 @@
   padding-inline: 2rem;
 }
 
+@theme {
+  --color-brand-nuxt: #00dc82;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

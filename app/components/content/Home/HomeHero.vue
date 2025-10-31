@@ -2,13 +2,15 @@
   <div>
     <div class="flex flex-col items-center justify-center text-center">
       <h1 class="text-3xl font-bold tracking-tighter lg:text-4xl">
-        Build your <span class="text-[#00DC82]">Nuxt</span> applications with ease
+        Build your <span class="text-brand-nuxt">Nuxt</span> applications with ease
       </h1>
       <p class="mt-2 text-center text-lg text-pretty text-muted-foreground">
         Awesome components that you can copy and paste into your Nuxt applications.
       </p>
       <div class="mt-6 grid w-full grid-cols-1 gap-3 sm:flex sm:w-fit sm:items-center">
-        <ui-button class="[--primary:#00DC82] [--ring:#00DC82]" to="/getting-started/introduction"
+        <ui-button
+          class="[--primary:var(--color-brand-nuxt)] [--ring:var(--color-brand-nuxt)]"
+          to="/getting-started/introduction"
           >Get Started</ui-button
         >
         <ui-button
