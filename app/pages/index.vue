@@ -1,18 +1,19 @@
 <template>
-  <div class="px-5 pb-10 lg:container">
+  <div class="mx-auto max-w-[1440px] px-5 pb-10">
     <ui-gradient-divider class="mb-10" />
-    <tabs-root default-value="tasks">
-      <tabs-list class="mb-5 flex items-center overflow-x-auto">
-        <tabs-trigger
-          class="rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 data-[state=active]:bg-muted"
-          value="tasks"
-          >Tasks</tabs-trigger
-        >
-      </tabs-list>
-      <tabs-content value="tasks" class="rounded-lg border bg-background px-4 py-6 lg:p-6">
-        <home-tasks />
-      </tabs-content>
-    </tabs-root>
+    <UiTabs default-value="home">
+      <UiTabsList :pill="false" class="relative mb-5 flex items-center overflow-x-auto">
+        <UiTabsTrigger :pill="false" value="home">Home</UiTabsTrigger>
+        <UiTabsTrigger :pill="false" value="tasks">Tasks</UiTabsTrigger>
+        <UiTabsIndicator />
+      </UiTabsList>
+      <UiTabsContent value="tasks" class="rounded-lg border bg-background px-4 py-6 lg:p-6">
+        <HomeTasks />
+      </UiTabsContent>
+      <UiTabsContent value="home">
+        <HomeCards />
+      </UiTabsContent>
+    </UiTabs>
   </div>
 </template>
 
