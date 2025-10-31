@@ -1,6 +1,36 @@
 import tailwindcss from "@tailwindcss/vite";
+import type { BuiltinTheme, BundledLanguage } from "shiki";
 
 import * as SEO from "./app/utils/seo";
+
+const langs: BundledLanguage[] = [
+  "json",
+  "js",
+  "ts",
+  "css",
+  "html",
+  "md",
+  "yaml",
+  "vue",
+  "vue-html",
+  "bash",
+  "sh",
+  "typescript",
+  "javascript",
+  "svelte",
+  "tsx",
+  "jsx",
+  "prisma",
+  "sql",
+  "docker",
+  "dockerfile",
+  "python",
+];
+
+const theme = {
+  default: "github-light" as BuiltinTheme,
+  dark: "github-dark" as BuiltinTheme,
+};
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -122,67 +152,13 @@ export default defineNuxtConfig({
   },
 
   mdc: {
-    highlight: {
-      langs: [
-        "json",
-        "js",
-        "ts",
-        "css",
-        "html",
-        "md",
-        "yaml",
-        "vue",
-        "vue-html",
-        "bash",
-        "sh",
-        "typescript",
-        "javascript",
-        "svelte",
-        "tsx",
-        "jsx",
-        "prisma",
-        "sql",
-        "docker",
-        "dockerfile",
-      ],
-      theme: {
-        default: "github-light",
-        dark: "github-dark",
-      },
-    },
+    highlight: { langs, theme },
   },
   content: {
     build: {
       markdown: {
         toc: { depth: 4, searchDepth: 4 },
-        highlight: {
-          langs: [
-            "json",
-            "js",
-            "ts",
-            "css",
-            "html",
-            "md",
-            "yaml",
-            "vue",
-            "vue-html",
-            "bash",
-            "sh",
-            "typescript",
-            "javascript",
-            "svelte",
-            "tsx",
-            "jsx",
-            "prisma",
-            "sql",
-            "docker",
-            "dockerfile",
-          ],
-          theme: {
-            default: "github-light",
-            dark: "github-dark",
-          },
-        },
+        highlight: { langs, theme },
       },
     },
   },
