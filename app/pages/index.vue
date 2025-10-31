@@ -3,8 +3,14 @@
     <ui-gradient-divider class="mb-10" />
     <UiTabs default-value="home">
       <UiTabsList :pill="false" class="relative mb-5 flex items-center overflow-x-auto">
-        <UiTabsTrigger :pill="false" value="home">Home</UiTabsTrigger>
-        <UiTabsTrigger :pill="false" value="tasks">Tasks</UiTabsTrigger>
+        <UiTabsTrigger
+          v-for="tab in tabs"
+          :key="tab"
+          :pill="false"
+          :value="tab"
+          class="capitalize"
+          >{{ tab }}</UiTabsTrigger
+        >
         <UiTabsIndicator />
       </UiTabsList>
       <UiTabsContent value="tasks" class="rounded-lg border bg-background px-4 py-6 lg:p-6">
@@ -13,14 +19,26 @@
       <UiTabsContent value="home">
         <HomeCards />
       </UiTabsContent>
+      <UiTabsContent value="playground">
+        <Playground />
+      </UiTabsContent>
     </UiTabs>
   </div>
 </template>
 
 <script lang="ts" setup>
+  import Playground from "~/examples/playground/Playground.vue";
+
   definePageMeta({ layout: "home" });
   defineOgImageComponent("UIThing", {
     title: "Beautiful Nuxt Components",
     description: "Discover a collection of stunning UI components for your next Nuxt project.",
+  });
+
+  const tabs = ["home", "tasks", "playground"];
+  useHead({
+    bodyAttrs: {
+      class: "[--primary:var(--color-brand-nuxt)] [--ring:var(--color-brand-nuxt)]",
+    },
   });
 </script>
