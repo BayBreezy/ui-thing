@@ -148,7 +148,9 @@
         <ul>
           <li class="grid grid-cols-2 lg:grid-cols-4">
             <template
-              v-for="(o, k) in prices[0].overview.map((x) => x.text)"
+              v-for="(o, k) in prices[0] && prices[0].overview
+                ? prices[0].overview.map((x) => x.text)
+                : []"
               :key="`prices-overview-${k}`"
             >
               <p
@@ -187,7 +189,9 @@
         <ul>
           <li class="grid grid-cols-2 lg:grid-cols-4">
             <template
-              v-for="(o, k) in prices[0].reporting.map((x) => x.text)"
+              v-for="(o, k) in prices[0] && prices[0].reporting
+                ? prices[0].reporting.map((x) => x.text)
+                : []"
               :key="`prices-reporting-${k}`"
             >
               <p
@@ -226,7 +230,9 @@
         <ul>
           <li class="grid grid-cols-2 lg:grid-cols-4">
             <template
-              v-for="(o, k) in prices[0].access.map((x) => x.text)"
+              v-for="(o, k) in prices[0] && prices[0].access
+                ? prices[0].access.map((x) => x.text)
+                : []"
               :key="`prices-access-${k}`"
             >
               <p
