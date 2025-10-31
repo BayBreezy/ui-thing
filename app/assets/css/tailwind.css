@@ -278,6 +278,14 @@ h6 > a {
   @apply font-bold! no-underline! hover:text-foreground! hover:decoration-wavy!;
 }
 
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 code {
   @apply block rounded py-px font-mono;
   > span {
