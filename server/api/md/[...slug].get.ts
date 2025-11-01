@@ -25,6 +25,18 @@ export default defineEventHandler(async (event) => {
     page.body.value.unshift(["blockquote", {}, page.description]);
     page.body.value.unshift(["h1", {}, page.title]);
   }
+  // Add link to the md file on github at the bottom of the page
+  page.body.value.push([
+    "p",
+    {},
+    "For more details, see the ",
+    [
+      "a",
+      { href: `https://github.com/BayBreezy/ui-thing/blob/v2/content/${page.stem}.md?plain=1` },
+      "markdown source file on GitHub",
+    ],
+    ".",
+  ]);
 
   setHeader(event, "Content-Type", "text/markdown; charset=utf-8");
 
