@@ -1,12 +1,12 @@
 <template>
   <header class="sticky top-0 z-30 border-b bg-background/80 backdrop-blur">
-    <div class="flex h-14 w-full items-center justify-between px-6">
+    <div class="flex h-14 w-full items-center justify-between px-4 lg:px-6">
       <div class="flex items-center gap-10">
-        <div class="flex items-center gap-5">
+        <div class="flex items-center gap-3">
           <UiButton
-            size="icon-sm"
+            size="icon-xs"
             variant="outline"
-            class="h-9 w-9 lg:hidden"
+            class="lg:hidden"
             @click="mobileNavState = true"
             ><Icon name="heroicons:bars-2" class="size-4" />
           </UiButton>
@@ -14,7 +14,7 @@
         </div>
         <nav class="hidden items-center space-x-6 text-sm font-medium lg:flex">
           <NuxtLink
-            :class="[route.path.startsWith('/getting-started/') ? '!text-primary' : '']"
+            :class="[route.path.startsWith('/getting-started/') ? 'text-primary!' : '']"
             to="/getting-started/introduction"
             class="text-foreground/60 transition-colors hover:text-foreground"
             >Documentation</NuxtLink
@@ -22,7 +22,7 @@
           <NuxtLink
             :class="[
               route.path.startsWith('/components/') || route.path.includes('/forms/')
-                ? '!text-primary'
+                ? 'text-primary!'
                 : '',
             ]"
             to="/components/accordion"
@@ -56,7 +56,7 @@
             </UiDropdownMenuContent>
           </UiDropdownMenu>
           <NuxtLink
-            :class="[route.path.startsWith('/colors') ? '!text-primary' : '']"
+            :class="[route.path.startsWith('/colors') ? 'text-primary!' : '']"
             to="/colors"
             class="text-foreground/60 transition-colors hover:text-foreground"
             >Colors</NuxtLink
@@ -64,6 +64,7 @@
           <NuxtLink
             to="https://inspira-ui.com/"
             class="group text-foreground/60 transition-colors hover:text-foreground"
+            target="_blank"
             >Inspira UI
           </NuxtLink>
         </nav>
@@ -80,12 +81,7 @@
           Search...
           <UiKbd class="ml-auto">{{ metaSymbol }}+K</UiKbd>
         </UiButton>
-        <UiButton
-          size="icon"
-          class="text-muted-foreground md:hidden"
-          variant="ghost"
-          @click="isOpen = true"
-        >
+        <UiButton size="icon-sm" class="md:hidden" variant="ghost" @click="isOpen = true">
           <Icon name="lucide:search" class="h-[18px] w-[18px]" />
         </UiButton>
 
@@ -93,20 +89,19 @@
         <UiButton
           to="https://github.com/BayBreezy/ui-thing"
           target="_blank"
-          class="h-9 w-9"
           variant="ghost"
-          size="icon"
+          size="icon-sm"
           ><Icon name="radix-icons:github-logo" class="h-[18px] w-[18px]"
         /></UiButton>
         <CommandSearch v-model="isOpen" />
         <UiDropdownMenu>
           <UiDropdownMenuTrigger as-child>
-            <UiButton class="h-9 w-9" variant="ghost" size="icon">
+            <UiButton variant="ghost" size="icon-sm">
               <ClientOnly>
                 <template #fallback>
-                  <Icon :name="'lucide:sun'" class="h-[18px] w-[18px]" />
+                  <Icon :name="'lucide:sun'" />
                 </template>
-                <Icon v-if="currentIcon" :name="currentIcon" class="h-[18px] w-[18px]" />
+                <Icon v-if="currentIcon" :name="currentIcon" />
               </ClientOnly>
             </UiButton>
           </UiDropdownMenuTrigger>

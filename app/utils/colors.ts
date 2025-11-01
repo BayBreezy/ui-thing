@@ -1508,6 +1508,74 @@ export const colors = {
       hsl: "hsl(343.1,87.7%,15.9%)",
     },
   ],
+  nuxt: [
+    {
+      scale: 50,
+      hex: "#ecfdf5",
+      rgb: "rgb(236,253,245)",
+      hsl: "hsl(151.8,81%,95.9%)",
+    },
+    {
+      scale: 100,
+      hex: "#d1fae5",
+      rgb: "rgb(209,250,229)",
+      hsl: "hsl(149.3,80.4%,90%)",
+    },
+    {
+      scale: 200,
+      hex: "#a7f3d0",
+      rgb: "rgb(167,243,208)",
+      hsl: "hsl(152.4,76%,80.4%)",
+    },
+    {
+      scale: 300,
+      hex: "#6ee7b7",
+      rgb: "rgb(110,231,183)",
+      hsl: "hsl(156.2,71.6%,66.9%)",
+    },
+    {
+      scale: 400,
+      hex: "#34d399",
+      rgb: "rgb(52,211,153)",
+      hsl: "hsl(158.1,64.4%,51.6%)",
+    },
+    {
+      scale: 500,
+      hex: "#10b981",
+      rgb: "rgb(16,185,129)",
+      hsl: "hsl(160,84%,39.4%)",
+    },
+    {
+      scale: 600,
+      hex: "#059669",
+      rgb: "rgb(5,150,105)",
+      hsl: "hsl(161.4,93.5%,30.4%)",
+    },
+    {
+      scale: 700,
+      hex: "#047857",
+      rgb: "rgb(4,120,87)",
+      hsl: "hsl(162.9,93.5%,24.3%)",
+    },
+    {
+      scale: 800,
+      hex: "#065f46",
+      rgb: "rgb(6,95,70)",
+      hsl: "hsl(163.1,88.1%,19.8%)",
+    },
+    {
+      scale: 900,
+      hex: "#064e3b",
+      rgb: "rgb(6,78,59)",
+      hsl: "hsl(163.6,85.7%,16.5%)",
+    },
+    {
+      scale: 950,
+      hex: "#022c22",
+      rgb: "rgb(2,44,34)",
+      hsl: "hsl(165.7,91.3%,9%)",
+    },
+  ],
 };
 
 export const colorMapping = {
@@ -1567,4 +1635,5 @@ export type Color =
   | "green"
   | "blue"
   | "yellow"
-  | "violet";
+  | "violet"
+  | "nuxt";

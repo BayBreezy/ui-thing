@@ -1,27 +1,20 @@
 <template>
   <UiDrawer v-model:open="mobileNavState" should-scale-background>
-    <UiDrawerContent class="h-[600px]">
-      <template #knob>
-        <div
-          class="mx-auto my-5 h-1 w-[60px] shrink-0 cursor-grab rounded-full bg-muted active:cursor-grabbing"
-        />
-      </template>
-      <div>
-        <UiDrawerTitle class="sr-only mb-1.5">Mobile Menu</UiDrawerTitle>
-        <UiDrawerDescription class="sr-only">
-          A list of navigation items for mobile
-        </UiDrawerDescription>
+    <UiDrawerContent class="h-full px-2 pb-4">
+      <UiDrawerTitle class="sr-only mb-1.5">Mobile Menu</UiDrawerTitle>
+      <UiDrawerDescription class="sr-only">
+        A list of navigation items for mobile
+      </UiDrawerDescription>
 
-        <div class="relative h-[calc(100dvh-230px)] overflow-y-auto pr-2 pl-6">
-          <DocsNav :links="content" @clicked="mobileNavState = false" />
-        </div>
-
-        <UiDrawerClose class="absolute top-3 right-4 h-7 w-7" as-child>
-          <UiButton variant="ghost" size="icon-sm" class="opacity-50 hover:opacity-100">
-            <Icon name="lucide:x" />
-          </UiButton>
-        </UiDrawerClose>
+      <div class="relative overflow-y-auto">
+        <DocsNav :links="content" @clicked="mobileNavState = false" />
       </div>
+
+      <UiDrawerClose class="absolute top-3 right-4" as-child>
+        <UiButton variant="ghost" size="icon-sm" class="opacity-50 hover:opacity-100">
+          <Icon name="lucide:x" />
+        </UiButton>
+      </UiDrawerClose>
     </UiDrawerContent>
   </UiDrawer>
 </template>

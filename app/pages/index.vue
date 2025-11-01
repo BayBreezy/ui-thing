@@ -36,9 +36,4 @@
   });
 
   const tabs = ["home", "tasks", "playground"];
-  useHead({
-    bodyAttrs: {
-      class: "[--primary:var(--color-brand-nuxt)] [--ring:var(--color-brand-nuxt)]",
-    },
-  });
 </script>

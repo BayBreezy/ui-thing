@@ -5,12 +5,6 @@ interface Config {
   radius: number;
 }
 
-interface CodeConfig {
-  prefix: string;
-  componentsPath: string;
-  utilsPath: string;
-}
-
 /** The open/closed state of the mobile drawer */
 export const useMobileNavState = () => useState("mobile_nav_state", () => false);
 
@@ -20,11 +14,6 @@ export function useConfigStore() {
   const config = useStorage<Config>("config", {
     theme: "zinc",
     radius: 0.625,
-  });
-  const codeConfig = useStorage<CodeConfig>("code-config", {
-    prefix: "",
-    componentsPath: "@/components",
-    utilsPath: "@/utils",
   });
 
   const themeClass = computed(() => `theme-${config.value.theme}`);
@@ -40,10 +29,6 @@ export function useConfigStore() {
     config.value.radius = newRadius;
   }
 
-  const setCodeConfig = (payload: CodeConfig) => {
-    codeConfig.value = payload;
-  };
-
   return {
     config,
     theme,
@@ -51,8 +36,5 @@ export function useConfigStore() {
     radius,
     setRadius,
     themeClass,
-
-    codeConfig,
-    setCodeConfig,
   };
 }

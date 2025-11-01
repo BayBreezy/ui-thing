@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { breakpointsTailwind } from "@vueuse/core";
+
   // Create an array of color values
   const allColors: Color[] = [
     "zinc",
@@ -13,6 +15,7 @@
     "neutral",
     "yellow",
     "violet",
+    "nuxt",
   ];
   const { theme, radius } = useConfigStore();
 
@@ -32,17 +35,36 @@
   watch(radius, (radius) => {
     document.documentElement.style.setProperty("--radius", `${radius}rem`);
   });
+
+  const bp = useBreakpoints(breakpointsTailwind);
+  const isDesktop = bp.greaterOrEqual("lg");
 </script>
 
 <template>
-  <UiPopover>
+  <UiPopover v-if="isDesktop">
     <UiPopoverTrigger as-child>
-      <UiButton class="h-9 w-9" :variant="'ghost'" :size="'icon'">
-        <Icon name="lucide:paintbrush" class="size-4" />
+      <UiButton variant="ghost" size="icon-sm">
+        <Icon name="lucide:palette" />
       </UiButton>
     </UiPopoverTrigger>
-    <UiPopoverContent :side-offset="8" align="end" class="w-96">
+    <UiPopoverContent :side-offset="4" align="end" class="w-96">
       <ThemeCustomizer :all-colors="allColors" />
     </UiPopoverContent>
   </UiPopover>
+  <UiDrawer v-else>
+    <UiDrawerTrigger as-child>
+      <UiButton variant="ghost" size="icon-sm">
+        <Icon name="lucide:palette" />
+      </UiButton>
+    </UiDrawerTrigger>
+    <UiDrawerContent class="w-full px-4 pb-6">
+      <UiDrawerHeader>
+        <UiDrawerTitle class="sr-only">Theme Customizer</UiDrawerTitle>
+        <UiDrawerDescription class="sr-only"
+          >Pick a style and color for your components.</UiDrawerDescription
+        >
+      </UiDrawerHeader>
+      <ThemeCustomizer :all-colors="allColors" />
+    </UiDrawerContent>
+  </UiDrawer>
 </template>
