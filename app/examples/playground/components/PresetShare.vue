@@ -7,7 +7,7 @@
     <UiPopoverTrigger as-child>
       <UiButton variant="secondary"> Share </UiButton>
     </UiPopoverTrigger>
-    <UiPopoverContent align="end" class="w-[520px]">
+    <UiPopoverContent align="end" class="w-(--reka-popover-trigger-width) md:w-[520px]">
       <div class="flex flex-col space-y-2 text-center sm:text-left">
         <h3 class="text-lg font-semibold">Share preset</h3>
         <p class="text-sm text-muted-foreground">

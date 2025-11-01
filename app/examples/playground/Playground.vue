@@ -16,10 +16,10 @@
       class="flex flex-col items-start justify-between gap-2 p-4 sm:flex-row sm:items-center sm:space-y-0 md:h-16"
     >
       <h2 class="text-lg font-semibold">Playground</h2>
-      <div class="ml-auto flex w-full space-x-2 sm:justify-end">
+      <div class="ml-auto flex w-full flex-col gap-2 sm:justify-end md:flex-row">
         <PresetSelector />
         <PresetSave />
-        <div class="hidden space-x-2 md:flex">
+        <div class="flex flex-col gap-2 sm:flex-row">
           <CodeViewer />
           <PresetShare />
         </div>
