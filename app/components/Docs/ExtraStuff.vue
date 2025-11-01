@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-  const { mergedPages: page } = await useDocPage();
+  const { contentPage: page } = await useDocPage();
   const repoBase = "https://github.com/BayBreezy/ui-thing";
   const links = computed(() => [
     {
