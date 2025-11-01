@@ -19,7 +19,7 @@
       },
     }"
   >
-    <div class="relative flex h-screen items-center">
+    <div class="relative flex min-h-screen items-center">
       <div
         class="absolute h-full w-full bg-[radial-gradient(var(--color-border)_1px,transparent_1px)] mask-[radial-gradient(ellipse_closest-side_at_50%_50%,#000_60%,transparent_100%)] bg-size-[20px_20px]"
       />

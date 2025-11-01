@@ -40,7 +40,7 @@
       <!-- Department filter tabs -->
       <Motion :variants="childVariant" class="mb-12">
         <UiTabs default-value="all" class="w-full">
-          <UiTabsList class="mx-auto justify-start overflow-x-auto">
+          <UiTabsList class="mx-auto w-full justify-start overflow-x-auto">
             <UiTabsTrigger value="all">All positions (12)</UiTabsTrigger>
             <UiTabsTrigger value="engineering">Engineering (5)</UiTabsTrigger>
             <UiTabsTrigger value="design">Design (3)</UiTabsTrigger>

@@ -19,7 +19,7 @@
       },
     }"
   >
-    <div class="relative flex h-screen items-center overflow-x-hidden">
+    <div class="relative flex min-h-screen items-center overflow-x-hidden">
       <div class="container flex w-full items-center justify-center md:w-1/2">
         <div>
           <Motion

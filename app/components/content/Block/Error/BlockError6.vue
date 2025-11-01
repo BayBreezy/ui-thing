@@ -19,7 +19,7 @@
       },
     }"
   >
-    <div class="relative flex h-screen items-center">
+    <div class="relative flex min-h-screen items-center">
       <div
         class="absolute inset-0 bg-[radial-gradient(var(--color-border)_1px,transparent_1px)] bg-size-[20px_20px]"
       />

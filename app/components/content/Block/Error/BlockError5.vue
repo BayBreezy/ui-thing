@@ -5,7 +5,7 @@
   -->
   <div
     ref="container"
-    class="relative flex h-screen items-center overflow-hidden bg-linear-to-br from-primary/10 via-background to-background"
+    class="relative flex min-h-screen items-center overflow-hidden bg-linear-to-br from-primary/10 via-background to-background"
   >
     <div
       class="absolute top-[20%] left-[10%] h-[300px] w-[300px] rounded-full bg-primary/20 blur-[100px]"

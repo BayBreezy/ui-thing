@@ -50,12 +50,14 @@
 
         <slot name="tabs">
           <UiTabs :default-value="props.tabs[0]">
-            <UiTabsList :pill="false" class="relative flex flex-wrap gap-1">
-              <UiTabsTrigger v-for="tab in props.tabs" :key="tab" :pill="false" :value="tab">
-                {{ tab }}
-              </UiTabsTrigger>
-              <UiTabsIndicator />
-            </UiTabsList>
+            <UiScrollArea orientation="horizontal">
+              <UiTabsList :pill="false" class="relative flex gap-1">
+                <UiTabsTrigger v-for="tab in props.tabs" :key="tab" :pill="false" :value="tab">
+                  {{ tab }}
+                </UiTabsTrigger>
+                <UiTabsIndicator />
+              </UiTabsList>
+            </UiScrollArea>
           </UiTabs>
         </slot>
       </div>
@@ -90,7 +92,7 @@
             link: "#",
           },
         ] as BreadcrumbItem[],
-      tabs: () => ["Overview", "Reports", "Insights", "Settings"],
+      tabs: () => ["Overview", "Reports", "Insights", "Settings", "Activity"],
     }
   );
 </script>

@@ -61,13 +61,12 @@
               }"
               as-child
             >
-              <UiChip
-                class="cursor-pointer transition-all hover:bg-primary hover:text-primary-foreground"
+              <UiBadge
+                variant="outline"
+                class="cursor-pointer hover:bg-primary hover:text-primary-foreground"
               >
-                <UiBadge variant="outline">
-                  {{ topic }}
-                </UiBadge>
-              </UiChip>
+                {{ topic }}
+              </UiBadge>
             </Motion>
           </div>
         </Motion>

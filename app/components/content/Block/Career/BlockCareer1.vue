@@ -64,7 +64,7 @@
             <li class="flex items-center gap-2 text-muted-foreground">
               <Icon class="opacity-80" name="heroicons:clock" /> Full-time
             </li>
-            <li class="ml-auto">
+            <li class="md:ml-auto">
               <UiButton
                 variant="ghost"
                 size="sm"

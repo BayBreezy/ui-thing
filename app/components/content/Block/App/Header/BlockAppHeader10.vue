@@ -53,15 +53,21 @@
     <UiContainer class="mt-4 px-4 md:px-6">
       <slot name="tabs">
         <UiTabs :default-value="props.tabs[0]">
-          <UiTabsList
-            :pill="false"
-            class="relative flex w-full justify-start gap-1 rounded-none border-b"
+          <UiScrollArea
+            type="auto"
+            orientation="horizontal"
+            class="**:data-[slot=scroll-area-scrollbar]:h-1.5"
           >
-            <UiTabsTrigger v-for="tab in props.tabs" :key="tab" :pill="false" :value="tab">
-              {{ tab }}
-            </UiTabsTrigger>
-            <UiTabsIndicator />
-          </UiTabsList>
+            <UiTabsList
+              :pill="false"
+              class="relative flex w-full justify-start gap-1 rounded-none border-b"
+            >
+              <UiTabsTrigger v-for="tab in props.tabs" :key="tab" :pill="false" :value="tab">
+                {{ tab }}
+              </UiTabsTrigger>
+              <UiTabsIndicator />
+            </UiTabsList>
+          </UiScrollArea>
         </UiTabs>
       </slot>
     </UiContainer>

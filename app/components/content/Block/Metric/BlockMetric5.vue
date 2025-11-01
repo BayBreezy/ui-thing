@@ -1,6 +1,6 @@
 <template>
   <UiContainer class="py-10 lg:py-20">
-    <div class="grid grid-cols-2 place-items-center gap-8 md:grid-cols-4 lg:gap-12">
+    <div class="grid grid-cols-1 place-items-center gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
       <template v-for="(s, i) in stats" :key="i">
         <div class="flex items-start gap-3">
           <div

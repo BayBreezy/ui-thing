@@ -19,8 +19,8 @@
       },
     }"
   >
-    <div class="flex h-screen items-center">
-      <div class="container max-w-3xl">
+    <div class="flex min-h-screen items-center">
+      <div class="container max-w-3xl py-16">
         <Motion as="div" :variants="childVariant" class="mb-10 text-center">
           <div
             class="mb-4 inline-flex items-center gap-2 rounded-full border bg-primary/5 px-4 py-1.5"

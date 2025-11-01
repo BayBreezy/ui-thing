@@ -97,9 +97,9 @@
           <Motion :variants="childVariant" class="pt-4">
             <h5 class="mb-3 text-sm font-semibold">Popular categories</h5>
             <div class="flex flex-wrap gap-2">
-              <UiChip v-for="tag in tags" :key="tag">
+              <template v-for="tag in tags" :key="tag">
                 <UiBadge variant="outline">{{ tag }}</UiBadge>
-              </UiChip>
+              </template>
             </div>
           </Motion>
         </div>

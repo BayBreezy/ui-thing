@@ -14,7 +14,7 @@
               Testimonials
             </p>
             <h2 class="mb-4 text-3xl font-bold lg:text-4xl">What our customers say</h2>
-            <div class="mx-auto flex items-center justify-center gap-2">
+            <div class="mx-auto flex flex-col items-center justify-center gap-2 md:flex-row">
               <div class="flex">
                 <Icon
                   v-for="s in 5"

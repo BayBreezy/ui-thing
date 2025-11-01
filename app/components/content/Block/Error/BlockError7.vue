@@ -19,7 +19,7 @@
       },
     }"
   >
-    <div class="flex h-screen items-center">
+    <div class="flex min-h-screen items-center">
       <div class="container max-w-2xl text-center">
         <Motion
           :variants="{

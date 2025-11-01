@@ -20,7 +20,7 @@
     }"
   >
     <div
-      class="relative flex h-screen items-center bg-linear-to-br from-background via-background to-primary/5"
+      class="relative flex min-h-screen items-center bg-linear-to-br from-background via-background to-primary/5 py-16"
     >
       <div
         class="absolute inset-0 bg-[linear-gradient(to_right,--alpha(var(--color-border)/40%)_1px,transparent_1px),linear-gradient(to_bottom,--alpha(var(--color-border)/40%)_1px,transparent_1px)] bg-size-[80px_80px]"
