@@ -28,8 +28,7 @@
                 class="flex w-full cursor-pointer items-center gap-2"
               >
                 <Icon :name="item.icon" />
-                {{ item.label }}
-
+                <p v-html="item.label" />
                 <Icon name="lucide:arrow-up-right" class="ml-auto text-muted-foreground" />
               </NuxtLink>
             </UiDropdownMenuItem>
@@ -92,6 +91,17 @@
       label: "Open in T3",
       icon: "lucide:message-circle",
       to: `https://t3.chat/new?q=${encodeURIComponent(`Read ${markdownLink.value} so I can ask questions about it.`)}`,
+    },
+    { separator: true },
+    {
+      label: `View llms.txt File`,
+      icon: "lucide:bot",
+      to: `/llms.txt`,
+    },
+    {
+      label: `View llms-full.txt File`,
+      icon: "lucide:bot",
+      to: `/llms-full.txt`,
     },
   ];
 </script>
