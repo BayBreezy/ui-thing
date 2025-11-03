@@ -10,6 +10,7 @@
           exact-active-class="underline underline-offset-2 text-primary"
           :to="l.path"
           :title="l.title"
+          :target="l.target ? (l.target as string) : '_self'"
           @click="mobileNavState = false"
         >
           {{ l.title }}
