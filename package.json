@@ -149,7 +149,7 @@
     "@types/jquery": "^3.5.33",
     "@types/lodash-es": "^4.17.12",
     "@vite-pwa/nuxt": "^1.0.7",
-    "@vueuse/core": "^13.9.0",
+    "@vueuse/core": "^14.0.0",
     "@vueuse/nuxt": "^13.9.0",
     "eslint": "^9.39.1",
     "husky": "^9.1.7",
