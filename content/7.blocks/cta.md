@@ -25,9 +25,7 @@ CTA with feature checklist and decorative image in two-column layout.
 
 Swiper-powered testimonial slider with customer reviews and feature list. Requires [Nuxt Swiper Module](https://github.com/cpreston321/nuxt-swiper).
 
-```bash
-npx nuxi@latest module add swiper
-```
+:prose-pm-x{command="nuxi@latest module add swiper"}
 
 Then add it to your `nuxt.config` file:
 

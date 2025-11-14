@@ -9,9 +9,7 @@ Carousel testimonial slider with auto-rotation. Features centered quotes, custom
 
 This one requires the [Nuxt Swiper Module](https://github.com/cpreston321/nuxt-swiper?tab=readme-ov-file#features).
 
-```bash
-npx nuxi@latest module add swiper
-```
+:prose-pm-x{command="nuxi@latest module add swiper"}
 
 Then add it to your `nuxt.config` file.
 
