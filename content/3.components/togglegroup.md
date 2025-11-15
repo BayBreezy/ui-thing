@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="ToggleGroup"} to see the source code for this c
 
 ## Installation
 
-```bash
-npx ui-thing@latest add toggle-group
-```
+:prose-pm-x{command="ui-thing@latest add toggle-group"}
 
 ## Usage
 

@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Calendar.vue"} to see the source code for this 
 
 ## Installation
 
-```bash
-npx ui-thing@latest add calendar
-```
+:prose-pm-x{command="ui-thing@latest add calendar"}
 
 You can optionally configure the vcalendar module in your `nuxt.config.js` file:
 

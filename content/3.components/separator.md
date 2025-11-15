@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Separator.vue"} to see the source code for this
 
 ## Installation
 
-```bash
-npx ui-thing@latest add separator
-```
+:prose-pm-x{command="ui-thing@latest add separator"}
 
 ## Usage
 

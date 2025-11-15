@@ -13,13 +13,11 @@ Click :SourceCodeLink{component="Sonner.vue"} to see the source code for this co
 
 ## Installation
 
-```bash
-npx ui-thing@latest add sonner
-```
+:prose-pm-x{command="ui-thing@latest add sonner"}
 
 Add the `<UiSonner />` component to your `app.vue` file:
 
-```vue [app.vue]
+```vue [app.vue] noFormat
 <template>
   <div>
     <NuxtPage />

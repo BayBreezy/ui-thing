@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="Table"} to see the source code for this compone
 
 ## Installation
 
-```bash
-npx ui-thing@latest add table
-```
+:prose-pm-x{command="ui-thing@latest add table"}
 
 ## Usage
 

@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
 
 ## Installation
 
-```bash
-npx ui-thing@latest add tanstacktable
-```
+:prose-pm-x{command="ui-thing@latest add tanstacktable"}
 
 ## Usage
 

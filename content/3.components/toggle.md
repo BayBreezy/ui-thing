@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Toggle.vue"} to see the source code for this co
 
 ## Installation
 
-```bash
-npx ui-thing@latest add toggle
-```
+:prose-pm-x{command="ui-thing@latest add toggle"}
 
 ## Usage
 

@@ -18,7 +18,7 @@ Click :SourceCodeLink{component="Accordion"} to see the source code for this com
 
 Pass a list of `items` to the component.
 
-```vue [Accordion Anatomy.vue]{2,6} lines
+```vue [Accordion Anatomy.vue] lines
 <template>
   <UiAccordion :items />
 </template>
@@ -30,7 +30,7 @@ Pass a list of `items` to the component.
 
 Or use each part individually
 
-```vue [Accordion Anatomy.vue]{2-9} lines
+```vue [Accordion Anatomy.vue] lines
 <template>
   <UiAccordion>
     <UiAccordionItem>
@@ -45,9 +45,7 @@ Or use each part individually
 
 ## Installation
 
-```bash
-npx ui-thing@latest add accordion
-```
+:prose-pm-x{command="ui-thing@latest add accordion"}
 
 ## Usage
 

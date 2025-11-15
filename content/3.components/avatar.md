@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Avatar"} to see the source code for this compon
 
 ## Installation
 
-```bash
-npx ui-thing@latest add avatar
-```
+:prose-pm-x{command="ui-thing@latest add avatar"}
 
 ## Usage
 

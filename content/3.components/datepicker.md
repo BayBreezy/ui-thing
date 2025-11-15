@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Datepicker.vue"} to see the source code for thi
 
 ## Installation
 
-```bash
-npx ui-thing@latest add datepicker
-```
+:prose-pm-x{command="ui-thing@latest add datepicker"}
 
 You can optionally configure the vcalendar module in your `nuxt.config.js` file:
 

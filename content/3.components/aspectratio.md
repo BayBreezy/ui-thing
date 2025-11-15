@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="AspectRatio"} to see the source code for this c
 
 ## Installation
 
-```bash
-npx ui-thing@latest add aspect-ratio
-```
+:prose-pm-x{command="ui-thing@latest add aspect-ratio"}
 
 ## Usage
 

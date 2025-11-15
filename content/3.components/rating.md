@@ -10,9 +10,7 @@ Click :SourceCodeLink{component="Rating.vue"} to see the source code for this co
 
 ## Installation
 
-```bash
-npx ui-thing@latest add rating
-```
+:prose-pm-x{command="ui-thing@latest add rating"}
 
 ## Usage
 

@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="PinInput"} to see the source code for this comp
 
 ## Installation
 
-```bash
-npx ui-thing@latest add pin-input
-```
+:prose-pm-x{command="ui-thing@latest add pin-input"}
 
 ## Usage
 

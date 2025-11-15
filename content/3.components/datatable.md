@@ -17,9 +17,7 @@ Click :SourceCodeLink{component="Datatable.client.vue"} to see the source code f
 
 ## Installation
 
-```bash
-npx ui-thing@latest add datatable
-```
+:prose-pm-x{command="ui-thing@latest add datatable"}
 
 ## Usage
 

@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="Breadcrumbs.vue"} to see the source code for th
 
 ## Installation
 
-```bash
-npx ui-thing@latest add breadcrumbs
-```
+:prose-pm-x{command="ui-thing@latest add breadcrumbs"}
 
 ## Usage
 

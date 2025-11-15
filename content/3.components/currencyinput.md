@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="CurrencyInput.vue"} to see the source code for 
 
 ## Installation
 
-```bash
-npx ui-thing@latest add currency-input
-```
+:prose-pm-x{command="ui-thing@latest add currency-input"}
 
 Adding this component will also install the `vue-currency-input` package.
 

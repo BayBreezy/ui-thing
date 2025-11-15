@@ -10,9 +10,7 @@ Click :SourceCodeLink{component="Button.vue"} to see the source code for this co
 
 ## Installation
 
-```bash
-npx ui-thing@latest add button
-```
+:prose-pm-x{command="ui-thing@latest add button"}
 
 ## Plain Buttons
 

@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Tabs"} to see the source code for this componen
 
 ## Installation
 
-```bash
-npx ui-thing@latest add tabs
-```
+:prose-pm-x{command="ui-thing@latest add tabs"}
 
 ## Usage
 

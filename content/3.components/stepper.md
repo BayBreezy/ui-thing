@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
 
 ## Installation
 
-```bash
-npx ui-thing@latest add stepper
-```
+:prose-pm-x{command="ui-thing@latest add stepper"}
 
 ### Origin UI
 

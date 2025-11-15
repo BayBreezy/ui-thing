@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Command"} to see the source code for this compo
 
 ## Installation
 
-```bash
-npx ui-thing@latest add command
-```
+:prose-pm-x{command="ui-thing@latest add command"}
 
 ## Usage
 

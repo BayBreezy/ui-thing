@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="Chip.vue"} to see the source code for this comp
 
 ## Installation
 
-```bash
-npx ui-thing@latest add chip
-```
+:prose-pm-x{command="ui-thing@latest add chip"}
 
 ## Usage
 

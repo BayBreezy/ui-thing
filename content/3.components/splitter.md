@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Splitter"} to see the source code for this comp
 
 ## Installation
 
-```bash
-npx ui-thing@latest add splitter
-```
+:prose-pm-x{command="ui-thing@latest add splitter"}
 
 ## Usage
 

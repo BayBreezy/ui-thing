@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Menubar"} to see the source code for this compo
 
 ## Installation
 
-```bash
-npx ui-thing@latest add menubar
-```
+:prose-pm-x{command="ui-thing@latest add menubar"}
 
 ## Usage
 

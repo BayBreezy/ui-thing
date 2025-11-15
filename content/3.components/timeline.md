@@ -13,9 +13,7 @@ Click :SourceCodeLink{component="Timeline"} to see the source code for this comp
 
 ## Installation
 
-```bash
-npx ui-thing@latest add timeline
-```
+:prose-pm-x{command="ui-thing@latest add timeline"}
 
 ## Usage
 

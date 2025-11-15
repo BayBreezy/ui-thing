@@ -12,9 +12,7 @@ Click :SourceCodeLink{component="Drawer"} to see the source code for this compon
 
 ## Installation
 
-```bash
-npx ui-thing@latest add drawer
-```
+:prose-pm-x{command="ui-thing@latest add drawer"}
 
 ## Usage
 

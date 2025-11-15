@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
 
 ## Installation
 
-```bash
-npx ui-thing@latest add checkbox
-```
+:prose-pm-x{command="ui-thing@latest add checkbox"}
 
 ## Usage
 

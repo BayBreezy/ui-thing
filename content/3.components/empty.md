@@ -10,9 +10,7 @@ Click :SourceCodeLink{component="Empty"} to see the source code for this compone
 
 ## Installation
 
-```bash
-npx ui-thing@latest add empty
-```
+:prose-pm-x{command="ui-thing@latest add empty"}
 
 ## Usage
 

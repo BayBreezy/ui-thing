@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="Loader.vue"} to see the source code for this co
 
 ## Installation
 
-```bash
-npx ui-thing@latest add loader
-```
+:prose-pm-x{command="ui-thing@latest add loader"}
 
 ## Usage
 

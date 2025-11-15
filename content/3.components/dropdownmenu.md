@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="DropdownMenu"} to see the source code for this 
 
 ## Installation
 
-```bash
-npx ui-thing@latest add dropdown-menu
-```
+:prose-pm-x{command="ui-thing@latest add dropdown-menu"}
 
 ## Usage
 

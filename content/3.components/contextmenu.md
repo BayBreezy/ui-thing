@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="ContextMenu"} to see the source code for this c
 
 ## Installation
 
-```bash
-npx ui-thing@latest add context-menu
-```
+:prose-pm-x{command="ui-thing@latest add context-menu"}
 
 ## Usage
 

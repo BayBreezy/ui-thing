@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="RadioGroup"} to see the source code for this co
 
 ## Installation
 
-```bash
-npx ui-thing@latest add radio-group
-```
+:prose-pm-x{command="ui-thing@latest add radio-group"}
 
 ## Anatomy
 

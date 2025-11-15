@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="Divider.vue"} to see the source code for this c
 
 ## Installation
 
-```bash
-npx ui-thing@latest add divider
-```
+:prose-pm-x{command="ui-thing@latest add divider"}
 
 ## Usage
 

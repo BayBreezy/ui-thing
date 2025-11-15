@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="GradientDivider.vue"} to see the source code fo
 
 ## Installation
 
-```bash
-npx ui-thing@latest add gradient-divider
-```
+:prose-pm-x{command="ui-thing@latest add gradient-divider"}
 
 ## Usage
 

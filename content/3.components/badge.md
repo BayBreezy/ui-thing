@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="Badge.vue"} to see the source code for this com
 
 ## Installation
 
-```bash
-npx ui-thing@latest add badge
-```
+:prose-pm-x{command="ui-thing@latest add badge"}
 
 ## Variants
 

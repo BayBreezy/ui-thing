@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="NumberField"} to see the source code for this c
 
 ## Installation
 
-```bash
-npx --yes ui-thing@latest add number-field && npm add @internationalized/number
-```
+:prose-pm-x{command="ui-thing@latest add number-field"}
 
 ## Usage
 

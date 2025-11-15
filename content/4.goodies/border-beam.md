@@ -7,47 +7,13 @@ description: An animated beam of light which travels along the border of its con
 
 Shout out to [Magic UI](https://magicui.design/docs/components/border-beam) for the inspiration. I actually discovered this package while browsing their website.
 
-## Getting Started
+## Source code
 
-:::Steps
+Click :SourceCodeLink{component="BorderBeam.vue"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
 
-::Step
+## Installation
 
-### Install `motion-vue`
-
-You can install the `motion-vue` package by running this command
-
-:prose-pm-install{name="motion-v"}
-
-::
-::Step
-
-### Update `nuxt.config`
-
-Add the module to your `nuxt.config` file.
-
-```ts
-export default defineNuxtConfig({
-  modules: [
-    // other modules...
-    "motion-v/nuxt",
-  ],
-});
-```
-
-::
-
-::Step
-
-### Create Component
-
-Create the component `BorderBeam.vue` in the `components` directory.
-
-:prose-code-snippet{file="/components/Ui/BorderBeam.vue" language="vue" title="Border Beam"}
-
-::
-
-:::
+:prose-pm-x{command="ui-thing@latest add border-beam"}
 
 ## Usage
 

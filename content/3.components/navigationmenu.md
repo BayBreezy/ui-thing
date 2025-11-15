@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="NavigationMenu"} to see the source code for thi
 
 ## Installation
 
-```bash
-npx ui-thing@latest add navigation-menu
-```
+:prose-pm-x{command="ui-thing@latest add navigation-menu"}
 
 ## Anatomy
 

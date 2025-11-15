@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Dialog"} to see the source code for this compon
 
 ## Installation
 
-```bash
-npx ui-thing@latest add dialog
-```
+:prose-pm-x{command="ui-thing@latest add dialog"}
 
 ## Usage
 

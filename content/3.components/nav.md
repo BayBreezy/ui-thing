@@ -13,9 +13,7 @@ Click :SourceCodeLink{component="Nav"} to see the source code for this component
 
 ## Installation
 
-```bash
-npx ui-thing@latest add nav
-```
+:prose-pm-x{command="ui-thing@latest add nav"}
 
 ## Usage
 

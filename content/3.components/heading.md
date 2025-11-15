@@ -11,9 +11,7 @@ Feel free to copy it and adjust it for your own use.
 
 ## Installation
 
-```bash
-npx ui-thing@latest add heading
-```
+:prose-pm-x{command="ui-thing@latest add heading"}
 
 ## Usage
 

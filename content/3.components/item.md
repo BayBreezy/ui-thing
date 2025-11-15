@@ -12,9 +12,7 @@ Click :SourceCodeLink{component="Item"} to see the source code for this componen
 
 ## Installation
 
-```bash
-npx ui-thing@latest add item
-```
+:prose-pm-x{command="ui-thing@latest add item"}
 
 ## Usage
 

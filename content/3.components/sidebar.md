@@ -7,6 +7,10 @@ description: A composable, themeable and customizable sidebar component.
 
 Click :SourceCodeLink{component="Sidebar"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
 
+## Installation
+
+:prose-pm-x{command="ui-thing@latest add sidebar"}
+
 ## Usage
 
 You should always ensure that you have all parts of the `Sidebar` components wrapped in a `UiSidebarProvider` component. This is to ensure that the sidebar can be toggled on and off.

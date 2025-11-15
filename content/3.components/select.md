@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Select"} to see the source code for this compon
 
 ## Installation
 
-```bash
-npx ui-thing@latest add select
-```
+:prose-pm-x{command="ui-thing@latest add select"}
 
 ## Usage
 

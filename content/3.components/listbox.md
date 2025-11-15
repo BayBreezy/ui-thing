@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Listbox"} to see the source code for this compo
 
 ## Installation
 
-```bash
-npx ui-thing@latest add listbox
-```
+:prose-pm-x{command="ui-thing@latest add listbox"}
 
 ## Usage
 

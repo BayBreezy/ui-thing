@@ -20,9 +20,7 @@ The carousel component is built using the [Embla Carousel](https://www.embla-car
 
 ## Installation
 
-```bash
-npx ui-thing@latest add carousel
-```
+:prose-pm-x{command="ui-thing@latest add carousel"}
 
 ## Usage
 

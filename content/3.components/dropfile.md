@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="Dropfile.vue"} to see the source code for this 
 
 ## Installation
 
-```bash
-npx ui-thing@latest add dropfile
-```
+:prose-pm-x{command="ui-thing@latest add dropfile"}
 
 ## Usage
 

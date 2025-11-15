@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Collapsible"} to see the source code for this c
 
 ## Installation
 
-```bash
-npx ui-thing@latest add collapsible
-```
+:prose-pm-x{command="ui-thing@latest add collapsible"}
 
 ## Usage
 

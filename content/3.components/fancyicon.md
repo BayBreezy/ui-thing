@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="FancyIcon"} to see the source code for this com
 
 ## Installation
 
-```bash
-npx ui-thing@latest add fancy-icon
-```
+:prose-pm-x{command="ui-thing@latest add fancy-icon"}
 
 ## Usage
 

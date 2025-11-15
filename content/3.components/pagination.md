@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Pagination"} to see the source code for this co
 
 ## Installation
 
-```bash
-npx ui-thing@latest add pagination
-```
+:prose-pm-x{command="ui-thing@latest add pagination"}
 
 ## Anatomy
 

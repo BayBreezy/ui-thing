@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="Alert"} to see the source code for this compone
 
 ## Installation
 
-```bash
-npx ui-thing@latest add alert
-```
+:prose-pm-x{command="ui-thing@latest add alert"}
 
 ## Usage
 

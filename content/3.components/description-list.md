@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="Description"} to see the source code for this c
 
 ## Installation
 
-```bash
-npx ui-thing@latest add description-list
-```
+:prose-pm-x{command="ui-thing@latest add description-list"}
 
 ## Usage
 

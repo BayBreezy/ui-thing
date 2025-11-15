@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Tooltip"} to see the source code for this compo
 
 ## Installation
 
-```bash
-npx ui-thing@latest add tooltip
-```
+:prose-pm-x{command="ui-thing@latest add tooltip"}
 
 ## Usage
 

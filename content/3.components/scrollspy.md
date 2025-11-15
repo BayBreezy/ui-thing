@@ -10,9 +10,7 @@ Click :SourceCodeLink{component="Scrollspy.vue"} to see the source code for this
 
 ## Installation
 
-```bash
-npx ui-thing@latest add scrollspy
-```
+:prose-pm-x{command="ui-thing@latest add scrollspy"}
 
 ## Usage
 

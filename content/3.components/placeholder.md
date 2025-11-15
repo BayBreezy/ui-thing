@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="Placeholder.vue"} to see the source code for th
 
 ## Installation
 
-```bash
-npx ui-thing@latest add placeholder
-```
+:prose-pm-x{command="ui-thing@latest add placeholder"}
 
 ## Usage
 

@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="AlertDialog"} to see the source code for this c
 
 ## Installation
 
-```bash
-npx ui-thing@latest add alert-dialog
-```
+:prose-pm-x{command="ui-thing@latest add alert-dialog"}
 
 ## Usage
 

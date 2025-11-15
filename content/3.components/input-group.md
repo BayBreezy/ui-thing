@@ -10,9 +10,7 @@ Click :SourceCodeLink{component="InputGroup"} to see the source code for this co
 
 ## Installation
 
-```bash
-npx ui-thing@latest add input-group
-```
+:prose-pm-x{command="ui-thing@latest add input-group"}
 
 ## Usage
 

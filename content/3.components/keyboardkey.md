@@ -10,9 +10,7 @@ Click :SourceCodeLink{component="Kbd.vue"} to see the source code for this compo
 
 ## Installation
 
-```bash
-npx ui-thing@latest add kbd
-```
+:prose-pm-x{command="ui-thing@latest add kbd"}
 
 ## Usage
 

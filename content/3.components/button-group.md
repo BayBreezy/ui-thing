@@ -10,9 +10,7 @@ Click :SourceCodeLink{component="ButtonGroup"} to see the source code for this c
 
 ## Installation
 
-```bash
-npx ui-thing@latest add button-group
-```
+:prose-pm-x{command="ui-thing@latest add button-group"}
 
 ## Usage
 

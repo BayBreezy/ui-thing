@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="Skeleton.vue"} to see the source code for this 
 
 ## Installation
 
-```bash
-npx ui-thing@latest add skeleton
-```
+:prose-pm-x{command="ui-thing@latest add skeleton"}
 
 ## Usage
 

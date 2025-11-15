@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Switch"} to see the source code for this compon
 
 ## Installation
 
-```bash
-npx ui-thing@latest add switch
-```
+:prose-pm-x{command="ui-thing@latest add switch"}
 
 ## Usage
 

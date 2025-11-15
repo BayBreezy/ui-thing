@@ -13,9 +13,7 @@ Click :SourceCodeLink{component="NativeSelect.vue"} to see the source code for t
 
 ## Installation
 
-```bash
-npx ui-thing@latest add native-select
-```
+:prose-pm-x{command="ui-thing@latest add native-select"}
 
 ## Origin UI Examples
 

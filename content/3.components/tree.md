@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Tree"} to see the source code for this componen
 
 ## Installation
 
-```bash
-npx ui-thing@latest add tree
-```
+:prose-pm-x{command="ui-thing@latest add tree"}
 
 ## Usage
 

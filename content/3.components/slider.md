@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Slider"} to see the source code for this compon
 
 ## Installation
 
-```bash
-npx ui-thing@latest add slider
-```
+:prose-pm-x{command="ui-thing@latest add slider"}
 
 ## Usage
 

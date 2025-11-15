@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="HoverCard"} to see the source code for this com
 
 ## Installation
 
-```bash
-npx ui-thing@latest add hover-card
-```
+:prose-pm-x{command="ui-thing@latest add hover-card"}
 
 ## Usage
 

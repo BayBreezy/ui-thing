@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Autocomplete"} to see the source code for this 
 
 ## Installation
 
-```bash
-npx ui-thing@latest add autocomplete
-```
+:prose-pm-x{command="ui-thing@latest add autocomplete"}
 
 ## Usage
 

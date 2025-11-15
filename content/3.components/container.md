@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="Container.vue"} to see the source code for this
 
 ## Installation
 
-```bash
-npx ui-thing@latest add container
-```
+:prose-pm-x{command="ui-thing@latest add container"}
 
 ## Usage
 

@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Editable"} to see the source code for this comp
 
 ## Installation
 
-```bash
-npx ui-thing@latest add editable
-```
+:prose-pm-x{command="ui-thing@latest add editable"}
 
 ## Usage
 

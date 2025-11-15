@@ -13,9 +13,7 @@ Click :SourceCodeLink{component="Draggable.vue"} to see the source code for this
 
 ## Installation
 
-```bash
-npx ui-thing@latest add draggable
-```
+:prose-pm-x{command="ui-thing@latest add draggable"}
 
 ## Usage
 
