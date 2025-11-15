@@ -84,8 +84,14 @@
         <UiButton size="icon-sm" class="md:hidden" variant="ghost" @click="isOpen = true">
           <Icon name="lucide:search" class="h-[18px] w-[18px]" />
         </UiButton>
-
-        <ThemePopover />
+        <ClientOnly>
+          <template #fallback>
+            <UiButton variant="ghost" size="icon-sm">
+              <Icon name="lucide:palette" />
+            </UiButton>
+          </template>
+          <ThemePopover />
+        </ClientOnly>
         <UiButton
           to="https://github.com/BayBreezy/ui-thing"
           target="_blank"
