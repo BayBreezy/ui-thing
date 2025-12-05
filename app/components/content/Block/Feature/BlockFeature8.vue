@@ -65,7 +65,15 @@
           src="https://www.youtube.com/embed/hmkHPI32D5Y?si=CVzjCZbUR9hMt7zq"
           :title="`${COMPANY_NAME} new feature section seven video`"
           frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+            web-share;
+          "
           allowfullscreen
         />
       </Motion>

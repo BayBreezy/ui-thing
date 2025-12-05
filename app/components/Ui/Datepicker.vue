@@ -22,7 +22,9 @@
 
   // @ts-expect-error - This is a hacky way to get the props from the Calendar and DatePicker components
   interface Props
-    extends /* @vue-ignore */ Partial<InstanceType<typeof Calendar>["$props"]>,
+    /* @vue-ignore */
+    extends
+      Partial<InstanceType<typeof Calendar>["$props"]>,
       /* @vue-ignore */ Omit<Partial<InstanceType<typeof DatePicker>["$props"]>, "attributes"> {}
 
   const props = defineProps<Props & { trimWeeks?: boolean }>();

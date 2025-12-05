@@ -47,7 +47,15 @@
             src="https://www.youtube.com/embed/7RaKVu72ncY?si=QoEOhOEe4FE4H9Es"
             :title="`${COMPANY_NAME} hero section seven video`"
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
             allowfullscreen
           />
         </div>

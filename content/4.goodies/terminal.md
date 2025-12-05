@@ -116,8 +116,7 @@ This consists of three components
   import type { HTMLAttributes } from "vue";
 
   export interface TypingAnimationProps
-    extends Omit<MotionProps, "as" | "asChild">,
-      PrimitiveProps {
+    extends Omit<MotionProps, "as" | "asChild">, PrimitiveProps {
     text?: string;
     class?: HTMLAttributes["class"];
     duration?: number;
