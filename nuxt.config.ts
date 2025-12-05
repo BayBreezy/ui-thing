@@ -36,7 +36,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   vite: {
     plugins: [tailwindcss()],
-    build: { sourcemap: false },
     optimizeDeps: {
       include: [
         "vue-use-active-scroll",
@@ -172,7 +171,7 @@ export default defineNuxtConfig({
     "/blocks": { redirect: "/blocks/app-empty-state" },
     "/block-renderer": { static: true },
   },
-  colorMode: { classSuffix: "", fallback: "dark", preference: "system" },
+  colorMode: { fallback: "dark", preference: "system" },
 
   pwa: {
     includeAssets: ["favicon.ico", "robots.txt", "icons/apple-touch-icon.png"],
