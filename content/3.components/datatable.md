@@ -19,6 +19,13 @@ Click :SourceCodeLink{component="Datatable.client.vue"} to see the source code f
 
 :prose-pm-x{command="ui-thing@latest add datatable"}
 
+::prose-callout{variant="info" title="Update Tailwind Reference"}
+Be sure to update your Tailwind CSS reference path (usually located at `~/assets/css/tailwind.css`) once this component is installed.
+<br/><br/>
+
+By default, the `Datatable` component has `@reference "~/assets/css/tailwind.css";` at the top of its scoped styles to ensure that Tailwind classes are available within the component.
+::
+
 ## Usage
 
 ### Dom

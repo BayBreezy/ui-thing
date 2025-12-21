@@ -177,6 +177,9 @@ export default [
       "jszip",
     ],
     files: ["Datatable.client.vue"],
+    instructions: [
+      "Remember to update your Tailwind CSS reference path for the Datatable component.",
+    ],
   },
   {
     name: "Date Field",
