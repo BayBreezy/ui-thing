@@ -76,7 +76,10 @@ export default [
     value: "calendar",
     devDeps: ["@yuta-inoue-ph/nuxt-vcalendar"],
     nuxtModules: ["@yuta-inoue-ph/nuxt-vcalendar"],
-    instructions: ["You can customize the calendar by adding options to your nuxt.config.js file"],
+    instructions: [
+      "You can customize the calendar by adding options to your nuxt.config.js file",
+      "Remember to update your Tailwind CSS reference path for the Calendar component.",
+    ],
     files: ["Calendar.vue"],
   },
   {
@@ -194,6 +197,7 @@ export default [
     nuxtModules: ["@yuta-inoue-ph/nuxt-vcalendar"],
     instructions: [
       "You can customize the datepicker by adding options to your nuxt.config.js file",
+      "Remember to update your Tailwind CSS reference path for the Datepicker component.",
     ],
     files: ["Datepicker.vue"],
   },
