@@ -26,7 +26,7 @@
     slots: {
       wrapper: [
         "group/sidebar-item hover:bg-secondary",
-        "aria-[current=page]:text-foreground aria-[current=page]*:data-[slot=icon]:text-foreground",
+        "aria-[current=page]*:data-[slot=icon]:text-foreground aria-[current=page]:text-foreground",
         "col-span-full grid grid-cols-[auto_1fr_1.5rem_0.5rem_auto] supports-[grid-template-columns:subgrid]:grid-cols-subgrid md:supports-[grid-template-columns:subgrid]:grid-cols-none",
         "relative min-w-0 items-center gap-x-3 rounded-lg p-2 text-left text-base/6 font-medium sm:text-sm/5 md:gap-x-2.5",
         "*:data-[slot=icon]:size-5 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:text-muted-foreground sm:*:data-[slot=icon]:size-4",
