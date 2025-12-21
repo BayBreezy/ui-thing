@@ -21,10 +21,10 @@
   const datepickerRef = useTemplateRef("datepickerRef");
 
   // @ts-expect-error - This is a hacky way to get the props from the Calendar and DatePicker components
+  // prettier-ignore
   interface Props
-    /* @vue-ignore */
-    extends
-      Partial<InstanceType<typeof Calendar>["$props"]>,
+    extends 
+     /* @vue-ignore */ Partial<InstanceType<typeof Calendar>["$props"]>,
       /* @vue-ignore */ Omit<Partial<InstanceType<typeof DatePicker>["$props"]>, "attributes"> {}
 
   const props = defineProps<Props & { trimWeeks?: boolean }>();
