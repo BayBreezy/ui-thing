@@ -2,6 +2,7 @@
   <div
     v-for="item in constructedItems"
     :key="item.id"
+    data-slot="animated-tooltip"
     class="group relative -mr-4"
     @mouseenter="(e) => handleMouseEnter(e, item.id)"
     @mouseleave="hoveredIndex = null"
@@ -50,9 +51,10 @@
 
     <!-- Avatar Image -->
     <img
+      data-slot="avatar"
       :src="item.image"
       :alt="item.title"
-      class="relative !m-0 size-14 rounded-full border-2 border-white object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105"
+      class="relative m-0! size-14 rounded-full border-2 border-white object-cover object-top p-0! transition duration-500 group-hover:z-30 group-hover:scale-105"
     />
   </div>
 </template>
@@ -61,9 +63,23 @@
   import { Motion } from "motion-v";
 
   interface Item {
+    /**
+     * Unique identifier for the item
+     *
+     * If not provided, an ID will be generated
+     */
     id?: string;
+    /**
+     * Title of the item (e.g., name)
+     */
     title: string;
+    /**
+     * Description of the item (e.g., role or position)
+     */
     description?: string;
+    /**
+     * URL of the avatar image
+     */
     image: string;
   }
 
