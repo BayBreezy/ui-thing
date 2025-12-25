@@ -18,7 +18,7 @@
         :name="name"
         :disabled="disabled"
         v-bind="$attrs"
-        :class="[hasIcon && 'pl-9']"
+        :class="[hasIcon && 'pl-9', 'h-auto p-1']"
       >
         <UiTagsInputItem
           v-for="tag in value"
