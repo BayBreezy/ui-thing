@@ -27,7 +27,7 @@
   };
 
   export const proseH5Styles = tv({
-    base: "scroll-m-20 text-lg font-semibold tracking-tight text-balance [&:not(:first-child)]:mt-6",
+    base: "scroll-m-20 text-lg font-semibold tracking-tight text-balance not-first:mt-6",
   });
 </script>
 

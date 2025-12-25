@@ -76,7 +76,7 @@
         },
         false: {
           root: "[&_pre]:overflow-hidden",
-          footer: "bg-gradient-to-t from-code",
+          footer: "bg-linear-to-t from-code",
         },
       },
     },

@@ -15,7 +15,7 @@
   };
 
   export const proseOlStyles = tv({
-    base: "ml-4 list-decimal [&:not(:first-child)]:mt-6 [&:not(:last-child)]:mb-6 [&>li:not(:first-child)]:mt-2",
+    base: "ml-4 list-decimal not-first:mt-6 not-last:mb-6 [&>li:not(:first-child)]:mt-2",
   });
 </script>
 

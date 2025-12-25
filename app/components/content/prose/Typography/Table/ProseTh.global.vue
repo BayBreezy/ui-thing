@@ -15,7 +15,7 @@
   };
 
   export const proseThStyles = tv({
-    base: "px-4 py-2 text-left font-bold text-pretty [&[align=center]]:text-center [&[align=right]]:text-right",
+    base: "px-4 py-2 text-left font-bold text-pretty [[align=center]]:text-center [[align=right]]:text-right",
   });
 </script>
 

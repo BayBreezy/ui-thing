@@ -50,7 +50,7 @@
       nameText: "font-semibold text-foreground",
       typeBadge: "rounded-md px-1.5 py-0.5 text-[11px]",
       requiredBadge:
-        "rounded-md border-red-500/50 !bg-red-500/10 px-1.5 py-0.5 text-[11px] text-red-500",
+        "rounded-md border-red-500/50 bg-red-500/10! px-1.5 py-0.5 text-[11px] text-red-500",
       description: "max-w-none text-[15px] text-muted-foreground",
       defaultValue: "flex items-center gap-2 text-sm",
       defaultLabel: "font-medium text-muted-foreground",

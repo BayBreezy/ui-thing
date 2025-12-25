@@ -48,7 +48,7 @@
   export const proseIconListStyles = tv({
     slots: {
       base: "ml-4 flex list-none flex-col gap-3",
-      item: "flex items-start gap-2 *:!my-0 *:leading-normal [&_[role=list]]:mt-2 [&_[role=list]]:mb-2 [&>svg]:!mt-1 has-[>*_code]:[&>svg]:!mt-1",
+      item: "flex items-start gap-2 *:my-0! *:leading-normal **:[[role=list]]:mt-2 **:[[role=list]]:mb-2 [&>svg]:mt-1! has-[>*_code]:[&>svg]:mt-1!",
       icon: "mt-0.5 inline-block size-4 shrink-0",
     },
     variants: {

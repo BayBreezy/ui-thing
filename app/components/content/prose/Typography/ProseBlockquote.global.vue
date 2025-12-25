@@ -15,7 +15,7 @@
   };
 
   export const proseBlockquoteStyles = tv({
-    base: "border-l-2 pl-6 text-pretty italic [&:not(:first-child)]:mt-6",
+    base: "border-l-2 pl-6 text-pretty italic not-first:mt-6",
   });
 </script>
 

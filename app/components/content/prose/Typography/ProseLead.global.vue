@@ -15,7 +15,7 @@
   };
 
   export const proseLeadStyles = tv({
-    base: "text-xl leading-7 text-pretty text-muted-foreground [&:not(:first-child)]:mt-6",
+    base: "text-xl leading-7 text-pretty text-muted-foreground not-first:mt-6",
   });
 </script>
 

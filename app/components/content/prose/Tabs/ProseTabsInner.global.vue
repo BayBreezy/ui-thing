@@ -1,5 +1,5 @@
 <template>
-  <UiTabs v-if="variant === 'separate'" v-model="activeTabIndex" class="[&:not(:first-child)]:mt-5">
+  <UiTabs v-if="variant === 'separate'" v-model="activeTabIndex" class="not-first:mt-5">
     <UiTabsList>
       <UiTabsTrigger
         v-for="(slot, i) in defaultSlots"
@@ -25,7 +25,7 @@
   <UiTabs
     v-else-if="variant === 'line'"
     v-model="activeTabIndex"
-    class="relative mr-auto w-full [&:not(:first-child)]:mt-5"
+    class="relative mr-auto w-full not-first:mt-5"
   >
     <div class="flex items-center justify-between overflow-x-auto pb-3">
       <UiTabsList :pill="false" class="relative h-9 w-full justify-start rounded-none border-b p-0">
@@ -55,17 +55,17 @@
 
   <UiCard
     v-else-if="variant === 'card'"
-    class="gap-0 rounded-lg py-0 [&:not(:first-child)]:mt-5"
+    class="gap-0 rounded-lg py-0 not-first:mt-5"
     :class="[inStack && 'mb-0 rounded-none border-none shadow-none']"
   >
     <TabsRoot v-model="activeTabIndex">
-      <UiScrollArea orientation="horizontal" class="[&_[data-slot='scroll-area-scrollbar']]:h-1.5">
+      <UiScrollArea orientation="horizontal" class="**:data-[slot='scroll-area-scrollbar']:h-1.5">
         <TabsList class="relative flex w-full p-1">
           <TabsTrigger
             v-for="(slot, i) in defaultSlots"
             :key="slot.key"
             :value="i"
-            class="relative z-20 flex cursor-pointer items-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium whitespace-nowrap text-muted-foreground transition-all duration-75 hover:text-foreground focus-visible:outline-none data-[active]:text-foreground"
+            class="relative z-20 flex cursor-pointer items-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium whitespace-nowrap text-muted-foreground transition-all duration-75 hover:text-foreground focus-visible:outline-none data-active:text-foreground"
           >
             <ProseSmartIcon v-if="icon(slot)" :name="icon(slot)!" :size="14" class="shrink-0" />
             <span class="truncate">{{ label(slot) }}</span>

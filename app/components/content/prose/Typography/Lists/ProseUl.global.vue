@@ -15,7 +15,7 @@
   };
 
   export const proseUlStyles = tv({
-    base: "ml-4 list-disc [&:not(:first-child)]:mt-6 [&:not(:last-child)]:mb-6 [&>li:not(:first-child)]:mt-2",
+    base: "ml-4 list-disc not-first:mt-6 not-last:mb-6 [&>li:not(:first-child)]:mt-2",
   });
 </script>
 

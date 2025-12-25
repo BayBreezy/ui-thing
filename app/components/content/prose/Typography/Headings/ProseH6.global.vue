@@ -1,17 +1,17 @@
 <template>
-  <h3 :id="id" :class="proseH3Styles({ class: _class })">
-    <NuxtLink v-if="generate" data-slot="h3-link" v-bind="linkProps" :to="`#${id}`">
+  <h6 :id="id" :class="proseH6Styles({ class: _class })">
+    <NuxtLink v-if="generate" data-slot="h6-link" v-bind="linkProps" :to="`#${id}`">
       <slot />
     </NuxtLink>
     <slot v-else />
-  </h3>
+  </h6>
 </template>
 
 <script lang="ts">
   import type { NuxtLinkProps } from "#app";
   import type { HTMLAttributes } from "vue";
 
-  export type ProseH3Props = {
+  export type ProseH6Props = {
     /**
      * Optional ID for anchor links
      */
@@ -26,13 +26,13 @@
     class?: HTMLAttributes["class"];
   };
 
-  export const proseH3Styles = tv({
-    base: "mt-8 scroll-m-20 text-2xl font-semibold tracking-tight text-balance [&:not(:first-child)]:mt-8",
+  export const proseH6Styles = tv({
+    base: "scroll-m-20 text-lg font-semibold tracking-tight text-balance not-first:mt-6",
   });
 </script>
 
 <script setup lang="ts">
-  const { id, linkProps, class: _class } = defineProps<ProseH3Props>();
+  const { id, linkProps, class: _class } = defineProps<ProseH6Props>();
 
   // Determine if we should generate anchor links
   const { headings } = useRuntimeConfig().public.mdc;
@@ -40,6 +40,6 @@
     () =>
       id &&
       ((typeof headings?.anchorLinks === "boolean" && headings?.anchorLinks === true) ||
-        (typeof headings?.anchorLinks === "object" && headings?.anchorLinks?.h3))
+        (typeof headings?.anchorLinks === "object" && headings?.anchorLinks?.h6))
   );
 </script>

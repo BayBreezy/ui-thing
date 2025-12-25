@@ -39,7 +39,7 @@
 
   export const proseCardStyles = tv({
     slots: {
-      base: "group relative flex flex-col gap-2 rounded-lg border border-border/50 bg-card p-6 text-card-foreground no-underline shadow-xs *:!my-0",
+      base: "group relative flex flex-col gap-2 rounded-lg border border-border/50 bg-card p-6 text-card-foreground no-underline shadow-xs *:my-0!",
       icon: "size-6 text-muted-foreground",
       title: "not-prose text-lg font-semibold tracking-tight text-foreground",
       description: "text-[15px] text-muted-foreground first:mt-0 last:mb-0",

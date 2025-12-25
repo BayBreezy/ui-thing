@@ -1,5 +1,5 @@
 <template>
-  <div class="[&:not(:first-child)]:mt-6">
+  <div class="not-first:mt-6">
     <div class="dark:hidden">
       <ProseImg v-bind="forwarded" :src="srcLight" />
     </div>

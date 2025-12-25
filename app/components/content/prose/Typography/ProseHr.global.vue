@@ -13,7 +13,7 @@
   };
 
   export const proseHrStyles = tv({
-    base: "mb-6 [&:not(:first-child)]:mt-6",
+    base: "mb-6 not-first:mt-6",
   });
 </script>
 

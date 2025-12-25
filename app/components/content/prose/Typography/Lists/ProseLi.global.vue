@@ -15,7 +15,7 @@
   };
 
   export const proseLiStyles = tv({
-    base: "text-pretty [&>ol]:!mt-2 [&>ul]:!mt-2",
+    base: "text-pretty [&>ol]:mt-2! [&>ul]:mt-2!",
   });
 </script>
 

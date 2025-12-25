@@ -16,6 +16,6 @@
   );
 
   const styles = tv({
-    base: "relative ml-4 border-l pl-7 [counter-reset:_step]",
+    base: "relative ml-4 border-l pl-7 [counter-reset:step]",
   });
 </script>

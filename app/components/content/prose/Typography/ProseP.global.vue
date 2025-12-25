@@ -15,7 +15,7 @@
   };
 
   export const prosePStyles = tv({
-    base: "leading-7 text-pretty [&:not(:first-child)]:mt-6",
+    base: "leading-7 text-pretty not-first:mt-6",
   });
 </script>
 
