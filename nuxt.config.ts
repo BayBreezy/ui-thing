@@ -159,7 +159,7 @@ export default defineNuxtConfig({
   },
 
   mdc: {
-    highlight: { langs, theme },
+    highlight: { langs, theme, noApiRoute: false },
   },
   content: {
     build: {
