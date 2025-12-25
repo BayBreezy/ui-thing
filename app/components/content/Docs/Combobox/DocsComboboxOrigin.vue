@@ -5,8 +5,8 @@
       <UiPopover v-model:open="open">
         <UiPopoverTrigger as-child>
           <UiButton variant="outline" role="combobox" class="w-full justify-between">
-            <span :class="['truncate', selectedFramework?.label ? '' : 'text-muted-foreground']">{{
-              selectedFramework?.label || "Select a framework"
+            <span :class="['truncate', selectedFramework ? '' : 'text-muted-foreground']">{{
+              selectedFramework || "Select a framework"
             }}</span>
             <Icon name="lucide:chevron-down" class="size-4 shrink-0 text-muted-foreground/50" />
           </UiButton>
@@ -60,7 +60,9 @@
     { value: "lit", label: "Lit" },
   ];
 
-  const selectedFramework = ref(frameworks[2]);
   const open = ref(false);
-  const value = ref("");
+  const value = ref("nuxt.js");
+  const selectedFramework = computed(
+    () => frameworks.find((framework) => framework.value === value?.value)?.label
+  );
 </script>
