@@ -3,6 +3,12 @@ title: Bar
 description: Bar charts are used to compare different categories of data.
 ---
 
+## Installation
+
+:prose-pm-x{command="ui-thing@latest add apexcharts"}
+
+## Usage
+
 ### Interactive
 
 ::ShowCase

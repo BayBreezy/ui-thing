@@ -3,6 +3,12 @@ title: Heatmap
 description: Heatmaps are used to visualize data through variations in color, making it easy to see patterns and correlations in large datasets.
 ---
 
+## Installation
+
+:prose-pm-x{command="ui-thing@latest add apexcharts"}
+
+## Usage
+
 ### Heatmap Chart
 
 ::ShowCase

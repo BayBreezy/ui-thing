@@ -3,6 +3,12 @@ title: Line
 description: Line charts are used to display data points over a continuous time period, showing trends and changes.
 ---
 
+## Installation
+
+:prose-pm-x{command="ui-thing@latest add apexcharts"}
+
+## Usage
+
 ### Interactive
 
 ::ShowCase

@@ -3,6 +3,12 @@ title: Candlestick
 description: Candlestick charts are used to display the high, low, open, and close values of a financial instrument over time.
 ---
 
+## Installation
+
+:prose-pm-x{command="ui-thing@latest add apexcharts"}
+
+## Usage
+
 ### Candlestick Chart
 
 ::ShowCase

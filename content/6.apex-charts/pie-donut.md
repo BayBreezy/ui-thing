@@ -3,6 +3,12 @@ title: Pie / Donut
 description: Pie and Donut charts are used to represent data in a circular format, showing the proportion of each category relative to the whole.
 ---
 
+## Installation
+
+:prose-pm-x{command="ui-thing@latest add apexcharts"}
+
+## Usage
+
 ### Pie Chart
 
 ::ShowCase

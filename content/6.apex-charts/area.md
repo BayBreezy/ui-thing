@@ -3,6 +3,12 @@ title: Area
 description: Area charts are used to represent quantitative data visually, showing the magnitude of change over time.
 ---
 
+## Installation
+
+:prose-pm-x{command="ui-thing@latest add apexcharts"}
+
+## Usage
+
 ### Interactive
 
 ::ShowCase

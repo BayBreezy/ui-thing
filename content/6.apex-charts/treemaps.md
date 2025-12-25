@@ -3,6 +3,12 @@ title: Treemaps
 description: Treemaps are used to visualize hierarchical data using nested rectangles, where the size and color of each rectangle represent different attributes of the data.
 ---
 
+## Installation
+
+:prose-pm-x{command="ui-thing@latest add apexcharts"}
+
+## Usage
+
 ### Treemap Chart
 
 ::ShowCase

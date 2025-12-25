@@ -3,6 +3,12 @@ title: Polar Area
 description: Polar area charts are used to display multivariate data in a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point.
 ---
 
+## Installation
+
+:prose-pm-x{command="ui-thing@latest add apexcharts"}
+
+## Usage
+
 ### Polar Area Chart
 
 ::ShowCase

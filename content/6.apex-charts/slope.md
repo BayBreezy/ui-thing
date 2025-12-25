@@ -3,6 +3,12 @@ title: Slope
 description: Slope charts are used to compare two or more data points across different categories, showing the change in value over time or between two variables.
 ---
 
+## Installation
+
+:prose-pm-x{command="ui-thing@latest add apexcharts"}
+
+## Usage
+
 ### Slope Chart
 
 ::ShowCase

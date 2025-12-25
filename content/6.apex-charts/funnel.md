@@ -3,6 +3,12 @@ title: Funnel
 description: Funnel charts are ideal for visualizing progressive stages in a linear process—typically where there's drop-off at each stage. They're perfect for showing conversion or attrition.
 ---
 
+## Installation
+
+:prose-pm-x{command="ui-thing@latest add apexcharts"}
+
+## Usage
+
 ### Funnel Chart
 
 ::ShowCase
