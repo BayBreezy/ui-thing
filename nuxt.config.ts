@@ -61,6 +61,9 @@ export default defineNuxtConfig({
       ],
     },
   },
+  nitro: {
+    experimental: { asyncContext: true },
+  },
   experimental: { payloadExtraction: true },
   modules: [
     "@nuxtjs/mdc",
@@ -83,7 +86,12 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@morev/vue-transitions/nuxt",
     "nuxt-gtag",
+    "@nuxtjs/mcp-toolkit",
   ],
+  mcp: {
+    name: "UI Thing MCP",
+    version: "0.0.1",
+  },
   gtag: {
     id: process.env.GA_ID,
   },
@@ -166,7 +174,6 @@ export default defineNuxtConfig({
     "/getting-started": { redirect: "/getting-started/introduction" },
     "/magic/**": { redirect: "https://inspira-ui.com" },
     "/goodies": { redirect: "/goodies/border-beam" },
-    "/components": { redirect: "/components/accordion" },
     "/examples": { redirect: "/examples/cards" },
     "/blocks": { redirect: "/blocks/app-empty-state" },
     "/block-renderer": { static: true },
