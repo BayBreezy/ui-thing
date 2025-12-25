@@ -3,6 +3,65 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## December 25, 2025
+
+🎄 Happy Holidays 🎄
+
+### MCP Server
+
+UI Thing now has an MCP server that powers its AI capabilities. This allows AI assistants like Claude Desktop, Cursor, and VS Code to access component source code, documentation, installation instructions, and more.
+
+Learn more about it at [Getting Started - MCP Server](/getting-started/mcp).
+
+### Component Updates
+
+- [**Fancy Icon**](/components/fancyicon): The fancy icon component has been updated to closer resemble the one from Untitled UI. From the start, it should have looked like that but I was too lazy. This update comes with some breaking changes. Be sure to check the docs [here](/components/fancyicon) for usage examples.
+- [**Icon**](/components/icon): The icon component has always been in the repo but there was no documentation for it. This was built because of an issue Where the Datatable component could not render icons from the official Nuxt Icon module.
+- [**Iframe (Lazy)**](/components/iframelazy): The Iframe Lazy component is another one that has always been buried in the codebase with no documentation lol. This component allows you to lazy load iframes only when they come into view. Check out the docs [here](/components/iframelazy).
+- [**Tanstack Table**](/components/tanstacktable): The Tanstack Table component has been updated. No breaking changes but new examples were added to showcase the updates. I am lazy, so I wanted a table that would just take an array of objects and generate the table for me. I also asked Claude to implement the server side pagination part. I may update this later to include other stuff... who knows.
+
+### Component API
+
+The component API now includes an endpoint to get a component by name.
+
+The response now includes a `docsPath` property that contains the path to the documentation page for that component.
+
+**Endpoints:**
+
+- Get all components: [`/api/components`](/api/components)
+  - You can also filter with a search query
+- Get a component by name: [`/api/components/{name}`](/api/components/{name})
+
+### Blocks API
+
+A new API endpoint has been added to get all blocks.
+
+**Endpoints:**
+
+- Get all blocks: [`/api/blocks`](/api/blocks)
+  - You can also filter with a search query
+- Get a block by name: [`/api/blocks/{name}`](/api/blocks/{name})
+- Get all block categories: [`/api/blocks/categories`](/api/blocks/categories)
+- Get blocks by category: [`/api/blocks/categories/{name}`](/api/blocks/categories/{name})
+
+### Prose API
+
+A new API endpoint has been added to get all prose components.
+
+**Endpoints:**
+
+- Get all prose components: [`/api/prose`](/api/prose)
+  - You can also filter with a search query
+- Get a prose component by name: [`/api/prose/{name}`](/api/prose/{name})
+
+### Block Paths
+
+The URL for several block paths have been updated to be more consistent. Some dashes were added here and there. This is only breaking if you were hardcoding the paths somewhere or add them bookmarked 👀...
+
+### Landing Page Example
+
+A new landing page example has been added to the [Examples](/examples/landing) section.
+
 ## October 31, 2025
 
 ### New Field Components
