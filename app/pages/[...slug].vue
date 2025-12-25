@@ -12,7 +12,13 @@
       class="mx-auto prose prose-base max-w-none min-w-0 py-5 xl:container dark:prose-invert prose-headings:scroll-mt-16 prose-headings:tracking-tight prose-h2:mt-6 prose-h2:border-b prose-h2:pb-3 first:prose-h2:mt-10 prose-a:decoration-primary prose-a:decoration-wavy prose-a:underline-offset-2 prose-a:hover:text-primary prose-pre:my-0 prose-pre:rounded-sm prose-pre:p-2 prose-pre:px-0 prose-pre:text-base"
     >
       <DocsHeader v-if="page" :page />
-      <ContentRenderer v-if="page" :value="page" />
+      <ContentRenderer
+        v-if="page"
+        :value="page"
+        :data="{
+          siteUrl: SITE_URL,
+        }"
+      />
       <DocsFooter />
     </div>
     <!-- Table of contents for current page -->

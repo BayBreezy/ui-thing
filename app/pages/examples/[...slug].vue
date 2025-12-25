@@ -1,7 +1,13 @@
 <template>
   <div>
     <Mainnav />
-    <ContentRenderer v-if="page" :value="page" />
+    <ContentRenderer
+      v-if="page"
+      :value="page"
+      :data="{
+        siteUrl: SITE_URL,
+      }"
+    />
   </div>
 </template>
 
