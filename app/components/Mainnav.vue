@@ -25,7 +25,7 @@
                 ? 'text-primary!'
                 : '',
             ]"
-            to="/components/accordion"
+            to="/components"
             class="text-foreground/60 transition-colors hover:text-foreground"
             >Components</NuxtLink
           >
@@ -167,5 +167,6 @@
     { name: "Cards", link: "/examples/cards" },
     { name: "Dashboard", link: "/examples/dashboard" },
     { name: "Schema Visualizer", link: "/examples/schema-visualizer" },
+    { name: "Landing Page", link: "/examples/landing" },
   ];
 </script>
