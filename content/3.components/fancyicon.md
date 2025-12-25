@@ -1,6 +1,7 @@
 ---
 title: Fancy Icon
 description: An icon with a nice background color.
+label: Updated
 ---
 
 ## Source code
@@ -25,92 +26,143 @@ Click :SourceCodeLink{component="FancyIcon"} to see the source code for this com
 
 ```vue [DocsFancyIcon.vue]
 <template>
-  <div class="flex items-center justify-center">
-    <UiFancyIcon icon="lucide:mail" />
+  <div class="flex items-center justify-center gap-3">
+    <UiFancyIcon theme="light" color="primary" :icon />
+    <UiFancyIcon theme="gradient" color="primary" :icon />
+    <UiFancyIcon theme="dark" color="primary" :icon />
+    <UiFancyIcon theme="modern" color="gray" :icon />
+    <UiFancyIcon theme="modern-neue" color="gray" :icon />
+    <UiFancyIcon theme="outline" color="primary" :icon />
   </div>
 </template>
-```
-
-<!-- /automd -->
-
-::
-
-### Colors
-
-For the colors to show, you have to change the type from `modern`.
-::ShowCase
-
-:DocsFancyIconColor
-
-#code
-
-<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconColor.vue" code lang="vue" -->
-
-```vue [DocsFancyIconColor.vue]
-<template>
-  <div class="flex flex-wrap items-center justify-center gap-5">
-    <UiFancyIcon type="dark" color="primary" icon="lucide:mail" />
-    <UiFancyIcon type="dark" color="success" icon="lucide:mail" />
-    <UiFancyIcon type="dark" color="error" icon="lucide:mail" />
-    <UiFancyIcon type="dark" color="warning" icon="lucide:mail" />
-    <UiFancyIcon type="dark" color="info" icon="lucide:mail" />
-  </div>
-</template>
-```
-
-<!-- /automd -->
-
-::
-
-### Types
-
-::ShowCase
-
-:DocsFancyIconType
-
-#code
-
-<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconType.vue" code lang="vue" -->
-
-```vue [DocsFancyIconType.vue]
-<template>
-  <div class="flex flex-wrap items-center justify-center gap-5">
-    <UiFancyIcon type="light" icon="lucide:mail" />
-    <UiFancyIcon type="dark" color="success" icon="lucide:mail" />
-    <UiFancyIcon type="modern" color="error" icon="lucide:mail" />
-  </div>
-</template>
-```
-
-<!-- /automd -->
-
-::
-
-### Sizes
-
-::ShowCase
-
-:DocsFancyIconSize
-
-#code
-
-<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconSize.vue" code lang="vue" -->
-
-```vue [DocsFancyIconSize.vue]
-<template>
-  <div class="flex flex-wrap items-center justify-center gap-5">
-    <UiFancyIcon
-      v-for="s in sizes"
-      :key="s"
-      :size="s"
-      type="dark"
-      color="primary"
-      icon="lucide:mail"
-    />
-  </div>
-</template>
-
 <script lang="ts" setup>
+  const icon = "lucide:circle-check";
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Light Theme
+
+::ShowCase
+
+:DocsFancyIconLight
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconLight.vue" code lang="vue" -->
+
+```vue [DocsFancyIconLight.vue]
+<template>
+  <div class="flex flex-col gap-6">
+    <template v-for="c in colors" :key="c">
+      <div class="flex items-start justify-center gap-3">
+        <template v-for="s in sizes" :key="s">
+          <UiFancyIcon theme="light" :color="c" :size="s" :icon />
+        </template>
+      </div>
+    </template>
+  </div>
+</template>
+<script lang="ts" setup>
+  const icon = "lucide:circle-check";
+  const sizes = ["sm", "md", "lg", "xl"] as const;
+  const colors = ["gray", "primary", "error", "warning", "success", "info"] as const;
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Dark Theme
+
+::ShowCase
+
+:DocsFancyIconDark
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconDark.vue" code lang="vue" -->
+
+```vue [DocsFancyIconDark.vue]
+<template>
+  <div class="flex flex-col gap-6">
+    <template v-for="c in colors" :key="c">
+      <div class="flex items-start justify-center gap-3">
+        <template v-for="s in sizes" :key="s">
+          <UiFancyIcon theme="dark" :color="c" :size="s" :icon />
+        </template>
+      </div>
+    </template>
+  </div>
+</template>
+<script lang="ts" setup>
+  const icon = "lucide:circle-check";
+  const sizes = ["sm", "md", "lg", "xl"] as const;
+  const colors = ["gray", "primary", "error", "warning", "success", "info"] as const;
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Outline Theme
+
+::ShowCase
+
+:DocsFancyIconOutline
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconOutline.vue" code lang="vue" -->
+
+```vue [DocsFancyIconOutline.vue]
+<template>
+  <div class="flex flex-col gap-6">
+    <template v-for="c in colors" :key="c">
+      <div class="flex items-start justify-center gap-8">
+        <template v-for="s in sizes" :key="s">
+          <UiFancyIcon theme="outline" :color="c" :size="s" :icon />
+        </template>
+      </div>
+    </template>
+  </div>
+</template>
+<script lang="ts" setup>
+  const icon = "lucide:circle-check";
+  const sizes = ["sm", "md", "lg", "xl"] as const;
+  const colors = ["gray", "primary", "error", "warning", "success", "info"] as const;
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Modern Theme
+
+::ShowCase
+
+:DocsFancyIconModern
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconModern.vue" code lang="vue" -->
+
+```vue [DocsFancyIconModern.vue]
+<template>
+  <div class="flex items-start justify-center gap-3">
+    <template v-for="s in sizes" :key="s">
+      <UiFancyIcon theme="modern" :size="s" :icon />
+    </template>
+  </div>
+</template>
+<script lang="ts" setup>
+  const icon = "lucide:circle-check";
   const sizes = ["sm", "md", "lg", "xl"] as const;
 </script>
 ```
@@ -119,22 +171,61 @@ For the colors to show, you have to change the type from `modern`.
 
 ::
 
-### Circle prop
+### Modern Neue Theme
 
 ::ShowCase
 
-:DocsFancyIconCircle
+:DocsFancyIconModernNeue
 
 #code
 
-<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconCircle.vue" code lang="vue" -->
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconModernNeue.vue" code lang="vue" -->
 
-```vue [DocsFancyIconCircle.vue]
+```vue [DocsFancyIconModernNeue.vue]
 <template>
-  <div class="flex flex-wrap items-center justify-center gap-5">
-    <UiFancyIcon circle icon="lucide:mail" />
+  <div class="flex items-start justify-center gap-3">
+    <template v-for="s in sizes" :key="s">
+      <UiFancyIcon theme="modern-neue" :size="s" :icon />
+    </template>
   </div>
 </template>
+<script lang="ts" setup>
+  const icon = "lucide:circle-check";
+  const sizes = ["sm", "md", "lg", "xl"] as const;
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Gradient Theme
+
+::ShowCase
+
+:DocsFancyIconGradient
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/FancyIcon/DocsFancyIconGradient.vue" code lang="vue" -->
+
+```vue [DocsFancyIconGradient.vue]
+<template>
+  <div class="flex flex-col gap-6">
+    <template v-for="c in colors" :key="c">
+      <div class="flex items-start justify-center gap-3">
+        <template v-for="s in sizes" :key="s">
+          <UiFancyIcon theme="gradient" :color="c" :size="s" :icon />
+        </template>
+      </div>
+    </template>
+  </div>
+</template>
+<script lang="ts" setup>
+  const icon = "lucide:circle-check";
+  const sizes = ["sm", "md", "lg", "xl"] as const;
+  const colors = ["gray", "primary", "error", "warning", "success", "info"] as const;
+</script>
 ```
 
 <!-- /automd -->
