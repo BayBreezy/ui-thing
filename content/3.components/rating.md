@@ -1,7 +1,6 @@
 ---
 title: Rating
 description: A component for displaying and selecting star ratings.
-label: "New"
 ---
 
 ## Source code

@@ -20,7 +20,7 @@ Well-designed HTML forms are:
 - Has support for client and server side validation.
 - Well-styled and consistent with the rest of the application.
 
-In this guide, we will take a look at building forms with :prose-a[vee-validate]{href='https://vee-validate.logaretm.com/v4/' target='\_blank'} and :prose-a[zod]{href="https://zod.dev/" target="\_blank"}. We're going to use a `<FormField>` component to compose accessible forms using Radix Vue components.
+In this guide, we will take a look at building forms with :prose-a[vee-validate]{href='https://vee-validate.logaretm.com/v4/' target='\_blank'} and :prose-a[zod]{href="https://zod.dev/" target="\_blank"}. We're going to use a `<FormField>` component to compose accessible forms using Reka UI components.
 
 ## Features
 
@@ -30,7 +30,7 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 - A `<FormField />` component for building controlled form fields.
 - Form validation using `zod`.
 - Applies the correct `aria` attributes to form fields based on states, handle unqiue IDs
-- Built to work with all Radix Vue components.
+- Built to work with all Reka UI components.
 - Bring your own schema library. We use `zod` but you can use any other supported schema validation you want, like `yup` or `valibot`.
 - You have full control over the markup and styling.
 

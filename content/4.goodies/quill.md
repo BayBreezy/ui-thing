@@ -24,7 +24,7 @@ To get started, you can install the package with the following command:
 ::
 ::Step
 
-## Create CSS File
+### Create CSS File
 
 In order to make the editor match the design of this website (and the whole shadcn/ui theme), I had to add this css file: You should copy this and add it to your project.
 

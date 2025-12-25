@@ -1,5 +1,5 @@
 ---
-title: Blog - Card
+title: Blog Post - Card
 description: Beautifully animated blog post card components with various layouts and hover effects for showcasing articles.
 ---
 

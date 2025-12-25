@@ -1,7 +1,6 @@
 ---
 title: Empty
 description: A component used to display a message when there is no data to show.
-label: New
 ---
 
 ## Source code

@@ -1,7 +1,6 @@
 ---
 title: Input Group
 description: Display additional information or actions to an input or textarea.
-label: New
 ---
 
 ## Source code

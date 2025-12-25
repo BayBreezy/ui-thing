@@ -1,7 +1,6 @@
 ---
 title: Keyboard Key
 description: The <kbd> HTML element represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device.
-label: Updated
 ---
 
 ## Source code

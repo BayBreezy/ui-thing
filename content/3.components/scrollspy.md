@@ -1,7 +1,6 @@
 ---
 title: Scrollspy
 description: A component for tracking scroll position and updating active links.
-label: "New"
 ---
 
 ## Source code

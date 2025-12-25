@@ -1,7 +1,6 @@
 ---
 title: Draggable
 description: A wrapper component around Vue Draggable that makes any list of items sortable via drag and drop.
-label: New
 links:
   - title: Vue Draggable
     href: https://github.com/SortableJS/vue.draggable.next/tree/master
