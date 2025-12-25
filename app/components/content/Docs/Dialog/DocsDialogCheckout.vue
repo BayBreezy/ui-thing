@@ -24,7 +24,7 @@
                 v-for="plan in plans"
                 :key="plan.id"
                 :for="`radio-${plan.id}`"
-                class="relative flex cursor-pointer flex-col gap-1 rounded-lg border border-input p-4 shadow-xs shadow-black/5 transition-colors has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-ring/50 has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent/70"
+                class="relative flex cursor-pointer flex-col gap-1 rounded-lg border border-input p-4 shadow-xs shadow-black/5 transition-colors has-focus-visible:outline-3 has-focus-visible:outline-ring/50 has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent/70"
               >
                 <UiRadioGroupItem
                   :id="`radio-${plan.id}`"

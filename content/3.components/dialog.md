@@ -927,7 +927,9 @@ I just made them work with my setup.
 </template>
 
 <script lang="ts" setup>
-  const contentRef = ref<HTMLDivElement | null>(null);
+  import { useScroll } from "@vueuse/core";
+
+  const contentRef = useTemplateRef("contentRef");
   const { arrivedState } = useScroll(contentRef);
 </script>
 ```
@@ -1665,7 +1667,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
   import dayjs from "dayjs";
   import { bool, object, string } from "yup";
 
-  const { handleSubmit, isSubmitting } = useForm({
+  const { handleSubmit, isSubmitting, setValues } = useForm({
     name: "dialog-card-details",
     validationSchema: toTypedSchema(
       object({
@@ -1691,6 +1693,17 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
     ),
   });
   const open = defineModel<boolean>({ default: false });
+  watch(open, (v) => {
+    if (v) {
+      setValues({
+        nameOnCard: "Elijah Baker",
+        cardNumber: "4242 4242 4242 4242",
+        expiryDate: dayjs().format("MM/YY"),
+        cvc: "123",
+        saveCard: true,
+      }); // reset to default values on open
+    }
+  });
   const submit = handleSubmit(async (values) => {
     try {
       useSonner.success("Card updated successfully", {
@@ -1749,7 +1762,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
                 v-for="plan in plans"
                 :key="plan.id"
                 :for="`radio-${plan.id}`"
-                class="relative flex cursor-pointer flex-col gap-1 rounded-lg border border-input p-4 shadow-xs shadow-black/5 transition-colors has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-ring/50 has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent/70"
+                class="relative flex cursor-pointer flex-col gap-1 rounded-lg border border-input p-4 shadow-xs shadow-black/5 transition-colors has-focus-visible:outline-3 has-focus-visible:outline-ring/50 has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent/70"
               >
                 <UiRadioGroupItem
                   :id="`radio-${plan.id}`"
@@ -1989,7 +2002,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
               <div class="absolute inset-0 flex items-center justify-center gap-2">
                 <button
                   type="button"
-                  class="z-50 flex size-10 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70"
+                  class="z-50 flex size-10 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline focus-visible:outline-ring/70"
                   :aria-label="currentImage ? 'Change image' : 'Upload image'"
                   @click="handleBannerClick()"
                 >
@@ -1998,7 +2011,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
                 <button
                   v-if="currentImage"
                   type="button"
-                  class="z-50 flex size-10 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70"
+                  class="z-50 flex size-10 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline-2 focus-visible:outline-ring/70"
                   aria-label="Remove image"
                   @click="currentImage = defaultBanner"
                 >
@@ -2023,7 +2036,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
 
               <button
                 type="button"
-                class="absolute flex size-8 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70"
+                class="absolute flex size-8 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline-2 focus-visible:outline-ring/70"
                 aria-label="Change profile picture"
                 @click="handleAvatarClick()"
               >
@@ -2047,7 +2060,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
                 </UiVeeInput>
                 <UiVeeInput
                   label="Website"
-                  class="peer ps-20"
+                  class="peer pl-20"
                   placeholder="your-website.com"
                   type="text"
                   name="website"
@@ -2135,7 +2148,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
   });
 
   // Form state
-  const { handleSubmit, isSubmitting } = useForm({
+  const { handleSubmit, isSubmitting, setValues } = useForm({
     name: "dialog-edit-profile",
     validationSchema: toTypedSchema(
       object({
@@ -2157,6 +2170,18 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
           .trim(),
       })
     ),
+  });
+
+  watch(open, (v) => {
+    if (v) {
+      setValues({
+        firstName: "James",
+        lastName: "Bond",
+        username: "agent-007",
+        website: "www.007.com",
+        bio: "The name is Bond, James Bond.",
+      }); // reset to default values on open
+    }
   });
 
   // Submit form

@@ -57,7 +57,7 @@
   import dayjs from "dayjs";
   import { bool, object, string } from "yup";
 
-  const { handleSubmit, isSubmitting } = useForm({
+  const { handleSubmit, isSubmitting, setValues } = useForm({
     name: "dialog-card-details",
     validationSchema: toTypedSchema(
       object({
@@ -83,6 +83,17 @@
     ),
   });
   const open = defineModel<boolean>({ default: false });
+  watch(open, (v) => {
+    if (v) {
+      setValues({
+        nameOnCard: "Elijah Baker",
+        cardNumber: "4242 4242 4242 4242",
+        expiryDate: dayjs().format("MM/YY"),
+        cvc: "123",
+        saveCard: true,
+      }); // reset to default values on open
+    }
+  });
   const submit = handleSubmit(async (values) => {
     try {
       useSonner.success("Card updated successfully", {

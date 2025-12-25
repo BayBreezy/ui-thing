@@ -33,7 +33,7 @@
               <div class="absolute inset-0 flex items-center justify-center gap-2">
                 <button
                   type="button"
-                  class="z-50 flex size-10 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70"
+                  class="z-50 flex size-10 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline focus-visible:outline-ring/70"
                   :aria-label="currentImage ? 'Change image' : 'Upload image'"
                   @click="handleBannerClick()"
                 >
@@ -42,7 +42,7 @@
                 <button
                   v-if="currentImage"
                   type="button"
-                  class="z-50 flex size-10 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70"
+                  class="z-50 flex size-10 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline-2 focus-visible:outline-ring/70"
                   aria-label="Remove image"
                   @click="currentImage = defaultBanner"
                 >
@@ -67,7 +67,7 @@
 
               <button
                 type="button"
-                class="absolute flex size-8 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70"
+                class="absolute flex size-8 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline-2 focus-visible:outline-ring/70"
                 aria-label="Change profile picture"
                 @click="handleAvatarClick()"
               >
@@ -91,7 +91,7 @@
                 </UiVeeInput>
                 <UiVeeInput
                   label="Website"
-                  class="peer ps-20"
+                  class="peer pl-20"
                   placeholder="your-website.com"
                   type="text"
                   name="website"
@@ -179,7 +179,7 @@
   });
 
   // Form state
-  const { handleSubmit, isSubmitting } = useForm({
+  const { handleSubmit, isSubmitting, setValues } = useForm({
     name: "dialog-edit-profile",
     validationSchema: toTypedSchema(
       object({
@@ -201,6 +201,18 @@
           .trim(),
       })
     ),
+  });
+
+  watch(open, (v) => {
+    if (v) {
+      setValues({
+        firstName: "James",
+        lastName: "Bond",
+        username: "agent-007",
+        website: "www.007.com",
+        bio: "The name is Bond, James Bond.",
+      }); // reset to default values on open
+    }
   });
 
   // Submit form

@@ -134,6 +134,8 @@
 </template>
 
 <script lang="ts" setup>
-  const contentRef = ref<HTMLDivElement | null>(null);
+  import { useScroll } from "@vueuse/core";
+
+  const contentRef = useTemplateRef("contentRef");
   const { arrivedState } = useScroll(contentRef);
 </script>
