@@ -13,7 +13,7 @@ export const SITE_KEYWORDS = [
   "UI components for Nuxt",
   "Component library for Nuxt",
 ];
-export const SITE_URL = process.env.PUBLIC_URL || "https://ui-thing.behonbaker.com";
+export const SITE_URL = process.env.PUBLIC_URL || "https://uithing.com";
 export const SITE_AUTHOR = "Behon Baker";
 export const SITE_COVER = "/cover.png";
 export const SITE_ICON = "/icon.png";
