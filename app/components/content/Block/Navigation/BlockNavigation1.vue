@@ -30,7 +30,7 @@
                       <p class="mb-5 text-sm font-semibold text-primary capitalize">{{ cat }}</p>
                       <ul class="flex w-full flex-col gap-2">
                         <li v-for="(child, k) in item" :key="k">
-                          <UiNavigationMenuLink class="data-[active]:bg-muted/80" as-child>
+                          <UiNavigationMenuLink class="data-active:bg-muted/80" as-child>
                             <NuxtLink
                               :to="child.href"
                               class="flex flex-row gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none"
@@ -102,7 +102,7 @@
                             </p>
                             <ul class="flex w-full flex-col gap-2">
                               <li v-for="(child, k) in item" :key="k">
-                                <UiNavigationMenuLink class="data-[active]:bg-muted/80" as-child>
+                                <UiNavigationMenuLink class="data-active:bg-muted/80" as-child>
                                   <NuxtLink
                                     :to="child.href"
                                     class="flex flex-row gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none"

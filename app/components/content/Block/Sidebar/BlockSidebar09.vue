@@ -1,11 +1,11 @@
 <template>
   <UiSidebarProvider v-slot="{ isMobile, setOpen }" class="[--sidebar-width:350px_!important]">
     <!-- App Sidebar -->
-    <UiSidebar collapsible="icon" class="overflow-hidden [&>[data-sidebar=sidebar]]:flex-row">
+    <UiSidebar collapsible="icon" class="overflow-hidden *:data-[sidebar=sidebar]:flex-row">
       <!-- This is the first sidebar  -->
       <!-- We disable collapsible and adjust width to icon.  -->
       <!-- This will make the sidebar appear as icons.  -->
-      <UiSidebar collapsible="none" class="!w-[calc(var(--sidebar-width-icon)_+_1px)] border-r">
+      <UiSidebar collapsible="none" class="w-[calc(var(--sidebar-width-icon)+1px)]! border-r">
         <UiSidebarHeader>
           <UiSidebarMenu>
             <UiSidebarMenuItem>
@@ -32,7 +32,7 @@
                 <UiSidebarMenuItem v-for="item in data.navMain" :key="item.title">
                   <UiSidebarMenuButton
                     :tooltip="item.title"
-                    :is-active="activeItem.title === item.title"
+                    :is-active="activeItem?.title === item.title"
                     class="px-2.5 md:px-2"
                     @click="
                       () => {
@@ -117,7 +117,7 @@
         <UiSidebarHeader class="gap-3.5 border-b p-4">
           <div class="flex w-full items-center justify-between">
             <div class="text-base font-medium text-foreground">
-              {{ activeItem.title }}
+              {{ activeItem?.title }}
             </div>
             <UiLabel class="flex items-center gap-2 text-sm">
               <span>Unreads</span>

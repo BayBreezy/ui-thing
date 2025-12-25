@@ -7,7 +7,7 @@
       class="flex w-full max-w-md flex-col items-center gap-6 text-center"
     >
       <Motion :variants="spinnerVariant" class="relative flex items-center justify-center">
-        <div class="animate-spin rounded-full border-2 border-dashed [animation-duration:8.5s]">
+        <div class="animate-spin rounded-full border-2 border-dashed animation-duration-[8.5s]">
           <div class="relative z-10 animate-none rounded-full bg-background p-6">
             <Icon :name="icon" class="size-8 text-muted-foreground" />
           </div>

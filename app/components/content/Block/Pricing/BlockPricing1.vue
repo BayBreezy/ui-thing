@@ -36,7 +36,7 @@
               </li>
             </ul>
           </UiCardContent>
-          <UiCardFooter class="border-t bg-muted !pt-6 dark:border-muted/50 dark:bg-muted/30">
+          <UiCardFooter class="border-t bg-muted pt-6! dark:border-muted/50 dark:bg-muted/30">
             <UiButton class="w-full"> Get started </UiButton>
           </UiCardFooter>
         </UiCard>

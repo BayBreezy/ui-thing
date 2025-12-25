@@ -9,7 +9,7 @@
         <div class="grid auto-rows-min gap-4 md:grid-cols-3">
           <UiPlaceholder v-for="n in 3" :key="n" class="aspect-video rounded-xl" />
         </div>
-        <UiPlaceholder class="min-h-[100vh] flex-1 rounded-xl md:min-h-min" />
+        <UiPlaceholder class="min-h-screen flex-1 rounded-xl md:min-h-min" />
       </div>
     </UiSidebarInset>
     <!-- Main Sidebar -->

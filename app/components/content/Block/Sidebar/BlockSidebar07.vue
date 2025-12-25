@@ -10,18 +10,18 @@
               <UiDropdownMenuTrigger as-child>
                 <UiSidebarMenuButton
                   size="lg"
-                  class="group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-0 data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                  class="group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-0! data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
                   <div
                     class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"
                   >
-                    <Icon mode="svg" :name="activeTeam.logo" class="size-4" />
+                    <Icon v-if="activeTeam" mode="svg" :name="activeTeam?.logo" class="size-4" />
                   </div>
                   <div class="grid flex-1 text-left text-sm leading-tight">
                     <span class="truncate font-semibold">
-                      {{ activeTeam.name }}
+                      {{ activeTeam?.name }}
                     </span>
-                    <span class="truncate text-xs">{{ activeTeam.plan }}</span>
+                    <span class="truncate text-xs">{{ activeTeam?.plan }}</span>
                   </div>
                   <Icon mode="svg" name="lucide:chevrons-up-down" class="ml-auto" />
                 </UiSidebarMenuButton>
@@ -38,7 +38,7 @@
                 <template v-for="(team, index) in data.teams" :key="index">
                   <UiDropdownMenuItem
                     class="cursor-pointer gap-2 p-2"
-                    :class="[team.name == activeTeam.name && 'bg-muted']"
+                    :class="[team.name == activeTeam?.name && 'bg-muted']"
                     @click="activeTeam = team"
                   >
                     <div class="flex size-6 items-center justify-center rounded-sm border">

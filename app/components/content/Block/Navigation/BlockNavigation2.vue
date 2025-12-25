@@ -27,7 +27,7 @@
                     <template v-for="(item, cat, index) in data" :key="`${cat}-${index}`">
                       <ul class="grid w-full grid-cols-2 flex-col gap-2 xl:grid-cols-3">
                         <li v-for="(child, k) in item" :key="k">
-                          <UiNavigationMenuLink class="data-[active]:bg-muted/80" as-child>
+                          <UiNavigationMenuLink class="data-active:bg-muted/80" as-child>
                             <NuxtLink
                               :to="child.href"
                               class="flex flex-row gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none dark:hover:bg-muted/20"

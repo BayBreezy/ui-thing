@@ -7,12 +7,12 @@
           <UiSidebarGroupLabel label="Changes" />
           <UiSidebarGroupContent>
             <UiSidebarMenu>
-              <UiSidebarMenuItem v-for="(item, index) in data.changes" :key="index">
+              <UiSidebarMenuItem v-for="(change, index) in data.changes" :key="index">
                 <UiSidebarMenuButton>
                   <Icon mode="svg" name="lucide:file" />
-                  {{ item.file }}
+                  {{ change.file }}
                 </UiSidebarMenuButton>
-                <UiSidebarMenuBadge>{{ item.state }}</UiSidebarMenuBadge>
+                <UiSidebarMenuBadge>{{ change.state }}</UiSidebarMenuBadge>
               </UiSidebarMenuItem>
             </UiSidebarMenu>
           </UiSidebarGroupContent>
@@ -40,7 +40,7 @@
           <UiPlaceholder class="aspect-video rounded-xl" />
           <UiPlaceholder class="aspect-video rounded-xl" />
         </div>
-        <UiPlaceholder class="min-h-[100vh] flex-1 rounded-xl md:min-h-min" />
+        <UiPlaceholder class="min-h-screen flex-1 rounded-xl md:min-h-min" />
       </div>
     </UiSidebarInset>
   </UiSidebarProvider>

@@ -85,7 +85,7 @@
         <div class="grid auto-rows-min gap-4 md:grid-cols-3">
           <UiPlaceholder v-for="n in 3" :key="n" class="aspect-video rounded-lg" />
         </div>
-        <UiPlaceholder class="min-h-[100dvh] flex-1 rounded-lg md:min-h-min" />
+        <UiPlaceholder class="min-h-dvh flex-1 rounded-lg md:min-h-min" />
       </div>
     </UiSidebarInset>
   </UiSidebarProvider>

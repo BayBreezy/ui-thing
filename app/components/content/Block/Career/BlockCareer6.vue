@@ -100,7 +100,7 @@
                 delay: n * 0.05,
               }"
             >
-              <UiAccordionItem :value="`item-${n}`" class="rounded-lg border !border-b px-6">
+              <UiAccordionItem :value="`item-${n}`" class="rounded-lg border border-b! px-6">
                 <UiAccordionTrigger class="py-6 hover:no-underline">
                   <div class="flex flex-1 items-start justify-between pr-4 text-left">
                     <div class="flex-1">

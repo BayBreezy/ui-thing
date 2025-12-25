@@ -1,7 +1,7 @@
 <template>
   <div class="relative flex h-screen items-center justify-center">
     <div
-      class="absolute inset-0 bg-[linear-gradient(to_right,--alpha(var(--color-border)/80%)_1px,transparent_1px),linear-gradient(to_bottom,--alpha(var(--color-border)/80%)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_closest-side_at_50%_0%,#000_70%,transparent_110%)] bg-[size:60px_60px]"
+      class="absolute inset-0 bg-[linear-gradient(to_right,--alpha(var(--color-border)/80%)_1px,transparent_1px),linear-gradient(to_bottom,--alpha(var(--color-border)/80%)_1px,transparent_1px)] mask-[radial-gradient(ellipse_closest-side_at_50%_0%,#000_70%,transparent_110%)] bg-size-[60px_60px]"
     />
 
     <div class="relative w-full max-w-[330px] px-5">
