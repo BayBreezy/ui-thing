@@ -77,10 +77,10 @@
 
           <!-- Content card -->
           <UiCard class="group overflow-hidden shadow-xs transition-all hover:shadow-lg">
-            <div class="grid grid-cols-1 gap-6 md:grid-cols-5">
+            <div class="grid grid-cols-1 items-start gap-6 md:grid-cols-5">
               <!-- Date section -->
               <div
-                class="flex items-start gap-3 pl-5 md:col-span-1 md:flex-col md:items-end md:justify-center md:border-r md:pr-6 md:pl-0"
+                class="flex items-start gap-3 pl-5 md:col-span-1 md:h-full md:flex-col md:items-end md:justify-start md:border-r md:pr-6 md:pl-0"
               >
                 <UiBadge variant="outline" class="shrink-0 py-1">
                   <Icon name="lucide:calendar" class="mr-1.5 h-3 w-3" />
@@ -90,11 +90,11 @@
               </div>
 
               <!-- Image section -->
-              <div class="relative overflow-hidden md:col-span-2">
+              <div class="relative overflow-hidden rounded-md md:col-span-2">
                 <img
                   :src="image"
                   :alt="alt"
-                  class="h-full w-full rounded-md object-cover transition-transform duration-500 group-hover:scale-105"
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
 

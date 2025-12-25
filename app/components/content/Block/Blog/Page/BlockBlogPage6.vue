@@ -108,7 +108,7 @@
         <!-- Filter tabs with gradient indicator -->
         <Motion :variants="childVariant" class="mb-8">
           <UiTabs default-value="all">
-            <UiTabsList class="w-full justify-start overflow-x-auto">
+            <UiTabsList class="w-fit justify-start overflow-x-auto">
               <UiTabsTrigger value="all">All posts</UiTabsTrigger>
               <UiTabsTrigger value="tech">Technology</UiTabsTrigger>
               <UiTabsTrigger value="design">Design</UiTabsTrigger>

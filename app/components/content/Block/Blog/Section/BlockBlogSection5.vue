@@ -34,7 +34,7 @@
         <!-- Category filter tabs -->
         <Motion :variants="childVariant">
           <UiTabs default-value="all" class="w-full">
-            <UiTabsList class="w-full overflow-x-auto">
+            <UiTabsList class="w-fit overflow-x-auto">
               <UiTabsTrigger value="all">All posts</UiTabsTrigger>
               <UiTabsTrigger value="design">Design</UiTabsTrigger>
               <UiTabsTrigger value="dev">Development</UiTabsTrigger>

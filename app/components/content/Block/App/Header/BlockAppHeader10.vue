@@ -25,9 +25,9 @@
               </slot>
               <slot name="chips">
                 <div class="mt-3 flex flex-wrap gap-2">
-                  <UiChip v-for="chip in props.chips" :key="chip" size="sm" class="">
+                  <template v-for="chip in props.chips" :key="chip">
                     <UiBadge variant="outline">{{ chip }}</UiBadge>
-                  </UiChip>
+                  </template>
                 </div>
               </slot>
             </div>
