@@ -8,6 +8,7 @@ links:
   - title: API Reference
     href: https://tanstack.com/table/v8/docs/api/core/column-def
     icon: "icon-park-solid:api"
+label: Updated
 ---
 
 ## Source code
@@ -801,6 +802,819 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
     </p>
   </div>
 </template>
+```
+
+<!-- /automd -->
+
+::
+
+### Simple (Auto-Generated Columns)
+
+Shows zero-config usage with automatic column generation from data keys.
+
+::ShowCase
+
+:DocsTanStackSimple
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/TanStackTable/DocsTanStackSimple.vue" code lang="vue" -->
+
+```vue [DocsTanStackSimple.vue]
+<template>
+  <div class="w-full">
+    <UiTanStackTable :data="payments" />
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const payments = [
+    {
+      id: "4600",
+      date: "2024-03-11T15:30:00",
+      status: "paid",
+      email: "james.anderson@example.com",
+      amount: 594,
+    },
+    {
+      id: "4599",
+      date: "2024-03-11T10:10:00",
+      status: "failed",
+      email: "mia.white@example.com",
+      amount: 276,
+    },
+    {
+      id: "4598",
+      date: "2024-03-11T08:50:00",
+      status: "refunded",
+      email: "william.brown@example.com",
+      amount: 315,
+    },
+    {
+      id: "4597",
+      date: "2024-03-10T19:45:00",
+      status: "paid",
+      email: "emma.davis@example.com",
+      amount: 529,
+    },
+    {
+      id: "4596",
+      date: "2024-03-10T15:55:00",
+      status: "paid",
+      email: "ethan.harris@example.com",
+      amount: 639,
+    },
+  ];
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Custom Columns
+
+Custom column definitions with formatted cells and styled badges.
+
+::ShowCase
+
+:DocsTanStackCustomColumns
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/TanStackTable/DocsTanStackCustomColumns.vue" code lang="vue" -->
+
+```vue [DocsTanStackCustomColumns.vue]
+<template>
+  <div class="w-full">
+    <UiTanStackTable :data="payments" :columns="columns" />
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import type { ColumnDef } from "@tanstack/vue-table";
+
+  interface Payment {
+    id: string;
+    date: string;
+    status: "paid" | "failed" | "refunded";
+    email: string;
+    amount: number;
+  }
+
+  const payments: Payment[] = [
+    {
+      id: "4600",
+      date: "2024-03-11T15:30:00",
+      status: "paid",
+      email: "james.anderson@example.com",
+      amount: 594,
+    },
+    {
+      id: "4599",
+      date: "2024-03-11T10:10:00",
+      status: "failed",
+      email: "mia.white@example.com",
+      amount: 276,
+    },
+    {
+      id: "4598",
+      date: "2024-03-11T08:50:00",
+      status: "refunded",
+      email: "william.brown@example.com",
+      amount: 315,
+    },
+    {
+      id: "4597",
+      date: "2024-03-10T19:45:00",
+      status: "paid",
+      email: "emma.davis@example.com",
+      amount: 529,
+    },
+    {
+      id: "4596",
+      date: "2024-03-10T15:55:00",
+      status: "paid",
+      email: "ethan.harris@example.com",
+      amount: 639,
+    },
+  ];
+
+  const columns: ColumnDef<Payment>[] = [
+    {
+      accessorKey: "id",
+      header: "#",
+      cell: ({ row }) => `#${row.getValue("id")}`,
+    },
+    {
+      accessorKey: "date",
+      header: "Date",
+      cell: ({ row }) => {
+        return new Date(row.getValue("date")).toLocaleString("en-US", {
+          day: "numeric",
+          month: "short",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        });
+      },
+    },
+    {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ row }) => {
+        const status = row.getValue("status") as string;
+        return h(
+          "span",
+          {
+            class: `inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${
+              status === "paid"
+                ? "bg-green-50 text-green-700 dark:bg-green-500/10 dark:text-green-400"
+                : status === "failed"
+                  ? "bg-red-50 text-red-700 dark:bg-red-500/10 dark:text-red-400"
+                  : "bg-yellow-50 text-yellow-700 dark:bg-yellow-500/10 dark:text-yellow-400"
+            }`,
+          },
+          status.charAt(0).toUpperCase() + status.slice(1)
+        );
+      },
+    },
+    {
+      accessorKey: "email",
+      header: "Email",
+    },
+    {
+      accessorKey: "amount",
+      header: () => h("div", { class: "text-right" }, "Amount"),
+      cell: ({ row }) => {
+        const amount = Number.parseFloat(row.getValue("amount"));
+        const formatted = new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+        }).format(amount);
+        return h("div", { class: "text-right font-medium" }, formatted);
+      },
+    },
+  ];
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### With Slots
+
+Using slots to customize cell rendering with avatars and dropdowns.
+
+::ShowCase
+
+:DocsTanStackSlots
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/TanStackTable/DocsTanStackSlots.vue" code lang="vue" -->
+
+```vue [DocsTanStackSlots.vue]
+<template>
+  <div class="w-full">
+    <UiTanStackTable :data="users" :columns="columns">
+      <template #name-cell="{ row }">
+        <div class="flex items-center gap-3">
+          <UiAvatar
+            :src="`https://i.pravatar.cc/120?img=${row.original.id}`"
+            class="size-10"
+            :alt="`${row.original.name} avatar`"
+          />
+          <div>
+            <p class="font-medium">{{ row.original.name }}</p>
+            <p class="text-sm text-muted-foreground">@{{ row.original.username }}</p>
+          </div>
+        </div>
+      </template>
+
+      <template #actions-cell="{}">
+        <UiDropdownMenu>
+          <UiDropdownMenuTrigger as-child>
+            <UiButton variant="ghost" size="icon-sm">
+              <Icon name="lucide:more-horizontal" class="size-4" />
+            </UiButton>
+          </UiDropdownMenuTrigger>
+          <UiDropdownMenuContent class="min-w-40" align="end">
+            <UiDropdownMenuItem>
+              <Icon name="lucide:edit" class="size-4" />
+              Edit
+            </UiDropdownMenuItem>
+            <UiDropdownMenuItem>
+              <Icon name="lucide:copy" class="size-4" />
+              Copy ID
+            </UiDropdownMenuItem>
+            <UiDropdownMenuSeparator />
+            <UiDropdownMenuItem variant="destructive">
+              <Icon name="lucide:trash" class="size-4" />
+              Delete
+            </UiDropdownMenuItem>
+          </UiDropdownMenuContent>
+        </UiDropdownMenu>
+      </template>
+    </UiTanStackTable>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import type { ColumnDef } from "@tanstack/vue-table";
+
+  interface User {
+    id: number;
+    name: string;
+    username: string;
+    email: string;
+    role: string;
+  }
+
+  const users: User[] = [
+    {
+      id: 1,
+      name: "Lindsay Walton",
+      username: "lindsayw",
+      email: "lindsay.walton@example.com",
+      role: "Member",
+    },
+    {
+      id: 2,
+      name: "Courtney Henry",
+      username: "courtneyh",
+      email: "courtney.henry@example.com",
+      role: "Admin",
+    },
+    {
+      id: 3,
+      name: "Tom Cook",
+      username: "tomc",
+      email: "tom.cook@example.com",
+      role: "Member",
+    },
+    {
+      id: 4,
+      name: "Whitney Francis",
+      username: "whitneyf",
+      email: "whitney.francis@example.com",
+      role: "Admin",
+    },
+  ];
+
+  const columns: ColumnDef<User>[] = [
+    {
+      id: "name",
+      accessorKey: "name",
+      header: "User",
+    },
+    {
+      accessorKey: "email",
+      header: "Email",
+    },
+    {
+      accessorKey: "role",
+      header: "Role",
+    },
+    {
+      id: "actions",
+      header: "",
+    },
+  ];
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### With Footer
+
+Table footer with column totals using aggregation functions.
+
+::ShowCase
+
+:DocsTanStackFooter
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/TanStackTable/DocsTanStackFooter.vue" code lang="vue" -->
+
+```vue [DocsTanStackFooter.vue]
+<template>
+  <div class="w-full">
+    <UiTanStackTable :data="payments" :columns="columns" />
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import type { ColumnDef, Row } from "@tanstack/vue-table";
+
+  interface Payment {
+    id: string;
+    description: string;
+    amount: number;
+    quantity: number;
+  }
+
+  const payments: Payment[] = [
+    {
+      id: "1",
+      description: "Web Design",
+      amount: 1200,
+      quantity: 3,
+    },
+    {
+      id: "2",
+      description: "Development",
+      amount: 2400,
+      quantity: 5,
+    },
+    {
+      id: "3",
+      description: "Consulting",
+      amount: 800,
+      quantity: 2,
+    },
+    {
+      id: "4",
+      description: "Support",
+      amount: 600,
+      quantity: 4,
+    },
+  ];
+
+  const columns: ColumnDef<Payment>[] = [
+    {
+      accessorKey: "id",
+      header: "#",
+      footer: () => h("div", { class: "font-semibold" }, "Total"),
+    },
+    {
+      accessorKey: "description",
+      header: "Description",
+      footer: () => "",
+    },
+    {
+      accessorKey: "quantity",
+      header: () => h("div", { class: "text-center" }, "Qty"),
+      cell: ({ row }) => h("div", { class: "text-center" }, row.getValue("quantity")),
+      footer: ({ column }) => {
+        const total = column
+          .getFacetedRowModel()
+          .rows.reduce(
+            (sum: number, row: Row<Payment>) => sum + row.getValue<number>("quantity"),
+            0
+          );
+        return h("div", { class: "text-center font-semibold" }, total);
+      },
+    },
+    {
+      accessorKey: "amount",
+      header: () => h("div", { class: "text-right" }, "Amount"),
+      cell: ({ row }) => {
+        const amount = row.getValue<number>("amount");
+        const formatted = new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+        }).format(amount);
+        return h("div", { class: "text-right font-medium" }, formatted);
+      },
+      footer: ({ column }) => {
+        const total = column
+          .getFacetedRowModel()
+          .rows.reduce((sum: number, row: Row<Payment>) => sum + row.getValue<number>("amount"), 0);
+        const formatted = new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+        }).format(total);
+        return h("div", { class: "text-right font-semibold" }, formatted);
+      },
+    },
+  ];
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Minimal (No Footer)
+
+Clean table without footer controls for simple layouts.
+
+::ShowCase
+
+:DocsTanStackMinimal
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/TanStackTable/DocsTanStackMinimal.vue" code lang="vue" -->
+
+```vue [DocsTanStackMinimal.vue]
+<template>
+  <div class="w-full">
+    <UiTanStackTable :data="users" :columns="columns" :show-footer="false" :initial-page-size="5" />
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import type { ColumnDef } from "@tanstack/vue-table";
+
+  interface User {
+    name: string;
+    email: string;
+    status: string;
+  }
+
+  const users: User[] = [
+    { name: "John Doe", email: "john@example.com", status: "Active" },
+    { name: "Jane Smith", email: "jane@example.com", status: "Active" },
+    { name: "Bob Johnson", email: "bob@example.com", status: "Inactive" },
+  ];
+
+  const columns: ColumnDef<User>[] = [
+    { accessorKey: "name", header: "Name" },
+    { accessorKey: "email", header: "Email" },
+    { accessorKey: "status", header: "Status" },
+  ];
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Loading State
+
+Table with loading indicator - includes custom loader slot support.
+
+::ShowCase
+
+:DocsTanStackLoading
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/TanStackTable/DocsTanStackLoading.vue" code lang="vue" -->
+
+```vue [DocsTanStackLoading.vue]
+<template>
+  <div class="w-full space-y-4">
+    <div class="flex items-center gap-2">
+      <UiButton :disabled="pending" @click="refreshData">
+        <Icon name="lucide:refresh-cw" class="size-4" :class="{ 'animate-spin': pending }" />
+        Refresh Data
+      </UiButton>
+    </div>
+
+    <UiTanStackTable
+      :data="data"
+      :columns="columns"
+      :loading="pending"
+      :initial-page-size="5"
+      :page-size-options="[5, 10, 50, 100]"
+    >
+      <template #loading="{ loading }">
+        <div v-if="loading" class="flex items-center gap-2 px-4 py-2 text-sm text-primary">
+          <Icon name="lucide:loader-2" class="size-4 animate-spin" />
+          <span>Fetching data...</span>
+        </div>
+      </template>
+    </UiTanStackTable>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import type { ColumnDef } from "@tanstack/vue-table";
+
+  interface Product {
+    id: number;
+    name: string;
+    category: string;
+    price: number;
+    stock: number;
+  }
+
+  const refreshTrigger = ref(0);
+
+  const fetchProducts = async (): Promise<Product[]> => {
+    // Simulate network delay (1.5 seconds)
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    return Array.from({ length: 12 }, () => ({
+      id: faker.number.int({ min: 1000, max: 9999 }),
+      name: faker.commerce.productName(),
+      category: faker.commerce.department(),
+      price: faker.number.float({ min: 10, max: 500, fractionDigits: 2 }),
+      stock: faker.number.int({ min: 0, max: 100 }),
+    }));
+  };
+
+  const { data, pending } = await useAsyncData("products", () => fetchProducts(), {
+    watch: [refreshTrigger],
+    default: () => [],
+  });
+
+  const refreshData = () => {
+    refreshTrigger.value++;
+  };
+
+  const columns: ColumnDef<Product>[] = [
+    {
+      accessorKey: "id",
+      header: "ID",
+    },
+    {
+      accessorKey: "name",
+      header: "Product",
+      cell: ({ getValue }) => h("span", { class: "font-medium" }, getValue() as string),
+    },
+    {
+      accessorKey: "category",
+      header: "Category",
+      cell: ({ getValue }) => {
+        const category = getValue() as string;
+        // assign a random color based on the category string
+        const color = faker.color.rgb({ format: "hex" });
+        const colorLight = `${color}33`; // add opacity for light bg
+
+        return h(
+          "span",
+          {
+            class: `inline-flex items-center rounded-md px-2 py-1 text-xs font-medium`,
+            style: {
+              backgroundColor: colorLight,
+              color: color,
+            },
+          },
+          category
+        );
+      },
+    },
+    {
+      accessorKey: "price",
+      header: () => h("div", { class: "text-right" }, "Price"),
+      cell: ({ getValue }) => {
+        const price = getValue() as number;
+        return h(
+          "div",
+          { class: "text-right font-medium" },
+          new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+          }).format(price)
+        );
+      },
+    },
+    {
+      accessorKey: "stock",
+      header: () => h("div", { class: "text-right" }, "Stock"),
+      cell: ({ getValue }) => {
+        const stock = getValue() as number;
+        return h(
+          "div",
+          {
+            class: `text-right font-medium ${stock < 20 ? "text-red-600 dark:text-red-400" : ""}`,
+          },
+          stock
+        );
+      },
+    },
+  ];
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Server-Side Pagination
+
+Manual pagination with server-side data fetching and search. Enable `manual-pagination` prop and listen to the `@update:pagination` event.
+
+::ShowCase
+
+:DocsTanStackServerPagination
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/TanStackTable/DocsTanStackServerPagination.vue" code lang="vue" -->
+
+```vue [DocsTanStackServerPagination.vue]
+<template>
+  <div class="w-full space-y-4">
+    <div class="flex items-start justify-between">
+      <UiInput
+        v-model="searchQuery"
+        type="search"
+        placeholder="Search users..."
+        class="w-full max-w-sm"
+      />
+      <UiBadge variant="outline" size="md"> {{ totalRows }} total users </UiBadge>
+    </div>
+
+    <div class="overflow-hidden rounded-lg border">
+      <UiTanStackTable
+        :data="data"
+        :columns="columns"
+        :loading="pending"
+        :manual-pagination="true"
+        :page-count="pageCount"
+        :initial-page-size="pageSize"
+        @update:pagination="onPaginationChange"
+      />
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import type { ColumnDef } from "@tanstack/vue-table";
+
+  interface User {
+    id: string;
+    name: string;
+    email: string;
+    role: string;
+    department: string;
+    status: "active" | "inactive";
+  }
+
+  interface ApiResponse {
+    data: User[];
+    total: number;
+    page: number;
+    pageSize: number;
+    pageCount: number;
+  }
+
+  const pageIndex = ref(0);
+  const pageSize = ref(10);
+  const searchQuery = ref("");
+  const debouncedSearch = refDebounced(searchQuery, 500);
+
+  // Simulate API call with delay
+  const fetchUsers = async (page: number, size: number, search: string): Promise<ApiResponse> => {
+    // Simulate network delay
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    // Generate mock data
+    const allUsers: User[] = Array.from({ length: 95 }, (_, i) => ({
+      id: faker.string.nanoid(5).toUpperCase(),
+      name: faker.person.fullName(),
+      email: faker.internet.email().toLowerCase(),
+      role: ["Admin", "Member", "Viewer"][i % 3] || "Viewer",
+      department: ["Engineering", "Sales", "Marketing", "Support"][i % 4] || "Support",
+      status: i % 5 === 0 ? "inactive" : "active",
+    }));
+
+    // Filter by search
+    const filtered = search
+      ? allUsers.filter(
+          (user) =>
+            user.name.toLowerCase().includes(search.toLowerCase()) ||
+            user.email.toLowerCase().includes(search.toLowerCase())
+        )
+      : allUsers;
+
+    // Paginate
+    const start = page * size;
+    const end = start + size;
+    const paginatedData = filtered.slice(start, end);
+
+    return {
+      data: paginatedData,
+      total: filtered.length,
+      page,
+      pageSize: size,
+      pageCount: Math.ceil(filtered.length / size),
+    };
+  };
+
+  const { data: apiData, pending } = await useAsyncData(
+    () => fetchUsers(pageIndex.value, pageSize.value, debouncedSearch.value),
+    {
+      watch: [pageIndex, pageSize, debouncedSearch],
+      default: () => ({
+        data: [],
+        total: 0,
+        page: 0,
+        pageSize: 10,
+        pageCount: 0,
+      }),
+    }
+  );
+
+  const data = computed(() => apiData.value.data);
+  const totalRows = computed(() => apiData.value.total);
+  const pageCount = computed(() => apiData.value.pageCount);
+
+  const onPaginationChange = (pagination: { pageIndex: number; pageSize: number }) => {
+    pageIndex.value = pagination.pageIndex;
+    pageSize.value = pagination.pageSize;
+  };
+
+  const columns: ColumnDef<User>[] = [
+    {
+      accessorKey: "id",
+      header: "ID",
+      cell: ({ row }) => `#${row.getValue("id")}`,
+    },
+    {
+      accessorKey: "name",
+      header: "Name",
+      cell: ({ getValue }) => h("span", { class: "font-medium" }, getValue() as string),
+    },
+    {
+      accessorKey: "email",
+      header: "Email",
+    },
+    {
+      accessorKey: "role",
+      header: "Role",
+      cell: ({ getValue }) => {
+        const role = getValue() as string;
+        return h(
+          "span",
+          {
+            class: `inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${
+              role === "Admin"
+                ? "bg-purple-50 text-purple-700 dark:bg-purple-500/10 dark:text-purple-400"
+                : role === "Member"
+                  ? "bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400"
+                  : "bg-gray-50 text-gray-700 dark:bg-gray-500/10 dark:text-gray-400"
+            }`,
+          },
+          role
+        );
+      },
+    },
+    {
+      accessorKey: "department",
+      header: "Department",
+    },
+    {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ getValue }) => {
+        const status = getValue() as string;
+        return h(
+          "span",
+          {
+            class: `inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${
+              status === "active"
+                ? "bg-green-50 text-green-700 dark:bg-green-500/10 dark:text-green-400"
+                : "bg-red-50 text-red-700 dark:bg-red-500/10 dark:text-red-400"
+            }`,
+          },
+          status.charAt(0).toUpperCase() + status.slice(1)
+        );
+      },
+    },
+  ];
+</script>
 ```
 
 <!-- /automd -->

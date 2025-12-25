@@ -1,161 +1,171 @@
 <template>
-  <div>
-    <div :class="styles({ class: props.class })">
-      <UiTable :class="tableClass">
-        <UiTableHeader>
-          <UiTableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
-            <UiTableHead
-              v-for="header in headerGroup.headers"
-              :key="header.id"
-              :colspan="header.colSpan"
-              :class="[header.column.getCanSort() && 'cursor-pointer select-none']"
-              @click="header.column.getToggleSortingHandler()?.($event)"
-            >
-              <template v-if="!header.isPlaceholder">
-                <div class="flex items-center gap-3">
-                  <FlexRender
-                    :render="header.column.columnDef.header"
-                    :props="header.getContext()"
-                  />
-                  <Icon
-                    v-if="header.column.getCanSort() && header.column.getIsSorted() === 'asc'"
-                    :name="ascIcon"
-                    class="size-4"
-                  />
-                  <Icon
-                    v-else-if="header.column.getCanSort() && header.column.getIsSorted() === 'desc'"
-                    :name="descIcon"
-                    class="size-4"
-                  />
-                  <Icon
-                    v-else-if="header.column.getCanSort() && !header.column.getIsSorted()"
-                    :name="unsortedIcon"
-                    class="h-5 w-5"
-                  />
-                </div>
-              </template>
-            </UiTableHead>
-          </UiTableRow>
-        </UiTableHeader>
+  <div class="relative">
+    <slot name="loading" :loading>
+      <div
+        v-if="loading"
+        class="absolute inset-x-0 top-0 z-10 h-1 overflow-hidden rounded-full bg-muted"
+      >
+        <div class="size-full origin-left animate-[loading_1.5s_ease-in-out_infinite] bg-primary" />
+      </div>
+    </slot>
 
-        <UiTableBody>
+    <UiTable :class="props.class">
+      <UiTableHeader v-if="!hideHeader">
+        <UiTableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
+          <UiTableHead
+            v-for="header in headerGroup.headers"
+            :key="header.id"
+            :colspan="header.colSpan"
+            :class="header.column.columnDef.meta?.class?.th"
+          >
+            <template v-if="!header.isPlaceholder">
+              <slot
+                :name="`${header.column.id}-header`"
+                :header="header"
+                :column="header.column"
+                :table="table"
+              >
+                <FlexRender :render="header.column.columnDef.header" :props="header.getContext()" />
+              </slot>
+            </template>
+          </UiTableHead>
+        </UiTableRow>
+      </UiTableHeader>
+
+      <UiTableBody>
+        <template v-if="table.getRowModel().rows.length">
           <UiTableRow
             v-for="row in table.getRowModel().rows"
             :key="row.id"
-            :data-state="row.getIsSelected() ? 'selected' : ''"
+            :data-state="row.getIsSelected() ? 'selected' : undefined"
+            :class="table.options.meta?.class?.tr"
           >
-            <UiTableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
-              <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+            <UiTableCell
+              v-for="cell in row.getVisibleCells()"
+              :key="cell.id"
+              :class="cell.column.columnDef.meta?.class?.td"
+            >
+              <slot
+                :name="`${cell.column.id}-cell`"
+                :cell="cell"
+                :column="cell.column"
+                :row="row"
+                :table="table"
+                :get-value="() => cell.getValue()"
+                :render-value="() => cell.renderValue()"
+              >
+                <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+              </slot>
             </UiTableCell>
           </UiTableRow>
+        </template>
 
-          <UiTableEmpty
-            v-if="table.getRowModel().rows.length === 0"
-            :colspan="table.getAllLeafColumns().length"
+        <UiTableRow v-else>
+          <UiTableCell :colspan="table.getAllLeafColumns().length" class="h-24 text-center">
+            <slot name="empty">
+              {{ emptyText }}
+            </slot>
+          </UiTableCell>
+        </UiTableRow>
+      </UiTableBody>
+
+      <UiTableFooter v-if="hasFooter">
+        <UiTableRow v-for="footerGroup in table.getFooterGroups()" :key="footerGroup.id">
+          <UiTableHead
+            v-for="footer in footerGroup.headers"
+            :key="footer.id"
+            :colspan="footer.colSpan"
+            :class="footer.column.columnDef.meta?.class?.th"
           >
-            <slot :table="table" name="empty"> No data available. </slot>
-          </UiTableEmpty>
-        </UiTableBody>
-      </UiTable>
-    </div>
+            <template v-if="!footer.isPlaceholder && footer.column.columnDef.footer">
+              <slot
+                :name="`${footer.column.id}-footer`"
+                :footer="footer"
+                :column="footer.column"
+                :table="table"
+              >
+                <FlexRender :render="footer.column.columnDef.footer" :props="footer.getContext()" />
+              </slot>
+            </template>
+          </UiTableHead>
+        </UiTableRow>
+      </UiTableFooter>
+    </UiTable>
+  </div>
 
-    <div v-if="showPagination" class="@container">
-      <div
-        class="my-6 flex flex-col justify-between gap-4 px-2 @[700px]:flex-row @[700px]:items-center"
-      >
-        <div class="flex items-center justify-between gap-3">
-          <slot name="rowsSelected" :table="table">
-            <div v-if="showSelect" class="text-sm whitespace-nowrap text-muted-foreground">
-              <span>
-                {{ table.getFilteredSelectedRowModel().rows.length }} of {{ " " }}
-                {{ table.getFilteredRowModel().rows.length }} row(s) selected
-              </span>
-            </div>
-          </slot>
-          <slot name="rowsPerPage" :table="table">
-            <div class="flex items-center space-x-2 whitespace-nowrap">
-              <p class="hidden text-sm font-medium text-foreground md:inline-block">
-                {{ rowsPerPageText }}
-              </p>
-              <UiSelect v-model="pageSize">
-                <UiSelectTrigger class="h-9 w-fit">
-                  {{ table.getState().pagination.pageSize }}
-                </UiSelectTrigger>
-                <UiSelectContent class="min-w-fit" side="top" align="start">
-                  <UiSelectGroup>
-                    <!-- eslint-disable vue/no-template-shadow -->
-                    <UiSelectItem
-                      v-for="pageSize in pageSizes"
-                      :key="pageSize"
-                      :value="`${pageSize}`"
-                    >
-                      {{ pageSize }}
-                    </UiSelectItem>
-                  </UiSelectGroup>
-                </UiSelectContent>
-              </UiSelect>
-            </div>
-          </slot>
-        </div>
+  <div v-if="showFooter" class="flex items-center justify-between gap-4 px-2 py-4">
+    <slot name="footer" :table="table">
+      <div class="flex items-center gap-4">
+        <slot name="footer-left" :table="table">
+          <div v-if="showRowsPerPage" class="flex items-center gap-2">
+            <span class="text-sm whitespace-nowrap text-muted-foreground">Rows per page:</span>
+            <UiSelect v-model="pageSize" class="w-[70px]">
+              <UiSelectTrigger>
+                <UiSelectValue />
+              </UiSelectTrigger>
+              <UiSelectContent>
+                <UiSelectItem v-for="size in pageSizeOptions" :key="size" :value="`${size}`">
+                  {{ size }}
+                </UiSelectItem>
+              </UiSelectContent>
+            </UiSelect>
+          </div>
 
-        <div class="flex items-center justify-between gap-3">
-          <slot :table="table" name="page">
-            <div
-              class="flex items-center justify-center text-sm font-medium whitespace-nowrap text-foreground"
-            >
-              Page {{ table.getState().pagination.pageIndex + 1 }} of
-              {{ table.getPageCount() }}
-            </div>
-          </slot>
-
-          <slot :table="table" name="pageButtons">
-            <div class="flex items-center space-x-2">
-              <UiButton
-                variant="outline"
-                title="First page"
-                class="h-9 w-9 p-0"
-                :disabled="!table.getCanPreviousPage()"
-                @click="table.setPageIndex(0)"
-              >
-                <Icon name="lucide:chevrons-left" class="size-4" />
-              </UiButton>
-              <UiButton
-                variant="outline"
-                title="Previous page"
-                class="h-9 w-9 p-0"
-                :disabled="!table.getCanPreviousPage()"
-                @click="table.previousPage()"
-              >
-                <Icon name="lucide:chevron-left" class="size-4" />
-              </UiButton>
-              <UiButton
-                variant="outline"
-                title="Next page"
-                class="h-9 w-9 p-0"
-                :disabled="!table.getCanNextPage()"
-                @click="table.nextPage()"
-              >
-                <Icon name="lucide:chevron-right" class="size-4" />
-              </UiButton>
-              <UiButton
-                variant="outline"
-                title="Last page"
-                class="h-9 w-9 p-0"
-                :disabled="!table.getCanNextPage()"
-                @click="table.setPageIndex(table.getPageCount() - 1)"
-              >
-                <Icon name="lucide:chevrons-right" class="size-4" />
-              </UiButton>
-            </div>
-          </slot>
-        </div>
+          <div v-if="showSelectedCount" class="text-sm whitespace-nowrap text-muted-foreground">
+            {{ table.getFilteredSelectedRowModel().rows.length }} of
+            {{ table.getFilteredRowModel().rows.length }} row(s) selected
+          </div>
+        </slot>
       </div>
-    </div>
+
+      <div class="flex items-center gap-4">
+        <slot name="footer-right" :table="table">
+          <div v-if="showPageInfo" class="text-sm whitespace-nowrap text-muted-foreground">
+            Page {{ table.getState().pagination.pageIndex + 1 }} of
+            {{ table.getPageCount() }}
+          </div>
+
+          <div v-if="showPagination" class="flex items-center gap-1">
+            <UiButton
+              variant="outline"
+              size="icon-sm"
+              :disabled="!table.getCanPreviousPage()"
+              @click="table.setPageIndex(0)"
+            >
+              <Icon name="lucide:chevrons-left" class="size-4" />
+            </UiButton>
+            <UiButton
+              variant="outline"
+              size="icon-sm"
+              :disabled="!table.getCanPreviousPage()"
+              @click="table.previousPage()"
+            >
+              <Icon name="lucide:chevron-left" class="size-4" />
+            </UiButton>
+            <UiButton
+              variant="outline"
+              size="icon-sm"
+              :disabled="!table.getCanNextPage()"
+              @click="table.nextPage()"
+            >
+              <Icon name="lucide:chevron-right" class="size-4" />
+            </UiButton>
+            <UiButton
+              variant="outline"
+              size="icon-sm"
+              :disabled="!table.getCanNextPage()"
+              @click="table.setPageIndex(table.getPageCount() - 1)"
+            >
+              <Icon name="lucide:chevrons-right" class="size-4" />
+            </UiButton>
+          </div>
+        </slot>
+      </div>
+    </slot>
   </div>
 </template>
 
-<script lang="ts" setup generic="T extends object">
-  import CheckBox from "@/components/Ui/Checkbox/Checkbox.vue";
+<script lang="ts">
   import {
     FlexRender,
     getCoreRowModel,
@@ -164,167 +174,132 @@
     getSortedRowModel,
     useVueTable,
   } from "@tanstack/vue-table";
-  import type { ColumnDef, SortingState, Table } from "@tanstack/vue-table";
+  import { startCase } from "lodash-es";
+  import type {
+    ColumnDef,
+    ColumnFiltersState,
+    RowData,
+    SortingState,
+    TableOptions,
+    VisibilityState,
+  } from "@tanstack/vue-table";
   import type { HTMLAttributes } from "vue";
 
+  declare module "@tanstack/vue-table" {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    interface ColumnMeta<TData extends RowData, TValue> {
+      class?: {
+        th?: HTMLAttributes["class"];
+        td?: HTMLAttributes["class"];
+      };
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    interface TableMeta<TData extends RowData> {
+      class?: {
+        tr?: HTMLAttributes["class"];
+      };
+    }
+  }
+</script>
+
+<script lang="ts" setup generic="T">
   const props = withDefaults(
     defineProps<{
-      /**
-       * The data to display in the table.
-       */
+      /** Array of data to display */
       data?: T[];
-      /**
-       * The columns to display in the table.
-       */
-      columns?: ColumnDef<T>[];
-      /**
-       * The search term to filter the table data.
-       */
-      search?: string;
-      /**
-       * Whether to show the select checkbox column.
-       */
-      showSelect?: boolean;
-      /**
-       * The page sizes to display in the pagination dropdown.
-       */
-      pageSizes?: number[];
-      /**
-       * The initial page size for the table.
-       */
-      pageSize?: number;
-      /**
-       * The initial sorting state of the table.
-       */
-      sorting?: SortingState;
-      /**
-       * The class(es) to apply to the table.
-       */
-      tableClass?: HTMLAttributes["class"];
-      /**
-       * The icon to display for ascending sorting.
-       */
-      ascIcon?: string;
-      /**
-       * The icon to display for descending sorting.
-       */
-      descIcon?: string;
-      /**
-       * The icon to display for unsorted columns.
-       */
-      unsortedIcon?: string;
-      /**
-       * Custom class(es) to add to the parent element.
-       */
+      /** Column definitions. If not provided, columns will be auto-generated from data */
+      columns?: ColumnDef<T, any>[];
+      /** Table class */
       class?: HTMLAttributes["class"];
-      /**
-       * Whether to show pagination controls.
-       *
-       * @default true
-       */
+      /** Text to display when table is empty */
+      emptyText?: string;
+      /** Hide table header */
+      hideHeader?: boolean;
+      /** Show footer section */
+      showFooter?: boolean;
+      /** Show pagination controls */
       showPagination?: boolean;
-      /**
-       * The text to display for the rows per page label.
-       *
-       * @default "Rows per page:"
-       */
-      rowsPerPageText?: string;
+      /** Show page info (e.g., "Page 1 of 10") */
+      showPageInfo?: boolean;
+      /** Show rows per page selector */
+      showRowsPerPage?: boolean;
+      /** Show selected row count */
+      showSelectedCount?: boolean;
+      /** Page size options */
+      pageSizeOptions?: number[];
+      /** Initial page size */
+      initialPageSize?: number;
+      /** Loading state */
+      loading?: boolean;
+      /** Enable manual pagination (for server-side pagination) */
+      manualPagination?: boolean;
+      /** Total page count (required for manual pagination) */
+      pageCount?: number;
+      /** Additional table options */
+      tableOptions?: Partial<TableOptions<T>>;
     }>(),
     {
-      pageSizes: () => [10, 20, 30, 40, 50, 100],
-      pageSize: () => 10,
-      columns: () => [],
       data: () => [],
-      sorting: () => [],
-      ascIcon: "lucide:chevron-up",
-      descIcon: "lucide:chevron-down",
-      unsortedIcon: "lucide:chevrons-up-down",
+      emptyText: "No data available.",
+      showFooter: true,
       showPagination: true,
-      rowsPerPageText: "Rows per page:",
+      showPageInfo: true,
+      showRowsPerPage: true,
+      pageSizeOptions: () => [10, 20, 30, 40, 50],
+      initialPageSize: 10,
+      loading: false,
+      manualPagination: false,
+      pageCount: -1,
     }
   );
 
-  defineOptions({ inheritAttrs: false });
-
-  const styles = tv({
-    base: "w-full overflow-x-auto",
-  });
-
-  const checkBoxHeader: ColumnDef<any> = {
-    id: "checkbox",
-    header: ({ table }) => {
-      return h(
-        "div",
-        { class: "flex items-center justify-center" },
-        h(CheckBox, {
-          modelValue: table.getIsAllRowsSelected()
-            ? true
-            : table.getIsSomeRowsSelected()
-              ? "indeterminate"
-              : false,
-          "onUpdate:modelValue": (value: boolean | "indeterminate") =>
-            table.toggleAllPageRowsSelected(!!value),
-          ariaLabel: "Select all",
-        })
-      );
-    },
-    cell: ({ row }) => {
-      return h(
-        "div",
-        { class: "flex items-center justify-center " },
-        h(CheckBox, {
-          modelValue: row.getIsSelected(),
-          "onUpdate:modelValue": (value: boolean | "indeterminate") => row.toggleSelected(!!value),
-          ariaLabel: "Select row",
-        })
-      );
-    },
-    enableSorting: false,
-    enableHiding: false,
-  };
-
-  const localColumns: ColumnDef<T>[] = [...props.columns];
-
-  if (props.showSelect) {
-    localColumns.unshift(checkBoxHeader);
-  }
-
   const emit = defineEmits<{
-    ready: [table: Table<T>];
+    ready: [table: ReturnType<typeof useVueTable<T>>];
+    "update:pagination": [pagination: { pageIndex: number; pageSize: number }];
   }>();
 
-  const localSorting = ref(props.sorting);
-  const globalFilter = ref(props.search);
-  const columnVisibility = ref({});
-  const rowSelection = ref({});
-
-  const updateFn = (updaterOrValue: any, v: MaybeRefOrGetter) => {
-    if (typeof updaterOrValue === "function") {
-      return updaterOrValue(toValue(v));
+  // Auto-generate columns from data if not provided
+  const computedColumns = computed<ColumnDef<T, any>[]>(() => {
+    if (props.columns && props.columns.length > 0) {
+      return props.columns;
     }
-    return updaterOrValue;
-  };
+
+    // Auto-generate from first data item
+    if (props.data && props.data.length > 0) {
+      const firstItem = props.data[0];
+      return Object.keys(firstItem as object).map((key) => ({
+        accessorKey: key,
+        header: startCase(key),
+        cell: (info: any) => info.getValue(),
+      }));
+    }
+
+    return [];
+  });
+
+  const sorting = ref<SortingState>([]);
+  const columnFilters = ref<ColumnFiltersState>([]);
+  const columnVisibility = ref<VisibilityState>({});
+  const rowSelection = ref({});
+  const globalFilter = ref("");
+  const pagination = ref({
+    pageIndex: 0,
+    pageSize: props.initialPageSize,
+  });
 
   const table = useVueTable({
     get data() {
       return props.data;
     },
     get columns() {
-      return localColumns;
-    },
-    initialState: {
-      pagination: {
-        pageSize: props.pageSize,
-      },
-      rowSelection: rowSelection.value,
-      globalFilter: props.search,
+      return computedColumns.value;
     },
     state: {
       get sorting() {
-        return localSorting.value;
+        return sorting.value;
       },
-      get globalFilter() {
-        return props.search;
+      get columnFilters() {
+        return columnFilters.value;
       },
       get columnVisibility() {
         return columnVisibility.value;
@@ -332,43 +307,88 @@
       get rowSelection() {
         return rowSelection.value;
       },
+      get globalFilter() {
+        return globalFilter.value;
+      },
+      get pagination() {
+        return pagination.value;
+      },
     },
     onSortingChange: (updaterOrValue) => {
-      localSorting.value = updateFn(updaterOrValue, localSorting);
+      sorting.value =
+        typeof updaterOrValue === "function" ? updaterOrValue(sorting.value) : updaterOrValue;
     },
-    onGlobalFilterChange: (updaterOrValue) => {
-      globalFilter.value = updateFn(updaterOrValue, globalFilter);
+    onColumnFiltersChange: (updaterOrValue) => {
+      columnFilters.value =
+        typeof updaterOrValue === "function" ? updaterOrValue(columnFilters.value) : updaterOrValue;
+    },
+    onColumnVisibilityChange: (updaterOrValue) => {
+      columnVisibility.value =
+        typeof updaterOrValue === "function"
+          ? updaterOrValue(columnVisibility.value)
+          : updaterOrValue;
     },
     onRowSelectionChange: (updaterOrValue) => {
-      rowSelection.value = updateFn(updaterOrValue, rowSelection);
+      rowSelection.value =
+        typeof updaterOrValue === "function" ? updaterOrValue(rowSelection.value) : updaterOrValue;
+    },
+    onGlobalFilterChange: (updaterOrValue) => {
+      globalFilter.value =
+        typeof updaterOrValue === "function" ? updaterOrValue(globalFilter.value) : updaterOrValue;
+    },
+    onPaginationChange: (updaterOrValue) => {
+      pagination.value =
+        typeof updaterOrValue === "function" ? updaterOrValue(pagination.value) : updaterOrValue;
+      emit("update:pagination", pagination.value);
     },
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
-    enableRowSelection: () => !!props.showSelect,
+    getPaginationRowModel: getPaginationRowModel(),
+    manualPagination: props.manualPagination,
+    pageCount: props.manualPagination ? props.pageCount : undefined,
+    ...props.tableOptions,
   });
 
-  function toggleColumnVisibility(column: any) {
-    columnVisibility.value = {
-      ...columnVisibility.value,
-      [column.id]: !column.getIsVisible(),
-    };
-  }
-
-  // eslint-disable-next-line vue/no-dupe-keys
   const pageSize = computed({
     get() {
       return table.getState().pagination.pageSize.toString();
     },
-    set(value) {
+    set(value: string) {
       table.setPageSize(Number(value));
     },
+  });
+
+  const hasFooter = computed(() => {
+    return computedColumns.value.some((col) => col.footer);
   });
 
   onMounted(() => {
     emit("ready", table);
   });
 
-  defineExpose({ toggleColumnVisibility });
+  defineExpose({
+    table,
+    sorting,
+    columnFilters,
+    columnVisibility,
+    rowSelection,
+    globalFilter,
+    pagination,
+  });
 </script>
+
+<style>
+  /* Loading animation */
+  @keyframes loading {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+</style>
