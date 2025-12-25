@@ -59,7 +59,10 @@ const newComponentsData = componentsData.map((component) => {
 
 const newDataJSON = JSON.stringify(newComponentsData, null, 2);
 // Write data to a new comp.ts file
-const newDataTS = `export default ${newDataJSON}`;
+const newDataTS = `/**
+ * List of available components with their files, utils, composables, and plugins
+ */
+export default ${newDataJSON}`;
 fs.writeFileSync(outputTSPath, newDataTS, "utf8");
 
 console.log("Files created successfully!");
