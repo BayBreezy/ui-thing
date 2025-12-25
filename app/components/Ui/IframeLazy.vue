@@ -11,6 +11,7 @@
       :loading
       frameborder="0"
       allowfullscreen
+      :scrolling="disableScroll ? 'no' : 'yes'"
       @load="$emit('load', $event)"
     />
   </div>
@@ -60,6 +61,10 @@
      * @default 0
      */
     threshold?: number | number[];
+    /**
+     * Disable scrolling within the iframe.
+     */
+    disableScroll?: boolean;
   };
 
   const props = withDefaults(defineProps<IFrameLazyProps>(), {
