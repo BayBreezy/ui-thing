@@ -56,7 +56,7 @@
   .apexcharts-menu {
     @apply border-border bg-background text-foreground;
     .apexcharts-menu-item {
-      @apply hover:!bg-primary hover:!text-primary-foreground;
+      @apply hover:bg-primary! hover:text-primary-foreground!;
     }
   }
 </style>
