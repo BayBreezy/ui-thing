@@ -1,4 +1,5 @@
 <template>
+  <!-- @vue-ignore -->
   <VueApexCharts v-bind="forwarded" ref="chart" />
 </template>
 
