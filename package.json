@@ -160,7 +160,7 @@
     "eslint": "^9.39.2",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
-    "nuxt": "4.1.2",
+    "nuxt": "4.2.2",
     "nuxt-gtag": "^4.1.0",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2",
