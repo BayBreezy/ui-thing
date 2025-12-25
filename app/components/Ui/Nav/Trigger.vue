@@ -45,6 +45,6 @@
   );
 
   const styles = tv({
-    base: "-ml-2 min-lg:hidden",
+    base: "-ml-2 lg:hidden",
   });
 </script>

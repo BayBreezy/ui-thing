@@ -87,7 +87,7 @@
       fullPage: {
         true: {
           backdrop:
-            "pointer-events-auto fixed inset-0 z-[999] size-full bg-background/80 backdrop-blur-md",
+            "pointer-events-auto fixed inset-0 z-999 size-full bg-background/80 backdrop-blur-md",
         },
         false: {
           backdrop: "relative",

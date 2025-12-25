@@ -17,6 +17,6 @@
   const forwarded = reactiveOmit(props, "class");
 
   const styles = tv({
-    base: "h-px w-full border-t-0 bg-[linear-gradient(90deg,--alpha(var(--input)/10%),_var(--input),_--alpha(var(--input)/10%))]",
+    base: "h-px w-full border-t-0 bg-[linear-gradient(90deg,--alpha(var(--input)/10%),var(--input),--alpha(var(--input)/10%))]",
   });
 </script>

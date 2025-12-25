@@ -13,7 +13,7 @@
   import type { HTMLAttributes } from "vue";
 
   export const buttonGroupSeparatorStyles = tv({
-    base: "relative !m-0 self-stretch bg-input data-[orientation=vertical]:h-auto",
+    base: "relative m-0! self-stretch bg-input data-[orientation=vertical]:h-auto",
   });
 
   export type ButtonGroupSeparatorProps = {

@@ -214,7 +214,7 @@
   table.dataTable thead > tr > th.dt-orderable-desc:before,
   table.dataTable thead > tr > td.dt-orderable-asc:before,
   table.dataTable thead > tr > td.dt-orderable-desc:before {
-    @apply bottom-[43%] size-[14px] shrink-0 bg-[url('https://api.iconify.design/lucide:chevron-up.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:!bg-[url('https://api.iconify.design/lucide:chevron-up.svg?color=white')];
+    @apply bottom-[43%] size-[14px] shrink-0 bg-[url('https://api.iconify.design/lucide:chevron-up.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-up.svg?color=white')]!;
   }
   .dark {
     table.dataTable thead > tr > th.dt-orderable-asc:before,
@@ -239,7 +239,7 @@
   table.dataTable thead > tr > th.dt-orderable-desc:after,
   table.dataTable thead > tr > td.dt-orderable-asc:after,
   table.dataTable thead > tr > td.dt-orderable-desc:after {
-    @apply top-[43%] size-[14px] shrink-0 bg-[url('https://api.iconify.design/lucide:chevron-down.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:!bg-[url('https://api.iconify.design/lucide:chevron-down.svg?color=white')];
+    @apply top-[43%] size-[14px] shrink-0 bg-[url('https://api.iconify.design/lucide:chevron-down.svg')] bg-contain bg-center bg-no-repeat content-[''] dark:bg-[url('https://api.iconify.design/lucide:chevron-down.svg?color=white')]!;
   }
   .dark {
     table.dataTable thead > tr > th.dt-orderable-asc:after,
@@ -278,7 +278,7 @@
 
   div.dataTables_processing,
   div.dt-processing {
-    @apply absolute inset-0 z-[999] flex size-full items-center justify-center bg-background/50 backdrop-blur-sm transition;
+    @apply absolute inset-0 z-999 flex size-full items-center justify-center bg-background/50 backdrop-blur-sm transition;
 
     > div:last-child {
       @apply relative mx-auto my-4 h-4 w-20;
@@ -499,7 +499,7 @@
   }
   table.dataTable.hover > tbody > tr.selected:hover > *,
   table.dataTable.display > tbody > tr.selected:hover > * {
-    @apply !bg-primary/10;
+    @apply bg-primary/10!;
   }
   table.dataTable.order-column > tbody tr > .sorting_1,
   table.dataTable.order-column > tbody tr > .sorting_2,
@@ -515,7 +515,7 @@
   table.dataTable.display > tbody tr.selected > .sorting_1,
   table.dataTable.display > tbody tr.selected > .sorting_2,
   table.dataTable.display > tbody tr.selected > .sorting_3 {
-    @apply !bg-primary/10;
+    @apply bg-primary/10!;
   }
   table.dataTable.display > tbody > tr.odd > .sorting_1,
   table.dataTable.order-column.stripe > tbody > tr.odd > .sorting_1 {
@@ -607,7 +607,7 @@
   }
 
   table.dataTable tr:last-child td {
-    @apply !border-b-0;
+    @apply border-b-0!;
   }
 
   /* Control feature layout */
@@ -678,7 +678,7 @@
   /* Info text that shows `Showing X to XX of XXXX entries - v1  */
   .dataTables_wrapper .dataTables_info,
   .dt-info {
-    @apply flex items-center gap-3 text-sm !text-muted-foreground;
+    @apply flex items-center gap-3 text-sm text-muted-foreground!;
   }
 
   .dt-paging nav {
@@ -914,10 +914,10 @@
   }
   /* Responsive modal */
   div.dtr-modal {
-    @apply fixed top-0 left-0 z-[1000] box-border size-full;
+    @apply fixed top-0 left-0 z-1000 box-border size-full;
   }
   div.dtr-modal div.dtr-modal-display {
-    @apply absolute top-1/2 left-1/2 z-[102] max-h-[80%] w-full max-w-screen-sm -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-md border bg-background p-4 md:px-7 md:py-4 lg:max-h-[90%];
+    @apply absolute top-1/2 left-1/2 z-102 max-h-[80%] w-full max-w-screen-sm -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-md border bg-background p-4 md:px-7 md:py-4 lg:max-h-[90%];
   }
   div.dtr-modal div.dtr-modal-content {
     @apply relative flex flex-col p-0 text-[15px];
@@ -925,14 +925,14 @@
       @apply text-lg font-semibold text-foreground;
     }
     table tr td {
-      @apply space-x-10 pb-2 first:font-semibold [&:nth-child(2)]:pl-2;
+      @apply space-x-10 pb-2 first:font-semibold nth-2:pl-2;
     }
   }
   div.dtr-modal div.dtr-modal-close {
-    @apply absolute top-2 right-2 z-[10] inline-flex size-6 cursor-pointer items-center justify-center rounded-md bg-muted/10 hover:bg-muted;
+    @apply absolute top-2 right-2 z-10 inline-flex size-6 cursor-pointer items-center justify-center rounded-md bg-muted/10 hover:bg-muted;
   }
   div.dtr-modal div.dtr-modal-background {
-    @apply fixed inset-0 z-[101] bg-background/20 backdrop-blur;
+    @apply fixed inset-0 z-101 bg-background/20 backdrop-blur;
   }
 
   /* Search Builder Styles */
@@ -946,7 +946,7 @@
     @apply pr-10;
   }
   .dtsb-greyscale {
-    @apply !border;
+    @apply border!;
   }
   div.dtsb-logicContainer .dtsb-greyscale {
     @apply border-none!;

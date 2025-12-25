@@ -93,6 +93,6 @@
   };
 
   const styles = tv({
-    base: "flex w-full flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5",
+    base: "flex w-full flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5",
   });
 </script>

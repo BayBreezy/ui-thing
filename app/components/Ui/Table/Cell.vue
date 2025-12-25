@@ -12,6 +12,6 @@
   }>();
 
   const styles = tv({
-    base: "p-3 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+    base: "p-3 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 *:[[role=checkbox]]:translate-y-[2px]",
   });
 </script>

@@ -26,7 +26,7 @@
     variants: {
       position: {
         popper:
-          "h-[var(--reka-select-trigger-height)] w-full min-w-[var(--reka-select-trigger-width)] scroll-my-1",
+          "h-(--reka-select-trigger-height) w-full min-w-(--reka-select-trigger-width) scroll-my-1",
         "item-aligned": "",
       },
     },

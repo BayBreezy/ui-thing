@@ -25,7 +25,7 @@
   };
 
   export const descriptionListDetailsStyles = tv({
-    base: "pt-1 pb-3 text-foreground sm:border-t sm:py-3 sm:[&:nth-child(2)]:border-none",
+    base: "pt-1 pb-3 text-foreground sm:border-t sm:py-3 sm:nth-2:border-none",
   });
 </script>
 
