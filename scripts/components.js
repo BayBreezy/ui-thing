@@ -76,6 +76,13 @@ export default [
     files: ["Avatar/Avatar.vue", "Avatar/Fallback.vue", "Avatar/Image.vue"],
     docsPath: "/components/avatar",
   },
+  {
+    name: "Avatar Label Group",
+    value: "avatar-label-group",
+    files: ["AvatarLabelGroup.vue"],
+    components: ["avatar"],
+    docsPath: "/components/avatar",
+  },
   { name: "Badge", value: "badge", files: ["Badge.vue"], docsPath: "/components/badge" },
   {
     name: "Border Beam",
