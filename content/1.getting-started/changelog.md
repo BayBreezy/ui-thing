@@ -3,6 +3,13 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## December 29, 2025
+
+### New Components
+
+- **QR Code**: A component for generating and displaying QR codes with customizable styling and frame handles. Check out the documentation [here](/components/qrcode).
+- **Avatar Label Group**: A component for displaying an Avatar with associated title and subtitle. Check out the documentation [here](/components/avatar).
+
 ## December 25, 2025
 
 🎄 Happy Holidays 🎄

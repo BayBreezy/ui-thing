@@ -305,7 +305,7 @@ export default [
         fileName: "Avatar/Avatar.vue",
         dirPath: "app/components/Ui",
         fileContent:
-          '<template>\n  <AvatarRoot\n    data-slot="avatar"\n    :as="as"\n    :as-child="asChild"\n    :class="styles({ class: props.class })"\n  >\n    <slot>\n      <slot name="image">\n        <UiAvatarImage\n          v-if="src"\n          :src="src"\n          :alt="alt"\n          :class="imageClass"\n          @loading-status-change="emits(\'loadingStatusChange\', $event)"\n        />\n      </slot>\n      <slot name="fallback">\n        <UiAvatarFallback :delay-ms="delayMs" :class="fallbackClass" :fallback="fallback" />\n      </slot>\n    </slot>\n  </AvatarRoot>\n</template>\n\n<script lang="ts" setup>\n  import { AvatarRoot } from "reka-ui";\n  import type { AvatarImageEmits, AvatarImageProps, AvatarRootProps } from "reka-ui";\n  import type { HTMLAttributes } from "vue";\n\n  const props = defineProps<\n    AvatarRootProps &\n      Partial<AvatarImageProps> & {\n        /**\n         * Class to add to the root element\n         */\n        class?: HTMLAttributes["class"];\n        /**\n         * Class to pass to the image element\n         */\n        imageClass?: HTMLAttributes["class"];\n        /**\n         * Class to pass to the fallback element\n         */\n        fallbackClass?: HTMLAttributes["class"];\n        /**\n         * The `alt` attribute value for the image\n         */\n        alt?: string;\n        /**\n         * The fallback text to display when the image fails to load\n         */\n        fallback?: string;\n        /**\n         * Useful for delaying rendering so it only appears for those with slower connections.\n         */\n        delayMs?: number;\n      }\n  >();\n\n  const emits = defineEmits<AvatarImageEmits>();\n  const styles = tv({\n    base: "relative flex size-8 shrink-0 overflow-hidden rounded-full",\n  });\n</script>\n',
+          '<template>\n  <AvatarRoot\n    data-slot="avatar"\n    :as="as"\n    :as-child="asChild"\n    :class="styles({ class: props.class })"\n  >\n    <slot>\n      <slot name="image">\n        <UiAvatarImage\n          v-if="src"\n          :src="src"\n          :alt="alt"\n          :class="imageClass"\n          @loading-status-change="emits(\'loadingStatusChange\', $event)"\n        />\n      </slot>\n      <slot name="fallback">\n        <UiAvatarFallback :delay-ms="delayMs" :class="fallbackClass" :fallback="fallback" />\n      </slot>\n    </slot>\n  </AvatarRoot>\n</template>\n\n<script lang="ts">\n  import { AvatarRoot } from "reka-ui";\n  import type { AvatarImageEmits, AvatarImageProps, AvatarRootProps } from "reka-ui";\n  import type { HTMLAttributes } from "vue";\n\n  export type AvatarProps = AvatarRootProps &\n    Partial<AvatarImageProps> & {\n      /**\n       * Class to add to the root element\n       */\n      class?: HTMLAttributes["class"];\n      /**\n       * Class to pass to the image element\n       */\n      imageClass?: HTMLAttributes["class"];\n      /**\n       * Class to pass to the fallback element\n       */\n      fallbackClass?: HTMLAttributes["class"];\n      /**\n       * The `alt` attribute value for the image\n       */\n      alt?: string;\n      /**\n       * The fallback text to display when the image fails to load\n       */\n      fallback?: string;\n      /**\n       * Useful for delaying rendering so it only appears for those with slower connections.\n       */\n      delayMs?: number;\n    };\n</script>\n\n<script lang="ts" setup>\n  const props = defineProps<AvatarProps>();\n\n  const emits = defineEmits<AvatarImageEmits>();\n  const styles = tv({\n    base: "relative flex size-8 shrink-0 overflow-hidden rounded-full",\n  });\n</script>\n',
       },
       {
         fileName: "Avatar/Fallback.vue",
@@ -320,6 +320,23 @@ export default [
           '<template>\n  <AvatarImage\n    data-slot="avatar-image"\n    v-bind="forwarded"\n    :class="styles({ class: props.class })"\n  />\n</template>\n\n<script lang="ts" setup>\n  import { AvatarImage, useForwardPropsEmits } from "reka-ui";\n  import type { AvatarImageEmits, AvatarImageProps } from "reka-ui";\n  import type { HTMLAttributes } from "vue";\n\n  const props = defineProps<\n    AvatarImageProps & {\n      /** The alt text for the image */\n      alt?: string;\n      /** Custom class(es) to add to the element */\n      class?: HTMLAttributes["class"];\n    }\n  >();\n  const emits = defineEmits<AvatarImageEmits>();\n\n  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);\n\n  const styles = tv({\n    base: "aspect-square size-full object-cover",\n  });\n</script>\n',
       },
     ],
+    docsPath: "/components/avatar",
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "Avatar Label Group",
+    value: "avatar-label-group",
+    files: [
+      {
+        fileName: "AvatarLabelGroup.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <figure :class="classes.base({ class: props.class })">\n    <slot name="avatar" v-bind="slotProps">\n      <UiAvatar v-bind="avatarProps" :class="classes.avatar()" />\n    </slot>\n    <slot name="figcaption" v-bind="slotProps">\n      <figcaption :class="classes.figcaption()">\n        <slot name="title" v-bind="slotProps">\n          <p v-if="title" :class="classes.title()">{{ title }}</p>\n        </slot>\n        <slot name="subtitle" v-bind="slotProps">\n          <p v-if="subtitle" :class="classes.subtitle()">{{ subtitle }}</p>\n        </slot>\n      </figcaption>\n    </slot>\n  </figure>\n</template>\n\n<script lang="ts">\n  import type { AvatarProps } from "@/components/Ui/Avatar/Avatar.vue";\n\n  export type AvatarLabelGroupProps = AvatarProps & {\n    /**\n     * Size of the group\n     *\n     * @default "md"\n     */\n    size?: VariantProps<typeof avatarLabelGroupStyles>["size"];\n    /**\n     * Title text to display next to the avatar\n     */\n    title?: string;\n    /**\n     * Subtitle text to display below the title\n     */\n    subtitle?: string;\n  };\n\n  export const avatarLabelGroupStyles = tv({\n    slots: {\n      base: ["group flex min-w-0 flex-1 items-center"],\n      figcaption: ["min-w-0 flex-1"],\n      title: "text-foreground",\n      subtitle: "truncate text-muted-foreground",\n      avatar: "",\n    },\n    variants: {\n      size: {\n        sm: {\n          base: "gap-2",\n          title: "text-sm font-semibold",\n          subtitle: "text-xs",\n          avatar: "size-8",\n        },\n        md: {\n          base: "gap-2",\n          title: "text-sm font-semibold",\n          subtitle: "text-sm",\n          avatar: "size-10",\n        },\n        lg: {\n          base: "gap-3",\n          title: "text-md font-semibold",\n          subtitle: "text-md",\n          avatar: "size-12",\n        },\n        xl: {\n          base: "gap-4",\n          title: "text-lg font-semibold",\n          subtitle: "text-md",\n          avatar: "size-14",\n        },\n      },\n    },\n    defaultVariants: {\n      size: "md",\n    },\n  });\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<AvatarLabelGroupProps>(), {\n    size: "md",\n  });\n\n  const classes = computed(() => {\n    return avatarLabelGroupStyles({\n      size: props.size,\n    });\n  });\n\n  const avatarProps = reactiveOmit(props, ["size", "title", "subtitle"]);\n\n  const slotProps = computed(() => ({\n    ...props,\n  }));\n  defineSlots<{\n    /**\n     * Avatar slot to customize the avatar component\n     */\n    avatar: (p: typeof slotProps.value) => any;\n    /**\n     * Figcaption slot to customize the figcaption element\n     */\n    figcaption: (p: typeof slotProps.value) => any;\n    /**\n     * Title slot to customize the title element\n     */\n    title: (p: typeof slotProps.value) => any;\n    /**\n     * Subtitle slot to customize the subtitle element\n     */\n    subtitle: (p: typeof slotProps.value) => any;\n  }>();\n</script>\n',
+      },
+    ],
+    components: ["avatar"],
     docsPath: "/components/avatar",
     utils: [],
     composables: [],
@@ -2369,6 +2386,34 @@ export default [
       },
     ],
     docsPath: "/components/progress",
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "QR Code",
+    value: "qrcode",
+    files: [
+      {
+        fileName: "QRCode/QRCode.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <div :class="qrCodeStyles().root({ size, class: props.class })">\n    <div ref="qrCodeRef" />\n\n    <slot name="top-left">\n      <UiQRCodeFrameHandle class="absolute top-0 left-0" />\n    </slot>\n    <slot name="top-right">\n      <UiQRCodeFrameHandle class="absolute top-0 right-0 rotate-90" />\n    </slot>\n    <slot name="bottom-right">\n      <UiQRCodeFrameHandle class="absolute right-0 bottom-0 rotate-180" />\n    </slot>\n    <slot name="bottom-left">\n      <UiQRCodeFrameHandle class="absolute bottom-0 left-0 -rotate-90" />\n    </slot>\n\n    <slot name="overlay" />\n  </div>\n</template>\n\n<script lang="ts">\n  import QRCodeStyling from "qr-code-styling";\n  import type { Options as QRCodeStylingOptions } from "qr-code-styling";\n\n  export const qrCodeStyles = tv({\n    slots: {\n      root: "relative flex items-center justify-center",\n    },\n    variants: {\n      size: {\n        md: { root: "p-2", qr: "size-[96px]" },\n        lg: { root: "p-3", qr: "size-[128px]" },\n      },\n    },\n  });\n\n  export type QRCodeProps = {\n    /**\n     * The value to encode in the QR code.\n     */\n    value: string;\n    /**\n     * Additional options to customize the QR code.\n     */\n    options?: QRCodeStylingOptions;\n    /**\n     * The size of the QR code.\n     *\n     * @default "md"\n     */\n    size?: VariantProps<typeof qrCodeStyles>["size"];\n    /**\n     * The class name to apply to the QR code.\n     */\n    class?: string;\n  };\n\n  /**\n   * QR code size configurations\n   */\n  export const QR_CODE_SIZES = {\n    md: { width: 96, height: 96 },\n    lg: { width: 128, height: 128 },\n  } as const;\n</script>\n\n<script lang="ts" setup>\n  const qrCodeRef = useTemplateRef("qrCodeRef");\n  const qrCodeInstance = ref<QRCodeStyling | null>(null);\n  const props = withDefaults(defineProps<QRCodeProps>(), {\n    size: "md",\n  });\n\n  onMounted(() => {\n    if (!qrCodeRef.value) return;\n\n    const sizeConfig = QR_CODE_SIZES[props.size];\n\n    qrCodeInstance.value = new QRCodeStyling({\n      width: sizeConfig.width,\n      height: sizeConfig.height,\n      data: props.value,\n      type: "svg",\n      ...props.options,\n    });\n\n    qrCodeInstance.value.append(qrCodeRef.value);\n  });\n\n  watch(\n    () => [props.value, props.options, props.size],\n    () => {\n      if (!qrCodeInstance.value) return;\n\n      const sizeConfig = QR_CODE_SIZES[props.size];\n\n      qrCodeInstance.value.update({\n        data: props.value,\n        width: sizeConfig.width,\n        height: sizeConfig.height,\n        ...props.options,\n      });\n    },\n    { deep: true }\n  );\n\n  defineSlots<{\n    /**\n     * Slot for the top-left frame handle\n     */\n    "top-left": () => any;\n    /**\n     * Slot for the top-right frame handle\n     */\n    "top-right": () => any;\n    /**\n     * Slot for the bottom-right frame handle\n     */\n    "bottom-right": () => any;\n    /**\n     * Slot for the bottom-left frame handle\n     */\n    "bottom-left": () => any;\n    /**\n     * Slot for overlay content (like gradient scan)\n     */\n    overlay: () => any;\n  }>();\n\n  defineExpose({\n    qrCodeInstance,\n  });\n</script>\n',
+      },
+      {
+        fileName: "QRCode/FrameHandle.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive :as :as-child :class="styles({ class: props.class })">\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import type { HTMLAttributes } from "vue";\n\n  const styles = tv({\n    base: "size-3 rounded-tl border-t-2 border-l-2 border-primary dark:border-border",\n  });\n\n  const props = defineProps<\n    PrimitiveProps & {\n      /**\n       * Additional classes to apply to the FrameHandle component\n       */\n      class?: HTMLAttributes["class"];\n    }\n  >();\n</script>\n',
+      },
+      {
+        fileName: "QRCode/GradientScan.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    :as\n    :as-child\n    :class="styles({ class: props.class })"\n    style="\n      mask-image: radial-gradient(52.19% 100% at 50% 0%, #000 0%, rgba(0, 0, 0, 0) 95.31%);\n      -webkit-mask-image: radial-gradient(52.19% 100% at 50% 0%, #000 0%, rgba(0, 0, 0, 0) 95.31%);\n    "\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts" setup>\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import type { HTMLAttributes } from "vue";\n\n  const styles = tv({\n    base: "absolute bottom-0 h-1/2 w-full border-t border-primary bg-primary/10",\n  });\n\n  const props = defineProps<\n    PrimitiveProps & {\n      /**\n       * Additional classes to apply to the FrameHandle component\n       */\n      class?: HTMLAttributes["class"];\n    }\n  >();\n</script>\n',
+      },
+    ],
+    docsPath: "/components/qrcode",
     utils: [],
     composables: [],
     plugins: [],

@@ -107,6 +107,7 @@
     "nuxt-llms": "^0.1.3",
     "nuxt-og-image": "^5.1.13",
     "nuxt-swiper": "^2.0.1",
+    "qr-code-styling": "^1.9.2",
     "quill-blot-formatter": "^1.0.5",
     "reka-ui": "^2.7.0",
     "rough-notation": "^0.5.1",

@@ -660,6 +660,12 @@ export default [
     docsPath: "/components/progress",
   },
   {
+    name: "QR Code",
+    value: "qrcode",
+    files: ["QRCode/QRCode.vue", "QRCode/FrameHandle.vue", "QRCode/GradientScan.vue"],
+    docsPath: "/components/qrcode",
+  },
+  {
     name: "Radio Group",
     value: "radio-group",
     files: ["RadioGroup/Indicator.vue", "RadioGroup/Item.vue", "RadioGroup/RadioGroup.vue"],
