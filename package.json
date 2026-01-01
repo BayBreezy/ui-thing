@@ -125,7 +125,7 @@
     "vue3-apexcharts": "^1.10.0",
     "vuedraggable": "^4.1.0",
     "yup": "^1.7.1",
-    "zod": "^4.2.1"
+    "zod": "^4.3.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.2.0",
@@ -147,7 +147,7 @@
     "@nuxt/icon": "^2.1.1",
     "@nuxt/image": "^2.0.0",
     "@nuxtjs/color-mode": "^4.0.0",
-    "@nuxtjs/mcp-toolkit": "^0.6.0",
+    "@nuxtjs/mcp-toolkit": "^0.6.1",
     "@nuxtjs/mdc": "0.19.2",
     "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/typography": "^0.5.19",
