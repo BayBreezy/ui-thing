@@ -25,7 +25,35 @@
                 :column="header.column"
                 :table="table"
               >
-                <FlexRender :render="header.column.columnDef.header" :props="header.getContext()" />
+                <div
+                  v-if="header.column.getCanSort()"
+                  :class="[
+                    'flex items-center gap-2',
+                    header.column.getCanSort() ? 'cursor-pointer select-none' : '',
+                  ]"
+                  @click="header.column.getToggleSortingHandler()?.($event)"
+                >
+                  <FlexRender
+                    :render="header.column.columnDef.header"
+                    :props="header.getContext()"
+                  />
+                  <Icon
+                    v-if="header.column.getIsSorted() === 'asc'"
+                    name="lucide:arrow-up"
+                    class="size-4"
+                  />
+                  <Icon
+                    v-else-if="header.column.getIsSorted() === 'desc'"
+                    name="lucide:arrow-down"
+                    class="size-4"
+                  />
+                  <Icon v-else name="lucide:arrow-up-down" class="size-4 opacity-50" />
+                </div>
+                <FlexRender
+                  v-else
+                  :render="header.column.columnDef.header"
+                  :props="header.getContext()"
+                />
               </slot>
             </template>
           </UiTableHead>
@@ -34,30 +62,57 @@
 
       <UiTableBody>
         <template v-if="table.getRowModel().rows.length">
-          <UiTableRow
-            v-for="row in table.getRowModel().rows"
-            :key="row.id"
-            :data-state="row.getIsSelected() ? 'selected' : undefined"
-            :class="table.options.meta?.class?.tr"
-          >
-            <UiTableCell
-              v-for="cell in row.getVisibleCells()"
-              :key="cell.id"
-              :class="cell.column.columnDef.meta?.class?.td"
+          <template v-for="row in table.getRowModel().rows" :key="row.id">
+            <UiTableRow
+              :data-state="row.getIsSelected() ? 'selected' : undefined"
+              :class="table.options.meta?.class?.tr"
+              @contextmenu="(event: MouseEvent) => emit('row-contextmenu', { event, row })"
             >
-              <slot
-                :name="`${cell.column.id}-cell`"
-                :cell="cell"
-                :column="cell.column"
-                :row="row"
-                :table="table"
-                :get-value="() => cell.getValue()"
-                :render-value="() => cell.renderValue()"
+              <UiTableCell
+                v-for="cell in row.getVisibleCells()"
+                :key="cell.id"
+                :class="cell.column.columnDef.meta?.class?.td"
               >
-                <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
-              </slot>
-            </UiTableCell>
-          </UiTableRow>
+                <slot
+                  :name="`${cell.column.id}-cell`"
+                  :cell="cell"
+                  :column="cell.column"
+                  :row="row"
+                  :table="table"
+                  :get-value="() => cell.getValue()"
+                  :render-value="() => cell.renderValue()"
+                >
+                  <template v-if="cell.column.id === 'expand'">
+                    <UiButton
+                      variant="ghost"
+                      size="icon-sm"
+                      class="hover:bg-muted"
+                      @click="row.toggleExpanded()"
+                    >
+                      <Icon
+                        :name="row.getIsExpanded() ? 'lucide:chevron-down' : 'lucide:chevron-right'"
+                        class="size-4"
+                      />
+                    </UiButton>
+                  </template>
+                  <template v-else>
+                    <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+                  </template>
+                </slot>
+              </UiTableCell>
+            </UiTableRow>
+            <UiTableRow v-if="row.getIsExpanded()" :key="`${row.id}-expanded`">
+              <UiTableCell :colspan="row.getVisibleCells().length" class="bg-muted/50 p-0">
+                <slot name="expanded-row" :row="row" :table="table">
+                  <div class="p-4">
+                    <p class="text-sm text-muted-foreground">
+                      Expanded content for row {{ row.id }}
+                    </p>
+                  </div>
+                </slot>
+              </UiTableCell>
+            </UiTableRow>
+          </template>
         </template>
 
         <UiTableRow v-else>
@@ -93,12 +148,17 @@
     </UiTable>
   </div>
 
-  <div v-if="showFooter" class="flex items-center justify-between gap-4 px-2 py-4">
+  <div
+    v-if="showFooter"
+    class="flex flex-col gap-4 px-2 py-4 md:flex-row md:items-center md:justify-between"
+  >
     <slot name="footer" :table="table">
       <div class="flex items-center gap-4">
         <slot name="footer-left" :table="table">
           <div v-if="showRowsPerPage" class="flex items-center gap-2">
-            <span class="text-sm whitespace-nowrap text-muted-foreground">Rows per page:</span>
+            <span class="text-sm whitespace-nowrap text-muted-foreground">{{
+              rowsPerPageText
+            }}</span>
             <UiSelect v-model="pageSize" class="w-[70px]">
               <UiSelectTrigger>
                 <UiSelectValue />
@@ -169,6 +229,7 @@
   import {
     FlexRender,
     getCoreRowModel,
+    getExpandedRowModel,
     getFilteredRowModel,
     getPaginationRowModel,
     getSortedRowModel,
@@ -235,8 +296,17 @@
       manualPagination?: boolean;
       /** Total page count (required for manual pagination) */
       pageCount?: number;
+      /** Enable manual sorting (for server-side sorting) */
+      manualSorting?: boolean;
+      /** Enable manual filtering (for server-side filtering) */
+      manualFiltering?: boolean;
       /** Additional table options */
       tableOptions?: Partial<TableOptions<T>>;
+      /** Text for "Rows per page" label
+       *
+       * @default "Rows per page:"
+       */
+      rowsPerPageText?: string;
     }>(),
     {
       data: () => [],
@@ -249,13 +319,36 @@
       initialPageSize: 10,
       loading: false,
       manualPagination: false,
+      manualSorting: false,
+      manualFiltering: false,
       pageCount: -1,
+      rowsPerPageText: "Rows per page:",
     }
   );
 
   const emit = defineEmits<{
+    /**
+     * Emitted when the table is ready
+     *
+     * Provides the table instance
+     */
     ready: [table: ReturnType<typeof useVueTable<T>>];
+    /**
+     * Emitted when pagination changes
+     */
     "update:pagination": [pagination: { pageIndex: number; pageSize: number }];
+    /**
+     * Emitted when sorting changes
+     */
+    "update:sorting": [sorting: SortingState];
+    /**
+     * Emitted when column filters change
+     */
+    "update:columnFilters": [filters: ColumnFiltersState];
+    /**
+     * Emitted when a row is right-clicked
+     */
+    "row-contextmenu": [payload: { event: MouseEvent; row: any }];
   }>();
 
   // Auto-generate columns from data if not provided
@@ -282,6 +375,7 @@
   const columnVisibility = ref<VisibilityState>({});
   const rowSelection = ref({});
   const globalFilter = ref("");
+  const expanded = ref({});
   const pagination = ref({
     pageIndex: 0,
     pageSize: props.initialPageSize,
@@ -313,14 +407,19 @@
       get pagination() {
         return pagination.value;
       },
+      get expanded() {
+        return expanded.value;
+      },
     },
     onSortingChange: (updaterOrValue) => {
       sorting.value =
         typeof updaterOrValue === "function" ? updaterOrValue(sorting.value) : updaterOrValue;
+      emit("update:sorting", sorting.value);
     },
     onColumnFiltersChange: (updaterOrValue) => {
       columnFilters.value =
         typeof updaterOrValue === "function" ? updaterOrValue(columnFilters.value) : updaterOrValue;
+      emit("update:columnFilters", columnFilters.value);
     },
     onColumnVisibilityChange: (updaterOrValue) => {
       columnVisibility.value =
@@ -341,11 +440,18 @@
         typeof updaterOrValue === "function" ? updaterOrValue(pagination.value) : updaterOrValue;
       emit("update:pagination", pagination.value);
     },
+    onExpandedChange: (updaterOrValue) => {
+      expanded.value =
+        typeof updaterOrValue === "function" ? updaterOrValue(expanded.value) : updaterOrValue;
+    },
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    getExpandedRowModel: getExpandedRowModel(),
     manualPagination: props.manualPagination,
+    manualSorting: props.manualSorting,
+    manualFiltering: props.manualFiltering,
     pageCount: props.manualPagination ? props.pageCount : undefined,
     ...props.tableOptions,
   });
@@ -375,6 +481,7 @@
     rowSelection,
     globalFilter,
     pagination,
+    expanded,
   });
 </script>
 

@@ -68,7 +68,7 @@
     },
     {
       accessorKey: "amount",
-      header: () => h("div", { class: "text-right" }, "Amount"),
+      header: () => h("div", { class: "text-right justify-end w-full" }, "Amount"),
       cell: ({ row }) => {
         const amount = row.getValue<number>("amount");
         const formatted = new Intl.NumberFormat("en-US", {

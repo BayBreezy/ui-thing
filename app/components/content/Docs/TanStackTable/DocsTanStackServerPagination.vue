@@ -16,9 +16,13 @@
         :columns="columns"
         :loading="pending"
         :manual-pagination="true"
+        :manual-sorting="true"
+        :manual-filtering="true"
         :page-count="pageCount"
         :initial-page-size="pageSize"
         @update:pagination="onPaginationChange"
+        @update:sorting="onSortingChange"
+        @update:column-filters="onColumnFiltersChange"
       />
     </div>
   </div>
@@ -26,7 +30,7 @@
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import type { ColumnDef } from "@tanstack/vue-table";
+  import type { ColumnDef, ColumnFiltersState, SortingState } from "@tanstack/vue-table";
 
   interface User {
     id: string;
@@ -47,11 +51,19 @@
 
   const pageIndex = ref(0);
   const pageSize = ref(10);
+  const sorting = ref<SortingState>([]);
+  const columnFilters = ref<ColumnFiltersState>([]);
   const searchQuery = ref("");
   const debouncedSearch = refDebounced(searchQuery, 500);
 
   // Simulate API call with delay
-  const fetchUsers = async (page: number, size: number, search: string): Promise<ApiResponse> => {
+  const fetchUsers = async (
+    page: number,
+    size: number,
+    search: string,
+    sortBy: SortingState,
+    filters: ColumnFiltersState
+  ): Promise<ApiResponse> => {
     // Simulate network delay
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
@@ -66,7 +78,7 @@
     }));
 
     // Filter by search
-    const filtered = search
+    let filtered = search
       ? allUsers.filter(
           (user) =>
             user.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -74,24 +86,61 @@
         )
       : allUsers;
 
+    // Apply column filters
+    if (filters.length > 0) {
+      filtered = filtered.filter((user) => {
+        return filters.every((filter) => {
+          const value = user[filter.id as keyof User];
+          const filterValue = filter.value;
+
+          if (typeof filterValue === "string") {
+            return String(value).toLowerCase().includes(filterValue.toLowerCase());
+          }
+
+          return value === filterValue;
+        });
+      });
+    }
+
+    // Apply sorting
+    const sorted = [...filtered];
+    if (sortBy.length > 0 && sortBy[0]) {
+      const { id, desc } = sortBy[0];
+      sorted.sort((a, b) => {
+        const aValue = a[id as keyof User];
+        const bValue = b[id as keyof User];
+
+        if (aValue < bValue) return desc ? 1 : -1;
+        if (aValue > bValue) return desc ? -1 : 1;
+        return 0;
+      });
+    }
+
     // Paginate
     const start = page * size;
     const end = start + size;
-    const paginatedData = filtered.slice(start, end);
+    const paginatedData = sorted.slice(start, end);
 
     return {
       data: paginatedData,
-      total: filtered.length,
+      total: sorted.length,
       page,
       pageSize: size,
-      pageCount: Math.ceil(filtered.length / size),
+      pageCount: Math.ceil(sorted.length / size),
     };
   };
 
   const { data: apiData, pending } = await useAsyncData(
-    () => fetchUsers(pageIndex.value, pageSize.value, debouncedSearch.value),
+    () =>
+      fetchUsers(
+        pageIndex.value,
+        pageSize.value,
+        debouncedSearch.value,
+        sorting.value,
+        columnFilters.value
+      ),
     {
-      watch: [pageIndex, pageSize, debouncedSearch],
+      watch: [pageIndex, pageSize, debouncedSearch, sorting, columnFilters],
       default: () => ({
         data: [],
         total: 0,
@@ -111,24 +160,40 @@
     pageSize.value = pagination.pageSize;
   };
 
+  const onSortingChange = (newSorting: SortingState) => {
+    sorting.value = newSorting;
+    // Reset to first page when sorting changes
+    pageIndex.value = 0;
+  };
+
+  const onColumnFiltersChange = (newFilters: ColumnFiltersState) => {
+    columnFilters.value = newFilters;
+    // Reset to first page when filters change
+    pageIndex.value = 0;
+  };
+
   const columns: ColumnDef<User>[] = [
     {
       accessorKey: "id",
       header: "ID",
       cell: ({ row }) => `#${row.getValue("id")}`,
+      enableSorting: true,
     },
     {
       accessorKey: "name",
       header: "Name",
       cell: ({ getValue }) => h("span", { class: "font-medium" }, getValue() as string),
+      enableSorting: true,
     },
     {
       accessorKey: "email",
       header: "Email",
+      enableSorting: true,
     },
     {
       accessorKey: "role",
       header: "Role",
+      enableSorting: true,
       cell: ({ getValue }) => {
         const role = getValue() as string;
         return h(
@@ -149,10 +214,12 @@
     {
       accessorKey: "department",
       header: "Department",
+      enableSorting: true,
     },
     {
       accessorKey: "status",
       header: "Status",
+      enableSorting: true,
       cell: ({ getValue }) => {
         const status = getValue() as string;
         return h(

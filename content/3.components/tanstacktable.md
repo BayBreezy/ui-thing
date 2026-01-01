@@ -35,56 +35,179 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
 <template>
   <div>
     <div class="flex flex-col justify-between gap-5 md:flex-row md:items-center">
-      <UiInput v-model="search" type="search" placeholder="Search" class="w-full md:w-96" />
-      <UiDropdownMenu>
-        <UiDropdownMenuTrigger as-child>
-          <UiButton variant="outline">
-            <span>View</span>
-            <Icon name="lucide:chevron-down" class="size-4" />
-          </UiButton>
-        </UiDropdownMenuTrigger>
-        <UiDropdownMenuContent :side-offset="10" align="start" class="w-[300px] md:w-[200px]">
-          <UiDropdownMenuLabel> Toggle Columns </UiDropdownMenuLabel>
-          <UiDropdownMenuSeparator />
-          <UiDropdownMenuGroup>
-            <UiDropdownMenuCheckboxItem
-              v-for="column in table?.getAllColumns().filter((column) => column.getCanHide())"
-              :key="column.id"
-              :model-value="column.getIsVisible()"
-              @update:model-value="tableRef?.toggleColumnVisibility(column)"
-            >
-              <span class="text-sm capitalize">{{ column?.id }}</span>
-            </UiDropdownMenuCheckboxItem>
-          </UiDropdownMenuGroup>
-        </UiDropdownMenuContent>
-      </UiDropdownMenu>
+      <UiInput
+        v-if="tableRef"
+        v-model="tableRef!.globalFilter"
+        type="search"
+        placeholder="Search"
+        class="w-full md:w-96"
+      />
+      <div class="flex flex-col gap-x-3 gap-y-5 md:flex-row">
+        <UiDropdownMenu>
+          <UiDropdownMenuTrigger as-child>
+            <UiButton variant="outline">
+              <span>Download</span>
+              <Icon name="lucide:cloud-download" class="size-4" />
+            </UiButton>
+          </UiDropdownMenuTrigger>
+          <UiDropdownMenuContent :side-offset="10" align="start">
+            <UiDropdownMenuLabel> Export Data </UiDropdownMenuLabel>
+            <UiDropdownMenuSeparator />
+            <UiDropdownMenuItem
+              title="Export All"
+              icon="lucide:file-spreadsheet"
+              @select="exportCsv('all')"
+            />
+            <UiDropdownMenuItem
+              title="Export Current Page"
+              icon="lucide:file-spreadsheet"
+              @select="exportCsv('page')"
+            />
+          </UiDropdownMenuContent>
+        </UiDropdownMenu>
+        <UiDropdownMenu>
+          <UiDropdownMenuTrigger as-child>
+            <UiButton variant="outline">
+              <span>View</span>
+              <Icon name="lucide:chevron-down" class="size-4" />
+            </UiButton>
+          </UiDropdownMenuTrigger>
+          <UiDropdownMenuContent :side-offset="10" align="start" class="w-[300px] md:w-[200px]">
+            <UiDropdownMenuLabel> Toggle Columns </UiDropdownMenuLabel>
+            <UiDropdownMenuSeparator />
+            <UiDropdownMenuGroup>
+              <UiDropdownMenuCheckboxItem
+                v-for="column in table?.getAllColumns().filter((column) => column.getCanHide())"
+                :key="column.id"
+                :model-value="column.getIsVisible()"
+                @update:model-value="column.toggleVisibility()"
+              >
+                <span class="text-sm capitalize">{{ column?.id }}</span>
+              </UiDropdownMenuCheckboxItem>
+            </UiDropdownMenuGroup>
+          </UiDropdownMenuContent>
+        </UiDropdownMenu>
+      </div>
     </div>
 
-    <UiTanStackTable
-      ref="tableRef"
-      show-select
-      :search="search"
-      :data="data"
-      :columns="columns"
-      class="mt-5 rounded-md border"
-      @ready="table = $event"
-    >
-      <template #empty>
-        <div class="flex w-full flex-col items-center justify-center gap-5 py-5">
-          <Icon name="lucide:database" class="h-12 w-12 text-muted-foreground" />
-          <span class="mt-2">No data available.</span>
+    <div class="mt-5 overflow-hidden rounded-lg border">
+      <UiTanStackTable
+        ref="tableRef"
+        :data="data"
+        :loading="pending"
+        :columns="columns"
+        :initial-page-size="5"
+        :page-size-options="[5, 10, 20, 50, 100]"
+        @ready="table = $event"
+      >
+        <template #empty>
+          <div class="flex w-full flex-col items-center justify-center gap-5 py-5">
+            <Icon name="lucide:database" class="h-12 w-12 text-muted-foreground" />
+            <span class="mt-2">No data available.</span>
+          </div>
+        </template>
+        <template #actions-cell="{ row }">
+          <UiDropdownMenu>
+            <UiDropdownMenuTrigger as-child>
+              <UiButton variant="ghost" size="icon-sm">
+                <Icon name="lucide:ellipsis-vertical" class="size-4" />
+              </UiButton>
+            </UiDropdownMenuTrigger>
+            <UiDropdownMenuContent side="bottom" align="end">
+              <UiDropdownMenuGroup>
+                <UiDropdownMenuItem
+                  title="View Details"
+                  icon="lucide:square-arrow-out-up-right"
+                  @select="
+                    selectedPayment = row.original;
+                    showDetails = true;
+                  "
+                />
+                <UiDropdownMenuItem
+                  title="Refund Payment"
+                  icon="lucide:banknote-arrow-down"
+                  @select="
+                    useSonner.info('Initiate Refund', {
+                      description: `Would you like to refund payment ID: ${row.original.id}?`,
+                      action: {
+                        label: 'Refund Now',
+                        onClick: () => {
+                          useSonner.success('Refunded!', {
+                            description: `Payment ID: ${row.original.id} has been refunded.`,
+                          });
+                        },
+                      },
+                    })
+                  "
+                />
+                <UiDropdownMenuSeparator />
+                <UiDropdownMenuItem
+                  title="Delete Payment"
+                  icon="lucide:trash"
+                  variant="destructive"
+                  @select="
+                    useSonner.error('Initiate Deletion', {
+                      description: `Are you sure you want to delete payment ID: ${row.original.id}?`,
+                      action: {
+                        label: 'Delete Now',
+                        onClick: () => {
+                          useSonner.success('Deleted!', {
+                            description: `Payment ID: ${row.original.id} has been deleted.`,
+                            richColors: true,
+                          });
+                        },
+                      },
+                    })
+                  "
+                />
+              </UiDropdownMenuGroup>
+            </UiDropdownMenuContent>
+          </UiDropdownMenu>
+        </template>
+      </UiTanStackTable>
+    </div>
+
+    <UiSheet v-model:open="showDetails">
+      <UiSheetContent class="w-full sm:w-[500px]" side="right">
+        <UiSheetHeader>
+          <UiSheetTitle>Payment Details</UiSheetTitle>
+          <UiSheetDescription> View and manage payment information </UiSheetDescription>
+        </UiSheetHeader>
+
+        <div v-if="selectedPayment" class="space-y-6 p-6">
+          <UiVeeInput label="Payment ID" disabled :model-value="selectedPayment.id" readonly />
+          <UiVeeInput v-model="selectedPayment.email" label="Email" readonly type="email" />
+          <UiVeeCurrencyInput label="Amount" :model-value="`${selectedPayment.amount}`" readonly />
+
+          <div class="space-y-2">
+            <label class="text-sm font-medium">Status</label>
+            <div class="flex items-center gap-2">
+              <UiBadge :variant="getStatusVariant(selectedPayment.status)" class="capitalize">
+                {{ selectedPayment.status }}
+              </UiBadge>
+            </div>
+          </div>
         </div>
-      </template>
-    </UiTanStackTable>
+
+        <UiSheetFooter>
+          <UiButton variant="outline" @click="showDetails = false">Close</UiButton>
+          <UiButton @click="showDetails = false">Done</UiButton>
+        </UiSheetFooter>
+      </UiSheetContent>
+    </UiSheet>
   </div>
 </template>
 
 <script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import { promiseTimeout } from "@vueuse/core";
   import type { ColumnDef, Table } from "@tanstack/vue-table";
+  import type { UiTanStackTable } from "#components";
 
-  const tableRef = ref();
+  const tableRef = useTemplateRef("tableRef");
   const table = ref<Table<Payment> | null>(null);
-  const search = ref("");
+  const showDetails = ref(false);
+  const selectedPayment = ref<Payment | null>(null);
 
   type Payment = {
     id: string;
@@ -93,54 +216,39 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
     email: string;
   };
 
-  const data: Payment[] = [
-    {
-      id: "m5gr84i9",
-      amount: 316,
-      status: "success",
-      email: "ken99@yahoo.com",
+  const { data, pending } = await useAsyncData<Payment[]>(
+    async () => {
+      // Simulate fetching data
+      await promiseTimeout(1000);
+      // create 100 fake payment records
+      return Array.from({ length: 100 }, () => ({
+        id: faker.string.alphanumeric(10),
+        amount: faker.number.int({ min: 10, max: 1000 }),
+        status: faker.helpers.arrayElement(["pending", "processing", "success", "failed"]) as
+          | "pending"
+          | "processing"
+          | "success"
+          | "failed",
+        email: faker.internet.email().toLowerCase(),
+      }));
     },
-    {
-      id: "3u1reuv4",
-      amount: 242,
-      status: "success",
-      email: "Abe45@gmail.com",
-    },
-    {
-      id: "derv1ws0",
-      amount: 837,
-      status: "processing",
-      email: "Monserrat44@gmail.com",
-    },
-    {
-      id: "5kma53ae",
-      amount: 874,
-      status: "success",
-      email: "Silas22@gmail.com",
-    },
-    {
-      id: "bhqecj4p",
-      amount: 721,
-      status: "failed",
-      email: "carmella@hotmail.com",
-    },
-    {
-      id: "5kma53ae",
-      amount: 874,
-      status: "success",
-      email: "ujmovto@tezotu.bb",
-    },
-    {
-      id: "bhqecj4p",
-      amount: 721,
-      status: "failed",
-      email: "gi@po.tz",
-    },
-  ];
+    { default: () => [] }
+  );
 
   const columns: ColumnDef<Payment>[] = [
     { accessorKey: "id", header: "ID", enableHiding: true },
-    { accessorKey: "amount", header: "Amount", enableHiding: true },
+    {
+      accessorKey: "amount",
+      header: "Amount",
+      enableHiding: true,
+      enableSorting: true,
+      cell: ({ row }) => {
+        return new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+        }).format(row.original.amount);
+      },
+    },
     {
       accessorKey: "status",
       header: "Status",
@@ -157,15 +265,83 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
       header: "",
       enableSorting: false,
       enableHiding: false,
-      cell: () => {
-        return h(
-          resolveComponent("UiButton"),
-          { variant: "ghost", size: "icon", class: "w-9 h-9" },
-          () => [h(resolveComponent("Icon"), { name: "lucide:more-horizontal", class: "size-4" })]
-        );
-      },
     },
   ];
+
+  function exportCsv(mode: "all" | "page") {
+    if (!table.value) return;
+
+    // Get rows based on mode
+    const rows =
+      mode === "all" ? table.value.getFilteredRowModel().rows : table.value.getRowModel().rows;
+
+    if (!rows.length) {
+      useSonner.info("No data to export", {
+        description: "Please ensure there is data to export.",
+      });
+      return;
+    }
+
+    // Get visible columns, excluding actions
+    const columns = table.value.getVisibleLeafColumns().filter((col) => col.id !== "actions");
+
+    // Build header row
+    const header = columns.map((col) => {
+      const headerText = typeof col.columnDef.header === "string" ? col.columnDef.header : col.id;
+      return escapeCsvValue(String(headerText));
+    });
+
+    // Build data rows
+    const dataRows = rows.map((row) =>
+      columns.map((col) => {
+        const value = row.getValue(col.id);
+        return escapeCsvValue(value);
+      })
+    );
+
+    // Combine and create CSV
+    const csv = [header, ...dataRows].map((r) => r.join(",")).join("\n");
+
+    // Create blob and trigger download
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `payments-${mode === "all" ? "all" : "page"}-${new Date().toISOString().split("T")[0]}.csv`;
+    link.click();
+    URL.revokeObjectURL(url);
+
+    useSonner.success("Export successful", {
+      description: `${rows.length} row(s) exported to CSV.`,
+    });
+  }
+
+  function escapeCsvValue(value: any): string {
+    if (value == null) return '""';
+    const str = String(value);
+    // Escape quotes and wrap in quotes if contains comma, quote, or newline
+    if (str.includes(",") || str.includes('"') || str.includes("\n")) {
+      return `"${str.replace(/"/g, '""')}"`;
+    }
+    return `"${str}"`;
+  }
+
+  function getStatusVariant(
+    status: "pending" | "processing" | "success" | "failed"
+  ): "default" | "secondary" | "destructive" | "outline" {
+    switch (status) {
+      case "success":
+        return "default";
+      case "processing":
+        return "secondary";
+      case "failed":
+        return "destructive";
+      case "pending":
+        return "outline";
+      default:
+        return "default";
+    }
+  }
 </script>
 ```
 
@@ -1212,7 +1388,7 @@ Table footer with column totals using aggregation functions.
     },
     {
       accessorKey: "amount",
-      header: () => h("div", { class: "text-right" }, "Amount"),
+      header: () => h("div", { class: "text-right justify-end w-full" }, "Amount"),
       cell: ({ row }) => {
         const amount = row.getValue<number>("amount");
         const formatted = new Intl.NumberFormat("en-US", {
@@ -1461,9 +1637,13 @@ Manual pagination with server-side data fetching and search. Enable `manual-pagi
         :columns="columns"
         :loading="pending"
         :manual-pagination="true"
+        :manual-sorting="true"
+        :manual-filtering="true"
         :page-count="pageCount"
         :initial-page-size="pageSize"
         @update:pagination="onPaginationChange"
+        @update:sorting="onSortingChange"
+        @update:column-filters="onColumnFiltersChange"
       />
     </div>
   </div>
@@ -1471,7 +1651,7 @@ Manual pagination with server-side data fetching and search. Enable `manual-pagi
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import type { ColumnDef } from "@tanstack/vue-table";
+  import type { ColumnDef, ColumnFiltersState, SortingState } from "@tanstack/vue-table";
 
   interface User {
     id: string;
@@ -1492,11 +1672,19 @@ Manual pagination with server-side data fetching and search. Enable `manual-pagi
 
   const pageIndex = ref(0);
   const pageSize = ref(10);
+  const sorting = ref<SortingState>([]);
+  const columnFilters = ref<ColumnFiltersState>([]);
   const searchQuery = ref("");
   const debouncedSearch = refDebounced(searchQuery, 500);
 
   // Simulate API call with delay
-  const fetchUsers = async (page: number, size: number, search: string): Promise<ApiResponse> => {
+  const fetchUsers = async (
+    page: number,
+    size: number,
+    search: string,
+    sortBy: SortingState,
+    filters: ColumnFiltersState
+  ): Promise<ApiResponse> => {
     // Simulate network delay
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
@@ -1511,7 +1699,7 @@ Manual pagination with server-side data fetching and search. Enable `manual-pagi
     }));
 
     // Filter by search
-    const filtered = search
+    let filtered = search
       ? allUsers.filter(
           (user) =>
             user.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -1519,24 +1707,61 @@ Manual pagination with server-side data fetching and search. Enable `manual-pagi
         )
       : allUsers;
 
+    // Apply column filters
+    if (filters.length > 0) {
+      filtered = filtered.filter((user) => {
+        return filters.every((filter) => {
+          const value = user[filter.id as keyof User];
+          const filterValue = filter.value;
+
+          if (typeof filterValue === "string") {
+            return String(value).toLowerCase().includes(filterValue.toLowerCase());
+          }
+
+          return value === filterValue;
+        });
+      });
+    }
+
+    // Apply sorting
+    const sorted = [...filtered];
+    if (sortBy.length > 0 && sortBy[0]) {
+      const { id, desc } = sortBy[0];
+      sorted.sort((a, b) => {
+        const aValue = a[id as keyof User];
+        const bValue = b[id as keyof User];
+
+        if (aValue < bValue) return desc ? 1 : -1;
+        if (aValue > bValue) return desc ? -1 : 1;
+        return 0;
+      });
+    }
+
     // Paginate
     const start = page * size;
     const end = start + size;
-    const paginatedData = filtered.slice(start, end);
+    const paginatedData = sorted.slice(start, end);
 
     return {
       data: paginatedData,
-      total: filtered.length,
+      total: sorted.length,
       page,
       pageSize: size,
-      pageCount: Math.ceil(filtered.length / size),
+      pageCount: Math.ceil(sorted.length / size),
     };
   };
 
   const { data: apiData, pending } = await useAsyncData(
-    () => fetchUsers(pageIndex.value, pageSize.value, debouncedSearch.value),
+    () =>
+      fetchUsers(
+        pageIndex.value,
+        pageSize.value,
+        debouncedSearch.value,
+        sorting.value,
+        columnFilters.value
+      ),
     {
-      watch: [pageIndex, pageSize, debouncedSearch],
+      watch: [pageIndex, pageSize, debouncedSearch, sorting, columnFilters],
       default: () => ({
         data: [],
         total: 0,
@@ -1556,12 +1781,407 @@ Manual pagination with server-side data fetching and search. Enable `manual-pagi
     pageSize.value = pagination.pageSize;
   };
 
+  const onSortingChange = (newSorting: SortingState) => {
+    sorting.value = newSorting;
+    // Reset to first page when sorting changes
+    pageIndex.value = 0;
+  };
+
+  const onColumnFiltersChange = (newFilters: ColumnFiltersState) => {
+    columnFilters.value = newFilters;
+    // Reset to first page when filters change
+    pageIndex.value = 0;
+  };
+
   const columns: ColumnDef<User>[] = [
     {
       accessorKey: "id",
       header: "ID",
       cell: ({ row }) => `#${row.getValue("id")}`,
+      enableSorting: true,
     },
+    {
+      accessorKey: "name",
+      header: "Name",
+      cell: ({ getValue }) => h("span", { class: "font-medium" }, getValue() as string),
+      enableSorting: true,
+    },
+    {
+      accessorKey: "email",
+      header: "Email",
+      enableSorting: true,
+    },
+    {
+      accessorKey: "role",
+      header: "Role",
+      enableSorting: true,
+      cell: ({ getValue }) => {
+        const role = getValue() as string;
+        return h(
+          "span",
+          {
+            class: `inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${
+              role === "Admin"
+                ? "bg-purple-50 text-purple-700 dark:bg-purple-500/10 dark:text-purple-400"
+                : role === "Member"
+                  ? "bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400"
+                  : "bg-gray-50 text-gray-700 dark:bg-gray-500/10 dark:text-gray-400"
+            }`,
+          },
+          role
+        );
+      },
+    },
+    {
+      accessorKey: "department",
+      header: "Department",
+      enableSorting: true,
+    },
+    {
+      accessorKey: "status",
+      header: "Status",
+      enableSorting: true,
+      cell: ({ getValue }) => {
+        const status = getValue() as string;
+        return h(
+          "span",
+          {
+            class: `inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${
+              status === "active"
+                ? "bg-green-50 text-green-700 dark:bg-green-500/10 dark:text-green-400"
+                : "bg-red-50 text-red-700 dark:bg-red-500/10 dark:text-red-400"
+            }`,
+          },
+          status.charAt(0).toUpperCase() + status.slice(1)
+        );
+      },
+    },
+  ];
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Expansion
+
+Expandable rows to display additional details using the expansion feature.
+
+::ShowCase
+
+:DocsTanStackExpansion
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/TanStackTable/DocsTanStackExpansion.vue" code lang="vue" -->
+
+```vue [DocsTanStackExpansion.vue]
+<template>
+  <div>
+    <div class="overflow-hidden rounded-lg border">
+      <UiTanStackTable ref="tableRef" :data="data" :columns="columns" :loading="pending">
+        <template #expand-cell>
+          <!-- The expand button is automatically rendered by the component -->
+        </template>
+
+        <template #expanded-row="{ row }">
+          <UiDescriptionList class="p-5 sm:grid-cols-[140px_auto]">
+            <UiDescriptionListTerm>User ID</UiDescriptionListTerm>
+            <UiDescriptionListDetails>{{ row.original.id }}</UiDescriptionListDetails>
+            <UiDescriptionListTerm>Email</UiDescriptionListTerm>
+            <UiDescriptionListDetails>{{ row.original.email }}</UiDescriptionListDetails>
+            <UiDescriptionListTerm>Role</UiDescriptionListTerm>
+            <UiDescriptionListDetails>{{ row.original.role }}</UiDescriptionListDetails>
+            <UiDescriptionListTerm>Department</UiDescriptionListTerm>
+            <UiDescriptionListDetails>{{ row.original.department }}</UiDescriptionListDetails>
+            <UiDescriptionListTerm>Status</UiDescriptionListTerm>
+            <UiDescriptionListDetails>
+              <UiBadge
+                :variant="row.original.status === 'active' ? 'default' : 'destructive'"
+                class="capitalize"
+              >
+                {{ row.original.status }}
+              </UiBadge>
+            </UiDescriptionListDetails>
+            <UiDescriptionListTerm>Join Date</UiDescriptionListTerm>
+            <UiDescriptionListDetails>{{ row.original.joinDate }}</UiDescriptionListDetails>
+            <UiDescriptionListTerm v-if="row.original.bio">Bio</UiDescriptionListTerm>
+            <UiDescriptionListDetails v-if="row.original.bio" class="whitespace-break-spaces">
+              {{ row.original.bio }}
+            </UiDescriptionListDetails>
+          </UiDescriptionList>
+        </template>
+      </UiTanStackTable>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import { promiseTimeout } from "@vueuse/core";
+  import type { ColumnDef } from "@tanstack/vue-table";
+
+  interface User {
+    id: string;
+    name: string;
+    email: string;
+    role: string;
+    department: string;
+    status: "active" | "inactive";
+    joinDate: string;
+    bio: string;
+  }
+
+  const { data, pending } = await useAsyncData<User[]>(
+    async () => {
+      // Simulate fetching data
+      await promiseTimeout(1000);
+      // create 20 fake user records
+      return Array.from({ length: 20 }, () => ({
+        id: faker.string.nanoid(8).toUpperCase(),
+        name: faker.person.fullName(),
+        email: faker.internet.email().toLowerCase(),
+        role: faker.helpers.arrayElement(["Admin", "Member", "Viewer"]),
+        department: faker.helpers.arrayElement(["Engineering", "Sales", "Marketing", "Support"]),
+        status: faker.helpers.arrayElement(["active", "inactive"]) as "active" | "inactive",
+        joinDate: faker.date.past().toLocaleDateString(),
+        bio: faker.lorem.paragraph(),
+      }));
+    },
+    { default: () => [] }
+  );
+
+  const columns: ColumnDef<User>[] = [
+    {
+      id: "expand",
+      header: () => null,
+      cell: () => null,
+      enableHiding: false,
+      enableSorting: false,
+      size: 50,
+    },
+    {
+      accessorKey: "name",
+      header: "Name",
+      cell: ({ getValue }) => h("span", { class: "font-medium" }, getValue() as string),
+    },
+    {
+      accessorKey: "email",
+      header: "Email",
+    },
+    {
+      accessorKey: "role",
+      header: "Role",
+      cell: ({ getValue }) => {
+        const role = getValue() as string;
+        return h(
+          "span",
+          {
+            class: `inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${
+              role === "Admin"
+                ? "bg-purple-50 text-purple-700 dark:bg-purple-500/10 dark:text-purple-400"
+                : role === "Member"
+                  ? "bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400"
+                  : "bg-gray-50 text-gray-700 dark:bg-gray-500/10 dark:text-gray-400"
+            }`,
+          },
+          role
+        );
+      },
+    },
+    {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ getValue }) => {
+        const status = getValue() as string;
+        return h(
+          "span",
+          {
+            class: `inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${
+              status === "active"
+                ? "bg-green-50 text-green-700 dark:bg-green-500/10 dark:text-green-400"
+                : "bg-red-50 text-red-700 dark:bg-red-500/10 dark:text-red-400"
+            }`,
+          },
+          status.charAt(0).toUpperCase() + status.slice(1)
+        );
+      },
+    },
+  ];
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Context Menu
+
+::ShowCase
+
+:DocsTanStackContextMenu
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/TanStackTable/DocsTanStackContextMenu.vue" code lang="vue" -->
+
+```vue [DocsTanStackContextMenu.vue]
+<template>
+  <div>
+    <UiContextMenu>
+      <UiContextMenuTrigger as-child>
+        <div class="overflow-hidden rounded-lg border">
+          <UiTanStackTable
+            ref="tableRef"
+            :data="data"
+            :columns="columns"
+            :loading="pending"
+            @row-contextmenu="handleRowContextMenu"
+          />
+        </div>
+      </UiContextMenuTrigger>
+      <UiContextMenuContent class="w-64">
+        <UiContextMenuLabel v-if="selectedUser">
+          {{ selectedUser.name }}
+        </UiContextMenuLabel>
+        <UiContextMenuSeparator />
+        <UiContextMenuGroup>
+          <UiContextMenuItem
+            icon="lucide:mail"
+            @select="
+              useSonner('Email Sent', {
+                description: `Sending email to ${selectedUser?.email}`,
+              })
+            "
+          >
+            Send Email
+          </UiContextMenuItem>
+          <UiContextMenuItem
+            icon="lucide:user"
+            @select="
+              useSonner('View Profile', {
+                description: `Opening profile for ${selectedUser?.name}`,
+              })
+            "
+          >
+            View Profile
+          </UiContextMenuItem>
+          <UiContextMenuItem
+            icon="lucide:pencil"
+            @select="
+              useSonner('Edit User', {
+                description: `Editing ${selectedUser?.name}`,
+              })
+            "
+          >
+            Edit User
+          </UiContextMenuItem>
+        </UiContextMenuGroup>
+        <UiContextMenuSeparator />
+        <UiContextMenuGroup>
+          <UiContextMenuItem
+            v-if="selectedUser?.status === 'active'"
+            icon="lucide:ban"
+            @select="
+              useSonner.warning('Deactivate User', {
+                description: `Are you sure you want to deactivate ${selectedUser?.name}?`,
+                action: {
+                  label: 'Deactivate',
+                  onClick: () => {
+                    useSonner.success('User Deactivated', {
+                      description: `${selectedUser?.name} has been deactivated.`,
+                    });
+                  },
+                },
+              })
+            "
+          >
+            Deactivate
+          </UiContextMenuItem>
+          <UiContextMenuItem
+            v-else
+            icon="lucide:check-circle"
+            @select="
+              useSonner.success('User Activated', {
+                description: `${selectedUser?.name} has been activated.`,
+              })
+            "
+          >
+            Activate
+          </UiContextMenuItem>
+        </UiContextMenuGroup>
+        <UiContextMenuSeparator />
+        <UiContextMenuItem
+          icon="lucide:trash"
+          variant="destructive"
+          @select="
+            useSonner.error('Delete User', {
+              description: `Are you sure you want to delete ${selectedUser?.name}?`,
+              action: {
+                label: 'Delete',
+                onClick: () => {
+                  useSonner.success('User Deleted', {
+                    description: `${selectedUser?.name} has been removed.`,
+                  });
+                },
+              },
+            })
+          "
+        >
+          Delete User
+        </UiContextMenuItem>
+      </UiContextMenuContent>
+    </UiContextMenu>
+
+    <div v-if="selectedUser" class="mt-4 rounded-lg border bg-muted/50 p-4">
+      <p class="text-sm text-muted-foreground">
+        <span class="font-semibold">Last Selected:</span> {{ selectedUser.name }} ({{
+          selectedUser.email
+        }})
+      </p>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import { faker } from "@faker-js/faker";
+  import { promiseTimeout } from "@vueuse/core";
+  import type { ColumnDef } from "@tanstack/vue-table";
+
+  const selectedUser = ref<User | null>(null);
+
+  interface User {
+    id: string;
+    name: string;
+    email: string;
+    role: string;
+    department: string;
+    status: "active" | "inactive";
+  }
+
+  const { data, pending } = await useAsyncData<User[]>(
+    async () => {
+      // Simulate fetching data
+      await promiseTimeout(1000);
+      // create 15 fake user records
+      return Array.from({ length: 15 }, () => ({
+        id: faker.string.nanoid(8).toUpperCase(),
+        name: faker.person.fullName(),
+        email: faker.internet.email().toLowerCase(),
+        role: faker.helpers.arrayElement(["Admin", "Member", "Viewer"]),
+        department: faker.helpers.arrayElement(["Engineering", "Sales", "Marketing", "Support"]),
+        status: faker.helpers.arrayElement(["active", "inactive"]) as "active" | "inactive",
+      }));
+    },
+    { default: () => [] }
+  );
+
+  const handleRowContextMenu = ({ row }: { event: MouseEvent; row: { original: User } }) => {
+    selectedUser.value = row.original;
+  };
+
+  const columns: ColumnDef<User>[] = [
     {
       accessorKey: "name",
       header: "Name",
