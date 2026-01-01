@@ -3,6 +3,12 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## January 1, 2026
+
+### New Component
+
+- **Flip Clock**: An animated split-flap clock that supports live time and countdown modes. Check out the documentation [here](/components/flip-clock).
+
 ## December 29, 2025
 
 ### New Components

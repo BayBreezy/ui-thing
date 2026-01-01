@@ -391,6 +391,12 @@ export default [
     docsPath: "/components/field",
   },
   {
+    name: "Flick Clock",
+    value: "flip-clock",
+    files: ["FlipClock.client.vue"],
+    docsPath: "/components/flip-clock",
+  },
+  {
     name: "Form",
     value: "form",
     deps: ["@vee-validate/nuxt"],
