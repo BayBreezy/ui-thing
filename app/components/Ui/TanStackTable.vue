@@ -17,6 +17,7 @@
             :key="header.id"
             :colspan="header.colSpan"
             :class="header.column.columnDef.meta?.class?.th"
+            :style="getPinnedHeaderStyle(header.column)"
           >
             <template v-if="!header.isPlaceholder">
               <slot
@@ -25,35 +26,92 @@
                 :column="header.column"
                 :table="table"
               >
-                <div
-                  v-if="header.column.getCanSort()"
-                  :class="[
-                    'flex items-center gap-2',
-                    header.column.getCanSort() ? 'cursor-pointer select-none' : '',
-                  ]"
-                  @click="header.column.getToggleSortingHandler()?.($event)"
-                >
-                  <FlexRender
-                    :render="header.column.columnDef.header"
-                    :props="header.getContext()"
-                  />
-                  <Icon
-                    v-if="header.column.getIsSorted() === 'asc'"
-                    name="lucide:arrow-up"
-                    class="size-4"
-                  />
-                  <Icon
-                    v-else-if="header.column.getIsSorted() === 'desc'"
-                    name="lucide:arrow-down"
-                    class="size-4"
-                  />
-                  <Icon v-else name="lucide:arrow-up-down" class="size-4 opacity-50" />
+                <div class="flex items-center gap-2">
+                  <div
+                    v-if="header.column.getCanSort()"
+                    :class="[
+                      'flex items-center gap-2',
+                      header.column.getCanSort() ? 'cursor-pointer select-none' : '',
+                    ]"
+                    @click="header.column.getToggleSortingHandler()?.($event)"
+                  >
+                    <FlexRender
+                      :render="header.column.columnDef.header"
+                      :props="header.getContext()"
+                    />
+                    <UiTooltip>
+                      <UiTooltipTrigger as-child>
+                        <Icon
+                          v-if="header.column.getIsSorted() === 'asc'"
+                          name="lucide:arrow-up"
+                          class="size-4"
+                        />
+                        <Icon
+                          v-else-if="header.column.getIsSorted() === 'desc'"
+                          name="lucide:arrow-down"
+                          class="size-4"
+                        />
+                        <Icon v-else name="lucide:arrow-up-down" class="size-4 opacity-50" />
+                      </UiTooltipTrigger>
+                      <UiTooltipContent>
+                        <span>
+                          {{
+                            header.column.getIsSorted() === "asc"
+                              ? "Sorted ascending"
+                              : header.column.getIsSorted() === "desc"
+                                ? "Sorted descending"
+                                : "Not sorted"
+                          }}
+                        </span>
+                      </UiTooltipContent>
+                    </UiTooltip>
+                  </div>
+                  <div v-else class="flex items-center gap-2">
+                    <FlexRender
+                      :render="header.column.columnDef.header"
+                      :props="header.getContext()"
+                    />
+                  </div>
+                  <UiTooltip>
+                    <UiDropdownMenu v-if="shouldShowColumnPinButton(header.column)">
+                      <UiDropdownMenuTrigger as-child>
+                        <UiTooltipTrigger as-child>
+                          <UiButton
+                            variant="ghost"
+                            size="icon-sm"
+                            class="hover:bg-muted"
+                            @click.stop
+                          >
+                            <Icon :name="getColumnPinIcon(header.column)" class="size-4" />
+                          </UiButton>
+                        </UiTooltipTrigger>
+                      </UiDropdownMenuTrigger>
+                      <UiTooltipContent>
+                        <span>{{ getColumnPinTooltipText(header.column) }}</span>
+                      </UiTooltipContent>
+                      <UiDropdownMenuContent align="end" :side-offset="6">
+                        <UiDropdownMenuItem
+                          :title="getPinLabel('left')"
+                          :icon="props.columnPinIconOn"
+                          :disabled="header.column.getIsPinned() == 'left'"
+                          @select="() => pinColumn(header.column, 'left')"
+                        />
+                        <UiDropdownMenuItem
+                          :title="getPinLabel('right')"
+                          :icon="props.columnPinIconOn"
+                          :disabled="header.column.getIsPinned() == 'right'"
+                          @select="() => pinColumn(header.column, 'right')"
+                        />
+                        <UiDropdownMenuItem
+                          :title="getPinLabel(false)"
+                          :icon="props.columnPinIconOff"
+                          :disabled="!header.column.getIsPinned()"
+                          @select="() => pinColumn(header.column, false)"
+                        />
+                      </UiDropdownMenuContent>
+                    </UiDropdownMenu>
+                  </UiTooltip>
                 </div>
-                <FlexRender
-                  v-else
-                  :render="header.column.columnDef.header"
-                  :props="header.getContext()"
-                />
               </slot>
             </template>
           </UiTableHead>
@@ -66,12 +124,14 @@
             <UiTableRow
               :data-state="row.getIsSelected() ? 'selected' : undefined"
               :class="table.options.meta?.class?.tr"
+              :style="getPinnedRowStyle(row)"
               @contextmenu="(event: MouseEvent) => emit('row-contextmenu', { event, row })"
             >
               <UiTableCell
                 v-for="cell in row.getVisibleCells()"
                 :key="cell.id"
                 :class="cell.column.columnDef.meta?.class?.td"
+                :style="getPinnedColumnStyle(cell.column)"
               >
                 <slot
                   :name="`${cell.column.id}-cell`"
@@ -82,7 +142,54 @@
                   :get-value="() => cell.getValue()"
                   :render-value="() => cell.renderValue()"
                 >
-                  <template v-if="cell.column.id === 'expand'">
+                  <template v-if="cell.column.id === 'pin'">
+                    <UiTooltip>
+                      <UiDropdownMenu>
+                        <UiTooltipTrigger as-child>
+                          <UiDropdownMenuTrigger as-child>
+                            <UiButton
+                              variant="ghost"
+                              size="icon-sm"
+                              class="hover:bg-muted"
+                              @click.stop
+                            >
+                              <Icon
+                                :name="row.getIsPinned() ? rowPinIconOn : rowPinIconOff"
+                                :class="[
+                                  'size-4',
+                                  row.getIsPinned() ? 'text-primary' : 'opacity-60',
+                                ]"
+                              />
+                            </UiButton>
+                          </UiDropdownMenuTrigger>
+                        </UiTooltipTrigger>
+                        <UiTooltipContent>
+                          <span>{{ getRowPinTooltipText(row) }}</span>
+                        </UiTooltipContent>
+                        <UiDropdownMenuContent align="start" :side-offset="6">
+                          <UiDropdownMenuItem
+                            :title="getRowPinLabel('top')"
+                            :icon="rowPinIconOn"
+                            :disabled="row.getIsPinned() === 'top'"
+                            @select="() => pinRow(row, 'top')"
+                          />
+                          <UiDropdownMenuItem
+                            :title="getRowPinLabel('bottom')"
+                            :icon="rowPinIconOn"
+                            :disabled="row.getIsPinned() === 'bottom'"
+                            @select="() => pinRow(row, 'bottom')"
+                          />
+                          <UiDropdownMenuItem
+                            :title="getRowPinLabel(false)"
+                            :icon="rowPinIconOff"
+                            :disabled="!row.getIsPinned()"
+                            @select="() => pinRow(row, false)"
+                          />
+                        </UiDropdownMenuContent>
+                      </UiDropdownMenu>
+                    </UiTooltip>
+                  </template>
+                  <template v-else-if="cell.column.id === 'expand'">
                     <UiButton
                       variant="ghost"
                       size="icon-sm"
@@ -90,7 +197,7 @@
                       @click="row.toggleExpanded()"
                     >
                       <Icon
-                        :name="row.getIsExpanded() ? 'lucide:chevron-down' : 'lucide:chevron-right'"
+                        :name="row.getIsExpanded() ? expandCellIconOn : expandCellIconOff"
                         class="size-4"
                       />
                     </UiButton>
@@ -237,9 +344,13 @@
   } from "@tanstack/vue-table";
   import { startCase } from "lodash-es";
   import type {
+    Column,
     ColumnDef,
     ColumnFiltersState,
+    ColumnPinningState,
+    Row,
     RowData,
+    RowPinningState,
     SortingState,
     TableOptions,
     VisibilityState,
@@ -300,6 +411,12 @@
       manualSorting?: boolean;
       /** Enable manual filtering (for server-side filtering) */
       manualFiltering?: boolean;
+      /** Enable row pinning */
+      enableRowPinning?: boolean;
+      /** Enable column pinning */
+      enableColumnPinning?: boolean;
+      /** Show pin buttons in column headers */
+      showColumnPinButtons?: boolean;
       /** Additional table options */
       tableOptions?: Partial<TableOptions<T>>;
       /** Text for "Rows per page" label
@@ -307,6 +424,40 @@
        * @default "Rows per page:"
        */
       rowsPerPageText?: string;
+      /**
+       * Icon name for expand cell (on state)
+       *
+       * @default 'lucide:chevron-down'
+       */
+      expandCellIconOn?: string;
+      /**
+       * Icon name for expand cell (off state)
+       *
+       * @default 'lucide:chevron-right'
+       */
+      expandCellIconOff?: string;
+      /**
+       * Icon name for pinned row (on state)
+       *
+       * @default 'lucide:pin'
+       */
+      rowPinIconOn?: string;
+      /**
+       * Icon name for unpinned row (off state)
+       *
+       * @default 'lucide:pin-off'
+       */
+      rowPinIconOff?: string;
+      /** Icon name for pinned column
+       *
+       * @default 'lucide:pin'
+       */
+      columnPinIconOn?: string;
+      /** Icon name for unpinning a column
+       *
+       * @default 'lucide:pin-off'
+       */
+      columnPinIconOff?: string;
     }>(),
     {
       data: () => [],
@@ -321,8 +472,17 @@
       manualPagination: false,
       manualSorting: false,
       manualFiltering: false,
+      enableRowPinning: true,
+      enableColumnPinning: false,
+      showColumnPinButtons: false,
       pageCount: -1,
       rowsPerPageText: "Rows per page:",
+      expandCellIconOn: "lucide:chevron-down",
+      expandCellIconOff: "lucide:chevron-right",
+      rowPinIconOn: "lucide:pin",
+      rowPinIconOff: "lucide:pin-off",
+      columnPinIconOn: "lucide:pin",
+      columnPinIconOff: "lucide:pin-off",
     }
   );
 
@@ -349,6 +509,22 @@
      * Emitted when a row is right-clicked
      */
     "row-contextmenu": [payload: { event: MouseEvent; row: any }];
+    /**
+     * Emitted when row pinning changes
+     */
+    "update:rowPinning": [pinning: RowPinningState];
+    /**
+     * Emitted when a row is pinned/unpinned via the pin cell
+     */
+    "row-pin": [payload: { row: any; pin: "top" | "bottom" | false }];
+    /**
+     * Emitted when column pinning changes
+     */
+    "update:columnPinning": [pinning: ColumnPinningState];
+    /**
+     * Emitted when a column is pinned/unpinned via header button
+     */
+    "column-pin": [payload: { column: any; pin: "left" | "right" | false }];
   }>();
 
   // Auto-generate columns from data if not provided
@@ -376,6 +552,8 @@
   const rowSelection = ref({});
   const globalFilter = ref("");
   const expanded = ref({});
+  const rowPinning = ref<RowPinningState>({});
+  const columnPinning = ref<ColumnPinningState>({});
   const pagination = ref({
     pageIndex: 0,
     pageSize: props.initialPageSize,
@@ -409,6 +587,12 @@
       },
       get expanded() {
         return expanded.value;
+      },
+      get rowPinning() {
+        return rowPinning.value;
+      },
+      get columnPinning() {
+        return columnPinning.value;
       },
     },
     onSortingChange: (updaterOrValue) => {
@@ -444,11 +628,23 @@
       expanded.value =
         typeof updaterOrValue === "function" ? updaterOrValue(expanded.value) : updaterOrValue;
     },
+    onRowPinningChange: (updaterOrValue) => {
+      rowPinning.value =
+        typeof updaterOrValue === "function" ? updaterOrValue(rowPinning.value) : updaterOrValue;
+      emit("update:rowPinning", rowPinning.value);
+    },
+    onColumnPinningChange: (updaterOrValue) => {
+      columnPinning.value =
+        typeof updaterOrValue === "function" ? updaterOrValue(columnPinning.value) : updaterOrValue;
+      emit("update:columnPinning", columnPinning.value);
+    },
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getExpandedRowModel: getExpandedRowModel(),
+    enableRowPinning: props.enableRowPinning,
+    enableColumnPinning: props.enableColumnPinning,
     manualPagination: props.manualPagination,
     manualSorting: props.manualSorting,
     manualFiltering: props.manualFiltering,
@@ -464,6 +660,108 @@
       table.setPageSize(Number(value));
     },
   });
+
+  const shouldShowColumnPinButton = (column: Column<T, unknown>) => {
+    return props.enableColumnPinning && props.showColumnPinButtons && column.getCanPin?.();
+  };
+
+  const getColumnPinIcon = (column: Column<T, unknown>) => {
+    const state = column.getIsPinned?.();
+    if (state === "left" || state === "right") return props.columnPinIconOn;
+    return props.columnPinIconOff;
+  };
+
+  const getColumnPinTooltipText = (column: Column<T, unknown>) => {
+    const state = column.getIsPinned?.();
+    if (state === "left") return "Currently pinned left";
+    if (state === "right") return "Currently pinned right";
+    return "Not pinned";
+  };
+
+  const getPinLabel = (pin: "left" | "right" | false) => {
+    if (pin === "left") return "Pin to the left";
+    if (pin === "right") return "Pin to the right";
+    return "Unpin";
+  };
+
+  const pinColumn = (column: Column<T, unknown>, pin: "left" | "right" | false) => {
+    column.pin(pin);
+    emit("column-pin", { column, pin });
+  };
+
+  const getRowPinTooltipText = (row: Row<T>) => {
+    const state = row.getIsPinned();
+    if (state === "top") return "Pinned top";
+    if (state === "bottom") return "Pinned bottom";
+    return "Not pinned";
+  };
+
+  const getRowPinLabel = (pin: "top" | "bottom" | false) => {
+    if (pin === "top") return "Pin to top";
+    if (pin === "bottom") return "Pin to bottom";
+    return "Unpin";
+  };
+
+  const pinRow = (row: Row<T>, pin: "top" | "bottom" | false) => {
+    row.pin(pin);
+    emit("row-pin", { row, pin });
+  };
+
+  const getPinnedHeaderStyle = (column: Column<T, unknown>) => {
+    const pinned = column.getIsPinned?.();
+    if (!pinned) return undefined;
+
+    const isLeft = pinned === "left";
+    const offset = column.getStart?.(isLeft ? "left" : "right") ?? 0;
+
+    return {
+      position: "sticky",
+      [isLeft ? "left" : "right"]: `${offset}px`,
+      zIndex: 30,
+      background: "var(--ui-table-pinned-bg, var(--background))",
+      boxShadow: isLeft ? "2px 0 6px -2px rgb(0 0 0 / 0.08)" : "-2px 0 6px -2px rgb(0 0 0 / 0.08)",
+    } as const;
+  };
+
+  const getPinnedColumnStyle = (column: Column<T, unknown>) => {
+    const pinned = column.getIsPinned?.();
+    if (!pinned) return undefined;
+
+    const isLeft = pinned === "left";
+    const offset = column.getStart?.(isLeft ? "left" : "right") ?? 0;
+
+    return {
+      position: "sticky",
+      [isLeft ? "left" : "right"]: `${offset}px`,
+      zIndex: 10,
+      background: "var(--ui-table-pinned-bg, var(--background))",
+      boxShadow: isLeft ? "2px 0 6px -2px rgb(0 0 0 / 0.08)" : "-2px 0 6px -2px rgb(0 0 0 / 0.08)",
+    } as const;
+  };
+
+  const getPinnedRowStyle = (row: Row<T>) => {
+    const pinned = row.getIsPinned();
+    if (!pinned) return undefined;
+
+    const index =
+      typeof (row as any).getPinnedIndex === "function" ? (row as any).getPinnedIndex() : 0;
+    const offsetVar = "var(--ui-table-row-height, 44px)";
+    const offsetValue = `calc(${index} * ${offsetVar})`;
+
+    return pinned === "top"
+      ? {
+          position: "sticky",
+          top: offsetValue,
+          zIndex: 5,
+          background: "var(--ui-table-pinned-bg, var(--background))",
+        }
+      : {
+          position: "sticky",
+          bottom: offsetValue,
+          zIndex: 5,
+          background: "var(--ui-table-pinned-bg, var(--background))",
+        };
+  };
 
   const hasFooter = computed(() => {
     return computedColumns.value.some((col) => col.footer);
@@ -482,6 +780,8 @@
     globalFilter,
     pagination,
     expanded,
+    rowPinning,
+    columnPinning,
   });
 </script>
 

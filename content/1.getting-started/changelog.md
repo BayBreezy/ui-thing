@@ -3,6 +3,12 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## January 2, 2026
+
+### Component Updates
+
+- [**Tanstack Table**](/components/tanstacktable): The Tanstack Table component has been updated to fix an issue with column pinning styles. Pinned columns now have the correct background color applied. Check out the updated documentation [here](/components/tanstacktable).
+
 ## January 1, 2026
 
 ### New Component

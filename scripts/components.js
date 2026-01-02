@@ -874,7 +874,7 @@ export default [
     name: "Tanstack Table",
     value: "tanstacktable",
     deps: ["@tanstack/vue-table"],
-    components: ["checkbox"],
+    components: ["tooltip", "dropdown-menu"],
     files: ["TanStackTable.vue"],
     docsPath: "/components/tanstacktable",
   },

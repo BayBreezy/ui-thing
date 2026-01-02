@@ -12,7 +12,7 @@
     "automd": "npx automd@latest --input **/*.md --watch",
     "build": "NODE_OPTIONS=--max_old_space_size=12000 nuxt build",
     "clean": "rm -rf .nuxt .data dist .output node_modules yarn.lock package-lock.json && npm i && npm rebuild",
-    "dev": "nuxt dev --host 0.0.0.0",
+    "dev": "nuxt dev --host",
     "format": "npx prettier --write .",
     "generate": "nuxt generate",
     "generate:all": "npm run generate:blocks && npm run generate:components && npm run generate:prose",
