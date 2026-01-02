@@ -15,7 +15,7 @@ Shout out to [Magic UI](https://magicui.design/docs/components/terminal) for the
 
 ### Add Components
 
-This consists of three components
+This consists of four(4) components
 
 #### Terminal
 
@@ -23,8 +23,10 @@ This consists of three components
 
 ```vue [Terminal.vue]
 <template>
-  <Primitive :as :as-child :class="styles({ class: props.class })">
-    <div class="flex flex-col gap-y-2 border-b border-border p-4">
+  <div ref="containerRef" :class="styles({ class: props.class })">
+    <div
+      class="sticky top-0 left-0 z-10 flex flex-col gap-y-2 border-b border-border bg-background p-4"
+    >
       <div class="flex flex-row gap-x-2">
         <div
           v-for="(item, i) in buttonColors"
@@ -34,15 +36,41 @@ This consists of three components
         />
       </div>
     </div>
-    <pre class="overflow-auto p-4"><code class="grid gap-y-1 overflow-auto"><slot /></code></pre>
-  </Primitive>
+    <pre class="p-4"><code class="grid! gap-y-1"><slot /></code></pre>
+  </div>
 </template>
 <script lang="ts">
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 
+  export type SequenceContextValue = {
+    /**
+     * Marks the item at the given index as complete in the sequence.
+     */
+    completeItem: (index: number) => void;
+    /**
+     * The currently active index in the sequence.
+     */
+    activeIndex: number;
+    /**
+     * Whether the sequence has started.
+     */
+    sequenceStarted: boolean;
+  };
+
+  /**
+   * Injection key for the sequence context.
+   */
+  export const SequenceKey = Symbol("sequence") as InjectionKey<
+    ComputedRef<SequenceContextValue | null>
+  >;
+  /**
+   * Injection key for the item index within the sequence.
+   */
+  export const ItemIndexKey = Symbol("itemIndex") as InjectionKey<number | null>;
+
   const styles = tv({
-    base: "z-0 h-full max-h-[400px] w-full max-w-lg rounded-lg border border-border bg-background",
+    base: "relative z-0 size-full max-w-lg overflow-auto rounded-lg border border-border bg-background",
   });
 </script>
 
@@ -50,14 +78,101 @@ This consists of three components
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
+        /**
+         * Additional classes for the terminal container.
+         */
         class?: HTMLAttributes["class"];
+        /**
+         * Colors for the terminal control buttons.
+         */
         buttonColors?: string[];
+        /**
+         * Whether to enable sequence mode.
+         */
+        sequence?: boolean;
+        /**
+         * Whether to start the terminal animation when it comes into view.
+         */
+        startOnView?: boolean;
       }
     >(),
     {
       buttonColors: () => ["bg-red-500", "bg-yellow-500", "bg-green-500"],
+      sequence: true,
+      startOnView: true,
     }
   );
+
+  const containerRef = useTemplateRef("containerRef");
+  const activeIndex = ref(0);
+  const isInView = ref(false);
+
+  const slots = useSlots();
+
+  // Observe container for startOnView
+  if (props.startOnView) {
+    useIntersectionObserver(
+      containerRef,
+      ([entry], observer) => {
+        if (entry?.isIntersecting) {
+          isInView.value = true;
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+  }
+
+  const sequenceStarted = computed(() =>
+    props.sequence ? !props.startOnView || isInView.value : false
+  );
+
+  const contextValue = computed<SequenceContextValue | null>(() => {
+    if (!props.sequence) return null;
+    return {
+      completeItem: (index: number) => {
+        if (index === activeIndex.value) {
+          activeIndex.value++;
+        }
+      },
+      activeIndex: activeIndex.value,
+      sequenceStarted: sequenceStarted.value,
+    };
+  });
+
+  // Provide context if sequence mode is enabled
+  if (props.sequence) {
+    provide(SequenceKey, contextValue);
+
+    // Provide item index for each child
+    if (slots.default) {
+      const children = slots.default();
+      children.forEach((child, index) => {
+        // We'll provide the index in the child components instead
+      });
+    }
+  }
+</script>
+```
+
+<!-- /automd -->
+
+#### TerminalItem
+
+<!-- automd:file src="../../app/components/Ui/Terminal/TerminalItem.vue" code lang="vue" -->
+
+```vue [TerminalItem.vue]
+<template>
+  <slot />
+</template>
+<script lang="ts" setup>
+  import { ItemIndexKey } from "./Terminal.vue";
+
+  const props = defineProps<{
+    index: number;
+  }>();
+
+  provide(ItemIndexKey, props.index);
 </script>
 ```
 
@@ -70,23 +185,46 @@ This consists of three components
 ```vue [AnimatedSpan.vue]
 <template>
   <motion.div
+    ref="elementRef"
     :initial="{ opacity: 0, y: -5 }"
-    :animate="{ opacity: 1, y: 0 }"
-    :transition="{ duration: 0.3, delay: delay / 1000 }"
+    :animate="shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: -5 }"
+    :transition="{ duration: 0.3, delay: sequence ? 0 : delay / 1000 }"
     :class="styles({ class: props.class })"
+    @animation-complete="onAnimationComplete"
   >
-    <slot />
+    <slot>{{ text }}</slot>
   </motion.div>
 </template>
 <script lang="ts">
   import { motion } from "motion-v";
+  import type { SequenceContextValue } from "./Terminal.vue";
   import type { MotionProps } from "motion-v";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 
+  import { ItemIndexKey, SequenceKey } from "./Terminal.vue";
+
   export interface AnimatedSpanProps extends Omit<MotionProps, "as" | "asChild">, PrimitiveProps {
+    /**
+     * Additional classes for the animated span.
+     */
     class?: HTMLAttributes["class"];
+    /**
+     * Delay before the animation starts (in milliseconds).
+     */
     delay?: number;
+    /**
+     * Whether to start the animation when the element comes into view.
+     */
+    startOnView?: boolean;
+    /**
+     * Optional item index for sequence mode.
+     */
+    itemIndex?: number;
+    /**
+     * Text content to display if no slot is provided.
+     */
+    text?: string;
   }
 
   const styles = tv({ base: "grid text-sm font-normal tracking-tight" });
@@ -95,8 +233,61 @@ This consists of three components
 <script lang="ts" setup>
   const props = withDefaults(defineProps<AnimatedSpanProps>(), {
     delay: 0,
-    as: "span",
+    startOnView: false,
+    as: "div",
   });
+
+  const elementRef = ref<HTMLDivElement | null>(null);
+  const isInView = ref(false);
+  const hasStarted = ref(false);
+
+  const sequence = inject<ComputedRef<SequenceContextValue | null>>(SequenceKey);
+  const providedItemIndex = inject(ItemIndexKey, null);
+  const itemIndex = props.itemIndex ?? providedItemIndex;
+
+  // Observe element for startOnView
+  if (props.startOnView) {
+    useIntersectionObserver(
+      elementRef,
+      ([entry], observer) => {
+        if (entry?.isIntersecting) {
+          isInView.value = true;
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+  }
+
+  // Handle sequence-based starting
+  watch(
+    () => ({
+      activeIndex: sequence?.value?.activeIndex,
+      sequenceStarted: sequence?.value?.sequenceStarted,
+    }),
+    ({ activeIndex, sequenceStarted }) => {
+      if (!sequence || itemIndex === null) return;
+      if (!sequenceStarted) return;
+      if (hasStarted.value) return;
+      if (activeIndex === itemIndex) {
+        hasStarted.value = true;
+      }
+    },
+    { deep: true }
+  );
+
+  const shouldAnimate = computed(() => {
+    if (sequence?.value) {
+      return hasStarted.value;
+    }
+    return props.startOnView ? isInView.value : true;
+  });
+
+  const onAnimationComplete = () => {
+    if (!sequence?.value) return;
+    if (itemIndex === null) return;
+    sequence.value.completeItem(itemIndex);
+  };
 </script>
 ```
 
@@ -108,23 +299,48 @@ This consists of three components
 
 ```vue [TypingAnimation.vue]
 <template>
-  <Motion ref="elementRef" :class="styles({ class: props.class })">{{ displayedText }}</Motion>
+  <component :is="Component" ref="elementRef" :class="styles({ class: props.class })">
+    {{ displayedText }}
+  </component>
 </template>
 <script lang="ts">
+  import type { SequenceContextValue } from "./Terminal.vue";
   import type { MotionProps } from "motion-v";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 
+  import { ItemIndexKey, SequenceKey } from "./Terminal.vue";
+
   export interface TypingAnimationProps
     extends Omit<MotionProps, "as" | "asChild">, PrimitiveProps {
+    /**
+     * Text to be typed out in the animation.
+     */
     text?: string;
+    /**
+     * Additional classes for the typing animation component.
+     */
     class?: HTMLAttributes["class"];
+    /**
+     * Duration of typing for each character (in milliseconds).
+     */
     duration?: number;
+    /**
+     * Delay before the typing starts (in milliseconds).
+     */
     delay?: number;
+    /**
+     * Whether to start the typing animation when the element comes into view.
+     */
+    startOnView?: boolean;
+    /**
+     * Optional item index for sequence mode.
+     */
+    itemIndex?: number;
   }
 
   const styles = tv({
-    base: "text-sm font-normal tracking-tight",
+    base: "block text-sm font-normal tracking-tight",
   });
 </script>
 
@@ -132,34 +348,78 @@ This consists of three components
   const props = withDefaults(defineProps<TypingAnimationProps>(), {
     duration: 60,
     delay: 0,
-    as: "span",
+    startOnView: true,
+    as: "div",
   });
 
   if (!props.text) {
-    createError({
-      message: "[Terminal - TypingAnimation]: Text prop is required",
-      fatal: false,
-      statusCode: 400,
-    });
+    console.error("[Terminal - TypingAnimation]: Text prop is required");
   }
 
+  const Component = props.as;
+  const elementRef = useTemplateRef<HTMLElement | null>("elementRef");
   const displayedText = ref("");
   const started = ref(false);
+  const isInView = ref(false);
+
+  const sequence = inject<ComputedRef<SequenceContextValue | null>>(SequenceKey);
+  const providedItemIndex = inject(ItemIndexKey, null);
+  const itemIndex = props.itemIndex ?? providedItemIndex;
 
   let typingInterval: ReturnType<typeof setInterval> | null = null;
   let startTimeout: ReturnType<typeof setTimeout> | null = null;
 
-  onMounted(() => {
-    startTimeout = setTimeout(() => {
-      started.value = true;
-    }, props.delay);
-  });
+  // Observe element for startOnView
+  if (props.startOnView) {
+    useIntersectionObserver(
+      elementRef,
+      ([entry], observer) => {
+        if (entry?.isIntersecting) {
+          isInView.value = true;
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+  }
 
-  onUnmounted(() => {
-    if (startTimeout) clearTimeout(startTimeout);
-    if (typingInterval) clearInterval(typingInterval);
-  });
+  // Handle starting the typing animation
+  watch(
+    [
+      () => sequence?.value?.activeIndex,
+      () => sequence?.value?.sequenceStarted,
+      () => isInView.value,
+    ],
+    () => {
+      if (started.value) return;
 
+      // Sequence mode
+      if (sequence?.value && itemIndex !== null) {
+        if (!sequence.value.sequenceStarted) return;
+        if (sequence.value.activeIndex === itemIndex) {
+          started.value = true;
+        }
+        return;
+      }
+
+      // Non-sequence mode
+      if (!props.startOnView) {
+        startTimeout = setTimeout(() => {
+          started.value = true;
+        }, props.delay);
+        return;
+      }
+
+      if (!isInView.value) return;
+
+      startTimeout = setTimeout(() => {
+        started.value = true;
+      }, props.delay);
+    },
+    { immediate: true, deep: true }
+  );
+
+  // Handle typing effect
   watch(
     () => started.value,
     (value) => {
@@ -173,10 +433,19 @@ This consists of three components
           i++;
         } else {
           if (typingInterval) clearInterval(typingInterval);
+          // Complete sequence item
+          if (sequence?.value && itemIndex !== null) {
+            sequence.value.completeItem(itemIndex);
+          }
         }
       }, props.duration);
     }
   );
+
+  onUnmounted(() => {
+    if (startTimeout) clearTimeout(startTimeout);
+    if (typingInterval) clearInterval(typingInterval);
+  });
 </script>
 ```
 
@@ -184,17 +453,6 @@ This consists of three components
 
 ::
 :::
-
-## Anatomy
-
-```html
-<UiTerminal>
-  <UiTerminalTypingAnimation>
-    <UiTerminalAnimatedSpan>Hello, world!</UiTerminalAnimatedSpan>
-    <UiTerminalTypingAnimation>UI Thing is awesome!</UiTerminalTypingAnimation>
-  </UiTerminalTypingAnimation>
-</UiTerminal>
-```
 
 ## Usage
 
@@ -209,44 +467,42 @@ This consists of three components
 ```vue [DocsTerminal.vue]
 <template>
   <UiTerminal class="mx-auto">
-    <UiTerminalTypingAnimation class="mb-4" text="> npx ui-thing@latest init" />
+    <UiTerminalItem :index="0">
+      <UiTerminalTypingAnimation text="> npx ui-thing@latest init" />
+    </UiTerminalItem>
 
-    <UiTerminalAnimatedSpan
-      v-for="(text, i) in texts"
-      :key="i"
-      :delay="2000 + i * 500"
-      class="text-green-500"
-    >
-      <span>{{ text }}</span>
-    </UiTerminalAnimatedSpan>
+    <UiTerminalItem v-for="(text, i) in texts" :key="i" :index="i + 1">
+      <UiTerminalAnimatedSpan class="text-green-500">
+        <span>{{ text }}</span>
+      </UiTerminalAnimatedSpan>
+    </UiTerminalItem>
 
-    <UiTerminalTypingAnimation
-      text="Success! Project initialization completed."
-      :delay="7000"
-      class="mt-4 text-muted-foreground"
-    />
+    <UiTerminalItem :index="texts.length + 1">
+      <UiTerminalTypingAnimation
+        text="Success! Project initialization completed."
+        class="text-muted-foreground"
+      />
+    </UiTerminalItem>
 
-    <UiTerminalTypingAnimation
-      text="You may now add components."
-      :delay="7500"
-      class="text-muted-foreground"
-    />
+    <UiTerminalItem :index="texts.length + 2">
+      <UiTerminalTypingAnimation text="You may now add components." class="text-muted-foreground" />
+    </UiTerminalItem>
   </UiTerminal>
 </template>
 
 <script lang="ts" setup>
   const texts = [
-    "✔ Which Nuxt version are you using? › Nuxt 4",
-    "✔ Which theme do you want to start with? › Zinc",
-    "✔ Where is your tailwind.css file located? … app/assets/css/tailwind.css",
-    "✔ Where is your tailwind.config file located? … tailwind.config.js",
-    "✔ Where should your components be stored? … app/components/Ui",
-    "✔ Where should your composables be stored? … app/composables",
-    "✔ Where should your plugins be stored? … app/plugins",
-    "✔ Where should your utils be stored? … app/utils",
-    "✔ Should we just replace component files if they already exist? … yes",
-    "✔ Would you like to use the default filename when adding components? … yes",
-    "✔ Which package manager do you use? › NPM",
+    "✔ Which Nuxt version are you using? > Nuxt 4",
+    "✔ Which theme do you want to start with? > Zinc",
+    "✔ Where is your tailwind.css file located? ... app/assets/css/tailwind.css",
+    "✔ Where is your tailwind.config file located? ... tailwind.config.js",
+    "✔ Where should your components be stored? ... app/components/Ui",
+    "✔ Where should your composables be stored? ... app/composables",
+    "✔ Where should your plugins be stored? ... app/plugins",
+    "✔ Where should your utils be stored? ... app/utils",
+    "✔ Should we just replace component files if they already exist? ... yes",
+    "✔ Would you like to use the default filename when adding components? ... yes",
+    "✔ Which package manager do you use? > NPM",
   ];
 </script>
 ```
