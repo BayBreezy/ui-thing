@@ -43,17 +43,11 @@ const _useKbd = () => {
       navigator.userAgent.match(/Macintosh;/)
   );
 
-  const kbdKeysSpecificMap = reactive({
-    meta: " ",
-    alt: " ",
-    ctrl: " ",
-  });
-
-  onMounted(() => {
-    kbdKeysSpecificMap.meta = macOS.value ? kbdKeysMap.command : "Ctrl";
-    kbdKeysSpecificMap.ctrl = macOS.value ? kbdKeysMap.control : "Ctrl";
-    kbdKeysSpecificMap.alt = macOS.value ? kbdKeysMap.option : "Alt";
-  });
+  const kbdKeysSpecificMap = computed(() => ({
+    meta: macOS.value ? kbdKeysMap.command : "Ctrl",
+    ctrl: macOS.value ? kbdKeysMap.control : "Ctrl",
+    alt: macOS.value ? kbdKeysMap.option : "Alt",
+  }));
 
   function getKbdKey(value?: KbdKey | string) {
     if (!value) {
@@ -61,7 +55,7 @@ const _useKbd = () => {
     }
 
     if (["meta", "alt", "ctrl"].includes(value)) {
-      return kbdKeysSpecificMap[value as KbdKeySpecific];
+      return kbdKeysSpecificMap.value[value as KbdKeySpecific];
     }
 
     return kbdKeysMap[value as KbdKey] || value.toUpperCase();

@@ -79,7 +79,12 @@
         >
           <Icon name="lucide:search" />
           Search...
-          <UiKbd class="ml-auto">{{ metaSymbol }}+K</UiKbd>
+          <ClientOnly>
+            <template #fallback>
+              <UiKbd class="ml-auto"> K</UiKbd>
+            </template>
+            <UiKbd class="ml-auto">{{ metaSymbol }}+K</UiKbd>
+          </ClientOnly>
         </UiButton>
         <UiButton size="icon-sm" class="md:hidden" variant="ghost" @click="isOpen = true">
           <Icon name="lucide:search" class="h-[18px] w-[18px]" />
@@ -150,7 +155,8 @@
 
   const isOpen = ref(false);
 
-  const metaSymbol = computed(() => useKbd().getKbdKey("meta"));
+  const { getKbdKey } = useKbd();
+  const metaSymbol = computed(() => getKbdKey("meta"));
 
   defineShortcuts({
     meta_k: () => {
