@@ -5,7 +5,7 @@
     </slot>
     <DialogContent
       data-slot="sheet-content"
-      :class="styles({ side, isBlurred, variant, class: props.class })"
+      :class="styles({ side, isBlurred, variant, fullscreen, class: props.class })"
       v-bind="{ ...forwarded, ...$attrs }"
     >
       <slot>
@@ -55,6 +55,10 @@
         default: "",
         floating: "rounded-lg border",
       },
+      fullscreen: {
+        true: "inset-0 m-0 size-full rounded-none border-0",
+        false: "",
+      },
     },
     compoundVariants: [
       {
@@ -77,10 +81,51 @@
         variant: "floating",
         class: "inset-y-4 right-4 h-[calc(100%-2rem)]",
       },
+      {
+        fullscreen: true,
+        side: "left",
+        class: "w-full max-w-none sm:max-w-none",
+      },
+      {
+        fullscreen: true,
+        side: "right",
+        class: "w-full max-w-none sm:max-w-none",
+      },
+      {
+        fullscreen: true,
+        variant: "floating",
+        class:
+          "inset-4 h-[calc(100%-2rem)] max-h-none w-[calc(100%-2rem)] max-w-full rounded-xl border sm:max-h-none sm:max-w-full",
+      },
+      {
+        fullscreen: true,
+        side: "top",
+        class:
+          "data-[state=closed]:slide-out-to-top-20! data-[state=closed]:fade-out data-[state=open]:slide-in-from-top-25! data-[state=open]:fade-in",
+      },
+      {
+        fullscreen: true,
+        side: "bottom",
+        class:
+          "data-[state=closed]:slide-out-to-bottom-20! data-[state=closed]:fade-out data-[state=open]:slide-in-from-bottom-25! data-[state=open]:fade-in",
+      },
+      {
+        fullscreen: true,
+        side: "left",
+        class:
+          "data-[state=closed]:slide-out-to-left-10! data-[state=closed]:fade-out data-[state=open]:fade-in-50 data-[state=open]:slide-in-from-left-15!",
+      },
+      {
+        fullscreen: true,
+        side: "right",
+        class:
+          "data-[state=closed]:slide-out-to-right-10! data-[state=closed]:fade-out data-[state=open]:fade-in-50 data-[state=open]:slide-in-from-right-15!",
+      },
     ],
     defaultVariants: {
       side: "left",
       variant: "default",
+      fullscreen: false,
     },
   });
 
@@ -117,6 +162,12 @@
          */
         variant?: VariantProps<typeof styles>["variant"];
         /**
+         * Whether the sheet should take the full screen
+         *
+         * @default false
+         */
+        fullscreen?: VariantProps<typeof styles>["fullscreen"];
+        /**
          * Target element or selector for the sheet portal
          */
         to?: string | HTMLElement;
@@ -140,6 +191,7 @@
       "to",
       "side",
       "variant",
+      "fullscreen",
       "isBlurred",
     ]),
     emits
