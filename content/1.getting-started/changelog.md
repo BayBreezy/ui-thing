@@ -8,6 +8,7 @@ description: See what has changed recently in UI Thing.
 ### Component Updates
 
 - [**Alert**](/components/alert): The Alert component has been updated to adjust the icon alignment when there is no title provided. Check out the updated documentation [here](/components/alert).
+- [**Sheet**](/components/sheet): The Sheet component has been updated to include a new `variant` prop that allows for different visual styles. The default variant has been preserved, and additional variants can be explored in the documentation [here](/components/sheet).
 
 ## January 2, 2026
 
