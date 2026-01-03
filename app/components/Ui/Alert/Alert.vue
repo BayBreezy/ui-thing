@@ -9,7 +9,7 @@
         v-if="icon"
         data-slot="alert-icon"
         :name="icon"
-        :class="alertStyles().icon({ variant, filled, class: props.iconClass })"
+        :class="alertStyles().icon({ variant, filled, class: props.iconClass, hasTitle })"
       />
     </slot>
     <div data-slot="alert-content" :class="alertStyles().content({ variant, filled })">
@@ -82,6 +82,10 @@
       filled: {
         true: {},
       },
+      hasTitle: {
+        true: {},
+        false: { icon: "mt-0.5" },
+      },
     },
     defaultVariants: {
       variant: "default",
@@ -125,6 +129,9 @@
     modelValue: true,
     variant: "default",
   });
+
+  const slots = useSlots();
+  const hasTitle = computed(() => !!props.title || !!slots.title);
 
   const shown = defineModel<boolean>({ default: true });
 </script>

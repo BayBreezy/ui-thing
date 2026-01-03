@@ -3,6 +3,12 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## January 3, 2026
+
+### Component Updates
+
+- [**Alert**](/components/alert): The Alert component has been updated to adjust the icon alignment when there is no title provided. Check out the updated documentation [here](/components/alert).
+
 ## January 2, 2026
 
 ### Component Updates
