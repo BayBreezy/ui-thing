@@ -5,7 +5,7 @@
     </slot>
     <DialogContent
       data-slot="sheet-content"
-      :class="styles({ side, isBlurred, class: props.class })"
+      :class="styles({ side, isBlurred, variant, class: props.class })"
       v-bind="{ ...forwarded, ...$attrs }"
     >
       <slot>
@@ -36,26 +36,6 @@
 
   defineOptions({ inheritAttrs: false });
 
-  const props = withDefaults(
-    defineProps<
-      DialogContentProps & {
-        icon?: string;
-        title?: string;
-        description?: string;
-        class?: HTMLAttributes["class"];
-        side?: VariantProps<typeof styles>["side"];
-        to?: string | HTMLElement;
-        isBlurred?: boolean;
-      }
-    >(),
-    { isBlurred: true }
-  );
-  const emits = defineEmits<DialogContentEmits>();
-  const forwarded = useForwardPropsEmits(
-    reactiveOmit(props, "icon", "title", "description", "class", "to", "side", "isBlurred"),
-    emits
-  );
-
   const styles = tv({
     base: "fixed z-50 flex flex-col gap-4 bg-background shadow-lg transition ease-in-out data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:animate-in data-[state=open]:duration-500",
     variants: {
@@ -71,9 +51,132 @@
         true: "backdrop-blur-sm",
         false: "backdrop-blur-none",
       },
+      variant: {
+        default: "",
+        floating: "rounded-lg border",
+      },
     },
+    compoundVariants: [
+      {
+        side: "top",
+        variant: "floating",
+        class: "inset-x-4 top-4",
+      },
+      {
+        side: "bottom",
+        variant: "floating",
+        class: "inset-x-4 bottom-4",
+      },
+      {
+        side: "left",
+        variant: "floating",
+        class: "inset-y-4 left-4 h-[calc(100%-2rem)]",
+      },
+      {
+        side: "right",
+        variant: "floating",
+        class: "inset-y-4 right-4 h-[calc(100%-2rem)]",
+      },
+    ],
     defaultVariants: {
       side: "left",
+      variant: "default",
     },
   });
+
+  const props = withDefaults(
+    defineProps<
+      DialogContentProps & {
+        /**
+         * Custom icon for the close button
+         */
+        icon?: string;
+        /**
+         * Title text for the sheet header
+         */
+        title?: string;
+        /**
+         * Description text for the sheet header
+         */
+        description?: string;
+        /**
+         * Custom class for the sheet content element
+         */
+        class?: HTMLAttributes["class"];
+        /**
+         * Side from which the sheet will appear
+         *
+         * @default "left"
+         */
+
+        side?: VariantProps<typeof styles>["side"];
+        /**
+         * Visual variant of the sheet
+         *
+         * @default "default"
+         */
+        variant?: VariantProps<typeof styles>["variant"];
+        /**
+         * Target element or selector for the sheet portal
+         */
+        to?: string | HTMLElement;
+        /**
+         * Whether the overlay should have a blur effect
+         *
+         * @default true
+         */
+        isBlurred?: boolean;
+      }
+    >(),
+    { isBlurred: true }
+  );
+  const emits = defineEmits<DialogContentEmits>();
+  const forwarded = useForwardPropsEmits(
+    reactiveOmit(props, [
+      "class",
+      "icon",
+      "title",
+      "description",
+      "to",
+      "side",
+      "variant",
+      "isBlurred",
+    ]),
+    emits
+  );
+
+  defineSlots<{
+    /**
+     * Default slot for custom sheet structure
+     */
+    default: () => any;
+    /**
+     * Slot for custom overlay content
+     */
+    overlay: () => any;
+    /**
+     * Slot for custom close button
+     */
+    close: () => any;
+    /**
+     * Slot for header content (title and description)
+     */
+    header: () => any;
+    /**
+     * Slot for title content
+     */
+    title: () => any;
+    /**
+     * Slot for description content
+     */
+    description: () => any;
+    /**
+     * Slot for main content of the sheet
+     */
+    content: () => any;
+    /**
+     * Slot for footer content of the sheet
+     */
+    footer: () => any;
+  }>();
 </script>
