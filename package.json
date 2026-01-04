@@ -125,7 +125,7 @@
     "vue3-apexcharts": "^1.10.0",
     "vuedraggable": "^4.1.0",
     "yup": "^1.7.1",
-    "zod": "^4.3.4"
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.3.0",
