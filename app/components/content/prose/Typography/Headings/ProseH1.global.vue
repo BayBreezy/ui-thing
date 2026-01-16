@@ -1,6 +1,17 @@
 <template>
   <h1 :id="id" :class="proseH1Styles({ class: _class })">
-    <NuxtLink v-if="generate" data-slot="h1-link" v-bind="linkProps" :to="`#${id}`">
+    <NuxtLink
+      v-if="generate"
+      data-slot="h1-link"
+      v-bind="linkProps"
+      class="relative inline-block"
+      :to="`#${id}`"
+    >
+      <Icon
+        name="lucide:link"
+        aria-hidden="true"
+        class="absolute top-2 -left-6 h-4 w-4 text-muted-foreground opacity-0 transition-opacity duration-150 group-focus-within:opacity-100 group-hover:opacity-100"
+      />
       <slot />
     </NuxtLink>
     <slot v-else />
@@ -27,7 +38,7 @@
   };
 
   export const proseH1Styles = tv({
-    base: "scroll-m-20 text-4xl font-extrabold tracking-tight text-balance",
+    base: "group scroll-m-20 text-4xl font-extrabold tracking-tight text-balance",
   });
 </script>
 

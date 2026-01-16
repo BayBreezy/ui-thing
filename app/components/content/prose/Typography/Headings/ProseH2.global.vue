@@ -1,6 +1,17 @@
 <template>
   <h2 :id="id" :class="proseH2Styles({ class: _class })">
-    <NuxtLink v-if="generate" data-slot="h2-link" v-bind="linkProps" :to="`#${id}`">
+    <NuxtLink
+      v-if="generate"
+      data-slot="h2-link"
+      v-bind="linkProps"
+      class="group relative inline-block"
+      :to="`#${id}`"
+    >
+      <Icon
+        name="lucide:link"
+        aria-hidden="true"
+        class="absolute top-2 -left-8 hidden size-5 text-primary opacity-0 transition-opacity duration-150 group-focus-within:opacity-70 group-hover:opacity-70 lg:block"
+      />
       <slot />
     </NuxtLink>
     <slot v-else />
