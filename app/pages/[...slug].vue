@@ -25,7 +25,7 @@
     <ClientOnly>
       <aside
         v-if="toc && toc.links && toc.links.length && !isBlocksPage"
-        class="sticky top-14 z-20 hidden h-[calc(100dvh-57px)] border-l xl:block"
+        class="sticky top-14 z-20 hidden h-[calc(100dvh-57px)] xl:block"
       >
         <UiScrollArea type="auto" class="h-full">
           <div class="flex flex-col gap-5 p-5">

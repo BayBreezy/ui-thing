@@ -3,17 +3,27 @@
     <template v-for="(l, i) in links" :key="i">
       <div v-if="!l.children" class="relative flex items-center gap-4">
         <NuxtLink
-          class="group line-clamp-1 shrink-0 text-base text-ellipsis text-muted-foreground underline-offset-2 hover:underline sm:text-sm"
+          class="group line-clamp-1 shrink-0 text-base text-ellipsis text-muted-foreground sm:text-sm"
           :class="[
-            'before:absolute before:-left-6 before:-mt-[5px] before:size-4 before:rounded-bl-md before:border-b before:border-l before:border-border dark:before:border-accent',
+            'before:absolute before:-left-6 before:-mt-[4px] before:size-4 before:rounded-bl-md before:border-b before:border-l before:border-border dark:before:border-accent',
           ]"
-          exact-active-class="underline underline-offset-2 text-primary"
+          exact-active-class="text-primary"
           :to="l.path"
           :title="l.title"
           :target="l.target ? (l.target as string) : '_self'"
           @click="mobileNavState = false"
         >
-          {{ l.title }}
+          <div class="relative">
+            {{ l.title }}
+            <!-- width should be same size as title -->
+            <div
+              class="absolute bottom-0 left-0 h-px w-full bg-linear-to-r from-transparent via-primary to-transparent group-hover:scale-x-100"
+              :class="[
+                'transition-all duration-300',
+                route.path === l.path ? 'scale-x-100' : 'scale-x-0',
+              ]"
+            ></div>
+          </div>
         </NuxtLink>
         <UiBadge
           v-if="l.label"
@@ -25,13 +35,13 @@
         v-if="l.children"
         v-slot="{ open }"
         :default-open="route.path.includes(l.path)"
-        class="flex flex-col gap-4"
+        class="flex flex-col"
       >
         <UiCollapsibleTrigger
-          class="flex items-center justify-between rounded-sm px-3 py-2 hover:bg-accent"
+          class="flex items-center justify-between rounded-md px-3 py-2 transition-all hover:bg-accent/20"
           :class="[
             route.path.startsWith(l.path)
-              ? 'bg-accent text-accent-foreground dark:bg-accent/50'
+              ? 'bg-accent/50 text-accent-foreground hover:bg-accent/50'
               : '',
           ]"
         >
@@ -47,7 +57,7 @@
           <Icon
             name="lucide:chevron-down"
             :class="[
-              'shrink-0 transform text-muted-foreground transition',
+              'shrink-0 transform text-muted-foreground/50 transition',
               open ? 'rotate-180' : 'rotate-0',
             ]"
           />
