@@ -107,6 +107,61 @@ export default defineNuxtConfig({
     domain: process.env.PUBLIC_URL || "https://uithing.com",
     description: SEO.SITE_DESCRIPTION,
     title: SEO.SITE_TITLE,
+    sections: [
+      {
+        title: "API Endpoints",
+        description: "Documentation for all API endpoints",
+        links: [
+          {
+            title: "Get Components",
+            href: "/api/components",
+            description:
+              "Retrieve a list of UI components. A search query parameter can be provided to filter components by name, value, or docsPath.",
+          },
+          {
+            title: "Get Component by Name",
+            href: "/api/components/{name}",
+            description:
+              "Retrieve detailed information about a specific UI component by its name. The name parameter is required and should match the component's name or value. To get the list of available components, use the /api/components endpoint.",
+          },
+          {
+            title: "Get Prose",
+            href: "/api/prose",
+            description:
+              "Retrieve a list of prose elements. A search query parameter can be provided to filter prose elements by name or value.",
+          },
+          {
+            title: "Get Prose by Name",
+            href: "/api/prose/{name}",
+            description:
+              "Retrieve detailed information about a specific prose element by its name. The name parameter is required and should match the prose element's name or value. To get the list of available prose elements, use the /api/prose endpoint.",
+          },
+          {
+            title: "Get Blocks",
+            href: "/api/blocks",
+            description:
+              "Retrieve a list of UI blocks. A search query parameter can be provided to filter blocks by name, fileName, category, or path.",
+          },
+          {
+            title: "Get Block by Name",
+            href: "/api/blocks/{name}",
+            description:
+              "Retrieve detailed information about a specific UI block by its name. The name parameter is required and should match the block's name or fileName. To get the list of available blocks, use the /api/blocks endpoint.",
+          },
+          {
+            title: "Get Block Categories",
+            href: "/api/blocks/categories",
+            description: "Retrieve a list of unique block categories available in the system.",
+          },
+          {
+            title: "Get Blocks by Category",
+            href: "/api/blocks/categories/{name}",
+            description:
+              "Retrieve a list of UI blocks that belong to a specific category. The name parameter is required and should match the desired block category. To get the list of available categories, use the /api/blocks/categories endpoint.",
+          },
+        ],
+      },
+    ],
     full: {
       title: "Complete Documentation for UI Thing",
       description: "The complete documentation including all content",
