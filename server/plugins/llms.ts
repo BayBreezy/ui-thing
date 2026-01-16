@@ -8,5 +8,10 @@ export default defineNitroPlugin((app) => {
     content.push(`## More Information
   
 - [UI Thing CLI](https://github.com/BayBreezy/ui-thing-cli)`);
+    content.push(`## Contact Information
+  
+- [GitHub](https://github.com/BayBreezy/)
+- [Website](https://behonbaker.com/)
+- [Email](mailto:behon.baker@yahoo.com)`);
   });
 });
