@@ -5,6 +5,6 @@
     "antfu.iconify",
     "formulahendry.auto-close-tag",
     "formulahendry.auto-rename-tag",
-    "prettier.prettier-vscode"
+    "esbenp.prettier-vscode"
   ]
 }
