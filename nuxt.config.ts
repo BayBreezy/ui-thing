@@ -87,6 +87,7 @@ export default defineNuxtConfig({
     "@morev/vue-transitions/nuxt",
     "nuxt-gtag",
     "@nuxtjs/mcp-toolkit",
+    "nuxt-email-renderer",
   ],
   mcp: {
     name: "UI Thing MCP",
