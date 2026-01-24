@@ -5,6 +5,7 @@ version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
+    target-branch: "v2"
     schedule:
       interval: "weekly"
       day: "sunday"
