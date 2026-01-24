@@ -22,21 +22,20 @@
       <DocsFooter />
     </div>
     <!-- Table of contents for current page -->
-    <ClientOnly>
-      <aside
-        v-if="toc && toc.links && toc.links.length && !isBlocksPage"
-        class="sticky top-14 z-20 hidden h-[calc(100dvh-57px)] xl:block"
-      >
-        <UiScrollArea type="auto" class="h-full">
-          <div class="flex flex-col gap-5 p-5">
-            <p class="text-sm font-semibold">On this page</p>
-            <DocsToclink :set-active="setActive" :active-id="activeId" :links="toc.links" />
-            <p class="text-sm font-semibold">Extra stuff</p>
-            <DocsExtraStuff />
-          </div>
-        </UiScrollArea>
-      </aside>
-    </ClientOnly>
+
+    <aside
+      v-if="toc && toc.links && toc.links.length && !isBlocksPage"
+      class="sticky top-14 z-20 hidden h-[calc(100dvh-57px)] xl:block"
+    >
+      <UiScrollArea type="auto" class="h-full">
+        <div class="flex flex-col gap-5 p-5">
+          <p class="text-sm font-semibold">On this page</p>
+          <DocsToclink :set-active="setActive" :active-id="activeId" :links="toc.links" />
+          <p class="text-sm font-semibold">Extra stuff</p>
+          <DocsExtraStuff />
+        </div>
+      </UiScrollArea>
+    </aside>
   </div>
 </template>
 

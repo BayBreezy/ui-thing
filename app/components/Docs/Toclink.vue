@@ -8,7 +8,7 @@
         :style="{ marginLeft: `${l.depth > 2 ? l.depth * 2 : 0}%` }"
         :class="[
           activeId === l.id &&
-            '!text-foreground underline decoration-muted-foreground underline-offset-2',
+            'text-foreground! underline decoration-muted-foreground underline-offset-2',
         ]"
         :to="`#${l.id}`"
         @click="setActive(l.id)"
@@ -20,7 +20,7 @@
           :title="l.text"
           :class="[
             activeId === l.id &&
-              '!text-foreground underline decoration-muted-foreground underline-offset-2',
+              'text-foreground! underline decoration-muted-foreground underline-offset-2',
           ]"
           :to="`#${l.id}`"
           @click="setActive(l.id)"
