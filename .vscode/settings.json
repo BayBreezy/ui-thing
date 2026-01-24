@@ -1,12 +1,12 @@
 {
-  "eslint.useFlatConfig": true,
   "files.associations": {
     "*.css": "tailwindcss"
   },
   "editor.quickSuggestions": {
-    "strings": true,
+    "strings": "on",
     "comments": "on"
   },
+  "tailwindCSS.classFunctions": ["tv", "tw"],
   "mdc.enableFormatting": true,
   "[mdc]": {
     "editor.tabSize": 2,

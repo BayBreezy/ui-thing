@@ -81,6 +81,7 @@
     "apexcharts": "^5.3.6",
     "better-sqlite3": "^12.6.2",
     "canvas-confetti": "^1.9.4",
+    "colord": "^2.9.3",
     "datatables.net-buttons": "^3.2.6",
     "datatables.net-buttons-dt": "^3.2.6",
     "datatables.net-colreorder-dt": "^2.1.2",

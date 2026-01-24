@@ -3,6 +3,12 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## January 24, 2026
+
+### New Component
+
+- **Color Picker**: A versatile color picker component that supports multiple color formats (HEX, RGB, HSL) and includes features like alpha transparency, preset swatches, and a user-friendly interface. Check out the documentation [here](/components/color-picker).
+
 ## January 3, 2026
 
 ### Component Updates

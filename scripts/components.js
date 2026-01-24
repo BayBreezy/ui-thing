@@ -158,6 +158,23 @@ export default [
     docsPath: "/components/collapsible",
   },
   {
+    name: "Color Picker",
+    value: "color-picker",
+    files: [
+      "ColorPicker/Alpha.vue",
+      "ColorPicker/ColorPicker.vue",
+      "ColorPicker/Controls.vue",
+      "ColorPicker/Hue.vue",
+      "ColorPicker/Presets.vue",
+      "ColorPicker/Root.vue",
+      "ColorPicker/SV.vue",
+    ],
+    docsPath: "/components/color-picker",
+    utils: ["color-picker.context.ts"],
+    components: ["select", "input"],
+    deps: ["colord"],
+  },
+  {
     name: "Command",
     value: "command",
     components: ["dialog"],
