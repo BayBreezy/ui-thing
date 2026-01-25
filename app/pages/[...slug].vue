@@ -30,7 +30,12 @@
       <UiScrollArea type="auto" class="h-full">
         <div class="flex flex-col gap-5 p-5">
           <p class="text-sm font-semibold">On this page</p>
-          <DocsToclink :set-active="setActive" :active-id="activeId" :links="toc.links" />
+          <UiScrollspy smooth :offset="80">
+            <DocsTocRail>
+              <DocsToclink :links="toc.links" />
+            </DocsTocRail>
+          </UiScrollspy>
+
           <p class="text-sm font-semibold">Extra stuff</p>
           <DocsExtraStuff />
         </div>
@@ -40,27 +45,12 @@
 </template>
 
 <script lang="ts" setup>
-  import { useActiveScroll } from "vue-use-active-scroll";
-  import type { Targets } from "vue-use-active-scroll";
-
   const route = useRoute();
   const { contentPage: page } = await useDocPage();
 
   const toc = computed(() => {
     if (!page) return;
     return page?.body?.toc;
-  });
-
-  const targets = computed(() =>
-    toc.value?.links?.flatMap(({ id, children = [] }: any) => [
-      id,
-      ...children.map(({ id }: { id: string }) => id),
-    ])
-  );
-
-  const { activeId, setActive } = useActiveScroll(targets as Targets, {
-    replaceHash: true,
-    overlayHeight: 80,
   });
 
   // Check if a page starts with `/blocks/` The sidenave will be removed if this is true

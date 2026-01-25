@@ -3,30 +3,30 @@
     <template v-for="(l, i) in links" :key="i">
       <NuxtLink
         v-if="!l.children"
-        class="line-clamp-1 text-muted-foreground transition-all hover:text-foreground"
+        data-toc-link="true"
+        :data-depth="l.depth"
+        class="data-[active=true]:decoration-muted-primary line-clamp-1 text-muted-foreground transition-all hover:text-primary data-[active=true]:text-primary data-[active=true]:underline data-[active=true]:underline-offset-2"
         :title="l.text"
         :style="{ marginLeft: `${l.depth > 2 ? l.depth * 2 : 0}%` }"
-        :class="[
-          activeId === l.id &&
-            'text-foreground! underline decoration-muted-foreground underline-offset-2',
-        ]"
         :to="`#${l.id}`"
-        @click="setActive(l.id)"
-        >{{ l.text }}</NuxtLink
+        :data-scrollspy-anchor="l.id"
       >
+        {{ l.text }}
+      </NuxtLink>
+
       <div v-else class="flex flex-col gap-2 text-sm">
         <NuxtLink
-          class="line-clamp-1 text-muted-foreground transition-all hover:text-foreground"
+          data-toc-link="true"
+          :data-depth="l.depth"
+          class="data-[active=true]:decoration-muted-primary line-clamp-1 text-muted-foreground transition-all hover:text-primary data-[active=true]:text-primary data-[active=true]:underline data-[active=true]:underline-offset-2"
           :title="l.text"
-          :class="[
-            activeId === l.id &&
-              'text-foreground! underline decoration-muted-foreground underline-offset-2',
-          ]"
           :to="`#${l.id}`"
-          @click="setActive(l.id)"
-          >{{ l.text }}</NuxtLink
+          :data-scrollspy-anchor="l.id"
         >
-        <DocsToclink :set-active="setActive" :active-id="activeId" :links="l.children" />
+          {{ l.text }}
+        </NuxtLink>
+
+        <DocsToclink :links="l.children" />
       </div>
     </template>
   </nav>
@@ -39,9 +39,8 @@
     depth: number;
     children?: Toclink[];
   };
+
   defineProps<{
     links: Toclink[];
-    activeId: string;
-    setActive: (id: string) => void;
   }>();
 </script>
