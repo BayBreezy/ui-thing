@@ -1,16 +1,14 @@
-FROM node:22-alpine AS builder
+FROM oven/bun:latest AS builder
 WORKDIR /app
-RUN corepack enable
 # Install build dependencies for native modules
 RUN apk add --no-cache python3 make g++
-COPY package.json package-lock.json .npmrc ./
-RUN npm ci
-RUN npm rebuild
+COPY package.json bun.lockb .npmrc ./
+RUN bun install --frozen-lockfile
 COPY . .
-RUN npm run postinstall
-RUN npm run build
+RUN bun run postinstall
+RUN bun run build
 
-FROM node:22-alpine AS runner
+FROM oven/bun:latest AS runner
 WORKDIR /app
 # Install runtime dependencies for better-sqlite3 and curl for health checks
 RUN apk add --no-cache sqlite curl
@@ -20,4 +18,4 @@ ENV HOST=0.0.0.0
 
 EXPOSE 3000
 
-CMD ["node", "/app/server/index.mjs"]
+CMD ["bun", "run", "/app/server/index.mjs"]
