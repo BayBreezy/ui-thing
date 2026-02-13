@@ -171,5 +171,5 @@
     "vue": "^3.5.28",
     "vue-router": "^5.0.2"
   },
-  "packageManager": "bun@1.3.6"
+  "packageManager": "npm@11.8.0"
 }
