@@ -32,7 +32,7 @@
       showFormatToggle: true,
       showInput: true,
       showPresets: false,
-      showResult: true;
+      showResult: true,
       presets: () => [],
     }
   );
