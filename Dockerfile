@@ -11,7 +11,7 @@ RUN bun run build
 FROM oven/bun:latest AS runner
 WORKDIR /app
 # Install runtime dependencies for better-sqlite3 and curl for health checks
-RUN apk add --no-cache sqlite curl
+# RUN apk add --no-cache sqlite curl
 COPY --from=builder /app/.output ./
 ENV PORT=3000
 ENV HOST=0.0.0.0
