@@ -1,6 +1,7 @@
 <template>
   <div data-slot="color-picker-controls" class="mt-3 flex items-center gap-2">
     <div
+      v-if="ctx.showResult.value"
       class="h-9 w-12 shrink-0 rounded-md shadow-xs ring-1 ring-border/40"
       :style="previewStyle"
     />

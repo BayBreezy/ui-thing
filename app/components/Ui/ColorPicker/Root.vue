@@ -21,6 +21,7 @@
       showFormatToggle?: boolean;
       showInput?: boolean;
       showPresets?: boolean;
+      showResult?: boolean;
       presets?: string[];
       class?: HTMLAttributes["class"];
     }>(),
@@ -31,6 +32,7 @@
       showFormatToggle: true,
       showInput: true,
       showPresets: false,
+      showResult: true;
       presets: () => [],
     }
   );
@@ -66,6 +68,7 @@
   const showFormatToggle = computed(() => !!props.showFormatToggle);
   const showInput = computed(() => !!props.showInput);
   const showPresets = computed(() => !!props.showPresets);
+  const showResult = computed(() => !!props.showResult);
   const presets = computed(() => props.presets ?? []);
 
   const currentColor = computed<Colord>(() => {
@@ -178,6 +181,7 @@
     showFormatToggle,
     showInput,
     showPresets,
+    showResult,
     presets,
 
     currentColor,

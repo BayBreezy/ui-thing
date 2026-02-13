@@ -16,6 +16,7 @@ export type ColorPickerContext = {
   showFormatToggle: ComputedRef<boolean>;
   showInput: ComputedRef<boolean>;
   showPresets: ComputedRef<boolean>;
+  showResult: ComputedRef<boolean>;
   presets: ComputedRef<string[]>;
 
   // computed
