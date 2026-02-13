@@ -1,7 +1,7 @@
 FROM oven/bun:latest AS builder
 WORKDIR /app
 # Install build dependencies for native modules
-RUN apk add --no-cache python3 make g++
+# RUN apk add --no-cache python3 make g++
 COPY package.json bun.lock .npmrc ./
 RUN bun install --frozen-lockfile
 COPY . .
