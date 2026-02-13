@@ -1,22 +1,23 @@
-FROM oven/bun:1-alpine AS builder
+FROM node:24-alpine AS builder
 WORKDIR /app
+RUN corepack enable
 # Install build dependencies for native modules
 RUN apk add --no-cache python3 make g++
-COPY package.json bun.lock .npmrc ./
-RUN bun install --frozen-lockfile
+COPY package.json package-lock.json .npmrc ./
+RUN npm ci
+RUN npm rebuild
 COPY . .
-RUN bun run postinstall
-RUN bun run build
+RUN npm run postinstall
+RUN npm run build
 
-FROM oven/bun:1-alpine AS runner
+FROM node:24-alpine AS runner
 WORKDIR /app
-# Install only essential runtime dependencies
-RUN apk add --no-cache curl
+# Install runtime dependencies for better-sqlite3 and curl for health checks
+RUN apk add --no-cache sqlite curl
 COPY --from=builder /app/.output ./
-ENV NODE_ENV=production \
-    PORT=3000 \
-    HOST=0.0.0.0
+ENV PORT=3000
+ENV HOST=0.0.0.0
 
 EXPOSE 3000
 
-CMD ["bun", "/app/server/index.mjs"]
+CMD ["node", "/app/server/index.mjs"]

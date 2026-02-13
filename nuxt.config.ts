@@ -38,7 +38,6 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
     optimizeDeps: {
       include: [
-        "vue-use-active-scroll",
         "date-fns",
         "@unovis/ts",
         "vee-validate",
@@ -61,9 +60,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  nitro: {
-    experimental: { asyncContext: true },
-  },
+  nitro: { experimental: { asyncContext: true } },
   experimental: { payloadExtraction: true },
   modules: [
     "@nuxtjs/mdc",
@@ -274,7 +271,7 @@ export default defineNuxtConfig({
       display: "standalone",
     },
     workbox: {
-      globIgnores: ["/**/_payload.json", "**/node_modules/**"],
+      globIgnores: ["**/_payload.json", "**/node_modules/**"],
     },
   },
 
