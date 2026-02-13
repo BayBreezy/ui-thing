@@ -46,18 +46,20 @@
 
   const { data, pending } = await useAsyncData<User[]>(
     async () => {
-      const firstName = faker.person.firstName();
-      const lastName = faker.person.lastName();
-      return Array.from({ length: 8 }, () => ({
-        id: faker.string.nanoid(6).toUpperCase(),
-        firstName,
-        lastName,
-        phone: faker.phone.number({ style: "national" }),
-        address: faker.location.streetAddress({ useFullAddress: true }),
-        email: faker.internet.email({ firstName, lastName }).toLowerCase(),
-        department: faker.helpers.arrayElement(["Engineering", "Sales", "Marketing", "Support"]),
-        status: faker.helpers.arrayElement(["active", "inactive"]) as "active" | "inactive",
-      }));
+      return Array.from({ length: 8 }, () => {
+        const firstName = faker.person.firstName();
+        const lastName = faker.person.lastName();
+        return {
+          id: faker.string.nanoid(6).toUpperCase(),
+          firstName,
+          lastName,
+          phone: faker.phone.number({ style: "national" }),
+          address: faker.location.streetAddress({ useFullAddress: true }),
+          email: faker.internet.email({ firstName, lastName }).toLowerCase(),
+          department: faker.helpers.arrayElement(["Engineering", "Sales", "Marketing", "Support"]),
+          status: faker.helpers.arrayElement(["active", "inactive"]) as "active" | "inactive",
+        };
+      });
     },
     { default: () => [] }
   );

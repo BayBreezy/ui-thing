@@ -40,7 +40,7 @@
                       :props="header.getContext()"
                     />
                     <UiTooltip>
-                      <UiTooltipTrigger as-child>
+                      <UiTooltipTrigger>
                         <Icon
                           v-if="header.column.getIsSorted() === 'asc'"
                           name="lucide:arrow-up"
@@ -190,17 +190,24 @@
                     </UiTooltip>
                   </template>
                   <template v-else-if="cell.column.id === 'expand'">
-                    <UiButton
-                      variant="ghost"
-                      size="icon-sm"
-                      class="hover:bg-muted"
-                      @click="row.toggleExpanded()"
-                    >
-                      <Icon
-                        :name="row.getIsExpanded() ? expandCellIconOn : expandCellIconOff"
-                        class="size-4"
-                      />
-                    </UiButton>
+                    <UiTooltip>
+                      <UiTooltipTrigger as-child>
+                        <UiButton
+                          variant="ghost"
+                          size="icon-sm"
+                          class="hover:bg-muted"
+                          @click="row.toggleExpanded()"
+                        >
+                          <Icon
+                            :name="row.getIsExpanded() ? expandCellIconOn : expandCellIconOff"
+                            class="size-4"
+                          />
+                        </UiButton>
+                      </UiTooltipTrigger>
+                      <UiTooltipContent>
+                        <span> {{ row.getIsExpanded() ? "Collapse" : "Expand" }} row </span>
+                      </UiTooltipContent>
+                    </UiTooltip>
                   </template>
                   <template v-else>
                     <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
