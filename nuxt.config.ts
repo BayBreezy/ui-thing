@@ -273,6 +273,9 @@ export default defineNuxtConfig({
       theme_color: SEO.SITE_THEME_COLOR,
       display: "standalone",
     },
+    workbox: {
+      globIgnores: ["/**/_payload.json", "**/node_modules/**"],
+    },
   },
 
   site: {
