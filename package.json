@@ -86,7 +86,7 @@
     "datatables.net-buttons-dt": "^3.2.6",
     "datatables.net-colreorder-dt": "^2.1.2",
     "datatables.net-fixedcolumns-dt": "^5.0.5",
-    "datatables.net-fixedheader-dt": "^4.0.5",
+    "datatables.net-fixedheader-dt": "^4.0.6",
     "datatables.net-responsive-dt": "^3.0.8",
     "datatables.net-searchbuilder-dt": "^1.8.4",
     "datatables.net-select-dt": "^3.1.3",
