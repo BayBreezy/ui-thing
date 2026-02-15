@@ -78,7 +78,7 @@
     "@vueuse/integrations": "^14.2.1",
     "@vueuse/math": "^14.2.1",
     "@yuta-inoue-ph/nuxt-vcalendar": "^1.1.4",
-    "apexcharts": "^5.3.6",
+    "apexcharts": "^5.4.0",
     "better-sqlite3": "^12.6.2",
     "canvas-confetti": "^1.9.4",
     "colord": "^2.9.3",
