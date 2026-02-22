@@ -158,7 +158,7 @@
     "@vite-pwa/nuxt": "^1.1.1",
     "@vueuse/core": "^14.2.1",
     "@vueuse/nuxt": "^14.2.1",
-    "eslint": "^10.0.0",
+    "eslint": "^10.0.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "nuxt": "4.3.1",
