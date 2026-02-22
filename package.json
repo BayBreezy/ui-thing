@@ -129,7 +129,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^20.4.1",
-    "@commitlint/config-conventional": "^20.4.1",
+    "@commitlint/config-conventional": "^20.4.2",
     "@faker-js/faker": "^10.3.0",
     "@ianvs/prettier-plugin-sort-imports": "4.7.1",
     "@iconify-json/heroicons": "^1.2.3",
