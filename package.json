@@ -128,7 +128,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.4.1",
+    "@commitlint/cli": "^20.4.2",
     "@commitlint/config-conventional": "^20.4.1",
     "@faker-js/faker": "^10.3.0",
     "@ianvs/prettier-plugin-sort-imports": "4.7.1",
