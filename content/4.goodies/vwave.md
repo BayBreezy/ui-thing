@@ -12,9 +12,7 @@ description: The material-ripple directive for Vue that actually works!
 
 To get started, you will need to install the package. You can visit the [V-Wave](https://github.com/justintaddei/v-wave) page for more details... All the details 🙂.
 
-```bash
-npm install v-wave
-```
+:prose-pm-install{name="v-wave"}
 
 ::
 ::Step

@@ -13,9 +13,7 @@ Click :SourceCodeLink{component="Vee/Checkbox.vue"} to see the source code for t
 
 ## Installation
 
-```bash
-npx ui-thing@latest add vee-checkbox
-```
+:prose-pm-x{command="ui-thing@latest add vee-checkbox"}
 
 ## Usage
 

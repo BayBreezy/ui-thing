@@ -13,9 +13,7 @@ Click :SourceCodeLink{component="Vee/NumberField.vue"} to see the source code fo
 
 ## Installation
 
-```bash
-npx ui-thing@latest add vee-number-field
-```
+:prose-pm-x{command="ui-thing@latest add vee-number-field"}
 
 ## Usage
 

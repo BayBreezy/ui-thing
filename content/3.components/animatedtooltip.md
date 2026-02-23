@@ -1,7 +1,6 @@
 ---
 title: Animated Tooltip
 description: A group of animated tooltips that display on hover with smooth spring animations and dynamic positioning based on mouse movement.
-label: New
 links:
   - title: Inspira UI
     href: https://inspira-ui.com/docs/components/miscellaneous/animated-tooltip
@@ -11,6 +10,10 @@ links:
 ## Source code
 
 Click :SourceCodeLink{component="AnimatedTooltip.vue"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
+## Installation
+
+:prose-pm-x{command="ui-thing@latest add animated-tooltip"}
 
 ## Anatomy
 
@@ -35,10 +38,6 @@ Pass a list of `items` to the component. Each item should contain an image, titl
   ];
 </script>
 ```
-
-## Installation
-
-:prose-pm-x{command="ui-thing@latest add animated-tooltip"}
 
 ## Usage
 

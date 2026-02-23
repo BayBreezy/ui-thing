@@ -13,9 +13,7 @@ Click :SourceCodeLink{component="Vee/DateField.vue"} to see the source code for 
 
 ## Installation
 
-```bash
-npx ui-thing@latest add vee-date-field
-```
+:prose-pm-x{command="ui-thing@latest add vee-date-field"}
 
 ## Usage
 

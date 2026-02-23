@@ -13,9 +13,7 @@ Click :SourceCodeLink{component="Vee/FileInput.vue"} to see the source code for 
 
 ## Installation
 
-```bash
-npx ui-thing@latest add vee-file-input
-```
+:prose-pm-x{command="ui-thing@latest add vee-file-input"}
 
 ## Usage
 

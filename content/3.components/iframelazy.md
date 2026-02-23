@@ -8,7 +8,6 @@ links:
   - title: VueUse
     href: https://vueuse.org/core/useIntersectionObserver/
     icon: "logos:vue"
-label: New
 ---
 
 ## Source code

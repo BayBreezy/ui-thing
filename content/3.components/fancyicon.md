@@ -1,7 +1,6 @@
 ---
 title: Fancy Icon
 description: An icon with a nice background color.
-label: Updated
 ---
 
 ## Source code

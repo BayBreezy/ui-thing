@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Vee/Multiselect.vue"} to see the source code fo
 
 ## Installation
 
-```bash
-npx ui-thing@latest add vee-multi-select
-```
+:prose-pm-x{command="ui-thing@latest add vee-multi-select"}
 
 ## Usage
 

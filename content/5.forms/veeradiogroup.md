@@ -13,9 +13,7 @@ Click :SourceCodeLink{component="Vee/RadioGroup.vue"} to see the source code for
 
 ## Installation
 
-```bash
-npx ui-thing@latest add vee-radio-group
-```
+:prose-pm-x{command="ui-thing@latest add vee-radio-group"}
 
 ## Usage
 

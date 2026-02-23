@@ -9,9 +9,7 @@ Click :SourceCodeLink{component="Vee/NativeCheckbox.vue"} to see the source code
 
 ## Installation
 
-```bash
-npx ui-thing@latest add vee-native-checkbox
-```
+:prose-pm-x{command="ui-thing@latest add vee-native-checkbox"}
 
 ## Why?
 

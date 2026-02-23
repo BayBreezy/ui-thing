@@ -13,9 +13,7 @@ Click :SourceCodeLink{component="Vee/Textarea.vue"} to see the source code for t
 
 ## Installation
 
-```bash
-npx ui-thing@latest add vee-textarea
-```
+:prose-pm-x{command="ui-thing@latest add vee-textarea"}
 
 ## Usage
 

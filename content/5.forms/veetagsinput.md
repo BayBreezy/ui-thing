@@ -13,9 +13,7 @@ Click :SourceCodeLink{component="Vee/TagsInput.vue"} to see the source code for 
 
 ## Installation
 
-```bash
-npx ui-thing@latest add vee-tags-input
-```
+:prose-pm-x{command="ui-thing@latest add vee-tags-input"}
 
 ## Usage
 

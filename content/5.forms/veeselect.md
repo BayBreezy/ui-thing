@@ -13,9 +13,7 @@ Click :SourceCodeLink{component="Vee/Select.vue"} to see the source code for thi
 
 ## Installation
 
-```bash
-npx ui-thing@latest add vee-select
-```
+:prose-pm-x{command="ui-thing@latest add vee-select"}
 
 ## Usage
 

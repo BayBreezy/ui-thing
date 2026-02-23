@@ -1,7 +1,6 @@
 ---
 title: Icon
 description: A versatile icon component that supports Iconify icons, emojis, and custom images with automatic detection.
-label: New
 links:
   - title: Iconify
     href: https://iconify.design/

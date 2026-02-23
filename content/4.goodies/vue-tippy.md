@@ -20,9 +20,7 @@ links:
 
 Run the command below to install the Vue Tippy package.
 
-```bash
-npm install vue-tippy@v6
-```
+:prose-pm-install{name="vue-tippy@v6"}
 
 </Step>
 

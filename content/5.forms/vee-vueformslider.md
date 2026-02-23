@@ -16,9 +16,7 @@ Click :SourceCodeLink{component="Vee/VueFormSlider.vue"} to see the source code 
 
 ## Installation
 
-```bash
-npx ui-thing@latest add vee-vue-form-slider
-```
+:prose-pm-x{command="ui-thing@latest add vee-vue-form-slider"}
 
 ## Usage
 

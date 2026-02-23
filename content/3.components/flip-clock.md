@@ -1,7 +1,6 @@
 ---
 title: Flip Clock
 description: Animated split-flap clock that supports live time and countdown modes.
-label: New
 ---
 
 ## Source code

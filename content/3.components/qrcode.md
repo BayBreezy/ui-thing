@@ -1,7 +1,6 @@
 ---
 title: QR Code
 description: A component for generating and displaying QR codes with customizable styling and frame handles.
-label: New
 ---
 
 ## Source code

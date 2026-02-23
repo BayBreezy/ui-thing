@@ -13,15 +13,13 @@ Click :SourceCodeLink{component="Vee/CurrencyInput.vue"} to see the source code 
 
 ## Installation
 
-```bash
-npx ui-thing@latest add vee-currency-input
-```
+:prose-pm-x{command="ui-thing@latest add vee-currency-input"}
 
 ## Usage
 
 ### User form
 
-In the form below, we are using the `useForm` composition function provided by Vee-Validate to handle the form submission and validation. The `useForm` composable accepts a `validationSchema` option that we can use to define our validation rules. We are using the `zod` library to define our validation rules. You can use any validation library you want as long as it is supported by Vee-Validate and can be passed to the `toTypedSchema` function.
+In the form below, we are using the `useForm` composition function provided by Vee-Validate to handle the form submission and validation. The `useForm` composable accepts a `validationSchema` option that we can use to define our validation rules. We are using the `yup` library to define our validation rules. You can use any validation library you want as long as it is supported by Vee-Validate and can be passed to the `toTypedSchema` function.
 
 ::ShowCase
 

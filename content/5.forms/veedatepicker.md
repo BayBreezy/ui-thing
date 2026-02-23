@@ -13,9 +13,7 @@ Click :SourceCodeLink{component="Vee/Datepicker.vue"} to see the source code for
 
 ## Installation
 
-```bash
-npx ui-thing@latest add vee-datepicker
-```
+:prose-pm-x{command="ui-thing@latest add vee-datepicker"}
 
 ## Usage
 

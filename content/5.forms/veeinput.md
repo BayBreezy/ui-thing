@@ -13,9 +13,7 @@ Click :SourceCodeLink{component="Vee/Input.vue"} to see the source code for this
 
 ## Installation
 
-```bash
-npx ui-thing@latest add vee-input
-```
+:prose-pm-x{command="ui-thing@latest add vee-input"}
 
 ## Usage
 
