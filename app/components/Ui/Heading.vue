@@ -5,6 +5,7 @@
 </template>
 
 <script lang="ts">
+  import { Primitive } from "reka-ui";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 
