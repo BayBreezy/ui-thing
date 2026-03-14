@@ -3,7 +3,7 @@
 
 @source "../../../content/";
 
-@config "../../../tailwind.config.js";
+@config "../../../tailwind.config.cjs";
 
 @plugin "@tailwindcss/typography";
 
