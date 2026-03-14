@@ -219,6 +219,7 @@ export default defineNuxtConfig({
     highlight: { langs, theme, noApiRoute: false },
   },
   content: {
+    experimental: { sqliteConnector: "native" },
     build: {
       markdown: {
         toc: { depth: 4, searchDepth: 4 },

@@ -15,7 +15,6 @@
         >
           <div class="relative">
             {{ l.title }}
-            <!-- width should be same size as title -->
             <div
               class="absolute bottom-0 left-0 h-px w-full bg-linear-to-r from-transparent via-primary to-transparent group-hover:scale-x-100"
               :class="[
