@@ -29,6 +29,7 @@ export default [
       "AlertDialog/Description.vue",
       "AlertDialog/Footer.vue",
       "AlertDialog/Header.vue",
+      "AlertDialog/Media.vue",
       "AlertDialog/Overlay.vue",
       "AlertDialog/Portal.vue",
       "AlertDialog/Title.vue",
@@ -73,7 +74,14 @@ export default [
   {
     name: "Avatar",
     value: "avatar",
-    files: ["Avatar/Avatar.vue", "Avatar/Fallback.vue", "Avatar/Image.vue"],
+    files: [
+      "Avatar/Avatar.vue",
+      "Avatar/Fallback.vue",
+      "Avatar/Image.vue",
+      "Avatar/Badge.vue",
+      "Avatar/Group.vue",
+      "Avatar/GroupCount.vue",
+    ],
     docsPath: "/components/avatar",
   },
   {
