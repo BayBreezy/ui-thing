@@ -12,7 +12,6 @@
   import { buttonStyles } from "~/components/Ui/Button.vue";
   import { AlertDialogAction } from "reka-ui";
   import type { AlertDialogActionProps } from "reka-ui";
-  import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(
     defineProps<
@@ -22,7 +21,7 @@
         /** Text to display in the button */
         text?: string;
         /** Custom class(es) to add to the button */
-        class?: HTMLAttributes["class"];
+        class?: any;
         /** Whether the button is disabled */
         disabled?: boolean;
         /** The button's visual variant */

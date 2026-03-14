@@ -5,6 +5,7 @@
     </slot>
     <AlertDialogContent
       data-slot="alert-dialog-content"
+      :data-size="props.size"
       :class="styles({ class: props.class })"
       v-bind="{ ...forwarded, ...$attrs }"
     >
@@ -20,18 +21,27 @@
 
   defineOptions({ inheritAttrs: false });
 
-  const props = defineProps<
-    AlertDialogContentProps & {
-      /** Custom class(es) to add to the `AlertDialogContent` */
-      class?: HTMLAttributes["class"];
-      /** The element to render the portal into */
-      to?: string | HTMLElement;
+  const props = withDefaults(
+    defineProps<
+      AlertDialogContentProps & {
+        /** Custom class(es) to add to the `AlertDialogContent` */
+        class?: HTMLAttributes["class"];
+        /** The element to render the portal into */
+        to?: string | HTMLElement;
+        /** The size of the alert dialog content */
+        size?: "default" | "sm" | "lg";
+      }
+    >(),
+    {
+      size: "default",
     }
-  >();
+  );
   const emit = defineEmits<AlertDialogContentEmits>();
   const forwarded = useForwardPropsEmits(reactiveOmit(props, "class", "to"), emit);
 
   const styles = tv({
-    base: "fixed top-[50%] left-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border bg-background p-6 shadow-lg duration-200 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 md:w-full",
+    base: [
+      "group/alert-dialog-content fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-background p-4 ring-1 ring-foreground/10 duration-200 outline-none data-[size=default]:max-w-xs data-[size=sm]:max-w-xs data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-90 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-90 data-[size=default]:sm:max-w-sm",
+    ],
   });
 </script>
