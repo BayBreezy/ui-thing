@@ -69,7 +69,7 @@
     ogUrl: `${SITE_URL}${route.path}`,
   });
 
-  defineOgImageComponent("UIThing", {
+  defineOgImage("UIThing", {
     title: page?.title,
     description: page?.description,
   });

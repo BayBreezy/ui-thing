@@ -30,7 +30,7 @@
   import Playground from "~/examples/playground/Playground.vue";
 
   definePageMeta({ layout: "home" });
-  defineOgImageComponent("UIThing", {
+  defineOgImage("UIThing", {
     title: "Beautiful Nuxt Components",
     description: "Discover a collection of stunning UI components for your next Nuxt project.",
   });

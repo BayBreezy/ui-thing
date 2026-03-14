@@ -27,7 +27,7 @@
     twitterDescription: page?.description,
     twitterCard: "summary_large_image",
   });
-  defineOgImageComponent("UIThing", {
+  defineOgImage("UIThing", {
     title: page?.title,
     description: page?.description,
   });
