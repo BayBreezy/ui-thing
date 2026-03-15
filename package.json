@@ -163,7 +163,7 @@
     "@vueuse/nuxt": "^14.2.1",
     "eslint": "^10.0.3",
     "husky": "^9.1.7",
-    "lint-staged": "^16.3.4",
+    "lint-staged": "^16.4.0",
     "nuxt": "4.4.2",
     "nuxt-email-renderer": "^2.5.5",
     "nuxt-gtag": "^4.1.0",
