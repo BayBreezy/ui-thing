@@ -49,7 +49,7 @@
     "@morev/vue-transitions": "^3.0.5",
     "@nuxt/content": "3.12.0",
     "@tailwindcss/vite": "^4.2.1",
-    "@takumi-rs/core": "^0.73.0",
+    "@takumi-rs/core": "^0.73.1",
     "@tanstack/vue-table": "^8.21.3",
     "@tiptap/extension-color": "^3.20.1",
     "@tiptap/extension-highlight": "^3.20.1",
