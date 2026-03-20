@@ -3,7 +3,7 @@ import { z } from "zod";
 
 export default defineMcpTool({
   description:
-    "Compatibility alias for get-install-plan. Build a single install plan for mixed components, blocks, and prose selections.",
+    "Build one normalized install plan for a mixed set of UI Thing components, blocks, or prose components.",
   inputSchema: {
     items: z.array(z.string()).min(1).describe("Component, block, or prose selections to include."),
     packageManager: z
@@ -20,15 +20,9 @@ export default defineMcpTool({
   },
   cache: {
     maxAge: "10m",
-    getKey: (args) => `validate-${args.packageManager}-${args.items.sort().join(",")}`,
+    getKey: (args) => `install-plan-${args.packageManager}-${args.items.sort().join(",")}`,
   },
   async handler({ items, packageManager = "npm" }) {
-    return jsonResult(
-      {
-        aliasOf: "get-install-plan",
-        ...buildInstallPlan(items, packageManager),
-      },
-      true
-    );
+    return jsonResult(buildInstallPlan(items, packageManager), true);
   },
 });

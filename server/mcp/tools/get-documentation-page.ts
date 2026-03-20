@@ -1,53 +1,46 @@
+import { getDocumentationContext } from "~~/server/mcp/utils/library";
 import { z } from "zod";
 
 export default defineMcpTool({
   description:
-    "Retrieves the complete markdown documentation content for any page in the UI Thing documentation. Returns raw markdown with frontmatter, examples, installation instructions, usage guidelines, props tables, and code snippets. Use this to get detailed human-readable documentation for components, blocks, or guides.",
+    "Fetch the exact markdown content for a UI Thing documentation page by its absolute docs path.",
   inputSchema: {
     path: z
       .string()
       .min(1)
       .regex(/^\//, "Path must start with /")
-      .describe(
-        "The absolute URL path to the documentation page (e.g., '/components/button', '/getting-started/setup', '/blocks/hero-section'). Must start with /. Use list-documentation-pages to discover available paths."
-      ),
-  },
-  outputSchema: {
-    content: z.string(),
-    path: z.string(),
+      .describe("Absolute documentation path, such as '/components/button' or '/blocks/hero'."),
   },
   annotations: {
-    readOnlyHint: true, // Safe, read-only operation
-    destructiveHint: false, // No modifications
-    idempotentHint: true, // Same path = same content
-    openWorldHint: false, // Uses local content files
+    readOnlyHint: true,
+    destructiveHint: false,
+    idempotentHint: true,
+    openWorldHint: false,
   },
-  cache: "30m", // Cache documentation for 30 minutes
+  cache: "30m",
   async handler({ path }) {
-    try {
-      // Normalize path - ensure it starts with /
-      const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+    const documentation = await getDocumentationContext(useEvent(), path);
 
-      const result = await $fetch<string>(`/api/md${normalizedPath}`);
-
-      // Return as text content (markdown)
-      return {
-        content: [
-          {
-            type: "text" as const,
-            text: result,
-          },
-        ],
-        // Add structured metadata
-        structuredContent: {
-          content: result,
-          path: normalizedPath,
-        },
-      };
-    } catch (error: any) {
+    if (!documentation) {
       return errorResult(
-        `Failed to fetch documentation page "${path}": ${error.message || error}. Verify the path exists using list-documentation-pages tool.`
+        `Documentation page '${path}' not found. Use list-documentation-pages or search-documentation-pages first.`
       );
     }
+
+    return {
+      content: [
+        {
+          type: "text" as const,
+          text: documentation.markdown,
+        },
+      ],
+      structuredContent: {
+        path: documentation.page.path,
+        title: documentation.page.title,
+        description: documentation.page.description,
+        section: documentation.page.section,
+        content: documentation.markdown,
+      },
+    };
   },
 });

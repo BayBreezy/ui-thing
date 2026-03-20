@@ -1,33 +1,25 @@
+import { listComponentSummaries } from "~~/server/mcp/utils/library";
+
 export default defineMcpTool({
   description:
-    "Returns a comprehensive list of all 60+ accessible UI components built on Reka UI primitives. Includes form controls (inputs, selects, checkboxes, radio groups), navigation (breadcrumbs, tabs, menus, command palettes), data display (tables, cards, badges, avatars), overlays (dialogs, drawers, popovers, tooltips), feedback (alerts, toasts, progress), and specialized components (calendars, date pickers, charts, carousels). Each component includes full TypeScript-enabled Vue SFC source code, composables, plugins, utils, styling with tailwind-variants, accessibility features, dark mode support, and keyboard navigation. Use this first to discover available component names before calling get-component for full details.",
-
+    "List UI Thing components as a slim discovery index with exact names, install values, docs paths, categories, and dependency counts.",
   annotations: {
-    readOnlyHint: true, // Safe, no side effects
-    destructiveHint: false, // Never modifies anything
-    idempotentHint: true, // Always same result
-    openWorldHint: false, // Local data only
+    readOnlyHint: true,
+    destructiveHint: false,
+    idempotentHint: true,
+    openWorldHint: false,
   },
-  cache: "1h", // Cache for 1 hour
+  cache: "1h",
   async handler() {
-    // Categorize components by type
-    const categories = [
-      "Form Controls",
-      "Navigation",
-      "Data Display",
-      "Overlays & Modals",
-      "Feedback",
-      "Layout",
-      "Specialized",
-    ];
+    const components = listComponentSummaries();
 
     return jsonResult(
       {
-        components: comp,
-        totalCount: comp.length,
-        categories,
+        totalCount: components.length,
+        categories: [...new Set(components.map((component) => component.category))],
+        components,
       },
       true
-    ); // Pretty print
+    );
   },
 });

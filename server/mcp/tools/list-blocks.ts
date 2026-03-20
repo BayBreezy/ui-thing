@@ -1,33 +1,25 @@
+import { listBlockSummaries } from "~~/server/mcp/utils/library";
+
 export default defineMcpTool({
   description:
-    "Returns a complete list of all 100+ pre-built UI blocks available in UI Thing. Each block includes full Vue SFC source code, required components, dependencies, installation commands, and usage examples. Blocks are categorized sections like headers, heroes, features, testimonials, CTAs, footers, pricing, FAQs, contact forms, team sections, stats, and more. Use this to discover available blocks before fetching specific ones.",
-
+    "List UI Thing blocks as a slim discovery index with exact names, identifiers, docs paths, categories, and dependency counts.",
   annotations: {
-    readOnlyHint: true, // Safe read-only operation
-    destructiveHint: false, // No modifications
-    idempotentHint: true, // Always returns the same list
-    openWorldHint: false, // Uses local data only
+    readOnlyHint: true,
+    destructiveHint: false,
+    idempotentHint: true,
+    openWorldHint: false,
   },
-  cache: "1h", // Cache for 1 hour - blocks don't change often
+  cache: "1h",
   async handler() {
-    // Extract unique categories from block names
-    const categories = [
-      ...new Set(
-        blockExamples.map((block) => {
-          // Extract category from name (e.g., "Header 1" -> "Header")
-          const match = block.name.match(/^([A-Za-z\s]+)\s*\d*$/);
-          return match ? match[1].trim() : "Other";
-        })
-      ),
-    ];
+    const blocks = listBlockSummaries();
 
     return jsonResult(
       {
-        blocks: blockExamples,
-        totalCount: blockExamples.length,
-        categories: categories.sort(),
+        totalCount: blocks.length,
+        categories: [...new Set(blocks.map((block) => block.category))],
+        blocks,
       },
       true
-    ); // Pretty print
+    );
   },
 });
