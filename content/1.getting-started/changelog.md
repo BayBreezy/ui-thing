@@ -3,6 +3,12 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## March 20, 2026
+
+### Component Updates
+
+- [**Sidebar**](/components/sidebar): Fixed an issue where the `SidebarProvider` was not persisting the open or closed state correctly with cookies. The provider now restores the saved state properly and keeps the cookie in sync with controlled updates.
+
 ## January 24, 2026
 
 ### New Component

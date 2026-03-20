@@ -46,10 +46,10 @@
   );
 
   // This sets the cookie to keep the sidebar state.
-  const SIDEBAR_COOKIE = useCookie<boolean>(SIDEBAR_COOKIE_NAME, {
+  const sidebarCookie = useCookie<boolean | undefined>(SIDEBAR_COOKIE_NAME, {
     path: "/",
     maxAge: SIDEBAR_COOKIE_MAX_AGE,
-    default: () => false,
+    default: () => undefined,
   });
 
   const emits = defineEmits<{ "update:open": [open: boolean] }>();
@@ -57,15 +57,17 @@
   const isMobile = useMediaQuery("(max-width: 768px)");
   const openMobile = ref(false);
 
+  const initialOpen = computed(() => sidebarCookie.value ?? props.defaultOpen);
+
   const open = useVModel(props, "open", emits, {
-    defaultValue: props.defaultOpen ? props.defaultOpen : SIDEBAR_COOKIE.value,
+    defaultValue: initialOpen.value,
     passive: (props.open === undefined) as false,
   }) as Ref<boolean>;
 
   function setOpen(value: MaybeRefOrGetter<boolean>) {
     value = toValue(value);
     open.value = value; // emits('update:open', value)
-    SIDEBAR_COOKIE.value = value;
+    sidebarCookie.value = value;
   }
 
   function setOpenMobile(value: MaybeRefOrGetter<boolean>) {
@@ -88,6 +90,10 @@
   // We add a state so that we can do data-state="expanded" or "collapsed".
   // This makes it easier to style the sidebar with Tailwind classes.
   const state = computed(() => (open.value ? "expanded" : "collapsed"));
+
+  watch(open, (value) => {
+    sidebarCookie.value = value;
+  });
 
   provideSidebarContext({
     state,
