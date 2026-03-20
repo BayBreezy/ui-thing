@@ -1,9 +1,14 @@
 <template>
-  <component :is="Component" ref="elementRef" :class="styles({ class: props.class })">
+  <component
+    :is="Component"
+    ref="elementRef"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     {{ displayedText }}
   </component>
 </template>
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { SequenceContextValue } from "./Terminal.vue";
   import type { MotionProps } from "motion-v";
   import type { PrimitiveProps } from "reka-ui";

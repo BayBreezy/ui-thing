@@ -1,11 +1,16 @@
 <template>
-  <TabsList data-slot="tabs-list" :class="styles({ pill, class: props.class })" v-bind="forwarded">
+  <TabsList
+    data-slot="tabs-list"
+    :class="styles({ pill, class: normalizeClass(props.class) || undefined })"
+    v-bind="forwarded"
+  >
     <slot />
   </TabsList>
 </template>
 
 <script lang="ts" setup>
   import { TabsList } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { TabsListProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

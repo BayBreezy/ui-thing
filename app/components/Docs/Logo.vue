@@ -1,6 +1,6 @@
 <template>
   <svg
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     viewBox="0 0 475 594"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -20,6 +20,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<{

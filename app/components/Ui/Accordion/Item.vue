@@ -3,7 +3,7 @@
     v-slot="slotProps"
     data-slot="accordion-item"
     v-bind="forwarded"
-    :class="accordionItemStyle({ class: props.class })"
+    :class="accordionItemStyle({ class: normalizeClass(props.class) || undefined })"
   >
     <slot v-bind="slotProps" />
   </AccordionItem>
@@ -11,6 +11,7 @@
 
 <script lang="ts">
   import { AccordionItem } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { AccordionItemProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

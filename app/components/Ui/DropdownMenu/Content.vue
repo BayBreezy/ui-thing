@@ -3,7 +3,7 @@
     <DropdownMenuContent
       data-slot="dropdown-menu-content"
       v-bind="{ ...forwarded, ...$attrs }"
-      :class="styles({ class: props.class })"
+      :class="styles({ class: normalizeClass(props.class) || undefined })"
     >
       <slot />
     </DropdownMenuContent>
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { DropdownMenuContent, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { DropdownMenuContentEmits, DropdownMenuContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

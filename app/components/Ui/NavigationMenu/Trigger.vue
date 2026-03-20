@@ -2,7 +2,7 @@
   <NavigationMenuTrigger
     data-slot="navigation-menu-trigger"
     v-bind="forwarded"
-    :class="navigationMenuTriggerStyle({ class: props.class })"
+    :class="navigationMenuTriggerStyle({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>{{ title }}</slot>
     <slot name="icon">
@@ -17,6 +17,7 @@
 
 <script lang="ts">
   import { NavigationMenuTrigger } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { NavigationMenuTriggerProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

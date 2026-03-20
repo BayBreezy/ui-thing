@@ -8,6 +8,7 @@ description: See what has changed recently in UI Thing.
 ### Component Updates
 
 - [**Sidebar**](/components/sidebar): Fixed an issue where the `SidebarProvider` was not persisting the open or closed state correctly with cookies. The provider now restores the saved state properly and keeps the cookie in sync with controlled updates.
+- **Class Overrides**: Updated component and prose style builders to normalize Vue class bindings with `normalizeClass(...)` before passing them into `tv()`. This removes the TypeScript errors introduced by the recent Vue class type change without narrowing the public `class` prop API.
 
 ## January 24, 2026
 

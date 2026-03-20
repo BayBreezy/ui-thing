@@ -3,13 +3,14 @@
     v-bind="forwarded"
     data-slot="button-group-separator"
     :orientation="orientation"
-    :class="buttonGroupSeparatorStyles({ class: props.class })"
+    :class="buttonGroupSeparatorStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </UiSeparator>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const buttonGroupSeparatorStyles = tv({

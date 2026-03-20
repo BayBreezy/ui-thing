@@ -1,10 +1,11 @@
 <template>
-  <th data-slot="prose-th" :class="proseThStyles({ class: _class })">
+  <th data-slot="prose-th" :class="proseThStyles({ class: normalizeClass(_class) || undefined })">
     <slot />
   </th>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type ProseThProps = {

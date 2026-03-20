@@ -1,11 +1,16 @@
 <template>
-  <SwitchThumb data-slot="switch-thumb" :class="styles({ class: props.class })" v-bind="forwarded">
+  <SwitchThumb
+    data-slot="switch-thumb"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+    v-bind="forwarded"
+  >
     <slot />
   </SwitchThumb>
 </template>
 
 <script lang="ts" setup>
   import { SwitchThumb } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SwitchThumbProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

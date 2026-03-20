@@ -2,7 +2,7 @@
   <RadioGroupRoot
     data-slot="radio-group"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </RadioGroupRoot>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { RadioGroupRoot, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { RadioGroupRootEmits, RadioGroupRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

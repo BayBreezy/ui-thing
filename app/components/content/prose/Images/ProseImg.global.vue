@@ -5,7 +5,7 @@
       :alt
       :width
       :height
-      :class="proseImgStyles({ lifted, zoom, class: props.class })"
+      :class="proseImgStyles({ lifted, zoom, class: normalizeClass(props.class) || undefined })"
     />
   </DefineImg>
 
@@ -47,6 +47,7 @@
     DialogTrigger,
   } from "reka-ui";
   import { joinURL, withLeadingSlash, withTrailingSlash } from "ufo";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type ProseImgProps = {

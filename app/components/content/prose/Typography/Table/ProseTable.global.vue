@@ -1,5 +1,5 @@
 <template>
-  <div :class="proseTableStyles({ class: _class })">
+  <div :class="proseTableStyles({ class: normalizeClass(_class) || undefined })">
     <table class="relative mt-0 mb-0 w-full overflow-hidden border-none" data-slot="prose-table">
       <slot />
     </table>
@@ -7,6 +7,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type ProseTableProps = {

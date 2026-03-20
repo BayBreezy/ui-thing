@@ -1,5 +1,5 @@
 <template>
-  <div :class="styles.root({ class: [props.class], open })">
+  <div :class="styles.root({ class: normalizeClass([props.class]) || undefined, open })">
     <slot />
     <div :class="styles.footer({ open })">
       <button
@@ -23,6 +23,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export interface ProseCodeCollapseProps {

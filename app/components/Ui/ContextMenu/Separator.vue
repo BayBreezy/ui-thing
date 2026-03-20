@@ -1,13 +1,14 @@
 <template>
   <ContextMenuSeparator
     data-slot="context-menu-separator"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="props"
   />
 </template>
 
 <script lang="ts" setup>
   import { ContextMenuSeparator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ContextMenuSeparatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

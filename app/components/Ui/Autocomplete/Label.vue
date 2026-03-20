@@ -1,7 +1,7 @@
 <template>
   <ComboboxLabel
     data-slot="autocomplete-label"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="props"
   >
     <slot />
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { ComboboxLabel } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ComboboxLabelProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

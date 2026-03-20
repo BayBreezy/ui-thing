@@ -1,10 +1,14 @@
 <template>
-  <thead data-slot="table-header" :class="styles({ class: props.class })">
+  <thead
+    data-slot="table-header"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot />
   </thead>
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<{

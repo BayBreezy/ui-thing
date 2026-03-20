@@ -3,13 +3,14 @@
     data-slot="nav-provider"
     :data-state="open ? 'open' : 'closed'"
     v-bind="forwarded"
-    :class="navProviderStyles({ class: props.class })"
+    :class="navProviderStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </Primitive>
 </template>
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes, ModelRef } from "vue";
 

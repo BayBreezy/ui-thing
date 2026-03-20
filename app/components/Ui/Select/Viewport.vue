@@ -1,7 +1,7 @@
 <template>
   <SelectViewport
     data-slot="select-viewport"
-    :class="styles({ position, class: props.class })"
+    :class="styles({ position, class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   >
     <slot />
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { SelectViewport } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SelectViewportProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

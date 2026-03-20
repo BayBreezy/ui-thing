@@ -2,7 +2,9 @@
   <AlertDialogAction
     data-slot="alert-dialog-action"
     v-bind="forwarded"
-    :class="buttonStyles({ variant, size, disabled, class: props.class })"
+    :class="
+      buttonStyles({ variant, size, disabled, class: normalizeClass(props.class) || undefined })
+    "
   >
     <slot>{{ text }} </slot>
   </AlertDialogAction>
@@ -11,6 +13,7 @@
 <script lang="ts" setup>
   import { buttonStyles } from "~/components/Ui/Button.vue";
   import { AlertDialogAction } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { AlertDialogActionProps } from "reka-ui";
 
   const props = withDefaults(

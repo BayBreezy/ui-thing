@@ -1,5 +1,8 @@
 <template>
-  <SplitterResizeHandle v-bind="forwarded" :class="styles({ class: props.class })">
+  <SplitterResizeHandle
+    v-bind="forwarded"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot>
       <div
         v-if="withHandle"
@@ -13,6 +16,7 @@
 
 <script lang="ts" setup>
   import { SplitterResizeHandle, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SplitterResizeHandleEmits, SplitterResizeHandleProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

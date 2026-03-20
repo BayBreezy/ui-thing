@@ -1,7 +1,7 @@
 <template>
   <Separator
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     data-slot="command-separator"
     cmdk-separator
   >
@@ -12,6 +12,7 @@
 <script setup lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { Separator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SeparatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

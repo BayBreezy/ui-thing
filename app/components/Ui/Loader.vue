@@ -5,9 +5,14 @@
       :initial="{ opacity: 0 }"
       :animate="{ opacity: 1 }"
       :exit="{ opacity: 0, scale: 0.95 }"
-      :class="loaderStyles().backdrop({ class: backdropClass, fullPage })"
+      :class="
+        loaderStyles().backdrop({ class: normalizeClass(backdropClass) || undefined, fullPage })
+      "
     >
-      <Icon :class="loaderStyles().icon({ class: props.class })" :name="props.icon" />
+      <Icon
+        :class="loaderStyles().icon({ class: normalizeClass(props.class) || undefined })"
+        :name="props.icon"
+      />
       <slot :open>{{ text }}</slot>
     </motion.div>
     <motion.div
@@ -16,9 +21,17 @@
       :exit="{ opacity: 0 }"
       :animate="{ opacity: 1 }"
       :transition="{ duration: 0.5 }"
-      :class="loaderStyles().backdrop({ class: props.backdropClass, fullPage })"
+      :class="
+        loaderStyles().backdrop({
+          class: normalizeClass(props.backdropClass) || undefined,
+          fullPage,
+        })
+      "
     >
-      <Icon :class="loaderStyles().icon({ class: props.class })" :name="props.icon" />
+      <Icon
+        :class="loaderStyles().icon({ class: normalizeClass(props.class) || undefined })"
+        :name="props.icon"
+      />
       <slot :open>{{ text }}</slot>
     </motion.div>
   </AnimatePresence>
@@ -28,6 +41,7 @@
   import { useMagicKeys } from "@vueuse/core";
   import { AnimatePresence, motion } from "motion-v";
   import { useBodyScrollLock } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HtmlHTMLAttributes } from "vue";
 

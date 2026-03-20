@@ -3,7 +3,7 @@
     <ContextMenuContent
       data-slot="context-menu-content"
       v-bind="{ ...forwarded, ...$attrs }"
-      :class="styles({ class: props.class })"
+      :class="styles({ class: normalizeClass(props.class) || undefined })"
     >
       <slot />
     </ContextMenuContent>
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { ContextMenuContent, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ContextMenuContentEmits, ContextMenuContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div :class="nativeCheckboxStyles().wrapper({ class: props.wrapperClass })">
+    <div
+      :class="
+        nativeCheckboxStyles().wrapper({ class: normalizeClass(props.wrapperClass) || undefined })
+      "
+    >
       <input
         :id="inputId"
         :checked="checked"
@@ -15,7 +19,7 @@
             disabled,
             size,
             color,
-            class: props.class,
+            class: normalizeClass(props.class) || undefined,
           })
         "
         v-bind="{ ...forwarded, ...$attrs }"
@@ -30,14 +34,24 @@
         <slot name="label">
           <span
             v-if="label"
-            :class="nativeCheckboxStyles().label({ disabled, class: props.labelClass })"
+            :class="
+              nativeCheckboxStyles().label({
+                disabled,
+                class: normalizeClass(props.labelClass) || undefined,
+              })
+            "
             >{{ label }}</span
           >
         </slot>
         <slot name="description">
           <span
             v-if="description"
-            :class="nativeCheckboxStyles().description({ disabled, class: props.descriptionClass })"
+            :class="
+              nativeCheckboxStyles().description({
+                disabled,
+                class: normalizeClass(props.descriptionClass) || undefined,
+              })
+            "
             >{{ description }}</span
           >
         </slot>
@@ -62,6 +76,7 @@
 <script lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { motion } from "motion-v";
+  import { normalizeClass } from "vue";
   import type { VariantProps } from "tailwind-variants";
   import type { HTMLAttributes } from "vue";
 

@@ -2,7 +2,7 @@
   <TagsInputItemDelete
     data-slot="tags-input-item-delete"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       <Icon v-if="icon" :name="icon" class="m-auto size-3" />
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { TagsInputItemDelete } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { TagsInputItemDeleteProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

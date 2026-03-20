@@ -2,13 +2,14 @@
   <UiTextarea
     v-bind="forwarded"
     data-slot="input-group-textarea"
-    :class="inputGroupTextareaStyles({ class: props.class })"
+    :class="inputGroupTextareaStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </UiTextarea>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { TextareaProps } from "@/components/Ui/Textarea.vue";
 
   const inputGroupTextareaStyles = tv({

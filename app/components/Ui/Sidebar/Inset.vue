@@ -1,9 +1,13 @@
 <template>
-  <main data-slot="sidebar-inset" :class="sideBarInsetStyles({ class: props.class })">
+  <main
+    data-slot="sidebar-inset"
+    :class="sideBarInsetStyles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot />
   </main>
 </template>
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const sideBarInsetStyles = tv({

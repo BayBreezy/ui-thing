@@ -2,7 +2,7 @@
   <ListboxContent
     data-slot="listbox-content"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </ListboxContent>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { ListboxContent, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ListboxContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

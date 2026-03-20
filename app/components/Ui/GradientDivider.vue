@@ -1,9 +1,13 @@
 <template>
-  <Separator v-bind="forwarded" :class="styles({ class: props.class })" />
+  <Separator
+    v-bind="forwarded"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  />
 </template>
 
 <script lang="ts" setup>
   import { Separator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SeparatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

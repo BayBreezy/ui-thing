@@ -2,14 +2,23 @@
   <div
     v-if="shown"
     data-slot="alert"
-    :class="alertStyles().base({ variant, filled, class: props.class })"
+    :class="
+      alertStyles().base({ variant, filled, class: normalizeClass(props.class) || undefined })
+    "
   >
     <slot :props="props" name="icon">
       <Icon
         v-if="icon"
         data-slot="alert-icon"
         :name="icon"
-        :class="alertStyles().icon({ variant, filled, class: props.iconClass, hasTitle })"
+        :class="
+          alertStyles().icon({
+            variant,
+            filled,
+            class: normalizeClass(props.iconClass) || undefined,
+            hasTitle,
+          })
+        "
       />
     </slot>
     <div data-slot="alert-content" :class="alertStyles().content({ variant, filled })">
@@ -26,6 +35,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type AlertProps = {

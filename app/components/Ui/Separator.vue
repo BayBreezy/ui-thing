@@ -2,12 +2,13 @@
   <Separator
     data-slot="separator"
     v-bind="forwarded"
-    :class="styles({ orientation, class: props.class })"
+    :class="styles({ orientation, class: normalizeClass(props.class) || undefined })"
   />
 </template>
 
 <script lang="ts">
   import { Separator, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SeparatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

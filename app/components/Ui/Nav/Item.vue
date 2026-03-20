@@ -2,7 +2,7 @@
   <NuxtLink
     v-bind="forwarded"
     data-slot="navbar-item"
-    :class="styles().wrapper({ class: props.class })"
+    :class="styles().wrapper({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
     <span data-navbar="current-indicator" :class="styles().indicator()" />
@@ -10,6 +10,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { NuxtLinkProps } from "#app";
   import type { HTMLAttributes } from "vue";
 

@@ -3,7 +3,7 @@
     data-slot="context-menu-sub-trigger"
     :data-inset="inset"
     v-bind="forwarded"
-    :class="styles({ inset, class: props.class })"
+    :class="styles({ inset, class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       <span v-if="title">{{ title }}</span>
@@ -14,6 +14,7 @@
 
 <script lang="ts" setup>
   import { ContextMenuSubTrigger } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ContextMenuSubTriggerProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

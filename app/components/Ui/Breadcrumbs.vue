@@ -1,5 +1,9 @@
 <template>
-  <nav data-slot="breadcrumb" aria-label="breadcrumb" :class="styles({ class: props.class })">
+  <nav
+    data-slot="breadcrumb"
+    aria-label="breadcrumb"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <template v-for="(item, i) in items" :key="i">
       <slot :name="item.slot || 'default'">
         <div data-slot="breadcrumb-item" class="flex items-center gap-3">
@@ -48,7 +52,9 @@
   </nav>
 </template>
 
-<script lang="ts"></script>
+<script lang="ts">
+  import { normalizeClass } from "vue";
+</script>
 
 <script setup lang="ts">
   import type { HTMLAttributes } from "vue";

@@ -1,11 +1,16 @@
 <template>
-  <SliderThumb data-slot="slider-thumb" :class="styles({ class: props.class })" v-bind="forwarded">
+  <SliderThumb
+    data-slot="slider-thumb"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+    v-bind="forwarded"
+  >
     <slot />
   </SliderThumb>
 </template>
 
 <script lang="ts" setup>
   import { SliderThumb } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SliderThumbProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

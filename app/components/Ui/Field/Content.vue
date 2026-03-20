@@ -3,13 +3,14 @@
     :as
     :as-child
     data-slot="field-content"
-    :class="fieldContentStyles({ class: props.class })"
+    :class="fieldContentStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </Primitive>
 </template>
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

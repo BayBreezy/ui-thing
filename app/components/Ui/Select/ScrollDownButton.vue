@@ -1,7 +1,7 @@
 <template>
   <SelectScrollDownButton
     data-slot="select-scroll-down-button"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   >
     <slot> <Icon :name="icon || 'lucide:chevron-down'" class="size-4" /></slot>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { SelectScrollDownButton } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SelectScrollDownButtonProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

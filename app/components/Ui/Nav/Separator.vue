@@ -1,8 +1,13 @@
 <template>
-  <UiSeparator orientation="vertical" v-bind="forwarded" :class="styles({ class: props.class })" />
+  <UiSeparator
+    orientation="vertical"
+    v-bind="forwarded"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  />
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<{

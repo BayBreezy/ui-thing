@@ -1,11 +1,16 @@
 <template>
-  <SliderTrack data-slot="slider-track" :class="styles({ class: props.class })" v-bind="forwarded">
+  <SliderTrack
+    data-slot="slider-track"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+    v-bind="forwarded"
+  >
     <slot />
   </SliderTrack>
 </template>
 
 <script lang="ts" setup>
   import { SliderTrack } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SliderTrackProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

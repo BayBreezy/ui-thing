@@ -1,5 +1,9 @@
 <template>
-  <PinInputRoot data-slot="pin-input" v-bind="forwarded" :class="styles({ class: props.class })">
+  <PinInputRoot
+    data-slot="pin-input"
+    v-bind="forwarded"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot>
       <template v-for="(input, k) in inputCount" :key="k">
         <UiPinInputInput :aria-invalid :index="k" />
@@ -13,6 +17,7 @@
 
 <script lang="ts" setup>
   import { PinInputRoot, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PinInputRootEmits, PinInputRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

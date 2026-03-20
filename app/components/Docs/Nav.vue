@@ -1,5 +1,5 @@
 <template>
-  <nav :class="styles({ class: props.class })">
+  <nav :class="styles({ class: normalizeClass(props.class) || undefined })">
     <template v-for="(l, i) in links" :key="i">
       <div v-if="!l.children" class="relative flex items-center gap-4">
         <NuxtLink
@@ -75,6 +75,7 @@
 
 <script lang="ts" setup>
   import { tv } from "tailwind-variants";
+  import { normalizeClass } from "vue";
   import type { ContentNavigationItem } from "@nuxt/content";
   import type { HTMLAttributes } from "vue";
 

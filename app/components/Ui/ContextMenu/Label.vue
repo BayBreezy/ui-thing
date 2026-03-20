@@ -2,7 +2,7 @@
   <ContextMenuLabel
     data-slot="context-menu-label"
     :data-inset="inset"
-    :class="styles({ inset, class: props.class })"
+    :class="styles({ inset, class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   >
     <slot>{{ label }}</slot>
@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
   import { ContextMenuLabel } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ContextMenuLabelProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

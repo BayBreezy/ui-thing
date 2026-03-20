@@ -1,11 +1,16 @@
 <template>
-  <SelectLabel data-slot="select-label" :class="styles({ class: props.class })" v-bind="forwarded">
+  <SelectLabel
+    data-slot="select-label"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+    v-bind="forwarded"
+  >
     <slot />
   </SelectLabel>
 </template>
 
 <script lang="ts" setup>
   import { SelectLabel } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SelectLabelProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

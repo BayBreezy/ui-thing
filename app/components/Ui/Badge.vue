@@ -1,7 +1,9 @@
 <template>
   <component
     :is="elementType"
-    :class="badgeVariants({ disabled, size, variant, class: props.class })"
+    :class="
+      badgeVariants({ disabled, size, variant, class: normalizeClass(props.class) || undefined })
+    "
     v-bind="forwarded"
     @click="onClick"
   >
@@ -12,6 +14,7 @@
 <script lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { NuxtLinkProps } from "#app/components";
   import type { HTMLAttributes } from "vue";
 </script>

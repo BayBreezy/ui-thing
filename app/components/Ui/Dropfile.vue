@@ -2,7 +2,7 @@
   <div
     ref="dropZoneRef"
     data-slot="dropfile"
-    :class="styles({ isOverDropZone, class: props.class })"
+    :class="styles({ isOverDropZone, class: normalizeClass(props.class) || undefined })"
     @click="open()"
   >
     <slot>
@@ -46,6 +46,7 @@
 </template>
 
 <script setup lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

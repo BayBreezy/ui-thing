@@ -1,5 +1,5 @@
 <template>
-  <figure :class="classes.base({ class: props.class })">
+  <figure :class="classes.base({ class: normalizeClass(props.class) || undefined })">
     <slot name="avatar" v-bind="slotProps">
       <UiAvatar v-bind="avatarProps" :class="classes.avatar()" />
     </slot>
@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { AvatarProps } from "@/components/Ui/Avatar/Avatar.vue";
 
   export type AvatarLabelGroupProps = AvatarProps & {

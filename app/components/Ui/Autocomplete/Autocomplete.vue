@@ -3,7 +3,7 @@
     v-slot="slotProps"
     data-slot="autocomplete"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot v-bind="slotProps" />
   </ComboboxRoot>
@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
   import { ComboboxRoot, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ComboboxRootEmits, ComboboxRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

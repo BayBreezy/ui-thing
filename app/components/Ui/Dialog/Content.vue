@@ -3,7 +3,7 @@
     <UiDialogOverlay />
     <DialogContent
       data-slot="dialog-content"
-      :class="styles({ class: props.class })"
+      :class="styles({ class: normalizeClass(props.class) || undefined })"
       v-bind="{ ...forwarded, ...$attrs }"
     >
       <slot>
@@ -34,6 +34,7 @@
 
 <script lang="ts" setup>
   import { DialogContent, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { DialogContentEmits, DialogContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

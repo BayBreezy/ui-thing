@@ -1,13 +1,14 @@
 <template>
   <SelectSeparator
     data-slot="select-separator"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   />
 </template>
 
 <script lang="ts" setup>
   import { SelectSeparator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SelectSeparatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

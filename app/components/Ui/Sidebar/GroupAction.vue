@@ -4,13 +4,14 @@
     data-slot="sidebar-group-action"
     :as="as"
     :as-child="asChild"
-    :class="sideBarGroupActionStyles({ class: props.class })"
+    :class="sideBarGroupActionStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </Primitive>
 </template>
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

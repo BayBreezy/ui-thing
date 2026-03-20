@@ -2,7 +2,7 @@
   <RadioGroupItem
     data-slot="radio-group-item"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       <UiRadioGroupIndicator :icon="props.icon" />
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { RadioGroupItem } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { RadioGroupItemProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

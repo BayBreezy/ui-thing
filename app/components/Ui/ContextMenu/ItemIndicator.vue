@@ -1,5 +1,8 @@
 <template>
-  <ContextMenuItemIndicator v-bind="forwarded" :class="styles({ class: props.class })">
+  <ContextMenuItemIndicator
+    v-bind="forwarded"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot>
       <Icon v-if="icon" :name="icon" class="size-4" />
     </slot>
@@ -8,6 +11,7 @@
 
 <script lang="ts" setup>
   import { ContextMenuItemIndicator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ContextMenuItemIndicatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

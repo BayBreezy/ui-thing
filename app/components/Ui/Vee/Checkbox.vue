@@ -1,5 +1,5 @@
 <template>
-  <div :class="styles({ class: props.class })">
+  <div :class="styles({ class: normalizeClass(props.class) || undefined })">
     <UiCheckbox
       :id="inputId"
       v-bind="$attrs"
@@ -51,6 +51,7 @@
 
 <script lang="ts" setup>
   import { AnimatePresence, motion } from "motion-v";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const variants = {

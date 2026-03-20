@@ -7,7 +7,7 @@
       <DrawerContent
         data-slot="drawer-content"
         v-bind="{ ...forwarded, ...$attrs }"
-        :class="styles({ class: props.class })"
+        :class="styles({ class: normalizeClass(props.class) || undefined })"
       >
         <slot name="knob">
           <div
@@ -26,6 +26,7 @@
 <script lang="ts" setup>
   import { useForwardPropsEmits } from "reka-ui";
   import { DrawerContent } from "vaul-vue";
+  import { normalizeClass } from "vue";
   import type { DialogContentEmits, DialogContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

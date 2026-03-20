@@ -4,13 +4,14 @@
     :id
     ref="inputRef"
     type="text"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   />
 </template>
 
 <script lang="ts" setup>
   import { defu } from "defu";
+  import { normalizeClass } from "vue";
   import { useCurrencyInput } from "vue-currency-input";
   import type { HTMLAttributes } from "vue";
   import type { CurrencyInputOptions } from "vue-currency-input";

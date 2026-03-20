@@ -2,12 +2,13 @@
   <div
     data-slot="sidebar-group-content"
     data-sidebar="group-content"
-    :class="sideBarGroupContentStyles({ class: props.class })"
+    :class="sideBarGroupContentStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </div>
 </template>
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const sideBarGroupContentStyles = tv({

@@ -1,13 +1,17 @@
 <template>
   <ListboxItemIndicator data-slot="listbox-indicator" v-bind="forwarded">
     <slot>
-      <Icon :class="styles({ class: props.class })" :name="icon || 'lucide:check'" />
+      <Icon
+        :class="styles({ class: normalizeClass(props.class) || undefined })"
+        :name="icon || 'lucide:check'"
+      />
     </slot>
   </ListboxItemIndicator>
 </template>
 
 <script lang="ts" setup>
   import { ListboxItemIndicator, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ListboxItemIndicatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

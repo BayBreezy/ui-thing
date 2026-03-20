@@ -5,7 +5,7 @@
     aria-label="Toggle Sidebar"
     :tabindex="-1"
     title="Toggle Sidebar"
-    :class="sideBarRailStyles({ class: props.class })"
+    :class="sideBarRailStyles({ class: normalizeClass(props.class) || undefined })"
     @click="toggleSidebar"
   >
     <slot />
@@ -13,6 +13,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const sideBarRailStyles = tv({

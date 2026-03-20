@@ -4,7 +4,7 @@
     v-bind="forwarded"
     :id="id"
     ref="itemRef"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     data-slot="command-item"
     cmdk-item
     @select="
@@ -28,6 +28,7 @@
 <script setup lang="ts">
   import { reactiveOmit, useCurrentElement } from "@vueuse/core";
   import { ListboxItem, useForwardPropsEmits, useId } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ListboxItemEmits, ListboxItemProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -1,11 +1,16 @@
 <template>
-  <MenubarRoot data-slot="menubar" v-bind="forwarded" :class="styles({ class: props.class })">
+  <MenubarRoot
+    data-slot="menubar"
+    v-bind="forwarded"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot />
   </MenubarRoot>
 </template>
 
 <script lang="ts" setup>
   import { MenubarRoot, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { MenubarRootEmits, MenubarRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

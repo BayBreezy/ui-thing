@@ -1,5 +1,5 @@
 <template>
-  <h6 :id="id" :class="proseH6Styles({ class: _class })">
+  <h6 :id="id" :class="proseH6Styles({ class: normalizeClass(_class) || undefined })">
     <NuxtLink v-if="generate" data-slot="h6-link" v-bind="linkProps" :to="`#${id}`">
       <slot />
     </NuxtLink>
@@ -8,6 +8,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { NuxtLinkProps } from "#app";
   import type { HTMLAttributes } from "vue";
 

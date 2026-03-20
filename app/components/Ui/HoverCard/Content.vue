@@ -3,7 +3,7 @@
     <HoverCardContent
       data-slot="hover-card-content"
       v-bind="{ ...forwarded, ...$attrs }"
-      :class="styles({ class: props.class })"
+      :class="styles({ class: normalizeClass(props.class) || undefined })"
     >
       <slot />
     </HoverCardContent>
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { HoverCardContent } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HoverCardContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -1,10 +1,11 @@
 <template>
-  <td data-slot="table-cell" :class="styles({ class: props.class })">
+  <td data-slot="table-cell" :class="styles({ class: normalizeClass(props.class) || undefined })">
     <slot />
   </td>
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<{

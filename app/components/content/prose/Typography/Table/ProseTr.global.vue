@@ -1,10 +1,11 @@
 <template>
-  <tr data-slot="prose-tr" :class="proseTrStyles({ class: _class })">
+  <tr data-slot="prose-tr" :class="proseTrStyles({ class: normalizeClass(_class) || undefined })">
     <slot />
   </tr>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type ProseTrProps = {

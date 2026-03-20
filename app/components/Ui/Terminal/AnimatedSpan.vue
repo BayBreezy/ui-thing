@@ -4,7 +4,7 @@
     :initial="{ opacity: 0, y: -5 }"
     :animate="shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: -5 }"
     :transition="{ duration: 0.3, delay: sequence ? 0 : delay / 1000 }"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     @animation-complete="onAnimationComplete"
   >
     <slot>{{ text }}</slot>
@@ -12,6 +12,7 @@
 </template>
 <script lang="ts">
   import { motion } from "motion-v";
+  import { normalizeClass } from "vue";
   import type { SequenceContextValue } from "./Terminal.vue";
   import type { MotionProps } from "motion-v";
   import type { PrimitiveProps } from "reka-ui";

@@ -4,7 +4,7 @@
     :data-size="size"
     :as="as"
     :as-child="asChild"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       <slot name="image">
@@ -25,6 +25,7 @@
 
 <script lang="ts">
   import { AvatarRoot } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { AvatarImageEmits, AvatarImageProps, AvatarRootProps } from "reka-ui";
 
   export type AvatarProps = AvatarRootProps &

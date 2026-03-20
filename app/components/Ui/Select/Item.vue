@@ -1,5 +1,9 @@
 <template>
-  <SelectItem data-slot="select-item" v-bind="forwarded" :class="styles({ class: props.class })">
+  <SelectItem
+    data-slot="select-item"
+    v-bind="forwarded"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <span class="absolute right-2 flex size-3.5 items-center justify-center">
       <UiSelectItemIndicator :icon="icon" />
     </span>
@@ -11,6 +15,7 @@
 
 <script lang="ts" setup>
   import { SelectItem } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SelectItemProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

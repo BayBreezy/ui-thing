@@ -1,11 +1,16 @@
 <template>
-  <DialogTitle data-slot="sheet-title" :class="styles({ class: props.class })" v-bind="forwarded">
+  <DialogTitle
+    data-slot="sheet-title"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+    v-bind="forwarded"
+  >
     <slot>{{ title }}</slot>
   </DialogTitle>
 </template>
 
 <script lang="ts" setup>
   import { DialogTitle } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { DialogTitleProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

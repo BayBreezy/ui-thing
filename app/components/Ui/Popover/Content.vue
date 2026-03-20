@@ -3,7 +3,7 @@
     <PopoverContent
       data-slot="popover-content"
       v-bind="{ ...forwarded, ...$attrs }"
-      :class="styles({ class: props.class })"
+      :class="styles({ class: normalizeClass(props.class) || undefined })"
     >
       <slot />
     </PopoverContent>
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { PopoverContent, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PopoverContentEmits, PopoverContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

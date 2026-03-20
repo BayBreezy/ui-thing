@@ -2,12 +2,13 @@
   <NumberFieldInput
     data-slot="number-field-input"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   />
 </template>
 
 <script lang="ts" setup>
   import { NumberFieldInput, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { NumberFieldInputProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

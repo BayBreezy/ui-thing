@@ -1,5 +1,9 @@
 <template>
-  <Label data-slot="label" :class="styles({ class: props.class })" v-bind="forwarded">
+  <Label
+    data-slot="label"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+    v-bind="forwarded"
+  >
     <slot />
     <slot name="hint">
       <span v-if="hint" data-slot="label-hint" class="text-xs font-normal text-muted-foreground">
@@ -11,6 +15,7 @@
 
 <script lang="ts">
   import { Label } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { LabelProps as LP } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

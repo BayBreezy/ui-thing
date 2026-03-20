@@ -2,7 +2,7 @@
   <AccordionContent
     data-slot="accordion-content"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <div class="pt-0 pb-4">
       <slot>{{ content }}</slot>
@@ -10,7 +10,9 @@
   </AccordionContent>
 </template>
 
-<script lang="ts"></script>
+<script lang="ts">
+  import { normalizeClass } from "vue";
+</script>
 
 <script lang="ts" setup>
   import { AccordionContent } from "reka-ui";

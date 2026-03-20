@@ -2,7 +2,7 @@
   <DropdownMenuCheckboxItem
     data-slot="dropdown-menu-checkbox-item"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <span class="absolute left-2 flex size-3.5 items-center justify-center text-primary">
       <UiDropdownMenuItemIndicator icon="lucide:check" />
@@ -18,6 +18,7 @@
 
 <script lang="ts" setup>
   import { DropdownMenuCheckboxItem, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { DropdownMenuCheckboxItemEmits, DropdownMenuCheckboxItemProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

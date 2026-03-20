@@ -3,13 +3,14 @@
     <NavigationMenuViewport
       data-slot="navigation-menu-viewport"
       v-bind="{ ...forwarded, ...$attrs }"
-      :class="styles({ class: props.class })"
+      :class="styles({ class: normalizeClass(props.class) || undefined })"
     />
   </div>
 </template>
 
 <script lang="ts" setup>
   import { NavigationMenuViewport } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { NavigationMenuViewportProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

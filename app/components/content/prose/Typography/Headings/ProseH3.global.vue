@@ -1,5 +1,5 @@
 <template>
-  <h3 :id="id" :class="proseH3Styles({ class: _class })">
+  <h3 :id="id" :class="proseH3Styles({ class: normalizeClass(_class) || undefined })">
     <NuxtLink
       v-if="generate"
       data-slot="h3-link"
@@ -19,6 +19,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { NuxtLinkProps } from "#app";
   import type { HTMLAttributes } from "vue";
 

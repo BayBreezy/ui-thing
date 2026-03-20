@@ -3,7 +3,7 @@
     v-slot="{ segments }"
     v-bind="props"
     v-model="localModel"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <template v-for="item in segments" :key="item.part">
       <DateFieldInput
@@ -27,6 +27,7 @@
 
 <script lang="ts" setup>
   import { DateFieldInput, DateFieldRoot } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { DateValue } from "@internationalized/date";
   import type { DateFieldRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";

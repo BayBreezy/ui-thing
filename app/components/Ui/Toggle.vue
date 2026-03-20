@@ -3,7 +3,7 @@
     v-slot="slotProps"
     data-slot="toggle"
     v-bind="forwarded"
-    :class="toggleStyles({ variant, size, class: props.class })"
+    :class="toggleStyles({ variant, size, class: normalizeClass(props.class) || undefined })"
   >
     <slot v-bind="slotProps" />
   </ToggleRoot>
@@ -11,6 +11,7 @@
 
 <script lang="ts">
   import { Toggle as ToggleRoot, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ToggleEmits, ToggleProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

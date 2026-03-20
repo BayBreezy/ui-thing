@@ -3,7 +3,7 @@
     class="pointer-events-none absolute inset-0 rounded-[inherit] border border-transparent mask-[linear-gradient(transparent,transparent),linear-gradient(#000,#000)] mask-intersect [mask-clip:padding-box,border-box]"
   >
     <motion.div
-      :class="styles({ class: props.class })"
+      :class="styles({ class: normalizeClass(props.class) || undefined })"
       :style="
         {
           width: `${size}px`,
@@ -32,6 +32,7 @@
 
 <script lang="ts">
   import { motion } from "motion-v";
+  import { normalizeClass } from "vue";
   import type { MotionStyle, Transition } from "motion-v";
   import type { CSSProperties, HTMLAttributes } from "vue";
 

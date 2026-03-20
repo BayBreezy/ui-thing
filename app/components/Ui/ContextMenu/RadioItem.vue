@@ -2,7 +2,7 @@
   <ContextMenuRadioItem
     data-slot="context-menu-radio-item"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <span class="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
       <UiContextMenuItemIndicator>
@@ -16,6 +16,7 @@
 
 <script lang="ts" setup>
   import { ContextMenuRadioItem, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ContextMenuRadioItemEmits, ContextMenuRadioItemProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

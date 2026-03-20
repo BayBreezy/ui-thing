@@ -3,7 +3,7 @@
     v-slot="{ option }"
     data-slot="listbox-virtualizer"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot :option="option" />
   </ListboxVirtualizer>
@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
   import { ListboxVirtualizer, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ListboxVirtualizerProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

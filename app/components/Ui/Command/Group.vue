@@ -2,7 +2,7 @@
   <ListboxGroup
     v-bind="forwarded"
     :id="id"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     data-slot="command-group"
     :hidden="isRender ? undefined : true"
     cmdk-group
@@ -21,6 +21,7 @@
 <script setup lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { ListboxGroup, ListboxGroupLabel } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ListboxGroupProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

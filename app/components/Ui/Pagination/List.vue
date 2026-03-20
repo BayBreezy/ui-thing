@@ -2,7 +2,7 @@
   <PaginationList
     v-slot="{ items }"
     data-slot="pagination-list"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   >
     <slot :items="items" />
@@ -12,6 +12,7 @@
 <script lang="ts" setup>
   import { reactiveOmit } from "@vueuse/core";
   import { PaginationList } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PaginationListProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

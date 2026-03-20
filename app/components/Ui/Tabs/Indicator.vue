@@ -3,7 +3,7 @@
     <TabsIndicator
       data-slot="tabs-indicator"
       v-bind="{ ...forwarded, ...$attrs }"
-      :class="styles({ class: props.class })"
+      :class="styles({ class: normalizeClass(props.class) || undefined })"
       :style="{
         width: 'var(--reka-tabs-indicator-size)',
         transform: 'translateX(var(--reka-tabs-indicator-position))',
@@ -18,6 +18,7 @@
 
 <script lang="ts" setup>
   import { TabsIndicator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { TabsIndicatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

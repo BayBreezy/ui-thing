@@ -1,10 +1,14 @@
 <template>
-  <tfoot data-slot="table-footer" :class="styles({ class: props.class })">
+  <tfoot
+    data-slot="table-footer"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot />
   </tfoot>
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<{

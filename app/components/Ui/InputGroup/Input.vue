@@ -2,13 +2,14 @@
   <UiInput
     v-bind="forwarded"
     data-slot="input-group-input"
-    :class="inputGroupInputStyles({ class: props.class })"
+    :class="inputGroupInputStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </UiInput>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { InputProps } from "@/components/Ui/Input.vue";
 
   const inputGroupInputStyles = tv({

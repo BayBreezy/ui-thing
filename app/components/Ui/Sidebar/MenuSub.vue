@@ -2,13 +2,14 @@
   <ul
     data-slot="sidebar-menu-sub"
     data-sidebar="menu-badge"
-    :class="sideBarMenuSubStyles({ class: props.class })"
+    :class="sideBarMenuSubStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </ul>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const sideBarMenuSubStyles = tv({

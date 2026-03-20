@@ -1,10 +1,11 @@
 <template>
-  <div :class="styles({ class: props.class })">
+  <div :class="styles({ class: normalizeClass(props.class) || undefined })">
     <slot />
   </div>
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HtmlHTMLAttributes } from "vue";
 
   const props = withDefaults(

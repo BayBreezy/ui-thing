@@ -3,13 +3,14 @@
     v-model="model"
     data-slot="sidebar-input"
     data-sidebar="input"
-    :class="sideBarInputStyles({ class: props.class })"
+    :class="sideBarInputStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </UiInput>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const sideBarInputStyles = tv({

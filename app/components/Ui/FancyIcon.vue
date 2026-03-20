@@ -1,5 +1,8 @@
 <template>
-  <div data-slot="fancy-icon" :class="styles({ class: props.class, color, size, theme })">
+  <div
+    data-slot="fancy-icon"
+    :class="styles({ class: normalizeClass(props.class) || undefined, color, size, theme })"
+  >
     <slot>
       <Icon v-if="icon" data-slot="fancy-icon-icon" :name="icon" />
     </slot>
@@ -7,6 +10,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

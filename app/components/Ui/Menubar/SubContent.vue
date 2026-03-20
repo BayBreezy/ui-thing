@@ -3,7 +3,7 @@
     <MenubarSubContent
       data-slot="menubar-sub-content"
       v-bind="{ ...forwarded, ...$attrs }"
-      :class="styles({ class: props.class })"
+      :class="styles({ class: normalizeClass(props.class) || undefined })"
     >
       <slot />
     </MenubarSubContent>
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { MenubarSubContent, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { MenubarSubContentEmits, MenubarSubContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

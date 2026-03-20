@@ -2,7 +2,7 @@
   <component
     v-bind="linkProps"
     :is="as"
-    :class="proseCardStyles().base({ class: props.class })"
+    :class="proseCardStyles().base({ class: normalizeClass(props.class) || undefined })"
     data-slot="prose-card"
   >
     <slot name="icon" mdc-unwrap="p">
@@ -34,6 +34,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { NuxtLinkProps } from "#app";
   import type { HTMLAttributes } from "vue";
 

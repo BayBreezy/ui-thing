@@ -3,7 +3,7 @@
     v-slot="{ modelValue }"
     data-slot="listbox"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot :model-value="modelValue" />
   </ListboxRoot>
@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
   import { ListboxRoot, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ListboxRootEmits, ListboxRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

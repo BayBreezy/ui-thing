@@ -1,13 +1,14 @@
 <template>
   <MenubarSeparator
     data-slot="menubar-separator"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   />
 </template>
 
 <script lang="ts" setup>
   import { MenubarSeparator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { MenubarSeparatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

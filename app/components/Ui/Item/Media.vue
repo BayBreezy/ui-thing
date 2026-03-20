@@ -3,7 +3,7 @@
     data-slot="item-media"
     :data-variant="variant"
     v-bind="forwarded"
-    :class="itemMediaStyles({ variant, class: props.class })"
+    :class="itemMediaStyles({ variant, class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </Primitive>
@@ -11,6 +11,7 @@
 
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { VariantProps } from "tailwind-variants";
   import type { HTMLAttributes } from "vue";

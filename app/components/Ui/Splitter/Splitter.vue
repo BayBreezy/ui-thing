@@ -2,7 +2,7 @@
   <SplitterGroup
     v-slot="{ layout }: { layout: number[] }"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot :layout="layout" />
   </SplitterGroup>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { SplitterGroup, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SplitterGroupEmits, SplitterGroupProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

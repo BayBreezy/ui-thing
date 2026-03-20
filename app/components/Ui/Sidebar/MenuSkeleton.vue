@@ -2,7 +2,9 @@
   <div
     data-slot="sidebar-menu-skeleton"
     data-sidebar="menu-skeleton"
-    :class="sideBarMenuSkeletonStyles().wrapper({ class: props.class })"
+    :class="
+      sideBarMenuSkeletonStyles().wrapper({ class: normalizeClass(props.class) || undefined })
+    "
   >
     <UiSkeleton
       v-if="showIcon"
@@ -18,6 +20,7 @@
   </div>
 </template>
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const sideBarMenuSkeletonStyles = tv({

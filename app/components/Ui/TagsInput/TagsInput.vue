@@ -3,7 +3,7 @@
     v-slot="slotProps"
     data-slot="tags-input"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot v-bind="slotProps" />
   </TagsInputRoot>
@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
   import { TagsInputRoot, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { TagsInputRootEmits, TagsInputRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

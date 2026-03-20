@@ -1,7 +1,7 @@
 <template>
   <MenubarTrigger
     data-slot="menubar-trigger"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   >
     <slot />
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { MenubarTrigger } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { MenubarTriggerProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

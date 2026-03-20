@@ -1,5 +1,8 @@
 <template>
-  <MenubarItemIndicator v-bind="forwarded" :class="styles({ class: props.class })">
+  <MenubarItemIndicator
+    v-bind="forwarded"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot>
       <Icon v-if="icon" :name="icon" class="size-4" />
     </slot>
@@ -8,6 +11,7 @@
 
 <script lang="ts" setup>
   import { MenubarItemIndicator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { MenubarItemIndicatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

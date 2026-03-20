@@ -43,7 +43,7 @@ Create the component `RetroGrid.vue` in the `components` directory.
   <Primitive
     :as
     :as-child
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     :style="{
       '--grid-angle': `${angle}deg`,
       '--cell-size': `${cellSize}px`,
@@ -64,6 +64,7 @@ Create the component `RetroGrid.vue` in the `components` directory.
 
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

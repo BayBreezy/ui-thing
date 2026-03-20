@@ -4,13 +4,14 @@
     :as-child
     data-slot="field-legend"
     :data-variant="variant"
-    :class="fieldLegendStyles({ class: props.class, variant })"
+    :class="fieldLegendStyles({ class: normalizeClass(props.class) || undefined, variant })"
   >
     <slot />
   </Primitive>
 </template>
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { VariantProps } from "tailwind-variants";
   import type { HTMLAttributes } from "vue";

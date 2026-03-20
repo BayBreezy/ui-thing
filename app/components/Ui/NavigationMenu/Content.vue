@@ -2,7 +2,7 @@
   <NavigationMenuContent
     data-slot="navigation-menu-content"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </NavigationMenuContent>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { NavigationMenuContent, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { NavigationMenuContentEmits, NavigationMenuContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

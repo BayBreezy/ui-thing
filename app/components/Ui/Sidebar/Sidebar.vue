@@ -2,7 +2,7 @@
   <div
     v-if="collapsible === 'none'"
     data-slot="sidebar"
-    :class="sideBarStyles().collapsible({ class: props.class })"
+    :class="sideBarStyles().collapsible({ class: normalizeClass(props.class) || undefined })"
     v-bind="$attrs"
   >
     <slot />
@@ -44,7 +44,14 @@
     <div data-slot="sidebar-gap" :class="sideBarStyles().sideBarWrapper({ variant })" />
 
     <div
-      :class="sideBarStyles().sideBarWrapper2({ collapsible, side, variant, class: props.class })"
+      :class="
+        sideBarStyles().sideBarWrapper2({
+          collapsible,
+          side,
+          variant,
+          class: normalizeClass(props.class) || undefined,
+        })
+      "
       v-bind="$attrs"
     >
       <div data-sidebar="sidebar" :class="sideBarStyles().sideBarInner()">
@@ -56,6 +63,7 @@
 
 <script lang="ts">
   import { VisuallyHidden } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const sideBarStyles = tv({

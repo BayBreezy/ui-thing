@@ -2,7 +2,7 @@
   <AlertDialogDescription
     data-slot="alert-dialog-description"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>{{ description }}</slot>
   </AlertDialogDescription>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { AlertDialogDescription } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { AlertDialogDescriptionProps } from "reka-ui";
 
   const props = defineProps<

@@ -1,5 +1,5 @@
 <template>
-  <div ref="containerRef" :class="styles({ class: props.class })">
+  <div ref="containerRef" :class="styles({ class: normalizeClass(props.class) || undefined })">
     <div
       class="sticky top-0 left-0 z-10 flex flex-col gap-y-2 border-b border-border bg-background p-4"
     >
@@ -16,6 +16,7 @@
   </div>
 </template>
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -4,7 +4,7 @@
     v-bind="forwarded"
     :data-inset="inset"
     :data-variant="variant"
-    :class="styles({ inset, class: props.class, variant })"
+    :class="styles({ inset, class: normalizeClass(props.class) || undefined, variant })"
   >
     <slot>
       <span v-if="title">{{ title }}</span>
@@ -17,6 +17,7 @@
 
 <script lang="ts" setup>
   import { ContextMenuItem, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ContextMenuItemEmits, ContextMenuItemProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

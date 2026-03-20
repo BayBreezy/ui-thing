@@ -1,13 +1,14 @@
 <template>
   <DialogOverlay
     data-slot="sheet-overlay"
-    :class="styles({ isBlurred, class: props.class })"
+    :class="styles({ isBlurred, class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   />
 </template>
 
 <script lang="ts" setup>
   import { DialogOverlay } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { DialogOverlayProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -2,7 +2,7 @@
   <DropdownMenuRadioItem
     data-slot="dropdown-menu-radio-item"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <span class="absolute left-2 flex size-3.5 items-center justify-center text-primary">
       <UiDropdownMenuItemIndicator>
@@ -16,6 +16,7 @@
 
 <script lang="ts" setup>
   import { DropdownMenuRadioItem, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { DropdownMenuRadioItemEmits, DropdownMenuRadioItemProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

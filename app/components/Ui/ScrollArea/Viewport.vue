@@ -2,7 +2,7 @@
   <ScrollAreaViewport
     data-slot="scroll-area-viewport"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </ScrollAreaViewport>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { ScrollAreaViewport } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ScrollAreaViewportProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

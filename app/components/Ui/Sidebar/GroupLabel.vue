@@ -4,13 +4,14 @@
     data-slot="sidebar-group-label"
     :as="as"
     :as-child="asChild"
-    :class="sideBarGroupLabelStyles({ class: props.class })"
+    :class="sideBarGroupLabelStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>{{ props.label }}</slot>
   </Primitive>
 </template>
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

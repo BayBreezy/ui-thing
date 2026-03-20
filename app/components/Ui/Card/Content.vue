@@ -3,7 +3,7 @@
     data-slot="card-content"
     :as="as"
     :as-child="asChild"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       {{ content }}
@@ -13,6 +13,7 @@
 
 <script lang="ts" setup>
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -1,7 +1,7 @@
 <template>
   <CollapsibleContent
     data-slot="collapsible-content"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   >
     <slot />
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { CollapsibleContent } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { CollapsibleContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

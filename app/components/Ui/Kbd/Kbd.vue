@@ -1,7 +1,7 @@
 <template>
   <Primitive
     data-slot="kbd"
-    :class="styles({ size, variant, class: props.class })"
+    :class="styles({ size, variant, class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   >
     <slot />
@@ -9,6 +9,7 @@
 </template>
 <script setup lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

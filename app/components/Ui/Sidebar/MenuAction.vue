@@ -2,7 +2,7 @@
   <Primitive
     data-slot="sidebar-menu-action"
     data-sidebar="menu-action"
-    :class="sideBarMenuAction({ showOnHover, class: props.class })"
+    :class="sideBarMenuAction({ showOnHover, class: normalizeClass(props.class) || undefined })"
     :as="as"
     :as-child="asChild"
   >
@@ -11,6 +11,7 @@
 </template>
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { VariantProps } from "tailwind-variants";
   import type { HTMLAttributes } from "vue";

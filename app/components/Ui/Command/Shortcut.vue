@@ -1,11 +1,16 @@
 <template>
-  <Primitive :as="as || 'span'" :as-child="asChild" :class="styles({ class: props.class })">
+  <Primitive
+    :as="as || 'span'"
+    :as-child="asChild"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot>{{ shortcut }}</slot>
   </Primitive>
 </template>
 
 <script lang="ts" setup>
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

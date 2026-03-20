@@ -6,7 +6,7 @@
         '--sidebar-width': SIDEBAR_WIDTH,
         '--sidebar-width-icon': SIDEBAR_WIDTH_ICON,
       }"
-      :class="sideBarProviderStyles({ class: props.class })"
+      :class="sideBarProviderStyles({ class: normalizeClass(props.class) || undefined })"
     >
       <slot v-bind="{ state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar }" />
     </div>
@@ -14,6 +14,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes, Ref } from "vue";
 
   export const sideBarProviderStyles = tv({

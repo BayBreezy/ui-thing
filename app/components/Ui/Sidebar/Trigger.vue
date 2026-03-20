@@ -5,7 +5,7 @@
     data-slot="sidebar-trigger"
     variant="ghost"
     size="icon"
-    :class="sideBarTriggerStyles({ class: props.class })"
+    :class="sideBarTriggerStyles({ class: normalizeClass(props.class) || undefined })"
     @click="toggleSidebar"
   >
     <slot v-bind="{ state }">
@@ -16,6 +16,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const sideBarTriggerStyles = tv({

@@ -5,13 +5,14 @@
     role="group"
     data-slot="field"
     :data-orientation="orientation"
-    :class="fieldStyles({ class: props.class, orientation })"
+    :class="fieldStyles({ class: normalizeClass(props.class) || undefined, orientation })"
   >
     <slot />
   </Primitive>
 </template>
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { VariantProps } from "tailwind-variants";
   import type { HTMLAttributes } from "vue";

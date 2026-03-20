@@ -2,7 +2,7 @@
   <TagsInputClear
     data-slot="tags-input-clear"
     v-bind="props"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       <Icon v-if="icon" :name="icon" class="h-3.5 w-3.5" />
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { TagsInputClear } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { TagsInputClearProps } from "reka-ui";
   import type { HtmlHTMLAttributes } from "vue";
 

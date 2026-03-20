@@ -1,10 +1,11 @@
 <template>
-  <ol data-slot="prose-ol" :class="proseOlStyles({ class: _class })">
+  <ol data-slot="prose-ol" :class="proseOlStyles({ class: normalizeClass(_class) || undefined })">
     <slot mdc-unwrap="p" />
   </ol>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type ProseOlProps = {

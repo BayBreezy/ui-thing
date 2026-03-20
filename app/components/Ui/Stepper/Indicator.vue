@@ -1,5 +1,9 @@
 <template>
-  <StepperIndicator v-slot="{ step }" v-bind="forwarded" :class="styles({ class: props.class })">
+  <StepperIndicator
+    v-slot="{ step }"
+    v-bind="forwarded"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot :step>
       <span
         class="transition-all group-data-loading/step:scale-0 group-data-loading/step:opacity-0 group-data-loading/step:transition-none group-data-[state=completed]/step:scale-0 group-data-[state=completed]/step:opacity-0"
@@ -23,6 +27,7 @@
 
 <script lang="ts" setup>
   import { StepperIndicator, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { StepperIndicatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

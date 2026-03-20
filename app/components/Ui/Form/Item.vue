@@ -1,5 +1,5 @@
 <template>
-  <div :class="styles({ class: props.class })" v-bind="$attrs">
+  <div :class="styles({ class: normalizeClass(props.class) || undefined })" v-bind="$attrs">
     <slot name="label">
       <UiFormLabel v-if="label || hint" :label="label" :hint="hint" />
     </slot>
@@ -18,6 +18,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes, InjectionKey } from "vue";
 
   export const FORM_ITEM_INJECTION_KEY = Symbol() as InjectionKey<string>;

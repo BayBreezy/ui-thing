@@ -2,7 +2,7 @@
   <TabsTrigger
     data-slot="tabs-trigger"
     v-bind="forwarded"
-    :class="styles({ pill, class: props.class })"
+    :class="styles({ pill, class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </TabsTrigger>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { TabsTrigger } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { TabsTriggerProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

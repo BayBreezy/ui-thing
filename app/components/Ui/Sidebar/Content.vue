@@ -2,12 +2,13 @@
   <div
     data-slot="sidebar-content"
     data-sidebar="content"
-    :class="sideBarContentStyles({ class: props.class })"
+    :class="sideBarContentStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </div>
 </template>
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const sideBarContentStyles = tv({

@@ -2,7 +2,7 @@
   <Primitive
     data-slot="kbd-group"
     v-bind="forwarded"
-    :class="kbdGroupStyles({ class: props.class })"
+    :class="kbdGroupStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </Primitive>
@@ -10,6 +10,7 @@
 
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

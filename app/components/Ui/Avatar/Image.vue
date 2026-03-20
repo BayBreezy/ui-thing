@@ -2,12 +2,13 @@
   <AvatarImage
     data-slot="avatar-image"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   />
 </template>
 
 <script lang="ts" setup>
   import { AvatarImage, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { AvatarImageEmits, AvatarImageProps } from "reka-ui";
 
   const props = defineProps<

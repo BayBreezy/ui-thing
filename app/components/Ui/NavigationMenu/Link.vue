@@ -1,6 +1,6 @@
 <template>
   <NavigationMenuLink
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     data-slot="navigation-menu-link"
     v-bind="forwarded"
   >
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { NavigationMenuLink, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { NavigationMenuLinkEmits, NavigationMenuLinkProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

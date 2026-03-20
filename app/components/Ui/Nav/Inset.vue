@@ -1,5 +1,9 @@
 <template>
-  <Primitive data-navbar-inset="true" :class="styles({ class: props.class })" v-bind="forwarded">
+  <Primitive
+    data-navbar-inset="true"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+    v-bind="forwarded"
+  >
     <div
       class="grow bg-background p-6 md:rounded-lg md:p-12 md:shadow-xs md:ring-1 md:ring-foreground/15 md:dark:bg-background md:dark:ring-border"
     >
@@ -12,6 +16,7 @@
 
 <script lang="ts" setup>
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

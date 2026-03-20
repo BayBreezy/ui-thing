@@ -5,13 +5,17 @@
     class="flex items-center justify-center"
   >
     <slot>
-      <Icon :class="styles({ class: props.class })" :name="icon || 'lucide:check'" />
+      <Icon
+        :class="styles({ class: normalizeClass(props.class) || undefined })"
+        :name="icon || 'lucide:check'"
+      />
     </slot>
   </SelectItemIndicator>
 </template>
 
 <script lang="ts" setup>
   import { SelectItemIndicator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SelectItemIndicatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

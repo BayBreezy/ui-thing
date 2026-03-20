@@ -2,7 +2,7 @@
   <Primitive
     v-if="isRender"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     data-slot="command-empty"
     cmdk-empty
   >
@@ -13,6 +13,7 @@
 <script setup lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

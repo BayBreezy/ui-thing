@@ -7,7 +7,7 @@
         disabled: disabled || loading,
         variant: variant,
         size: size,
-        class: props.class,
+        class: normalizeClass(props.class) || undefined,
         effect: props.effect,
       })
     "
@@ -42,6 +42,7 @@
 <script lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { NuxtLinkProps } from "#app/components";
   import type { HtmlHTMLAttributes } from "vue";
 

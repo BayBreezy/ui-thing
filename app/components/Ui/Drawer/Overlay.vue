@@ -2,12 +2,13 @@
   <DrawerOverlay
     data-slot="drawer-overlay"
     v-bind="props"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   />
 </template>
 
 <script lang="ts" setup>
   import { DrawerOverlay } from "vaul-vue";
+  import { normalizeClass } from "vue";
   import type { DialogOverlayProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -2,7 +2,7 @@
   <ComboboxContent
     data-slot="autocomplete-content"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <UiAutocompleteViewport>
       <slot />
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { ComboboxContent, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ComboboxContentEmits, ComboboxContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

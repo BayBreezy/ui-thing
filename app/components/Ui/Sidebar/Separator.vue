@@ -2,13 +2,14 @@
   <UiSeparator
     data-slot="sidebar-separator"
     data-sidebar="separator"
-    :class="sideBarSeparatorStyles({ class: props.class })"
+    :class="sideBarSeparatorStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </UiSeparator>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const sideBarSeparatorStyles = tv({

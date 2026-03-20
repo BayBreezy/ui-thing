@@ -1,9 +1,13 @@
 <template>
-  <ContextMenuArrow v-bind="forwarded" :class="styles({ class: props.class })" />
+  <ContextMenuArrow
+    v-bind="forwarded"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  />
 </template>
 
 <script lang="ts" setup>
   import { ContextMenuArrow } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ContextMenuArrowProps } from "reka-ui";
   import type { HtmlHTMLAttributes } from "vue";
 

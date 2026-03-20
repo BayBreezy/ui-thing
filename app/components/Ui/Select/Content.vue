@@ -3,7 +3,7 @@
     <SelectContent
       data-slot="select-content"
       v-bind="{ ...forwarded, ...$attrs }"
-      :class="styles({ position, class: props.class })"
+      :class="styles({ position, class: normalizeClass(props.class) || undefined })"
     >
       <UiSelectScrollUpButton />
       <UiSelectViewport :position="position">
@@ -16,6 +16,7 @@
 
 <script lang="ts" setup>
   import { SelectContent, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SelectContentEmits, SelectContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

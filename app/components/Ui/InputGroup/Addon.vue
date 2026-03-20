@@ -4,7 +4,7 @@
     role="group"
     data-slot="input-group-addon"
     :data-align="align || undefined"
-    :class="inputGroupAddonVariants({ class: props.class, align })"
+    :class="inputGroupAddonVariants({ class: normalizeClass(props.class) || undefined, align })"
     @click="onClick"
   >
     <slot />
@@ -13,6 +13,7 @@
 
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { VariantProps } from "tailwind-variants";
   import type { HTMLAttributes } from "vue";

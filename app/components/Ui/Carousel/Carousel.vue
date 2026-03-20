@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     data-slot="carousel"
     role="region"
     aria-roledescription="carousel"
@@ -20,6 +20,7 @@
 </template>
 
 <script setup lang="ts">
+  import { normalizeClass } from "vue";
   import type { CarouselEmits, CarouselProps, WithClassAsProps } from "~/composables/useCarousel";
 
   const styles = tv({

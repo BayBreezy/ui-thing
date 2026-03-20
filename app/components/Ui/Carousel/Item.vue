@@ -3,7 +3,9 @@
     role="group"
     aria-roledescription="slide"
     data-slot="carousel-item"
-    :class="styles({ orientation, class: `${props.class} ${grabbingClass}` })"
+    :class="
+      styles({ orientation, class: normalizeClass([props.class, grabbingClass]) || undefined })
+    "
     @mousedown="isGrabbing = true"
     @mouseup="isGrabbing = false"
     @mouseleave="isGrabbing = false"
@@ -13,6 +15,7 @@
 </template>
 
 <script setup lang="ts">
+  import { normalizeClass } from "vue";
   import type { WithClassAsProps } from "~/composables/useCarousel";
 
   const props = defineProps<

@@ -3,7 +3,7 @@
     v-bind="props"
     data-slot="input-group"
     role="group"
-    :class="inputGroupStyles({ class: props.class })"
+    :class="inputGroupStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </Primitive>
@@ -11,6 +11,7 @@
 
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

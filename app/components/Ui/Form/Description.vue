@@ -1,5 +1,9 @@
 <template>
-  <p :id="formDescriptionId" :class="styles({ class: props.class })" v-bind="$attrs">
+  <p
+    :id="formDescriptionId"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+    v-bind="$attrs"
+  >
     <slot>
       <ClientOnly>
         <p v-html="description" />
@@ -8,6 +12,7 @@
   </p>
 </template>
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

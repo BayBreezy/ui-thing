@@ -1,7 +1,7 @@
 <template>
   <CheckboxIndicator
     data-slot="checkbox-indicator"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   >
     <slot>
@@ -15,6 +15,7 @@
 
 <script lang="ts" setup>
   import { CheckboxIndicator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { CheckboxCheckedState, CheckboxIndicatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

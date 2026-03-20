@@ -1,5 +1,9 @@
 <template>
-  <DrawerTitle data-slot="drawer-title" v-bind="props" :class="styles({ class: props.class })">
+  <DrawerTitle
+    data-slot="drawer-title"
+    v-bind="props"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot>
       {{ props.text }}
     </slot>
@@ -8,6 +12,7 @@
 
 <script lang="ts" setup>
   import { DrawerTitle } from "vaul-vue";
+  import { normalizeClass } from "vue";
   import type { DrawerTitleProps } from "vaul-vue";
   import type { HTMLAttributes } from "vue";
 

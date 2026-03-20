@@ -2,7 +2,7 @@
   <div
     role="list"
     data-slot="prose-icon-list"
-    :class="proseIconListStyles().base({ class: props.class })"
+    :class="proseIconListStyles().base({ class: normalizeClass(props.class) || undefined })"
   >
     <div
       v-for="item in slottedItems"
@@ -22,6 +22,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { VariantProps } from "tailwind-variants";
   import type { HTMLAttributes } from "vue";
 

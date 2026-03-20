@@ -1,8 +1,9 @@
 <template>
-  <hr data-slot="prose-hr" :class="proseHrStyles({ class: _class })" />
+  <hr data-slot="prose-hr" :class="proseHrStyles({ class: normalizeClass(_class) || undefined })" />
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type ProseHrProps = {

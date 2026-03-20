@@ -3,7 +3,7 @@
     v-slot="slotProps"
     data-slot="switch"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <UiSwitchThumb>
       <slot v-bind="slotProps" />
@@ -13,6 +13,7 @@
 
 <script lang="ts" setup>
   import { SwitchRoot, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SwitchRootEmits, SwitchRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

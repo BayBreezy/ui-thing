@@ -2,7 +2,7 @@
   <StepperTrigger
     v-bind="forwarded"
     data-slot="stepper-trigger"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </StepperTrigger>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { StepperTrigger, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { StepperTriggerProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

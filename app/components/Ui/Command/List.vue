@@ -3,7 +3,7 @@
     data-slot="command-list"
     v-bind="forwarded"
     cmdk-list
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <div role="presentation">
       <slot />
@@ -14,6 +14,7 @@
 <script setup lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { ListboxContent, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ListboxContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

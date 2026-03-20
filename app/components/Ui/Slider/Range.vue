@@ -1,11 +1,16 @@
 <template>
-  <SliderRange data-slot="slider-range" :class="styles({ class: props.class })" v-bind="forwarded">
+  <SliderRange
+    data-slot="slider-range"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+    v-bind="forwarded"
+  >
     <slot />
   </SliderRange>
 </template>
 
 <script lang="ts" setup>
   import { SliderRange } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SliderRangeProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

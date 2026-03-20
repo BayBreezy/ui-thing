@@ -1,6 +1,12 @@
 <template>
   <div
-    :class="flipClockVariants({ size: props.size, variant: props.variant, class: props.class })"
+    :class="
+      flipClockVariants({
+        size: props.size,
+        variant: props.variant,
+        class: normalizeClass(props.class) || undefined,
+      })
+    "
     aria-live="polite"
   >
     <span class="sr-only absolute">{{ `${time.hours}:${time.minutes}:${time.seconds}` }}</span>
@@ -46,6 +52,7 @@
 
 <!-- eslint-disable vue/one-component-per-file -->
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes, PropType } from "vue";
 
   type FlipClockVariants = VariantProps<typeof flipClockVariants>;
@@ -323,7 +330,7 @@
       );
 
       return () =>
-        h("div", { class: unitClass.value, style: preserve3d }, [
+        h("div", { class: normalizeClass(unitClass) || undefined.value, style: preserve3d }, [
           h("div", { class: `${commonCardStyle} rounded-t-lg top-0`, style: preserve3d }, [
             h(DigitSpan, { position: "top" }, { default: () => localProps.digit }),
           ]),
@@ -376,7 +383,7 @@
           `text-center -translate-y-[8%] ${heightMap[(localProps.size as FlipClockSize) ?? "md"]}`
       );
 
-      return () => h("span", { class: separatorClass.value }, ":");
+      return () => h("span", { class: normalizeClass(separatorClass) || undefined.value }, ":");
     },
   });
 

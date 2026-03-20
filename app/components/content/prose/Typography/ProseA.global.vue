@@ -1,10 +1,15 @@
 <template>
-  <NuxtLink data-slot="prose-a" v-bind="rest" :class="proseAStyles({ class: _class })">
+  <NuxtLink
+    data-slot="prose-a"
+    v-bind="rest"
+    :class="proseAStyles({ class: normalizeClass(_class) || undefined })"
+  >
     <slot />
   </NuxtLink>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { NuxtLinkProps } from "#app";
   import type { HTMLAttributes } from "vue";
 

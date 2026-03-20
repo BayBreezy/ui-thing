@@ -1,11 +1,16 @@
 <template>
-  <TabsRoot data-slot="tabs" v-bind="forwarded" :class="styles({ class: props.class })">
+  <TabsRoot
+    data-slot="tabs"
+    v-bind="forwarded"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot />
   </TabsRoot>
 </template>
 
 <script lang="ts" setup>
   import { TabsRoot, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { TabsRootEmits, TabsRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

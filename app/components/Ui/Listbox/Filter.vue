@@ -2,12 +2,13 @@
   <ListboxFilter
     data-slot="listbox-filter"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   />
 </template>
 
 <script lang="ts" setup>
   import { ListboxFilter, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ListboxFilterEmits, ListboxFilterProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

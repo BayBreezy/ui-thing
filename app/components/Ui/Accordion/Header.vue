@@ -2,7 +2,7 @@
   <AccordionHeader
     data-slot="accordion-header"
     v-bind="forwarded"
-    :class="accordionHeaderStyle({ class: props.class })"
+    :class="accordionHeaderStyle({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </AccordionHeader>
@@ -10,6 +10,7 @@
 
 <script lang="ts">
   import { AccordionHeader } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { AccordionHeaderProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

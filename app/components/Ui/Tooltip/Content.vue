@@ -3,7 +3,7 @@
     <TooltipContent
       data-slot="tooltip-content"
       v-bind="{ ...forwarded, ...$attrs }"
-      :class="styles({ class: props.class })"
+      :class="styles({ class: normalizeClass(props.class) || undefined })"
     >
       <slot />
       <slot name="arrow">
@@ -15,6 +15,7 @@
 
 <script lang="ts" setup>
   import { TooltipContent, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { TooltipContentEmits, TooltipContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

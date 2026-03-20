@@ -1,5 +1,9 @@
 <template>
-  <PopoverClose data-slot="popover-x" v-bind="forwarded" :class="styles({ class: props.class })">
+  <PopoverClose
+    data-slot="popover-x"
+    v-bind="forwarded"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot>
       <Icon :name="icon" class="size-4" />
       <span class="sr-only">{{ srText }}</span>
@@ -9,6 +13,7 @@
 
 <script lang="ts" setup>
   import { PopoverClose, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PopoverCloseProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

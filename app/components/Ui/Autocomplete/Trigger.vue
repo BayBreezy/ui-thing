@@ -2,7 +2,7 @@
   <ComboboxTrigger
     data-slot="autocomplete-trigger"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </ComboboxTrigger>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { ComboboxTrigger } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ComboboxTriggerProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

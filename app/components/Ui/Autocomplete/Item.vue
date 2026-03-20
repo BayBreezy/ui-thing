@@ -2,7 +2,7 @@
   <ComboboxItem
     data-slot="autocomplete-item"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot name="icon">
       <span class="absolute inset-y-0 left-2 flex items-center justify-center">
@@ -18,6 +18,7 @@
 
 <script lang="ts" setup>
   import { ComboboxItem, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ComboboxItemEmits, ComboboxItemProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

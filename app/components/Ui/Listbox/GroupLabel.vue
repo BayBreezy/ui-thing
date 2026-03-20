@@ -2,7 +2,7 @@
   <ListboxGroupLabel
     data-slot="listbox-group-label"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </ListboxGroupLabel>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { ListboxGroupLabel, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ListboxGroupLabelProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

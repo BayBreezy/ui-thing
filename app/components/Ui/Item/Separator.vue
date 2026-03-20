@@ -3,11 +3,12 @@
     orientation="horizontal"
     data-slot="item-separator"
     :decorative="props.decorative"
-    :class="itemSeparatorStyles({ class: props.class })"
+    :class="itemSeparatorStyles({ class: normalizeClass(props.class) || undefined })"
   />
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { UiSeparatorProps } from "@/components/Ui/Separator.vue";
 
   export const itemSeparatorStyles = tv({

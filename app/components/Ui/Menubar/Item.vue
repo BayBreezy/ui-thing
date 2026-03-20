@@ -4,7 +4,7 @@
     v-bind="forwarded"
     :data-inset="inset"
     :data-variant="variant"
-    :class="styles({ inset, class: props.class })"
+    :class="styles({ inset, class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       <slot name="icon">
@@ -24,6 +24,7 @@
 
 <script lang="ts" setup>
   import { MenubarItem, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { MenubarItemEmits, MenubarItemProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

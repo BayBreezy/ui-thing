@@ -2,7 +2,7 @@
   <ScrollAreaThumb
     data-slot="scroll-area-thumb"
     v-bind="forwarded"
-    :class="styles({ orientation, class: props.class })"
+    :class="styles({ orientation, class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </ScrollAreaThumb>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { ScrollAreaThumb } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ScrollAreaThumbProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

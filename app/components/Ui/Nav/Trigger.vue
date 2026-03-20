@@ -4,7 +4,7 @@
     variant="ghost"
     :aria-label="ariaLabel"
     size="icon-sm"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     @click="
       ($event: MouseEvent) => {
         injectedValues?.toggleNav();
@@ -18,6 +18,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   import { navProviderKey } from "./Provider.vue";

@@ -2,7 +2,7 @@
   <TagsInputInput
     data-slot="tags-input-input"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </TagsInputInput>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { TagsInputInput } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { TagsInputInputProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
   import { ProseTabs } from "#components";
+  import { normalizeClass } from "vue";
   import type { SetupContext } from "vue";
 
   const props = withDefaults(
@@ -94,7 +95,7 @@
         searchPlaceholder: props.searchPlaceholder,
         searchEmpty: props.searchEmpty,
         comboBoxFullWidth: props.comboBoxFullWidth,
-        class: props.class,
+        class: normalizeClass(props.class) || undefined,
       },
       () => slotItems.value.map(({ vnode }) => vnode)
     );

@@ -2,7 +2,7 @@
   <NavigationMenuIndicator
     data-slot="navigation-menu-indicator"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
     <div class="relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md" />
@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
   import { NavigationMenuIndicator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { NavigationMenuIndicatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

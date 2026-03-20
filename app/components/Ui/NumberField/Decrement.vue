@@ -2,7 +2,7 @@
   <NumberFieldDecrement
     data-slot="number-field-decrement"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       <Icon :name="props.icon" />
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { NumberFieldDecrement, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { NumberFieldDecrementProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

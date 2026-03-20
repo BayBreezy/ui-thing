@@ -11,7 +11,7 @@
       data-slot="command-input"
       auto-focus
       cmdk-input
-      :class="styles({ class: props.class })"
+      :class="styles({ class: normalizeClass(props.class) || undefined })"
     />
   </div>
 </template>
@@ -19,6 +19,7 @@
 <script setup lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { ListboxFilter, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ListboxFilterProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

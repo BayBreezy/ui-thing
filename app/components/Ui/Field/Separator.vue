@@ -2,7 +2,7 @@
   <div
     data-slot="field-separator"
     :data-content="!!$slots.default"
-    :class="fieldSeparatorStyles({ class: props.class })"
+    :class="fieldSeparatorStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <UiSeparator class="absolute inset-0 top-1/2" />
     <span
@@ -15,6 +15,7 @@
   </div>
 </template>
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const fieldSeparatorStyles = tv({

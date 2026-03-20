@@ -2,7 +2,7 @@
   <ScrollAreaScrollbar
     data-slot="scroll-area-scrollbar"
     v-bind="forwarded"
-    :class="styles({ orientation, class: props.class })"
+    :class="styles({ orientation, class: normalizeClass(props.class) || undefined })"
   >
     <slot />
     <UiScrollAreaThumb />
@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
   import { ScrollAreaScrollbar } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ScrollAreaScrollbarProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

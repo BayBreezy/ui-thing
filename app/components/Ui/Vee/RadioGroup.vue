@@ -1,5 +1,5 @@
 <template>
-  <div :class="styles({ class: props.class })">
+  <div :class="styles({ class: normalizeClass(props.class) || undefined })">
     <slot name="label" :error-message="errorMessage" :value="value">
       <UiLabel v-if="label" class="mb-5 leading-none" :class="[errorMessage && 'text-destructive']"
         ><span>{{ label }} <span v-if="required" class="text-destructive">*</span></span></UiLabel
@@ -42,6 +42,7 @@
 <script lang="ts" setup>
   import { AnimatePresence, motion } from "motion-v";
   import { useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { RadioGroupRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

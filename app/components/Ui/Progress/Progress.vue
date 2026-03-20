@@ -2,7 +2,7 @@
   <ProgressRoot
     data-slot="progress"
     v-bind="{ ...forwarded, ...$attrs }"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       <UiProgressIndicator
@@ -14,6 +14,7 @@
 
 <script lang="ts" setup>
   import { ProgressRoot, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ProgressRootEmits, ProgressRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -2,12 +2,13 @@
   <TooltipArrow
     data-slot="tooltip-arrow"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   />
 </template>
 
 <script lang="ts" setup>
   import { TooltipArrow, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { TooltipArrowProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -2,7 +2,7 @@
   <Primitive
     data-slot="item-description"
     v-bind="forwarded"
-    :class="itemDescriptionStyles({ class: props.class })"
+    :class="itemDescriptionStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </Primitive>
@@ -10,6 +10,7 @@
 
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

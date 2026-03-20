@@ -3,13 +3,14 @@
     data-slot="input-group-button"
     v-bind="forwarded"
     :data-size="size"
-    :class="inputGroupButtonVariants({ class: props.class, size })"
+    :class="inputGroupButtonVariants({ class: normalizeClass(props.class) || undefined, size })"
   >
     <slot />
   </UiButton>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { ButtonProps } from "@/components/Ui/Button.vue";
   import type { VariantProps } from "tailwind-variants";
 

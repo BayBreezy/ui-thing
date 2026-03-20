@@ -19,10 +19,18 @@
     ref="navRef"
     :data-navbar="intent"
     :data-navbar-sticky="isSticky"
-    :class="styles().wrapper({ intent, isSticky, class: wrapperClass })"
+    :class="
+      styles().wrapper({ intent, isSticky, class: normalizeClass(wrapperClass) || undefined })
+    "
   >
-    <div data-navbar="child" :class="styles().child({ intent, class: childClass })">
-      <div data-navbar="content" :class="styles().content({ intent, class: innerClass })">
+    <div
+      data-navbar="child"
+      :class="styles().child({ intent, class: normalizeClass(childClass) || undefined })"
+    >
+      <div
+        data-navbar="content"
+        :class="styles().content({ intent, class: normalizeClass(innerClass) || undefined })"
+      >
         <slot />
       </div>
     </div>
@@ -30,6 +38,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   import { navProviderKey } from "./Provider.vue";

@@ -23,7 +23,7 @@ This consists of four(4) components
 
 ```vue [Terminal.vue]
 <template>
-  <div ref="containerRef" :class="styles({ class: props.class })">
+  <div ref="containerRef" :class="styles({ class: normalizeClass(props.class) || undefined })">
     <div
       class="sticky top-0 left-0 z-10 flex flex-col gap-y-2 border-b border-border bg-background p-4"
     >
@@ -40,6 +40,7 @@ This consists of four(4) components
   </div>
 </template>
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 
@@ -189,7 +190,7 @@ This consists of four(4) components
     :initial="{ opacity: 0, y: -5 }"
     :animate="shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: -5 }"
     :transition="{ duration: 0.3, delay: sequence ? 0 : delay / 1000 }"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     @animation-complete="onAnimationComplete"
   >
     <slot>{{ text }}</slot>
@@ -197,6 +198,7 @@ This consists of four(4) components
 </template>
 <script lang="ts">
   import { motion } from "motion-v";
+  import { normalizeClass } from "vue";
   import type { SequenceContextValue } from "./Terminal.vue";
   import type { MotionProps } from "motion-v";
   import type { PrimitiveProps } from "reka-ui";
@@ -299,11 +301,16 @@ This consists of four(4) components
 
 ```vue [TypingAnimation.vue]
 <template>
-  <component :is="Component" ref="elementRef" :class="styles({ class: props.class })">
+  <component
+    :is="Component"
+    ref="elementRef"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     {{ displayedText }}
   </component>
 </template>
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { SequenceContextValue } from "./Terminal.vue";
   import type { MotionProps } from "motion-v";
   import type { PrimitiveProps } from "reka-ui";

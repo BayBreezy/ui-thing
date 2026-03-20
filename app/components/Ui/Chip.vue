@@ -3,7 +3,14 @@
     <slot />
     <span
       v-if="localModel"
-      :class="[styles({ position, size, inset, class: [props.color, props.class] })]"
+      :class="[
+        styles({
+          position,
+          size,
+          inset,
+          class: normalizeClass([props.color, props.class]) || undefined,
+        }),
+      ]"
     >
       <slot name="content">
         {{ text }}
@@ -13,6 +20,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

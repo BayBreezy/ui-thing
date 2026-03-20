@@ -1,5 +1,5 @@
 <template>
-  <div :class="headingStyles({ class: props.class })">
+  <div :class="headingStyles({ class: normalizeClass(props.class) || undefined })">
     <slot name="title">
       <h3 class="text-2xl font-semibold">
         {{ title }}
@@ -25,6 +25,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<{

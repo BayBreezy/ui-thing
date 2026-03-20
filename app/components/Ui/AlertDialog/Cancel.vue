@@ -2,7 +2,9 @@
   <AlertDialogCancel
     data-slot="alert-dialog-cancel"
     v-bind="forwarded"
-    :class="buttonStyles({ variant, size, disabled, class: props.class })"
+    :class="
+      buttonStyles({ variant, size, disabled, class: normalizeClass(props.class) || undefined })
+    "
   >
     <slot>{{ text }}</slot>
   </AlertDialogCancel>
@@ -11,6 +13,7 @@
 <script lang="ts" setup>
   import { buttonStyles } from "~/components/Ui/Button.vue";
   import { AlertDialogCancel } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { AlertDialogCancelProps } from "reka-ui";
 
   const props = withDefaults(

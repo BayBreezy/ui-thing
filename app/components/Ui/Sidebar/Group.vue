@@ -2,7 +2,7 @@
   <Primitive
     data-slot="sidebar-group"
     data-sidebar="group"
-    :class="sideBarGroupStyles({ class: props.class })"
+    :class="sideBarGroupStyles({ class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   >
     <slot />
@@ -10,6 +10,7 @@
 </template>
 <script lang="ts">
   import { Primitive, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

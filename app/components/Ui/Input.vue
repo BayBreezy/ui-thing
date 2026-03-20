@@ -4,13 +4,14 @@
     v-bind="props"
     ref="input"
     data-slot="input"
-    :class="styles({ class: props.class, type: props.type as any })"
+    :class="styles({ class: normalizeClass(props.class) || undefined, type: props.type as any })"
     :value="modelValue"
     @input="handleInput"
   />
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes, InputHTMLAttributes } from "vue";
 
   export type InputProps = {

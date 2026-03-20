@@ -6,6 +6,7 @@
 
 <script lang="ts" setup>
   import { colord } from "colord";
+  import { normalizeClass } from "vue";
   import type { Colord } from "colord";
   import type { HTMLAttributes } from "vue";
 
@@ -49,7 +50,7 @@
     return x < 0 ? x + 360 : x;
   };
 
-  const rootClass = computed(() => styles({ class: props.class }));
+  const rootClass = computed(() => styles({ class: normalizeClass(props.class) || undefined }));
 
   const hue = ref(0);
   const saturation = ref(100);

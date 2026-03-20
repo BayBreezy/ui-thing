@@ -2,7 +2,7 @@
   <Primitive
     data-slot="timeline-content"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </Primitive>
@@ -11,6 +11,7 @@
 <script lang="ts" setup>
   import { reactiveOmit } from "@vueuse/core";
   import { Primitive, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

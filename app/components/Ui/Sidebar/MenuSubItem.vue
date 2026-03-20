@@ -2,13 +2,14 @@
   <li
     data-slot="sidebar-menu-sub-item"
     data-sidebar="menu-sub-item"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </li>
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const styles = tv({

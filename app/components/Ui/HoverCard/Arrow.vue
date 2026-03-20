@@ -1,9 +1,13 @@
 <template>
-  <HoverCardArrow :class="styles({ class: props.class })" v-bind="forwarded" />
+  <HoverCardArrow
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+    v-bind="forwarded"
+  />
 </template>
 
 <script lang="ts" setup>
   import { HoverCardArrow } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HoverCardArrowProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

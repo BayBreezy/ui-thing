@@ -2,7 +2,7 @@
   <DropdownMenuSubTrigger
     data-slot="dropdown-menu-sub-trigger"
     v-bind="forwarded"
-    :class="styles({ inset, class: props.class })"
+    :class="styles({ inset, class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       <Icon v-if="icon" :name="icon" class="size-4" />
@@ -17,6 +17,7 @@
 
 <script lang="ts" setup>
   import { DropdownMenuSubTrigger } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { DropdownMenuSubTriggerProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

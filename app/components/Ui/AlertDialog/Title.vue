@@ -2,7 +2,7 @@
   <AlertDialogTitle
     data-slot="alert-dialog-title"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>{{ title }}</slot>
   </AlertDialogTitle>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { AlertDialogTitle } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { AlertDialogTitleProps } from "reka-ui";
 
   const props = defineProps<

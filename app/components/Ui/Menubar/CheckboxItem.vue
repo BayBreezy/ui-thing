@@ -2,7 +2,7 @@
   <MenubarCheckboxItem
     data-slot="menubar-checkbox-item"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <span class="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
       <UiMenubarItemIndicator>
@@ -18,6 +18,7 @@
 
 <script lang="ts" setup>
   import { MenubarCheckboxItem, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { MenubarCheckboxItemEmits, MenubarCheckboxItemProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

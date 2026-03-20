@@ -1,5 +1,8 @@
 <template>
-  <Primitive as="div" :class="base({ orientation, type, class: props.class })">
+  <Primitive
+    as="div"
+    :class="base({ orientation, type, class: normalizeClass(props.class) || undefined })"
+  >
     <Separator :orientation="orientation" :class="border({ orientation, type })" />
     <template v-if="label || icon || avatar || $slots.default">
       <div :class="container({ orientation, type })">
@@ -24,6 +27,7 @@
 
 <script lang="ts" setup>
   import { Primitive, Separator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<{

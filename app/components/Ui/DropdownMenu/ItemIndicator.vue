@@ -2,7 +2,7 @@
   <DropdownMenuItemIndicator
     data-slot="dropdown-menu-item-indicator"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       <Icon v-if="icon" :name="icon" class="size-4" />
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { DropdownMenuItemIndicator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { DropdownMenuItemIndicatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -1,6 +1,6 @@
 <template>
   <SelectScrollUpButton
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     data-slot="select-scroll-up-button"
     v-bind="forwarded"
   >
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { SelectScrollUpButton } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SelectScrollUpButtonProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -1,7 +1,7 @@
 <template>
   <MenubarLabel
     data-slot="menubar-label"
-    :class="styles({ inset, class: props.class })"
+    :class="styles({ inset, class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   >
     <slot />
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { MenubarLabel } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { MenubarLabelProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

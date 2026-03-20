@@ -1,7 +1,7 @@
 <template>
   <DialogDescription
     data-slot="sheet-description"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   >
     <slot>{{ description }}</slot>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { DialogDescription } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { DialogDescriptionProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

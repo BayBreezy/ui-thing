@@ -3,7 +3,7 @@
     data-slot="menubar-sub-trigger"
     v-bind="forwarded"
     :data-inset="inset"
-    :class="styles({ inset, class: props.class })"
+    :class="styles({ inset, class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       <Icon v-if="icon" :name="icon" class="size-4" />
@@ -18,6 +18,7 @@
 
 <script lang="ts" setup>
   import { MenubarSubTrigger } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { MenubarSubTriggerProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

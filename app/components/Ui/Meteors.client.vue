@@ -2,7 +2,7 @@
   <span
     v-for="(s, i) in meteorStyles"
     :key="i"
-    :class="localStyles().wrapper({ class: props.class })"
+    :class="localStyles().wrapper({ class: normalizeClass(props.class) || undefined })"
     :style="s"
   >
     <div :class="localStyles().tail()" />
@@ -10,6 +10,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { CSSProperties, HTMLAttributes } from "vue";
 
   interface MeteorsProps {

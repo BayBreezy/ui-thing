@@ -1,5 +1,5 @@
 <template>
-  <div ref="root" :class="styles().wrapper({ class: props.class })">
+  <div ref="root" :class="styles().wrapper({ class: normalizeClass(props.class) || undefined })">
     <div v-if="!visible && placeholder" class="size-full">
       <slot name="placeholder"> <div class="size-full bg-muted" /> </slot>
     </div>
@@ -7,7 +7,7 @@
     <iframe
       v-show="visible"
       :src="visible ? src : undefined"
-      :class="styles().iframe({ class: iframeClass })"
+      :class="styles().iframe({ class: normalizeClass(iframeClass) || undefined })"
       :loading
       frameborder="0"
       allowfullscreen
@@ -18,6 +18,7 @@
 </template>
 
 <script setup lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineEmits<{ load: [event: Event] }>();

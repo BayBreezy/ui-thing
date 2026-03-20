@@ -6,7 +6,7 @@
     :class="
       styles({
         hover: Boolean(onClick) || Boolean(to) || Boolean(href),
-        class: props.class,
+        class: normalizeClass(props.class) || undefined,
       })
     "
     @click="onClick"
@@ -16,6 +16,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<{

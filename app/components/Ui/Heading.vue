@@ -1,11 +1,16 @@
 <template>
-  <Primitive :as="hTag" v-bind="forwarded" :class="headingStyles({ level, class: props.class })">
+  <Primitive
+    :as="hTag"
+    v-bind="forwarded"
+    :class="headingStyles({ level, class: normalizeClass(props.class) || undefined })"
+  >
     <slot />
   </Primitive>
 </template>
 
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

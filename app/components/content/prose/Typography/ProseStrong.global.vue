@@ -1,10 +1,14 @@
 <template>
-  <strong data-slot="prose-strong" :class="proseStrongStyles({ class: _class })">
+  <strong
+    data-slot="prose-strong"
+    :class="proseStrongStyles({ class: normalizeClass(_class) || undefined })"
+  >
     <slot />
   </strong>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type ProseStrongProps = {

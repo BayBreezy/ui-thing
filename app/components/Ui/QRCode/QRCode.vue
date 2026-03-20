@@ -1,5 +1,5 @@
 <template>
-  <div :class="qrCodeStyles().root({ size, class: props.class })">
+  <div :class="qrCodeStyles().root({ size, class: normalizeClass(props.class) || undefined })">
     <div ref="qrCodeRef" />
 
     <slot name="top-left">
@@ -21,6 +21,7 @@
 
 <script lang="ts">
   import QRCodeStyling from "qr-code-styling";
+  import { normalizeClass } from "vue";
   import type { Options as QRCodeStylingOptions } from "qr-code-styling";
 
   export const qrCodeStyles = tv({

@@ -4,12 +4,13 @@
     ref="textarea"
     data-slot="textarea"
     :value="modelValue"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     @input="handleInput"
   />
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes, TextareaHTMLAttributes } from "vue";
 
   export type TextareaProps = {

@@ -1,6 +1,6 @@
 <template>
   <NavigationMenuItem
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     data-slot="navigation-menu-item"
     v-bind="props"
   >
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { NavigationMenuItem } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { NavigationMenuItemProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

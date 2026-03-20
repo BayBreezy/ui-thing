@@ -2,7 +2,7 @@
   <DrawerDescription
     data-slot="drawer-description"
     v-bind="props"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       {{ props.text }}
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { DrawerDescription } from "vaul-vue";
+  import { normalizeClass } from "vue";
   import type { DrawerDescriptionProps } from "vaul-vue";
   import type { HTMLAttributes } from "vue";
 

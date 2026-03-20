@@ -1,7 +1,7 @@
 <template>
   <AvatarFallback
     data-slot="avatar-fallback"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   >
     <slot>
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { AvatarFallback } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { AvatarFallbackProps } from "reka-ui";
 
   const props = defineProps<

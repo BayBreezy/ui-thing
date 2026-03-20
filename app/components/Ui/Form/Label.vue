@@ -1,6 +1,6 @@
 <template>
   <Label
-    :class="styles({ error: Boolean(error), class: props.class })"
+    :class="styles({ error: Boolean(error), class: normalizeClass(props.class) || undefined })"
     :for="formItemId"
     v-bind="$attrs"
   >
@@ -13,6 +13,7 @@
 
 <script lang="ts" setup>
   import { Label } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { LabelProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

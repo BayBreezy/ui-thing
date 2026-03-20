@@ -12,7 +12,7 @@
       :disabled="disabled"
       :required="required"
       v-bind="$attrs"
-      :class="styles({ class: props.class })"
+      :class="styles({ class: normalizeClass(props.class) || undefined })"
     >
       <slot />
     </select>
@@ -28,6 +28,7 @@
 </template>
 
 <script lang="ts" setup generic="T extends any">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<{

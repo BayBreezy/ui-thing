@@ -4,7 +4,7 @@
     aria-label="pagination"
     data-slot="pagination"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       <UiPaginationList v-slot="{ items }">
@@ -30,6 +30,7 @@
 <script lang="ts" setup>
   import { reactiveOmit } from "@vueuse/core";
   import { PaginationRoot, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PaginationRootEmits, PaginationRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

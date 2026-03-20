@@ -2,7 +2,7 @@
   <ListboxRoot
     cmdk-root
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     data-slot="command"
   >
     <slot />
@@ -11,6 +11,7 @@
 <script lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { createContext, ListboxRoot, useFilter, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ListboxRootEmits, ListboxRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

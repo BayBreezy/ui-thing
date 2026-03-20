@@ -2,7 +2,7 @@
   <SelectTrigger
     data-slot="select-trigger"
     :data-size="size"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   >
     <slot>
@@ -14,6 +14,7 @@
 
 <script lang="ts" setup>
   import { SelectTrigger } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SelectTriggerProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -6,7 +6,7 @@
     <AlertDialogContent
       data-slot="alert-dialog-content"
       :data-size="props.size"
-      :class="styles({ class: props.class })"
+      :class="styles({ class: normalizeClass(props.class) || undefined })"
       v-bind="{ ...forwarded, ...$attrs }"
     >
       <slot />
@@ -16,6 +16,7 @@
 
 <script lang="ts" setup>
   import { AlertDialogContent, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { AlertDialogContentEmits, AlertDialogContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

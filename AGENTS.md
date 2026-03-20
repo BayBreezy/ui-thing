@@ -76,7 +76,8 @@ If you change markdown docs that embed example code, expect `automd` to refresh 
   - `useForwardProps`
   - `useForwardPropsEmits`
   - `reactiveOmit`
-- Accept `class?: HTMLAttributes["class"]` on wrapper components and merge it through `styles({ class: props.class })`.
+- Accept `class?: HTMLAttributes["class"]` on wrapper components and keep the public API aligned with Vue class bindings.
+- When passing class overrides into `tv()` or slot style builders, normalize them at the boundary with `normalizeClass(props.class) || undefined` instead of narrowing the prop type.
 - Export reusable styles and variant types when other components depend on them. Example: `buttonStyles`.
 - Use `withDefaults(defineProps<...>(), ...)` when defaults exist.
 - Use `defineSlots`, `defineExpose`, and typed emits where they improve the component contract.

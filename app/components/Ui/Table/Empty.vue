@@ -1,6 +1,9 @@
 <template>
   <UiTableRow>
-    <UiTableCell :colspan="colspan" :class="styles({ class: props.class })">
+    <UiTableCell
+      :colspan="colspan"
+      :class="styles({ class: normalizeClass(props.class) || undefined })"
+    >
       <div data-slot="table-empty" class="flex items-center justify-center py-10">
         <slot />
       </div>
@@ -9,6 +12,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

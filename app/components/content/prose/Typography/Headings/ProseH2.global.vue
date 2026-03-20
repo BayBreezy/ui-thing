@@ -1,5 +1,5 @@
 <template>
-  <h2 :id="id" :class="proseH2Styles({ class: _class })">
+  <h2 :id="id" :class="proseH2Styles({ class: normalizeClass(_class) || undefined })">
     <NuxtLink
       v-if="generate"
       data-slot="h2-link"
@@ -19,6 +19,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { NuxtLinkProps } from "#app";
   import type { HTMLAttributes } from "vue";
 

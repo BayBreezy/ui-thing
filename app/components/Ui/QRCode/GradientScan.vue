@@ -2,7 +2,7 @@
   <Primitive
     :as
     :as-child
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     style="
       mask-image: radial-gradient(52.19% 100% at 50% 0%, #000 0%, rgba(0, 0, 0, 0) 95.31%);
       -webkit-mask-image: radial-gradient(52.19% 100% at 50% 0%, #000 0%, rgba(0, 0, 0, 0) 95.31%);
@@ -14,6 +14,7 @@
 
 <script lang="ts" setup>
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

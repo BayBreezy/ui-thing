@@ -2,12 +2,13 @@
   <AlertDialogOverlay
     data-slot="alert-dialog-overlay"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   />
 </template>
 
 <script lang="ts" setup>
   import { AlertDialogOverlay } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { AlertDialogOverlayProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

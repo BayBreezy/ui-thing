@@ -2,7 +2,7 @@
   <ToggleGroupItem
     data-slot="toggle-group-item"
     v-bind="forwarded"
-    :class="toggleStyles({ class: props.class, size, variant })"
+    :class="toggleStyles({ class: normalizeClass(props.class) || undefined, size, variant })"
   >
     <slot>
       <Icon v-if="icon" class="size-4" :name="icon" />
@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
   import { ToggleGroupItem, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ToggleGroupItemProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

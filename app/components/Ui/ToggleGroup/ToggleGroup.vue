@@ -3,7 +3,7 @@
     v-slot="{ modelValue }"
     data-slot="toggle-group"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot :model-value="modelValue" />
   </ToggleGroupRoot>
@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
   import { ToggleGroupRoot, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ToggleVariants } from "../Toggle.vue";
   import type { ToggleGroupRootEmits, ToggleGroupRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";

@@ -1,10 +1,14 @@
 <template>
-  <p data-slot="prose-lead" :class="proseLeadStyles({ class: _class })">
+  <p
+    data-slot="prose-lead"
+    :class="proseLeadStyles({ class: normalizeClass(_class) || undefined })"
+  >
     <slot />
   </p>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type ProseLeadProps = {

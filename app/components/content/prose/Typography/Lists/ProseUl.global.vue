@@ -1,10 +1,11 @@
 <template>
-  <ul data-slot="prose-ul" :class="proseUlStyles({ class: _class })">
+  <ul data-slot="prose-ul" :class="proseUlStyles({ class: normalizeClass(_class) || undefined })">
     <slot mdc-unwrap="p" />
   </ul>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type ProseUlProps = {

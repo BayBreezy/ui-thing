@@ -2,7 +2,7 @@
   <ProgressIndicator
     data-slot="progress-indicator"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </ProgressIndicator>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { ProgressIndicator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { ProgressIndicatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -2,18 +2,22 @@
   <UiButton
     :disabled="!canScrollPrev"
     data-slot="carousel-previous"
-    :class="styles().base({ orientation, class: props.class })"
+    :class="styles().base({ orientation, class: normalizeClass(props.class) || undefined })"
     :variant
     @click="scrollPrev"
   >
     <slot>
-      <Icon :name="props.icon" :class="styles().icon({ orientation, class: props.iconClass })" />
+      <Icon
+        :name="props.icon"
+        :class="styles().icon({ orientation, class: normalizeClass(props.iconClass) || undefined })"
+      />
       <span class="sr-only">{{ props.srText }}</span>
     </slot>
   </UiButton>
 </template>
 
 <script setup lang="ts">
+  import { normalizeClass } from "vue";
   import type { buttonStyles } from "~/components/Ui/Button.vue";
   import type { WithClassAsProps } from "~/composables/useCarousel";
   import type { HTMLAttributes } from "vue";

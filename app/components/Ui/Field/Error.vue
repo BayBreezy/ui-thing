@@ -4,7 +4,7 @@
     :as-child
     role="alert"
     data-slot="field-error"
-    :class="fieldErrorStyles({ class: props.class })"
+    :class="fieldErrorStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot>
       <template v-if="errors">
@@ -30,6 +30,7 @@
 </template>
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

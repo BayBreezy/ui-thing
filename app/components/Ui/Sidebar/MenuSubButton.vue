@@ -6,7 +6,7 @@
     :as-child="asChild"
     :data-size="size"
     :data-active="isActive"
-    :class="sideBarMenuSubButtonStyles({ size, class: props.class })"
+    :class="sideBarMenuSubButtonStyles({ size, class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </Primitive>
@@ -14,6 +14,7 @@
 
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { VariantProps } from "tailwind-variants";
   import type { HTMLAttributes } from "vue";

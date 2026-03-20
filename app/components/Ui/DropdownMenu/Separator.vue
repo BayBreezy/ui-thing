@@ -1,13 +1,14 @@
 <template>
   <DropdownMenuSeparator
     data-slot="dropdown-menu-separator"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   />
 </template>
 
 <script lang="ts" setup>
   import { DropdownMenuSeparator } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { DropdownMenuSeparatorProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -37,6 +37,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const ratingStyles = tv({
@@ -135,22 +136,26 @@
 
   // Memoize style calculations to avoid recalculating on every render
   const ratingClasses = computed(() =>
-    ratingStyles().rating({ class: props.class, size: props.size })
+    ratingStyles().rating({ class: normalizeClass(props.class) || undefined, size: props.size })
   );
   const emptyStarClasses = computed(() =>
     ratingStyles().star({
-      class: ["text-muted-foreground/30", props.emptyIconClassName],
+      class: normalizeClass(["text-muted-foreground/30", props.emptyIconClassName]) || undefined,
       size: props.size,
     })
   );
   const filledStarClasses = computed(() =>
     ratingStyles().star({
-      class: ["fill-yellow-400 text-yellow-400", props.filledIconClassName],
+      class:
+        normalizeClass(["fill-yellow-400 text-yellow-400", props.filledIconClassName]) || undefined,
       size: props.size,
     })
   );
   const valueClasses = computed(() =>
-    ratingStyles().value({ class: props.valueClassName, size: props.size })
+    ratingStyles().value({
+      class: normalizeClass(props.valueClassName) || undefined,
+      size: props.size,
+    })
   );
 
   // Pre-calculate star widths for better performance

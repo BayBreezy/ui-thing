@@ -1,5 +1,9 @@
 <template>
-  <DialogClose data-slot="sheet-close-x" :class="styles({ class: props.class })" v-bind="forwarded">
+  <DialogClose
+    data-slot="sheet-close-x"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+    v-bind="forwarded"
+  >
     <slot>
       <Icon :name="icon" class="size-4" />
       <span class="sr-only">{{ srText }}</span>
@@ -9,6 +13,7 @@
 
 <script lang="ts" setup>
   import { DialogClose } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { DialogCloseProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -2,7 +2,7 @@
   <AccordionTrigger
     data-slot="accordion-trigger"
     v-bind="forwarded"
-    :class="accordionTriggerStyle({ class: props.class })"
+    :class="accordionTriggerStyle({ class: normalizeClass(props.class) || undefined })"
   >
     <slot :props="props">
       {{ title }}
@@ -21,6 +21,7 @@
 
 <script lang="ts">
   import { AccordionTrigger } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { AccordionTriggerProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

@@ -3,7 +3,9 @@
     :is="componentType"
     v-bind="linkProps"
     data-slot="prose-callout"
-    :class="calloutStyles().base({ variant, filled, class: props.class })"
+    :class="
+      calloutStyles().base({ variant, filled, class: normalizeClass(props.class) || undefined })
+    "
   >
     <div v-if="hasIcon" :class="calloutStyles().iconWrapper({ variant, filled })">
       <slot name="icon">
@@ -18,13 +20,24 @@
     </div>
 
     <div :class="calloutStyles().content()">
-      <div v-if="hasTitle" :class="calloutStyles().title({ variant, filled, class: titleClass })">
+      <div
+        v-if="hasTitle"
+        :class="
+          calloutStyles().title({ variant, filled, class: normalizeClass(titleClass) || undefined })
+        "
+      >
         <slot name="title">{{ title }}</slot>
       </div>
 
       <div
         v-if="hasDescription || $slots.default"
-        :class="calloutStyles().description({ variant, filled, class: descriptionClass })"
+        :class="
+          calloutStyles().description({
+            variant,
+            filled,
+            class: normalizeClass(descriptionClass) || undefined,
+          })
+        "
       >
         <slot mdc-unwrap="p">{{ description }}</slot>
       </div>
@@ -39,6 +52,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { VariantProps } from "tailwind-variants";
   import type { HTMLAttributes } from "vue";
 

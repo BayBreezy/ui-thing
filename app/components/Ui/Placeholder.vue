@@ -1,5 +1,9 @@
 <template>
-  <Primitive :as :as-child :class="placeHolderStyles().wrapper({ class: props.class })">
+  <Primitive
+    :as
+    :as-child
+    :class="placeHolderStyles().wrapper({ class: normalizeClass(props.class) || undefined })"
+  >
     <svg :class="placeHolderStyles().svg()" fill="none">
       <defs>
         <pattern
@@ -27,6 +31,7 @@
 
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

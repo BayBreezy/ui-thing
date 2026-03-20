@@ -1,10 +1,14 @@
 <template>
-  <blockquote data-slot="prose-blockquote" :class="proseBlockquoteStyles({ class: _class })">
+  <blockquote
+    data-slot="prose-blockquote"
+    :class="proseBlockquoteStyles({ class: normalizeClass(_class) || undefined })"
+  >
     <slot />
   </blockquote>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type ProseBlockquoteProps = {

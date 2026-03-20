@@ -2,7 +2,7 @@
   <Primitive
     data-slot="drawer-footer"
     v-bind="forwarded"
-    :class="drawerFooterStyles({ class: props.class })"
+    :class="drawerFooterStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </Primitive>
@@ -11,6 +11,7 @@
 <script lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { Primitive, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

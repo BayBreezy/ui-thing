@@ -1,11 +1,16 @@
 <template>
-  <Primitive data-slot="empty" :class="emptyStyles({ class: props.class })" v-bind="forwarded">
+  <Primitive
+    data-slot="empty"
+    :class="emptyStyles({ class: normalizeClass(props.class) || undefined })"
+    v-bind="forwarded"
+  >
     <slot />
   </Primitive>
 </template>
 
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

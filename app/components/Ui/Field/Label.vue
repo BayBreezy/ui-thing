@@ -1,9 +1,14 @@
 <template>
-  <UiLabel v-bind="props" data-slot="field-label" :class="fieldLabelStyles({ class: props.class })">
+  <UiLabel
+    v-bind="props"
+    data-slot="field-label"
+    :class="fieldLabelStyles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot />
   </UiLabel>
 </template>
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { LabelProps } from "@/components/Ui/Label.vue";
 
   export const fieldLabelStyles = tv({

@@ -1,5 +1,9 @@
 <template>
-  <SliderRoot data-slot="slider" v-bind="forwarded" :class="styles({ class: props.class })">
+  <SliderRoot
+    data-slot="slider"
+    v-bind="forwarded"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot :props="props">
       <slot name="track" :props="props">
         <UiSliderTrack>
@@ -40,6 +44,7 @@
 
 <script lang="ts" setup>
   import { SliderRoot, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { SliderRootEmits, SliderRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

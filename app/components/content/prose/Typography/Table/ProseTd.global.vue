@@ -1,10 +1,11 @@
 <template>
-  <td data-slot="prose-td" :class="proseTdStyles({ class: _class })">
+  <td data-slot="prose-td" :class="proseTdStyles({ class: normalizeClass(_class) || undefined })">
     <slot />
   </td>
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type ProseTdProps = {

@@ -16,7 +16,7 @@
         '--after-blur': `${dimensions.width / 3}px`,
       } as CSSProperties
     "
-    :class="neonGradientCardStyles().wrapper({ class: props.class })"
+    :class="neonGradientCardStyles().wrapper({ class: normalizeClass(props.class) || undefined })"
   >
     <div :class="neonGradientCardStyles().inner()">
       <slot />
@@ -25,6 +25,7 @@
 </template>
 
 <script lang="ts">
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { CSSProperties, HTMLAttributes } from "vue";
 

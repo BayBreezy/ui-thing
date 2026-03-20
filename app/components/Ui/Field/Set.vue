@@ -1,10 +1,16 @@
 <template>
-  <Primitive :as :as-child data-slot="field-set" :class="fieldSetStyles({ class: props.class })">
+  <Primitive
+    :as
+    :as-child
+    data-slot="field-set"
+    :class="fieldSetStyles({ class: normalizeClass(props.class) || undefined })"
+  >
     <slot />
   </Primitive>
 </template>
 <script lang="ts">
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

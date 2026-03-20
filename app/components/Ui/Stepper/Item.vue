@@ -3,7 +3,7 @@
     v-slot="slotProps"
     data-slot="stepper-item"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot v-bind="slotProps" />
   </StepperItem>
@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
   import { StepperItem, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { StepperItemProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

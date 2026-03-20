@@ -2,7 +2,7 @@
   <StepperTitle
     v-bind="forwarded"
     data-slot="stepper-title"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </StepperTitle>
@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
   import { StepperTitle, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { StepperTitleProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

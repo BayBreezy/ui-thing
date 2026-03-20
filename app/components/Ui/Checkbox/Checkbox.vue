@@ -3,7 +3,7 @@
     v-slot="slotProps"
     data-slot="checkbox"
     v-bind="forwarded"
-    :class="styles({ class: props.class })"
+    :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot v-bind="slotProps">
       <UiCheckboxIndicator v-bind="slotProps" :icon :indeterminate-icon />
@@ -13,6 +13,7 @@
 
 <script lang="ts" setup>
   import { CheckboxRoot, useForwardPropsEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { CheckboxRootEmits, CheckboxRootProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

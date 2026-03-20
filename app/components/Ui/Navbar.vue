@@ -1,5 +1,8 @@
 <template>
-  <Primitive :class="styles({ sticky, class: props.class })" v-bind="forwarded">
+  <Primitive
+    :class="styles({ sticky, class: normalizeClass(props.class) || undefined })"
+    v-bind="forwarded"
+  >
     <slot />
   </Primitive>
 </template>
@@ -7,6 +10,7 @@
 <script lang="ts" setup>
   import { reactiveOmit } from "@vueuse/core";
   import { Primitive, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 

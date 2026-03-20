@@ -2,7 +2,7 @@
   <Primitive
     data-slot="description-list"
     v-bind="reactiveOmit(props, 'class')"
-    :class="descriptionListDetailsStyles({ class: props.class })"
+    :class="descriptionListDetailsStyles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
   </Primitive>
@@ -10,6 +10,7 @@
 <script lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { Primitive } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 
