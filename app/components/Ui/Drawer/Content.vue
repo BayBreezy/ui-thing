@@ -7,7 +7,12 @@
       <DrawerContent
         data-slot="drawer-content"
         v-bind="{ ...forwarded, ...$attrs }"
-        :class="styles({ class: normalizeClass(props.class) || undefined })"
+        :class="
+          styles({
+            translucent: props.translucent,
+            class: normalizeClass(props.class) || undefined,
+          })
+        "
       >
         <slot name="knob">
           <div
@@ -33,10 +38,17 @@
   defineOptions({ inheritAttrs: false });
 
   const props = defineProps<
-    DialogContentProps & { class?: HTMLAttributes["class"]; hideKnob?: boolean }
+    DialogContentProps & {
+      class?: HTMLAttributes["class"];
+      hideKnob?: boolean;
+      translucent?: boolean;
+    }
   >();
   const emits = defineEmits<DialogContentEmits>();
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(
+    reactiveOmit(props, "class", "hideKnob", "translucent"),
+    emits
+  );
 
   const styles = tv({
     base: [
@@ -46,5 +58,10 @@
       "data-[vaul-drawer-direction=right]:inset-y-0 data-[vaul-drawer-direction=right]:right-0 data-[vaul-drawer-direction=right]:w-3/4 data-[vaul-drawer-direction=right]:border-l data-[vaul-drawer-direction=right]:sm:max-w-sm",
       "data-[vaul-drawer-direction=left]:inset-y-0 data-[vaul-drawer-direction=left]:left-0 data-[vaul-drawer-direction=left]:w-3/4 data-[vaul-drawer-direction=left]:border-r data-[vaul-drawer-direction=left]:sm:max-w-sm",
     ],
+    variants: {
+      translucent: {
+        true: getTranslucentFloatingPanelClasses("background"),
+      },
+    },
   });
 </script>

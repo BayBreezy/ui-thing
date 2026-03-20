@@ -109,6 +109,50 @@ Click :SourceCodeLink{component="DropdownMenu"} to see the source code for this 
 
 ::
 
+### Translucent Surface
+
+Use the `translucent` prop on the content surface when you want a softer glassmorphic menu treatment without changing the menu behavior.
+
+::ShowCase
+
+:DocsDropdownMenuTranslucent
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/DropdownMenu/DocsDropdownMenuTranslucent.vue" code lang="vue" -->
+
+```vue [DocsDropdownMenuTranslucent.vue]
+<template>
+  <div class="flex items-center justify-center">
+    <UiDropdownMenu>
+      <UiDropdownMenuTrigger as-child>
+        <UiButton variant="outline">Translucent menu</UiButton>
+      </UiDropdownMenuTrigger>
+      <UiDropdownMenuContent translucent class="w-56">
+        <UiDropdownMenuArrow translucent />
+        <UiDropdownMenuLabel label="Workspace" />
+        <UiDropdownMenuSeparator />
+        <UiDropdownMenuItem title="Profile" icon="ph:user" shortcut="⇧⌘P" />
+        <UiDropdownMenuItem title="Theme" icon="ph:palette" shortcut="⌘T" />
+        <UiDropdownMenuSub>
+          <UiDropdownMenuSubTrigger title="Share" icon="ph:share-network" text-value="Share" />
+          <UiDropdownMenuSubContent translucent>
+            <UiDropdownMenuItem title="Copy link" icon="ph:link" shortcut="⌘C" />
+            <UiDropdownMenuItem title="Invite team" icon="ph:users-three" shortcut="⇧⌘I" />
+          </UiDropdownMenuSubContent>
+        </UiDropdownMenuSub>
+        <UiDropdownMenuSeparator />
+        <UiDropdownMenuItem title="Sign out" icon="ph:sign-out" />
+      </UiDropdownMenuContent>
+    </UiDropdownMenu>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
 ### Checkbox Menu Items
 
 ::ShowCase

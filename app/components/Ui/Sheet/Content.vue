@@ -11,6 +11,7 @@
           isBlurred,
           variant,
           fullscreen,
+          translucent: props.translucent,
           class: normalizeClass(props.class) || undefined,
         })
       "
@@ -63,6 +64,9 @@
       variant: {
         default: "",
         floating: "rounded-lg border",
+      },
+      translucent: {
+        true: getTranslucentFloatingPanelClasses("background"),
       },
       fullscreen: {
         true: "inset-0 m-0 size-full rounded-none border-0",
@@ -186,6 +190,10 @@
          * @default true
          */
         isBlurred?: boolean;
+        /**
+         * Whether to render the content with a translucent surface
+         */
+        translucent?: boolean;
       }
     >(),
     { isBlurred: true }
@@ -202,6 +210,7 @@
       "variant",
       "fullscreen",
       "isBlurred",
+      "translucent",
     ]),
     emits
   );

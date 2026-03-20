@@ -21,6 +21,7 @@ export default [
     name: "Alert Dialog",
     value: "alert-dialog",
     components: ["button"],
+    utils: ["translucent.ts"],
     files: [
       "AlertDialog/Action.vue",
       "AlertDialog/AlertDialog.vue",
@@ -208,6 +209,7 @@ export default [
   {
     name: "Context Menu",
     value: "context-menu",
+    utils: ["translucent.ts"],
     files: [
       "ContextMenu/Arrow.vue",
       "ContextMenu/CheckboxItem.vue",
@@ -288,6 +290,7 @@ export default [
   {
     name: "Dialog",
     value: "dialog",
+    utils: ["translucent.ts"],
     files: [
       "Dialog/Close.vue",
       "Dialog/Content.vue",
@@ -320,6 +323,7 @@ export default [
     name: "Drawer",
     value: "drawer",
     deps: ["vaul-vue"],
+    utils: ["translucent.ts"],
     files: [
       "Drawer/Close.vue",
       "Drawer/Content.vue",
@@ -337,6 +341,7 @@ export default [
   {
     name: "Dropdown Menu",
     value: "dropdown-menu",
+    utils: ["translucent.ts"],
     files: [
       "DropdownMenu/Arrow.vue",
       "DropdownMenu/CheckboxItem.vue",
@@ -451,6 +456,7 @@ export default [
   {
     name: "Hover Card",
     value: "hover-card",
+    utils: ["translucent.ts"],
     files: [
       "HoverCard/Arrow.vue",
       "HoverCard/Content.vue",
@@ -559,6 +565,7 @@ export default [
   {
     name: "Menubar",
     value: "menubar",
+    utils: ["translucent.ts"],
     files: [
       "Menubar/Arrow.vue",
       "Menubar/CheckboxItem.vue",
@@ -672,6 +679,7 @@ export default [
   {
     name: "Popover",
     value: "popover",
+    utils: ["translucent.ts"],
     files: [
       "Popover/Anchor.vue",
       "Popover/Arrow.vue",
@@ -730,6 +738,7 @@ export default [
   {
     name: "Select",
     value: "select",
+    utils: ["translucent.ts"],
     files: [
       "Select/Arrow.vue",
       "Select/Content.vue",
@@ -759,6 +768,7 @@ export default [
   {
     name: "Sheet",
     value: "sheet",
+    utils: ["translucent.ts"],
     files: [
       "Sheet/Close.vue",
       "Sheet/Content.vue",

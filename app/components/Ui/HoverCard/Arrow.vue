@@ -1,6 +1,11 @@
 <template>
   <HoverCardArrow
-    :class="styles({ class: normalizeClass(props.class) || undefined })"
+    :class="
+      styles({
+        translucent: props.translucent,
+        class: normalizeClass(props.class) || undefined,
+      })
+    "
     v-bind="forwarded"
   />
 </template>
@@ -16,15 +21,22 @@
       HoverCardArrowProps & {
         /** Custom class(es) to add to the parent */
         class?: HTMLAttributes["class"];
+        /** Whether to render the arrow with a translucent surface */
+        translucent?: boolean;
       }
     >(),
     {
-      height: 5,
-      width: 10,
+      height: 6,
+      width: 12,
     }
   );
-  const forwarded = reactiveOmit(props, "class");
+  const forwarded = reactiveOmit(props, "class", "translucent");
   const styles = tv({
-    base: "fill-popover",
+    base: "fill-popover stroke-border",
+    variants: {
+      translucent: {
+        true: getTranslucentFloatingArrowClasses("popover"),
+      },
+    },
   });
 </script>

@@ -3,7 +3,12 @@
     <PopoverContent
       data-slot="popover-content"
       v-bind="{ ...forwarded, ...$attrs }"
-      :class="styles({ class: normalizeClass(props.class) || undefined })"
+      :class="
+        styles({
+          translucent: props.translucent,
+          class: normalizeClass(props.class) || undefined,
+        })
+      "
     >
       <slot />
     </PopoverContent>
@@ -23,6 +28,7 @@
       PopoverContentProps & {
         to?: string | HTMLElement;
         class?: HTMLAttributes["class"];
+        translucent?: boolean;
       }
     >(),
     {
@@ -36,9 +42,14 @@
   );
 
   const emits = defineEmits<PopoverContentEmits>();
-  const forwarded = useForwardPropsEmits(reactiveOmit(props, "to", "class"), emits);
+  const forwarded = useForwardPropsEmits(reactiveOmit(props, "to", "class", "translucent"), emits);
 
   const styles = tv({
     base: "z-50 w-72 origin-(--reka-popover-content-transform-origin) rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-hidden data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
+    variants: {
+      translucent: {
+        true: getTranslucentFloatingPanelClasses("popover"),
+      },
+    },
   });
 </script>

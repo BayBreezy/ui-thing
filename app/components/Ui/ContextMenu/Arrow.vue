@@ -1,7 +1,13 @@
 <template>
   <ContextMenuArrow
+    data-slot="context-menu-arrow"
     v-bind="forwarded"
-    :class="styles({ class: normalizeClass(props.class) || undefined })"
+    :class="
+      styles({
+        translucent: props.translucent,
+        class: normalizeClass(props.class) || undefined,
+      })
+    "
   />
 </template>
 
@@ -9,16 +15,29 @@
   import { ContextMenuArrow } from "reka-ui";
   import { normalizeClass } from "vue";
   import type { ContextMenuArrowProps } from "reka-ui";
-  import type { HtmlHTMLAttributes } from "vue";
+  import type { HTMLAttributes } from "vue";
 
-  const props = defineProps<
-    ContextMenuArrowProps & {
-      /** Custom class(es) to add to the arrow */
-      class?: HtmlHTMLAttributes["class"];
+  const props = withDefaults(
+    defineProps<
+      ContextMenuArrowProps & {
+        /** Custom class(es) to add to the arrow */
+        class?: HTMLAttributes["class"];
+        /** Whether to render the arrow with a translucent surface */
+        translucent?: boolean;
+      }
+    >(),
+    {
+      width: 12,
+      height: 6,
     }
-  >();
-  const forwarded = reactiveOmit(props, "class");
+  );
+  const forwarded = reactiveOmit(props, "class", "translucent");
   const styles = tv({
-    base: "border bg-muted",
+    base: "fill-popover stroke-border",
+    variants: {
+      translucent: {
+        true: getTranslucentFloatingArrowClasses("popover"),
+      },
+    },
   });
 </script>

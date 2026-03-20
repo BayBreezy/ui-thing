@@ -1,6 +1,10 @@
 <template>
   <UiDialog v-bind="forwarded">
-    <UiDialogContent :hide-close="showCloseButton" class="overflow-hidden p-0 shadow-lg">
+    <UiDialogContent
+      :hide-close="showCloseButton"
+      :translucent="translucent"
+      class="overflow-hidden p-0 shadow-lg"
+    >
       <UiDialogHeader class="sr-only">
         <UiDialogTitle :title />
         <UiDialogDescription :description />
@@ -39,6 +43,10 @@
          * @default true
          */
         showCloseButton?: boolean;
+        /**
+         * Whether to render the dialog content with a translucent surface.
+         */
+        translucent?: boolean;
       }
     >(),
     {
@@ -48,5 +56,5 @@
   );
   const emits = defineEmits<DialogRootEmits>();
 
-  const forwarded = useForwardPropsEmits(props, emits);
+  const forwarded = useForwardPropsEmits(reactiveOmit(props, "translucent"), emits);
 </script>

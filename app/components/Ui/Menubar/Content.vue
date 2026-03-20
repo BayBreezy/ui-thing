@@ -3,7 +3,12 @@
     <MenubarContent
       data-slot="menubar-content"
       v-bind="{ ...forwarded, ...$attrs }"
-      :class="styles({ class: normalizeClass(props.class) || undefined })"
+      :class="
+        styles({
+          translucent: props.translucent,
+          class: normalizeClass(props.class) || undefined,
+        })
+      "
     >
       <slot />
     </MenubarContent>
@@ -23,6 +28,7 @@
       MenubarContentProps & {
         to?: string | HTMLElement;
         class?: HTMLAttributes["class"];
+        translucent?: boolean;
       }
     >(),
     {
@@ -38,9 +44,14 @@
 
   const emits = defineEmits<MenubarSubContentEmits>();
 
-  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class", "to"), emits);
+  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class", "to", "translucent"), emits);
 
   const styles = tv({
-    base: "z-50 min-w-[12rem] origin-(--reka-menubar-content-transform-origin) overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
+    base: "z-50 min-w-[12rem] origin-(--reka-menubar-content-transform-origin) overflow-visible rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
+    variants: {
+      translucent: {
+        true: getTranslucentFloatingPanelClasses("popover"),
+      },
+    },
   });
 </script>

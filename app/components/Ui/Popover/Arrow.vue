@@ -1,15 +1,42 @@
 <template>
-  <PopoverArrow data-slot="popover-arrow" v-bind="forwarded" />
+  <PopoverArrow
+    data-slot="popover-arrow"
+    v-bind="forwarded"
+    :class="
+      styles({
+        translucent: props.translucent,
+        class: normalizeClass(props.class) || undefined,
+      })
+    "
+  />
 </template>
 
 <script lang="ts" setup>
   import { PopoverArrow, useForwardProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { PopoverArrowProps } from "reka-ui";
+  import type { HTMLAttributes } from "vue";
 
-  const props = withDefaults(defineProps<PopoverArrowProps>(), {
-    width: 10,
-    height: 5,
+  const props = withDefaults(
+    defineProps<
+      PopoverArrowProps & {
+        class?: HTMLAttributes["class"];
+        translucent?: boolean;
+      }
+    >(),
+    {
+      width: 12,
+      height: 6,
+    }
+  );
+
+  const forwarded = useForwardProps(reactiveOmit(props, "class", "translucent"));
+  const styles = tv({
+    base: "fill-popover stroke-border",
+    variants: {
+      translucent: {
+        true: getTranslucentFloatingArrowClasses("popover"),
+      },
+    },
   });
-
-  const forwarded = useForwardProps(props);
 </script>

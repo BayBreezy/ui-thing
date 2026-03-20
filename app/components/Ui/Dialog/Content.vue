@@ -3,7 +3,12 @@
     <UiDialogOverlay />
     <DialogContent
       data-slot="dialog-content"
-      :class="styles({ class: normalizeClass(props.class) || undefined })"
+      :class="
+        styles({
+          translucent: props.translucent,
+          class: normalizeClass(props.class) || undefined,
+        })
+      "
       v-bind="{ ...forwarded, ...$attrs }"
     >
       <slot>
@@ -53,15 +58,22 @@
       hideClose?: boolean;
       /** Where to render the dialog */
       to?: string | HTMLElement;
+      /** Whether to render the content with a translucent surface */
+      translucent?: boolean;
     }
   >();
   const emits = defineEmits<DialogContentEmits>();
   const forwarded = useForwardPropsEmits(
-    reactiveOmit(props, "icon", "title", "description", "class", "hideClose", "to"),
+    reactiveOmit(props, "icon", "title", "description", "class", "hideClose", "to", "translucent"),
     emits
   );
 
   const styles = tv({
     base: "fixed top-1/2 left-1/2 z-50 grid max-h-[calc(100%-2rem)] w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 overflow-y-auto rounded-xl border bg-background p-6 shadow-lg duration-200 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 sm:max-w-100",
+    variants: {
+      translucent: {
+        true: getTranslucentFloatingPanelClasses("background"),
+      },
+    },
   });
 </script>
