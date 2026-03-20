@@ -11,6 +11,7 @@
           <slot name="title">
             <UiCardTitle v-if="title || $slots.title" :title="title" />
           </slot>
+          <slot name="action" />
           <slot name="description">
             <UiCardDescription
               v-if="description || $slots.description"

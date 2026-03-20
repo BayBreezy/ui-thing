@@ -129,6 +129,7 @@ export default [
     name: "Card",
     value: "card",
     files: [
+      "Card/Action.vue",
       "Card/Card.vue",
       "Card/Content.vue",
       "Card/Description.vue",

@@ -1,13 +1,11 @@
 <template>
   <Primitive
-    data-slot="card-title"
+    data-slot="card-action"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
     :as="as"
     :as-child="asChild"
   >
-    <slot>
-      {{ title }}
-    </slot>
+    <slot />
   </Primitive>
 </template>
 
@@ -20,18 +18,14 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
-        /** Title to display in the card */
-        title?: string;
         /** Custom class(es) to add to the element */
         class?: HTMLAttributes["class"];
       }
     >(),
-    {
-      as: "h3",
-    }
+    { as: "div" }
   );
 
   const styles = tv({
-    base: "leading-none font-semibold",
+    base: "col-start-2 row-span-2 row-start-1 self-start justify-self-end",
   });
 </script>
