@@ -685,7 +685,7 @@ Add the following composable to your `composables` directory
     <Motion
       :variants="sequenceContainer"
       initial="hidden"
-      in-view="visible"
+      while-in-view="visible"
       :in-view-options="{ once: true }"
       exit="exit"
       layout="position"
@@ -882,7 +882,7 @@ Add the following composable to your `composables` directory
     <Motion
       layout="position"
       :variants="parentVariants"
-      in-view="visible"
+      while-in-view="visible"
       initial="hidden"
       exit="exit"
       :in-view-options="{ once: true }"
@@ -1147,7 +1147,7 @@ Add the following composable to your `composables` directory
       layout="position"
       :variants="parentVariants"
       initial="hidden"
-      in-view="visible"
+      while-in-view="visible"
       exit="exit"
       class="mx-auto flex max-w-md flex-col gap-2"
     >
@@ -1497,7 +1497,7 @@ Add the following composable to your `composables` directory
   <Motion
     :variants="lvl1Variants"
     initial="hidden"
-    in-view="visible"
+    while-in-view="visible"
     exit="exit"
     :in-view-options="{ once: true }"
     class="mx-auto flex max-w-md flex-col gap-2"

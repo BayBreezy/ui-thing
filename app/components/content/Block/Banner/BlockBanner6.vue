@@ -1,5 +1,5 @@
 <template>
-  <Motion :variants="parentVariant" in-view="animate" initial="initial">
+  <Motion :variants="parentVariant" while-in-view="animate" initial="initial">
     <div class="flex flex-col gap-4 p-4 lg:flex-row lg:items-start lg:p-5">
       <Motion
         :variants="iconVariant"

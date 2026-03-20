@@ -4,7 +4,7 @@
       layout="position"
       :variants="parentVariants"
       initial="hidden"
-      in-view="visible"
+      while-in-view="visible"
       exit="exit"
       class="mx-auto flex max-w-md flex-col gap-2"
     >

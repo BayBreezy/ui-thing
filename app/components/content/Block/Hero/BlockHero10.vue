@@ -2,7 +2,7 @@
   <div class="relative min-h-screen overflow-hidden bg-muted/30">
     <Motion
       initial="initial"
-      in-view="animate"
+      while-in-view="animate"
       :in-view-options="{ once: true }"
       as-child
       :variants="parentVariant"

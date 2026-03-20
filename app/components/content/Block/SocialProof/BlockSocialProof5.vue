@@ -2,7 +2,7 @@
   <div class="overflow-hidden py-16 lg:py-24">
     <Motion
       initial="initial"
-      in-view="animate"
+      while-in-view="animate"
       :in-view-options="{ once: true }"
       as-child
       :variants="parentVariant"

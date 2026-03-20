@@ -2,7 +2,7 @@
   <Motion
     :variants="parentVariant"
     initial="initial"
-    in-view="animate"
+    while-in-view="animate"
     class="relative overflow-hidden"
   >
     <div class="absolute inset-0 bg-linear-to-br from-primary/5 via-background to-background" />
@@ -12,7 +12,7 @@
         <Motion
           :variants="dotParentVariant"
           initial="initial"
-          in-view="animate"
+          while-in-view="animate"
           class="flex size-16 shrink-0 items-center justify-center gap-2 rounded-full border border-primary/50"
         >
           <Motion

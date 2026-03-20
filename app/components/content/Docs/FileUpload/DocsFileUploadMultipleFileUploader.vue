@@ -3,7 +3,7 @@
     <Motion
       layout="position"
       :variants="parentVariants"
-      in-view="visible"
+      while-in-view="visible"
       initial="hidden"
       exit="exit"
       :in-view-options="{ once: true }"

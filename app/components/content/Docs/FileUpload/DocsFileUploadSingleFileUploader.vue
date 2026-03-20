@@ -3,7 +3,7 @@
     <Motion
       :variants="sequenceContainer"
       initial="hidden"
-      in-view="visible"
+      while-in-view="visible"
       :in-view-options="{ once: true }"
       exit="exit"
       layout="position"

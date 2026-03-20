@@ -2,7 +2,7 @@
   <Motion
     :variants="lvl1Variants"
     initial="hidden"
-    in-view="visible"
+    while-in-view="visible"
     exit="exit"
     :in-view-options="{ once: true }"
     class="mx-auto flex max-w-md flex-col gap-2"

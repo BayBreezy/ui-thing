@@ -5,7 +5,7 @@
         <div class="flex flex-1 items-start gap-4">
           <Motion
             :initial="{ opacity: 0, rotate: -90 }"
-            :in-view="{ opacity: 1, rotate: 0 }"
+            :while-in-view="{ opacity: 1, rotate: 0 }"
             :transition="{ type: 'spring', stiffness: 200, damping: 20 }"
             class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-yellow-500/10 text-yellow-600 dark:text-yellow-500"
           >
@@ -15,21 +15,21 @@
           <div class="flex-1">
             <Motion
               :initial="{ opacity: 0, y: -10 }"
-              :in-view="{ opacity: 1, y: 0 }"
+              :while-in-view="{ opacity: 1, y: 0 }"
               :transition="{ delay: 0.1 }"
             >
               <h3 class="font-semibold" v-html="title" />
             </Motion>
             <Motion
               :initial="{ opacity: 0 }"
-              :in-view="{ opacity: 1 }"
+              :while-in-view="{ opacity: 1 }"
               :transition="{ delay: 0.2 }"
             >
               <p class="mt-1 text-sm text-muted-foreground" v-html="description" />
             </Motion>
             <Motion
               :initial="{ opacity: 0, y: 10 }"
-              :in-view="{ opacity: 1, y: 0 }"
+              :while-in-view="{ opacity: 1, y: 0 }"
               :transition="{ delay: 0.3 }"
             >
               <div class="mt-3 flex items-center gap-2 text-xs text-muted-foreground">
@@ -45,7 +45,7 @@
 
         <Motion
           :initial="{ opacity: 0, scale: 0.9 }"
-          :in-view="{ opacity: 1, scale: 1 }"
+          :while-in-view="{ opacity: 1, scale: 1 }"
           :transition="{ delay: 0.4 }"
           class="grid shrink-0 grid-cols-2 gap-2 lg:flex lg:items-center"
         >

@@ -2,7 +2,7 @@
   <Motion
     as-child
     initial="initial"
-    in-view="animate"
+    while-in-view="animate"
     :variants="{
       initial: { opacity: 0, scale: 0.95, y: 10 },
       animate: {

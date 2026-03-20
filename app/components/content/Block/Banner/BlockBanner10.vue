@@ -1,6 +1,6 @@
 <template>
   <Motion
-    in-view="animate"
+    while-in-view="animate"
     initial="initial"
     :variants="{
       initial: { opacity: 0, y: 5 },

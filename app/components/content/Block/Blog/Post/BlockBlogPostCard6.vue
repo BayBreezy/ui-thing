@@ -1,7 +1,7 @@
 <template>
   <Motion
     initial="initial"
-    in-view="animate"
+    while-in-view="animate"
     :variants="{
       initial: { opacity: 0 },
       animate: {

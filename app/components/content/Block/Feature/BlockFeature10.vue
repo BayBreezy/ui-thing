@@ -1,5 +1,5 @@
 <template>
-  <Motion initial="initial" in-view="animate" as-child :variants="parentVariant">
+  <Motion initial="initial" while-in-view="animate" as-child :variants="parentVariant">
     <UiContainer class="py-16 lg:py-24">
       <div class="mx-auto max-w-[760px]">
         <Motion :variants="childVariant" class="text-center">
@@ -32,7 +32,7 @@
           class="flex flex-col gap-10 lg:gap-12"
           :variants="parentVariant"
           initial="initial"
-          in-view="animate"
+          while-in-view="animate"
         >
           <Motion
             v-for="(f, i) in features1"
@@ -85,7 +85,7 @@
           class="flex flex-col gap-10 lg:gap-12"
           :variants="parentVariant"
           initial="initial"
-          in-view="animate"
+          while-in-view="animate"
         >
           <Motion
             v-for="(f, i) in features2"

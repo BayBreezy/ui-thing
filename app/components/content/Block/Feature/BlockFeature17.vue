@@ -24,7 +24,7 @@
 
     <Motion
       initial="initial"
-      in-view="animate"
+      while-in-view="animate"
       :in-view-options="{ once: true }"
       as-child
       :variants="parentVariant"
@@ -55,7 +55,7 @@
           class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:mt-24 lg:grid-cols-3 lg:gap-8"
           :variants="parentVariant"
           initial="initial"
-          in-view="animate"
+          while-in-view="animate"
           :in-view-options="{ once: true }"
         >
           <Motion

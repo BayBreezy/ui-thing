@@ -8,7 +8,7 @@
         animate: { opacity: 1, transition: { delayChildren: stagger(0.15) } },
       }"
       initial="initial"
-      in-view="animate"
+      while-in-view="animate"
     >
       <div
         v-for="(f, i) in features"

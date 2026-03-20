@@ -5,7 +5,7 @@
   -->
   <Motion
     initial="initial"
-    in-view="animate"
+    while-in-view="animate"
     :in-view-options="{ once: true }"
     as-child
     :variants="{
