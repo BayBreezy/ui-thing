@@ -2467,6 +2467,22 @@ export default [
     plugins: [],
   },
   {
+    name: "Pointer Highlight",
+    value: "pointer-highlight",
+    files: [
+      {
+        fileName: "PointerHighlight.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <div\n    ref="containerRef"\n    data-slot="pointer-highlight"\n    :class="containerStyles({ class: normalizeClass(props.containerClass) || undefined })"\n  >\n    <div data-slot="pointer-highlight-content" class="relative z-10 w-fit *:m-px">\n      <slot />\n    </div>\n\n    <motion.div\n      v-if="showHighlight"\n      data-slot="pointer-highlight-overlay"\n      class="pointer-events-none absolute inset-0 z-0"\n      :initial="{ opacity: 0, scale: 0.95, originX: 0, originY: 0 }"\n      :animate="{ opacity: 1, scale: 1 }"\n      :transition="{ duration: 0.5, ease: \'easeOut\' }"\n    >\n      <motion.div\n        data-slot="pointer-highlight-rectangle"\n        :class="rectangleStyles({ class: normalizeClass(props.rectangleClass) || undefined })"\n        :initial="{ width: 0, height: 0 }"\n        :while-in-view="{ width, height }"\n        :transition="{ duration: 1, ease: \'easeInOut\' }"\n      />\n\n      <motion.div\n        data-slot="pointer-highlight-pointer"\n        class="pointer-events-none absolute"\n        :initial="{ opacity: 0 }"\n        :while-in-view="{ opacity: 1, x: width + 4, y: height + 4 }"\n        :style="{ rotate: \'-90deg\' }"\n        :transition="{\n          opacity: { duration: 0.1, ease: \'easeInOut\' },\n          duration: 1,\n          ease: \'easeInOut\',\n        }"\n      >\n        <svg\n          stroke="currentColor"\n          fill="currentColor"\n          stroke-width="1"\n          stroke-linecap="round"\n          stroke-linejoin="round"\n          viewBox="0 0 16 16"\n          xmlns="http://www.w3.org/2000/svg"\n          :class="pointerStyles({ class: normalizeClass(props.pointerClass) || undefined })"\n        >\n          <path\n            d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"\n          />\n        </svg>\n      </motion.div>\n    </motion.div>\n  </div>\n</template>\n\n<script lang="ts" setup>\n  import { motion } from "motion-v";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  const props = defineProps<{\n    /**\n     * Custom class(es) for the outer container.\n     */\n    containerClass?: HTMLAttributes["class"];\n    /**\n     * Custom class(es) for the animated rectangle.\n     */\n    rectangleClass?: HTMLAttributes["class"];\n    /**\n     * Custom class(es) for the pointer icon.\n     */\n    pointerClass?: HTMLAttributes["class"];\n  }>();\n\n  const containerRef = useTemplateRef("containerRef");\n  const { width, height } = useElementSize(containerRef);\n\n  const showHighlight = computed(() => width.value > 0 && height.value > 0);\n\n  const containerStyles = tv({ base: "relative w-fit" });\n\n  const rectangleStyles = tv({ base: "absolute inset-0 border border-muted-foreground/50" });\n\n  const pointerStyles = tv({ base: "size-5 text-blue-500" });\n</script>\n',
+      },
+    ],
+    docsPath: "/components/pointer-highlight",
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Popover",
     value: "popover",
     utils: [

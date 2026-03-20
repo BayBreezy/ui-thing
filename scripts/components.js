@@ -694,6 +694,12 @@ export default [
     docsPath: "/components/popover",
   },
   {
+    name: "Pointer Highlight",
+    value: "pointer-highlight",
+    files: ["PointerHighlight.vue"],
+    docsPath: "/components/pointer-highlight",
+  },
+  {
     name: "Progress",
     value: "progress",
     files: ["Progress/Indicator.vue", "Progress/Progress.vue"],
