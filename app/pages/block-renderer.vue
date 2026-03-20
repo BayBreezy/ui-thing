@@ -56,7 +56,7 @@
   onMounted(loadComponent);
   watch(() => route.fullPath, loadComponent);
 
-  defineOgImageComponent("UIThing", {
+  defineOgImage("UIThing", {
     title: trim(startCase((route?.query?.component as string) || "Blocks")),
     description: "Copy and paste blocks of code into your project.",
   });
