@@ -4,6 +4,10 @@
   // Create an array of color values
   const allColors: Color[] = [
     "zinc",
+    "mauve",
+    "olive",
+    "mist",
+    "taupe",
     "rose",
     "blue",
     "green",
