@@ -1,12 +1,12 @@
 <template>
-  <div class="absolute start-0 top-0 rtl:-scale-x-100" :style="railStyle">
-    <!-- base rail -->
+  <div class="absolute inset-s-0 top-0 rtl:-scale-x-100" :style="railStyle">
     <div class="absolute inset-0 bg-foreground/20" />
 
-    <!-- active segment -->
     <div
+      v-for="(segment, index) in props.segments"
+      :key="index"
       class="absolute w-full bg-primary transition-[top,height] duration-200 ease-out"
-      :style="{ top: `${activeTop}px`, height: `${activeHeight}px` }"
+      :style="{ top: `${segment.top}px`, height: `${segment.height}px` }"
     />
   </div>
 </template>
@@ -14,12 +14,16 @@
 <script setup lang="ts">
   import { computed } from "vue";
 
+  type RailSegment = {
+    top: number;
+    height: number;
+  };
+
   const props = withDefaults(
     defineProps<{
       height: number;
-      activeTop: number;
-      activeHeight: number;
       pathD: string;
+      segments: RailSegment[];
       width?: number;
     }>(),
     { width: 12 }

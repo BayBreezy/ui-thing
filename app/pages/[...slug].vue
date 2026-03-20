@@ -30,7 +30,7 @@
       <UiScrollArea type="auto" class="h-full">
         <div class="flex flex-col gap-5 p-5">
           <p class="text-sm font-semibold">On this page</p>
-          <UiScrollspy smooth :offset="80">
+          <UiScrollspy smooth mode="multiple" :offset="80">
             <DocsTocRail>
               <DocsToclink :links="toc.links" />
             </DocsTocRail>

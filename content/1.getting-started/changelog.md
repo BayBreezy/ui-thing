@@ -9,6 +9,7 @@ description: See what has changed recently in UI Thing.
 
 - [**Sidebar**](/components/sidebar): Fixed an issue where the `SidebarProvider` was not persisting the open or closed state correctly with cookies. The provider now restores the saved state properly and keeps the cookie in sync with controlled updates.
 - **Class Overrides**: Updated component and prose style builders to normalize Vue class bindings with `normalizeClass(...)` before passing them into `tv()`. This removes the TypeScript errors introduced by the recent Vue class type change without narrowing the public `class` prop API.
+- [**Scrollspy**](/components/scrollspy): Added a shared `mode="multiple"` option so docs and app layouts can mark every visible heading as active at once. The docs TOC rail now follows those active headings with a segmented zigzag highlight instead of a single active branch.
 
 ## January 24, 2026
 

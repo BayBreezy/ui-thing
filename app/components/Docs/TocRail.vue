@@ -1,22 +1,25 @@
 <template>
   <div ref="wrap" class="relative pl-5">
     <DocsZigZagRail
-      v-if="railHeight > 0 && pathD && activeHeight > 0"
+      v-if="railHeight > 0 && pathD"
       :height="railHeight"
-      :active-top="activeTop"
-      :active-height="activeHeight"
       :path-d="pathD"
+      :segments="segments"
     />
     <slot />
   </div>
 </template>
 
 <script setup lang="ts">
+  type RailSegment = {
+    top: number;
+    height: number;
+  };
+
   const wrap = ref<HTMLElement | null>(null);
 
   const railHeight = ref(0);
-  const activeTop = ref(0);
-  const activeHeight = ref(0);
+  const segments = ref<RailSegment[]>([]);
   const pathD = ref("");
 
   const WIDTH = 12;
@@ -32,46 +35,60 @@
     const links = Array.from(el.querySelectorAll<HTMLElement>('[data-toc-link="true"]'));
     if (!links.length) {
       railHeight.value = 0;
-      activeTop.value = 0;
-      activeHeight.value = 0;
+      segments.value = [];
       pathD.value = "";
       return;
     }
 
-    // height covers list
     const last = links[links.length - 1]!;
     railHeight.value = Math.ceil(last.offsetTop + last.offsetHeight);
-
-    // diagonal depth-aware rail
     pathD.value = buildDepthPath(links, railHeight.value);
-
-    // active highlight range (active + children until depth <= activeDepth)
-    const activeIndex = links.findIndex((a) => a.getAttribute("data-active") === "true");
-    if (activeIndex === -1) {
-      activeTop.value = 0;
-      activeHeight.value = 0;
-      return;
-    }
-
-    const startEl = links[activeIndex]!;
-    const startDepth = Number(startEl.dataset.depth ?? "0");
-
-    let endEl = startEl;
-    for (let i = activeIndex + 1; i < links.length; i++) {
-      const d = Number(links[i]!.dataset.depth ?? "0");
-      if (d <= startDepth) break;
-      endEl = links[i]!;
-    }
-
-    const top = startEl.offsetTop;
-    const bottom = endEl.offsetTop + endEl.offsetHeight;
-
-    activeTop.value = Math.max(0, top);
-    activeHeight.value = Math.max(0, bottom - top);
+    segments.value = buildSegments(links);
   };
 
+  function buildSegments(links: HTMLElement[]) {
+    const nextSegments: RailSegment[] = [];
+
+    let rangeStart = -1;
+    let rangeEnd = -1;
+
+    const pushRange = () => {
+      if (rangeStart === -1 || rangeEnd === -1) return;
+
+      const startEl = links[rangeStart]!;
+      const endEl = links[rangeEnd]!;
+      const top = Math.max(0, startEl.offsetTop);
+      const bottom = endEl.offsetTop + endEl.offsetHeight;
+
+      nextSegments.push({
+        top,
+        height: Math.max(0, bottom - top),
+      });
+
+      rangeStart = -1;
+      rangeEnd = -1;
+    };
+
+    links.forEach((link, index) => {
+      const isActive = link.getAttribute("data-active") === "true";
+      if (!isActive) {
+        pushRange();
+        return;
+      }
+
+      if (rangeStart === -1) {
+        rangeStart = index;
+      }
+
+      rangeEnd = index;
+    });
+
+    pushRange();
+
+    return nextSegments;
+  }
+
   function buildDepthPath(els: HTMLElement[], height: number) {
-    // anchor transitions at row center for smooth visuals
     const items = els.map((node) => {
       const top = Math.round(node.offsetTop);
       const h = Math.round(node.offsetHeight || 0);
@@ -92,7 +109,7 @@
       return Math.round(Math.min(X_INNER_MAX, Math.max(X_OUTER, x)));
     };
 
-    const DIAG = 8; // diagonal height
+    const DIAG = 8;
 
     const clamp = (n: number, min: number, max: number) => Math.min(max, Math.max(min, n));
 
@@ -111,8 +128,6 @@
         continue;
       }
 
-      // diagonal transition at y:
-      // go down to y - DIAG, then diagonal into (xNext, y)
       const y0 = clamp(y - DIAG, yPrev, height);
 
       if (y0 > yPrev) d += ` L ${x} ${y0}`;

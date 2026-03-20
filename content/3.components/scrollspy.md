@@ -68,6 +68,28 @@ Click :SourceCodeLink{component="Scrollspy.vue"} to see the source code for this
 
 ::
 
+### Multiple active links
+
+Set `mode="multiple"` when you want every currently visible heading or section to receive
+`data-active="true"` instead of only the single current section.
+
+```vue
+<UiScrollspy mode="multiple" :target="parentRef" :offset="80">
+  <NuxtLink
+    v-for="item in nav"
+    :key="item.id"
+    :data-scrollspy-anchor="item.id"
+    class="data-[active=true]:text-primary"
+    :to="`#${item.id}`"
+  >
+    {{ item.label }}
+  </NuxtLink>
+</UiScrollspy>
+```
+
+The composable also exposes `activeIds` so you can react to the full visible set while still using
+`activeId` as the canonical current section for history and change events.
+
 ### Composable
 
 ::ShowCase
