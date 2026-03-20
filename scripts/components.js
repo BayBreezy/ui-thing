@@ -982,6 +982,7 @@ export default [
     components: [
       "label",
       "vee-checkbox",
+      "vee-switch",
       "Vee-input",
       "divider",
       "vee-currency-input",
@@ -1018,6 +1019,16 @@ export default [
     components: ["checkbox", "label"],
     files: ["Vee/Checkbox.vue"],
     docsPath: "/forms/veecheckbox",
+  },
+  {
+    name: "Vee Switch",
+    value: "vee-switch",
+    deps: ["@vee-validate/nuxt"],
+    askValidator: true,
+    nuxtModules: ["@vee-validate/nuxt"],
+    components: ["switch", "label"],
+    files: ["Vee/Switch.vue"],
+    docsPath: "/forms/veeswitch",
   },
   {
     name: "Vee Checkbox - Native",

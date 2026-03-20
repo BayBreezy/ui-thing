@@ -97,7 +97,7 @@ Click :SourceCodeLink{component="Card"} to see the source code for this componen
               <p class="text-muted-foreground">Send notifications to device.</p>
             </UiLabel>
             <div class="ml-auto">
-              <UiSwitch id="push" v-model:checked="push" />
+              <UiSwitch id="push" v-model="push" />
             </div>
           </div>
 

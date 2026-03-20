@@ -128,7 +128,7 @@ Click :SourceCodeLink{component="Switch"} to see the source code for this compon
       <div
         class="inline-flex items-center gap-2 [--primary:var(--color-indigo-500)] [--ring:var(--color-indigo-300)] dark:[--primary:var(--color-indigo-500)] dark:[--ring:var(--color-indigo-900)]"
       >
-        <UiSwitch :id="id + 'colored-switch'" :default-checked="true" />
+        <UiSwitch :id="id + 'colored-switch'" :default-value="true" />
         <UiLabel :for="id + 'colored-switch'" class="sr-only">Colored switch</UiLabel>
       </div>
 

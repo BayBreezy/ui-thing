@@ -12,6 +12,17 @@
           </div>
         </slot>
       </template>
+      <template v-if="field.variant === 'Switch'">
+        <slot
+          v-if="field.renderIf ? field.renderIf() : true"
+          :name="field.slot ? field.slot : field.name"
+          v-bind="field"
+        >
+          <div :class="field.wrapperClass">
+            <UiVeeSwitch v-bind="removeFields(field)" />
+          </div>
+        </slot>
+      </template>
       <template v-if="field.variant === 'Input'">
         <slot
           v-if="field.renderIf ? field.renderIf() : true"
@@ -191,6 +202,7 @@
     options?: any[];
     variant:
       | "Checkbox"
+      | "Switch"
       | "NativeCheckbox"
       | "Input"
       | "Divider"

@@ -15,6 +15,10 @@ description: See what has changed recently in UI Thing.
 
 - **Agent Skills**: Added a new local `uithing` Codex skill for UI Thing workflows. It covers real CLI usage, component/docs/generator/MCP authoring inside this repo, and React or shadcn-style snippet conversion into native Vue, Nuxt, and UI Thing composition.
 
+### Form Updates
+
+- [**VeeSwitch**](/forms/veeswitch): Added a dedicated Vee-Validate switch wrapper with docs and examples, including settings and preferences card patterns. The wrapper now also aligns with the current Reka Switch value model so initial values and custom true/false values display correctly in the UI.
+
 ## January 24, 2026
 
 ### New Component
