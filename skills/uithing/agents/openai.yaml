@@ -1,0 +1,6 @@
+interface:
+  display_name: "UI Thing"
+  short_description: "Guides UI Thing usage, authoring, MCP, and React conversion."
+  icon_small: "./assets/uithing-small.png"
+  icon_large: "./assets/uithing-large.png"
+  default_prompt: "Use $uithing to add, author, or convert UI Thing components in a Nuxt project."

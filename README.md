@@ -10,6 +10,24 @@ Inspired by [shadcn/ui](https://ui.shadcn.com/) & [shadcn-vue](https://www.shadc
 
 [🔗 **You can read the full docs here**](https://uithing.com/)
 
+## Agent Skill
+
+This repo also ships an installable `uithing` agent skill for the open skills ecosystem.
+
+Install it from this repo with:
+
+```bash
+npx skills add https://github.com/BayBreezy/ui-thing --skill uithing
+```
+
+The installable skill lives in [`skills/uithing`](./skills/uithing). The repo-local authoring copy used by Codex lives in [`.agents/skills/uithing`](./.agents/skills/uithing).
+
+After updating the source skill, refresh the installable copy with:
+
+```bash
+npm run sync:skills
+```
+
 ## 🚀 Quick Start
 
 Initialize UI Thing in your Nuxt project with one command:

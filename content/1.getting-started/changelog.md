@@ -11,6 +11,10 @@ description: See what has changed recently in UI Thing.
 - **Class Overrides**: Updated component and prose style builders to normalize Vue class bindings with `normalizeClass(...)` before passing them into `tv()`. This removes the TypeScript errors introduced by the recent Vue class type change without narrowing the public `class` prop API.
 - [**Scrollspy**](/components/scrollspy): Added a shared `mode="multiple"` option so docs and app layouts can mark every visible heading as active at once. The docs TOC rail now follows those active headings with a segmented zigzag highlight instead of a single active branch.
 
+### Developer Experience
+
+- **Agent Skills**: Added a new local `uithing` Codex skill for UI Thing workflows. It covers real CLI usage, component/docs/generator/MCP authoring inside this repo, and React or shadcn-style snippet conversion into native Vue, Nuxt, and UI Thing composition.
+
 ## January 24, 2026
 
 ### New Component

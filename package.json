@@ -23,7 +23,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "sync:skills": "node scripts/sync-skills.js"
   },
   "lint-staged": {
     "*": [
