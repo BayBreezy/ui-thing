@@ -38,3 +38,12 @@ Revenue analytics dashboard with a sticky header, underline sub-nav tabs, KPI me
 
 :prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards4.vue" language="vue" title="Style Four"}
 ::
+
+## Style Five
+
+Site traffic and user management dashboard with a sticky header, breadcrumb welcome section, reactive dual-line area chart with time-range tabs, and a paginated recently active users table with avatar groups, role badges, search command dialog, delete confirmation, and an edit sheet.
+
+::BlockShowcase{blockPath="Dashboards/BlockDashboards5" component="BlockDashboards5" iframeHeight="800px" frameClass="p-0" components="alert-dialog avatar badge button card checkbox command container dropdown-menu gradient-divider kbd pagination popover select sheet tabs tanstack-table vee-input apexchart"}
+
+:prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards5.vue" language="vue" title="Style Five"}
+::
