@@ -20,3 +20,12 @@ Membership and content dashboard with a sticky header, secondary sub-nav tabs, M
 
 :prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards2.vue" language="vue" title="Style Two"}
 ::
+
+## Style Three
+
+Site traffic analytics dashboard with a search modal, source and time-range tabs, sparkline metric cards, and a filterable paginated pages table with progress bars and button-group view filter.
+
+::BlockShowcase{blockPath="Dashboards/BlockDashboards3" component="BlockDashboards3" iframeHeight="1200px" frameClass="p-0" components="alert-dialog avatar badge button card checkbox dropdown-menu gradient-divider popover select sheet tabs tanstack-table vee-input apexchart"}
+
+:prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards3.vue" language="vue" title="Style Three"}
+::
