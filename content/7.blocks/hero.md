@@ -62,3 +62,9 @@ Centered hero with animated background and stats. Features gradient background, 
 Split layout with email form and glowing image. Features security badges, email signup, and product showcase image with gradient glow effect.
 
 :BlockShowcase{blockPath="Hero/BlockHero10" containerClass="h-screen" component="BlockHero10" iframeHeight="700px" components="button container vee-input"}
+
+## Style Eleven
+
+Centered hero with radial gradient background and dashboard mockup. Features animated beta badge with pulsing dot, gradient-colored headline word, dual CTA buttons, and a detailed dashboard placeholder with KPI cards, bar chart, and data rows — all animated in on load with staggered spring transitions.
+
+:BlockShowcase{blockPath="Hero/BlockHero11" containerClass="h-screen" component="BlockHero11" iframeHeight="750px" components="badge button container"}
