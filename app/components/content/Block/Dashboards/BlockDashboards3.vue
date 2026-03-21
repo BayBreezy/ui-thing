@@ -565,7 +565,7 @@
 
             <template #footer="{ table }">
               <div
-                class="flex flex-col gap-4 border-t border-border/60 px-6 py-4 text-sm font-medium text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
+                class="flex w-full flex-col gap-4 border-t border-border/60 px-6 py-4 text-sm font-medium text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
               >
                 <p>
                   Page {{ table.getState().pagination.pageIndex + 1 }} of
