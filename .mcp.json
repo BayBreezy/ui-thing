@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ui-thing": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://uithing.com/mcp"]
+    }
+  }
+}
