@@ -50,3 +50,9 @@ Annual/monthly toggle with switch component. Three-column layout featuring inter
 Four-tier pricing with icon badges and custom pricing option. Features icon headers, highlighted popular plan, free tier, and enterprise custom pricing. Organized with key features section separated by border.
 
 :BlockShowcase{blockPath="Pricing/BlockPricing8" component="BlockPricing8" iframeHeight="750px" components="container button"}
+
+## Style Nine
+
+Three-column pricing with billing toggle, highlighted Pro card, and social proof logos. Features a centered header, monthly/annual switch with animated discount badge, visually elevated recommended card, heroicon check marks, and a brand logo strip below the cards.
+
+:BlockShowcase{blockPath="Pricing/BlockPricing9" component="BlockPricing9" iframeHeight="800px" components="container button badge switch"}
