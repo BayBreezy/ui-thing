@@ -443,6 +443,12 @@ export default [
     docsPath: "/components/form",
   },
   {
+    name: "Floating Dock",
+    value: "floating-dock",
+    files: ["FloatingDock.vue"],
+    docsPath: "/components/floating-dock",
+  },
+  {
     name: "Gradient Divider",
     value: "gradient-divider",
     files: ["GradientDivider.vue"],
