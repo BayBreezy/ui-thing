@@ -47,3 +47,12 @@ Site traffic and user management dashboard with a sticky header, breadcrumb welc
 
 :prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards5.vue" language="vue" title="Style Five"}
 ::
+
+## Style Six
+
+Customers dashboard with a sticky header, radial rings chart showing active users, multi-line area chart for total customers across three years, filter chips, CSV import dialog, add/edit customer sheets with vee-validate forms, delete confirmation, search command dialog, and a paginated company table with status badges, avatar groups, license progress bars, and tooltip-enhanced action buttons.
+
+::BlockShowcase{blockPath="Dashboards/BlockDashboards6" component="BlockDashboards6" iframeHeight="800px" frameClass="p-0" components="alert-dialog avatar badge button card checkbox command container dialog dropdown-menu kbd pagination popover sheet tanstack-table tooltip vee-input vee-select apexchart"}
+
+:prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards6.vue" language="vue" title="Style Six"}
+::
