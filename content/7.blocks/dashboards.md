@@ -65,3 +65,12 @@ Customers dashboard with a personalized welcome header, three stat cards with gr
 
 :prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards7.vue" language="vue" title="Style Seven"}
 ::
+
+## Style Eight
+
+Organization overview dashboard with a sticky header, radar chart for vendor tier breakdown, stacked bar chart for monthly security ratings vs industry average, and a paginated vendor movements table with rating progress bars, trend badges, status indicators, multi-tag category pills, and edit/delete actions.
+
+::BlockShowcase{blockPath="Dashboards/BlockDashboards8" component="BlockDashboards8" iframeHeight="800px" frameClass="p-0" components="alert-dialog avatar badge button card checkbox command container dropdown-menu kbd pagination popover sheet tanstack-table tooltip vee-input vee-select apexchart"}
+
+:prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards8.vue" language="vue" title="Style Eight"}
+::
