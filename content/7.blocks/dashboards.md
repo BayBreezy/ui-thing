@@ -5,7 +5,7 @@ description: Dashboard blocks for analytics, reporting, and order management int
 
 ## Style One
 
-Analytics dashboard with a top navigation bar, KPI cards, a 30-day sales chart, and an orders table.
+Analytics dashboard with KPI cards, a 30-day sales chart, and an orders table.
 
 ::BlockShowcase{blockPath="Dashboards/BlockDashboards1" component="BlockDashboards1" iframeHeight="800px" frameClass="p-0" components="alert-dialog container avatar avatar-label-group badge button card checkbox datepicker dropdown-menu gradient-divider rating sheet tabs tanstack-table vee-input apexchart"}
 
@@ -14,7 +14,7 @@ Analytics dashboard with a top navigation bar, KPI cards, a 30-day sales chart, 
 
 ## Style Two
 
-Membership and content dashboard with a sticky header, secondary sub-nav tabs, MRR line chart, member stats sidebar, quick-action cards, recent posts grid, and a scrollable top-members list.
+Membership dashboard with an MRR line chart, member stats sidebar, recent posts grid, and a top-members list.
 
 ::BlockShowcase{blockPath="Dashboards/BlockDashboards2" component="BlockDashboards2" iframeHeight="800px" frameClass="p-0" components="avatar badge button card dropdown-menu fancy-icon popover tabs vee-input apexchart"}
 
@@ -23,7 +23,7 @@ Membership and content dashboard with a sticky header, secondary sub-nav tabs, M
 
 ## Style Three
 
-Site traffic analytics dashboard with a search modal, source and time-range tabs, sparkline metric cards, and a filterable paginated pages table with progress bars and button-group view filter.
+Traffic analytics dashboard with sparkline metric cards and a filterable, paginated pages table.
 
 ::BlockShowcase{blockPath="Dashboards/BlockDashboards3" component="BlockDashboards3" iframeHeight="800px" frameClass="p-0" components="alert-dialog avatar badge button card checkbox dropdown-menu gradient-divider popover select sheet tabs tanstack-table vee-input apexchart"}
 
@@ -32,7 +32,7 @@ Site traffic analytics dashboard with a search modal, source and time-range tabs
 
 ## Style Four
 
-Revenue analytics dashboard with a sticky header, underline sub-nav tabs, KPI metric cards, a mixed bar and line revenue chart, and a paginated customers table with avatar label groups, status badges, delete confirmation, and an edit sheet.
+Revenue analytics dashboard with KPI cards, a mixed bar and line chart, and a paginated customers table with edit and delete actions.
 
 ::BlockShowcase{blockPath="Dashboards/BlockDashboards4" component="BlockDashboards4" iframeHeight="800px" frameClass="p-0" components="alert-dialog avatar badge button card checkbox command container dropdown-menu gradient-divider kbd popover select sheet tabs tanstack-table vee-input apexchart"}
 
@@ -41,7 +41,7 @@ Revenue analytics dashboard with a sticky header, underline sub-nav tabs, KPI me
 
 ## Style Five
 
-Site traffic and user management dashboard with a sticky header, breadcrumb welcome section, reactive dual-line area chart with time-range tabs, and a paginated recently active users table with avatar groups, role badges, search command dialog, delete confirmation, and an edit sheet.
+Traffic and user management dashboard with a dual-line area chart and a paginated users table with search, edit, and delete actions.
 
 ::BlockShowcase{blockPath="Dashboards/BlockDashboards5" component="BlockDashboards5" iframeHeight="800px" frameClass="p-0" components="alert-dialog avatar badge button card checkbox command container dropdown-menu gradient-divider kbd pagination popover select sheet tabs tanstack-table vee-input apexchart"}
 
@@ -50,7 +50,7 @@ Site traffic and user management dashboard with a sticky header, breadcrumb welc
 
 ## Style Six
 
-Customers dashboard with a sticky header, radial rings chart showing active users, multi-line area chart for total customers across three years, filter chips, CSV import dialog, add/edit customer sheets with vee-validate forms, delete confirmation, search command dialog, and a paginated company table with status badges, avatar groups, license progress bars, and tooltip-enhanced action buttons.
+Customers dashboard with radial and area charts, filter chips, CSV import, add/edit sheets, and a paginated company table.
 
 ::BlockShowcase{blockPath="Dashboards/BlockDashboards6" component="BlockDashboards6" iframeHeight="800px" frameClass="p-0" components="alert-dialog avatar badge button card checkbox command container dialog dropdown-menu kbd pagination popover sheet tanstack-table tooltip vee-input vee-select apexchart"}
 
@@ -59,7 +59,7 @@ Customers dashboard with a sticky header, radial rings chart showing active user
 
 ## Style Seven
 
-Customers dashboard with a personalized welcome header, three stat cards with green/red sparkline trend charts, a secondary tab navigation row with a ⌘K search shortcut, filter chips, CSV import dialog, add/edit customer sheets with vee-validate forms, delete confirmation, and a paginated company table with license progress bars, status badges, avatar groups, and tooltip-enhanced action buttons.
+Customers dashboard with sparkline stat cards, filter chips, CSV import, add/edit sheets, and a paginated company table.
 
 ::BlockShowcase{blockPath="Dashboards/BlockDashboards7" component="BlockDashboards7" iframeHeight="800px" frameClass="p-0" components="alert-dialog avatar badge button card checkbox command container dialog dropdown-menu kbd pagination popover sheet tanstack-table tooltip vee-input vee-select apexchart"}
 
@@ -68,7 +68,7 @@ Customers dashboard with a personalized welcome header, three stat cards with gr
 
 ## Style Eight
 
-Organization overview dashboard with a sticky header, radar chart for vendor tier breakdown, stacked bar chart for monthly security ratings vs industry average, and a paginated vendor movements table with rating progress bars, trend badges, status indicators, multi-tag category pills, and edit/delete actions.
+Organization overview dashboard with a radar chart, a stacked bar chart, and a paginated vendor table with ratings and trend badges.
 
 ::BlockShowcase{blockPath="Dashboards/BlockDashboards8" component="BlockDashboards8" iframeHeight="800px" frameClass="p-0" components="alert-dialog avatar badge button card checkbox command container dropdown-menu kbd pagination popover sheet tanstack-table tooltip vee-input vee-select apexchart"}
 
@@ -77,7 +77,7 @@ Organization overview dashboard with a sticky header, radar chart for vendor tie
 
 ## Style Nine
 
-Vendor security dashboard with a personalized welcome header, dual-line chart comparing your security rating vs industry average, a donut chart showing monitored vendor capacity with an upgrade prompt, and a vendor movements card with View all / Monitored / Unmonitored filter tabs, inline search, add/edit vendor sheets with vee-validate forms, delete confirmation, and a paginated table with rating progress bars, trend badges, status indicators, and category tags.
+Vendor security dashboard with a dual-line chart, a donut capacity chart, and a paginated vendor table with add/edit sheets.
 
 ::BlockShowcase{blockPath="Dashboards/BlockDashboards9" component="BlockDashboards9" iframeHeight="800px" frameClass="p-0" components="alert-dialog avatar badge button button-group card checkbox command container dropdown-menu kbd pagination popover sheet tanstack-table tooltip vee-input vee-select apexchart"}
 
@@ -86,9 +86,27 @@ Vendor security dashboard with a personalized welcome header, dual-line chart co
 
 ## Style Ten
 
-Sales overview dashboard with a sticky header, secondary tab navigation with ⌘K search command dialog, view selector button group, date range and filters row, three KPI metric cards with trend badges and view report links, a smoothed area chart for sales report with time-range tabs, a stacked bar chart for store traffic, a live activity feed sidebar showing recent purchases, an invite teammates dialog with email chip input and suggestions, a generate chart dialog with accessible ToggleGroup type picker, and an export report dialog with format cards.
+Sales overview dashboard with KPI cards, area and bar charts, a live activity feed, and dialogs for inviting teammates, generating charts, and exporting reports.
 
 ::BlockShowcase{blockPath="Dashboards/BlockDashboards10" component="BlockDashboards10" iframeHeight="800px" frameClass="p-0" components="avatar badge button button-group card command container dialog dropdown-menu kbd popover toggle-group tooltip apexchart"}
 
 :prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards10.vue" language="vue" title="Style Ten"}
+::
+
+## Style Eleven
+
+Sales overview dashboard with KPI sparkline cards, a reactive stacked bar chart, a date range picker, a filters dialog, and an upgrade plan dialog.
+
+::BlockShowcase{blockPath="Dashboards/BlockDashboards11" component="BlockDashboards11" iframeHeight="800px" frameClass="p-0" components="avatar badge button button-group checkbox command container datepicker dialog dropdown-menu kbd popover radio-group tooltip apexchart"}
+
+:prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards11.vue" language="vue" title="Style Eleven"}
+::
+
+## Style Twelve
+
+Financial dashboard with a reactive area chart, a paginated transactions table, a dynamic cards list with an add-card form, and a budgets section.
+
+::BlockShowcase{blockPath="Dashboards/BlockDashboards12" component="BlockDashboards12" iframeHeight="800px" frameClass="p-0" components="avatar badge button button-group checkbox command container datepicker dialog dropdown-menu kbd pagination popover tanstack-table tooltip apexchart"}
+
+:prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards12.vue" language="vue" title="Style Twelve"}
 ::
