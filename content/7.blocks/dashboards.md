@@ -56,3 +56,12 @@ Customers dashboard with a sticky header, radial rings chart showing active user
 
 :prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards6.vue" language="vue" title="Style Six"}
 ::
+
+## Style Seven
+
+Customers dashboard with a personalized welcome header, three stat cards with green/red sparkline trend charts, a secondary tab navigation row with a ⌘K search shortcut, filter chips, CSV import dialog, add/edit customer sheets with vee-validate forms, delete confirmation, and a paginated company table with license progress bars, status badges, avatar groups, and tooltip-enhanced action buttons.
+
+::BlockShowcase{blockPath="Dashboards/BlockDashboards7" component="BlockDashboards7" iframeHeight="800px" frameClass="p-0" components="alert-dialog avatar badge button card checkbox command container dialog dropdown-menu kbd pagination popover sheet tanstack-table tooltip vee-input vee-select apexchart"}
+
+:prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards7.vue" language="vue" title="Style Seven"}
+::
