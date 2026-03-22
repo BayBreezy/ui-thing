@@ -83,3 +83,12 @@ Vendor security dashboard with a personalized welcome header, dual-line chart co
 
 :prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards9.vue" language="vue" title="Style Nine"}
 ::
+
+## Style Ten
+
+Sales overview dashboard with a sticky header, secondary tab navigation with ⌘K search command dialog, view selector button group, date range and filters row, three KPI metric cards with trend badges and view report links, a smoothed area chart for sales report with time-range tabs, a stacked bar chart for store traffic, a live activity feed sidebar showing recent purchases, an invite teammates dialog with email chip input and suggestions, a generate chart dialog with accessible ToggleGroup type picker, and an export report dialog with format cards.
+
+::BlockShowcase{blockPath="Dashboards/BlockDashboards10" component="BlockDashboards10" iframeHeight="800px" frameClass="p-0" components="avatar badge button button-group card command container dialog dropdown-menu kbd popover toggle-group tooltip apexchart"}
+
+:prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards10.vue" language="vue" title="Style Ten"}
+::
