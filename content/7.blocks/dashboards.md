@@ -74,3 +74,12 @@ Organization overview dashboard with a sticky header, radar chart for vendor tie
 
 :prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards8.vue" language="vue" title="Style Eight"}
 ::
+
+## Style Nine
+
+Vendor security dashboard with a personalized welcome header, dual-line chart comparing your security rating vs industry average, a donut chart showing monitored vendor capacity with an upgrade prompt, and a vendor movements card with View all / Monitored / Unmonitored filter tabs, inline search, add/edit vendor sheets with vee-validate forms, delete confirmation, and a paginated table with rating progress bars, trend badges, status indicators, and category tags.
+
+::BlockShowcase{blockPath="Dashboards/BlockDashboards9" component="BlockDashboards9" iframeHeight="800px" frameClass="p-0" components="alert-dialog avatar badge button button-group card checkbox command container dropdown-menu kbd pagination popover sheet tanstack-table tooltip vee-input vee-select apexchart"}
+
+:prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards9.vue" language="vue" title="Style Nine"}
+::
