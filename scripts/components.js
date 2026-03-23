@@ -100,6 +100,24 @@ export default [
     docsPath: "/components/badge-group",
   },
   {
+    name: "BG Pattern - Circle",
+    value: "bg-pattern-circle",
+    files: ["BgPattern/Circle.vue"],
+    docsPath: "/components/bg-pattern-circle",
+  },
+  {
+    name: "BG Pattern - Square",
+    value: "bg-pattern-square",
+    files: ["BgPattern/Square.vue"],
+    docsPath: "/components/bg-pattern-square",
+  },
+  {
+    name: "BG Pattern - Grid",
+    value: "bg-pattern-grid",
+    files: ["BgPattern/Grid.vue"],
+    docsPath: "/components/bg-pattern-grid",
+  },
+  {
     name: "Border Beam",
     value: "border-beam",
     files: ["BorderBeam.vue"],
