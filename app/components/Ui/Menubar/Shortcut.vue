@@ -1,6 +1,7 @@
 <template>
   <Primitive
     data-slot="menubar-shortcut"
+    :data-variant="variant"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
     v-bind="forwarded"
   >
@@ -19,12 +20,13 @@
       PrimitiveProps & {
         /** Custom class(es) to add to the parent */
         class?: HTMLAttributes["class"];
+        variant?: "default" | "destructive";
       }
     >(),
     { as: "span" }
   );
   const forwarded = reactiveOmit(props, "class");
   const styles = tv({
-    base: "ml-auto text-xs tracking-widest text-muted-foreground",
+    base: "ml-auto text-xs tracking-widest text-muted-foreground data-[variant=destructive]:text-destructive",
   });
 </script>

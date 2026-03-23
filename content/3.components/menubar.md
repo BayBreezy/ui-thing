@@ -187,3 +187,269 @@ Click :SourceCodeLink{component="Menubar"} to see the source code for this compo
 <!-- /automd -->
 
 ::
+
+### Simple
+
+A minimal menubar with keyboard shortcuts and disabled items — great as a starting point.
+
+::ShowCase
+
+:DocsMenubarSimple
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Menubar/DocsMenubarSimple.vue" code lang="vue" -->
+
+```vue [DocsMenubarSimple.vue]
+<template>
+  <div class="flex w-full items-center justify-center">
+    <UiMenubar>
+      <UiMenubarMenu value="file">
+        <UiMenubarTrigger class="cursor-pointer">File</UiMenubarTrigger>
+        <UiMenubarContent>
+          <UiMenubarItem title="New File" shortcut="⌘N" />
+          <UiMenubarItem title="Open..." shortcut="⌘O" />
+          <UiMenubarItem title="Save" shortcut="⌘S" />
+          <UiMenubarItem title="Save As..." shortcut="⇧⌘S" />
+          <UiMenubarSeparator />
+          <UiMenubarItem title="Close Window" shortcut="⌘W" />
+        </UiMenubarContent>
+      </UiMenubarMenu>
+
+      <UiMenubarMenu value="edit">
+        <UiMenubarTrigger class="cursor-pointer">Edit</UiMenubarTrigger>
+        <UiMenubarContent>
+          <UiMenubarItem title="Undo" shortcut="⌘Z" />
+          <UiMenubarItem title="Redo" shortcut="⇧⌘Z" />
+          <UiMenubarSeparator />
+          <UiMenubarItem title="Cut" shortcut="⌘X" />
+          <UiMenubarItem title="Copy" shortcut="⌘C" />
+          <UiMenubarItem title="Paste" shortcut="⌘V" />
+          <UiMenubarSeparator />
+          <UiMenubarItem title="Select All" shortcut="⌘A" />
+        </UiMenubarContent>
+      </UiMenubarMenu>
+
+      <UiMenubarMenu value="format">
+        <UiMenubarTrigger class="cursor-pointer">Format</UiMenubarTrigger>
+        <UiMenubarContent>
+          <UiMenubarItem title="Bold" shortcut="⌘B" />
+          <UiMenubarItem title="Italic" shortcut="⌘I" />
+          <UiMenubarItem title="Underline" shortcut="⌘U" />
+          <UiMenubarSeparator />
+          <UiMenubarItem title="Strikethrough" disabled />
+          <UiMenubarItem title="Superscript" disabled />
+        </UiMenubarContent>
+      </UiMenubarMenu>
+    </UiMenubar>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+### With labels
+
+Use `UiMenubarLabel` to visually group items within a menu into named sections.
+
+::ShowCase
+
+:DocsMenubarWithLabels
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Menubar/DocsMenubarWithLabels.vue" code lang="vue" -->
+
+```vue [DocsMenubarWithLabels.vue]
+<template>
+  <div class="flex w-full items-center justify-center">
+    <UiMenubar>
+      <UiMenubarMenu value="insert">
+        <UiMenubarTrigger class="cursor-pointer">Insert</UiMenubarTrigger>
+        <UiMenubarContent class="w-52">
+          <UiMenubarLabel>Media</UiMenubarLabel>
+          <UiMenubarItem title="Image..." icon="lucide:image" />
+          <UiMenubarItem title="Video..." icon="lucide:video" />
+          <UiMenubarItem title="Audio..." icon="lucide:music" />
+          <UiMenubarSeparator />
+          <UiMenubarLabel>Content</UiMenubarLabel>
+          <UiMenubarItem title="Table" icon="lucide:table" />
+          <UiMenubarItem title="Code Block" icon="lucide:code" />
+          <UiMenubarItem title="Blockquote" icon="lucide:quote" />
+          <UiMenubarSeparator />
+          <UiMenubarLabel>Other</UiMenubarLabel>
+          <UiMenubarItem title="Horizontal Rule" icon="lucide:minus" />
+          <UiMenubarItem title="Page Break" icon="lucide:file-plus" />
+        </UiMenubarContent>
+      </UiMenubarMenu>
+
+      <UiMenubarMenu value="view">
+        <UiMenubarTrigger class="cursor-pointer">View</UiMenubarTrigger>
+        <UiMenubarContent class="w-48">
+          <UiMenubarLabel>Layout</UiMenubarLabel>
+          <UiMenubarItem title="Sidebar" shortcut="⌘B" icon="lucide:panel-left" />
+          <UiMenubarItem title="Activity Bar" icon="lucide:layout-dashboard" />
+          <UiMenubarSeparator />
+          <UiMenubarLabel>Appearance</UiMenubarLabel>
+          <UiMenubarItem title="Zoom In" shortcut="⌘+" icon="lucide:zoom-in" />
+          <UiMenubarItem title="Zoom Out" shortcut="⌘-" icon="lucide:zoom-out" />
+          <UiMenubarItem title="Reset Zoom" shortcut="⌘0" icon="lucide:maximize" />
+        </UiMenubarContent>
+      </UiMenubarMenu>
+
+      <UiMenubarMenu value="tools">
+        <UiMenubarTrigger class="cursor-pointer">Tools</UiMenubarTrigger>
+        <UiMenubarContent class="w-52">
+          <UiMenubarLabel>Analysis</UiMenubarLabel>
+          <UiMenubarItem title="Word Count" icon="lucide:hash" />
+          <UiMenubarItem title="Spell Check" shortcut="⌘;" icon="lucide:spell-check" />
+          <UiMenubarSeparator />
+          <UiMenubarLabel>Automation</UiMenubarLabel>
+          <UiMenubarItem title="Macros" icon="lucide:play-circle" />
+          <UiMenubarItem title="Extensions" icon="lucide:puzzle" />
+        </UiMenubarContent>
+      </UiMenubarMenu>
+    </UiMenubar>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+### Destructive items
+
+Use `variant="destructive"` on `UiMenubarItem` to highlight dangerous or irreversible actions.
+
+::ShowCase
+
+:DocsMenubarDestructive
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Menubar/DocsMenubarDestructive.vue" code lang="vue" -->
+
+```vue [DocsMenubarDestructive.vue]
+<template>
+  <div class="flex w-full items-center justify-center">
+    <UiMenubar>
+      <UiMenubarMenu value="project">
+        <UiMenubarTrigger class="cursor-pointer">Project</UiMenubarTrigger>
+        <UiMenubarContent class="w-52">
+          <UiMenubarItem title="Settings..." icon="lucide:settings" shortcut="⌘," />
+          <UiMenubarItem title="Rename..." icon="lucide:pencil" />
+          <UiMenubarItem title="Duplicate" icon="lucide:copy" />
+          <UiMenubarSeparator />
+          <UiMenubarItem title="Archive Project" icon="lucide:archive" />
+          <UiMenubarItem
+            title="Delete Project"
+            icon="lucide:trash-2"
+            variant="destructive"
+            shortcut="⌘⌫"
+          />
+        </UiMenubarContent>
+      </UiMenubarMenu>
+
+      <UiMenubarMenu value="team">
+        <UiMenubarTrigger class="cursor-pointer">Team</UiMenubarTrigger>
+        <UiMenubarContent class="w-52">
+          <UiMenubarItem title="Invite Members..." icon="lucide:user-plus" />
+          <UiMenubarItem title="Manage Roles" icon="lucide:shield" />
+          <UiMenubarSeparator />
+          <UiMenubarItem title="Leave Team" icon="lucide:log-out" variant="destructive" />
+          <UiMenubarItem
+            title="Disband Team"
+            icon="lucide:users-x"
+            variant="destructive"
+            disabled
+          />
+        </UiMenubarContent>
+      </UiMenubarMenu>
+
+      <UiMenubarMenu value="account">
+        <UiMenubarTrigger class="cursor-pointer">Account</UiMenubarTrigger>
+        <UiMenubarContent class="w-52">
+          <UiMenubarItem title="Profile" icon="lucide:user" />
+          <UiMenubarItem title="Billing" icon="lucide:credit-card" />
+          <UiMenubarSeparator />
+          <UiMenubarItem title="Sign Out" icon="lucide:log-out" shortcut="⇧⌘Q" />
+          <UiMenubarItem
+            title="Delete Account"
+            icon="lucide:user-x"
+            variant="destructive"
+            shortcut="⌫"
+          />
+        </UiMenubarContent>
+      </UiMenubarMenu>
+    </UiMenubar>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+### Translucent
+
+Pass `translucent` to `UiMenubarContent` for a frosted-glass panel effect.
+
+::ShowCase
+
+:DocsMenubarTranslucent
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Menubar/DocsMenubarTranslucent.vue" code lang="vue" -->
+
+```vue [DocsMenubarTranslucent.vue]
+<template>
+  <div class="flex w-full items-center justify-center">
+    <UiMenubar>
+      <UiMenubarMenu value="file">
+        <UiMenubarTrigger class="cursor-pointer">File</UiMenubarTrigger>
+        <UiMenubarContent translucent>
+          <UiMenubarItem title="New Tab" shortcut="⌘T" />
+          <UiMenubarItem title="New Window" shortcut="⌘N" />
+          <UiMenubarSeparator />
+          <UiMenubarItem title="Open Location..." shortcut="⌘L" />
+          <UiMenubarItem title="Close Tab" shortcut="⌘W" />
+          <UiMenubarSeparator />
+          <UiMenubarItem title="Print..." shortcut="⌘P" />
+        </UiMenubarContent>
+      </UiMenubarMenu>
+
+      <UiMenubarMenu value="window">
+        <UiMenubarTrigger class="cursor-pointer">Window</UiMenubarTrigger>
+        <UiMenubarContent translucent>
+          <UiMenubarItem title="Minimize" shortcut="⌘M" />
+          <UiMenubarItem title="Zoom" />
+          <UiMenubarSeparator />
+          <UiMenubarItem title="Move to Left Side" />
+          <UiMenubarItem title="Move to Right Side" />
+          <UiMenubarSeparator />
+          <UiMenubarItem title="Bring All to Front" />
+        </UiMenubarContent>
+      </UiMenubarMenu>
+
+      <UiMenubarMenu value="help">
+        <UiMenubarTrigger class="cursor-pointer">Help</UiMenubarTrigger>
+        <UiMenubarContent translucent class="w-56">
+          <UiMenubarItem title="Documentation" icon="lucide:book-open" />
+          <UiMenubarItem title="Keyboard Shortcuts" icon="lucide:keyboard" shortcut="⌘/" />
+          <UiMenubarSeparator />
+          <UiMenubarItem title="Report an Issue" icon="lucide:bug" />
+          <UiMenubarItem title="About" icon="lucide:info" />
+        </UiMenubarContent>
+      </UiMenubarMenu>
+    </UiMenubar>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::

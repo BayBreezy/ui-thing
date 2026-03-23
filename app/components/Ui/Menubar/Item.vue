@@ -15,7 +15,7 @@
       </slot>
     </slot>
     <slot name="shortcut">
-      <UiMenubarShortcut v-if="shortcut" data-slot="menubar-item-shortcut">{{
+      <UiMenubarShortcut v-if="shortcut" :variant data-slot="menubar-item-shortcut">{{
         shortcut
       }}</UiMenubarShortcut>
     </slot>
