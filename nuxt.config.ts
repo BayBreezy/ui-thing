@@ -88,7 +88,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  nitro: { experimental: { asyncContext: true }, externals: { external: ["secure-exec"] } },
+  nitro: { experimental: { asyncContext: true } },
   experimental: { payloadExtraction: true },
   modules: [
     "@nuxtjs/mdc",
