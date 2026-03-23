@@ -94,6 +94,12 @@ export default [
   },
   { name: "Badge", value: "badge", files: ["Badge.vue"], docsPath: "/components/badge" },
   {
+    name: "Badge Group",
+    value: "badge-group",
+    files: ["BadgeGroup.vue"],
+    docsPath: "/components/badge-group",
+  },
+  {
     name: "Border Beam",
     value: "border-beam",
     files: ["BorderBeam.vue"],

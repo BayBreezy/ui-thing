@@ -1,7 +1,6 @@
 ---
 title: Color Picker
 description: A fully-featured color picker component with support for multiple color formats, alpha channel, and preset swatches.
-label: New
 ---
 
 ## Source code
