@@ -162,6 +162,12 @@ export default [
   },
   { name: "Chip", value: "chip", files: ["Chip.vue"], docsPath: "/components/chip" },
   {
+    name: "Credit Card",
+    value: "credit-card",
+    files: ["CreditCard.vue"],
+    docsPath: "/components/creditcard",
+  },
+  {
     name: "Collapsible",
     value: "collapsible",
     files: ["Collapsible/Collapsible.vue", "Collapsible/Content.vue", "Collapsible/Trigger.vue"],
