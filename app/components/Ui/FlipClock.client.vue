@@ -4,7 +4,7 @@
       flipClockVariants({
         size: props.size,
         variant: props.variant,
-        class: normalizeClass(props.class) || undefined,
+        class: props.class ? normalizeClass(props.class) : undefined,
       })
     "
     aria-live="polite"
@@ -238,10 +238,9 @@
       (props.showDays === "always" || (props.showDays === "auto" && time.value.days > 0))
   );
 
-  const commonCardStyle =
-    "absolute inset-x-0 overflow-hidden h-1/2 bg-inherit text-inherit will-change-transform";
-  const preserve3d = { transformStyle: "preserve-3d" };
-  const backfaceHidden = { backfaceVisibility: "hidden" };
+  // Base style shared by all four card halves inside a FlipUnit
+  const commonCardStyle = "absolute inset-x-0 overflow-hidden h-1/2 bg-inherit text-inherit";
+  const backfaceHidden = { backfaceVisibility: "hidden" as const };
 
   const DigitSpan = defineComponent({
     name: "DigitSpan",
@@ -325,44 +324,54 @@
         flipUnitVariants({
           size: localProps.size,
           variant: localProps.variant,
-          class: localProps.class,
+          class: normalizeClass(localProps.class),
         })
       );
 
       return () =>
-        h("div", { class: normalizeClass(unitClass) || undefined.value, style: preserve3d }, [
-          h("div", { class: `${commonCardStyle} rounded-t-lg top-0`, style: preserve3d }, [
-            h(DigitSpan, { position: "top" }, { default: () => localProps.digit }),
-          ]),
-          h(
-            "div",
-            { class: `${commonCardStyle} rounded-b-lg translate-y-full`, style: preserve3d },
-            [h(DigitSpan, { position: "bottom" }, { default: () => prevDigit.value })]
-          ),
-          h(
-            "div",
-            {
-              class: `${commonCardStyle} z-20 origin-bottom rounded-t-lg ${
-                flipping.value ? "animate-flip-top" : ""
-              }`,
-              style: { ...preserve3d, ...backfaceHidden },
-            },
-            [h(DigitSpan, { position: "top" }, { default: () => prevDigit.value })]
-          ),
-          h(
-            "div",
-            {
-              class: `${commonCardStyle} z-10 origin-top rounded-b-lg translate-y-full ${
-                flipping.value ? "animate-flip-bottom" : ""
-              }`,
-              style: { transform: "rotateX(90deg)", ...preserve3d, ...backfaceHidden },
-            },
-            [h(DigitSpan, { position: "bottom" }, { default: () => localProps.digit })]
-          ),
-          h("div", {
-            class: "absolute top-1/2 left-0 w-full h-px -translate-y-1/2 bg-background/50 z-30",
-          }),
-        ]);
+        h(
+          "div",
+          { class: normalizeClass(unitClass.value), style: { transformStyle: "preserve-3d" } },
+          [
+            // 1. Background Top — new digit, top half, always visible
+            h("div", { class: `${commonCardStyle} top-0 rounded-t-lg` }, [
+              h(DigitSpan, { position: "top" }, { default: () => localProps.digit }),
+            ]),
+            // 2. Background Bottom — old digit, bottom half, always visible
+            // Using top-1/2 instead of translate-y-full so the transform axis is uncontested
+            h("div", { class: `${commonCardStyle} top-1/2 rounded-b-lg` }, [
+              h(DigitSpan, { position: "bottom" }, { default: () => prevDigit.value }),
+            ]),
+            // 3. Top Flap — old digit falling away (0deg → -90deg)
+            h(
+              "div",
+              {
+                class: `${commonCardStyle} top-0 z-20 origin-bottom rounded-t-lg ${
+                  flipping.value ? "animate-flip-top" : ""
+                }`,
+                style: backfaceHidden,
+              },
+              [h(DigitSpan, { position: "top" }, { default: () => prevDigit.value })]
+            ),
+            // 4. Bottom Flap — new digit arriving (90deg → 0deg)
+            // Positioned with top-1/2 so transform is solely the rotation.
+            // flip-bottom-initial holds rotateX(90deg) when idle; animation takes over when flipping.
+            h(
+              "div",
+              {
+                class: `${commonCardStyle} top-1/2 z-10 origin-top rounded-b-lg ${
+                  flipping.value ? "animate-flip-bottom" : "flip-bottom-initial"
+                }`,
+                style: backfaceHidden,
+              },
+              [h(DigitSpan, { position: "bottom" }, { default: () => localProps.digit })]
+            ),
+            // Center divider line
+            h("div", {
+              class: "absolute top-1/2 left-0 z-30 h-px w-full -translate-y-1/2 bg-background/50",
+            }),
+          ]
+        );
     },
   });
 
@@ -383,7 +392,7 @@
           `text-center -translate-y-[8%] ${heightMap[(localProps.size as FlipClockSize) ?? "md"]}`
       );
 
-      return () => h("span", { class: normalizeClass(separatorClass) || undefined.value }, ":");
+      return () => h("span", { class: normalizeClass(separatorClass.value) }, ":");
     },
   });
 
@@ -412,6 +421,13 @@
 </script>
 
 <style>
+  /* Initial resting state for the bottom flap — hidden at 90° until a flip begins.
+     Using a CSS class (not an inline style) prevents the transform from conflicting
+     with the animation that takes over once flipping is true. */
+  .flip-bottom-initial {
+    transform: rotateX(90deg);
+  }
+
   .animate-flip-top {
     animation: flip-top-anim 0.6s ease-in forwards;
   }
