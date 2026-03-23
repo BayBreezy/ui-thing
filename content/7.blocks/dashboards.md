@@ -110,3 +110,12 @@ Financial dashboard with a reactive area chart, a paginated transactions table, 
 
 :prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards12.vue" language="vue" title="Style Twelve"}
 ::
+
+## Style Thirteen
+
+Banking dashboard with two reactive radial account charts, a balance area chart, a recent deposits list, and a cards section — plus deposit and send-funds forms, a filters dialog, and a ⌘K command search.
+
+::BlockShowcase{blockPath="Dashboards/BlockDashboards13" component="BlockDashboards13" iframeHeight="800px" frameClass="p-0" components="avatar badge button button-group checkbox command container datepicker dialog dropdown-menu kbd popover switch tooltip vee-input vee-select apexchart"}
+
+:prose-code-snippet{file="/components/content/Block/Dashboards/BlockDashboards13.vue" language="vue" title="Style Thirteen"}
+::
