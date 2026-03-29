@@ -52,7 +52,7 @@
     "@tailwindcss/vite": "^4.2.2",
     "@takumi-rs/core": "^0.73.1",
     "@tanstack/vue-table": "^8.21.3",
-    "@tiptap/extension-color": "^3.20.4",
+    "@tiptap/extension-color": "^3.21.0",
     "@tiptap/extension-highlight": "^3.20.4",
     "@tiptap/extension-link": "^3.20.4",
     "@tiptap/extension-list-item": "^3.20.4",
