@@ -17,8 +17,8 @@
 
 <script lang="ts" setup>
   import { ContextMenuContent, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ContextMenuContentEmits, ContextMenuContentProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

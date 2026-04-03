@@ -12,8 +12,8 @@
 
 <script lang="ts" setup>
   import { DrawerDescription } from "vaul-vue";
-  import { normalizeClass } from "vue";
   import type { DrawerDescriptionProps } from "vaul-vue";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   interface Props extends DrawerDescriptionProps {

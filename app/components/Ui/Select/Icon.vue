@@ -11,8 +11,8 @@
 
 <script lang="ts" setup>
   import { SelectIcon, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { SelectIconProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

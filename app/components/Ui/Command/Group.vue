@@ -21,8 +21,8 @@
 <script setup lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { ListboxGroup, ListboxGroupLabel } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ListboxGroupProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   import { provideCommandGroupContext, useCommand } from "./Command.vue";

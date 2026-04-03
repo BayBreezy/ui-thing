@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { ScrollAreaThumb } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ScrollAreaThumbProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

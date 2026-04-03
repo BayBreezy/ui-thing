@@ -117,8 +117,8 @@
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import { promiseTimeout } from "@vueuse/core";
   import type { ColumnDef } from "@tanstack/vue-table";
+  import { promiseTimeout } from "@vueuse/core";
 
   const selectedUser = ref<User | null>(null);
 

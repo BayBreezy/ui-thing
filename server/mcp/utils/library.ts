@@ -1,8 +1,8 @@
 import { queryCollection } from "@nuxt/content/server";
+import Fuse from "fuse.js";
 import blockRegistry from "~~/server/utils/block-examples";
 import componentRegistry from "~~/server/utils/comp";
 import proseRegistry from "~~/server/utils/prose";
-import Fuse from "fuse.js";
 
 export type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
 export type LibraryKind = "component" | "block" | "prose";

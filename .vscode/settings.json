@@ -6,6 +6,8 @@
     "strings": "on",
     "comments": "on"
   },
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.formatOnSave": true,
   "tailwindCSS.classFunctions": ["tv", "tw"],
   "mdc.enableFormatting": true,
   "[mdc]": {
@@ -22,6 +24,5 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "Nuxt.mdc"
-  },
-  "typescript.tsdk": "node_modules/typescript/lib"
+  }
 }

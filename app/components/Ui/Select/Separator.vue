@@ -8,8 +8,8 @@
 
 <script lang="ts" setup>
   import { SelectSeparator } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { SelectSeparatorProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

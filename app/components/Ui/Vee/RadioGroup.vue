@@ -42,8 +42,8 @@
 <script lang="ts" setup>
   import { AnimatePresence, motion } from "motion-v";
   import { useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { RadioGroupRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const variants = {

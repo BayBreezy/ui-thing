@@ -13,8 +13,8 @@
 
 <script lang="ts" setup>
   import { PopoverArrow, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { PopoverArrowProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

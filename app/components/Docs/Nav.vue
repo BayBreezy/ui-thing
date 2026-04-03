@@ -74,9 +74,9 @@
 </template>
 
 <script lang="ts" setup>
+  import type { ContentNavigationItem } from "@nuxt/content";
   import { tv } from "tailwind-variants";
   import { normalizeClass } from "vue";
-  import type { ContentNavigationItem } from "@nuxt/content";
   import type { HTMLAttributes } from "vue";
 
   const route = useRoute();

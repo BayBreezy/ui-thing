@@ -62,8 +62,8 @@
 
 <script lang="ts" setup>
   import { stagger } from "motion-v";
-  import { ref } from "vue";
   import type { MotionProps } from "motion-v";
+  import { ref } from "vue";
 
   const childVariant: MotionProps["variants"] = {
     initial: { opacity: 0, y: 20 },

@@ -876,8 +876,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { Motion } from "motion-v";
   import type { ApexOptions } from "apexcharts";
+  import { Motion } from "motion-v";
 
   // ─── Navigation ────────────────────────────────────────────────────────────────
   const navItems = [

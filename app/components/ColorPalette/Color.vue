@@ -43,6 +43,7 @@
 
 <script lang="ts" setup>
   import { useStorage } from "@vueuse/core";
+
   import type { Color } from "~/utils/registry/colors";
 
   defineProps<{ color: Color }>();

@@ -18,8 +18,8 @@
 
 <script lang="ts" setup>
   import { TabsIndicator } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { TabsIndicatorProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

@@ -549,8 +549,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { Motion } from "motion-v";
   import type { ApexOptions } from "apexcharts";
+  import { Motion } from "motion-v";
   import type { MotionProps } from "motion-v";
 
   // Animation variants

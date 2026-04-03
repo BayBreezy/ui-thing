@@ -13,8 +13,8 @@
 
 <script lang="ts" setup>
   import { ListboxItem, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ListboxItemEmits, ListboxItemProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

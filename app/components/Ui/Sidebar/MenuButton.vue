@@ -20,8 +20,9 @@
 
 <script lang="ts">
   import { useForwardProps } from "reka-ui";
-  import type { SidebarMenuButtonProps } from "./MenuButtonChild.vue";
   import type { Component } from "vue";
+
+  import type { SidebarMenuButtonProps } from "./MenuButtonChild.vue";
 </script>
 <script setup lang="ts">
   defineOptions({ inheritAttrs: false });

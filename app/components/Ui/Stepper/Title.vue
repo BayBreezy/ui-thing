@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { StepperTitle, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { StepperTitleProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

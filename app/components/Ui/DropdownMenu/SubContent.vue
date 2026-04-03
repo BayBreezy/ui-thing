@@ -17,8 +17,8 @@
 
 <script lang="ts" setup>
   import { DropdownMenuSubContent, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { DropdownMenuSubContentEmits, DropdownMenuSubContentProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

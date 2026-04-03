@@ -35,8 +35,8 @@
 </template>
 
 <script lang="ts" setup>
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   const chartData = [
     { date: "2024-04-01", desktop: 222, mobile: 150 },

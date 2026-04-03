@@ -1,5 +1,6 @@
-import { Icon } from "#components";
 import type { Updater } from "@tanstack/vue-table";
+
+import { Icon } from "#components";
 
 /**
  * Function used to update a ref value with a new value or a function that returns a new value.

@@ -17,8 +17,8 @@
 
 <script lang="ts" setup>
   import { MenubarContent, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { MenubarContentProps, MenubarSubContentEmits } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

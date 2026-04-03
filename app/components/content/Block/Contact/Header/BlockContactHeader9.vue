@@ -105,9 +105,9 @@
 
 <script lang="ts" setup>
   import { stagger } from "motion-v";
+  import type { MotionProps } from "motion-v";
   import { ref } from "vue";
   import { bool, object, string } from "yup";
-  import type { MotionProps } from "motion-v";
   import type { InferType } from "yup";
 
   const childVariant: MotionProps["variants"] = {

@@ -13,8 +13,8 @@
 
 <script lang="ts" setup>
   import { DialogClose } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { DialogCloseProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

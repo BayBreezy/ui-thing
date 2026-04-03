@@ -7,11 +7,12 @@
     getCoreRowModel,
     useVueTable,
   } from "@tanstack/vue-table";
-  //2. Import the components you want to use
-  import { UiBadge, UiCheckbox } from "#components";
   // Import any type that you may need
   import type { RowSelectionState } from "@tanstack/vue-table";
   import type { CheckboxRootProps } from "reka-ui";
+
+  //2. Import the components you want to use
+  import { UiBadge, UiCheckbox } from "#components";
 
   //3. Fetch your data
   const { data } = await useAsyncData(

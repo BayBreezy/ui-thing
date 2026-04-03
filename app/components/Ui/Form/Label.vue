@@ -13,8 +13,8 @@
 
 <script lang="ts" setup>
   import { Label } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { LabelProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

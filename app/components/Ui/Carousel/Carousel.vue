@@ -21,6 +21,7 @@
 
 <script setup lang="ts">
   import { normalizeClass } from "vue";
+
   import type { CarouselEmits, CarouselProps, WithClassAsProps } from "~/composables/useCarousel";
 
   const styles = tv({

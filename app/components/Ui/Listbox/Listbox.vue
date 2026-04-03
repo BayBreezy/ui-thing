@@ -11,8 +11,8 @@
 
 <script lang="ts" setup>
   import { ListboxRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ListboxRootEmits, ListboxRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<ListboxRootProps & { class?: HTMLAttributes["class"] }>();

@@ -16,8 +16,8 @@
 
 <script lang="ts" setup>
   import { MenubarRadioItem, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { MenubarRadioItemEmits, MenubarRadioItemProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

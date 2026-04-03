@@ -11,10 +11,11 @@
 
 <script lang="ts" setup>
   import { ToggleGroupRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
-  import type { ToggleVariants } from "../Toggle.vue";
   import type { ToggleGroupRootEmits, ToggleGroupRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
+
+  import type { ToggleVariants } from "../Toggle.vue";
 
   const props = withDefaults(
     defineProps<

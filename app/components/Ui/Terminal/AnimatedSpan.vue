@@ -12,12 +12,12 @@
 </template>
 <script lang="ts">
   import { motion } from "motion-v";
-  import { normalizeClass } from "vue";
-  import type { SequenceContextValue } from "./Terminal.vue";
   import type { MotionProps } from "motion-v";
   import type { PrimitiveProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
+  import type { SequenceContextValue } from "./Terminal.vue";
   import { ItemIndexKey, SequenceKey } from "./Terminal.vue";
 
   export interface AnimatedSpanProps extends Omit<MotionProps, "as" | "asChild">, PrimitiveProps {

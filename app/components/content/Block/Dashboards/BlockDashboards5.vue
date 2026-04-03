@@ -583,9 +583,9 @@
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import { Motion } from "motion-v";
   import type { ColumnDef } from "@tanstack/vue-table";
   import type { ApexOptions } from "apexcharts";
+  import { Motion } from "motion-v";
 
   // ─── Current user ────────────────────────────────────────────────────────────
   const currentUser = {

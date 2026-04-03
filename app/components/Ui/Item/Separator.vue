@@ -9,6 +9,7 @@
 
 <script lang="ts">
   import { normalizeClass } from "vue";
+
   import type { UiSeparatorProps } from "@/components/Ui/Separator.vue";
 
   export const itemSeparatorStyles = tv({

@@ -8,8 +8,9 @@
 </template>
 
 <script lang="ts" setup>
-  import type { AddressProps } from "@/emails/types/ui-thing/auth";
   import type { CSSProperties } from "vue";
+
+  import type { AddressProps } from "@/emails/types/ui-thing/auth";
 
   const styles = {
     text: {

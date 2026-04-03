@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { MenubarRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { MenubarRootEmits, MenubarRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

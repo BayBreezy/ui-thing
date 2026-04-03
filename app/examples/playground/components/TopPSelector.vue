@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { ref } from "vue";
   import type { SliderRootProps } from "reka-ui";
+  import { ref } from "vue";
 
   const props = defineProps<{
     defaultValue: SliderRootProps["defaultValue"];

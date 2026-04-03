@@ -9,18 +9,19 @@
     getSortedRowModel,
     useVueTable,
   } from "@tanstack/vue-table";
-  import {
-    HomeTasksDataTableColumnHeader,
-    HomeTasksDataTableRowAction,
-    UiBadge,
-    UiCheckbox,
-  } from "#components";
   import type {
     ColumnDef,
     ColumnFiltersState,
     SortingState,
     VisibilityState,
   } from "@tanstack/vue-table";
+
+  import {
+    HomeTasksDataTableColumnHeader,
+    HomeTasksDataTableRowAction,
+    UiBadge,
+    UiCheckbox,
+  } from "#components";
 
   interface DataTableProps {
     data: HomeTask[];

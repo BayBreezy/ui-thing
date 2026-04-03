@@ -18,6 +18,7 @@
 
 <script lang="ts">
   import { normalizeClass } from "vue";
+
   import type { AvatarProps } from "@/components/Ui/Avatar/Avatar.vue";
 
   export type AvatarLabelGroupProps = AvatarProps & {

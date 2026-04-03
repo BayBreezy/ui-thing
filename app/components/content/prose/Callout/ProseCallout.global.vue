@@ -52,8 +52,8 @@
 </template>
 
 <script lang="ts">
-  import { normalizeClass } from "vue";
   import type { VariantProps } from "tailwind-variants";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type CalloutProps = {

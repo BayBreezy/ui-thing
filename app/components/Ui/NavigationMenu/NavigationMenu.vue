@@ -14,8 +14,8 @@
 
 <script lang="ts" setup>
   import { NavigationMenuRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { NavigationMenuRootEmits, NavigationMenuRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

@@ -1,5 +1,5 @@
-import { buildProjectSetup } from "~~/server/mcp/utils/library";
 import { z } from "zod";
+import { buildProjectSetup } from "~~/server/mcp/utils/library";
 
 export default defineMcpTool({
   description: "Return a scaffold-first setup plan for starting a new Nuxt project with UI Thing.",

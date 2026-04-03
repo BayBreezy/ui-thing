@@ -13,8 +13,8 @@
 
 <script lang="ts" setup>
   import { PopoverClose, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { PopoverCloseProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

@@ -7,8 +7,9 @@
 </template>
 
 <script lang="ts" setup>
-  import { DocsAlertSubData } from "#components";
   import { useTippy } from "vue-tippy";
+
+  import { DocsAlertSubData } from "#components";
 
   const container = ref();
   useTippy(container, {

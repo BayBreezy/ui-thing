@@ -21,8 +21,8 @@
 
 <script lang="ts" setup>
   import { AlertDialogContent, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { AlertDialogContentEmits, AlertDialogContentProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

@@ -19,8 +19,8 @@
 <script setup lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { ListboxFilter, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ListboxFilterProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   import { useCommand } from "./Command.vue";

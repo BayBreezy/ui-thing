@@ -5,9 +5,10 @@
 </template>
 
 <script setup lang="ts">
-  import { ProseTabs } from "#components";
   import { normalizeClass } from "vue";
   import type { SetupContext } from "vue";
+
+  import { ProseTabs } from "#components";
 
   const props = withDefaults(
     defineProps<{

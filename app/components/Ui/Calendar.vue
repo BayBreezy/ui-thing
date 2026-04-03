@@ -15,9 +15,9 @@
 </template>
 
 <script lang="ts">
+  import type { Placement } from "@popperjs/core";
   import { reactiveOmit } from "@vueuse/core";
   import { useForwardPropsEmits } from "reka-ui";
-  import type { Placement } from "@popperjs/core";
   import type { Calendar } from "v-calendar";
 
   export interface AttributeConfig {

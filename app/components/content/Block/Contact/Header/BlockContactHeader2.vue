@@ -88,8 +88,8 @@
 
 <script lang="ts" setup>
   import { stagger } from "motion-v";
-  import { object, string } from "yup";
   import type { MotionProps } from "motion-v";
+  import { object, string } from "yup";
   import type { InferType } from "yup";
 
   const childVariant: MotionProps["variants"] = {

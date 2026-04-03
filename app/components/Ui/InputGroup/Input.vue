@@ -10,6 +10,7 @@
 
 <script lang="ts">
   import { normalizeClass } from "vue";
+
   import type { InputProps } from "@/components/Ui/Input.vue";
 
   const inputGroupInputStyles = tv({

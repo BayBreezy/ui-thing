@@ -8,8 +8,8 @@
 
 <script lang="ts" setup>
   import { DialogOverlay } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { DialogOverlayProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

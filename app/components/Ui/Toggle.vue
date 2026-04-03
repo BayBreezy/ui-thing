@@ -11,8 +11,8 @@
 
 <script lang="ts">
   import { Toggle as ToggleRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ToggleEmits, ToggleProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const toggleStyles = tv({

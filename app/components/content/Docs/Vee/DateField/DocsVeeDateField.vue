@@ -9,8 +9,8 @@
 
 <script lang="ts" setup>
   import { getLocalTimeZone, parseDate, today } from "@internationalized/date";
-  import { mixed, object } from "yup";
   import type { DateValue } from "@internationalized/date";
+  import { mixed, object } from "yup";
   import type { InferType } from "yup";
 
   const schema = object({

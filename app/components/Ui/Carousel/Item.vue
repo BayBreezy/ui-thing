@@ -16,6 +16,7 @@
 
 <script setup lang="ts">
   import { normalizeClass } from "vue";
+
   import type { WithClassAsProps } from "~/composables/useCarousel";
 
   const props = defineProps<

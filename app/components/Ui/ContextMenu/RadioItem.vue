@@ -16,8 +16,8 @@
 
 <script lang="ts" setup>
   import { ContextMenuRadioItem, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ContextMenuRadioItemEmits, ContextMenuRadioItemProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

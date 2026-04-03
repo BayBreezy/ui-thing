@@ -12,8 +12,9 @@
 <script lang="ts" setup>
   import { reactiveOmit } from "@vueuse/core";
   import { PaginationNext } from "reka-ui";
-  import type { ButtonProps } from "~/components/Ui/Button.vue";
   import type { PaginationNextProps } from "reka-ui";
+
+  import type { ButtonProps } from "~/components/Ui/Button.vue";
 
   const props = withDefaults(
     defineProps<

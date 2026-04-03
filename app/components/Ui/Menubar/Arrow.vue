@@ -13,8 +13,8 @@
 
 <script lang="ts" setup>
   import { MenubarArrow } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { MenubarArrowProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

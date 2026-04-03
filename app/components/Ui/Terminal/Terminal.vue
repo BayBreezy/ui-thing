@@ -16,8 +16,8 @@
   </div>
 </template>
 <script lang="ts">
-  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type SequenceContextValue = {

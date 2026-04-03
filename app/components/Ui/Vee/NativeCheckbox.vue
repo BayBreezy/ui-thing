@@ -76,8 +76,8 @@
 <script lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { motion } from "motion-v";
-  import { normalizeClass } from "vue";
   import type { VariantProps } from "tailwind-variants";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const variants = {

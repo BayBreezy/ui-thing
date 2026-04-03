@@ -8,8 +8,8 @@
 
 <script lang="ts" setup>
   import { TooltipArrow, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { TooltipArrowProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

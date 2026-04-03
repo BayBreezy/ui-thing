@@ -21,8 +21,8 @@
 
 <script lang="ts">
   import QRCodeStyling from "qr-code-styling";
-  import { normalizeClass } from "vue";
   import type { Options as QRCodeStylingOptions } from "qr-code-styling";
+  import { normalizeClass } from "vue";
 
   export const qrCodeStyles = tv({
     slots: {

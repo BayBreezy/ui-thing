@@ -15,8 +15,8 @@
 
 <script lang="ts" setup>
   import { SelectItemIndicator } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { SelectItemIndicatorProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

@@ -25,8 +25,8 @@
 </template>
 
 <script lang="ts">
-  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { CSSProperties, HTMLAttributes } from "vue";
 
   export interface NeonColorsProps {

@@ -11,8 +11,8 @@
 
 <script lang="ts" setup>
   import { TagsInputRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { TagsInputRootEmits, TagsInputRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<TagsInputRootProps & { class?: HTMLAttributes["class"] }>();

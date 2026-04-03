@@ -10,8 +10,8 @@
 
 <script lang="ts">
   import { AccordionHeader } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { AccordionHeaderProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const accordionHeaderStyle = tv({ base: "flex" });

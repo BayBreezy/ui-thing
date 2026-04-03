@@ -164,6 +164,7 @@
 </template>
 <script lang="ts">
   import { getMaterialFileIcon } from "@baybreezy/file-extension-icon";
+
   import type { ProseTabsProps } from "./ProseTabs.global.vue";
 
   export type ProseTabsInnerSlotData = {

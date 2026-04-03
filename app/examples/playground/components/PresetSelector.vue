@@ -48,7 +48,6 @@
 
 <script lang="ts" setup>
   import type { Preset } from "../data/presets";
-
   import { presets } from "../data/presets";
 
   const open = ref(false);

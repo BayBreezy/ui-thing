@@ -12,8 +12,8 @@
 
 <script lang="ts" setup>
   import { RadioGroupItem } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { RadioGroupItemProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

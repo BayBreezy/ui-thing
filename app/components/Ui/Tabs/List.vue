@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { TabsList } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { TabsListProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

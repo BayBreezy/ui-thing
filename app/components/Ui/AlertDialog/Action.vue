@@ -11,10 +11,11 @@
 </template>
 
 <script lang="ts" setup>
-  import { buttonStyles } from "~/components/Ui/Button.vue";
   import { AlertDialogAction } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { AlertDialogActionProps } from "reka-ui";
+  import { normalizeClass } from "vue";
+
+  import { buttonStyles } from "~/components/Ui/Button.vue";
 
   const props = withDefaults(
     defineProps<

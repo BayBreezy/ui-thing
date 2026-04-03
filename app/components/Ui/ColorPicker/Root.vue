@@ -6,8 +6,8 @@
 
 <script lang="ts" setup>
   import { colord } from "colord";
-  import { normalizeClass } from "vue";
   import type { Colord } from "colord";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const styles = tv({

@@ -13,8 +13,8 @@
 
 <script lang="ts" setup>
   import { CheckboxRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { CheckboxRootEmits, CheckboxRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

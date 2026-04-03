@@ -29,10 +29,11 @@
 </template>
 
 <script setup lang="ts">
+  import type { CSSProperties } from "vue";
+
   import UiThingEmailAddress from "@/emails/components/ui-thing/auth/Address.vue";
   import UiThingEmailDisclaimer from "@/emails/components/ui-thing/auth/Disclaimer.vue";
   import type { FooterProps } from "@/emails/types/ui-thing/auth";
-  import type { CSSProperties } from "vue";
 
   const props = withDefaults(defineProps<FooterProps>(), {
     brandName: "UI Thing",

@@ -25,8 +25,8 @@
 
 <script lang="ts">
   import { AvatarRoot } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { AvatarImageEmits, AvatarImageProps, AvatarRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
 
   export type AvatarProps = AvatarRootProps &
     Partial<AvatarImageProps> & {

@@ -15,8 +15,8 @@
 
 <script lang="ts" setup>
   import { CheckboxIndicator } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { CheckboxCheckedState, CheckboxIndicatorProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

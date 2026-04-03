@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { DropdownMenuLabel } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { DropdownMenuLabelProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

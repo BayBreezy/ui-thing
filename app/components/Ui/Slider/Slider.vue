@@ -44,8 +44,8 @@
 
 <script lang="ts" setup>
   import { SliderRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { SliderRootEmits, SliderRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

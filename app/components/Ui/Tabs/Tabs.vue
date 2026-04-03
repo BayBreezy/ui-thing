@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { TabsRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { TabsRootEmits, TabsRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(defineProps<TabsRootProps & { class?: HTMLAttributes["class"] }>(), {

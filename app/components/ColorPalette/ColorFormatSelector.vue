@@ -24,9 +24,10 @@
 
 <script lang="ts" setup>
   import { useStorage } from "@vueuse/core";
+  import type { HTMLAttributes } from "vue";
+
   import { getColorFormat } from "~/utils/registry/colors";
   import type { Color } from "~/utils/registry/colors";
-  import type { HTMLAttributes } from "vue";
 
   const props = defineProps<{
     color: Color;

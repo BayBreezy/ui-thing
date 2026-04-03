@@ -3,8 +3,9 @@
 </template>
 
 <script lang="ts">
-  import { ProseTabsInner } from "#components";
   import type { HTMLAttributes } from "vue";
+
+  import { ProseTabsInner } from "#components";
 
   export type ProseTabsProps = {
     /**

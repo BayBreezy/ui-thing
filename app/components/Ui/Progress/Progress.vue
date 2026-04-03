@@ -14,8 +14,8 @@
 
 <script lang="ts" setup>
   import { ProgressRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ProgressRootEmits, ProgressRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

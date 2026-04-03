@@ -28,8 +28,8 @@
 <script setup lang="ts">
   import { reactiveOmit, useCurrentElement } from "@vueuse/core";
   import { ListboxItem, useForwardPropsEmits, useId } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ListboxItemEmits, ListboxItemProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   import { useCommand, useCommandGroup } from "./Command.vue";

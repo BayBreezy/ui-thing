@@ -12,8 +12,8 @@
 
 <script lang="ts" setup>
   import { DropdownMenuItemIndicator } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { DropdownMenuItemIndicatorProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { twMerge } from "tailwind-merge";
   import type { Column } from "@tanstack/vue-table";
+  import { twMerge } from "tailwind-merge";
   import type { HTMLAttributes } from "vue";
 
   interface DataTableColumnHeaderProps {

@@ -30,9 +30,9 @@
 
 <script lang="ts" setup>
   import { useForwardPropsEmits } from "reka-ui";
+  import type { DialogContentEmits, DialogContentProps } from "reka-ui";
   import { DrawerContent } from "vaul-vue";
   import { normalizeClass } from "vue";
-  import type { DialogContentEmits, DialogContentProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

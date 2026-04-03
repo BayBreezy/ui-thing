@@ -12,8 +12,8 @@
 
 <script lang="ts" setup>
   import { TagsInputClear } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { TagsInputClearProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HtmlHTMLAttributes } from "vue";
 
   const props = withDefaults(

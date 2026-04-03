@@ -72,8 +72,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { useFuse } from "@vueuse/integrations/useFuse";
   import type { ContentNavigationItem } from "@nuxt/content";
+  import { useFuse } from "@vueuse/integrations/useFuse";
 
   const { content } = await useDocNavigation();
   const mobileNavState = useMobileNavState();

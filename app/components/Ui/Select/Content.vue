@@ -22,8 +22,8 @@
 
 <script lang="ts" setup>
   import { SelectContent, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { SelectContentEmits, SelectContentProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

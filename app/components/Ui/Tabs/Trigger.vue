@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { TabsTrigger } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { TabsTriggerProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

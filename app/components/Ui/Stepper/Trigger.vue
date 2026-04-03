@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { StepperTrigger, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { StepperTriggerProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<StepperTriggerProps & { class?: HTMLAttributes["class"] }>();

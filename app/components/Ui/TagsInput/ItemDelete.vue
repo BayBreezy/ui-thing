@@ -12,8 +12,8 @@
 
 <script lang="ts" setup>
   import { TagsInputItemDelete } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { TagsInputItemDeleteProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

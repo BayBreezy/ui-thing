@@ -66,9 +66,9 @@
 
 <script lang="ts" setup>
   import { Handle, Position } from "@vue-flow/core";
-  import type { CustomTableData, CustomTableEvents } from "./schema-data";
   import type { NodeProps } from "@vue-flow/core";
 
+  import type { CustomTableData, CustomTableEvents } from "./schema-data";
   import { initialSchemaEdges } from "./schema-data";
 
   const props = defineProps<NodeProps<CustomTableData, CustomTableEvents>>();

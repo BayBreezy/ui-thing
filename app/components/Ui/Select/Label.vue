@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { SelectLabel } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { SelectLabelProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

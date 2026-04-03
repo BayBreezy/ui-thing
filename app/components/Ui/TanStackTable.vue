@@ -349,7 +349,6 @@
     getSortedRowModel,
     useVueTable,
   } from "@tanstack/vue-table";
-  import { startCase } from "lodash-es";
   import type {
     Column,
     ColumnDef,
@@ -362,6 +361,7 @@
     TableOptions,
     VisibilityState,
   } from "@tanstack/vue-table";
+  import { startCase } from "lodash-es";
   import type { HTMLAttributes } from "vue";
 
   declare module "@tanstack/vue-table" {

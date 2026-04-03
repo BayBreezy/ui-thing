@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { ComboboxTrigger } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ComboboxTriggerProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

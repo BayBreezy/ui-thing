@@ -12,8 +12,8 @@
 <script lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { Primitive, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes, ModelRef } from "vue";
 
   export type TimelineData = {

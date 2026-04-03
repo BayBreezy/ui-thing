@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { NavigationMenuViewport } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { NavigationMenuViewportProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

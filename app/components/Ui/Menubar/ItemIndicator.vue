@@ -11,8 +11,8 @@
 
 <script lang="ts" setup>
   import { MenubarItemIndicator } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { MenubarItemIndicatorProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

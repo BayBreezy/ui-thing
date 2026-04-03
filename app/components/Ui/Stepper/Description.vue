@@ -11,8 +11,8 @@
 
 <script lang="ts" setup>
   import { StepperDescription, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { StepperDescriptionProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

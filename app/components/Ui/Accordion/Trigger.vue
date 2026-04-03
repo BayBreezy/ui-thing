@@ -21,8 +21,8 @@
 
 <script lang="ts">
   import { AccordionTrigger } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { AccordionTriggerProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const accordionTriggerStyle = tv({

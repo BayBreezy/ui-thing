@@ -1,5 +1,5 @@
-import { searchDocumentationPages } from "~~/server/mcp/utils/library";
 import { z } from "zod";
+import { searchDocumentationPages } from "~~/server/mcp/utils/library";
 
 export default defineMcpTool({
   description: "Fuzzy search UI Thing documentation pages by title, description, section, or path.",

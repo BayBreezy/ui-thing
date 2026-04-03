@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { SliderRange } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { SliderRangeProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

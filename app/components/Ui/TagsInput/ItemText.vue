@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { TagsInputItemText } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { TagsInputItemTextProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<TagsInputItemTextProps & { class?: HTMLAttributes["class"] }>();

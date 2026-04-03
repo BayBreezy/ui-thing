@@ -8,8 +8,8 @@
 
 <script lang="ts" setup>
   import { DropdownMenuSeparator } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { DropdownMenuSeparatorProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

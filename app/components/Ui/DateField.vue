@@ -26,10 +26,10 @@
 </template>
 
 <script lang="ts" setup>
-  import { DateFieldInput, DateFieldRoot } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { DateValue } from "@internationalized/date";
+  import { DateFieldInput, DateFieldRoot } from "reka-ui";
   import type { DateFieldRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

@@ -10,10 +10,12 @@
 </template>
 
 <script setup lang="ts">
-  import UiThingAuthEmailLayout from "@/emails/layouts/ui-thing/auth/Layout.vue";
   import { computed } from "vue";
-  import type { UIThingAuthWelcomeProps } from "./types/ui-thing/auth";
   import type { CSSProperties } from "vue";
+
+  import UiThingAuthEmailLayout from "@/emails/layouts/ui-thing/auth/Layout.vue";
+
+  import type { UIThingAuthWelcomeProps } from "./types/ui-thing/auth";
 
   const props = withDefaults(defineProps<UIThingAuthWelcomeProps>(), {
     brandName: "UI Thing",

@@ -52,12 +52,13 @@
 </template>
 
 <script setup lang="ts">
+  import { computed } from "vue";
+  import type { CSSProperties } from "vue";
+
   import UiThingEmailFooter from "@/emails/components/ui-thing/auth/Footer.vue";
   import UiThingEmailHeaderMenu from "@/emails/components/ui-thing/auth/HeaderMenu.vue";
   import UiThingEmailLogo from "@/emails/components/ui-thing/auth/Logo.vue";
-  import { computed } from "vue";
   import type { UIThingAuthWelcomeProps } from "@/emails/types/ui-thing/auth";
-  import type { CSSProperties } from "vue";
 
   const props = withDefaults(defineProps<UIThingAuthWelcomeProps>(), {
     brandName: "UI Thing",

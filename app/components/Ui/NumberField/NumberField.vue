@@ -21,8 +21,8 @@
 
 <script lang="ts" setup>
   import { NumberFieldRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { NumberFieldRootEmits, NumberFieldRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

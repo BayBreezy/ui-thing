@@ -17,8 +17,8 @@
 
 <script lang="ts" setup>
   import { HoverCardContent } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { HoverCardContentProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

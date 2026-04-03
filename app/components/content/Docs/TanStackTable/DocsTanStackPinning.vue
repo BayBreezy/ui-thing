@@ -27,8 +27,8 @@
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import { promiseTimeout } from "@vueuse/core";
   import type { ColumnDef, RowPinningState } from "@tanstack/vue-table";
+  import { promiseTimeout } from "@vueuse/core";
 
   const rowPinning = ref<RowPinningState>({});
 

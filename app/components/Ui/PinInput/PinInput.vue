@@ -17,8 +17,8 @@
 
 <script lang="ts" setup>
   import { PinInputRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { PinInputRootEmits, PinInputRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

@@ -12,8 +12,8 @@
 
 <script lang="ts" setup>
   import { NumberFieldDecrement, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { NumberFieldDecrementProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

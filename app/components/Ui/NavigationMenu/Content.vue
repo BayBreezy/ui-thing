@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { NavigationMenuContent, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { NavigationMenuContentEmits, NavigationMenuContentProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

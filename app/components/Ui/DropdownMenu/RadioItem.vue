@@ -16,8 +16,8 @@
 
 <script lang="ts" setup>
   import { DropdownMenuRadioItem, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { DropdownMenuRadioItemEmits, DropdownMenuRadioItemProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

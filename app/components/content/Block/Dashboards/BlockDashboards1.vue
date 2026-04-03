@@ -614,10 +614,10 @@
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import dayjs from "dayjs";
-  import { Motion } from "motion-v";
   import type { ColumnDef } from "@tanstack/vue-table";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
+  import { Motion } from "motion-v";
   import type { MotionProps } from "motion-v";
 
   const kpiContainerVariant: MotionProps["variants"] = {

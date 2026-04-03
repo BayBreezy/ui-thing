@@ -1,6 +1,6 @@
-import prose from "~~/server/utils/prose";
 import fuse from "fuse.js";
 import { z } from "zod";
+import prose from "~~/server/utils/prose";
 
 export default defineEventHandler(async (event) => {
   // accept a search param

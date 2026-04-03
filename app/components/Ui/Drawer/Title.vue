@@ -12,8 +12,8 @@
 
 <script lang="ts" setup>
   import { DrawerTitle } from "vaul-vue";
-  import { normalizeClass } from "vue";
   import type { DrawerTitleProps } from "vaul-vue";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

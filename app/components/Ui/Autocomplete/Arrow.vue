@@ -8,8 +8,8 @@
 
 <script lang="ts" setup>
   import { ComboboxArrow } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ComboboxArrowProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { NavigationMenuList } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { NavigationMenuListProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

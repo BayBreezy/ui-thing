@@ -8,8 +8,8 @@
 
 <script lang="ts" setup>
   import { AlertDialogOverlay } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { AlertDialogOverlayProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

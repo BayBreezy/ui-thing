@@ -4,7 +4,6 @@
     "bradlc.vscode-tailwindcss",
     "antfu.iconify",
     "formulahendry.auto-close-tag",
-    "formulahendry.auto-rename-tag",
-    "esbenp.prettier-vscode"
+    "formulahendry.auto-rename-tag"
   ]
 }

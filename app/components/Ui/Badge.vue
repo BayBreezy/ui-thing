@@ -15,8 +15,9 @@
   import { reactiveOmit } from "@vueuse/core";
   import { useForwardProps } from "reka-ui";
   import { normalizeClass } from "vue";
-  import type { NuxtLinkProps } from "#app/components";
   import type { HTMLAttributes } from "vue";
+
+  import type { NuxtLinkProps } from "#app/components";
 </script>
 
 <script lang="ts" setup>

@@ -8,8 +8,8 @@
 
 <script lang="ts">
   import { Separator, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { SeparatorProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type UiSeparatorProps = SeparatorProps & {

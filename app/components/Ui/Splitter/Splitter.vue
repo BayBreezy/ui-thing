@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { SplitterGroup, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { SplitterGroupEmits, SplitterGroupProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

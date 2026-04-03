@@ -18,8 +18,8 @@
 
 <script lang="ts" setup>
   import { ContextMenuCheckboxItem, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ContextMenuCheckboxItemEmits, ContextMenuCheckboxItemProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

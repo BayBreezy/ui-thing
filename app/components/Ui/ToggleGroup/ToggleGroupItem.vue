@@ -12,8 +12,8 @@
 
 <script lang="ts" setup>
   import { ToggleGroupItem, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ToggleGroupItemProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   import { toggleStyles } from "../Toggle.vue";

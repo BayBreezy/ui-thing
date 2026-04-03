@@ -3,11 +3,11 @@
 </template>
 
 <script lang="ts" setup>
+  import type { CalendarOptions } from "@fullcalendar/core";
   import dayGridPlugin from "@fullcalendar/daygrid";
   import interactionPlugin from "@fullcalendar/interaction";
   import FullCalendar from "@fullcalendar/vue3";
   import dayjs from "dayjs";
-  import type { CalendarOptions } from "@fullcalendar/core";
 
   const calendarOptions: CalendarOptions = {
     plugins: [dayGridPlugin, interactionPlugin],

@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { ScrollAreaViewport } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ScrollAreaViewportProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

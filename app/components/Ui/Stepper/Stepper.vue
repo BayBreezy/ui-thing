@@ -11,8 +11,8 @@
 
 <script lang="ts" setup>
   import { StepperRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { StepperRootEmits, StepperRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

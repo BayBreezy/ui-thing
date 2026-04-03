@@ -11,8 +11,9 @@
 
 <script lang="ts" setup>
   import { normalizeClass } from "vue";
-  import type { NuxtLinkProps } from "#app";
   import type { HTMLAttributes } from "vue";
+
+  import type { NuxtLinkProps } from "#app";
 
   const props = defineProps<
     Omit<NuxtLinkProps, "noPrefetch"> & {

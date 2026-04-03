@@ -14,8 +14,8 @@
 
 <script lang="ts" setup>
   import { ScrollAreaRoot } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ScrollAreaRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

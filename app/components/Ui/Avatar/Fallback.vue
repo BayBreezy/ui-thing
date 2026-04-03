@@ -12,8 +12,8 @@
 
 <script lang="ts" setup>
   import { AvatarFallback } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { AvatarFallbackProps } from "reka-ui";
+  import { normalizeClass } from "vue";
 
   const props = defineProps<
     AvatarFallbackProps & {

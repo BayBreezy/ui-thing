@@ -837,9 +837,9 @@
 </template>
 
 <script lang="ts" setup>
+  import type { ApexOptions } from "apexcharts";
   import { Motion } from "motion-v";
   import { object, string } from "yup";
-  import type { ApexOptions } from "apexcharts";
 
   // ─── User data ────────────────────────────────────────────────────────────────
   interface UserCard {

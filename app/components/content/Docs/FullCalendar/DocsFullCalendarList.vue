@@ -3,10 +3,10 @@
 </template>
 
 <script lang="ts" setup>
+  import type { CalendarOptions } from "@fullcalendar/core";
   import listPlugin from "@fullcalendar/list";
   import FullCalendar from "@fullcalendar/vue3";
   import dayjs from "dayjs";
-  import type { CalendarOptions } from "@fullcalendar/core";
 
   const calendarOptions: CalendarOptions = {
     plugins: [listPlugin],

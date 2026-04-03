@@ -3,11 +3,11 @@
 </template>
 
 <script lang="ts" setup>
+  import type { CalendarOptions } from "@fullcalendar/core";
   import interactionPlugin from "@fullcalendar/interaction";
   import multiMonthPlugin from "@fullcalendar/multimonth";
   import FullCalendar from "@fullcalendar/vue3";
   import dayjs from "dayjs";
-  import type { CalendarOptions } from "@fullcalendar/core";
 
   const calendarOptions: CalendarOptions = {
     plugins: [multiMonthPlugin, interactionPlugin],

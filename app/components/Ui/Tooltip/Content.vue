@@ -15,8 +15,8 @@
 
 <script lang="ts" setup>
   import { TooltipContent, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { TooltipContentEmits, TooltipContentProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

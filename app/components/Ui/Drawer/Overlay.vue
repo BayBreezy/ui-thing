@@ -7,9 +7,9 @@
 </template>
 
 <script lang="ts" setup>
+  import type { DialogOverlayProps } from "reka-ui";
   import { DrawerOverlay } from "vaul-vue";
   import { normalizeClass } from "vue";
-  import type { DialogOverlayProps } from "reka-ui";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<DialogOverlayProps & { class?: HTMLAttributes["class"] }>();

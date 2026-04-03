@@ -8,8 +8,8 @@
 
 <script lang="ts" setup>
   import { ListboxFilter, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ListboxFilterEmits, ListboxFilterProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

@@ -18,9 +18,10 @@
 
 <script setup lang="ts">
   import { normalizeClass } from "vue";
+  import type { HTMLAttributes } from "vue";
+
   import type { buttonStyles } from "~/components/Ui/Button.vue";
   import type { WithClassAsProps } from "~/composables/useCarousel";
-  import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(
     defineProps<

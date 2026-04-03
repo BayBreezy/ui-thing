@@ -11,8 +11,8 @@
 <script lang="ts">
   import { reactiveOmit } from "@vueuse/core";
   import { createContext, ListboxRoot, useFilter, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ListboxRootEmits, ListboxRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const [useCommand, provideCommandContext] = createContext<{

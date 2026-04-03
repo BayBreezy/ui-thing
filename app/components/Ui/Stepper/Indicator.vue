@@ -27,8 +27,8 @@
 
 <script lang="ts" setup>
   import { StepperIndicator, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { StepperIndicatorProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

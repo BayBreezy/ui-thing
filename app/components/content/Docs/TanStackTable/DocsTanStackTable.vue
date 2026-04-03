@@ -166,8 +166,9 @@
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import { promiseTimeout } from "@vueuse/core";
   import type { ColumnDef, Table } from "@tanstack/vue-table";
+  import { promiseTimeout } from "@vueuse/core";
+
   import type { UiTanStackTable } from "#components";
 
   const tableRef = useTemplateRef("tableRef");

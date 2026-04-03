@@ -8,8 +8,8 @@
 
 <script lang="ts" setup>
   import { NumberFieldInput, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { NumberFieldInputProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

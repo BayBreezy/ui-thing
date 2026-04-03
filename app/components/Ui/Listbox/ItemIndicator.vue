@@ -11,8 +11,8 @@
 
 <script lang="ts" setup>
   import { ListboxItemIndicator, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ListboxItemIndicatorProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

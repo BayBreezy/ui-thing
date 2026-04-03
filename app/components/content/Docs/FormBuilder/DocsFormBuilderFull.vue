@@ -19,8 +19,9 @@
   import { promiseTimeout } from "@vueuse/core";
   import dayjs from "dayjs";
   import { array, bool, number, object, string } from "yup";
-  import type { FormBuilder } from "@/components/Ui/FormBuilder/FormBuilder.vue";
   import type { InferType } from "yup";
+
+  import type { FormBuilder } from "@/components/Ui/FormBuilder/FormBuilder.vue";
 
   const schema = object({
     firstName: string().required().label("First Name").min(2),

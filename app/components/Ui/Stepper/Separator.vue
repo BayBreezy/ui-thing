@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { StepperSeparator, useForwardProps } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { StepperSeparatorProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

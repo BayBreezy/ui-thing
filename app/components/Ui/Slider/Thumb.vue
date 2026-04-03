@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { SliderThumb } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { SliderThumbProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

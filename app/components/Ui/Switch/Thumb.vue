@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { SwitchThumb } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { SwitchThumbProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

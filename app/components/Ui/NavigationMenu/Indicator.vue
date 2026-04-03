@@ -11,8 +11,8 @@
 
 <script lang="ts" setup>
   import { NavigationMenuIndicator } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { NavigationMenuIndicatorProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

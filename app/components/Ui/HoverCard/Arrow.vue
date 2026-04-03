@@ -12,8 +12,8 @@
 
 <script lang="ts" setup>
   import { HoverCardArrow } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { HoverCardArrowProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

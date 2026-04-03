@@ -8,8 +8,8 @@
 
 <script lang="ts" setup>
   import { PinInputInput } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { PinInputInputProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

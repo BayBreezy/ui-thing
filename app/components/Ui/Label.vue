@@ -15,8 +15,8 @@
 
 <script lang="ts">
   import { Label } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { LabelProps as LP } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type LabelProps = LP & {

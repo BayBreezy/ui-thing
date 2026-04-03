@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { AlertDialogDescription } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { AlertDialogDescriptionProps } from "reka-ui";
+  import { normalizeClass } from "vue";
 
   const props = defineProps<
     AlertDialogDescriptionProps & {

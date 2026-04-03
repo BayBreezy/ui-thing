@@ -9,6 +9,7 @@
 </template>
 <script lang="ts">
   import { normalizeClass } from "vue";
+
   import type { LabelProps } from "@/components/Ui/Label.vue";
 
   export const fieldLabelStyles = tv({

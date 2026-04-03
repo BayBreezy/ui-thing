@@ -9,8 +9,9 @@
 
 <script lang="ts">
   import { normalizeClass } from "vue";
-  import type { NuxtLinkProps } from "#app";
   import type { HTMLAttributes } from "vue";
+
+  import type { NuxtLinkProps } from "#app";
 
   export type ProseH6Props = {
     /**

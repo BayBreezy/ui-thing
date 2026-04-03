@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { MenubarTrigger } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { MenubarTriggerProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

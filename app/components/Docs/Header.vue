@@ -26,8 +26,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { compact, startCase } from "lodash-es";
   import type { ContentCollectionItem } from "@nuxt/content";
+  import { compact, startCase } from "lodash-es";
 
   const props = defineProps<{
     page: ContentCollectionItem;

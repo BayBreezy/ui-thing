@@ -80,7 +80,6 @@
 
 <script lang="ts" setup>
   import type { Model } from "../data/models";
-
   import { models, types } from "../data/models";
 
   const open = ref(false);

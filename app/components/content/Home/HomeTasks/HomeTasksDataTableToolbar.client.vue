@@ -1,6 +1,7 @@
 <script setup lang="ts">
-  import { Icon } from "#components";
   import type { Table } from "@tanstack/vue-table";
+
+  import { Icon } from "#components";
 
   interface DataTableToolbarProps {
     table: Table<HomeTask>;

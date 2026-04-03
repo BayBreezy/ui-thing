@@ -13,8 +13,8 @@
 
 <script lang="ts" setup>
   import { ContextMenuArrow } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ContextMenuArrowProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

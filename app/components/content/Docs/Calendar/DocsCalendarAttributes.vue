@@ -6,8 +6,9 @@
 
 <script lang="ts" setup>
   import dayjs from "dayjs";
-  import type { AttributeConfig } from "~/components/Ui/Calendar.vue";
   import type { CSSProperties } from "vue";
+
+  import type { AttributeConfig } from "~/components/Ui/Calendar.vue";
 
   const attributes = ref<AttributeConfig[]>([
     {

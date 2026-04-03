@@ -14,8 +14,8 @@
 
 <script lang="ts" setup>
   import { ContextMenuSubTrigger } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ContextMenuSubTriggerProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

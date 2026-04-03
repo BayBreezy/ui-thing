@@ -13,8 +13,9 @@
 </template>
 
 <script lang="ts" setup>
-  import type { DisclaimerProps } from "@/emails/types/ui-thing/auth";
   import type { CSSProperties } from "vue";
+
+  import type { DisclaimerProps } from "@/emails/types/ui-thing/auth";
 
   const styles = {
     text: {

@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { SelectScrollDownButton } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { SelectScrollDownButtonProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

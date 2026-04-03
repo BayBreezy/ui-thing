@@ -41,8 +41,8 @@
   import { useMagicKeys } from "@vueuse/core";
   import { AnimatePresence, motion } from "motion-v";
   import { useBodyScrollLock } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HtmlHTMLAttributes } from "vue";
 
   export type LoaderProps = PrimitiveProps & {

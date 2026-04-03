@@ -43,8 +43,9 @@
   import { reactiveOmit } from "@vueuse/core";
   import { useForwardProps } from "reka-ui";
   import { normalizeClass } from "vue";
-  import type { NuxtLinkProps } from "#app/components";
   import type { HtmlHTMLAttributes } from "vue";
+
+  import type { NuxtLinkProps } from "#app/components";
 
   /**
    * Exported button styles that can be used by other components

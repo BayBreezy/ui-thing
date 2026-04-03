@@ -14,8 +14,9 @@
 </template>
 
 <script setup lang="ts">
-  import type { LogoProps } from "@/emails/types/ui-thing/auth";
   import type { CSSProperties } from "vue";
+
+  import type { LogoProps } from "@/emails/types/ui-thing/auth";
 
   withDefaults(defineProps<LogoProps>(), {
     brandName: "UI Thing",

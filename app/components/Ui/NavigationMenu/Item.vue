@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { NavigationMenuItem } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { NavigationMenuItemProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const styles = tv({ base: "relative" });

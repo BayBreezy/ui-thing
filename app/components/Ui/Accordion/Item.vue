@@ -11,8 +11,8 @@
 
 <script lang="ts">
   import { AccordionItem } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { AccordionItemProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const accordionItemStyle = tv({ base: "border-b last:border-b-0" });

@@ -18,8 +18,8 @@
 
 <script lang="ts" setup>
   import { ComboboxItem, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ComboboxItemEmits, ComboboxItemProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

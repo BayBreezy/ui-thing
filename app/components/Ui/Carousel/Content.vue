@@ -11,6 +11,7 @@
 
 <script setup lang="ts">
   import { normalizeClass } from "vue";
+
   import type { WithClassAsProps } from "~/composables/useCarousel";
 
   defineOptions({ inheritAttrs: false });

@@ -15,9 +15,8 @@
 
 <script lang="ts">
   import DataTablesCore from "datatables.net";
+  import type { Api, Config } from "datatables.net";
   import DataTable from "datatables.net-vue3";
-  import JSZip from "jszip";
-
   import "datatables.net-buttons-dt";
   import "datatables.net-buttons/js/buttons.colVis.mjs";
   import "datatables.net-buttons/js/buttons.html5.mjs";
@@ -31,8 +30,7 @@
   import "datatables.net-fixedheader-dt/css/fixedHeader.dataTables.css";
   import "datatables.net-colreorder-dt";
   import "datatables.net-colreorder-dt/css/colReorder.dataTables.css";
-
-  import type { Api, Config } from "datatables.net";
+  import JSZip from "jszip";
   import type { HTMLAttributes } from "vue";
 
   export type DataTablesNamedSlotProps<T> = {

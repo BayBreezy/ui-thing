@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { CollapsibleContent } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { CollapsibleContentProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

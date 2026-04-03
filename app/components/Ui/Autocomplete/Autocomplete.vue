@@ -11,8 +11,8 @@
 
 <script lang="ts" setup>
   import { ComboboxRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ComboboxRootEmits, ComboboxRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

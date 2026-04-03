@@ -17,8 +17,8 @@
 
 <script lang="ts">
   import { NavigationMenuTrigger } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { NavigationMenuTriggerProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const navigationMenuTriggerStyle = tv({

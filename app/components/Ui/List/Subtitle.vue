@@ -9,8 +9,8 @@
 
 <script lang="ts" setup>
   import { Primitive } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

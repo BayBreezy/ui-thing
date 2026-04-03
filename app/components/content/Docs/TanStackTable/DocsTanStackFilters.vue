@@ -9,13 +9,14 @@
     getSortedRowModel,
     useVueTable,
   } from "@tanstack/vue-table";
-  import { Icon, UiCheckbox } from "#components";
   import type {
     ColumnFiltersState,
     RowData,
     RowSelectionState,
     SortingState,
   } from "@tanstack/vue-table";
+
+  import { Icon, UiCheckbox } from "#components";
 
   declare module "@tanstack/vue-table" {
     //allows us to define custom properties for our columns
@@ -163,7 +164,7 @@
               "div",
               {
                 class:
-                  tw`flex size-5 items-center justify-center rounded text-xs font-medium ` +
+                  tw`flex size-5 items-center justify-center rounded text-xs font-medium` +
                   intentStyle,
               },
               intent.charAt(0)

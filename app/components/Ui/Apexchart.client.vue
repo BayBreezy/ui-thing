@@ -4,9 +4,9 @@
 </template>
 
 <script lang="ts">
+  import type { ApexOptions } from "apexcharts";
   import { useForwardPropsEmits } from "reka-ui";
   import VueApexCharts from "vue3-apexcharts";
-  import type { ApexOptions } from "apexcharts";
 
   declare global {
     interface Window {

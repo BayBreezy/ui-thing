@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { ComboboxLabel } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ComboboxLabelProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

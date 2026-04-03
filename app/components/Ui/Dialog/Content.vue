@@ -39,8 +39,8 @@
 
 <script lang="ts" setup>
   import { DialogContent, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { DialogContentEmits, DialogContentProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });

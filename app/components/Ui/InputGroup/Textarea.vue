@@ -10,6 +10,7 @@
 
 <script lang="ts">
   import { normalizeClass } from "vue";
+
   import type { TextareaProps } from "@/components/Ui/Textarea.vue";
 
   const inputGroupTextareaStyles = tv({

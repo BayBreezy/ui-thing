@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { DialogTitle } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { DialogTitleProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

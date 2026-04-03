@@ -14,8 +14,9 @@
 
 <script lang="ts" setup>
   import { PaginationListItem } from "reka-ui";
-  import type { ButtonProps } from "~/components/Ui/Button.vue";
   import type { PaginationListItemProps } from "reka-ui";
+
+  import type { ButtonProps } from "~/components/Ui/Button.vue";
 
   const props = withDefaults(
     defineProps<

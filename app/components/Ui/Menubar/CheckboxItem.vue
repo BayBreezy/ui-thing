@@ -18,8 +18,8 @@
 
 <script lang="ts" setup>
   import { MenubarCheckboxItem, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { MenubarCheckboxItemEmits, MenubarCheckboxItemProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

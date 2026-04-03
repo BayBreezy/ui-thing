@@ -32,8 +32,8 @@
 
 <script lang="ts">
   import { motion } from "motion-v";
-  import { normalizeClass } from "vue";
   import type { MotionStyle, Transition } from "motion-v";
+  import { normalizeClass } from "vue";
   import type { CSSProperties, HTMLAttributes } from "vue";
 
   interface BorderBeamProps {

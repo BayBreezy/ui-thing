@@ -137,8 +137,8 @@
 <script lang="ts" setup>
   import gsap from "gsap";
   import { stagger } from "motion-v";
-  import { onMounted, ref } from "vue";
   import type { MotionProps } from "motion-v";
+  import { onMounted, ref } from "vue";
 
   const parentVariant: MotionProps["variants"] = {
     initial: { opacity: 0 },

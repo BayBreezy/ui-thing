@@ -13,8 +13,8 @@
 
 <script lang="ts" setup>
   import { DropdownMenuArrow } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { DropdownMenuArrowProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

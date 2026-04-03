@@ -1,5 +1,5 @@
-import { buildComponentDetail, findComponent } from "~~/server/mcp/utils/library";
 import { z } from "zod";
+import { buildComponentDetail, findComponent } from "~~/server/mcp/utils/library";
 
 export default defineMcpTool({
   description:

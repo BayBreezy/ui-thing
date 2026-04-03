@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { RadioGroupRoot, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { RadioGroupRootEmits, RadioGroupRootProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = withDefaults(

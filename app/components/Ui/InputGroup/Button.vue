@@ -10,9 +10,10 @@
 </template>
 
 <script lang="ts">
-  import { normalizeClass } from "vue";
-  import type { ButtonProps } from "@/components/Ui/Button.vue";
   import type { VariantProps } from "tailwind-variants";
+  import { normalizeClass } from "vue";
+
+  import type { ButtonProps } from "@/components/Ui/Button.vue";
 
   export const inputGroupButtonVariants = tv({
     base: "flex items-center gap-2 text-sm shadow-none",

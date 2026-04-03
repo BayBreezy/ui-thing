@@ -12,8 +12,8 @@
 
 <script lang="ts" setup>
   import { SelectScrollUpButton } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { SelectScrollUpButtonProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

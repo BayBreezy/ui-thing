@@ -24,8 +24,8 @@
 
 <script lang="ts" setup>
   import { MenubarItem, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { MenubarItemEmits, MenubarItemProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

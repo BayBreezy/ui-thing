@@ -18,8 +18,8 @@
 
 <script lang="ts" setup>
   import { MenubarSubTrigger } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { MenubarSubTriggerProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

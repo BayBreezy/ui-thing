@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
   import { ProgressIndicator } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { ProgressIndicatorProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<

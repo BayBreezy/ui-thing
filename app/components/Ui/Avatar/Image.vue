@@ -8,8 +8,8 @@
 
 <script lang="ts" setup>
   import { AvatarImage, useForwardPropsEmits } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { AvatarImageEmits, AvatarImageProps } from "reka-ui";
+  import { normalizeClass } from "vue";
 
   const props = defineProps<
     AvatarImageProps & {
