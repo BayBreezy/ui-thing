@@ -3,6 +3,10 @@ title: Typography
 description: Explore the various typography styles and components available in the design system.
 ---
 
+## Source code
+
+Click :SourceCodeLink{component="Typography" folder="content/prose"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Usage
 
 This page demonstrates all the typography and prose components available in the UI library. The example below showcases headings, paragraphs, lists, tables, blockquotes, links, emphasis, code blocks, images, and more.

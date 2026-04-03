@@ -3,6 +3,10 @@ title: Collapsible
 description: Hide and reveal content with a collapsible component featuring customizable icons and labels.
 ---
 
+## Source code
+
+Click :SourceCodeLink{component="ProseCollapsible.global.vue" folder="content/prose"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Overview
 
 The `ProseCollapsible` component allows you to show and hide content with a clickable trigger. It's perfect for FAQ sections, progressive disclosure, hiding lengthy content, or creating expandable code examples.

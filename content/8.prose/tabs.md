@@ -3,6 +3,10 @@ title: Tabs
 description: The Tabs component from the Prose collection allows you to create tabbed interfaces in your content.
 ---
 
+## Source code
+
+Click :SourceCodeLink{component="Tabs" folder="content/prose"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Variants
 
 ### Separate
@@ -117,7 +121,7 @@ description: The Tabs component from the Prose collection allows you to create t
 
 ### Card
 
-::ShowCase{:prose='true'}
+:::ShowCase{:prose='true'}
 
 ::prose-tabs{variant="card"}
 
@@ -381,6 +385,7 @@ CORS_ORIGIN=http://localhost:3000
 #code
 
 ````mdc [Card Tabs]
+
   ::prose-tabs{variant="card"}
 
     ::div{label="Installation" icon="lucide:download"}
@@ -639,9 +644,10 @@ CORS_ORIGIN=http://localhost:3000
     ```
 
   ::
+
 ````
 
-::
+:::
 
 ### Line Style
 
@@ -896,5 +902,79 @@ console.log("Hello World!");
 ```
 
 ::
+
+#code
+
+````mdc [Synced Tabs]
+
+#### Scope 1
+
+::prose-tabs{variant="card" sync="your-scope-name"}
+
+    ::div{label="Card Tab"}
+
+    ### This is a card-style tab
+
+    ::
+
+```ts [Code Tab]
+console.log("Hello World!");
+```
+
+::
+
+::prose-tabs{variant="card" sync="your-scope-name"}
+
+    ::div{label="Card Tab"}
+
+    ### This is a card-style tab
+
+    ::
+
+    ::div{label="Tab 2" icon="lucide:atom"}
+    This is Tab #2
+    ::
+
+```ts [Code Tab]
+console.log("Hello World!");
+```
+
+::
+
+#### Scope 2
+
+::prose-tabs{variant="line" sync="scope2"}
+
+    ::div{label="Card Tab"}
+
+    ### This is a card-style tab
+
+    ::
+
+    ::div{label="Tab 2" icon="lucide:atom"}
+    This is Tab #2
+    ::
+
+```ts [Code Tab]
+console.log("Hello World!");
+```
+
+::
+
+::prose-tabs{variant="separate" sync="scope2"}
+
+    ::div{label="Card Tab"}
+    ### This is a card-style tab
+    ::
+
+    ::div{label="Tab 2" icon="lucide:atom"}
+    This is Tab #2
+    ::
+
+```ts [Code Tab]
+console.log("Hello World!");
+```
+
+````
 
 :::

@@ -3,6 +3,10 @@ title: Callout
 description: Display important information with icons and variants for different message types.
 ---
 
+## Source code
+
+Click :SourceCodeLink{component="ProseCallout.global.vue" folder="content/prose/Callout"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Usage
 
 The `ProseCallout` component is used to highlight important information, tips, warnings, and other contextual messages. It supports multiple variants, optional icons, and can even be turned into a clickable link.

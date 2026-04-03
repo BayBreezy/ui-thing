@@ -13,7 +13,11 @@
           v-if="computedIcon"
           :name="computedIcon"
           :class="
-            calloutStyles().icon({ variant, filled, class: [iconClass, !hasTitle && 'mt-[3px]'] })
+            calloutStyles().icon({
+              variant,
+              filled,
+              class: [normalizeClass(iconClass), !hasTitle && 'mt-[3px]'],
+            })
           "
         />
       </slot>
@@ -126,42 +130,49 @@
           icon: "text-blue-600 dark:text-blue-400",
           title: "text-blue-900 dark:text-blue-100",
           description: "text-blue-800 dark:text-blue-200",
+          linkIcon: "text-blue-600 dark:text-blue-400",
         },
         success: {
           base: "border-emerald-200 bg-emerald-50 text-emerald-900 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-100",
           icon: "text-emerald-600 dark:text-emerald-400",
           title: "text-emerald-900 dark:text-emerald-100",
           description: "text-emerald-800 dark:text-emerald-200",
+          linkIcon: "text-emerald-600 dark:text-emerald-400",
         },
         warning: {
           base: "border-yellow-200 bg-yellow-50 text-yellow-900 dark:border-yellow-800 dark:bg-yellow-950 dark:text-yellow-100",
           icon: "text-yellow-600 dark:text-yellow-400",
           title: "text-yellow-900 dark:text-yellow-100",
           description: "text-yellow-800 dark:text-yellow-200",
+          linkIcon: "text-yellow-600 dark:text-yellow-400",
         },
         error: {
           base: "border-red-200 bg-red-50 text-red-900 dark:border-red-800 dark:bg-red-950 dark:text-red-100",
           icon: "text-red-600 dark:text-red-400",
           title: "text-red-900 dark:text-red-100",
           description: "text-red-800 dark:text-red-200",
+          linkIcon: "text-red-600 dark:text-red-400",
         },
         tip: {
           base: "border-purple-200 bg-purple-50 text-purple-900 dark:border-purple-800 dark:bg-purple-950 dark:text-purple-100",
           icon: "text-purple-600 dark:text-purple-400",
           title: "text-purple-900 dark:text-purple-100",
           description: "text-purple-800 dark:text-purple-200",
+          linkIcon: "text-purple-600 dark:text-purple-400",
         },
         note: {
           base: "border-gray-200 bg-gray-50 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100",
           icon: "text-gray-600 dark:text-gray-400",
           title: "text-gray-900 dark:text-gray-100",
           description: "text-gray-800 dark:text-gray-200",
+          linkIcon: "text-gray-600 dark:text-gray-400",
         },
         example: {
           base: "border-teal-200 bg-teal-50 text-teal-900 dark:border-teal-800 dark:bg-teal-950 dark:text-teal-100",
           icon: "text-teal-600 dark:text-teal-400",
           title: "text-teal-900 dark:text-teal-100",
           description: "text-teal-800 dark:text-teal-200",
+          linkIcon: "text-teal-600 dark:text-teal-400",
         },
       },
       filled: {
@@ -262,9 +273,12 @@
   });
 
   defineSlots<{
-    default?: () => any;
-    title?: () => any;
-    icon?: () => any;
+    /** Default slot content */
+    default?: () => void;
+    /** Title slot content */
+    title?: () => void;
+    /** Icon slot content */
+    icon?: () => void;
   }>();
 
   const slots = useSlots();
@@ -277,7 +291,7 @@
       to: props.url,
       target: props.target,
       rel: props.target === "_blank" ? "noopener noreferrer" : undefined,
-      class: "cursor-pointer hover:shadow-md underline-none duration-300 !transition-all",
+      class: tw`underline-none cursor-pointer !transition-all duration-300 hover:shadow-md`,
     };
   });
 

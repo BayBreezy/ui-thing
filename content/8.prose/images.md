@@ -3,6 +3,10 @@ title: Images
 description: How to use images in your content with zoom and styling options.
 ---
 
+## Source code
+
+Click :SourceCodeLink{component="Images" folder="content/prose"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Images
 
 ::ShowCase

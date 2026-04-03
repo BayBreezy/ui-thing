@@ -29,7 +29,7 @@
         class="size-5 scale-0 opacity-80 transition-all duration-200 group-hover:scale-100"
       />
     </div>
-    <ui-border-beam :duration="20" :size="100" class="opacity-0 group-hover:opacity-100" />
+    <UiBorderBeam :duration="20" :size="100" class="opacity-0 group-hover:opacity-100" />
   </component>
 </template>
 

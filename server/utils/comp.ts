@@ -3177,7 +3177,14 @@ export default [
           '<template>\n  <UiButton\n    :title="label"\n    data-sidebar="trigger"\n    data-slot="sidebar-trigger"\n    variant="ghost"\n    size="icon"\n    :class="sideBarTriggerStyles({ class: normalizeClass(props.class) || undefined })"\n    @click="toggleSidebar"\n  >\n    <slot v-bind="{ state }">\n      <Icon v-if="icon" :name="icon" />\n      <span class="sr-only">{{ label }}</span>\n    </slot>\n  </UiButton>\n</template>\n\n<script lang="ts">\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const sideBarTriggerStyles = tv({\n    base: "size-7",\n  });\n</script>\n\n<script setup lang="ts">\n  const props = withDefaults(\n    defineProps<{\n      /**\n       * The icon to display in the trigger.\n       * @default "lucide:panel-left"\n       */\n      icon?: string;\n      /**\n       * Additional classes to apply to the parent element.\n       */\n      class?: HTMLAttributes["class"];\n      /**\n       * The label for the trigger.\n       * @default "Toggle Sidebar"\n       */\n      label?: string;\n    }>(),\n    {\n      icon: "lucide:panel-left",\n      label: "Toggle Sidebar",\n    }\n  );\n\n  const { toggleSidebar, state } = useSidebar();\n</script>\n',
       },
     ],
-    components: ["input", "tooltip", "skeleton", "separator", "sheet", "button"],
+    components: [
+      "input",
+      "tooltip",
+      "skeleton",
+      "separator",
+      "sheet",
+      "button",
+    ],
     utils: [
       {
         fileName: "sidebar.ts",
@@ -3244,7 +3251,9 @@ export default [
     name: "Sonner",
     value: "sonner",
     deps: ["vue-sonner"],
-    instructions: ["Remember to add the <UiSonner /> tag to your app.vue/layout file."],
+    instructions: [
+      "Remember to add the <UiSonner /> tag to your app.vue/layout file.",
+    ],
     nuxtModules: ["vue-sonner/nuxt"],
     files: [
       {

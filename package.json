@@ -169,9 +169,9 @@
   },
   "lint-staged": {
     "*": [
+      "oxfmt --no-error-on-unmatched-pattern",
       "npx -y automd@latest --input **/*.md",
-      "bash -c 'npm run generate:all'",
-      "oxfmt --no-error-on-unmatched-pattern"
+      "bash -c 'npm run generate:all && git add server/utils/'"
     ],
     "*.{js,ts,vue}": [
       "eslint --fix"

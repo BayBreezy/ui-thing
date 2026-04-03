@@ -3,6 +3,10 @@ title: Icon List
 description: Display lists with custom icons and variants for each item.
 ---
 
+## Source code
+
+Click :SourceCodeLink{component="ProseIconList.global.vue" folder="content/prose/Typography/Lists"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Usage
 
 :::ShowCase{prose}

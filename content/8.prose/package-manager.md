@@ -3,6 +3,10 @@ title: Package Manager
 description: Display commands for multiple package managers with automatic syncing and switching.
 ---
 
+## Source code
+
+Click :SourceCodeLink{component="PackageManager" folder="content/prose"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Overview
 
 The Package Manager components automatically generate code blocks showing the equivalent command across different package managers (npm, pnpm, bun, and yarn). This makes your documentation more accessible to users regardless of their preferred package manager.

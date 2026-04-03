@@ -3,6 +3,10 @@ title: Code Tree
 description: Display a hierarchical file structure with expandable folders and file preview, perfect for showcasing project structures and code organization.
 ---
 
+## Source code
+
+Click :SourceCodeLink{component="ProseCodeTree.global.vue" folder="content/prose/CodeTree"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Overview
 
 The `ProseCodeTree` component renders an interactive file tree navigator that displays code files in a two-panel layout. The left panel shows the directory structure with expandable folders, while the right panel displays the selected file's content with syntax highlighting.

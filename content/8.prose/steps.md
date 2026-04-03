@@ -3,6 +3,10 @@ title: Steps
 description: Display numbered sequential steps with auto-incrementing counters, perfect for tutorials, installation guides, and multi-step processes.
 ---
 
+## Source code
+
+Click :SourceCodeLink{component="Step" folder="content/prose"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Overview
 
 The `Steps` and `Step` components work together to create visually appealing numbered step sequences. Using CSS counters, each step automatically increments without manual numbering. The components are ideal for tutorials, setup guides, migration instructions, and any sequential process documentation.

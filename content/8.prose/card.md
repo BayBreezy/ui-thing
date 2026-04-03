@@ -3,6 +3,10 @@ title: Card
 description: Display content in elegant cards with animated border beam effects, perfect for features, navigation, and content highlights.
 ---
 
+## Source code
+
+Click :SourceCodeLink{component="ProseCard.global.vue" folder="content/prose/Card"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Overview
 
 The `ProseCard` component creates visually appealing cards with a subtle animated border beam effect on hover. Cards can be static content containers or interactive links, making them perfect for feature highlights, navigation menus, and content organization.

@@ -22,7 +22,8 @@ export default [
     value: "blockquote",
     description:
       "A prose component that displays styled blockquote elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/ProseBlockquote.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/ProseBlockquote.global.vue",
     fileName: "ProseBlockquote.global.vue",
     docsUrl: "/prose/typography",
     file: {
@@ -44,7 +45,7 @@ export default [
       fileName: "ProseCallout.global.vue",
       dirPath: "app/components/content/prose/Callout",
       fileContent:
-        '<template>\n  <component\n    :is="componentType"\n    v-bind="linkProps"\n    data-slot="prose-callout"\n    :class="\n      calloutStyles().base({ variant, filled, class: normalizeClass(props.class) || undefined })\n    "\n  >\n    <div v-if="hasIcon" :class="calloutStyles().iconWrapper({ variant, filled })">\n      <slot name="icon">\n        <Icon\n          v-if="computedIcon"\n          :name="computedIcon"\n          :class="\n            calloutStyles().icon({ variant, filled, class: [iconClass, !hasTitle && \'mt-[3px]\'] })\n          "\n        />\n      </slot>\n    </div>\n\n    <div :class="calloutStyles().content()">\n      <div\n        v-if="hasTitle"\n        :class="\n          calloutStyles().title({ variant, filled, class: normalizeClass(titleClass) || undefined })\n        "\n      >\n        <slot name="title">{{ title }}</slot>\n      </div>\n\n      <div\n        v-if="hasDescription || $slots.default"\n        :class="\n          calloutStyles().description({\n            variant,\n            filled,\n            class: normalizeClass(descriptionClass) || undefined,\n          })\n        "\n      >\n        <slot mdc-unwrap="p">{{ description }}</slot>\n      </div>\n    </div>\n\n    <Icon\n      v-if="url"\n      :name="target === \'_blank\' ? \'lucide:external-link\' : \'lucide:arrow-up-right\'"\n      :class="calloutStyles().linkIcon({ variant, filled })"\n    />\n  </component>\n</template>\n\n<script lang="ts">\n  import type { VariantProps } from "tailwind-variants";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export type CalloutProps = {\n    /**\n     * The title of the callout\n     */\n    title?: string;\n    /**\n     * The description/content of the callout\n     */\n    description?: string;\n    /**\n     * The icon to display\n     */\n    icon?: string;\n    /**\n     * The variant style of the callout\n     */\n    variant?: VariantProps<typeof calloutStyles>["variant"];\n    /**\n     * Whether to use filled style\n     */\n    filled?: boolean;\n    /**\n     * Optional URL to make the callout clickable\n     */\n    url?: string;\n    /**\n     * Link target (_blank for external links)\n     */\n    target?: "_blank" | "_self" | "_parent" | "_top";\n    /**\n     * Additional class for the wrapper\n     */\n    class?: HTMLAttributes["class"];\n    /**\n     * Additional class for the title\n     */\n    titleClass?: HTMLAttributes["class"];\n    /**\n     * Additional class for the description\n     */\n    descriptionClass?: HTMLAttributes["class"];\n    /**\n     * Additional class for the icon\n     */\n    iconClass?: HTMLAttributes["class"];\n  };\n\n  export const calloutStyles = tv({\n    slots: {\n      base: "group relative flex items-start gap-3 rounded-lg border p-4 no-underline transition-colors not-first:mt-6 not-last:mb-6 [&_code]:bg-inherit! [&_code]:text-inherit! [&_li]:marker:text-inherit! [&_ol]:my-2! [&_ul]:my-2!",\n      iconWrapper: "flex items-center justify-center",\n      icon: "size-4 shrink-0",\n      content: "flex flex-1 flex-col gap-1",\n      title: "text-sm leading-none font-semibold",\n      description: "text-sm leading-relaxed *:my-0",\n      linkIcon:\n        "size-4 shrink-0 opacity-50 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-inherit group-hover:opacity-100",\n    },\n    variants: {\n      variant: {\n        default: {\n          base: "border-border bg-muted/50 text-foreground dark:bg-transparent",\n          icon: "text-foreground",\n          title: "text-foreground",\n        },\n        info: {\n          base: "border-blue-200 bg-blue-50 text-blue-900 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-100",\n          icon: "text-blue-600 dark:text-blue-400",\n          title: "text-blue-900 dark:text-blue-100",\n          description: "text-blue-800 dark:text-blue-200",\n        },\n        success: {\n          base: "border-emerald-200 bg-emerald-50 text-emerald-900 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-100",\n          icon: "text-emerald-600 dark:text-emerald-400",\n          title: "text-emerald-900 dark:text-emerald-100",\n          description: "text-emerald-800 dark:text-emerald-200",\n        },\n        warning: {\n          base: "border-yellow-200 bg-yellow-50 text-yellow-900 dark:border-yellow-800 dark:bg-yellow-950 dark:text-yellow-100",\n          icon: "text-yellow-600 dark:text-yellow-400",\n          title: "text-yellow-900 dark:text-yellow-100",\n          description: "text-yellow-800 dark:text-yellow-200",\n        },\n        error: {\n          base: "border-red-200 bg-red-50 text-red-900 dark:border-red-800 dark:bg-red-950 dark:text-red-100",\n          icon: "text-red-600 dark:text-red-400",\n          title: "text-red-900 dark:text-red-100",\n          description: "text-red-800 dark:text-red-200",\n        },\n        tip: {\n          base: "border-purple-200 bg-purple-50 text-purple-900 dark:border-purple-800 dark:bg-purple-950 dark:text-purple-100",\n          icon: "text-purple-600 dark:text-purple-400",\n          title: "text-purple-900 dark:text-purple-100",\n          description: "text-purple-800 dark:text-purple-200",\n        },\n        note: {\n          base: "border-gray-200 bg-gray-50 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100",\n          icon: "text-gray-600 dark:text-gray-400",\n          title: "text-gray-900 dark:text-gray-100",\n          description: "text-gray-800 dark:text-gray-200",\n        },\n        example: {\n          base: "border-teal-200 bg-teal-50 text-teal-900 dark:border-teal-800 dark:bg-teal-950 dark:text-teal-100",\n          icon: "text-teal-600 dark:text-teal-400",\n          title: "text-teal-900 dark:text-teal-100",\n          description: "text-teal-800 dark:text-teal-200",\n        },\n      },\n      filled: {\n        true: {},\n      },\n    },\n    compoundVariants: [\n      {\n        filled: true,\n        class: {\n          title: "text-white dark:text-white",\n          icon: "text-white dark:text-white",\n        },\n      },\n      {\n        variant: "info",\n        filled: true,\n        class: {\n          base: "border-blue-600 bg-blue-600 text-white dark:border-blue-500 dark:bg-blue-500",\n          description: "text-blue-50",\n        },\n      },\n      {\n        variant: "success",\n        filled: true,\n        class: {\n          base: "border-emerald-600 bg-emerald-600 text-white dark:border-emerald-500 dark:bg-emerald-500",\n          description: "text-emerald-50",\n        },\n      },\n      {\n        variant: "warning",\n        filled: true,\n        class: {\n          base: "border-yellow-600 bg-yellow-600 text-white dark:border-yellow-500 dark:bg-yellow-500",\n          description: "text-yellow-50",\n        },\n      },\n      {\n        variant: "error",\n        filled: true,\n        class: {\n          base: "border-red-600 bg-red-600 text-white dark:border-red-500 dark:bg-red-500",\n          description: "text-red-50",\n        },\n      },\n      {\n        variant: "tip",\n        filled: true,\n        class: {\n          base: "border-purple-600 bg-purple-600 text-white dark:border-purple-500 dark:bg-purple-500",\n\n          description: "text-purple-50",\n        },\n      },\n      {\n        variant: "note",\n        filled: true,\n        class: {\n          base: "border-gray-600 bg-gray-600 text-white dark:border-gray-500 dark:bg-gray-500",\n\n          description: "text-gray-50",\n        },\n      },\n      {\n        variant: "example",\n        filled: true,\n        class: {\n          base: "border-teal-600 bg-teal-600 text-white dark:border-teal-500 dark:bg-teal-500",\n          description: "text-teal-50",\n        },\n      },\n    ],\n    defaultVariants: {\n      variant: "default",\n      filled: false,\n    },\n  });\n\n  const VARIANT_ICONS: Record<string, string> = {\n    info: "lucide:info",\n    success: "lucide:circle-check",\n    warning: "lucide:triangle-alert",\n    error: "lucide:circle-x",\n    tip: "lucide:lightbulb",\n    note: "lucide:sticky-note",\n    example: "lucide:code-2",\n    default: "lucide:info",\n  };\n</script>\n\n<script setup lang="ts">\n  const props = withDefaults(defineProps<CalloutProps>(), {\n    variant: "default",\n    filled: false,\n    target: "_self",\n    noPrefetch: false,\n  });\n\n  defineSlots<{\n    default?: () => any;\n    title?: () => any;\n    icon?: () => any;\n  }>();\n\n  const slots = useSlots();\n\n  const componentType = computed(() => (props.url ? resolveComponent("NuxtLink") : "div"));\n\n  const linkProps = computed(() => {\n    if (!props.url) return {};\n    return {\n      to: props.url,\n      target: props.target,\n      rel: props.target === "_blank" ? "noopener noreferrer" : undefined,\n      class: "cursor-pointer hover:shadow-md underline-none duration-300 !transition-all",\n    };\n  });\n\n  const hasIcon = computed(() => props.icon || slots.icon || props.variant);\n  const hasTitle = computed(() => props.title || slots.title);\n  const hasDescription = computed(() => props.description || slots.default);\n\n  const computedIcon = computed(() => {\n    if (props.icon) return props.icon;\n    return VARIANT_ICONS[props.variant || "default"] || VARIANT_ICONS.default;\n  });\n</script>\n',
+        '<template>\n  <component\n    :is="componentType"\n    v-bind="linkProps"\n    data-slot="prose-callout"\n    :class="\n      calloutStyles().base({ variant, filled, class: normalizeClass(props.class) || undefined })\n    "\n  >\n    <div v-if="hasIcon" :class="calloutStyles().iconWrapper({ variant, filled })">\n      <slot name="icon">\n        <Icon\n          v-if="computedIcon"\n          :name="computedIcon"\n          :class="\n            calloutStyles().icon({\n              variant,\n              filled,\n              class: [normalizeClass(iconClass), !hasTitle && \'mt-[3px]\'],\n            })\n          "\n        />\n      </slot>\n    </div>\n\n    <div :class="calloutStyles().content()">\n      <div\n        v-if="hasTitle"\n        :class="\n          calloutStyles().title({ variant, filled, class: normalizeClass(titleClass) || undefined })\n        "\n      >\n        <slot name="title">{{ title }}</slot>\n      </div>\n\n      <div\n        v-if="hasDescription || $slots.default"\n        :class="\n          calloutStyles().description({\n            variant,\n            filled,\n            class: normalizeClass(descriptionClass) || undefined,\n          })\n        "\n      >\n        <slot mdc-unwrap="p">{{ description }}</slot>\n      </div>\n    </div>\n\n    <Icon\n      v-if="url"\n      :name="target === \'_blank\' ? \'lucide:external-link\' : \'lucide:arrow-up-right\'"\n      :class="calloutStyles().linkIcon({ variant, filled })"\n    />\n  </component>\n</template>\n\n<script lang="ts">\n  import type { VariantProps } from "tailwind-variants";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export type CalloutProps = {\n    /**\n     * The title of the callout\n     */\n    title?: string;\n    /**\n     * The description/content of the callout\n     */\n    description?: string;\n    /**\n     * The icon to display\n     */\n    icon?: string;\n    /**\n     * The variant style of the callout\n     */\n    variant?: VariantProps<typeof calloutStyles>["variant"];\n    /**\n     * Whether to use filled style\n     */\n    filled?: boolean;\n    /**\n     * Optional URL to make the callout clickable\n     */\n    url?: string;\n    /**\n     * Link target (_blank for external links)\n     */\n    target?: "_blank" | "_self" | "_parent" | "_top";\n    /**\n     * Additional class for the wrapper\n     */\n    class?: HTMLAttributes["class"];\n    /**\n     * Additional class for the title\n     */\n    titleClass?: HTMLAttributes["class"];\n    /**\n     * Additional class for the description\n     */\n    descriptionClass?: HTMLAttributes["class"];\n    /**\n     * Additional class for the icon\n     */\n    iconClass?: HTMLAttributes["class"];\n  };\n\n  export const calloutStyles = tv({\n    slots: {\n      base: "group relative flex items-start gap-3 rounded-lg border p-4 no-underline transition-colors not-first:mt-6 not-last:mb-6 [&_code]:bg-inherit! [&_code]:text-inherit! [&_li]:marker:text-inherit! [&_ol]:my-2! [&_ul]:my-2!",\n      iconWrapper: "flex items-center justify-center",\n      icon: "size-4 shrink-0",\n      content: "flex flex-1 flex-col gap-1",\n      title: "text-sm leading-none font-semibold",\n      description: "text-sm leading-relaxed *:my-0",\n      linkIcon:\n        "size-4 shrink-0 opacity-50 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-inherit group-hover:opacity-100",\n    },\n    variants: {\n      variant: {\n        default: {\n          base: "border-border bg-muted/50 text-foreground dark:bg-transparent",\n          icon: "text-foreground",\n          title: "text-foreground",\n        },\n        info: {\n          base: "border-blue-200 bg-blue-50 text-blue-900 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-100",\n          icon: "text-blue-600 dark:text-blue-400",\n          title: "text-blue-900 dark:text-blue-100",\n          description: "text-blue-800 dark:text-blue-200",\n          linkIcon: "text-blue-600 dark:text-blue-400",\n        },\n        success: {\n          base: "border-emerald-200 bg-emerald-50 text-emerald-900 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-100",\n          icon: "text-emerald-600 dark:text-emerald-400",\n          title: "text-emerald-900 dark:text-emerald-100",\n          description: "text-emerald-800 dark:text-emerald-200",\n          linkIcon: "text-emerald-600 dark:text-emerald-400",\n        },\n        warning: {\n          base: "border-yellow-200 bg-yellow-50 text-yellow-900 dark:border-yellow-800 dark:bg-yellow-950 dark:text-yellow-100",\n          icon: "text-yellow-600 dark:text-yellow-400",\n          title: "text-yellow-900 dark:text-yellow-100",\n          description: "text-yellow-800 dark:text-yellow-200",\n          linkIcon: "text-yellow-600 dark:text-yellow-400",\n        },\n        error: {\n          base: "border-red-200 bg-red-50 text-red-900 dark:border-red-800 dark:bg-red-950 dark:text-red-100",\n          icon: "text-red-600 dark:text-red-400",\n          title: "text-red-900 dark:text-red-100",\n          description: "text-red-800 dark:text-red-200",\n          linkIcon: "text-red-600 dark:text-red-400",\n        },\n        tip: {\n          base: "border-purple-200 bg-purple-50 text-purple-900 dark:border-purple-800 dark:bg-purple-950 dark:text-purple-100",\n          icon: "text-purple-600 dark:text-purple-400",\n          title: "text-purple-900 dark:text-purple-100",\n          description: "text-purple-800 dark:text-purple-200",\n          linkIcon: "text-purple-600 dark:text-purple-400",\n        },\n        note: {\n          base: "border-gray-200 bg-gray-50 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100",\n          icon: "text-gray-600 dark:text-gray-400",\n          title: "text-gray-900 dark:text-gray-100",\n          description: "text-gray-800 dark:text-gray-200",\n          linkIcon: "text-gray-600 dark:text-gray-400",\n        },\n        example: {\n          base: "border-teal-200 bg-teal-50 text-teal-900 dark:border-teal-800 dark:bg-teal-950 dark:text-teal-100",\n          icon: "text-teal-600 dark:text-teal-400",\n          title: "text-teal-900 dark:text-teal-100",\n          description: "text-teal-800 dark:text-teal-200",\n          linkIcon: "text-teal-600 dark:text-teal-400",\n        },\n      },\n      filled: {\n        true: {},\n      },\n    },\n    compoundVariants: [\n      {\n        filled: true,\n        class: {\n          title: "text-white dark:text-white",\n          icon: "text-white dark:text-white",\n        },\n      },\n      {\n        variant: "info",\n        filled: true,\n        class: {\n          base: "border-blue-600 bg-blue-600 text-white dark:border-blue-500 dark:bg-blue-500",\n          description: "text-blue-50",\n        },\n      },\n      {\n        variant: "success",\n        filled: true,\n        class: {\n          base: "border-emerald-600 bg-emerald-600 text-white dark:border-emerald-500 dark:bg-emerald-500",\n          description: "text-emerald-50",\n        },\n      },\n      {\n        variant: "warning",\n        filled: true,\n        class: {\n          base: "border-yellow-600 bg-yellow-600 text-white dark:border-yellow-500 dark:bg-yellow-500",\n          description: "text-yellow-50",\n        },\n      },\n      {\n        variant: "error",\n        filled: true,\n        class: {\n          base: "border-red-600 bg-red-600 text-white dark:border-red-500 dark:bg-red-500",\n          description: "text-red-50",\n        },\n      },\n      {\n        variant: "tip",\n        filled: true,\n        class: {\n          base: "border-purple-600 bg-purple-600 text-white dark:border-purple-500 dark:bg-purple-500",\n\n          description: "text-purple-50",\n        },\n      },\n      {\n        variant: "note",\n        filled: true,\n        class: {\n          base: "border-gray-600 bg-gray-600 text-white dark:border-gray-500 dark:bg-gray-500",\n\n          description: "text-gray-50",\n        },\n      },\n      {\n        variant: "example",\n        filled: true,\n        class: {\n          base: "border-teal-600 bg-teal-600 text-white dark:border-teal-500 dark:bg-teal-500",\n          description: "text-teal-50",\n        },\n      },\n    ],\n    defaultVariants: {\n      variant: "default",\n      filled: false,\n    },\n  });\n\n  const VARIANT_ICONS: Record<string, string> = {\n    info: "lucide:info",\n    success: "lucide:circle-check",\n    warning: "lucide:triangle-alert",\n    error: "lucide:circle-x",\n    tip: "lucide:lightbulb",\n    note: "lucide:sticky-note",\n    example: "lucide:code-2",\n    default: "lucide:info",\n  };\n</script>\n\n<script setup lang="ts">\n  const props = withDefaults(defineProps<CalloutProps>(), {\n    variant: "default",\n    filled: false,\n    target: "_self",\n    noPrefetch: false,\n  });\n\n  defineSlots<{\n    /** Default slot content */\n    default?: () => void;\n    /** Title slot content */\n    title?: () => void;\n    /** Icon slot content */\n    icon?: () => void;\n  }>();\n\n  const slots = useSlots();\n\n  const componentType = computed(() => (props.url ? resolveComponent("NuxtLink") : "div"));\n\n  const linkProps = computed(() => {\n    if (!props.url) return {};\n    return {\n      to: props.url,\n      target: props.target,\n      rel: props.target === "_blank" ? "noopener noreferrer" : undefined,\n      class: tw`underline-none cursor-pointer !transition-all duration-300 hover:shadow-md`,\n    };\n  });\n\n  const hasIcon = computed(() => props.icon || slots.icon || props.variant);\n  const hasTitle = computed(() => props.title || slots.title);\n  const hasDescription = computed(() => props.description || slots.default);\n\n  const computedIcon = computed(() => {\n    if (props.icon) return props.icon;\n    return VARIANT_ICONS[props.variant || "default"] || VARIANT_ICONS.default;\n  });\n</script>\n',
     },
   },
   {
@@ -61,7 +62,7 @@ export default [
       fileName: "ProseCard.global.vue",
       dirPath: "app/components/content/prose/Card",
       fileContent:
-        '<template>\n  <component\n    v-bind="linkProps"\n    :is="as"\n    :class="proseCardStyles().base({ class: normalizeClass(props.class) || undefined })"\n    data-slot="prose-card"\n  >\n    <slot name="icon" mdc-unwrap="p">\n      <ProseSmartIcon v-if="icon" :name="icon" :class="proseCardStyles().icon()" />\n    </slot>\n    <slot name="title" mdc-unwrap="p">\n      <h3 v-if="title" data-slot="prose-card-title" :class="proseCardStyles().title()">\n        {{ title }}\n      </h3>\n    </slot>\n    <slot mdc-unwrap="p">\n      <p\n        v-if="description"\n        data-slot="prose-card-description"\n        :class="proseCardStyles().description()"\n      >\n        {{ description }}\n      </p>\n    </slot>\n    <slot name="footer"></slot>\n    <div v-if="to || href" class="absolute top-4 right-4">\n      <Icon\n        name="lucide:arrow-up-right"\n        class="size-5 scale-0 opacity-80 transition-all duration-200 group-hover:scale-100"\n      />\n    </div>\n    <ui-border-beam :duration="20" :size="100" class="opacity-0 group-hover:opacity-100" />\n  </component>\n</template>\n\n<script lang="ts">\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  import type { NuxtLinkProps } from "#app";\n\n  export const proseCardStyles = tv({\n    slots: {\n      base: "group relative flex flex-col gap-2 rounded-lg border border-border/50 bg-card p-6 text-card-foreground no-underline shadow-xs *:my-0!",\n      icon: "size-6 text-muted-foreground",\n      title: "not-prose text-lg font-semibold tracking-tight text-foreground",\n      description: "text-[15px] text-muted-foreground first:mt-0 last:mb-0",\n    },\n  });\n\n  export type ProseCardProps = NuxtLinkProps & {\n    /**\n     * Additional classes for the card wrapper\n     */\n    class?: HTMLAttributes["class"];\n    /**\n     * Title of the card\n     */\n    title?: string;\n    /**\n     * Description/content of the card\n     */\n    description?: string;\n    /**\n     * Icon name to display in the card\n     */\n    icon?: string;\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<ProseCardProps>(), {});\n\n  defineSlots<{\n    /**\n     * Slot for the card title\n     */\n    title: () => any;\n    /**\n     * Slot for the card description/content\n     */\n    default: () => any;\n    /**\n     * Slot for an icon to display in the card\n     */\n    icon: () => any;\n    /**\n     * Slot for the card footer\n     */\n    footer: () => any;\n  }>();\n\n  const linkProps = computed(() => {\n    if (!(props.to || props.href)) return {};\n\n    return reactiveOmit(props, ["class", "title", "description", "icon"]);\n  });\n\n  const as = computed(() => (props.to || props.href ? resolveComponent("NuxtLink") : "div"));\n</script>\n',
+        '<template>\n  <component\n    v-bind="linkProps"\n    :is="as"\n    :class="proseCardStyles().base({ class: normalizeClass(props.class) || undefined })"\n    data-slot="prose-card"\n  >\n    <slot name="icon" mdc-unwrap="p">\n      <ProseSmartIcon v-if="icon" :name="icon" :class="proseCardStyles().icon()" />\n    </slot>\n    <slot name="title" mdc-unwrap="p">\n      <h3 v-if="title" data-slot="prose-card-title" :class="proseCardStyles().title()">\n        {{ title }}\n      </h3>\n    </slot>\n    <slot mdc-unwrap="p">\n      <p\n        v-if="description"\n        data-slot="prose-card-description"\n        :class="proseCardStyles().description()"\n      >\n        {{ description }}\n      </p>\n    </slot>\n    <slot name="footer"></slot>\n    <div v-if="to || href" class="absolute top-4 right-4">\n      <Icon\n        name="lucide:arrow-up-right"\n        class="size-5 scale-0 opacity-80 transition-all duration-200 group-hover:scale-100"\n      />\n    </div>\n    <UiBorderBeam :duration="20" :size="100" class="opacity-0 group-hover:opacity-100" />\n  </component>\n</template>\n\n<script lang="ts">\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  import type { NuxtLinkProps } from "#app";\n\n  export const proseCardStyles = tv({\n    slots: {\n      base: "group relative flex flex-col gap-2 rounded-lg border border-border/50 bg-card p-6 text-card-foreground no-underline shadow-xs *:my-0!",\n      icon: "size-6 text-muted-foreground",\n      title: "not-prose text-lg font-semibold tracking-tight text-foreground",\n      description: "text-[15px] text-muted-foreground first:mt-0 last:mb-0",\n    },\n  });\n\n  export type ProseCardProps = NuxtLinkProps & {\n    /**\n     * Additional classes for the card wrapper\n     */\n    class?: HTMLAttributes["class"];\n    /**\n     * Title of the card\n     */\n    title?: string;\n    /**\n     * Description/content of the card\n     */\n    description?: string;\n    /**\n     * Icon name to display in the card\n     */\n    icon?: string;\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<ProseCardProps>(), {});\n\n  defineSlots<{\n    /**\n     * Slot for the card title\n     */\n    title: () => any;\n    /**\n     * Slot for the card description/content\n     */\n    default: () => any;\n    /**\n     * Slot for an icon to display in the card\n     */\n    icon: () => any;\n    /**\n     * Slot for the card footer\n     */\n    footer: () => any;\n  }>();\n\n  const linkProps = computed(() => {\n    if (!(props.to || props.href)) return {};\n\n    return reactiveOmit(props, ["class", "title", "description", "icon"]);\n  });\n\n  const as = computed(() => (props.to || props.href ? resolveComponent("NuxtLink") : "div"));\n</script>\n',
     },
   },
   {
@@ -183,7 +184,8 @@ export default [
     value: "color-mode-image",
     description:
       "A prose component that allows you to use images in your content with zoom and styling options that adapt to light and dark color modes.",
-    filePath: "app/components/content/prose/Images/ProseColorModeImage.global.vue",
+    filePath:
+      "app/components/content/prose/Images/ProseColorModeImage.global.vue",
     fileName: "ProseColorModeImage.global.vue",
     docsUrl: "/prose/image",
     prose: ["image"],
@@ -205,7 +207,8 @@ export default [
     file: {
       fileName: "ProseEm.global.vue",
       dirPath: "app/components/content/prose/Typography",
-      fileContent: '<template>\n  <em data-slot="prose-em">\n    <slot />\n  </em>\n</template>\n',
+      fileContent:
+        '<template>\n  <em data-slot="prose-em">\n    <slot />\n  </em>\n</template>\n',
     },
   },
   {
@@ -246,7 +249,8 @@ export default [
     value: "h1",
     description:
       "A prose component that displays styled heading level 1 elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Headings/ProseH1.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Headings/ProseH1.global.vue",
     fileName: "ProseH1.global.vue",
     docsUrl: "/prose/typography",
     file: {
@@ -261,7 +265,8 @@ export default [
     value: "h2",
     description:
       "A prose component that displays styled heading level 2 elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Headings/ProseH2.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Headings/ProseH2.global.vue",
     fileName: "ProseH2.global.vue",
     docsUrl: "/prose/typography",
     file: {
@@ -276,7 +281,8 @@ export default [
     value: "h3",
     description:
       "A prose component that displays styled heading level 3 elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Headings/ProseH3.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Headings/ProseH3.global.vue",
     fileName: "ProseH3.global.vue",
     docsUrl: "/prose/typography",
     file: {
@@ -291,7 +297,8 @@ export default [
     value: "h4",
     description:
       "A prose component that displays styled heading level 4 elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Headings/ProseH4.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Headings/ProseH4.global.vue",
     fileName: "ProseH4.global.vue",
     docsUrl: "/prose/typography",
     file: {
@@ -306,7 +313,8 @@ export default [
     value: "h5",
     description:
       "A prose component that displays styled heading level 5 elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Headings/ProseH5.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Headings/ProseH5.global.vue",
     fileName: "ProseH5.global.vue",
     docsUrl: "/prose/typography",
     file: {
@@ -321,7 +329,8 @@ export default [
     value: "h6",
     description:
       "A prose component that displays styled heading level 6 elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Headings/ProseH6.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Headings/ProseH6.global.vue",
     fileName: "ProseH6.global.vue",
     docsUrl: "/prose/typography",
     file: {
@@ -351,7 +360,8 @@ export default [
     value: "icon-list",
     description:
       "A prose component that displays lists with custom icons and variants for each item.",
-    filePath: "app/components/content/prose/Typography/Lists/ProseIconList.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Lists/ProseIconList.global.vue",
     fileName: "ProseIconList.global.vue",
     docsUrl: "/prose/icon-list",
     composables: [
@@ -406,7 +416,8 @@ export default [
     value: "li",
     description:
       "A prose component that displays styled list item elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Lists/ProseLi.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Lists/ProseLi.global.vue",
     fileName: "ProseLi.global.vue",
     docsUrl: "/prose/typography",
     file: {
@@ -446,7 +457,8 @@ export default [
     value: "ol",
     description:
       "A prose component that displays styled ordered list elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Lists/ProseOl.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Lists/ProseOl.global.vue",
     fileName: "ProseOl.global.vue",
     docsUrl: "/prose/typography",
     file: {
@@ -476,7 +488,8 @@ export default [
     value: "pm-install",
     description:
       "A prose component that displays an install command for multiple package managers with automatic syncing and switching.",
-    filePath: "app/components/content/prose/PackageManager/ProsePmInstall.global.vue",
+    filePath:
+      "app/components/content/prose/PackageManager/ProsePmInstall.global.vue",
     fileName: "ProsePmInstall.global.vue",
     docsUrl: "/prose/package-manager",
     composables: [
@@ -500,7 +513,8 @@ export default [
     value: "pm-run",
     description:
       "A prose component that displays a run command for multiple package managers with automatic syncing and switching.",
-    filePath: "app/components/content/prose/PackageManager/ProsePmRun.global.vue",
+    filePath:
+      "app/components/content/prose/PackageManager/ProsePmRun.global.vue",
     fileName: "ProsePmRun.global.vue",
     docsUrl: "/prose/package-manager",
     composables: [
@@ -651,7 +665,8 @@ export default [
     value: "table",
     description:
       "A prose component that displays styled table elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Table/ProseTable.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Table/ProseTable.global.vue",
     fileName: "ProseTable.global.vue",
     docsUrl: "/prose/typography",
     prose: ["thead", "tbody", "tr", "th", "td"],
@@ -717,7 +732,8 @@ export default [
     value: "tbody",
     description:
       "A prose component that displays styled table elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Table/ProseTbody.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Table/ProseTbody.global.vue",
     fileName: "ProseTbody.global.vue",
     docsUrl: "/prose/typography",
     prose: ["table"],
@@ -733,7 +749,8 @@ export default [
     value: "td",
     description:
       "A prose component that displays styled table elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Table/ProseTd.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Table/ProseTd.global.vue",
     fileName: "ProseTd.global.vue",
     docsUrl: "/prose/typography",
     prose: ["table"],
@@ -749,7 +766,8 @@ export default [
     value: "td",
     description:
       "A prose component that displays styled table elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Table/ProseTd.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Table/ProseTd.global.vue",
     fileName: "ProseTd.global.vue",
     docsUrl: "/prose/typography",
     prose: ["table"],
@@ -765,7 +783,8 @@ export default [
     value: "th",
     description:
       "A prose component that displays styled table elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Table/ProseTh.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Table/ProseTh.global.vue",
     fileName: "ProseTh.global.vue",
     docsUrl: "/prose/typography",
     prose: ["table"],
@@ -781,7 +800,8 @@ export default [
     value: "thead",
     description:
       "A prose component that displays styled table elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Table/ProseThead.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Table/ProseThead.global.vue",
     fileName: "ProseThead.global.vue",
     docsUrl: "/prose/typography",
     prose: ["table"],
@@ -797,7 +817,8 @@ export default [
     value: "tr",
     description:
       "A prose component that displays styled table elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Table/ProseTr.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Table/ProseTr.global.vue",
     fileName: "ProseTr.global.vue",
     docsUrl: "/prose/typography",
     prose: ["table"],
@@ -813,7 +834,8 @@ export default [
     value: "ul",
     description:
       "A prose component that displays styled unordered list elements for consistent typography in your content.",
-    filePath: "app/components/content/prose/Typography/Lists/ProseUl.global.vue",
+    filePath:
+      "app/components/content/prose/Typography/Lists/ProseUl.global.vue",
     fileName: "ProseUl.global.vue",
     docsUrl: "/prose/typography",
     file: {

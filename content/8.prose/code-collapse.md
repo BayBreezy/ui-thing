@@ -3,6 +3,10 @@ title: Code Collapse
 description: A collapsible code block wrapper, perfect for showing long code examples without overwhelming your documentation.
 ---
 
+## Source code
+
+Click :SourceCodeLink{component="ProseCodeCollapse.global.vue" folder="content/prose/Code"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Overview
 
 The `ProseCodeCollapse` component wraps code blocks and provides a toggle button to expand or collapse content. It's ideal for lengthy code examples that would take up too much vertical space, starting at a fixed height with a gradient fade effect.

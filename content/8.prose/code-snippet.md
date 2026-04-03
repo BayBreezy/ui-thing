@@ -3,6 +3,10 @@ title: Code Snippet
 description: Dynamically import and display code from your project files or external URLs without duplicating content in your documentation.
 ---
 
+## Source code
+
+Click :SourceCodeLink{component="ProseCodeSnippet.global.vue" folder="content/prose/Code"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Overview
 
 The `ProseCodeSnippet` component allows you to reference actual source files from your project or external URLs, ensuring your documentation always shows the latest code without manual updates. Perfect for keeping docs in sync with your codebase.

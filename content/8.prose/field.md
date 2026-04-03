@@ -7,6 +7,10 @@ description: Display component props or configuration options in a beautiful, re
 
 The `Field` and `Field Group` components provide an elegant way to document component props, configuration options, or any structured data. Instead of cramped tables, these components offer a spacious, readable layout with support for markdown content, badges, and flexible styling options.
 
+## Source code
+
+Click :SourceCodeLink{component="Field" folder="content/prose"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Field
 
 The `ProseField` component displays a single property or configuration item with its name, type, description, and default value.

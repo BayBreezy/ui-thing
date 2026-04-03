@@ -3,6 +3,10 @@ title: Code Group
 description: Display multiple code snippets in a tabbed interface with automatic language detection, custom icons, and sync support across groups.
 ---
 
+## Source code
+
+Click :SourceCodeLink{component="ProseCodeGroup.global.vue" folder="content/prose/Code"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Overview
 
 The `ProseCodeGroup` component creates a tabbed interface for displaying multiple code blocks. It's perfect for showing the same functionality in different languages, comparing implementations, or displaying related configuration files side by side.

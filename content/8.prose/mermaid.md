@@ -3,6 +3,10 @@ title: Mermaid Diagrams
 description: Render interactive diagrams and flowcharts using Mermaid syntax with automatic theme detection and lazy loading.
 ---
 
+## Source code
+
+Click :SourceCodeLink{component="ProseMermaid.global.vue" folder="content/prose/Code"} to see the source code for this component on GitHub. Feel free to copy it and adjust it for your own use.
+
 ## Overview
 
 The `ProseMermaid` component renders diagrams using [Mermaid](https://mermaid.js.org/), a popular JavaScript-based diagramming and charting tool. It supports flowcharts, sequence diagrams, class diagrams, state diagrams, ER diagrams, and more.
