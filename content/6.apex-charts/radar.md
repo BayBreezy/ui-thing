@@ -42,8 +42,8 @@ description: Radar charts are used to display multivariate data in a two-dimensi
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   const series = ref<ApexOptions["series"]>([
     {
@@ -102,8 +102,8 @@ description: Radar charts are used to display multivariate data in a two-dimensi
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   const series = ref<ApexOptions["series"]>([
     {
@@ -172,8 +172,8 @@ description: Radar charts are used to display multivariate data in a two-dimensi
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   const series = ref<ApexOptions["series"]>([
     {
@@ -249,8 +249,8 @@ description: Radar charts are used to display multivariate data in a two-dimensi
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   const series = ref<ApexOptions["series"]>([
     {
@@ -318,8 +318,8 @@ description: Radar charts are used to display multivariate data in a two-dimensi
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   const series = ref<ApexOptions["series"]>([
     {

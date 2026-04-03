@@ -57,8 +57,8 @@ description: Line charts are used to display data points over a continuous time 
 </template>
 
 <script lang="ts" setup>
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   const chartData = [
     { date: "2024-04-01", desktop: 222, mobile: 150 },
@@ -247,8 +247,8 @@ description: Line charts are used to display data points over a continuous time 
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   const series = ref<ApexOptions["series"]>([
     {

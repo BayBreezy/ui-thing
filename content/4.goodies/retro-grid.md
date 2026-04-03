@@ -64,8 +64,8 @@ Create the component `RetroGrid.vue` in the `components` directory.
 
 <script lang="ts">
   import { Primitive } from "reka-ui";
-  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type RetroGridProps = PrimitiveProps & {

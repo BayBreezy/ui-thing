@@ -54,8 +54,8 @@ description: Slope charts are used to compare two or more data points across dif
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   const series = ref<ApexOptions["series"]>([
     {

@@ -56,8 +56,8 @@ description: Funnel charts are ideal for visualizing progressive stages in a lin
 </template>
 
 <script lang="ts" setup>
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   const series = ref<ApexOptions["series"]>([
     {
@@ -150,8 +150,8 @@ description: Funnel charts are ideal for visualizing progressive stages in a lin
 </template>
 
 <script lang="ts" setup>
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   const series = ref<ApexOptions["series"]>([
     {

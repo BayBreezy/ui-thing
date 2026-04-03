@@ -40,8 +40,8 @@ This consists of four(4) components
   </div>
 </template>
 <script lang="ts">
-  import { normalizeClass } from "vue";
   import type { PrimitiveProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export type SequenceContextValue = {
@@ -198,12 +198,12 @@ This consists of four(4) components
 </template>
 <script lang="ts">
   import { motion } from "motion-v";
-  import { normalizeClass } from "vue";
-  import type { SequenceContextValue } from "./Terminal.vue";
   import type { MotionProps } from "motion-v";
   import type { PrimitiveProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
+  import type { SequenceContextValue } from "./Terminal.vue";
   import { ItemIndexKey, SequenceKey } from "./Terminal.vue";
 
   export interface AnimatedSpanProps extends Omit<MotionProps, "as" | "asChild">, PrimitiveProps {
@@ -310,12 +310,12 @@ This consists of four(4) components
   </component>
 </template>
 <script lang="ts">
-  import { normalizeClass } from "vue";
-  import type { SequenceContextValue } from "./Terminal.vue";
   import type { MotionProps } from "motion-v";
   import type { PrimitiveProps } from "reka-ui";
+  import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
+  import type { SequenceContextValue } from "./Terminal.vue";
   import { ItemIndexKey, SequenceKey } from "./Terminal.vue";
 
   export interface TypingAnimationProps

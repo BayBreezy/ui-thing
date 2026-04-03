@@ -199,8 +199,9 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import { promiseTimeout } from "@vueuse/core";
   import type { ColumnDef, Table } from "@tanstack/vue-table";
+  import { promiseTimeout } from "@vueuse/core";
+
   import type { UiTanStackTable } from "#components";
 
   const tableRef = useTemplateRef("tableRef");
@@ -368,11 +369,12 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
     getCoreRowModel,
     useVueTable,
   } from "@tanstack/vue-table";
-  //2. Import the components you want to use
-  import { UiBadge, UiCheckbox } from "#components";
   // Import any type that you may need
   import type { RowSelectionState } from "@tanstack/vue-table";
   import type { CheckboxRootProps } from "reka-ui";
+
+  //2. Import the components you want to use
+  import { UiBadge, UiCheckbox } from "#components";
 
   //3. Fetch your data
   const { data } = await useAsyncData(
@@ -589,13 +591,14 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
     getSortedRowModel,
     useVueTable,
   } from "@tanstack/vue-table";
-  import { Icon, UiCheckbox } from "#components";
   import type {
     ColumnFiltersState,
     RowData,
     RowSelectionState,
     SortingState,
   } from "@tanstack/vue-table";
+
+  import { Icon, UiCheckbox } from "#components";
 
   declare module "@tanstack/vue-table" {
     //allows us to define custom properties for our columns
@@ -743,7 +746,7 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
               "div",
               {
                 class:
-                  tw`flex size-5 items-center justify-center rounded text-xs font-medium ` +
+                  tw`flex size-5 items-center justify-center rounded text-xs font-medium` +
                   intentStyle,
               },
               intent.charAt(0)
@@ -1918,8 +1921,8 @@ Expandable rows to display additional details using the expansion feature.
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import { promiseTimeout } from "@vueuse/core";
   import type { ColumnDef } from "@tanstack/vue-table";
+  import { promiseTimeout } from "@vueuse/core";
 
   interface User {
     id: string;
@@ -2057,8 +2060,8 @@ Pin rows to the top or bottom. The table emits `update:rowPinning` and `row-pin`
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import { promiseTimeout } from "@vueuse/core";
   import type { ColumnDef, RowPinningState } from "@tanstack/vue-table";
+  import { promiseTimeout } from "@vueuse/core";
 
   const rowPinning = ref<RowPinningState>({});
 
@@ -2437,8 +2440,8 @@ Opt-in header pin buttons let you pin columns left or right. Pinned columns are 
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import { promiseTimeout } from "@vueuse/core";
   import type { ColumnDef } from "@tanstack/vue-table";
+  import { promiseTimeout } from "@vueuse/core";
 
   const selectedUser = ref<User | null>(null);
 

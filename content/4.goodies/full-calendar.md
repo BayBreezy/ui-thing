@@ -56,11 +56,11 @@ In order to make the calendar match the UI Thing theme, I had to create the `ful
 </template>
 
 <script lang="ts" setup>
+  import type { CalendarOptions } from "@fullcalendar/core";
   import dayGridPlugin from "@fullcalendar/daygrid";
   import interactionPlugin from "@fullcalendar/interaction";
   import FullCalendar from "@fullcalendar/vue3";
   import dayjs from "dayjs";
-  import type { CalendarOptions } from "@fullcalendar/core";
 
   const calendarOptions: CalendarOptions = {
     plugins: [dayGridPlugin, interactionPlugin],
@@ -122,10 +122,10 @@ In order to make the calendar match the UI Thing theme, I had to create the `ful
 </template>
 
 <script lang="ts" setup>
+  import type { CalendarOptions } from "@fullcalendar/core";
   import listPlugin from "@fullcalendar/list";
   import FullCalendar from "@fullcalendar/vue3";
   import dayjs from "dayjs";
-  import type { CalendarOptions } from "@fullcalendar/core";
 
   const calendarOptions: CalendarOptions = {
     plugins: [listPlugin],
@@ -183,11 +183,11 @@ In order to make the calendar match the UI Thing theme, I had to create the `ful
 </template>
 
 <script lang="ts" setup>
+  import type { CalendarOptions } from "@fullcalendar/core";
   import interactionPlugin from "@fullcalendar/interaction";
   import timeGridPlugin from "@fullcalendar/timegrid";
   import FullCalendar from "@fullcalendar/vue3";
   import dayjs from "dayjs";
-  import type { CalendarOptions } from "@fullcalendar/core";
 
   const calendarOptions: CalendarOptions = {
     plugins: [timeGridPlugin, interactionPlugin],
@@ -257,11 +257,11 @@ In order to make the calendar match the UI Thing theme, I had to create the `ful
 </template>
 
 <script lang="ts" setup>
+  import type { CalendarOptions } from "@fullcalendar/core";
   import interactionPlugin from "@fullcalendar/interaction";
   import multiMonthPlugin from "@fullcalendar/multimonth";
   import FullCalendar from "@fullcalendar/vue3";
   import dayjs from "dayjs";
-  import type { CalendarOptions } from "@fullcalendar/core";
 
   const calendarOptions: CalendarOptions = {
     plugins: [multiMonthPlugin, interactionPlugin],

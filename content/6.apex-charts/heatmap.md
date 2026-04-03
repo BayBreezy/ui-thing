@@ -54,8 +54,8 @@ description: Heatmaps are used to visualize data through variations in color, ma
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   type HeatmapOptions = {
     rows: number;
@@ -160,8 +160,8 @@ description: Heatmaps are used to visualize data through variations in color, ma
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   type HeatmapOptions = {
     rows: number;

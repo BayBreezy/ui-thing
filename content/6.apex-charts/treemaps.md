@@ -54,8 +54,8 @@ description: Treemaps are used to visualize hierarchical data using nested recta
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   const series = ref<ApexOptions["series"]>([
     {
@@ -128,8 +128,8 @@ description: Treemaps are used to visualize hierarchical data using nested recta
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   const series = ref<ApexOptions["series"]>([
     {
@@ -224,8 +224,8 @@ description: Treemaps are used to visualize hierarchical data using nested recta
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import dayjs from "dayjs";
   import type { ApexOptions } from "apexcharts";
+  import dayjs from "dayjs";
 
   const series = ref<ApexOptions["series"]>([
     {
