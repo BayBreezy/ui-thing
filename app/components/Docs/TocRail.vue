@@ -1,10 +1,11 @@
 <template>
-  <div ref="wrap" class="relative pl-5">
+  <div ref="wrap" class="relative pl-7">
     <DocsZigZagRail
       v-if="railHeight > 0 && pathD"
       :height="railHeight"
       :path-d="pathD"
       :segments="segments"
+      :width="WIDTH"
     />
     <slot />
   </div>
@@ -22,7 +23,7 @@
   const segments = ref<RailSegment[]>([]);
   const pathD = ref("");
 
-  const WIDTH = 12;
+  const WIDTH = 20;
   const X_OUTER = 1;
   const X_INNER_MAX = WIDTH - 1;
 
@@ -109,7 +110,7 @@
       return Math.round(Math.min(X_INNER_MAX, Math.max(X_OUTER, x)));
     };
 
-    const DIAG = 8;
+    const CURVE_SPAN = 8;
 
     const clamp = (n: number, min: number, max: number) => Math.min(max, Math.max(min, n));
 
@@ -128,10 +129,11 @@
         continue;
       }
 
-      const y0 = clamp(y - DIAG, yPrev, height);
+      const y0 = clamp(y - CURVE_SPAN, yPrev, height);
+      const midY = (y0 + y) / 2;
 
       if (y0 > yPrev) d += ` L ${x} ${y0}`;
-      d += ` L ${xNext} ${y}`;
+      d += ` C ${x} ${midY} ${xNext} ${midY} ${xNext} ${y}`;
 
       x = xNext;
       yPrev = y;
