@@ -56,7 +56,7 @@
     "@tiptap/extension-text-style": "^3.22.1",
     "@tiptap/extension-typography": "^3.22.1",
     "@tiptap/pm": "^3.22.1",
-    "@tiptap/starter-kit": "^3.22.1",
+    "@tiptap/starter-kit": "^3.22.2",
     "@tiptap/vue-3": "^3.22.1",
     "@types/three": "^0.183.1",
     "@unovis/ts": "^1.6.4",
