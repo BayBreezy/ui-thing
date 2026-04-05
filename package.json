@@ -47,7 +47,7 @@
     "@tiptap/extension-highlight": "^3.22.1",
     "@tiptap/extension-link": "^3.22.1",
     "@tiptap/extension-list-item": "^3.22.1",
-    "@tiptap/extension-subscript": "^3.22.1",
+    "@tiptap/extension-subscript": "^3.22.2",
     "@tiptap/extension-superscript": "^3.22.1",
     "@tiptap/extension-table": "^3.22.1",
     "@tiptap/extension-table-cell": "^3.22.1",
