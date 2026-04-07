@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full items-center justify-center">
-    <UiCommand class="w-full max-w-sm rounded-lg border shadow-md">
+    <UiCommand class="w-full max-w-sm rounded-lg border shadow-md" highlight-on-hover>
       <UiCommandInput placeholder="Type a command or search..." />
       <UiCommandList>
         <UiCommandEmpty>No results found.</UiCommandEmpty>

@@ -28,6 +28,6 @@
   const forwarded = useForwardProps(reactiveOmit(props, "class"));
 
   const styles = tv({
-    base: "max-h-[300px] scroll-py-1 overflow-x-hidden overflow-y-auto",
+    base: "no-scrollbar max-h-72 scroll-py-1 overflow-x-hidden overflow-y-auto outline-none",
   });
 </script>

@@ -41,7 +41,7 @@
   const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);
 
   const styles = tv({
-    base: "flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground",
+    base: "flex size-full flex-col overflow-hidden rounded-xl! bg-popover p-1 text-popover-foreground has-data-[slot=command-footer]:p-0",
   });
 
   const allItems = ref<Map<string, string>>(new Map());

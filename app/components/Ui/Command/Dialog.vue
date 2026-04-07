@@ -3,15 +3,13 @@
     <UiDialogContent
       :hide-close="showCloseButton"
       :translucent="translucent"
-      class="overflow-hidden p-0 shadow-lg"
+      class="overflow-hidden rounded-xl! p-0 shadow-lg"
     >
       <UiDialogHeader class="sr-only">
         <UiDialogTitle :title />
         <UiDialogDescription :description />
       </UiDialogHeader>
-      <UiCommand
-        class="**:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-input-wrapper]_svg]:h-4 [&_[cmdk-input-wrapper]_svg]:w-4 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5 **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground **:[[cmdk-group]]:px-2 **:[[cmdk-input]]:h-12 **:[[cmdk-item]]:px-2 **:[[cmdk-item]]:py-3"
-      >
+      <UiCommand :highlight-on-hover>
         <slot />
       </UiCommand>
     </UiDialogContent>
@@ -47,6 +45,10 @@
          * Whether to render the dialog content with a translucent surface.
          */
         translucent?: boolean;
+        /**
+         * When `true`, hover over item will trigger highlight
+         */
+        highlightOnHover?: boolean;
       }
     >(),
     {
@@ -56,5 +58,8 @@
   );
   const emits = defineEmits<DialogRootEmits>();
 
-  const forwarded = useForwardPropsEmits(reactiveOmit(props, "translucent"), emits);
+  const forwarded = useForwardPropsEmits(
+    reactiveOmit(props, "translucent", "highlightOnHover"),
+    emits
+  );
 </script>

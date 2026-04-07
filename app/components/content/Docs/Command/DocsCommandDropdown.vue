@@ -24,7 +24,7 @@
             <UiDropdownMenuSub>
               <UiDropdownMenuSubTrigger> Apply label </UiDropdownMenuSubTrigger>
               <UiDropdownMenuSubContent class="p-0">
-                <UiCommand>
+                <UiCommand v-model="labelRef">
                   <UiCommandInput placeholder="Filter label..." auto-focus />
                   <UiCommandList>
                     <UiCommandEmpty>No label found.</UiCommandEmpty>

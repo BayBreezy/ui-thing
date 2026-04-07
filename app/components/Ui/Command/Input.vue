@@ -1,18 +1,20 @@
 <template>
-  <div
-    data-slot="command-input-wrapper"
-    class="flex h-9 items-center gap-2 border-b px-3"
-    cmdk-input-wrapper
-  >
-    <Icon name="lucide:search" class="size-4 shrink-0 opacity-50" />
-    <ListboxFilter
-      v-bind="{ ...forwardedProps, ...$attrs }"
-      v-model="filterState.search"
-      data-slot="command-input"
-      auto-focus
-      cmdk-input
-      :class="styles({ class: normalizeClass(props.class) || undefined })"
-    />
+  <div data-slot="command-input-wrapper" class="p-1 pb-0" cmdk-input-wrapper>
+    <UiInputGroup
+      class="h-8! rounded-lg! border-input/30 bg-input/30 shadow-none! *:data-[slot=input-group-addon]:pl-2!"
+    >
+      <ListboxFilter
+        v-bind="{ ...forwardedProps, ...$attrs }"
+        v-model="filterState.search"
+        data-slot="command-input"
+        auto-focus
+        cmdk-input
+        :class="styles({ class: normalizeClass(props.class) || undefined })"
+      />
+      <UiInputGroupAddon>
+        <Icon :name="icon" class="size-4 shrink-0 opacity-50" />
+      </UiInputGroupAddon>
+    </UiInputGroup>
   </div>
 </template>
 
@@ -27,15 +29,26 @@
 
   defineOptions({ inheritAttrs: false });
 
-  const props = defineProps<
-    ListboxFilterProps & {
-      /** Custom class(es) to add to the element */
-      class?: HTMLAttributes["class"];
+  const props = withDefaults(
+    defineProps<
+      ListboxFilterProps & {
+        /** Custom class(es) to add to the element */
+        class?: HTMLAttributes["class"];
+        /**
+         * The name of the icon to display for the search input.
+         *
+         * @default "lucide:search"
+         */
+        icon?: string;
+      }
+    >(),
+    {
+      icon: "lucide:search",
     }
-  >();
+  );
 
   const styles = tv({
-    base: "flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
+    base: "w-full text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
   });
 
   const forwardedProps = useForwardProps(reactiveOmit(props, "class"));

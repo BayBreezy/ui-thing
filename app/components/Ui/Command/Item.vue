@@ -17,7 +17,9 @@
       <slot name="icon">
         <Icon v-if="icon" :name="icon" />
       </slot>
-      {{ text }}
+      <slot name="text">
+        {{ text }}
+      </slot>
       <slot name="shortcut">
         <UiCommandShortcut v-if="shortcut" :shortcut="shortcut" />
       </slot>
@@ -27,10 +29,10 @@
 
 <script setup lang="ts">
   import { reactiveOmit, useCurrentElement } from "@vueuse/core";
-  import { ListboxItem, useForwardPropsEmits, useId } from "reka-ui";
   import type { ListboxItemEmits, ListboxItemProps } from "reka-ui";
-  import { normalizeClass } from "vue";
+  import { ListboxItem, useForwardPropsEmits, useId } from "reka-ui";
   import type { HTMLAttributes } from "vue";
+  import { normalizeClass } from "vue";
 
   import { useCommand, useCommandGroup } from "./Command.vue";
 
@@ -58,7 +60,7 @@
   const groupContext = useCommandGroup();
 
   const styles = tv({
-    base: "relative flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground data-[state=checked]:bg-accent data-[state=checked]:text-accent-foreground [&_svg]:size-4 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground",
+    base: "group/command-item relative flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none select-none in-data-[slot=dialog-content]:rounded-lg! data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground data-[state=checked]:bg-muted data-[state=checked]:text-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-selected:*:[svg]:text-foreground",
   });
 
   const isRender = computed(() => {

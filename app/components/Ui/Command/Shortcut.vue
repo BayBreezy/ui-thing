@@ -23,6 +23,6 @@
     }
   >();
   const styles = tv({
-    base: "ml-auto text-xs tracking-widest text-muted-foreground",
+    base: "ml-auto text-xs tracking-widest text-muted-foreground group-data-selected/command-item:text-foreground",
   });
 </script>

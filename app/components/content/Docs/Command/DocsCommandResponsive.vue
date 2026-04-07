@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-center">
     <UseTemplate>
-      <UiCommand class="rounded-none">
+      <UiCommand v-model="selectedStatus" class="rounded-none">
         <UiCommandInput placeholder="Filter status..." />
         <UiCommandList>
           <UiCommandEmpty>No results found.</UiCommandEmpty>
@@ -9,8 +9,8 @@
             <UiCommandItem
               v-for="status of statuses"
               :key="status.value"
-              :value="status.value"
-              @select="onStatusSelect(status)"
+              :value="status"
+              @select="onStatusSelect"
             >
               {{ status.label }}
             </UiCommandItem>
@@ -85,8 +85,5 @@
   const isOpen = ref(false);
   const selectedStatus = ref<Status | null>(null);
 
-  function onStatusSelect(status: Status) {
-    selectedStatus.value = status;
-    isOpen.value = false;
-  }
+  const onStatusSelect = () => (isOpen.value = false);
 </script>

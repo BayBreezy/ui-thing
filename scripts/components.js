@@ -217,11 +217,12 @@ export default [
   {
     name: "Command",
     value: "command",
-    components: ["dialog"],
+    components: ["dialog", "kbd"],
     files: [
       "Command/Command.vue",
       "Command/Dialog.vue",
       "Command/Empty.vue",
+      "Command/Footer.vue",
       "Command/Group.vue",
       "Command/Input.vue",
       "Command/Item.vue",

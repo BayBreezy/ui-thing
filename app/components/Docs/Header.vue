@@ -10,14 +10,19 @@
     </p>
     <div v-if="page?.links && page?.links?.length" class="not-prose flex flex-wrap gap-2">
       <template v-for="(link, i) in page?.links" :key="i">
-        <a
-          class="inline-flex items-center justify-center gap-2 rounded-md bg-muted px-2 py-1 text-[15px] md:text-sm"
-          target="_blank"
+        <UiBadge
           :href="link?.href"
-          ><Icon v-if="link?.icon" :name="link.icon" class="h-3.5 w-3.5 text-muted-foreground" />{{
-            link?.title
-          }}</a
+          target="_blank"
+          variant="outline"
+          size="md"
+          class="transition-colors duration-300"
         >
+          <Icon
+            v-if="link?.icon"
+            :name="link.icon"
+            class="size-3.5 shrink-0 text-muted-foreground"
+          />{{ link?.title }}
+        </UiBadge>
 
         <br />
       </template>

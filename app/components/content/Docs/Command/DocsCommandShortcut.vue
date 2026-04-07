@@ -2,16 +2,39 @@
   <div class="flex flex-col items-center justify-center">
     <p class="text-sm text-muted-foreground">
       Press
-      <kbd
-        class="pointer-events-none inline-flex h-5 items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100 select-none"
-      >
-        <span class="text-xs">⌘</span>J
-      </kbd>
+      <UiKbd variant="outline"> ⌘J </UiKbd>
     </p>
     <UiCommandDialog v-model:open="open">
       <UiCommandInput placeholder="Type a command or search..." />
       <UiCommandList>
         <UiCommandEmpty>No results found.</UiCommandEmpty>
+        <UiCommandGroup heading="Navigation">
+          <UiCommandItem value="home" text="Home" icon="lucide:home" />
+          <UiCommandItem value="inbox" text="Inbox" icon="lucide:inbox" />
+          <UiCommandItem value="documents" text="Documents" icon="lucide:file-text" />
+          <UiCommandItem value="folders" text="Folders" icon="lucide:folder" />
+        </UiCommandGroup>
+        <UiCommandSeparator />
+        <UiCommandGroup heading="Actions">
+          <UiCommandItem value="new-file" text="New File" icon="lucide:plus" shortcut="⌘N" />
+          <UiCommandItem
+            value="new-window"
+            text="New Window"
+            icon="lucide:app-window"
+            shortcut="⌘⇧N"
+          />
+          <UiCommandItem
+            value="new-folder"
+            text="New Folder"
+            icon="lucide:folder-plus"
+            shortcut="⌘,"
+          />
+          <UiCommandItem value="copy" text="Copy" icon="lucide:copy" shortcut="⌘C" />
+          <UiCommandItem value="cut" text="Cut" icon="lucide:scissors" shortcut="⌘X" />
+          <UiCommandItem value="paste" text="Paste" icon="lucide:clipboard" shortcut="⌘V" />
+          <UiCommandItem value="delete" text="Delete" icon="lucide:trash" shortcut="⌘⌫" />
+        </UiCommandGroup>
+        <UiCommandSeparator />
         <UiCommandGroup heading="Suggestions">
           <UiCommandItem value="calendar" text="Calendar" icon="lucide:calendar-days" />
           <UiCommandItem value="search-emoji" text="Emoji" icon="lucide:smile-plus" />
@@ -24,6 +47,7 @@
           <UiCommandItem value="settings"> Settings </UiCommandItem>
         </UiCommandGroup>
       </UiCommandList>
+      <UiCommandFooter />
     </UiCommandDialog>
   </div>
 </template>
