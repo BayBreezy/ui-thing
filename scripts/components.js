@@ -217,7 +217,7 @@ export default [
   {
     name: "Command",
     value: "command",
-    components: ["dialog", "kbd"],
+    components: ["dialog", "kbd", "input-group"],
     files: [
       "Command/Command.vue",
       "Command/Dialog.vue",
