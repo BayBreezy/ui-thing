@@ -33,7 +33,7 @@ Click :SourceCodeLink{component="Command"} to see the source code for this compo
 ```vue [DocsCommand.vue]
 <template>
   <div class="flex w-full items-center justify-center">
-    <UiCommand class="w-full max-w-sm rounded-lg border shadow-md">
+    <UiCommand class="w-full max-w-sm rounded-lg border shadow-md" highlight-on-hover>
       <UiCommandInput placeholder="Type a command or search..." />
       <UiCommandList>
         <UiCommandEmpty>No results found.</UiCommandEmpty>
@@ -131,16 +131,39 @@ Click :SourceCodeLink{component="Command"} to see the source code for this compo
   <div class="flex flex-col items-center justify-center">
     <p class="text-sm text-muted-foreground">
       Press
-      <kbd
-        class="pointer-events-none inline-flex h-5 items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100 select-none"
-      >
-        <span class="text-xs">⌘</span>J
-      </kbd>
+      <UiKbd variant="outline"> ⌘J </UiKbd>
     </p>
     <UiCommandDialog v-model:open="open">
       <UiCommandInput placeholder="Type a command or search..." />
       <UiCommandList>
         <UiCommandEmpty>No results found.</UiCommandEmpty>
+        <UiCommandGroup heading="Navigation">
+          <UiCommandItem value="home" text="Home" icon="lucide:home" />
+          <UiCommandItem value="inbox" text="Inbox" icon="lucide:inbox" />
+          <UiCommandItem value="documents" text="Documents" icon="lucide:file-text" />
+          <UiCommandItem value="folders" text="Folders" icon="lucide:folder" />
+        </UiCommandGroup>
+        <UiCommandSeparator />
+        <UiCommandGroup heading="Actions">
+          <UiCommandItem value="new-file" text="New File" icon="lucide:plus" shortcut="⌘N" />
+          <UiCommandItem
+            value="new-window"
+            text="New Window"
+            icon="lucide:app-window"
+            shortcut="⌘⇧N"
+          />
+          <UiCommandItem
+            value="new-folder"
+            text="New Folder"
+            icon="lucide:folder-plus"
+            shortcut="⌘,"
+          />
+          <UiCommandItem value="copy" text="Copy" icon="lucide:copy" shortcut="⌘C" />
+          <UiCommandItem value="cut" text="Cut" icon="lucide:scissors" shortcut="⌘X" />
+          <UiCommandItem value="paste" text="Paste" icon="lucide:clipboard" shortcut="⌘V" />
+          <UiCommandItem value="delete" text="Delete" icon="lucide:trash" shortcut="⌘⌫" />
+        </UiCommandGroup>
+        <UiCommandSeparator />
         <UiCommandGroup heading="Suggestions">
           <UiCommandItem value="calendar" text="Calendar" icon="lucide:calendar-days" />
           <UiCommandItem value="search-emoji" text="Emoji" icon="lucide:smile-plus" />
@@ -153,6 +176,7 @@ Click :SourceCodeLink{component="Command"} to see the source code for this compo
           <UiCommandItem value="settings"> Settings </UiCommandItem>
         </UiCommandGroup>
       </UiCommandList>
+      <UiCommandFooter />
     </UiCommandDialog>
   </div>
 </template>
@@ -304,7 +328,7 @@ Click :SourceCodeLink{component="Command"} to see the source code for this compo
             <UiDropdownMenuSub>
               <UiDropdownMenuSubTrigger> Apply label </UiDropdownMenuSubTrigger>
               <UiDropdownMenuSubContent class="p-0">
-                <UiCommand>
+                <UiCommand v-model="labelRef">
                   <UiCommandInput placeholder="Filter label..." auto-focus />
                   <UiCommandList>
                     <UiCommandEmpty>No label found.</UiCommandEmpty>
@@ -375,7 +399,7 @@ You can create a responsive combobox by using the `<Popover />` on desktop and t
 <template>
   <div class="flex items-center justify-center">
     <UseTemplate>
-      <UiCommand class="rounded-none">
+      <UiCommand v-model="selectedStatus" class="rounded-none">
         <UiCommandInput placeholder="Filter status..." />
         <UiCommandList>
           <UiCommandEmpty>No results found.</UiCommandEmpty>
@@ -383,8 +407,8 @@ You can create a responsive combobox by using the `<Popover />` on desktop and t
             <UiCommandItem
               v-for="status of statuses"
               :key="status.value"
-              :value="status.value"
-              @select="onStatusSelect(status)"
+              :value="status"
+              @select="onStatusSelect"
             >
               {{ status.label }}
             </UiCommandItem>
@@ -459,10 +483,7 @@ You can create a responsive combobox by using the `<Popover />` on desktop and t
   const isOpen = ref(false);
   const selectedStatus = ref<Status | null>(null);
 
-  function onStatusSelect(status: Status) {
-    selectedStatus.value = status;
-    isOpen.value = false;
-  }
+  const onStatusSelect = () => (isOpen.value = false);
 </script>
 ```
 
