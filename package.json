@@ -45,7 +45,7 @@
     "@tanstack/vue-table": "^8.21.3",
     "@tiptap/extension-color": "^3.22.2",
     "@tiptap/extension-highlight": "^3.22.2",
-    "@tiptap/extension-link": "^3.22.2",
+    "@tiptap/extension-link": "^3.22.3",
     "@tiptap/extension-list-item": "^3.22.2",
     "@tiptap/extension-subscript": "^3.22.2",
     "@tiptap/extension-superscript": "^3.22.2",
