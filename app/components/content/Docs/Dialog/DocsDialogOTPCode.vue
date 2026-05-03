@@ -7,7 +7,7 @@
       <UiDialogContent class="max-w-[400px]">
         <div class="mb-2 flex flex-col items-center gap-2">
           <div
-            class="flex size-11 shrink-0 items-center justify-center rounded-full border border-border"
+            class="border-border flex size-11 shrink-0 items-center justify-center rounded-full border"
             aria-hidden="true"
           >
             <svg
@@ -51,7 +51,7 @@
             <TransitionSlide>
               <p
                 v-if="hasGuessed === false"
-                class="text-center text-xs text-muted-foreground"
+                class="text-muted-foreground text-center text-xs"
                 role="alert"
                 aria-live="polite"
               >
