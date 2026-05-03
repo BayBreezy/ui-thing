@@ -3,9 +3,9 @@
     <slot name="loading" :loading>
       <div
         v-if="loading"
-        class="absolute inset-x-0 top-0 z-10 h-1 overflow-hidden rounded-full bg-muted"
+        class="bg-muted absolute inset-x-0 top-0 z-10 h-1 overflow-hidden rounded-full"
       >
-        <div class="size-full origin-left animate-[loading_1.5s_ease-in-out_infinite] bg-primary" />
+        <div class="bg-primary size-full origin-left animate-[loading_1.5s_ease-in-out_infinite]" />
       </div>
     </slot>
 
@@ -219,7 +219,7 @@
               <UiTableCell :colspan="row.getVisibleCells().length" class="bg-muted/50 p-0">
                 <slot name="expanded-row" :row="row" :table="table">
                   <div class="p-4">
-                    <p class="text-sm text-muted-foreground">
+                    <p class="text-muted-foreground text-sm">
                       Expanded content for row {{ row.id }}
                     </p>
                   </div>
@@ -270,7 +270,7 @@
       <div class="flex items-center gap-4">
         <slot name="footer-left" :table="table">
           <div v-if="showRowsPerPage" class="flex items-center gap-2">
-            <span class="text-sm whitespace-nowrap text-muted-foreground">{{
+            <span class="text-muted-foreground text-sm whitespace-nowrap">{{
               rowsPerPageText
             }}</span>
             <UiSelect v-model="pageSize" class="w-[70px]">
@@ -285,7 +285,7 @@
             </UiSelect>
           </div>
 
-          <div v-if="showSelectedCount" class="text-sm whitespace-nowrap text-muted-foreground">
+          <div v-if="showSelectedCount" class="text-muted-foreground text-sm whitespace-nowrap">
             {{ table.getFilteredSelectedRowModel().rows.length }} of
             {{ table.getFilteredRowModel().rows.length }} row(s) selected
           </div>
@@ -294,7 +294,7 @@
 
       <div class="flex items-center gap-4">
         <slot name="footer-right" :table="table">
-          <div v-if="showPageInfo" class="text-sm whitespace-nowrap text-muted-foreground">
+          <div v-if="showPageInfo" class="text-muted-foreground text-sm whitespace-nowrap">
             Page {{ table.getState().pagination.pageIndex + 1 }} of
             {{ table.getPageCount() }}
           </div>
@@ -384,31 +384,31 @@
 <script lang="ts" setup generic="T">
   const props = withDefaults(
     defineProps<{
-      /** Array of data to display */
+      /** Array of data to display. */
       data?: T[];
-      /** Column definitions. If not provided, columns will be auto-generated from data */
+      /** Column definitions. If not provided, columns will be auto-generated from data. */
       columns?: ColumnDef<T, any>[];
-      /** Table class */
+      /** Table class. */
       class?: HTMLAttributes["class"];
-      /** Text to display when table is empty */
+      /** Text to display when table is empty. */
       emptyText?: string;
-      /** Hide table header */
+      /** Hide table header. */
       hideHeader?: boolean;
-      /** Show footer section */
+      /** Show footer section. */
       showFooter?: boolean;
-      /** Show pagination controls */
+      /** Show pagination controls. */
       showPagination?: boolean;
       /** Show page info (e.g., "Page 1 of 10") */
       showPageInfo?: boolean;
-      /** Show rows per page selector */
+      /** Show rows per page selector. */
       showRowsPerPage?: boolean;
-      /** Show selected row count */
+      /** Show selected row count. */
       showSelectedCount?: boolean;
-      /** Page size options */
+      /** Page size options. */
       pageSizeOptions?: number[];
-      /** Initial page size */
+      /** Initial page size. */
       initialPageSize?: number;
-      /** Loading state */
+      /** Loading state. */
       loading?: boolean;
       /** Enable manual pagination (for server-side pagination) */
       manualPagination?: boolean;
@@ -418,15 +418,16 @@
       manualSorting?: boolean;
       /** Enable manual filtering (for server-side filtering) */
       manualFiltering?: boolean;
-      /** Enable row pinning */
+      /** Enable row pinning. */
       enableRowPinning?: boolean;
-      /** Enable column pinning */
+      /** Enable column pinning. */
       enableColumnPinning?: boolean;
-      /** Show pin buttons in column headers */
+      /** Show pin buttons in column headers. */
       showColumnPinButtons?: boolean;
-      /** Additional table options */
+      /** Additional table options. */
       tableOptions?: Partial<TableOptions<T>>;
-      /** Text for "Rows per page" label
+      /**
+       * Text for "Rows per page" label.
        *
        * @default "Rows per page:"
        */
@@ -434,35 +435,37 @@
       /**
        * Icon name for expand cell (on state)
        *
-       * @default 'lucide:chevron-down'
+       * @default "lucide:chevron-down"
        */
       expandCellIconOn?: string;
       /**
        * Icon name for expand cell (off state)
        *
-       * @default 'lucide:chevron-right'
+       * @default "lucide:chevron-right"
        */
       expandCellIconOff?: string;
       /**
        * Icon name for pinned row (on state)
        *
-       * @default 'lucide:pin'
+       * @default "lucide:pin"
        */
       rowPinIconOn?: string;
       /**
        * Icon name for unpinned row (off state)
        *
-       * @default 'lucide:pin-off'
+       * @default "lucide:pin-off"
        */
       rowPinIconOff?: string;
-      /** Icon name for pinned column
+      /**
+       * Icon name for pinned column.
        *
-       * @default 'lucide:pin'
+       * @default "lucide:pin"
        */
       columnPinIconOn?: string;
-      /** Icon name for unpinning a column
+      /**
+       * Icon name for unpinning a column.
        *
-       * @default 'lucide:pin-off'
+       * @default "lucide:pin-off"
        */
       columnPinIconOff?: string;
     }>(),
@@ -495,42 +498,26 @@
 
   const emit = defineEmits<{
     /**
-     * Emitted when the table is ready
+     * Emitted when the table is ready.
      *
-     * Provides the table instance
+     * Provides the table instance.
      */
     ready: [table: ReturnType<typeof useVueTable<T>>];
-    /**
-     * Emitted when pagination changes
-     */
+    /** Emitted when pagination changes. */
     "update:pagination": [pagination: { pageIndex: number; pageSize: number }];
-    /**
-     * Emitted when sorting changes
-     */
+    /** Emitted when sorting changes. */
     "update:sorting": [sorting: SortingState];
-    /**
-     * Emitted when column filters change
-     */
+    /** Emitted when column filters change. */
     "update:columnFilters": [filters: ColumnFiltersState];
-    /**
-     * Emitted when a row is right-clicked
-     */
+    /** Emitted when a row is right-clicked. */
     "row-contextmenu": [payload: { event: MouseEvent; row: any }];
-    /**
-     * Emitted when row pinning changes
-     */
+    /** Emitted when row pinning changes. */
     "update:rowPinning": [pinning: RowPinningState];
-    /**
-     * Emitted when a row is pinned/unpinned via the pin cell
-     */
+    /** Emitted when a row is pinned/unpinned via the pin cell. */
     "row-pin": [payload: { row: any; pin: "top" | "bottom" | false }];
-    /**
-     * Emitted when column pinning changes
-     */
+    /** Emitted when column pinning changes. */
     "update:columnPinning": [pinning: ColumnPinningState];
-    /**
-     * Emitted when a column is pinned/unpinned via header button
-     */
+    /** Emitted when a column is pinned/unpinned via header button. */
     "column-pin": [payload: { column: any; pin: "left" | "right" | false }];
   }>();
 

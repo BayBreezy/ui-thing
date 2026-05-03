@@ -21,9 +21,9 @@
 
   const props = defineProps<
     SelectItemIndicatorProps & {
-      /** Icon to render */
+      /** Icon to render. */
       icon?: string;
-      /** Custom class(es) to add to the parent */
+      /** Custom class(es) to add to the parent. */
       class?: HTMLAttributes["class"];
     }
   >();

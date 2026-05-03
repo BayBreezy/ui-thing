@@ -36,35 +36,35 @@
 
   export interface NeonGradientCardProps extends PrimitiveProps {
     /**
+     * The className of the card.
+     *
      * @default ""
      * @type string
-     * @description
-     * The className of the card
      */
     class?: HTMLAttributes["class"];
 
     /**
+     * The size of the border in pixels.
+     *
      * @default 5
      * @type number
-     * @description
-     * The size of the border in pixels
-     * */
+     */
     borderSize?: number;
 
     /**
+     * The size of the radius in pixels.
+     *
      * @default 20
      * @type number
-     * @description
-     * The size of the radius in pixels
-     * */
+     */
     borderRadius?: number;
 
     /**
+     * The colors of the neon gradient.
+     *
      * @default "{ firstColor: '#ff00aa', secondColor: '#00FFF1' }"
      * @type string
-     * @description
-     * The colors of the neon gradient
-     * */
+     */
     neonColors?: NeonColorsProps;
 
     [key: string]: any;

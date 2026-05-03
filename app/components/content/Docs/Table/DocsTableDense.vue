@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="overflow-hidden rounded-lg border border-border bg-background">
+    <div class="border-border bg-background overflow-hidden rounded-lg border">
       <UiTable>
         <UiTableHeader>
           <UiTableRow class="bg-muted/50">
@@ -23,7 +23,7 @@
         </UiTableBody>
       </UiTable>
     </div>
-    <p class="mt-4 text-center text-sm text-muted-foreground">Dense table</p>
+    <p class="text-muted-foreground mt-4 text-center text-sm">Dense table</p>
   </div>
 </template>
 

@@ -23,6 +23,6 @@
     }
   );
   const styles = tv({
-    base: "flex items-center justify-center rounded bg-transparent p-1 opacity-40 transition hover:bg-muted-foreground hover:opacity-100 focus:opacity-100 focus-visible:outline-none",
+    base: "hover:bg-muted-foreground flex items-center justify-center rounded bg-transparent p-1 opacity-40 transition hover:opacity-100 focus:opacity-100 focus-visible:outline-none",
   });
 </script>

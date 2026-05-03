@@ -17,7 +17,7 @@
           <div class="flex items-center justify-between">
             <UiLabel for="top-p">Top P</UiLabel>
             <span
-              class="w-12 rounded-md border border-transparent px-2 py-0.5 text-right text-sm text-muted-foreground hover:border-border"
+              class="text-muted-foreground hover:border-border w-12 rounded-md border border-transparent px-2 py-0.5 text-right text-sm"
             >
               {{ value?.[0] }}
             </span>

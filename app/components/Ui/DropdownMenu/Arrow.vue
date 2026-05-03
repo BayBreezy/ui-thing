@@ -20,9 +20,9 @@
   const props = withDefaults(
     defineProps<
       DropdownMenuArrowProps & {
-        /** Custom class(es) to add to the parent */
+        /** Custom class(es) to add to the parent. */
         class?: HTMLAttributes["class"];
-        /** Whether to render the arrow with a translucent surface */
+        /** Whether to render the arrow with a translucent surface. */
         translucent?: boolean;
       }
     >(),

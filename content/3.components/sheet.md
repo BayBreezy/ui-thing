@@ -4,7 +4,7 @@ description: Extends the Dialog component to display content that complements th
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/dialog.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/dialog.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="Sheet"} to see the source code for this compone
 
 ### Right side sheet (default)
 
-::ShowCase
+::prose-show-case
 
 :DocsSheet
 
@@ -78,7 +78,7 @@ Click :SourceCodeLink{component="Sheet"} to see the source code for this compone
 
 ### Left side sheet
 
-::ShowCase
+::prose-show-case
 
 :DocsSheetLeft
 
@@ -106,7 +106,7 @@ Click :SourceCodeLink{component="Sheet"} to see the source code for this compone
             <nav class="mt-4 flex flex-col gap-1 px-3">
               <template v-for="item in links" :key="item.name">
                 <UiButton variant="ghost" class="w-full justify-start" :href="item.href">
-                  <Icon :name="item.icon" class="size-4 text-muted-foreground/70" />
+                  <Icon :name="item.icon" class="text-muted-foreground/70 size-4" />
                   {{ item.name }}
                 </UiButton>
               </template>
@@ -136,7 +136,7 @@ Click :SourceCodeLink{component="Sheet"} to see the source code for this compone
 
 ### Bottom sheet
 
-::ShowCase
+::prose-show-case
 
 :DocsSheetBottom
 
@@ -200,7 +200,7 @@ Click :SourceCodeLink{component="Sheet"} to see the source code for this compone
 
 ### Top sheet
 
-::ShowCase
+::prose-show-case
 
 :DocsSheetTop
 
@@ -265,7 +265,7 @@ Click :SourceCodeLink{component="Sheet"} to see the source code for this compone
 
 ### No blur overlay
 
-::ShowCase
+::prose-show-case
 
 :DocsSheetNoBlur
 
@@ -290,13 +290,13 @@ Click :SourceCodeLink{component="Sheet"} to see the source code for this compone
         <template #content>
           <UiGradientDivider class="-my-2" />
           <div class="space-y-4 p-4">
-            <p class="text-sm text-muted-foreground">
+            <p class="text-muted-foreground text-sm">
               Notice how the background content is clearly visible without any blur effect. This can
               be useful for maintaining full context visibility.
             </p>
-            <div class="rounded-lg border border-border bg-muted/50 p-3">
+            <div class="border-border bg-muted/50 rounded-lg border p-3">
               <p class="text-sm font-medium">Background Content Visible</p>
-              <p class="text-xs text-muted-foreground">
+              <p class="text-muted-foreground text-xs">
                 You can see the page clearly behind this sheet
               </p>
             </div>
@@ -321,7 +321,7 @@ Click :SourceCodeLink{component="Sheet"} to see the source code for this compone
 
 ### Floating variant
 
-::ShowCase
+::prose-show-case
 
 :DocsSheetFloating
 
@@ -346,7 +346,7 @@ Click :SourceCodeLink{component="Sheet"} to see the source code for this compone
         <template #content>
           <UiGradientDivider class="-my-2" />
           <div class="space-y-4 p-4">
-            <p class="text-sm text-muted-foreground">
+            <p class="text-muted-foreground text-sm">
               The floating variant adds visual separation from the viewport edges, creating a more
               modern and less intrusive appearance.
             </p>
@@ -382,7 +382,7 @@ Click :SourceCodeLink{component="Sheet"} to see the source code for this compone
 
 ### Interactive playground
 
-::ShowCase
+::prose-show-case
 
 :DocsSheetInteractive
 
@@ -437,9 +437,9 @@ Click :SourceCodeLink{component="Sheet"} to see the source code for this compone
           <template #content>
             <UiGradientDivider class="-my-2" />
             <div class="space-y-4 p-4">
-              <div class="rounded-lg border border-border bg-muted/30 p-3">
+              <div class="border-border bg-muted/30 rounded-lg border p-3">
                 <h4 class="mb-2 text-sm font-medium">Current Settings</h4>
-                <ul class="space-y-1 text-sm text-muted-foreground">
+                <ul class="text-muted-foreground space-y-1 text-sm">
                   <li>
                     <span class="font-medium">Variant:</span>
                     {{ variantOptions.find((opt) => opt.value === variant)?.label || "Default" }}
@@ -454,7 +454,7 @@ Click :SourceCodeLink{component="Sheet"} to see the source code for this compone
                   </li>
                 </ul>
               </div>
-              <p class="text-sm text-muted-foreground">
+              <p class="text-muted-foreground text-sm">
                 Try changing the controls above and reopening the sheet to see the different
                 configurations in action.
               </p>
@@ -498,7 +498,7 @@ Click :SourceCodeLink{component="Sheet"} to see the source code for this compone
 
 ### Fullscreen control
 
-::ShowCase
+::prose-show-case
 
 :DocsSheetFullscreen
 
@@ -562,13 +562,13 @@ Click :SourceCodeLink{component="Sheet"} to see the source code for this compone
         >
           <template #content>
             <div class="space-y-4 p-4">
-              <p class="text-sm text-muted-foreground">
+              <p class="text-muted-foreground text-sm">
                 Toggle fullscreen to make the sheet occupy the screen. Choose the floating variant
                 to keep a margin around the edges when fullscreen is on.
               </p>
-              <div class="rounded-lg border border-border bg-muted/40 p-3 text-sm">
+              <div class="border-border bg-muted/40 rounded-lg border p-3 text-sm">
                 <div class="font-medium">Current settings</div>
-                <ul class="space-y-1 text-muted-foreground">
+                <ul class="text-muted-foreground space-y-1">
                   <li>Variant: {{ variant }}</li>
                   <li>Side: {{ side }}</li>
                   <li>Blur: {{ isBlurred ? "Yes" : "No" }}</li>

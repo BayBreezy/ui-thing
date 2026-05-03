@@ -17,9 +17,9 @@
 
   const props = defineProps<
     MenubarItemIndicatorProps & {
-      /** The icon to display */
+      /** The icon to display. */
       icon?: string;
-      /** The class(es) to apply to the parent */
+      /** The class(es) to apply to the parent. */
       class?: HTMLAttributes["class"];
     }
   >();

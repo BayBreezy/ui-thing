@@ -52,7 +52,7 @@
   <div>
     <div>
       <h3 class="text-lg font-semibold">Column Reorder</h3>
-      <p class="mb-2 text-sm text-muted-foreground">
+      <p class="text-muted-foreground mb-2 text-sm">
         You can reorder the columns by dragging and dropping the column header.
       </p>
       <div class="mb-4 flex gap-2">
@@ -78,17 +78,19 @@
 </template>
 
 <style scoped>
-  @reference "~/assets/css/tailwind.css";
-
   :deep(.dataTable) {
     .dtcr-moving-first {
-      @apply border-l border-primary;
+      border-left-style: var(--tw-border-style);
+      border-left-width: 1px;
+      border-color: var(--color-primary);
     }
     .dtcr-moving-last {
-      @apply border-r border-primary;
+      border-right-style: var(--tw-border-style);
+      border-right-width: 1px;
+      border-color: var(--color-primary);
     }
     thead > tr {
-      @apply bg-muted/50;
+      background-color: color-mix(in oklab, var(--color-muted) 50%, transparent);
     }
   }
 </style>

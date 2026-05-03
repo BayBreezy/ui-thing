@@ -23,7 +23,7 @@
             <div
               v-for="(plan, index) in plans"
               :key="index"
-              class="relative flex w-full items-center gap-4 rounded-lg border border-input p-4 shadow-xs shadow-black/5 has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent md:gap-2"
+              class="border-input has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent relative flex w-full items-center gap-4 rounded-lg border p-4 shadow-xs shadow-black/5 md:gap-2"
             >
               <UiRadioGroupItem
                 :id="plan.value"
@@ -44,11 +44,11 @@
             <p>
               <strong class="font-medium md:text-sm">Features include:</strong>
             </p>
-            <ul class="flex flex-col gap-3 text-muted-foreground md:text-sm">
+            <ul class="text-muted-foreground flex flex-col gap-3 md:text-sm">
               <li v-for="f in features" :key="f" class="flex gap-2">
                 <Icon
                   name="lucide:circle-check"
-                  class="mt-0.5 size-6 shrink-0 text-primary md:size-4"
+                  class="text-primary mt-0.5 size-6 shrink-0 md:size-4"
                   aria-hidden="true"
                 />
                 {{ f }}

@@ -18,8 +18,8 @@
     }"
   >
     <UiCard class="relative overflow-hidden shadow-xs">
-      <div class="absolute top-0 right-0 size-40 bg-primary/10 blur-3xl" />
-      <div class="absolute bottom-0 left-0 size-52 bg-primary/5 blur-3xl" />
+      <div class="bg-primary/10 absolute top-0 right-0 size-40 blur-3xl" />
+      <div class="bg-primary/5 absolute bottom-0 left-0 size-52 blur-3xl" />
 
       <UiCardContent class="relative">
         <div class="mb-6 flex items-start justify-between">
@@ -55,9 +55,9 @@
                 transition: { type: 'spring', stiffness: 200, damping: 15 },
               },
             }"
-            class="flex size-14 shrink-0 items-center justify-center rounded-full bg-radial via-transparent via-40% to-primary/40"
+            class="to-primary/40 flex size-14 shrink-0 items-center justify-center rounded-full bg-radial via-transparent via-40%"
           >
-            <Icon name="lucide:newspaper" class="size-5 text-primary" />
+            <Icon name="lucide:newspaper" class="text-primary size-5" />
           </Motion>
         </div>
 
@@ -67,7 +67,7 @@
             initial: { opacity: 0, y: 10 },
             animate: { opacity: 1, y: 0 },
           }"
-          class="mb-6 text-muted-foreground"
+          class="text-muted-foreground mb-6"
         >
           Subscribe to receive curated articles, industry news, and expert tips delivered weekly.
         </Motion>
@@ -80,15 +80,15 @@
           class="mb-6 space-y-2"
         >
           <div class="flex items-center gap-2 text-sm">
-            <Icon name="lucide:check-circle-2" class="size-4 text-primary" />
+            <Icon name="lucide:check-circle-2" class="text-primary size-4" />
             <span>Exclusive content and early access</span>
           </div>
           <div class="flex items-center gap-2 text-sm">
-            <Icon name="lucide:check-circle-2" class="size-4 text-primary" />
+            <Icon name="lucide:check-circle-2" class="text-primary size-4" />
             <span>No spam, unsubscribe anytime</span>
           </div>
           <div class="flex items-center gap-2 text-sm">
-            <Icon name="lucide:check-circle-2" class="size-4 text-primary" />
+            <Icon name="lucide:check-circle-2" class="text-primary size-4" />
             <span>Join 10,000+ readers worldwide</span>
           </div>
         </Motion>

@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Our Journey</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         From humble beginnings to industry leader
       </p>
     </div>
@@ -16,18 +16,18 @@
         <div v-for="milestone in milestones" :key="milestone.year" class="relative pb-8 last:pb-0">
           <div class="absolute top-0 -left-[35px] flex h-full items-center justify-center">
             <div
-              class="h-full w-0.5 rounded-full bg-linear-to-b from-transparent via-border to-transparent"
+              class="via-border h-full w-0.5 rounded-full bg-linear-to-b from-transparent to-transparent"
             />
           </div>
           <div
-            class="absolute -left-[53px] flex size-10 items-center justify-center rounded-full border-4 border-background bg-primary"
+            class="border-background bg-primary absolute -left-[53px] flex size-10 items-center justify-center rounded-full border-4"
           >
-            <Icon :name="milestone.icon" class="size-4 text-primary-foreground" />
+            <Icon :name="milestone.icon" class="text-primary-foreground size-4" />
           </div>
           <div class="pt-2">
             <UiBadge variant="outline" class="mb-2">{{ milestone.year }}</UiBadge>
             <h3 class="text-xl font-semibold">{{ milestone.title }}</h3>
-            <p class="mt-2 max-w-3xl text-pretty text-muted-foreground">
+            <p class="text-muted-foreground mt-2 max-w-3xl text-pretty">
               {{ milestone.description }}
             </p>
           </div>

@@ -37,7 +37,7 @@
     </template>
     <template #content>
       <UiCardContent>
-        <div class="flex space-x-4 text-sm text-muted-foreground">
+        <div class="text-muted-foreground flex space-x-4 text-sm">
           <div class="flex items-center">
             <Icon name="lucide:circle" class="mr-1 h-3 w-3 fill-sky-400 text-sky-400" />
             TypeScript

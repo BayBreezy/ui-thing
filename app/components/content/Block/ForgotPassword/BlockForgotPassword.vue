@@ -5,14 +5,14 @@
     />
     <div class="relative z-2 w-full max-w-[340px] px-5">
       <div
-        class="mx-auto mb-6 flex size-14 items-center justify-center rounded-lg border bg-background"
+        class="bg-background mx-auto mb-6 flex size-14 items-center justify-center rounded-lg border"
       >
         <Icon class="size-6" name="lucide:key-round" />
       </div>
 
       <div class="flex flex-col items-center text-center">
         <h1 class="text-2xl font-bold tracking-tight lg:text-3xl">{{ title }}</h1>
-        <p class="mt-1 text-muted-foreground">{{ description }}</p>
+        <p class="text-muted-foreground mt-1">{{ description }}</p>
       </div>
 
       <form class="mt-10" @submit="submit">
@@ -22,7 +22,7 @@
         </fieldset>
       </form>
       <p class="mt-8 text-center text-sm">
-        <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#"
+        <NuxtLink class="text-primary font-semibold underline-offset-2 hover:underline" to="#"
           >Back to Log in</NuxtLink
         >
       </p>

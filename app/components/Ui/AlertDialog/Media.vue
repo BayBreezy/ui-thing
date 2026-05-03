@@ -16,7 +16,7 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
-        /** Custom class(es) to add to the element */
+        /** Custom class(es) to add to the element. */
         class?: any;
       }
     >(),
@@ -27,6 +27,6 @@
   );
   const forwarded = reactiveOmit(props, "class");
   const styles = tv({
-    base: "mb-2 inline-flex size-10 items-center justify-center rounded-md bg-muted sm:group-data-[size=default]/alert-dialog-content:row-span-2 *:[svg:not([class*='size-'])]:size-6",
+    base: "bg-muted mb-2 inline-flex size-10 items-center justify-center rounded-md sm:group-data-[size=default]/alert-dialog-content:row-span-2 *:[svg:not([class*='size-'])]:size-6",
   });
 </script>

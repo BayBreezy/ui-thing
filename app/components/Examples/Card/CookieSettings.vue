@@ -5,7 +5,7 @@
         <div class="flex justify-between space-x-2">
           <UiLabel for="necessary" class="flex flex-col items-start gap-1">
             <span>Strictly Necessary</span>
-            <span class="leading-snug font-normal text-muted-foreground">
+            <span class="text-muted-foreground leading-snug font-normal">
               These cookies are essential in order to use the website and use its features.
             </span>
           </UiLabel>
@@ -14,7 +14,7 @@
         <div class="flex justify-between space-x-2">
           <UiLabel for="functional" class="flex flex-col items-start gap-1">
             <span>Functional Cookies</span>
-            <span class="leading-snug font-normal text-muted-foreground">
+            <span class="text-muted-foreground leading-snug font-normal">
               These cookies allow the website to provide personalized functionality.
             </span>
           </UiLabel>
@@ -23,7 +23,7 @@
         <div class="flex justify-between space-x-2">
           <UiLabel for="performance" class="flex flex-col items-start gap-1">
             <span>Performance Cookies</span>
-            <span class="leading-snug font-normal text-muted-foreground">
+            <span class="text-muted-foreground leading-snug font-normal">
               These cookies help to improve the performance of the website.
             </span>
           </UiLabel>

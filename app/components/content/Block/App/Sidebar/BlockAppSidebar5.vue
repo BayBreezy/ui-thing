@@ -7,15 +7,15 @@
             <UiAvatar src="/icon.png" alt="Company Logo" class="size-8 rounded object-contain" />
             <div>
               <p class="font-bold">{{ COMPANY_NAME }}</p>
-              <p class="text-xs text-muted-foreground">Admin Dashboard</p>
+              <p class="text-muted-foreground text-xs">Admin Dashboard</p>
             </div>
           </NuxtLink>
         </div>
 
         <div class="flex-1 p-4">
-          <div class="relative mb-4 flex flex-col gap-2 rounded-lg border p-3 dark:bg-primary/5">
+          <div class="dark:bg-primary/5 relative mb-4 flex flex-col gap-2 rounded-lg border p-3">
             <div class="mb-2 flex items-center gap-2">
-              <Icon name="lucide:zap" class="size-3.5 text-primary" />
+              <Icon name="lucide:zap" class="text-primary size-3.5" />
               <span class="text-sm font-medium">Quick Actions</span>
             </div>
             <div class="grid grid-cols-2 gap-2">
@@ -34,7 +34,7 @@
           <nav class="flex flex-col gap-6">
             <div v-for="(section, index) in sections" :key="index">
               <div class="mb-2 px-2">
-                <span class="text-xs tracking-wider text-muted-foreground/70 uppercase">{{
+                <span class="text-muted-foreground/70 text-xs tracking-wider uppercase">{{
                   section.title
                 }}</span>
               </div>
@@ -47,7 +47,7 @@
                     variant="ghost"
                     class="justify-start gap-3 px-2"
                   >
-                    <Icon v-if="item.icon" :name="item.icon" class="size-4 text-muted-foreground" />
+                    <Icon v-if="item.icon" :name="item.icon" class="text-muted-foreground size-4" />
                     <span>{{ item.title }}</span>
                     <UiBadge
                       v-if="item.badge"
@@ -67,12 +67,12 @@
                         <Icon
                           v-if="item.icon"
                           :name="item.icon"
-                          class="size-4 text-muted-foreground"
+                          class="text-muted-foreground size-4"
                         />
                         <span>{{ item.title }}</span>
                         <Icon
                           name="lucide:chevron-down"
-                          class="ml-auto size-4 text-muted-foreground transition group-data-[state=open]:rotate-180"
+                          class="text-muted-foreground ml-auto size-4 transition group-data-[state=open]:rotate-180"
                         />
                       </UiButton>
                     </UiCollapsibleTrigger>
@@ -100,12 +100,12 @@
             <UiAvatar :src="user.avatar" class="size-10" />
             <div class="flex-1">
               <p class="text-sm font-semibold">{{ user.username }}</p>
-              <p class="text-xs text-muted-foreground">{{ user.email }}</p>
+              <p class="text-muted-foreground text-xs">{{ user.email }}</p>
             </div>
             <UiDropdownMenu>
               <UiDropdownMenuTrigger as-child>
                 <UiButton size="icon-sm" variant="ghost">
-                  <Icon name="lucide:more-vertical" class="size-4 text-muted-foreground" />
+                  <Icon name="lucide:more-vertical" class="text-muted-foreground size-4" />
                 </UiButton>
               </UiDropdownMenuTrigger>
               <UiDropdownMenuContent align="end">
@@ -126,7 +126,7 @@
             </UiDropdownMenu>
           </div>
           <UiProgress :model-value="storageUsed" class="h-1.5" />
-          <p class="mt-2 text-xs text-muted-foreground">{{ storageUsed }}% storage used</p>
+          <p class="text-muted-foreground mt-2 text-xs">{{ storageUsed }}% storage used</p>
         </div>
       </div>
     </UiScrollArea>

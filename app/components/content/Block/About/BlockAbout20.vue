@@ -5,14 +5,14 @@
   -->
   <div>
     <!-- Hero Section -->
-    <div class="border-b bg-muted/30">
+    <div class="bg-muted/30 border-b">
       <div class="container py-16 md:py-24">
         <div class="mx-auto max-w-3xl text-center">
           <UiBadge class="mb-4">About Us</UiBadge>
           <h1 class="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
             Building the Future, Together
           </h1>
-          <p class="mt-6 text-xl text-muted-foreground">
+          <p class="text-muted-foreground mt-6 text-xl">
             We're on a mission to empower businesses with technology that transforms how they work,
             grow, and succeed.
           </p>
@@ -25,8 +25,8 @@
       <div class="container py-12">
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div v-for="stat in stats" :key="stat.label" class="text-center">
-            <div class="text-4xl font-bold text-primary">{{ stat.value }}</div>
-            <div class="mt-2 text-sm text-muted-foreground">{{ stat.label }}</div>
+            <div class="text-primary text-4xl font-bold">{{ stat.value }}</div>
+            <div class="text-muted-foreground mt-2 text-sm">{{ stat.label }}</div>
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@
       <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <h2 class="text-3xl font-bold">Our Story</h2>
-          <div class="mt-6 space-y-4 text-muted-foreground">
+          <div class="text-muted-foreground mt-6 space-y-4">
             <p>
               Founded in 2015, we started with a simple idea: technology should empower people, not
               complicate their lives. What began as a small team working from a garage has grown
@@ -65,20 +65,20 @@
     </div>
 
     <!-- Values Section -->
-    <div class="border-y bg-muted/30">
+    <div class="bg-muted/30 border-y">
       <div class="container py-16 md:py-24">
         <div class="text-center">
           <h2 class="text-3xl font-bold">Our Values</h2>
-          <p class="mt-4 text-muted-foreground">The principles that guide everything we do</p>
+          <p class="text-muted-foreground mt-4">The principles that guide everything we do</p>
         </div>
         <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <UiCard v-for="value in values" :key="value.title">
             <UiCardContent>
-              <div class="flex size-12 items-center justify-center rounded-xl bg-primary/10">
-                <Icon :name="value.icon" class="size-6 text-primary" />
+              <div class="bg-primary/10 flex size-12 items-center justify-center rounded-xl">
+                <Icon :name="value.icon" class="text-primary size-6" />
               </div>
               <h3 class="mt-4 font-bold">{{ value.title }}</h3>
-              <p class="mt-2 text-sm text-muted-foreground">{{ value.description }}</p>
+              <p class="text-muted-foreground mt-2 text-sm">{{ value.description }}</p>
             </UiCardContent>
           </UiCard>
         </div>
@@ -89,23 +89,23 @@
     <div class="container py-16 md:py-24">
       <div class="text-center">
         <h2 class="text-3xl font-bold">Leadership Team</h2>
-        <p class="mt-4 text-muted-foreground">Meet the people driving our vision</p>
+        <p class="text-muted-foreground mt-4">Meet the people driving our vision</p>
       </div>
       <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         <div v-for="leader in leaders" :key="leader.name" class="text-center">
           <UiAvatar :src="leader.image" :alt="leader.name" class="mx-auto size-24" />
           <h3 class="mt-4 font-semibold">{{ leader.name }}</h3>
-          <p class="text-sm text-primary">{{ leader.role }}</p>
+          <p class="text-primary text-sm">{{ leader.role }}</p>
         </div>
       </div>
     </div>
 
     <!-- CTA Section -->
-    <div class="border-t bg-muted/30">
+    <div class="bg-muted/30 border-t">
       <div class="container py-16 md:py-24">
         <div class="mx-auto max-w-2xl text-center">
           <h2 class="text-3xl font-bold">Ready to Get Started?</h2>
-          <p class="mt-4 text-lg text-muted-foreground">
+          <p class="text-muted-foreground mt-4 text-lg">
             Join thousands of companies already using our platform to transform their business.
           </p>
           <div class="mt-8 flex flex-wrap justify-center gap-4">

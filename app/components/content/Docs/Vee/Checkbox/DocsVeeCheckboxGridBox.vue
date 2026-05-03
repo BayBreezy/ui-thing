@@ -4,7 +4,7 @@
       <div
         v-for="item in items"
         :key="item.id"
-        class="relative flex cursor-pointer flex-col gap-4 rounded-lg border border-input p-4 shadow-xs shadow-black/5 has-[[data-state=checked]]:border-ring"
+        class="border-input has-[[data-state=checked]]:border-ring relative flex cursor-pointer flex-col gap-4 rounded-lg border p-4 shadow-xs shadow-black/5"
       >
         <div class="flex justify-between gap-2">
           <UiVeeCheckbox

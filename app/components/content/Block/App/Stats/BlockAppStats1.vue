@@ -20,7 +20,7 @@
       <UiFancyIcon v-if="props.icon" class="mb-6 bg-transparent" :icon="props.icon" />
       <p
         v-if="props.subHeader"
-        class="mb-2 text-sm font-medium text-muted-foreground"
+        class="text-muted-foreground mb-2 text-sm font-medium"
         v-html="props.subHeader"
       />
       <div class="flex items-end justify-between gap-5">
@@ -29,7 +29,7 @@
       </div>
       <p
         v-if="props.subText"
-        class="mt-4 text-sm font-medium text-muted-foreground"
+        class="text-muted-foreground mt-4 text-sm font-medium"
         v-html="props.subText"
       />
     </UiCardContent>

@@ -19,7 +19,7 @@
               <UiTooltipTrigger as-child>
                 <UiSliderThumb
                   as="span"
-                  class="block size-4 shrink-0 rounded-full border border-primary bg-background shadow-sm ring-ring/50 transition-[color,box-shadow] outline-none hover:ring-4 focus-visible:ring-4 disabled:pointer-events-none disabled:opacity-50"
+                  class="border-primary bg-background ring-ring/50 block size-4 shrink-0 rounded-full border shadow-sm transition-[color,box-shadow] outline-none hover:ring-4 focus-visible:ring-4 disabled:pointer-events-none disabled:opacity-50"
                   data-slot="slider-thumb"
                   @pointerdown="handlePointerDown"
                 />
@@ -51,7 +51,7 @@
   const props = withDefaults(
     defineProps<
       SliderRootProps & {
-        /** Custom class(es) to add to parent element */
+        /** Custom class(es) to add to parent element. */
         class?: HTMLAttributes["class"];
         showTooltip?: boolean;
       }

@@ -3,7 +3,7 @@
     <template #folder>
       <UiDropdownMenu v-model:open="open">
         <UiDropdownMenuTrigger
-          class="flex items-center justify-center text-muted-foreground hover:text-foreground"
+          class="text-muted-foreground hover:text-foreground flex items-center justify-center"
         >
           <Icon :name="open ? 'lucide:folder-open-dot' : 'lucide:folder'" class="size-4" />
           <span class="sr-only">Toggle folder</span>

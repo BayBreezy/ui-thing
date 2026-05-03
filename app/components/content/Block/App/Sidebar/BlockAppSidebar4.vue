@@ -8,12 +8,12 @@
     >
       <!-- absolute button that is displayed when sidebar is collapsed -->
       <UiButton size="icon-sm" variant="outline" @click="isExpanded = !isExpanded">
-        <Icon name="lucide:panel-left-close" class="size-4 text-muted-foreground" />
+        <Icon name="lucide:panel-left-close" class="text-muted-foreground size-4" />
       </UiButton>
     </Motion>
 
     <aside
-      class="relative flex h-screen w-[280px] flex-col overflow-y-auto border-r bg-muted/30 transition-transform duration-300 ease-in-out"
+      class="bg-muted/30 relative flex h-screen w-[280px] flex-col overflow-y-auto border-r transition-transform duration-300 ease-in-out"
       :class="[isExpanded ? 'translate-x-0' : '-translate-x-full']"
     >
       <div class="flex items-center justify-between border-b p-4">
@@ -22,7 +22,7 @@
           <span class="font-bold">{{ COMPANY_NAME }}</span>
         </NuxtLink>
         <UiButton size="icon-sm" variant="ghost" @click="isExpanded = !isExpanded">
-          <Icon name="lucide:panel-left-close" class="size-4 text-muted-foreground" />
+          <Icon name="lucide:panel-left-close" class="text-muted-foreground size-4" />
         </UiButton>
       </div>
 
@@ -34,7 +34,7 @@
 
           <div class="mb-6">
             <div class="mb-2 flex items-center justify-between px-2">
-              <span class="text-xs font-semibold tracking-wider text-muted-foreground uppercase"
+              <span class="text-muted-foreground text-xs font-semibold tracking-wider uppercase"
                 >Main Menu</span
               >
               <UiBadge variant="secondary" class="h-5 px-1.5 text-xs">{{
@@ -55,7 +55,7 @@
                   variant="ghost"
                   class="w-full justify-start gap-3 px-2"
                 >
-                  <Icon v-if="n.icon" :name="n.icon" class="size-4 text-muted-foreground" />
+                  <Icon v-if="n.icon" :name="n.icon" class="text-muted-foreground size-4" />
                   <span>{{ n.title }}</span>
                   <UiBadge v-if="n.badge" variant="secondary" class="ml-auto h-5 px-1.5 text-xs">
                     {{ n.badge }}
@@ -67,11 +67,11 @@
 
           <div class="mb-6">
             <div class="mb-2 flex items-center justify-between px-2">
-              <span class="text-xs font-semibold tracking-wider text-muted-foreground uppercase"
+              <span class="text-muted-foreground text-xs font-semibold tracking-wider uppercase"
                 >Workspaces</span
               >
               <UiButton size="icon-sm" variant="ghost">
-                <Icon name="lucide:plus" class="size-3 text-muted-foreground" />
+                <Icon name="lucide:plus" class="text-muted-foreground size-3" />
               </UiButton>
             </div>
             <nav class="flex flex-col gap-0.5">
@@ -97,7 +97,7 @@
 
           <div>
             <div class="mb-2 px-2">
-              <span class="text-xs font-semibold tracking-wider text-muted-foreground uppercase"
+              <span class="text-muted-foreground text-xs font-semibold tracking-wider uppercase"
                 >Settings</span
               >
             </div>
@@ -115,7 +115,7 @@
                   variant="ghost"
                   class="w-full justify-start gap-3 px-2"
                 >
-                  <Icon v-if="s.icon" :name="s.icon" class="size-4 text-muted-foreground" />
+                  <Icon v-if="s.icon" :name="s.icon" class="text-muted-foreground size-4" />
                   <span>{{ s.title }}</span>
                 </UiButton>
               </Motion>
@@ -129,12 +129,12 @@
           <UiAvatar :src="user.avatar" class="size-9" />
           <div class="flex-1 overflow-hidden">
             <p class="truncate text-sm font-semibold">{{ user.username }}</p>
-            <p class="truncate text-xs text-muted-foreground">{{ user.role }}</p>
+            <p class="text-muted-foreground truncate text-xs">{{ user.role }}</p>
           </div>
           <UiDropdownMenu>
             <UiDropdownMenuTrigger as-child>
               <UiButton size="icon-sm" variant="ghost">
-                <Icon name="lucide:more-horizontal" class="size-4 text-muted-foreground" />
+                <Icon name="lucide:more-horizontal" class="text-muted-foreground size-4" />
               </UiButton>
             </UiDropdownMenuTrigger>
             <UiDropdownMenuContent align="end" side="right">

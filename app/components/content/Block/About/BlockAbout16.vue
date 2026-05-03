@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Meet Our Team</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         The talented people behind our success
       </p>
     </div>
@@ -24,14 +24,14 @@
             </div>
             <UiCardContent>
               <h3 class="font-semibold">{{ member.name }}</h3>
-              <p class="text-sm text-primary">{{ member.role }}</p>
-              <p class="mt-2 text-xs text-muted-foreground">{{ member.department }}</p>
+              <p class="text-primary text-sm">{{ member.role }}</p>
+              <p class="text-muted-foreground mt-2 text-xs">{{ member.department }}</p>
               <div class="mt-3 flex gap-2">
                 <a
                   v-for="social in member.socials"
                   :key="social.platform"
                   :href="social.url"
-                  class="text-muted-foreground transition-colors hover:text-foreground"
+                  class="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Icon :name="social.icon" class="size-4" />
                 </a>
@@ -65,7 +65,7 @@
 
     <div class="mx-auto mt-12 max-w-2xl text-center">
       <h3 class="text-xl font-bold">Join Our Growing Team</h3>
-      <p class="mt-2 text-muted-foreground">
+      <p class="text-muted-foreground mt-2">
         We're always looking for talented individuals who share our passion for innovation and
         excellence.
       </p>

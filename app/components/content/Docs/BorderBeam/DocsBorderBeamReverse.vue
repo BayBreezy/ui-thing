@@ -1,5 +1,5 @@
 <template>
-  <UiCard class="relative mx-auto w-[350px] overflow-hidden border-border/30">
+  <UiCard class="border-border/30 relative mx-auto w-[350px] overflow-hidden">
     <UiCardHeader>
       <UiCardTitle>Login</UiCardTitle>
       <UiCardDescription> Enter your credentials to access your account. </UiCardDescription>

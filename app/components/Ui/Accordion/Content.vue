@@ -21,9 +21,9 @@
 
   const props = defineProps<
     AccordionContentProps & {
-      /** Custom class(es) to add to the parent */
+      /** Custom class(es) to add to the parent. */
       class?: HTMLAttributes["class"];
-      /** The content of the accordion */
+      /** The content of the accordion. */
       content?: any;
     }
   >();
@@ -31,6 +31,11 @@
   const forwarded = reactiveOmit(props, "class", "content");
 
   const styles = tv({
-    base: "overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
+    base: "data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm",
   });
+
+  defineSlots<{
+    /** Default slot for the accordion content. */
+    default: () => any;
+  }>();
 </script>

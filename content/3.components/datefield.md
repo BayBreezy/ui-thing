@@ -4,7 +4,7 @@ description: Enables users to input specific dates within a designated field.
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/date-field
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/date-field#api-reference
     icon: "icon-park-solid:api"
@@ -20,7 +20,7 @@ Click :SourceCodeLink{component="DateField.vue"} to see the source code for this
 
 ## Usage
 
-::ShowCase
+::prose-show-case
 
 :DocsDateField
 
@@ -31,7 +31,7 @@ Click :SourceCodeLink{component="DateField.vue"} to see the source code for this
 ```vue [DocsDateField.vue]
 <template>
   <div class="flex w-full flex-col justify-center">
-    <UiLabel v-if="value" for="text-date" class="mb-2 text-sm text-muted-foreground">
+    <UiLabel v-if="value" for="text-date" class="text-muted-foreground mb-2 text-sm">
       The entered date is {{ formattedValue }}
     </UiLabel>
     <UiDateField id="text-date" v-model="value" />

@@ -7,7 +7,7 @@
       <UiDialogContent class="sm:max-w-[400px]">
         <div class="mb-2 flex flex-col items-center gap-2">
           <div
-            class="flex size-11 shrink-0 items-center justify-center rounded-full border border-border"
+            class="border-border flex size-11 shrink-0 items-center justify-center rounded-full border"
             aria-hidden="true"
           >
             <svg
@@ -41,7 +41,7 @@
           <UiButton type="button" class="w-full"> Subscribe </UiButton>
         </form>
 
-        <p class="text-center text-xs text-muted-foreground">
+        <p class="text-muted-foreground text-center text-xs">
           By subscribing you agree to our
           <a class="underline hover:no-underline" href="#"> Privacy Policy </a>
           .

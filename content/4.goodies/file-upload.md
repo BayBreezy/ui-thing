@@ -10,9 +10,9 @@ description: Components used to allow users to upload files to your application.
 
 ## Getting Started
 
-:::Steps
+:::prose-steps
 
-::Step
+::prose-step
 
 ### Installation
 
@@ -21,7 +21,7 @@ Add the following packages to your project
 :prose-pm-install{name="@vueuse/core"}
 
 ::
-::Step
+::prose-step
 
 ### Add Composable
 
@@ -37,7 +37,7 @@ Add the following composable to your `composables` directory
 
 ### Avatar Upload 1
 
-::ShowCase
+::prose-show-case
 
 :DocsFileUploadAvatarUpload1
 
@@ -50,7 +50,7 @@ Add the following composable to your `composables` directory
   <div class="flex flex-col items-center">
     <div class="inline-flex items-center gap-2 align-top">
       <div
-        class="relative flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-md border border-input"
+        class="border-input relative flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-md border"
         :aria-label="previewUrl ? 'Preview of uploaded image' : 'Default user avatar'"
       >
         <img
@@ -75,7 +75,7 @@ Add the following composable to your `composables` directory
     </div>
     <div v-if="file" class="mt-2">
       <div class="inline-flex gap-2 text-xs">
-        <p class="truncate text-muted-foreground" aria-live="polite">
+        <p class="text-muted-foreground truncate" aria-live="polite">
           {{ file?.file?.name }}
         </p>
         <button
@@ -98,7 +98,7 @@ Add the following composable to your `composables` directory
         :initial="{ opacity: 0, scale: 0.95 }"
         :animate="{ opacity: 1, scale: 1, transition: { duration: 0.2 } }"
         :exit="{ opacity: 0, y: 20, transition: { duration: 0.15 } }"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-background/50 backdrop-blur-md"
+        class="bg-background/50 fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md"
       >
         <div class="relative">
           <div class="absolute -top-4 -right-4">
@@ -110,7 +110,7 @@ Add the following composable to your `composables` directory
           <img
             v-if="previewUrl"
             ref="imageDialog"
-            class="max-h-full max-w-full rounded-lg border border-input bg-background"
+            class="border-input bg-background max-h-full max-w-full rounded-lg border"
             :src="previewUrl"
             alt="Preview of uploaded image"
             width="300"
@@ -153,7 +153,7 @@ Add the following composable to your `composables` directory
 
 ### Avatar Upload 2
 
-::ShowCase
+::prose-show-case
 
 :DocsFileUploadAvatarUpload2
 
@@ -169,7 +169,7 @@ Add the following composable to your `composables` directory
       <div
         ref="dropzoneRef"
         role="button"
-        class="relative flex size-26 items-center justify-center overflow-hidden rounded-full border border-dashed border-input transition-colors hover:bg-accent/50 has-disabled:pointer-events-none has-disabled:opacity-50 has-[img]:border-none has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50"
+        class="border-input hover:bg-accent/50 has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 relative flex size-26 items-center justify-center overflow-hidden rounded-full border border-dashed transition-colors has-disabled:pointer-events-none has-disabled:opacity-50 has-[img]:border-none has-[input:focus]:ring-[3px]"
         @click="openFileDialog"
       >
         <input ref="inputRef" hidden aria-label="Upload image file" />
@@ -189,7 +189,7 @@ Add the following composable to your `composables` directory
       <UiButton
         v-if="currentFile"
         size="icon"
-        class="absolute -top-1 -right-1 size-6 rounded-full border-2 border-background shadow-none focus-visible:border-background"
+        class="border-background focus-visible:border-background absolute -top-1 -right-1 size-6 rounded-full border-2 shadow-none"
         aria-label="Remove image"
         @click="removeFile(currentFile.id)"
       >
@@ -197,7 +197,7 @@ Add the following composable to your `composables` directory
       </UiButton>
     </div>
     <p class="text-sm font-bold">Upload Avatar</p>
-    <p aria-live="polite" role="region" class="text-xs text-muted-foreground">
+    <p aria-live="polite" role="region" class="text-muted-foreground text-xs">
       Avatar uploader with droppable area
     </p>
   </div>
@@ -220,7 +220,7 @@ Add the following composable to your `composables` directory
 
 ### Single Image Uploader
 
-::ShowCase
+::prose-show-case
 
 :DocsFileUploadSingleImageUploader
 
@@ -236,7 +236,7 @@ Add the following composable to your `composables` directory
       <div
         ref="dropzoneRef"
         role="button"
-        class="relative flex min-h-52 flex-col items-center justify-center overflow-hidden rounded-xl border border-dashed border-input p-4 transition-colors hover:bg-accent/50 has-disabled:pointer-events-none has-disabled:opacity-50 has-[img]:border-none has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 lg:min-h-72"
+        class="border-input hover:bg-accent/50 has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 relative flex min-h-52 flex-col items-center justify-center overflow-hidden rounded-xl border border-dashed p-4 transition-colors has-disabled:pointer-events-none has-disabled:opacity-50 has-[img]:border-none has-[input:focus]:ring-[3px] lg:min-h-72"
         @click="openFileDialog"
       >
         <input ref="inputRef" hidden aria-label="Upload file" />
@@ -249,19 +249,19 @@ Add the following composable to your `composables` directory
         </div>
         <div v-else class="flex flex-col items-center justify-center px-4 py-3 text-center">
           <div
-            class="mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border bg-background"
+            class="bg-background mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border"
             aria-hidden="true"
           >
             <Icon name="lucide:image-up" class="size-4 opacity-60" />
           </div>
           <p class="mb-1.5 text-sm font-medium">Drop your image here or click to browse</p>
-          <p class="text-xs text-muted-foreground">Max size: {{ maxSizeMB }}MB</p>
+          <p class="text-muted-foreground text-xs">Max size: {{ maxSizeMB }}MB</p>
         </div>
       </div>
       <div v-if="currentFile" class="absolute top-3 right-3">
         <button
           type="button"
-          class="z-50 flex size-8 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white transition-[color,box-shadow] outline-none hover:bg-black/80 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
+          class="focus-visible:border-ring focus-visible:ring-ring/50 z-50 flex size-8 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white transition-[color,box-shadow] outline-none hover:bg-black/80 focus-visible:ring-[3px]"
           aria-label="Remove image"
           @click="removeFile(currentFile.id)"
         >
@@ -272,14 +272,14 @@ Add the following composable to your `composables` directory
 
     <div
       v-if="errors.length > 0"
-      class="flex items-center gap-1 text-xs text-destructive"
+      class="text-destructive flex items-center gap-1 text-xs"
       role="alert"
     >
       <Icon name="lucide:circle-alert" class="size-3 shrink-0" />
       <span>{{ errors[0] }}</span>
     </div>
 
-    <p aria-live="polite" role="region" class="mt-2 text-center text-xs text-muted-foreground">
+    <p aria-live="polite" role="region" class="text-muted-foreground mt-2 text-center text-xs">
       Single image uploader w/ max size
     </p>
   </div>
@@ -304,7 +304,7 @@ Add the following composable to your `composables` directory
 
 ### Single Image Uploader w/ Button
 
-::ShowCase
+::prose-show-case
 
 :DocsFileUploadSingleImageUploaderButton
 
@@ -319,7 +319,7 @@ Add the following composable to your `composables` directory
       <!-- Drop area -->
       <div
         ref="dropzoneRef"
-        class="relative flex min-h-52 flex-col items-center justify-center overflow-hidden rounded-xl border border-dashed border-input p-4 transition-colors has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 lg:min-h-64"
+        class="border-input has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 relative flex min-h-52 flex-col items-center justify-center overflow-hidden rounded-xl border border-dashed p-4 transition-colors has-[input:focus]:ring-[3px] lg:min-h-64"
       >
         <input ref="inputRef" hidden aria-label="Upload image file" />
         <div v-if="currentFile" class="absolute inset-0 flex items-center justify-center p-4">
@@ -331,13 +331,13 @@ Add the following composable to your `composables` directory
         </div>
         <div v-else class="flex flex-col items-center justify-center px-4 py-3 text-center">
           <div
-            class="mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border bg-background"
+            class="bg-background mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border"
             aria-hidden="true"
           >
             <Icon name="lucide:image" class="size-4 opacity-60" />
           </div>
           <p class="mb-1.5 text-sm font-medium">Drop your image here</p>
-          <p class="text-xs text-muted-foreground">SVG, PNG, JPG or GIF (max. {{ maxSizeMB }}MB)</p>
+          <p class="text-muted-foreground text-xs">SVG, PNG, JPG or GIF (max. {{ maxSizeMB }}MB)</p>
           <UiButton variant="outline" class="mt-4" @click="openFileDialog">
             <Icon name="lucide:upload" class="-ms-1 size-4 opacity-60" aria-hidden="true" />
             Select image
@@ -348,7 +348,7 @@ Add the following composable to your `composables` directory
       <div v-if="currentFile" class="absolute top-3 right-3">
         <button
           type="button"
-          class="z-50 flex size-8 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white transition-[color,box-shadow] outline-none hover:bg-black/80 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
+          class="focus-visible:border-ring focus-visible:ring-ring/50 z-50 flex size-8 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white transition-[color,box-shadow] outline-none hover:bg-black/80 focus-visible:ring-[3px]"
           aria-label="Remove image"
           @click="removeFile(currentFile.id)"
         >
@@ -359,14 +359,14 @@ Add the following composable to your `composables` directory
 
     <div
       v-if="errors.length > 0"
-      class="flex items-center gap-1 text-xs text-destructive"
+      class="text-destructive flex items-center gap-1 text-xs"
       role="alert"
     >
       <Icon name="lucide:circle-alert" class="size-3 shrink-0" />
       <span>{{ errors[0] }}</span>
     </div>
 
-    <p aria-live="polite" role="region" class="mt-2 text-center text-xs text-muted-foreground">
+    <p aria-live="polite" role="region" class="text-muted-foreground mt-2 text-center text-xs">
       Single image uploader w/ max size (drop area + button)
     </p>
   </div>
@@ -391,7 +391,7 @@ Add the following composable to your `composables` directory
 
 ### Multiple Image Uploader w/ Grid
 
-::ShowCase
+::prose-show-case
 
 :DocsFileUploadMultipleImageUploaderGrid
 
@@ -406,7 +406,7 @@ Add the following composable to your `composables` directory
     <div
       ref="dropzoneRef"
       :data-files="files.length > 0 || undefined"
-      class="relative flex min-h-52 flex-col items-center overflow-hidden rounded-xl border border-dashed border-input p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50"
+      class="border-input has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 relative flex min-h-52 flex-col items-center overflow-hidden rounded-xl border border-dashed p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:ring-[3px]"
     >
       <input ref="inputRef" hidden aria-label="Upload image file" />
       <div v-if="files.length > 0" class="flex w-full flex-col gap-3">
@@ -422,7 +422,7 @@ Add the following composable to your `composables` directory
           <div
             v-for="file in files"
             :key="file.id"
-            class="relative aspect-square rounded-md bg-accent"
+            class="bg-accent relative aspect-square rounded-md"
           >
             <img
               :src="file.preview"
@@ -431,7 +431,7 @@ Add the following composable to your `composables` directory
             />
             <UiButton
               size="icon"
-              class="absolute -top-2 -right-2 size-6 rounded-full border-2 border-background shadow-none focus-visible:border-background"
+              class="border-background focus-visible:border-background absolute -top-2 -right-2 size-6 rounded-full border-2 shadow-none"
               aria-label="Remove image"
               @click="removeFile(file.id)"
             >
@@ -442,13 +442,13 @@ Add the following composable to your `composables` directory
       </div>
       <div v-else class="flex flex-col items-center justify-center px-4 py-3 text-center">
         <div
-          class="mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border bg-background"
+          class="bg-background mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border"
           aria-hidden="true"
         >
           <Icon name="lucide:image" class="size-4 opacity-60" />
         </div>
         <p class="mb-1.5 text-sm font-medium">Drop your images here</p>
-        <p class="text-xs text-muted-foreground">SVG, PNG, JPG or GIF (max. {{ maxSizeMB }}MB)</p>
+        <p class="text-muted-foreground text-xs">SVG, PNG, JPG or GIF (max. {{ maxSizeMB }}MB)</p>
         <UiButton variant="outline" class="mt-4" @click="openFileDialog">
           <Icon name="lucide:upload" class="-ms-1 size-4 opacity-60" aria-hidden="true" />
           Select images
@@ -458,14 +458,14 @@ Add the following composable to your `composables` directory
 
     <div
       v-if="errors.length > 0"
-      class="flex items-center gap-1 text-xs text-destructive"
+      class="text-destructive flex items-center gap-1 text-xs"
       role="alert"
     >
       <Icon name="lucide:circle-alert" class="size-3 shrink-0" />
       <span>{{ errors[0] }}</span>
     </div>
 
-    <p aria-live="polite" role="region" class="mt-2 text-center text-xs text-muted-foreground">
+    <p aria-live="polite" role="region" class="text-muted-foreground mt-2 text-center text-xs">
       Multiple image uploader w/ image grid
     </p>
   </div>
@@ -524,7 +524,7 @@ Add the following composable to your `composables` directory
 
 ### Multiple Image Uploader w/ List + Button
 
-::ShowCase
+::prose-show-case
 
 :DocsFileUploadMultipleImageUploaderListButton
 
@@ -539,18 +539,18 @@ Add the following composable to your `composables` directory
     <div
       ref="dropzoneRef"
       :data-files="files.length > 0 || undefined"
-      class="relative flex min-h-52 flex-col items-center overflow-hidden rounded-xl border border-dashed border-input p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50"
+      class="border-input has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 relative flex min-h-52 flex-col items-center overflow-hidden rounded-xl border border-dashed p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:ring-[3px]"
     >
       <input ref="inputRef" hidden aria-label="Upload image file" />
       <div class="flex flex-col items-center justify-center px-4 py-3 text-center">
         <div
-          class="mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border bg-background"
+          class="bg-background mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border"
           aria-hidden="true"
         >
           <Icon name="lucide:image" class="size-4 opacity-60" />
         </div>
         <p class="mb-1.5 text-sm font-medium">Drop your images here</p>
-        <p class="text-xs text-muted-foreground">SVG, PNG, JPG or GIF (max. {{ maxSizeMB }}MB)</p>
+        <p class="text-muted-foreground text-xs">SVG, PNG, JPG or GIF (max. {{ maxSizeMB }}MB)</p>
         <UiButton variant="outline" class="mt-4" @click="openFileDialog">
           <Icon name="lucide:upload" class="-ms-1 size-4 opacity-60" aria-hidden="true" />
           Select images
@@ -560,7 +560,7 @@ Add the following composable to your `composables` directory
 
     <div
       v-if="errors.length > 0"
-      class="flex items-center gap-1 text-xs text-destructive"
+      class="text-destructive flex items-center gap-1 text-xs"
       role="alert"
     >
       <Icon name="lucide:circle-alert" class="size-3 shrink-0" />
@@ -572,10 +572,10 @@ Add the following composable to your `composables` directory
       <div
         v-for="file in files"
         :key="file.id"
-        class="flex items-center justify-between gap-2 rounded-lg border bg-background p-2 pe-3"
+        class="bg-background flex items-center justify-between gap-2 rounded-lg border p-2 pe-3"
       >
         <div class="flex items-center gap-3 overflow-hidden">
-          <div class="aspect-square shrink-0 rounded bg-accent">
+          <div class="bg-accent aspect-square shrink-0 rounded">
             <img
               :src="file.preview"
               :alt="file.file.name"
@@ -586,7 +586,7 @@ Add the following composable to your `composables` directory
             <p class="truncate text-[13px] font-medium">
               {{ file.file.name }}
             </p>
-            <p class="text-xs text-muted-foreground">
+            <p class="text-muted-foreground text-xs">
               {{ formatBytes(file.file.size) }}
             </p>
           </div>
@@ -595,7 +595,7 @@ Add the following composable to your `composables` directory
         <UiButton
           size="icon"
           variant="ghost"
-          class="-me-2 size-8 text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
+          class="text-muted-foreground/80 hover:text-foreground -me-2 size-8 hover:bg-transparent"
           aria-label="Remove file"
           @click="removeFile(file.id)"
         >
@@ -609,7 +609,7 @@ Add the following composable to your `composables` directory
       </div>
     </div>
 
-    <p aria-live="polite" role="region" class="mt-2 text-center text-xs text-muted-foreground">
+    <p aria-live="polite" role="region" class="text-muted-foreground mt-2 text-center text-xs">
       Multiple image uploader w/ image list
     </p>
   </div>
@@ -671,7 +671,7 @@ Add the following composable to your `composables` directory
 
 ### Single File Uploader
 
-::ShowCase
+::prose-show-case
 
 :DocsFileUploadSingleFileUploader
 
@@ -686,7 +686,6 @@ Add the following composable to your `composables` directory
       :variants="sequenceContainer"
       initial="hidden"
       while-in-view="visible"
-      :in-view-options="{ once: true }"
       exit="exit"
       layout="position"
       class="mx-auto flex max-w-md flex-col gap-2"
@@ -696,7 +695,7 @@ Add the following composable to your `composables` directory
         <div
           ref="dropzoneRef"
           role="button"
-          class="flex min-h-40 flex-col items-center justify-center rounded-xl border border-dashed border-input p-4 transition-colors hover:bg-accent/50 has-disabled:pointer-events-none has-disabled:opacity-50 has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50"
+          class="border-input hover:bg-accent/50 has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 flex min-h-40 flex-col items-center justify-center rounded-xl border border-dashed p-4 transition-colors has-disabled:pointer-events-none has-disabled:opacity-50 has-[input:focus]:ring-[3px]"
           @click="openFileDialog"
         >
           <input ref="inputRef" hidden aria-label="Upload file" :disabled="Boolean(currentFile)" />
@@ -704,7 +703,7 @@ Add the following composable to your `composables` directory
           <div class="flex flex-col items-center justify-center text-center">
             <Motion
               :variants="dropAreaContainerItem"
-              class="mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border bg-background"
+              class="bg-background mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border"
               aria-hidden="true"
             >
               <Icon name="lucide:upload" class="size-4 opacity-60" />
@@ -712,7 +711,7 @@ Add the following composable to your `composables` directory
             <Motion as="p" :variants="dropAreaContainerItem" class="mb-1.5 text-sm font-medium"
               >Upload file</Motion
             >
-            <Motion as="p" :variants="dropAreaContainerItem" class="text-xs text-muted-foreground">
+            <Motion as="p" :variants="dropAreaContainerItem" class="text-muted-foreground text-xs">
               Drag & drop or click to browse (max. {{ formatBytes(maxSize) }})
             </Motion>
             <AnimatePresence>
@@ -735,8 +734,10 @@ Add the following composable to your `composables` directory
         v-if="errors.length > 0"
         key="errors"
         layout="position"
+        initial="hidden"
+        animate="visible"
         :variants="fileListItem"
-        class="flex items-center gap-1 text-xs text-destructive"
+        class="text-destructive flex items-center gap-1 text-xs"
         role="alert"
       >
         <Icon name="lucide:circle-alert" class="size-3 shrink-0" />
@@ -747,6 +748,8 @@ Add the following composable to your `composables` directory
         v-if="currentFile"
         key="file-list"
         layout="position"
+        initial="hidden"
+        animate="visible"
         :variants="fileListItem"
         class="space-y-2"
       >
@@ -763,7 +766,7 @@ Add the following composable to your `composables` directory
           <UiButton
             size="icon"
             variant="ghost"
-            class="-me-2 size-8 text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
+            class="text-muted-foreground/80 hover:text-foreground -me-2 size-8 hover:bg-transparent"
             aria-label="Remove file"
             @click="removeFile(currentFile.id)"
           >
@@ -778,7 +781,7 @@ Add the following composable to your `composables` directory
         :variants="fileListItem"
         aria-live="polite"
         role="region"
-        class="mt-2 text-center text-xs text-muted-foreground"
+        class="text-muted-foreground mt-2 text-center text-xs"
       >
         Single file uploader w/ max size
       </Motion>
@@ -801,7 +804,7 @@ Add the following composable to your `composables` directory
     },
   ];
 
-  const { files, errors, openFileDialog, removeFile, dropzoneRef, inputRef } = useFileUpload({
+  const { files, errors, openFileDialog, removeFile } = useFileUpload({
     maxSize,
     initialFiles,
   });
@@ -868,7 +871,7 @@ Add the following composable to your `composables` directory
 
 ### Multiple File Uploader
 
-::ShowCase
+::prose-show-case
 
 :DocsFileUploadMultipleFileUploader
 
@@ -893,7 +896,7 @@ Add the following composable to your `composables` directory
         <div
           ref="dropzoneRef"
           role="button"
-          class="flex min-h-40 flex-col items-center justify-center rounded-xl border border-dashed border-input p-4 transition-colors hover:bg-accent/50 has-disabled:pointer-events-none has-disabled:opacity-50 has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50"
+          class="border-input hover:bg-accent/50 has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 flex min-h-40 flex-col items-center justify-center rounded-xl border border-dashed p-4 transition-colors has-disabled:pointer-events-none has-disabled:opacity-50 has-[input:focus]:ring-[3px]"
           @click="openFileDialog"
         >
           <input ref="inputRef" hidden aria-label="Upload files" />
@@ -901,7 +904,7 @@ Add the following composable to your `composables` directory
           <div class="flex flex-col items-center justify-center text-center">
             <Motion
               :variants="dropAreaItem"
-              class="mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border bg-background"
+              class="bg-background mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border"
               aria-hidden="true"
             >
               <Icon name="lucide:file-up" class="size-4 opacity-60" />
@@ -909,12 +912,12 @@ Add the following composable to your `composables` directory
             <Motion :variants="dropAreaItem" as="p" class="mb-1.5 text-sm font-medium"
               >Upload files</Motion
             >
-            <Motion :variants="dropAreaItem" as="p" class="mb-2 text-xs text-muted-foreground"
+            <Motion :variants="dropAreaItem" as="p" class="text-muted-foreground mb-2 text-xs"
               >Drag & drop or click to browse</Motion
             >
             <Motion
               :variants="dropAreaItem"
-              class="flex flex-wrap justify-center gap-1 text-xs text-muted-foreground/70"
+              class="text-muted-foreground/70 flex flex-wrap justify-center gap-1 text-xs"
             >
               <span>All files</span>
               <span>∙</span>
@@ -928,7 +931,7 @@ Add the following composable to your `composables` directory
 
       <div
         v-if="errors.length > 0"
-        class="flex items-center gap-1 text-xs text-destructive"
+        class="text-destructive flex items-center gap-1 text-xs"
         role="alert"
       >
         <Icon name="lucide:circle-alert" class="size-3 shrink-0" />
@@ -942,6 +945,8 @@ Add the following composable to your `composables` directory
             v-if="files.length > 0"
             layout="position"
             :variants="fileListContainer"
+            initial="hidden"
+            animate="visible"
             class="space-y-2"
           >
             <AnimatePresence>
@@ -950,7 +955,7 @@ Add the following composable to your `composables` directory
                 :key="file.id"
                 layout="position"
                 :variants="fileListItem"
-                class="flex items-center justify-between gap-2 rounded-lg border bg-background p-2 pe-3"
+                class="bg-background flex items-center justify-between gap-2 rounded-lg border p-2 pe-3"
               >
                 <div class="flex items-center gap-3 overflow-hidden">
                   <div
@@ -962,7 +967,7 @@ Add the following composable to your `composables` directory
                     <p class="truncate text-[13px] font-medium">
                       {{ file.file.name }}
                     </p>
-                    <p class="text-xs text-muted-foreground">
+                    <p class="text-muted-foreground text-xs">
                       {{ formatBytes(file.file.size) }}
                     </p>
                   </div>
@@ -971,7 +976,7 @@ Add the following composable to your `composables` directory
                 <UiButton
                   size="icon"
                   variant="ghost"
-                  class="-me-2 size-8 text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
+                  class="text-muted-foreground/80 hover:text-foreground -me-2 size-8 hover:bg-transparent"
                   aria-label="Remove file"
                   @click="removeFile(file.id)"
                 >
@@ -998,7 +1003,7 @@ Add the following composable to your `composables` directory
         :variants="dropAreaItem"
         aria-live="polite"
         role="region"
-        class="mt-2 text-center text-xs text-muted-foreground"
+        class="text-muted-foreground mt-2 text-center text-xs"
       >
         Multiple files uploader w/ list
       </Motion>
@@ -1132,7 +1137,7 @@ Add the following composable to your `composables` directory
 
 ### Multiple File Uploader w/ List Inside
 
-::ShowCase
+::prose-show-case
 
 :DocsFileUploadMultipleFileUploaderListInside
 
@@ -1156,7 +1161,7 @@ Add the following composable to your `composables` directory
         <div
           ref="dropzoneRef"
           :data-files="files.length > 0 || undefined"
-          class="flex min-h-56 flex-col items-center rounded-xl border border-dashed border-input p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50"
+          class="border-input has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 flex min-h-56 flex-col items-center rounded-xl border border-dashed p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:ring-[3px]"
         >
           <input ref="inputRef" hidden aria-label="Upload files" />
 
@@ -1165,6 +1170,8 @@ Add the following composable to your `composables` directory
               v-if="files.length > 0"
               key="file-list"
               :variants="fileListContainer"
+              initial="hidden"
+              animate="visible"
               layout="position"
               class="flex w-full flex-col gap-3"
             >
@@ -1190,7 +1197,7 @@ Add the following composable to your `composables` directory
                     :key="file.id"
                     layout="position"
                     :variants="fileListItemChild"
-                    class="flex items-center justify-between gap-2 rounded-lg border bg-background p-2 pe-3"
+                    class="bg-background flex items-center justify-between gap-2 rounded-lg border p-2 pe-3"
                   >
                     <div class="flex items-center gap-3 overflow-hidden">
                       <div
@@ -1202,7 +1209,7 @@ Add the following composable to your `composables` directory
                         <p class="truncate text-[13px] font-medium">
                           {{ file.file.name }}
                         </p>
-                        <p class="text-xs text-muted-foreground">
+                        <p class="text-muted-foreground text-xs">
                           {{ formatBytes(file.file.size) }}
                         </p>
                       </div>
@@ -1211,7 +1218,7 @@ Add the following composable to your `composables` directory
                     <UiButton
                       size="icon"
                       variant="ghost"
-                      class="-me-2 size-8 text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
+                      class="text-muted-foreground/80 hover:text-foreground -me-2 size-8 hover:bg-transparent"
                       aria-label="Remove file"
                       @click="removeFile(file.id)"
                     >
@@ -1237,12 +1244,14 @@ Add the following composable to your `composables` directory
               key="empty-state"
               layout="position"
               :variants="emptyContainer"
+              initial="hidden"
+              animate="visible"
               class="flex flex-col items-center justify-center text-center"
             >
               <Motion
                 layout="position"
                 :variants="emptyItem"
-                class="mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border bg-background"
+                class="bg-background mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border"
                 aria-hidden="true"
               >
                 <Icon name="lucide:file" class="size-4 opacity-60" />
@@ -1250,7 +1259,7 @@ Add the following composable to your `composables` directory
               <Motion as="p" :variants="emptyItem" class="mb-1.5 text-sm font-medium"
                 >Upload files</Motion
               >
-              <Motion as="p" :variants="emptyItem" class="text-xs text-muted-foreground">
+              <Motion as="p" :variants="emptyItem" class="text-muted-foreground text-xs">
                 Max {{ maxFiles }} files ∙ Up to {{ formatBytes(maxSize) }}
               </Motion>
               <Motion :variants="emptyItem">
@@ -1267,7 +1276,10 @@ Add the following composable to your `composables` directory
       <AnimatePresence>
         <Motion
           v-if="errors.length > 0"
-          class="flex items-center gap-1 text-xs text-destructive"
+          initial="hidden"
+          animate="visible"
+          :variants="fileListItem"
+          class="text-destructive flex items-center gap-1 text-xs"
           role="alert"
         >
           <Icon name="lucide:circle-alert" class="size-3 shrink-0" />
@@ -1279,7 +1291,7 @@ Add the following composable to your `composables` directory
         as="p"
         aria-live="polite"
         role="region"
-        class="mt-2 text-center text-xs text-muted-foreground"
+        class="text-muted-foreground mt-2 text-center text-xs"
       >
         Multiple files uploader w/ list inside
       </Motion>
@@ -1484,7 +1496,7 @@ Add the following composable to your `composables` directory
 
 ### Multiple File Uploader w/ Table
 
-::ShowCase
+::prose-show-case
 
 :DocsFileUploadMultipleFileUploaderTable
 
@@ -1504,7 +1516,13 @@ Add the following composable to your `composables` directory
   >
     <!-- Drop area -->
     <AnimatePresence mode="wait">
-      <Motion v-if="files.length > 0" :variants="lvl2Variants" class="flex flex-col gap-2">
+      <Motion
+        v-if="files.length > 0"
+        :variants="lvl2Variants"
+        initial="hidden"
+        animate="visible"
+        class="flex flex-col gap-2"
+      >
         <!-- Table header with actions -->
         <div class="flex items-center justify-between gap-2">
           <h3 class="text-sm font-medium">Files ({{ files.length }})</h3>
@@ -1521,7 +1539,7 @@ Add the following composable to your `composables` directory
         </div>
 
         <!-- Table -->
-        <div class="overflow-hidden rounded-md border bg-background">
+        <div class="bg-background overflow-hidden rounded-md border">
           <UiTable class="w-full">
             <UiTableHeader class="text-xs">
               <UiTableRow class="bg-muted/50">
@@ -1541,17 +1559,17 @@ Add the following composable to your `composables` directory
                     <span class="truncate">{{ file.file.name }}</span>
                   </span>
                 </UiTableCell>
-                <UiTableCell class="py-2 text-muted-foreground">
+                <UiTableCell class="text-muted-foreground py-2">
                   {{ file.file.type.split("/")[1]?.toUpperCase() || "UNKNOWN" }}
                 </UiTableCell>
-                <UiTableCell class="py-2 text-muted-foreground">
+                <UiTableCell class="text-muted-foreground py-2">
                   {{ formatBytes(file.file.size) }}
                 </UiTableCell>
                 <UiTableCell class="py-2 text-right whitespace-nowrap">
                   <UiButton
                     size="icon"
                     variant="ghost"
-                    class="size-8 text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
+                    class="text-muted-foreground/80 hover:text-foreground size-8 hover:bg-transparent"
                     aria-label="Download file"
                   >
                     <Icon name="lucide:download" class="size-4" />
@@ -1559,7 +1577,7 @@ Add the following composable to your `composables` directory
                   <UiButton
                     size="icon"
                     variant="ghost"
-                    class="size-8 text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
+                    class="text-muted-foreground/80 hover:text-foreground size-8 hover:bg-transparent"
                     aria-label="Remove file"
                     @click="removeFile(file.id)"
                   >
@@ -1572,16 +1590,16 @@ Add the following composable to your `composables` directory
         </div>
       </Motion>
 
-      <Motion v-else :variants="lvl2Variants">
+      <Motion v-else :variants="lvl2Variants" initial="hidden" animate="visible">
         <div
           ref="dropzoneRef"
           :data-files="files.length > 0 || undefined"
-          class="flex min-h-56 flex-col items-center rounded-xl border border-dashed border-input p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 data-[files]:hidden"
+          class="border-input has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 flex min-h-56 flex-col items-center rounded-xl border border-dashed p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:ring-[3px] data-[files]:hidden"
         >
           <div class="flex flex-col items-center justify-center text-center">
             <Motion
               :variants="lvl2EmptyItemVariants"
-              class="mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border bg-background"
+              class="bg-background mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border"
               aria-hidden="true"
             >
               <Icon name="lucide:file" class="size-4 opacity-60" />
@@ -1589,7 +1607,7 @@ Add the following composable to your `composables` directory
             <Motion as="p" :variants="lvl2EmptyItemVariants" class="mb-1.5 text-sm font-medium"
               >Upload files</Motion
             >
-            <Motion as="p" :variants="lvl2EmptyItemVariants" class="text-xs text-muted-foreground">
+            <Motion as="p" :variants="lvl2EmptyItemVariants" class="text-muted-foreground text-xs">
               Max {{ maxFiles }} files ∙ Up to {{ formatBytes(maxSize) }}
             </Motion>
             <Motion :variants="lvl2EmptyItemVariants">
@@ -1606,7 +1624,9 @@ Add the following composable to your `composables` directory
     <Motion
       v-if="errors.length > 0"
       :variants="lvl2Variants"
-      class="flex items-center gap-1 text-xs text-destructive"
+      initial="hidden"
+      animate="visible"
+      class="text-destructive flex items-center gap-1 text-xs"
       role="alert"
     >
       <Icon name="lucide:circle-alert" class="size-3 shrink-0" />
@@ -1618,7 +1638,7 @@ Add the following composable to your `composables` directory
       as="p"
       aria-live="polite"
       role="region"
-      class="mt-2 text-center text-xs text-muted-foreground"
+      class="text-muted-foreground mt-2 text-center text-xs"
     >
       Multiple files uploader w/ table
     </Motion>
@@ -1737,7 +1757,7 @@ Add the following composable to your `composables` directory
 
 ### Mixed Content w/ Card
 
-::ShowCase
+::prose-show-case
 
 :DocsFileUploadMixedContentCard
 
@@ -1753,7 +1773,7 @@ Add the following composable to your `composables` directory
     <div
       ref="dropzoneRef"
       :data-files="files.length > 0 || undefined"
-      class="relative flex min-h-52 flex-col items-center overflow-hidden rounded-xl border border-dashed border-input p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50"
+      class="border-input has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 relative flex min-h-52 flex-col items-center overflow-hidden rounded-xl border border-dashed p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:ring-[3px]"
     >
       <div v-if="files.length > 0" class="flex w-full flex-col gap-3">
         <div class="flex items-center justify-between gap-2">
@@ -1772,8 +1792,8 @@ Add the following composable to your `composables` directory
 
         <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
           <div v-for="file in files" :key="file.id" class="relative">
-            <div class="relative flex flex-col overflow-hidden rounded-md border bg-background">
-              <div class="flex aspect-square items-center justify-center overflow-hidden bg-accent">
+            <div class="bg-background relative flex flex-col overflow-hidden rounded-md border">
+              <div class="bg-accent flex aspect-square items-center justify-center overflow-hidden">
                 <img
                   v-if="getFilePreview(file).type === 'image'"
                   :src="getFilePreview(file).url"
@@ -1786,14 +1806,14 @@ Add the following composable to your `composables` directory
                 <p class="truncate text-[13px] font-medium">
                   {{ file.file.name }}
                 </p>
-                <p class="truncate text-xs text-muted-foreground">
+                <p class="text-muted-foreground truncate text-xs">
                   {{ formatBytes(file.file.size) }}
                 </p>
               </div>
             </div>
             <UiButton
               size="icon"
-              class="absolute -top-2 -right-2 size-6 rounded-full border-2 border-background shadow-none focus-visible:border-background"
+              class="border-background focus-visible:border-background absolute -top-2 -right-2 size-6 rounded-full border-2 shadow-none"
               aria-label="Remove file"
               @click="removeFile(file.id)"
             >
@@ -1805,13 +1825,13 @@ Add the following composable to your `composables` directory
 
       <div v-else class="flex flex-col items-center justify-center px-4 py-3 text-center">
         <div
-          class="mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border bg-background"
+          class="bg-background mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border"
           aria-hidden="true"
         >
           <Icon name="lucide:image" class="size-4 opacity-60" />
         </div>
         <p class="mb-1.5 text-sm font-medium">Drop your files here</p>
-        <p class="text-xs text-muted-foreground">
+        <p class="text-muted-foreground text-xs">
           Max {{ maxFiles }} files ∙ Up to {{ maxSizeMB }}MB
         </p>
         <UiButton size="sm" variant="outline" class="mt-4" @click="openFileDialog">
@@ -1823,14 +1843,14 @@ Add the following composable to your `composables` directory
 
     <div
       v-if="errors.length > 0"
-      class="flex items-center gap-1 text-xs text-destructive"
+      class="text-destructive flex items-center gap-1 text-xs"
       role="alert"
     >
       <Icon name="lucide:circle-alert" class="size-3 shrink-0" />
       <span>{{ errors[0] }}</span>
     </div>
 
-    <p aria-live="polite" role="region" class="mt-2 text-center text-xs text-muted-foreground">
+    <p aria-live="polite" role="region" class="text-muted-foreground mt-2 text-center text-xs">
       Mixed content w/ card
     </p>
   </div>

@@ -52,18 +52,15 @@
      * @default "svg-spinners:bars-rotate-fade"
      */
     icon?: string;
-    /**
-     * The class to apply to the loader Icon
-     */
+    /** The class to apply to the loader Icon. */
     class?: HtmlHTMLAttributes["class"];
-    /**
-     * The class to apply to the backdrop
-     */
+    /** The class to apply to the backdrop. */
     backdropClass?: HtmlHTMLAttributes["class"];
     /**
      * Whether the loader should take up the full page.
      *
-     * When this is `true`, the loader will be displayed in a fixed position that covers the entire page. You can press the `esc` key to close the loader.
+     * When this is `true`, the loader will be displayed in a fixed position that covers the entire
+     * page. You can press the `esc` key to close the loader.
      */
     fullPage?: boolean;
     /**
@@ -101,7 +98,7 @@
       fullPage: {
         true: {
           backdrop:
-            "pointer-events-auto fixed inset-0 z-999 size-full bg-background/80 backdrop-blur-md",
+            "bg-background/80 pointer-events-auto fixed inset-0 z-999 size-full backdrop-blur-md",
         },
         false: {
           backdrop: "relative",

@@ -38,7 +38,7 @@
         v-for="item in items"
         :key="item.id"
         :value="item.value"
-        class="rounded-lg border bg-background px-4 last:border-b"
+        class="bg-background rounded-lg border px-4 last:border-b"
       >
         <UiAccordionTrigger
           :icon="''"

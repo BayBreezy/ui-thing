@@ -19,7 +19,7 @@ Click :SourceCodeLink{component="Textarea.vue"} to see the source code for this 
 
 ### Basic example
 
-::ShowCase
+::prose-show-case
 
 :DocsTextarea
 
@@ -41,7 +41,7 @@ Click :SourceCodeLink{component="Textarea.vue"} to see the source code for this 
 
 ### Label
 
-::ShowCase
+::prose-show-case
 
 :DocsTextareaLabel
 
@@ -66,7 +66,7 @@ Click :SourceCodeLink{component="Textarea.vue"} to see the source code for this 
 
 ### Form
 
-::ShowCase
+::prose-show-case
 
 :DocsTextareaForm
 
@@ -115,7 +115,7 @@ Click :SourceCodeLink{component="Textarea.vue"} to see the source code for this 
 
 Restrict the number of characters that can be entered into the textarea.
 
-::ShowCase
+::prose-show-case
 
 :DocsTextareaMaxLength
 
@@ -127,7 +127,7 @@ Restrict the number of characters that can be entered into the textarea.
 <template>
   <div class="mx-auto flex max-w-xs flex-col gap-3">
     <UiTextarea :maxlength="5" placeholder="Quick chat..." />
-    <p class="text-sm text-muted-foreground">No more than 5 letters</p>
+    <p class="text-muted-foreground text-sm">No more than 5 letters</p>
   </div>
 </template>
 ```
@@ -142,7 +142,7 @@ Restrict the type of characters that can be entered into the textarea.
 
 You don't need to use `/` at the beginning and end of the pattern as the RegExp is being created internally with the `new RegExp()` constructor.
 
-::ShowCase
+::prose-show-case
 
 :DocsTextareaPattern
 
@@ -154,7 +154,7 @@ You don't need to use `/` at the beginning and end of the pattern as the RegExp 
 <template>
   <div class="mx-auto flex max-w-xs flex-col gap-3">
     <UiTextarea pattern="^[a-z\s]" placeholder="Say something" />
-    <p class="text-sm text-muted-foreground">Only lower case letters</p>
+    <p class="text-muted-foreground text-sm">Only lower case letters</p>
   </div>
 </template>
 ```

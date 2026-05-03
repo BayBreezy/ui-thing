@@ -4,14 +4,14 @@
     <div class="absolute inset-0">
       <div class="absolute inset-0 bg-linear-to-br from-slate-900 via-slate-950 to-black" />
       <div
-        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent"
+        class="from-primary/20 absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] via-transparent to-transparent"
       />
     </div>
 
     <!-- Floating orbs with GSAP animation -->
     <div ref="orb1" class="absolute top-1/4 left-1/4 hidden lg:block">
       <div
-        class="h-96 w-96 rounded-full bg-linear-to-r from-primary/30 to-purple-500/30 blur-3xl"
+        class="from-primary/30 h-96 w-96 rounded-full bg-linear-to-r to-purple-500/30 blur-3xl"
       />
     </div>
     <div ref="orb2" class="absolute right-1/4 bottom-1/4 hidden lg:block">
@@ -31,15 +31,15 @@
         <div class="mx-auto max-w-[800px] text-center">
           <Motion
             :variants="childVariant"
-            class="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 backdrop-blur-sm"
+            class="border-primary/30 bg-primary/10 mb-4 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 backdrop-blur-sm"
           >
-            <div class="h-2 w-2 animate-pulse rounded-full bg-primary" />
+            <div class="bg-primary h-2 w-2 animate-pulse rounded-full" />
             <span class="text-sm font-medium">Revolutionary Technology</span>
           </Motion>
           <Motion as="h2" :variants="childVariant" class="mb-6 text-4xl font-bold lg:text-6xl">
             Build the future with
             <span
-              class="bg-linear-to-r from-primary via-purple-400 to-pink-400 bg-clip-text text-transparent"
+              class="from-primary bg-linear-to-r via-purple-400 to-pink-400 bg-clip-text text-transparent"
             >
               cutting-edge tools
             </span>
@@ -60,7 +60,7 @@
           <Motion
             v-for="(feature, i) in features"
             :key="i"
-            class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 p-8 backdrop-blur-sm hover:border-primary/50 hover:bg-slate-900/80"
+            class="group hover:border-primary/50 relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 p-8 backdrop-blur-sm hover:bg-slate-900/80"
             :variants="childVariant"
           >
             <!-- Gradient border effect -->
@@ -92,9 +92,9 @@
                   class="flex items-center gap-3 text-sm text-slate-300"
                 >
                   <div
-                    class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/20"
+                    class="bg-primary/20 flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
                   >
-                    <Icon name="heroicons:check" class="h-3 w-3 text-primary" />
+                    <Icon name="heroicons:check" class="text-primary h-3 w-3" />
                   </div>
                   <span>{{ item }}</span>
                 </li>

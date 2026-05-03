@@ -11,7 +11,7 @@
       },
     }"
   >
-    <UiCard class="border-dashed shadow-md hover:border-primary">
+    <UiCard class="hover:border-primary border-dashed shadow-md">
       <UiCardContent>
         <div class="mb-6 text-center">
           <Motion
@@ -23,7 +23,7 @@
                 transition: { type: 'spring', stiffness: 400, damping: 20 },
               },
             }"
-            class="mx-auto mb-4 inline-flex size-14 items-center justify-center rounded-full bg-radial via-transparent to-primary/40"
+            class="to-primary/40 mx-auto mb-4 inline-flex size-14 items-center justify-center rounded-full bg-radial via-transparent"
           >
             <Motion
               as-child
@@ -40,7 +40,7 @@
                 },
               }"
             >
-              <Icon name="lucide:bell-ring" class="size-7 text-primary" />
+              <Icon name="lucide:bell-ring" class="text-primary size-7" />
               <span class="sr-only">Notifications</span>
             </Motion>
           </Motion>
@@ -60,7 +60,7 @@
               initial: { opacity: 0, y: 10 },
               animate: { opacity: 1, y: 0 },
             }"
-            class="text-sm text-muted-foreground"
+            class="text-muted-foreground text-sm"
           >
             Subscribe to get our latest articles and updates
           </Motion>
@@ -100,7 +100,7 @@
             initial: { opacity: 0, scaleX: 0 },
             animate: { opacity: 1, scaleX: 1, transition: { delay: 0.4, type: 'keyframes' } },
           }"
-          class="my-5 h-px origin-top bg-border"
+          class="bg-border my-5 h-px origin-top"
         />
 
         <Motion
@@ -108,7 +108,7 @@
             initial: { opacity: 0 },
             animate: { opacity: 1 },
           }"
-          class="flex items-center justify-between text-xs text-muted-foreground"
+          class="text-muted-foreground flex items-center justify-between text-xs"
         >
           <div class="flex items-center gap-1.5">
             <Icon name="lucide:lock" class="size-3.5" />

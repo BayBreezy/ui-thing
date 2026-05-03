@@ -1,14 +1,14 @@
 <template>
-  <div class="flex h-screen items-center justify-center bg-muted/50 px-5">
-    <div class="w-full max-w-[420px] rounded-lg border bg-card p-8 shadow-sm">
+  <div class="bg-muted/50 flex h-screen items-center justify-center px-5">
+    <div class="bg-card w-full max-w-[420px] rounded-lg border p-8 shadow-sm">
       <div class="mb-8 text-center">
         <div
-          class="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-primary/10"
+          class="bg-primary/10 mx-auto mb-4 flex size-12 items-center justify-center rounded-full"
         >
-          <Icon name="lucide:user-circle" class="size-6 text-primary" />
+          <Icon name="lucide:user-circle" class="text-primary size-6" />
         </div>
         <h1 class="text-2xl font-bold tracking-tight">Account Login</h1>
-        <p class="mt-1 text-sm text-muted-foreground">Access your dashboard</p>
+        <p class="text-muted-foreground mt-1 text-sm">Access your dashboard</p>
       </div>
 
       <form @submit="submit">
@@ -22,7 +22,7 @@
           <UiVeeInput label="Password" type="password" name="password" placeholder="••••••••" />
           <div class="text-right">
             <NuxtLink
-              class="text-sm font-medium text-primary underline-offset-2 hover:underline"
+              class="text-primary text-sm font-medium underline-offset-2 hover:underline"
               to="#"
               >Forgot password?</NuxtLink
             >
@@ -32,9 +32,9 @@
       </form>
 
       <div class="mt-6 text-center">
-        <p class="text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-sm">
           New user?
-          <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#"
+          <NuxtLink class="text-primary font-semibold underline-offset-2 hover:underline" to="#"
             >Create an account</NuxtLink
           >
         </p>

@@ -53,13 +53,13 @@
         >
           <template #content>
             <div class="space-y-4 p-4">
-              <p class="text-sm text-muted-foreground">
+              <p class="text-muted-foreground text-sm">
                 Toggle fullscreen to make the sheet occupy the screen. Choose the floating variant
                 to keep a margin around the edges when fullscreen is on.
               </p>
-              <div class="rounded-lg border border-border bg-muted/40 p-3 text-sm">
+              <div class="border-border bg-muted/40 rounded-lg border p-3 text-sm">
                 <div class="font-medium">Current settings</div>
-                <ul class="space-y-1 text-muted-foreground">
+                <ul class="text-muted-foreground space-y-1">
                   <li>Variant: {{ variant }}</li>
                   <li>Side: {{ side }}</li>
                   <li>Blur: {{ isBlurred ? "Yes" : "No" }}</li>

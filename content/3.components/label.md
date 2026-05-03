@@ -4,7 +4,7 @@ description: Renders an accessible label associated with controls.
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/label.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/label.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="Label.vue"} to see the source code for this com
 
 ### Input
 
-::ShowCase
+::prose-show-case
 
 :DocsInputLabel
 

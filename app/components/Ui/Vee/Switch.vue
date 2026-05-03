@@ -26,7 +26,7 @@
             exit="initial"
             animate="animate"
             :transition="{ type: 'keyframes' }"
-            class="text-sm text-muted-foreground"
+            class="text-muted-foreground text-sm"
           >
             {{ hint }}
           </motion.p>
@@ -39,7 +39,7 @@
             exit="initial"
             animate="animate"
             :transition="{ type: 'keyframes' }"
-            class="text-sm text-destructive"
+            class="text-destructive text-sm"
           >
             {{ errorMessage }}
           </motion.p>

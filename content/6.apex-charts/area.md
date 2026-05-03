@@ -11,7 +11,7 @@ description: Area charts are used to represent quantitative data visually, showi
 
 ### Interactive
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsAreaInteractive
 
@@ -246,7 +246,7 @@ description: Area charts are used to represent quantitative data visually, showi
 
 ### Area Chart
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsArea1
 
@@ -270,7 +270,7 @@ description: Area charts are used to represent quantitative data visually, showi
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             January - June 2024
           </div>
         </div>
@@ -318,7 +318,7 @@ description: Area charts are used to represent quantitative data visually, showi
 
 ### Area Chart - Linear
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsArea2
 
@@ -342,7 +342,7 @@ description: Area charts are used to represent quantitative data visually, showi
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             January - June 2024
           </div>
         </div>
@@ -390,7 +390,7 @@ description: Area charts are used to represent quantitative data visually, showi
 
 ### Area Chart - Step Line
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsArea3
 
@@ -414,7 +414,7 @@ description: Area charts are used to represent quantitative data visually, showi
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             January - June 2024
           </div>
         </div>
@@ -462,7 +462,7 @@ description: Area charts are used to represent quantitative data visually, showi
 
 ### Area Chart - Legend
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsArea4
 
@@ -486,7 +486,7 @@ description: Area charts are used to represent quantitative data visually, showi
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             January - June 2024
           </div>
         </div>
@@ -547,7 +547,7 @@ description: Area charts are used to represent quantitative data visually, showi
 
 ### Area Chart - Custom Marker
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsArea5
 
@@ -571,7 +571,7 @@ description: Area charts are used to represent quantitative data visually, showi
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             January - June 2024
           </div>
         </div>
@@ -639,7 +639,7 @@ description: Area charts are used to represent quantitative data visually, showi
 
 ### Area Chart - Gradient
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsArea6
 
@@ -663,7 +663,7 @@ description: Area charts are used to represent quantitative data visually, showi
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             January - June 2024
           </div>
         </div>
@@ -732,7 +732,7 @@ description: Area charts are used to represent quantitative data visually, showi
 
 ### Area Chart - Axes
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsArea7
 
@@ -756,7 +756,7 @@ description: Area charts are used to represent quantitative data visually, showi
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             January - June 2024
           </div>
         </div>
@@ -814,7 +814,7 @@ description: Area charts are used to represent quantitative data visually, showi
 
 ### Area Chart - Annotations
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsArea8
 
@@ -838,7 +838,7 @@ description: Area charts are used to represent quantitative data visually, showi
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             January - June 2024
           </div>
         </div>
@@ -960,7 +960,7 @@ description: Area charts are used to represent quantitative data visually, showi
 
 ### Area Chart - Custom Tooltip
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsArea9
 
@@ -984,7 +984,7 @@ description: Area charts are used to represent quantitative data visually, showi
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             January - June 2024
           </div>
         </div>
@@ -1070,7 +1070,7 @@ description: Area charts are used to represent quantitative data visually, showi
 
 ### Area Chart - Toolbar
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsArea10
 
@@ -1094,7 +1094,7 @@ description: Area charts are used to represent quantitative data visually, showi
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             January - June 2024
           </div>
         </div>
@@ -1157,7 +1157,7 @@ description: Area charts are used to represent quantitative data visually, showi
 
 ### Area Chart - Sparkline
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsArea11
 
@@ -1186,7 +1186,7 @@ description: Area charts are used to represent quantitative data visually, showi
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             January - June 2024
           </div>
         </div>

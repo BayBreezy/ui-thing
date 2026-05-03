@@ -14,7 +14,7 @@
           <UiStepperSeparator v-if="step < steps.length" />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with numbers only
       </p>
     </div>
@@ -33,7 +33,7 @@
           <UiStepperSeparator v-if="step < steps.length" />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with numbers and checkmarks
       </p>
     </div>
@@ -48,13 +48,13 @@
         >
           <UiStepperTrigger>
             <UiStepperIndicator
-              class="size-4 group-data-[state=active]/step:border-2 group-data-[state=active]/step:border-primary group-data-[state=active]/step:bg-transparent [&_span]:sr-only [&_svg]:size-3"
+              class="group-data-[state=active]/step:border-primary size-4 group-data-[state=active]/step:border-2 group-data-[state=active]/step:bg-transparent [&_span]:sr-only [&_svg]:size-3"
             />
           </UiStepperTrigger>
           <UiStepperSeparator v-if="step < steps.length" />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with tiny buttons and checkmarks
       </p>
     </div>
@@ -91,7 +91,7 @@
           Next step
         </UiButton>
       </div>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Controlled stepper with checkmarks
       </p>
     </div>
@@ -129,7 +129,7 @@
           Next step
         </UiButton>
       </div>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Controlled stepper with checkmarks and loading state
       </p>
     </div>
@@ -167,7 +167,7 @@
           </UiStepperTrigger>
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with mixed elements
       </p>
     </div>
@@ -176,7 +176,7 @@
       <UiStepper :default-value="2" class="items-start gap-4">
         <UiStepperItem v-for="{ step, title } in steps2" :key="step" :step="step" class="flex-1">
           <UiStepperTrigger class="w-full flex-col items-start gap-2 rounded">
-            <UiStepperIndicator class="h-1 w-full bg-border">
+            <UiStepperIndicator class="bg-border h-1 w-full">
               <span class="sr-only">{{ step }}</span>
             </UiStepperIndicator>
             <div class="space-y-0.5">
@@ -185,7 +185,7 @@
           </UiStepperTrigger>
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with labels
       </p>
     </div>
@@ -205,7 +205,7 @@
         <UiStepper v-model="currentStep" class="gap-1">
           <UiStepperItem v-for="step in steps" :key="step" :step="step" class="flex-1">
             <UiStepperTrigger class="w-full flex-col items-start gap-2" as-child>
-              <UiStepperIndicator class="h-1 w-full bg-border">
+              <UiStepperIndicator class="bg-border h-1 w-full">
                 <span class="sr-only">{{ step }}</span>
               </UiStepperIndicator>
             </UiStepperTrigger>
@@ -222,7 +222,7 @@
           <Icon name="lucide:chevron-right" :size="16" aria-hidden="true" />
         </UiButton>
       </div>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Paginated stepper
       </p>
     </div>
@@ -232,13 +232,13 @@
         <UiStepper v-model="currentStep">
           <UiStepperItem v-for="step in steps" :key="step" :step="step" class="flex-1">
             <UiStepperTrigger class="w-full flex-col items-start gap-2" as-child>
-              <UiStepperIndicator class="h-2 w-full rounded-none bg-border">
+              <UiStepperIndicator class="bg-border h-2 w-full rounded-none">
                 <span class="sr-only">{{ step }}</span>
               </UiStepperIndicator>
             </UiStepperTrigger>
           </UiStepperItem>
         </UiStepper>
-        <div class="text-sm font-medium text-muted-foreground tabular-nums">
+        <div class="text-muted-foreground text-sm font-medium tabular-nums">
           Step {{ currentStep }} of {{ steps.length }}
         </div>
       </div>
@@ -260,7 +260,7 @@
           Next step
         </UiButton>
       </div>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Progress stepper
       </p>
     </div>
@@ -288,7 +288,7 @@
           />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with titles and descriptions
       </p>
     </div>
@@ -311,7 +311,7 @@
           <UiStepperSeparator v-if="step < steps3.length" class="max-md:mt-3.5 md:mx-4" />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with inline titles
       </p>
     </div>
@@ -337,7 +337,7 @@
           <UiStepperSeparator v-if="step < steps3.length" class="max-md:mt-3.5 md:mx-4" />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with inline titles and descriptions
       </p>
     </div>
@@ -363,7 +363,7 @@
           <UiStepperSeparator v-if="step < steps3.length" class="max-md:mt-3.5 md:mx-4" />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with inline titles and descriptions
       </p>
     </div>
@@ -377,7 +377,7 @@
           <UiStepperSeparator v-if="step < steps.length" />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Vertical stepper with numbers and checkmarks
       </p>
     </div>
@@ -409,7 +409,7 @@
           Next step
         </UiButton>
       </div>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Controlled vertical stepper with checkmarks
       </p>
     </div>
@@ -434,7 +434,7 @@
           />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Vertical stepper with inline titles
       </p>
     </div>
@@ -460,7 +460,7 @@
           />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Vertical stepper with inline titles and descriptions
       </p>
     </div>

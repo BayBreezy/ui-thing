@@ -3,7 +3,7 @@
     <div class="mx-auto max-w-4xl">
       <div class="mb-12 text-center">
         <h2 class="mb-4 text-3xl font-semibold lg:text-4xl">Simple, straightforward pricing</h2>
-        <p class="text-lg text-muted-foreground">No contracts. No surprise fees. Cancel anytime.</p>
+        <p class="text-muted-foreground text-lg">No contracts. No surprise fees. Cancel anytime.</p>
       </div>
 
       <div class="mb-8 flex items-center justify-center gap-3">
@@ -17,9 +17,9 @@
 
       <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
         <template v-for="(p, i) in prices" :key="i">
-          <div class="rounded-lg border bg-card p-6">
+          <div class="bg-card rounded-lg border p-6">
             <h3 class="mb-2 text-xl font-bold">{{ p.title }}</h3>
-            <p class="mb-6 text-sm text-muted-foreground">{{ p.description }}</p>
+            <p class="text-muted-foreground mb-6 text-sm">{{ p.description }}</p>
 
             <div class="mb-6">
               <div class="flex items-baseline gap-1">
@@ -35,7 +35,7 @@
                   :animate="{ opacity: 1, height: 'auto' }"
                   :exit="{ opacity: 0, height: 0 }"
                   as="p"
-                  class="mt-1 text-xs text-muted-foreground"
+                  class="text-muted-foreground mt-1 text-xs"
                 >
                   Billed as ${{ p.annualPrice * 12 }} annually
                 </Motion>
@@ -48,7 +48,7 @@
 
             <ul class="space-y-3">
               <li v-for="(feature, k) in p.features" :key="k" class="flex items-center gap-3">
-                <Icon name="lucide:check" class="size-4 shrink-0 text-primary" />
+                <Icon name="lucide:check" class="text-primary size-4 shrink-0" />
                 <span class="text-sm">{{ feature }}</span>
               </li>
             </ul>
@@ -56,7 +56,7 @@
         </template>
       </div>
 
-      <p class="mt-8 text-center text-sm text-muted-foreground">
+      <p class="text-muted-foreground mt-8 text-center text-sm">
         All plans include a 30-day money-back guarantee.
       </p>
     </div>

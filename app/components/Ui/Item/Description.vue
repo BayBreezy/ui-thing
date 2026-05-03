@@ -16,15 +16,13 @@
 
   export const itemDescriptionStyles = tv({
     base: [
-      "line-clamp-2 text-sm leading-normal font-normal text-balance text-muted-foreground",
-      "[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary",
+      "text-muted-foreground line-clamp-2 text-sm leading-normal font-normal text-balance",
+      "[&>a:hover]:text-primary [&>a]:underline [&>a]:underline-offset-4",
     ],
   });
 
   export type ItemDescriptionProps = PrimitiveProps & {
-    /**
-     * Additional classes to apply to the parent element.
-     */
+    /** Additional classes to apply to the parent element. */
     class?: HTMLAttributes["class"];
   };
 </script>

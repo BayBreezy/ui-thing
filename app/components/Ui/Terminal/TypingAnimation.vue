@@ -18,29 +18,17 @@
 
   export interface TypingAnimationProps
     extends Omit<MotionProps, "as" | "asChild">, PrimitiveProps {
-    /**
-     * Text to be typed out in the animation.
-     */
+    /** Text to be typed out in the animation. */
     text?: string;
-    /**
-     * Additional classes for the typing animation component.
-     */
+    /** Additional classes for the typing animation component. */
     class?: HTMLAttributes["class"];
-    /**
-     * Duration of typing for each character (in milliseconds).
-     */
+    /** Duration of typing for each character (in milliseconds). */
     duration?: number;
-    /**
-     * Delay before the typing starts (in milliseconds).
-     */
+    /** Delay before the typing starts (in milliseconds). */
     delay?: number;
-    /**
-     * Whether to start the typing animation when the element comes into view.
-     */
+    /** Whether to start the typing animation when the element comes into view. */
     startOnView?: boolean;
-    /**
-     * Optional item index for sequence mode.
-     */
+    /** Optional item index for sequence mode. */
     itemIndex?: number;
   }
 

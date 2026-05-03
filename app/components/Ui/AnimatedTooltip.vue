@@ -64,22 +64,16 @@
 
   interface Item {
     /**
-     * Unique identifier for the item
+     * Unique identifier for the item.
      *
-     * If not provided, an ID will be generated
+     * If not provided, an ID will be generated.
      */
     id?: string;
-    /**
-     * Title of the item (e.g., name)
-     */
+    /** Title of the item (e.g., name) */
     title: string;
-    /**
-     * Description of the item (e.g., role or position)
-     */
+    /** Description of the item (e.g., role or position) */
     description?: string;
-    /**
-     * URL of the avatar image
-     */
+    /** URL of the avatar image. */
     image: string;
   }
 

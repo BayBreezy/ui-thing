@@ -21,25 +21,15 @@
   import { ItemIndexKey, SequenceKey } from "./Terminal.vue";
 
   export interface AnimatedSpanProps extends Omit<MotionProps, "as" | "asChild">, PrimitiveProps {
-    /**
-     * Additional classes for the animated span.
-     */
+    /** Additional classes for the animated span. */
     class?: HTMLAttributes["class"];
-    /**
-     * Delay before the animation starts (in milliseconds).
-     */
+    /** Delay before the animation starts (in milliseconds). */
     delay?: number;
-    /**
-     * Whether to start the animation when the element comes into view.
-     */
+    /** Whether to start the animation when the element comes into view. */
     startOnView?: boolean;
-    /**
-     * Optional item index for sequence mode.
-     */
+    /** Optional item index for sequence mode. */
     itemIndex?: number;
-    /**
-     * Text content to display if no slot is provided.
-     */
+    /** Text content to display if no slot is provided. */
     text?: string;
   }
 

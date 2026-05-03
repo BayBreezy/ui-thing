@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-background text-foreground">
+  <div class="bg-background text-foreground min-h-screen">
     <!-- ─── Upgrade dialog ──────────────────────────────────────────────────── -->
     <UiDialog v-model:open="upgradeOpen">
       <UiDialogContent class="sm:max-w-lg">
@@ -29,21 +29,21 @@
             <div class="flex items-start justify-between gap-2">
               <div class="min-w-0">
                 <p class="leading-none font-semibold">{{ plan.name }}</p>
-                <p class="mt-1 text-xs text-muted-foreground">{{ plan.tagline }}</p>
+                <p class="text-muted-foreground mt-1 text-xs">{{ plan.tagline }}</p>
               </div>
               <UiRadioGroupItem :value="plan.id" @click.stop />
             </div>
 
             <div class="mt-4 flex items-baseline gap-1">
               <span class="text-3xl font-bold">${{ plan.price }}</span>
-              <span class="text-sm text-muted-foreground">/mo</span>
+              <span class="text-muted-foreground text-sm">/mo</span>
             </div>
 
             <ul class="mt-4 space-y-2">
               <li
                 v-for="feature in plan.features"
                 :key="feature"
-                class="flex items-center gap-2 text-xs text-muted-foreground"
+                class="text-muted-foreground flex items-center gap-2 text-xs"
               >
                 <Icon name="heroicons:check-circle" class="size-3.5 shrink-0 text-emerald-500" />
                 {{ feature }}
@@ -187,7 +187,7 @@
         </UiCommandGroup>
       </UiCommandList>
       <div
-        class="flex items-center gap-5 border-t border-border/70 bg-muted/20 px-4 py-2.5 text-xs text-muted-foreground"
+        class="border-border/70 bg-muted/20 text-muted-foreground flex items-center gap-5 border-t px-4 py-2.5 text-xs"
       >
         <span class="flex items-center gap-1.5"><UiKbd>↵</UiKbd> to select</span>
         <span class="flex items-center gap-1.5"><UiKbd>↑↓</UiKbd> to navigate</span>
@@ -201,14 +201,14 @@
       :initial="{ opacity: 0, y: -16 }"
       :animate="{ opacity: 1, y: 0 }"
       :transition="{ duration: 0.4, ease: 'easeOut' }"
-      class="sticky top-0 z-10 border-b border-border/70 bg-background/85 backdrop-blur-md"
+      class="border-border/70 bg-background/85 sticky top-0 z-10 border-b backdrop-blur-md"
     >
       <UiContainer class="flex min-h-[4rem] items-center justify-between gap-4">
         <!-- Logo + nav -->
         <div class="flex items-center gap-5">
           <div class="flex items-center gap-2.5">
             <div
-              class="flex size-8 items-center justify-center rounded-lg border border-border/70 bg-muted shadow-xs"
+              class="border-border/70 bg-muted flex size-8 items-center justify-center rounded-lg border shadow-xs"
             >
               <div
                 class="size-4 rounded-full bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,0.95),rgba(255,255,255,0.2)_32%,transparent_34%),linear-gradient(135deg,var(--color-primary),color-mix(in_oklab,var(--color-primary)_40%,white))]"
@@ -291,7 +291,7 @@
                 <UiTooltipTrigger as-child>
                   <UiDropdownMenuTrigger as-child>
                     <UiButton variant="ghost" size="icon-sm">
-                      <Icon name="heroicons:cog-6-tooth" class="size-5 text-muted-foreground" />
+                      <Icon name="heroicons:cog-6-tooth" class="text-muted-foreground size-5" />
                     </UiButton>
                   </UiDropdownMenuTrigger>
                 </UiTooltipTrigger>
@@ -321,9 +321,9 @@
                 <UiTooltipTrigger as-child>
                   <UiDropdownMenuTrigger as-child>
                     <UiButton variant="ghost" size="icon-sm" class="relative">
-                      <Icon name="heroicons:bell" class="size-5 text-muted-foreground" />
+                      <Icon name="heroicons:bell" class="text-muted-foreground size-5" />
                       <span
-                        class="absolute top-1.5 right-1.5 size-2 rounded-full border border-background bg-primary"
+                        class="border-background bg-primary absolute top-1.5 right-1.5 size-2 rounded-full border"
                       />
                     </UiButton>
                   </UiDropdownMenuTrigger>
@@ -376,7 +376,7 @@
                   <UiDropdownMenuLabel>
                     <div class="flex flex-col gap-0.5">
                       <p class="text-sm font-medium">Olivia Rhye</p>
-                      <p class="text-xs font-normal text-muted-foreground">olivia@ui-thing.com</p>
+                      <p class="text-muted-foreground text-xs font-normal">olivia@ui-thing.com</p>
                     </div>
                   </UiDropdownMenuLabel>
                   <UiDropdownMenuSeparator />
@@ -414,7 +414,7 @@
       >
         <div>
           <h1 class="text-2xl font-bold tracking-tight">Welcome back, Olivia</h1>
-          <p class="mt-0.5 text-sm text-muted-foreground">
+          <p class="text-muted-foreground mt-0.5 text-sm">
             Your current sales summary and activity.
           </p>
         </div>
@@ -424,7 +424,7 @@
           <UiTooltipTrigger as-child>
             <UiButton
               variant="outline"
-              class="hidden w-64 justify-between gap-2 text-muted-foreground sm:flex"
+              class="text-muted-foreground hidden w-64 justify-between gap-2 sm:flex"
               @click="searchOpen = true"
             >
               <span class="flex items-center gap-2">
@@ -468,7 +468,7 @@
               <UiTooltip>
                 <UiTooltipTrigger as-child>
                   <UiButton variant="outline" size="sm" class="gap-2" @click="togglePopover">
-                    <Icon name="heroicons:calendar-days" class="size-4 text-muted-foreground" />
+                    <Icon name="heroicons:calendar-days" class="text-muted-foreground size-4" />
                     <span class="hidden sm:inline">
                       {{ useDateFormat(dateRange.start, "MMM D, YYYY").value }} –
                       {{ useDateFormat(dateRange.end, "MMM D, YYYY").value }}
@@ -515,7 +515,7 @@
         :animate="{ opacity: 1, y: 0 }"
         :transition="{ duration: 0.4, delay: 0.2, ease: 'easeOut' }"
       >
-        <div class="rounded-xl border border-border/70 bg-card p-5 shadow-xs">
+        <div class="border-border/70 bg-card rounded-xl border p-5 shadow-xs">
           <UiApexchart
             :key="activeTimeTab"
             type="bar"
@@ -536,18 +536,18 @@
         <div
           v-for="kpi in kpiCards"
           :key="kpi.label"
-          class="flex flex-col rounded-xl border border-border/70 bg-card shadow-xs"
+          class="border-border/70 bg-card flex flex-col rounded-xl border shadow-xs"
         >
           <div class="flex items-start justify-between p-5 pb-2">
             <div class="space-y-1">
-              <p class="text-sm text-muted-foreground">{{ kpi.label }}</p>
+              <p class="text-muted-foreground text-sm">{{ kpi.label }}</p>
               <p class="text-2xl font-bold tracking-tight">{{ kpi.value }}</p>
             </div>
             <UiTooltip>
               <UiDropdownMenu>
                 <UiTooltipTrigger as-child>
                   <UiDropdownMenuTrigger as-child>
-                    <UiButton variant="ghost" size="icon-sm" class="-mr-1 text-muted-foreground">
+                    <UiButton variant="ghost" size="icon-sm" class="text-muted-foreground -mr-1">
                       <Icon name="heroicons:ellipsis-vertical" class="size-4" />
                     </UiButton>
                   </UiDropdownMenuTrigger>
@@ -634,12 +634,12 @@
               />
               <span
                 v-if="item.online"
-                class="absolute right-0 bottom-0 size-2.5 rounded-full border-2 border-background bg-emerald-500"
+                class="border-background absolute right-0 bottom-0 size-2.5 rounded-full border-2 bg-emerald-500"
               />
             </div>
             <div class="min-w-0 flex-1 text-sm leading-snug">
               <span class="font-medium">{{ item.name }}</span>
-              <span v-if="item.time" class="ml-1 text-xs text-muted-foreground">{{
+              <span v-if="item.time" class="text-muted-foreground ml-1 text-xs">{{
                 item.time
               }}</span>
               <p class="text-muted-foreground">

@@ -1,11 +1,11 @@
 <template>
   <UiContainer class="relative py-16 lg:py-24">
     <div class="max-w-[760px]">
-      <p class="font-semibold text-primary">Pricing</p>
+      <p class="text-primary font-semibold">Pricing</p>
       <h2 class="mt-3 mb-4 text-3xl font-semibold lg:mb-5 lg:text-4xl">
         Simple, transparent pricing
       </h2>
-      <p class="text-lg text-muted-foreground lg:text-xl">
+      <p class="text-muted-foreground text-lg lg:text-xl">
         We believe {{ COMPANY_NAME }} should be accessible to all companies, no matter the size.
       </p>
     </div>
@@ -19,7 +19,7 @@
           <UiCardContent class="flex w-full flex-col items-center">
             <h3 class="text-4xl/loose font-semibold lg:text-5xl/snug">${{ p.price }}/mth</h3>
             <p class="my-2 text-xl font-semibold">{{ p.title }} plan</p>
-            <p class="mt-2 text-muted-foreground">Billed annually</p>
+            <p class="text-muted-foreground mt-2">Billed annually</p>
 
             <ul class="flex w-full flex-col items-center gap-4 px-5 py-8 lg:items-start">
               <li v-for="(perk, k) in p.perks" :key="k" class="flex items-center gap-3">

@@ -1,5 +1,5 @@
 <template>
-  <header class="z-20 border-b bg-background/90 backdrop-blur">
+  <header class="bg-background/90 z-20 border-b backdrop-blur">
     <UiContainer class="flex h-16 items-center justify-between lg:h-20">
       <div class="flex items-center gap-10">
         <NuxtLink to="#" class="flex items-center gap-3">
@@ -28,7 +28,7 @@
                       <UiNavigationMenuLink as-child>
                         <NuxtLink
                           to="#"
-                          class="group flex gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none dark:hover:bg-muted/20"
+                          class="group hover:bg-muted/80 focus-visible:ring-ring/50 dark:hover:bg-muted/20 flex gap-4 rounded-md p-3 transition focus-visible:ring-2 focus-visible:outline-none"
                         >
                           <div class="h-[80px] overflow-hidden rounded-lg shadow-xs">
                             <img
@@ -42,7 +42,7 @@
                           </div>
                           <div class="flex flex-col gap-1.5 leading-none">
                             <p class="text-sm font-semibold">Auto layout explained</p>
-                            <p class="line-clamp-2 text-sm overflow-ellipsis text-muted-foreground">
+                            <p class="text-muted-foreground line-clamp-2 text-sm overflow-ellipsis">
                               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
                               voluptatum, voluptate, quibusdam, quia voluptas quod exercitationem
                               quos quas voluptatibus quidem
@@ -53,10 +53,10 @@
                     </li>
                   </ul>
                   <div
-                    class="col-span-full flex items-center justify-center bg-muted/20 py-5 dark:bg-muted/5"
+                    class="bg-muted/20 dark:bg-muted/5 col-span-full flex items-center justify-center py-5"
                   >
                     <NuxtLink
-                      class="group flex items-center gap-2 font-semibold text-primary hover:underline"
+                      class="group text-primary flex items-center gap-2 font-semibold hover:underline"
                       to="#"
                       >View all blog posts
                       <Icon
@@ -109,7 +109,7 @@
                             <li v-for="b in 3" :key="b">
                               <NuxtLink
                                 to="#"
-                                class="flex flex-col gap-5 rounded-md transition hover:bg-muted/80 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none dark:hover:bg-muted/20"
+                                class="hover:bg-muted/80 focus-visible:ring-ring/50 dark:hover:bg-muted/20 flex flex-col gap-5 rounded-md transition focus-visible:ring-2 focus-visible:outline-none"
                               >
                                 <div class="h-[200px] w-full overflow-hidden rounded-lg shadow-xs">
                                   <img
@@ -126,7 +126,7 @@
                                     Auto layout explained
                                   </p>
                                   <p
-                                    class="line-clamp-2 text-sm overflow-ellipsis text-muted-foreground"
+                                    class="text-muted-foreground line-clamp-2 text-sm overflow-ellipsis"
                                   >
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     Quisquam voluptatum, voluptate, quibusdam, quia voluptas quod

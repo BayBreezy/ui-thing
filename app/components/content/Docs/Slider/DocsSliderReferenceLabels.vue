@@ -5,7 +5,7 @@
       <div>
         <UiSlider v-model="value" :min="5" :max="35" aria-label="Slider with reference labels" />
         <div
-          class="mt-4 flex w-full items-center justify-between gap-1 text-xs font-medium text-muted-foreground"
+          class="text-muted-foreground mt-4 flex w-full items-center justify-between gap-1 text-xs font-medium"
           aria-hidden="true"
         >
           <span v-for="size in [5, 20, 35]" :key="size">{{ size }} GB</span>

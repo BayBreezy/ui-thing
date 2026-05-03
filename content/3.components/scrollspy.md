@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="Scrollspy.vue"} to see the source code for this
 
 ### Component
 
-::ShowCase
+::prose-show-case
 
 :DocsScrollspy
 
@@ -43,8 +43,8 @@ Click :SourceCodeLink{component="Scrollspy.vue"} to see the source code for this
       <div ref="parentRef" class="-me-5 h-[300px] overflow-y-auto pe-5">
         <div class="space-y-8">
           <div v-for="item in nav" :id="item.id" :key="item.id" class="space-y-2.5">
-            <h3 class="text-base text-foreground">{{ item.label }}</h3>
-            <div class="h-[350px] rounded-lg bg-muted"></div>
+            <h3 class="text-foreground text-base">{{ item.label }}</h3>
+            <div class="bg-muted h-[350px] rounded-lg"></div>
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@ The composable also exposes `activeIds` so you can react to the full visible set
 
 ### Composable
 
-::ShowCase
+::prose-show-case
 
 :DocsScrollspyComposable
 
@@ -120,8 +120,8 @@ The composable also exposes `activeIds` so you can react to the full visible set
       <div ref="parentRef" class="-me-5 h-[300px] overflow-y-auto pe-5">
         <div class="space-y-8">
           <div v-for="item in nav" :id="item.id" :key="item.id" class="space-y-2.5">
-            <h3 class="text-base text-foreground">{{ item.label }}</h3>
-            <div class="h-[350px] rounded-lg bg-muted"></div>
+            <h3 class="text-foreground text-base">{{ item.label }}</h3>
+            <div class="bg-muted h-[350px] rounded-lg"></div>
           </div>
         </div>
       </div>
@@ -148,7 +148,7 @@ The composable also exposes `activeIds` so you can react to the full visible set
 
 ### Horizontal
 
-::ShowCase
+::prose-show-case
 
 :DocsScrollspyHorizontal
 
@@ -176,8 +176,8 @@ The composable also exposes `activeIds` so you can react to the full visible set
       <div ref="parentRef" class="-me-5 h-[500px] grow overflow-y-auto pe-5">
         <div class="space-y-8">
           <div v-for="item in nav" :id="item.id" :key="item.id" class="space-y-2.5">
-            <h3 class="text-base text-foreground">{{ item.label }}</h3>
-            <div class="h-[350px] rounded-lg bg-muted"></div>
+            <h3 class="text-foreground text-base">{{ item.label }}</h3>
+            <div class="bg-muted h-[350px] rounded-lg"></div>
           </div>
         </div>
       </div>

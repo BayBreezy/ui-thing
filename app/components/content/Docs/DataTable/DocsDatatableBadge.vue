@@ -74,7 +74,7 @@
 </script>
 
 <template>
-  <div class="overflow-hidden rounded-lg border border-border bg-background">
+  <div class="border-border bg-background overflow-hidden rounded-lg border">
     <UiDatatable v-if="options" :data="data" :options>
       <template #status="{ cellData }">
         <UiBadge :variant="cellData.status == 'Inactive' ? 'outline' : 'default'">{{
@@ -98,9 +98,9 @@
 </template>
 
 <style scoped>
-  @reference "~/assets/css/tailwind.css";
-
   :deep(.dt-scroll-body table thead tr) {
-    @apply first:hidden;
+    &:first-child {
+      display: none;
+    }
   }
 </style>

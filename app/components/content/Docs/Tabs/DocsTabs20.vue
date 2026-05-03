@@ -6,7 +6,7 @@
         :key="t.title"
         :pill="false"
         :value="t.title"
-        class="w-full justify-start data-[state=active]:bg-muted data-[state=active]:shadow-none"
+        class="data-[state=active]:bg-muted w-full justify-start data-[state=active]:shadow-none"
       >
         {{ t.title }}
       </UiTabsTrigger>
@@ -14,7 +14,7 @@
 
     <div class="grow rounded-md border text-start">
       <UiTabsContent v-for="t in tabs" :key="t.title" :value="t.title">
-        <p class="px-4 py-3 text-xs text-muted-foreground">
+        <p class="text-muted-foreground px-4 py-3 text-xs">
           {{ t.content }}
         </p>
       </UiTabsContent>

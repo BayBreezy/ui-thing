@@ -6,7 +6,7 @@
 
     <div class="relative w-full max-w-[330px] px-5">
       <h1 class="text-2xl font-bold tracking-tight lg:text-3xl">{{ title }}</h1>
-      <p class="mt-1 text-muted-foreground">{{ description }}</p>
+      <p class="text-muted-foreground mt-1">{{ description }}</p>
 
       <form class="mt-10" @submit="submit">
         <fieldset :disabled="isSubmitting" class="grid gap-5">
@@ -20,7 +20,7 @@
           />
           <UiVeeInput required label="Password" type="password" name="password" />
           <ul class="flex flex-col gap-4">
-            <li class="flex items-center gap-3 text-sm text-muted-foreground">
+            <li class="text-muted-foreground flex items-center gap-3 text-sm">
               <Icon
                 :class="[meta.valid ? 'text-green-500' : '']"
                 class="size-[18px]"
@@ -28,7 +28,7 @@
               />
               <span>At least 8 characters</span>
             </li>
-            <li class="flex items-center gap-3 text-sm text-muted-foreground">
+            <li class="text-muted-foreground flex items-center gap-3 text-sm">
               <Icon
                 :class="[meta.valid ? 'text-green-500' : '']"
                 class="size-[18px]"
@@ -40,9 +40,9 @@
           <UiButton class="w-full" type="submit" text="Create account" />
         </fieldset>
       </form>
-      <p class="mt-8 text-sm text-muted-foreground">
+      <p class="text-muted-foreground mt-8 text-sm">
         Already have an account?
-        <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#"
+        <NuxtLink class="text-primary font-semibold underline-offset-2 hover:underline" to="#"
           >Log in</NuxtLink
         >
       </p>

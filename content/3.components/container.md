@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="Container.vue"} to see the source code for this
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsContainer
 
@@ -27,7 +27,7 @@ Click :SourceCodeLink{component="Container.vue"} to see the source code for this
 <template>
   <div>
     <UiContainer>
-      <div class="h-[200px] w-full rounded-lg bg-muted shadow" />
+      <div class="bg-muted h-[200px] w-full rounded-lg shadow" />
     </UiContainer>
   </div>
 </template>

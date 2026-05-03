@@ -27,7 +27,7 @@
     <UiInputGroup>
       <UiInputGroupTextarea placeholder="Enter your message" />
       <UiInputGroupAddon align="block-end">
-        <UiInputGroupText class="text-xs text-muted-foreground">
+        <UiInputGroupText class="text-muted-foreground text-xs">
           120 characters left
         </UiInputGroupText>
       </UiInputGroupAddon>

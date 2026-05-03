@@ -6,7 +6,7 @@
           <AnimatePresence>
             <Motion
               v-if="value"
-              class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center text-muted-foreground hover:text-foreground"
+              class="text-muted-foreground hover:text-foreground absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center"
               :initial="{ opacity: 0, scale: 0.5 }"
               :animate="{ opacity: 1, scale: 1 }"
               :exit="{ opacity: 0, scale: 0 }"

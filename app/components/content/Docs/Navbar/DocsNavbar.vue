@@ -7,7 +7,7 @@
           <NuxtLink
             v-for="l in ['Home', 'About', 'Contact', 'Projects']"
             :key="l"
-            class="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            class="text-muted-foreground hover:text-foreground text-sm transition-colors"
             to="/"
             >{{ l }}</NuxtLink
           >

@@ -17,7 +17,7 @@ Click :SourceCodeLink{component="Vee/Datepicker.vue"} to see the source code for
 
 ## Usage
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeDatepicker
 

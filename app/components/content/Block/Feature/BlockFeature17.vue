@@ -1,12 +1,12 @@
 <template>
   <div class="relative overflow-hidden py-16 lg:py-24">
     <!-- Gradient background -->
-    <div class="absolute inset-0 bg-linear-to-br from-primary/10 via-purple-500/5 to-pink-500/10" />
+    <div class="from-primary/10 absolute inset-0 bg-linear-to-br via-purple-500/5 to-pink-500/10" />
 
     <!-- Floating elements -->
     <div class="absolute top-20 left-10 hidden lg:block">
       <div
-        class="animate-float h-64 w-64 rounded-full bg-linear-to-br from-primary/20 to-purple-500/20 blur-3xl"
+        class="animate-float from-primary/20 h-64 w-64 rounded-full bg-linear-to-br to-purple-500/20 blur-3xl"
       />
     </div>
 
@@ -32,19 +32,19 @@
       <UiContainer class="relative">
         <Motion :variants="childVariant">
           <div class="mx-auto max-w-[800px] text-center">
-            <UiBadge variant="outline" class="mb-4 border-primary/50 bg-primary/10">
+            <UiBadge variant="outline" class="border-primary/50 bg-primary/10 mb-4">
               <Icon name="lucide:sparkles" class="mr-2 size-3" />
               Next-Generation Platform
             </UiBadge>
             <h2 class="mb-4 text-3xl font-bold lg:mb-6 lg:text-5xl">
               Transform your workflow with
               <span
-                class="bg-linear-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent"
+                class="from-primary bg-linear-to-r via-purple-500 to-pink-500 bg-clip-text text-transparent"
               >
                 intelligent features
               </span>
             </h2>
-            <p class="text-lg text-muted-foreground lg:text-xl">
+            <p class="text-muted-foreground text-lg lg:text-xl">
               Harness the power of modern technology to streamline your operations and drive growth.
             </p>
           </div>
@@ -61,7 +61,7 @@
           <Motion
             v-for="(feature, i) in features"
             :key="i"
-            class="group relative overflow-hidden rounded-2xl border border-primary/20 bg-card/50 p-6 backdrop-blur-sm hover:border-primary/40 lg:p-8"
+            class="group border-primary/20 bg-card/50 hover:border-primary/40 relative overflow-hidden rounded-2xl border p-6 backdrop-blur-sm lg:p-8"
             :variants="childVariant"
           >
             <!-- Card gradient -->
@@ -80,7 +80,7 @@
               </div>
 
               <h3 class="mb-3 text-xl font-semibold lg:text-2xl">{{ feature.title }}</h3>
-              <p class="mb-6 text-muted-foreground">{{ feature.description }}</p>
+              <p class="text-muted-foreground mb-6">{{ feature.description }}</p>
 
               <div class="flex flex-wrap gap-2">
                 <UiBadge
@@ -95,7 +95,7 @@
 
               <!-- Animated indicator -->
               <div
-                class="mt-6 flex items-center gap-2 text-sm font-semibold text-primary opacity-0 transition-opacity group-hover:opacity-100"
+                class="text-primary mt-6 flex items-center gap-2 text-sm font-semibold opacity-0 transition-opacity group-hover:opacity-100"
               >
                 <span>Learn more</span>
                 <Icon name="heroicons:arrow-right" class="animate-bounce-horizontal h-4 w-4" />

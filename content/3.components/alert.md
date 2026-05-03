@@ -1,6 +1,15 @@
 ---
 title: Alert
 description: A visually emphasized message that informs the user of an event.
+componentApi:
+  heading: API Reference
+  components:
+    - path: app/components/Ui/Alert/Alert.vue
+      title: Alert
+    - path: app/components/Ui/Alert/Description.vue
+      title: Alert Description
+    - path: app/components/Ui/Alert/Title.vue
+      title: Alert Title
 ---
 
 ## Source code
@@ -15,7 +24,7 @@ Click :SourceCodeLink{component="Alert"} to see the source code for this compone
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsAlert
 
@@ -37,7 +46,7 @@ Click :SourceCodeLink{component="Alert"} to see the source code for this compone
 
 ### Destructive
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertDestructive
 
@@ -65,7 +74,7 @@ Click :SourceCodeLink{component="Alert"} to see the source code for this compone
 
 ### Border
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertBorder
 
@@ -77,7 +86,7 @@ Click :SourceCodeLink{component="Alert"} to see the source code for this compone
 <template>
   <div>
     <UiAlert
-      class="border-l-8 border-l-primary"
+      class="border-l-primary border-l-8"
       title="New users"
       description="Over 25K new users joined today!"
       icon="lucide:users"
@@ -98,7 +107,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Warning
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertWarning
 
@@ -128,7 +137,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Warning Outline
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertWarningOutline
 
@@ -153,7 +162,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Error
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertError
 
@@ -179,7 +188,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Error Outline
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertErrorOutline
 
@@ -204,7 +213,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Info
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertInfo
 
@@ -230,7 +239,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Info Outline
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertInfoOutline
 
@@ -250,7 +259,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Success
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertSuccess
 
@@ -280,7 +289,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Success Outline
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertSuccessOutline
 
@@ -305,7 +314,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### End Link
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertEndLink
 
@@ -343,7 +352,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Sub Data
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertSubData
 
@@ -356,11 +365,11 @@ To use these examples you will have to copy the code and adjust it for your own 
   <UiAlert
     icon="lucide:circle-alert"
     icon-class="mt-0.5 size-4 shrink-0 text-red-500 opacity-60"
-    class="rounded-lg border border-border px-4 py-3"
+    class="border-border rounded-lg border px-4 py-3"
   >
     <div class="grow space-y-1">
       <p class="text-sm font-medium">Password does not meet requirements:</p>
-      <ul class="list-inside list-disc text-sm text-muted-foreground">
+      <ul class="text-muted-foreground list-inside list-disc text-sm">
         <li>Minimum 8 characters</li>
         <li>Include a special character</li>
       </ul>
@@ -375,7 +384,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Close Button
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertCloseButton
 
@@ -424,7 +433,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Close Button w/ Undo
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertNotificationSingleButton
 
@@ -473,7 +482,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Double Button
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertNotificationDoubleButton
 
@@ -524,7 +533,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Success Learn More
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertNotificationSuccessMore
 
@@ -543,7 +552,7 @@ To use these examples you will have to copy the code and adjust it for your own 
             <Icon name="lucide:x" class="size-3.5" />
           </UiButton>
         </UiAlertDescription>
-        <p class="mb-3 text-sm text-muted-foreground">
+        <p class="text-muted-foreground mb-3 text-sm">
           It demonstrates that the task or request has been processed.
         </p>
         <UiButton class="text-xs" size="xs">Learn more</UiButton>
@@ -571,7 +580,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Privacy
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertNotificationPrivacy
 
@@ -590,7 +599,7 @@ To use these examples you will have to copy the code and adjust it for your own 
             <Icon name="lucide:x" class="size-3.5" />
           </UiButton>
         </UiAlertDescription>
-        <p class="mb-3 text-sm text-muted-foreground">
+        <p class="text-muted-foreground mb-3 text-sm">
           We use cookies to improve your experience, and show personalized content.
         </p>
         <div class="flex items-center gap-2">
@@ -621,7 +630,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Version Update
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertNotificationVersion
 
@@ -645,7 +654,7 @@ To use these examples you will have to copy the code and adjust it for your own 
             <Icon name="lucide:x" class="size-3.5" />
           </UiButton>
         </UiAlertDescription>
-        <p class="mb-3 text-sm text-muted-foreground">
+        <p class="text-muted-foreground mb-3 text-sm">
           This update contains several bug fixes and performance improvements.
         </p>
         <div class="flex items-center gap-2">
@@ -676,7 +685,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Mentioned
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertNotificationMention
 
@@ -695,11 +704,11 @@ To use these examples you will have to copy the code and adjust it for your own 
             <UiAvatarImage src="https://i.pravatar.cc/300" alt="Mary Palmer" />
           </UiAvatar>
         </template>
-        <UiAlertDescription class="mb-1 flex items-start justify-between text-muted-foreground">
+        <UiAlertDescription class="text-muted-foreground mb-1 flex items-start justify-between">
           <div>
-            <a class="font-medium text-foreground hover:underline" href="#"> Mary Palmer </a>
+            <a class="text-foreground font-medium hover:underline" href="#"> Mary Palmer </a>
             mentioned you in
-            <a class="font-medium text-foreground hover:underline" href="#">
+            <a class="text-foreground font-medium hover:underline" href="#">
               project-campaign-02
             </a>
           </div>
@@ -707,7 +716,7 @@ To use these examples you will have to copy the code and adjust it for your own 
             <Icon name="lucide:x" class="size-3.5" />
           </UiButton>
         </UiAlertDescription>
-        <p class="mb-3 text-sm text-muted-foreground">2 min ago</p>
+        <p class="text-muted-foreground mb-3 text-sm">2 min ago</p>
         <div class="flex items-center gap-2">
           <UiButton class="text-xs" size="xs">Accept</UiButton>
           <UiButton class="text-xs" size="xs" variant="outline">Decline</UiButton>

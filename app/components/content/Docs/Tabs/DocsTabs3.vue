@@ -7,13 +7,13 @@
             v-for="t in 3"
             :key="t"
             :value="`tab-${t}`"
-            class="rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-none"
+            class="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-full data-[state=active]:shadow-none"
             >Tab {{ t }}</UiTabsTrigger
           >
         </UiTabsList>
       </div>
       <UiTabsContent v-for="t in 3" :key="t" :value="`tab-${t}`">
-        <p class="p-4 text-center text-sm text-muted-foreground">Content for Tab {{ t }}</p>
+        <p class="text-muted-foreground p-4 text-center text-sm">Content for Tab {{ t }}</p>
       </UiTabsContent>
     </UiTabs>
   </div>

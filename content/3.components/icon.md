@@ -41,7 +41,7 @@ The Icon component automatically detects the type of icon you want to display an
 
 The primary use case is displaying icons from Iconify's vast collection of icon sets. Simply use the format `collection:icon-name`.
 
-::ShowCase
+::prose-show-case
 
 :DocsIcon
 
@@ -65,7 +65,7 @@ The primary use case is displaying icons from Iconify's vast collection of icon 
 
 Control the size of icons using the `size` prop. It accepts both numbers (pixels) and strings.
 
-::ShowCase
+::prose-show-case
 
 :DocsIconSizes
 
@@ -89,7 +89,7 @@ Control the size of icons using the `size` prop. It accepts both numbers (pixels
 
 The component automatically detects and renders emojis properly.
 
-::ShowCase
+::prose-show-case
 
 :DocsIconEmoji
 
@@ -114,7 +114,7 @@ The component automatically detects and renders emojis properly.
 
 You can also use custom image URLs. The component will render them as `<img>` tags.
 
-::ShowCase
+::prose-show-case
 
 :DocsIconImage
 
@@ -136,7 +136,7 @@ You can also use custom image URLs. The component will render them as `<img>` ta
 
 Style icons using Tailwind classes. The component inherits color from the parent context.
 
-::ShowCase
+::prose-show-case
 
 :DocsIconColors
 
@@ -160,7 +160,7 @@ Style icons using Tailwind classes. The component inherits color from the parent
 
 Icons work seamlessly with other components like buttons.
 
-::ShowCase
+::prose-show-case
 
 :DocsIconButton
 
@@ -192,7 +192,7 @@ Icons work seamlessly with other components like buttons.
 
 Here are some popular icon sets you can use with the component:
 
-::ShowCase
+::prose-show-case
 
 :DocsIconSets
 

@@ -9,7 +9,7 @@
       <span v-if="title">{{ title }}</span>
     </slot>
     <Icon
-      class="ml-auto size-4 text-muted-foreground"
+      class="text-muted-foreground ml-auto size-4"
       :name="trailingIcon || 'lucide:chevron-right'"
     />
   </DropdownMenuSubTrigger>
@@ -23,21 +23,21 @@
 
   const props = defineProps<
     DropdownMenuSubTriggerProps & {
-      /**Custom class(es) to add to the element */
+      /** Custom class(es) to add to the element. */
       class?: HTMLAttributes["class"];
-      /** Wether an indentation should be added to the item or not */
+      /** Wether an indentation should be added to the item or not. */
       inset?: boolean;
-      /** The icon to display */
+      /** The icon to display. */
       icon?: string;
-      /** The title for the item */
+      /** The title for the item. */
       title?: string;
-      /** The trailing icon to display */
+      /** The trailing icon to display. */
       trailingIcon?: string;
     }
   >();
   const forwarded = reactiveOmit(props, "class", "inset", "icon", "title", "trailingIcon");
   const styles = tv({
-    base: "flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground data-inset:pl-8 data-[state=open]:bg-accent data-[state=open]:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground",
+    base: "focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-inset:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
     variants: {
       inset: {
         true: "pl-8",

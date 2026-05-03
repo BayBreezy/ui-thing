@@ -71,7 +71,7 @@
         v-for="item in items"
         :key="item.id"
         :value="item.id"
-        class="overflow-hidden border bg-background first:rounded-t-lg last:rounded-b-lg last:border-b"
+        class="bg-background overflow-hidden border first:rounded-t-lg last:rounded-b-lg last:border-b"
       >
         <UiAccordionTrigger
           :title="item.title"
@@ -81,7 +81,7 @@
           <UiCollapsible
             v-for="collapsible in item.collapsibles"
             :key="collapsible.title"
-            class="space-y-1 border-t border-border bg-accent px-4 py-3"
+            class="border-border bg-accent space-y-1 border-t px-4 py-3"
             :default-open="collapsible.open"
           >
             <UiCollapsibleTrigger
@@ -97,7 +97,7 @@
               {{ collapsible.title }}
             </UiCollapsibleTrigger>
             <UiCollapsibleContent
-              class="overflow-hidden ps-6 text-sm text-muted-foreground transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down"
+              class="text-muted-foreground data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down overflow-hidden ps-6 text-sm transition-all"
             >
               {{ collapsible.content }}
             </UiCollapsibleContent>

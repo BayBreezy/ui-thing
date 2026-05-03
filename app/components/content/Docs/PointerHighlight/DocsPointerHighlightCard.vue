@@ -6,7 +6,7 @@
       pointer-class="text-primary"
     >
       <UiCard
-        class="m-1! w-full max-w-[320px] rounded-lg border-dashed bg-linear-to-br from-background via-muted/40 to-background py-0"
+        class="from-background via-muted/40 to-background m-1! w-full max-w-[320px] rounded-lg border-dashed bg-linear-to-br py-0"
       >
         <UiCardHeader class="border-b py-6">
           <UiCardTitle>Early access invite</UiCardTitle>
@@ -15,7 +15,7 @@
           </UiCardDescription>
         </UiCardHeader>
         <UiCardContent class="space-y-4 py-6">
-          <p class="text-sm text-muted-foreground">
+          <p class="text-muted-foreground text-sm">
             Get early builds, changelog previews, and a private feedback channel with the team.
           </p>
           <UiButton class="w-full">Request invite</UiButton>

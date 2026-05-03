@@ -46,7 +46,7 @@
             >
           </fieldset>
         </form>
-        <p class="text-center text-xs text-muted-foreground">
+        <p class="text-muted-foreground text-center text-xs">
           By logging in, you agree to our
           <a class="underline hover:no-underline" href="#">Terms</a>.
         </p>

@@ -23,7 +23,7 @@ Click :SourceCodeLink{component="Kbd.vue"} to see the source code for this compo
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsKbd
 
@@ -57,7 +57,7 @@ Click :SourceCodeLink{component="Kbd.vue"} to see the source code for this compo
 
 Use the `KbdGroup` component to group keyboard keys together.
 
-::ShowCase
+::prose-show-case
 
 :DocsKbdGroup
 
@@ -68,7 +68,7 @@ Use the `KbdGroup` component to group keyboard keys together.
 ```vue [DocsKbdGroup.vue]
 <template>
   <div class="mx-auto flex flex-col items-center gap-4">
-    <p class="text-sm text-muted-foreground">
+    <p class="text-muted-foreground text-sm">
       Use
       <UiKbdGroup>
         <UiKbd>Ctrl + B</UiKbd>
@@ -88,7 +88,7 @@ Use the `KbdGroup` component to group keyboard keys together.
 
 Use the `Kbd` component inside a `Button` component to display a keyboard key inside a button.
 
-::ShowCase
+::prose-show-case
 
 :DocsKbdButton
 
@@ -113,7 +113,7 @@ Use the `Kbd` component inside a `Button` component to display a keyboard key in
 
 You can use the `Kbd` component inside a `Tooltip` component to display a tooltip with a keyboard key.
 
-::ShowCase
+::prose-show-case
 
 :DocsKbdTooltip
 
@@ -160,7 +160,7 @@ You can use the `Kbd` component inside a `Tooltip` component to display a toolti
 
 You can use the `Kbd` component inside a `InputGroupAddon` component to display a keyboard key inside an input group.
 
-::ShowCase
+::prose-show-case
 
 :DocsKbdInputGroup
 
@@ -191,7 +191,7 @@ You can use the `Kbd` component inside a `InputGroupAddon` component to display 
 
 ### Sizes
 
-::ShowCase
+::prose-show-case
 
 :DocsKbdSizes
 
@@ -227,7 +227,7 @@ You can use the `Kbd` component inside a `InputGroupAddon` component to display 
 
 ### Variants
 
-::ShowCase
+::prose-show-case
 
 :DocsKbdVariants
 

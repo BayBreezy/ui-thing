@@ -8,7 +8,7 @@
             <Icon name="lucide:chevron-left" class="size-4" />
           </UiButton>
         </UiPaginationPrev>
-        <div class="text-sm text-muted-foreground">
+        <div class="text-muted-foreground text-sm">
           Page <span class="text-foreground">{{ page1 }}</span> of
           <span class="text-foreground">{{ itemsPerPage }}</span>
         </div>
@@ -28,7 +28,7 @@
             <Icon name="lucide:chevron-left" class="size-4" />
           </UiButton>
         </UiPaginationPrev>
-        <div class="text-sm text-muted-foreground">
+        <div class="text-muted-foreground text-sm">
           Page <span class="text-foreground">{{ page2 }}</span> of
           <span class="text-foreground">{{ itemsPerPage }}</span>
         </div>

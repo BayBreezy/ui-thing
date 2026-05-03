@@ -23,7 +23,7 @@
       </UiTabsList>
       <div class="grow rounded-md border text-start">
         <UiTabsContent v-for="t in tabs" :key="t.title" :value="t.title">
-          <p class="px-4 py-3 text-xs text-muted-foreground">
+          <p class="text-muted-foreground px-4 py-3 text-xs">
             {{ t.content }}
           </p>
         </UiTabsContent>

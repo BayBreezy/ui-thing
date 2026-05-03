@@ -25,12 +25,12 @@
       />
       <div class="relative z-1 container max-w-4xl">
         <Motion as="div" :variants="childVariant" class="text-center">
-          <p class="mb-3 text-6xl font-bold text-primary lg:text-8xl">{{ statusCode }}</p>
+          <p class="text-primary mb-3 text-6xl font-bold lg:text-8xl">{{ statusCode }}</p>
           <h1 class="text-3xl font-bold tracking-tight lg:text-4xl">{{ title }}</h1>
         </Motion>
 
         <Motion as="div" :variants="childVariant" class="mt-8">
-          <p class="mb-4 text-center text-sm font-medium text-muted-foreground">
+          <p class="text-muted-foreground mb-4 text-center text-sm font-medium">
             Here are some helpful resources:
           </p>
           <swiper-container
@@ -48,8 +48,8 @@
             <swiper-slide v-for="(item, i) in suggestions" :key="i">
               <UiCard class="h-full transition-shadow hover:shadow-lg">
                 <UiCardHeader class="flex flex-col">
-                  <div class="mb-3 inline-flex rounded-lg bg-primary/10 p-3">
-                    <Icon :name="item.icon" class="h-5 w-5 text-primary" />
+                  <div class="bg-primary/10 mb-3 inline-flex rounded-lg p-3">
+                    <Icon :name="item.icon" class="text-primary h-5 w-5" />
                   </div>
                   <UiCardTitle class="text-lg">{{ item.title }}</UiCardTitle>
                   <UiCardDescription>{{ item.description }}</UiCardDescription>

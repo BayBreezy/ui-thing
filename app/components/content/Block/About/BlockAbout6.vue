@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Our Core Values</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         The principles that guide everything we do
       </p>
     </div>
@@ -15,15 +15,15 @@
       <div
         v-for="value in values"
         :key="value.title"
-        class="group rounded-2xl border bg-card p-8 transition-colors hover:border-primary/50"
+        class="group bg-card hover:border-primary/50 rounded-2xl border p-8 transition-colors"
       >
         <div
-          class="flex size-14 items-center justify-center rounded-xl bg-primary/10 transition-transform group-hover:scale-110"
+          class="bg-primary/10 flex size-14 items-center justify-center rounded-xl transition-transform group-hover:scale-110"
         >
-          <Icon :name="value.icon" class="size-7 text-primary" />
+          <Icon :name="value.icon" class="text-primary size-7" />
         </div>
         <h3 class="mt-6 text-xl font-semibold">{{ value.title }}</h3>
-        <p class="mt-3 text-muted-foreground">{{ value.description }}</p>
+        <p class="text-muted-foreground mt-3">{{ value.description }}</p>
       </div>
     </div>
   </div>

@@ -33,6 +33,7 @@
   export type InputGroupAddonVariants = Omit<ButtonProps, "size"> & {
     /**
      * The size of the button within the input group.
+     *
      * @default "xs"
      */
     size?: VariantProps<typeof inputGroupButtonVariants>["size"];

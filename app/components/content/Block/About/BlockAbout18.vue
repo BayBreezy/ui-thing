@@ -7,7 +7,7 @@
     <div class="mx-auto max-w-3xl">
       <div class="text-center">
         <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Frequently Asked Questions</h2>
-        <p class="mt-4 text-lg text-muted-foreground">
+        <p class="text-muted-foreground mt-4 text-lg">
           Everything you need to know about our company
         </p>
       </div>
@@ -16,19 +16,19 @@
         <UiCard v-for="faq in faqs" :key="faq.question" class="gap-0 overflow-hidden py-0">
           <UiCollapsible v-slot="{ open }">
             <UiCollapsibleTrigger
-              class="flex w-full items-start justify-between gap-4 p-6 text-left transition-colors hover:bg-muted/50"
+              class="hover:bg-muted/50 flex w-full items-start justify-between gap-4 p-6 text-left transition-colors"
             >
               <div>
                 <h3 class="font-semibold">{{ faq.question }}</h3>
               </div>
               <Icon
                 name="lucide:chevron-down"
-                class="size-5 shrink-0 text-muted-foreground transition-transform"
+                class="text-muted-foreground size-5 shrink-0 transition-transform"
                 :class="{ 'rotate-180': open }"
               />
             </UiCollapsibleTrigger>
             <UiCollapsibleContent>
-              <div class="px-6 pt-0 pb-6 text-sm text-muted-foreground">
+              <div class="text-muted-foreground px-6 pt-0 pb-6 text-sm">
                 {{ faq.answer }}
               </div>
             </UiCollapsibleContent>
@@ -36,10 +36,10 @@
         </UiCard>
       </div>
 
-      <div class="mt-12 rounded-2xl border bg-card p-8 text-center">
-        <Icon name="lucide:help-circle" class="mx-auto size-12 text-primary" />
+      <div class="bg-card mt-12 rounded-2xl border p-8 text-center">
+        <Icon name="lucide:help-circle" class="text-primary mx-auto size-12" />
         <h3 class="mt-4 text-xl font-bold">Still have questions?</h3>
-        <p class="mt-2 text-muted-foreground">
+        <p class="text-muted-foreground mt-2">
           Can't find the answer you're looking for? Our team is here to help.
         </p>
         <div class="mt-6 flex flex-wrap justify-center gap-3">

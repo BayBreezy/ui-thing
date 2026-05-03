@@ -20,9 +20,7 @@
 <script lang="ts" setup>
   const props = defineProps<
     AccordionHeaderProps & {
-      /**
-       * Custom class to apply to the component
-       */
+      /** Custom class to apply to the component. */
       class?: HTMLAttributes["class"];
     }
   >();

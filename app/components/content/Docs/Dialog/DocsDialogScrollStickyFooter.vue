@@ -14,7 +14,7 @@
             </UiDialogTitle>
             <UiDialogDescription>
               <div class="p-6">
-                <div class="space-y-4 [&_strong]:font-semibold [&_strong]:text-foreground">
+                <div class="[&_strong]:text-foreground space-y-4 [&_strong]:font-semibold">
                   <div class="space-y-1">
                     <p>
                       <strong>Account Management</strong>
@@ -122,7 +122,7 @@
             </UiDialogDescription>
           </UiDialogHeader>
         </div>
-        <UiDialogFooter class="border-t border-border px-6 py-4">
+        <UiDialogFooter class="border-border border-t px-6 py-4">
           <UiDialogClose as-child>
             <UiButton type="button" variant="outline" text="Cancel" />
           </UiDialogClose>

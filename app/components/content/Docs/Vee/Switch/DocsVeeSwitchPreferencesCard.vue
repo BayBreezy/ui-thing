@@ -17,7 +17,7 @@
                   <UiLabel for="securityAlerts" :class="[errorMessage && 'text-destructive']"
                     >Security alerts</UiLabel
                   >
-                  <p class="text-sm text-muted-foreground">
+                  <p class="text-muted-foreground text-sm">
                     Get notified about new sign-ins and unusual activity.
                   </p>
                 </div>
@@ -33,7 +33,7 @@
                   <UiLabel for="sproductUpdates" :class="[errorMessage && 'text-destructive']"
                     >Product updates</UiLabel
                   >
-                  <p class="text-sm text-muted-foreground">
+                  <p class="text-muted-foreground text-sm">
                     Receive feature launches, changelogs, and release notes.
                   </p>
                 </div>
@@ -49,7 +49,7 @@
                   <UiLabel for="weeklyDigest" :class="[errorMessage && 'text-destructive']"
                     >Weekly digest</UiLabel
                   >
-                  <p class="text-sm text-muted-foreground">
+                  <p class="text-muted-foreground text-sm">
                     Get a weekly summary of mentions, replies, and pending tasks.
                   </p>
                 </div>
@@ -60,7 +60,7 @@
         </UiCardContent>
 
         <UiCardFooter class="justify-between border-t py-6">
-          <p class="text-sm text-muted-foreground">You can update these settings any time.</p>
+          <p class="text-muted-foreground text-sm">You can update these settings any time.</p>
           <UiButton type="submit">Save changes</UiButton>
         </UiCardFooter>
       </UiCard>

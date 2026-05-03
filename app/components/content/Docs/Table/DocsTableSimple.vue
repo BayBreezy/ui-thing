@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 gap-5 md:flex md:items-center md:justify-between">
       <div class="flex flex-col">
         <h1 class="font-semibold">Users</h1>
-        <p class="text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-sm">
           A list of all the users in your account including their name, title, email and role.
         </p>
       </div>
@@ -15,10 +15,10 @@
       <UiTable class="w-full table-auto">
         <UiTableHeader>
           <UiTableRow>
-            <UiTableHead class="pl-0 font-semibold text-foreground">Name</UiTableHead>
-            <UiTableHead class="pl-0 font-semibold text-foreground">Title</UiTableHead>
-            <UiTableHead class="pl-0 font-semibold text-foreground">Email</UiTableHead>
-            <UiTableHead class="pl-0 font-semibold text-foreground">Role</UiTableHead>
+            <UiTableHead class="text-foreground pl-0 font-semibold">Name</UiTableHead>
+            <UiTableHead class="text-foreground pl-0 font-semibold">Title</UiTableHead>
+            <UiTableHead class="text-foreground pl-0 font-semibold">Email</UiTableHead>
+            <UiTableHead class="text-foreground pl-0 font-semibold">Role</UiTableHead>
             <UiTableHead class="pl-0">
               <span class="sr-only">Actions</span>
             </UiTableHead>
@@ -28,9 +28,9 @@
           <template v-for="user in users" :key="user.id">
             <UiTableRow>
               <UiTableCell class="pl-0 font-medium">{{ user.name }} </UiTableCell>
-              <UiTableCell class="pl-0 text-muted-foreground">{{ user.title }}</UiTableCell>
-              <UiTableCell class="pl-0 text-muted-foreground">{{ user.email }}</UiTableCell>
-              <UiTableCell class="pl-0 text-muted-foreground">{{ user.role }}</UiTableCell>
+              <UiTableCell class="text-muted-foreground pl-0">{{ user.title }}</UiTableCell>
+              <UiTableCell class="text-muted-foreground pl-0">{{ user.email }}</UiTableCell>
+              <UiTableCell class="text-muted-foreground pl-0">{{ user.role }}</UiTableCell>
               <UiTableCell class="pl-0 text-right">
                 <UiButton size="sm" variant="linkHover2">Edit</UiButton>
               </UiTableCell>

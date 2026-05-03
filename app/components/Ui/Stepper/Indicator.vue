@@ -41,6 +41,6 @@
   const forwarded = useForwardProps(reactiveOmit(props, "class", "isLoading"));
 
   const styles = tv({
-    base: "relative flex size-6 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-medium text-muted-foreground group-data-[state=active]/step:bg-primary group-data-[state=active]/step:text-primary-foreground group-data-[state=completed]/step:bg-primary group-data-[state=completed]/step:text-primary-foreground",
+    base: "bg-muted text-muted-foreground group-data-[state=active]/step:bg-primary group-data-[state=active]/step:text-primary-foreground group-data-[state=completed]/step:bg-primary group-data-[state=completed]/step:text-primary-foreground relative flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-medium",
   });
 </script>

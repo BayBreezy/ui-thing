@@ -188,10 +188,10 @@
         </UiTableRow>
       </UiTableFooter>
     </UiTable>
-    <p class="mt-4 text-center text-sm text-muted-foreground">
+    <p class="text-muted-foreground mt-4 text-center text-sm">
       Basic data table made with
       <a
-        class="underline hover:text-foreground"
+        class="hover:text-foreground underline"
         href="https://tanstack.com/table"
         target="_blank"
         rel="noopener noreferrer"

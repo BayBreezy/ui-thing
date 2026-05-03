@@ -1,45 +1,20 @@
-import tailwindcss from "@tailwindcss/vite";
-import type { BuiltinTheme, BundledLanguage } from "shiki";
-
 import * as SEO from "./app/utils/seo";
 
-const langs: BundledLanguage[] = [
-  "json",
-  "js",
-  "ts",
-  "css",
-  "html",
-  "md",
-  "yaml",
-  "vue",
-  "vue-html",
-  "bash",
-  "sh",
-  "typescript",
-  "javascript",
-  "svelte",
-  "tsx",
-  "jsx",
-  "prisma",
-  "sql",
-  "docker",
-  "dockerfile",
-  "python",
-];
-
-const theme = {
-  default: "github-light" as BuiltinTheme,
-  dark: "github-dark" as BuiltinTheme,
-};
-
 export default defineNuxtConfig({
+  extends: ["@baybreezy/docd"],
   devtools: { enabled: true },
   vite: {
-    plugins: [tailwindcss()],
     optimizeDeps: {
       include: [
+        "embla-carousel-autoplay",
+        "embla-carousel-vue",
+        "qr-code-styling",
+        "@vueform/slider",
+        "dayjs",
+        "yup",
+        "@vueup/vue-quill",
+        "quill-blot-formatter",
         "date-fns",
-        "@unovis/ts",
         "vee-validate",
         "@vee-validate/yup",
         "zod",
@@ -89,30 +64,12 @@ export default defineNuxtConfig({
     },
   },
   nitro: { experimental: { asyncContext: true } },
-  experimental: { payloadExtraction: true },
   modules: [
-    "@nuxtjs/mdc",
-    "@vueuse/nuxt",
-    "reka-ui/nuxt",
     "@yuta-inoue-ph/nuxt-vcalendar",
     "@vee-validate/nuxt",
-    "nuxt-llms",
-    "@nuxtjs/color-mode",
     "@nuxt/eslint",
     "nuxt-swiper",
     "v-wave/nuxt",
-    "@nuxt/image",
-    "@nuxt/icon",
-    "@nuxt/fonts",
-    "@vite-pwa/nuxt",
-    "nuxt-og-image",
-    "vue-sonner/nuxt",
-    "motion-v/nuxt",
-    "@nuxt/content",
-    "@morev/vue-transitions/nuxt",
-    "nuxt-gtag",
-    "@nuxtjs/mcp-toolkit",
-    "nuxt-email-renderer",
   ],
   mcp: {
     name: "UI Thing MCP",
@@ -124,7 +81,6 @@ export default defineNuxtConfig({
 
   css: [
     "~/assets/css/tippy.css",
-    "~/assets/css/theme.css",
     "~/assets/css/quill.css",
     "~/assets/css/full-calendar.css",
     "~/assets/css/tailwind.css",
@@ -149,18 +105,6 @@ export default defineNuxtConfig({
             href: "/api/components/{name}",
             description:
               "Retrieve detailed information about a specific UI component by its name. The name parameter is required and should match the component's name or value. To get the list of available components, use the /api/components endpoint.",
-          },
-          {
-            title: "Get Prose",
-            href: "/api/prose",
-            description:
-              "Retrieve a list of prose elements. A search query parameter can be provided to filter prose elements by name or value.",
-          },
-          {
-            title: "Get Prose by Name",
-            href: "/api/prose/{name}",
-            description:
-              "Retrieve detailed information about a specific prose element by its name. The name parameter is required and should match the prose element's name or value. To get the list of available prose elements, use the /api/prose endpoint.",
           },
           {
             title: "Get Blocks",
@@ -201,22 +145,6 @@ export default defineNuxtConfig({
       },
     },
   },
-  icon: {
-    clientBundle: { scan: true, sizeLimitKb: 0 },
-    mode: "svg",
-    class: "shrink-0",
-    fetchTimeout: 2000,
-    serverBundle: "local",
-  },
-
-  imports: {
-    // Add tv and VariantProps to the set of auto imported modules
-    imports: [
-      { from: "tailwind-variants", name: "tv" },
-      { from: "tailwind-variants", name: "VariantProps", type: true },
-      { from: "vue-sonner", name: "toast", as: "useSonner" },
-    ],
-  },
 
   app: {
     rootAttrs: {
@@ -239,19 +167,6 @@ export default defineNuxtConfig({
     },
   },
 
-  mdc: {
-    highlight: { langs, theme, noApiRoute: false },
-  },
-  content: {
-    experimental: { sqliteConnector: "native" },
-    build: {
-      markdown: {
-        toc: { depth: 4, searchDepth: 4 },
-        highlight: { langs, theme },
-      },
-    },
-  },
-
   routeRules: {
     "/getting-started": { redirect: "/getting-started/introduction" },
     "/magic/**": { redirect: "https://inspira-ui.com" },
@@ -259,49 +174,6 @@ export default defineNuxtConfig({
     "/examples": { redirect: "/examples/cards" },
     "/blocks": { redirect: "/blocks/app-empty-state" },
     "/block-renderer": { static: true },
-  },
-  colorMode: { fallback: "dark", preference: "system" },
-
-  pwa: {
-    includeAssets: ["favicon.ico", "robots.txt", "icons/apple-touch-icon.png"],
-    manifest: {
-      background_color: "#ffffff",
-      description: SEO.SITE_DESCRIPTION,
-      icons: [
-        {
-          src: "/icons/pwa-192x192.png",
-          sizes: "192x192",
-          type: "image/png",
-          purpose: "any",
-        },
-        {
-          src: "/icons/pwa-512x512.png",
-          sizes: "512x512",
-          type: "image/png",
-          purpose: "any",
-        },
-        {
-          src: "/icons/pwa-maskable-192x192.png",
-          sizes: "192x192",
-          type: "image/png",
-          purpose: "maskable",
-        },
-        {
-          src: "/icons/pwa-maskable-512x512.png",
-          sizes: "512x512",
-          type: "image/png",
-          purpose: "maskable",
-        },
-      ],
-      lang: SEO.SITE_LANG,
-      name: SEO.SITE_NAME,
-      short_name: SEO.SITE_NAME,
-      theme_color: SEO.SITE_THEME_COLOR,
-      display: "standalone",
-    },
-    workbox: {
-      globIgnores: ["**/_payload.json", "**/node_modules/**"],
-    },
   },
 
   site: {
@@ -312,15 +184,6 @@ export default defineNuxtConfig({
     identity: { type: "Person" },
     indexable: true,
     twitter: SEO.SITE_TWITTER_CREATOR,
-  },
-
-  ogImage: {
-    defaults: {
-      alt: SEO.SITE_NAME,
-      height: 800,
-      width: 1440,
-      screenshot: { colorScheme: "dark", height: 800, width: 1440, delay: 2000 },
-    },
   },
   compatibilityDate: "latest",
 });

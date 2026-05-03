@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bg-background text-foreground [--color-primary:#8b5cf6] [--primary:#8b5cf6] [--radius:12px] [--ring:#8b5cf6]"
+    class="bg-background text-foreground min-h-screen [--color-primary:#8b5cf6] [--primary:#8b5cf6] [--radius:12px] [--ring:#8b5cf6]"
   >
     <!-- Edit page sheet -->
     <UiSheet v-model:open="editOpen">
@@ -107,25 +107,25 @@
 
       <!-- Keyboard shortcuts footer -->
       <div
-        class="flex items-center gap-5 border-t border-border/70 bg-muted/20 px-4 py-2.5 text-xs text-muted-foreground"
+        class="border-border/70 bg-muted/20 text-muted-foreground flex items-center gap-5 border-t px-4 py-2.5 text-xs"
       >
         <span class="flex items-center gap-1.5">
           <kbd
-            class="rounded border border-border/70 bg-background px-1.5 py-0.5 font-mono text-[10px]"
+            class="border-border/70 bg-background rounded border px-1.5 py-0.5 font-mono text-[10px]"
             >↵</kbd
           >
           to select
         </span>
         <span class="flex items-center gap-1.5">
           <kbd
-            class="rounded border border-border/70 bg-background px-1.5 py-0.5 font-mono text-[10px]"
+            class="border-border/70 bg-background rounded border px-1.5 py-0.5 font-mono text-[10px]"
             >↑↓</kbd
           >
           to navigate
         </span>
         <span class="flex items-center gap-1.5">
           <kbd
-            class="rounded border border-border/70 bg-background px-1.5 py-0.5 font-mono text-[10px]"
+            class="border-border/70 bg-background rounded border px-1.5 py-0.5 font-mono text-[10px]"
             >ESC</kbd
           >
           to close
@@ -139,14 +139,14 @@
       :initial="{ opacity: 0, y: -16 }"
       :animate="{ opacity: 1, y: 0 }"
       :transition="{ duration: 0.4, ease: 'easeOut' }"
-      class="sticky top-0 z-10 border-b border-border/70 bg-background/85 backdrop-blur-md"
+      class="border-border/70 bg-background/85 sticky top-0 z-10 border-b backdrop-blur-md"
     >
       <UiContainer class="flex min-h-[4rem] items-center justify-between gap-4">
         <!-- Logo + nav -->
         <div class="flex items-center gap-5">
           <div class="flex items-center gap-2.5">
             <div
-              class="flex size-8 items-center justify-center rounded-lg border border-border/70 bg-muted shadow-xs"
+              class="border-border/70 bg-muted flex size-8 items-center justify-center rounded-lg border shadow-xs"
             >
               <div
                 class="size-4 rounded-full bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,0.95),rgba(255,255,255,0.2)_32%,transparent_34%),linear-gradient(135deg,var(--color-primary),color-mix(in_oklab,var(--color-primary)_40%,white))]"
@@ -171,7 +171,7 @@
                 class="w-full justify-start"
                 :class="
                   item.active
-                    ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                    ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                     : 'text-muted-foreground'
                 "
               >
@@ -189,7 +189,7 @@
               size="sm"
               :class="
                 item.active
-                  ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                  ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                   : 'text-muted-foreground'
               "
             >
@@ -208,14 +208,14 @@
             aria-label="Open search"
             @click="searchOpen = true"
           >
-            <Icon name="heroicons:magnifying-glass" class="size-5 text-muted-foreground" />
+            <Icon name="heroicons:magnifying-glass" class="text-muted-foreground size-5" />
           </UiButton>
 
           <!-- Settings dropdown -->
           <UiDropdownMenu>
             <UiDropdownMenuTrigger as-child>
               <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                <Icon name="heroicons:cog-6-tooth" class="size-5 text-muted-foreground" />
+                <Icon name="heroicons:cog-6-tooth" class="text-muted-foreground size-5" />
               </UiButton>
             </UiDropdownMenuTrigger>
             <UiDropdownMenuContent align="end" class="w-56">
@@ -235,7 +235,7 @@
           <UiDropdownMenu>
             <UiDropdownMenuTrigger as-child>
               <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                <Icon name="heroicons:bell" class="size-5 text-muted-foreground" />
+                <Icon name="heroicons:bell" class="text-muted-foreground size-5" />
               </UiButton>
             </UiDropdownMenuTrigger>
             <UiDropdownMenuContent align="end" class="w-80">
@@ -280,7 +280,7 @@
               <UiDropdownMenuLabel>
                 <div class="flex flex-col">
                   <p class="text-sm font-medium">{{ currentUser.name }}</p>
-                  <p class="text-xs text-muted-foreground">{{ currentUser.email }}</p>
+                  <p class="text-muted-foreground text-xs">{{ currentUser.email }}</p>
                 </div>
               </UiDropdownMenuLabel>
               <UiDropdownMenuSeparator />
@@ -334,7 +334,7 @@
         <!-- Traffic source tabs -->
         <div class="scrollbar-none overflow-x-auto">
           <UiTabs v-model="activeSource">
-            <UiTabsList class="border border-border/70 bg-muted/30">
+            <UiTabsList class="border-border/70 bg-muted/30 border">
               <UiTabsTrigger v-for="tab in sourceTabs" :key="tab" :value="tab">
                 {{ tab }}
               </UiTabsTrigger>
@@ -344,7 +344,7 @@
 
         <!-- Time range tabs -->
         <UiTabs v-model="activeRange" class="shrink-0">
-          <UiTabsList class="border border-border/70 bg-muted/30">
+          <UiTabsList class="border-border/70 bg-muted/30 border">
             <UiTabsTrigger v-for="r in timeRanges" :key="r.value" :value="r.value">
               {{ r.label }}
             </UiTabsTrigger>
@@ -364,16 +364,16 @@
           v-for="metric in metrics"
           :key="metric.label"
           :variants="metricCardVariant"
-          class="overflow-hidden rounded-xl border border-border/70 bg-card shadow-xs"
+          class="border-border/70 bg-card overflow-hidden rounded-xl border shadow-xs"
         >
           <div class="px-5 pt-5 pb-3">
             <!-- Card header -->
             <div class="mb-3 flex items-center justify-between">
-              <p class="text-sm text-muted-foreground">{{ metric.label }}</p>
+              <p class="text-muted-foreground text-sm">{{ metric.label }}</p>
               <UiDropdownMenu>
                 <UiDropdownMenuTrigger as-child>
                   <UiButton variant="ghost" size="icon-sm">
-                    <Icon name="heroicons:ellipsis-vertical" class="size-4 text-muted-foreground" />
+                    <Icon name="heroicons:ellipsis-vertical" class="text-muted-foreground size-4" />
                   </UiButton>
                 </UiDropdownMenuTrigger>
                 <UiDropdownMenuContent align="end" class="w-56">
@@ -424,15 +424,15 @@
         :animate="{ opacity: 1, y: 0 }"
         :transition="{ duration: 0.4, ease: 'easeOut', delay: 0.45 }"
       >
-        <UiCard class="gap-0 overflow-hidden border-border/70 py-0 shadow-xs">
+        <UiCard class="border-border/70 gap-0 overflow-hidden py-0 shadow-xs">
           <!-- Section header -->
-          <UiCardHeader class="border-b border-border/60 py-5">
+          <UiCardHeader class="border-border/60 border-b py-5">
             <div class="mb-4 flex items-center justify-between">
               <UiCardTitle class="text-base font-semibold">Pages and screens</UiCardTitle>
               <UiDropdownMenu>
                 <UiDropdownMenuTrigger as-child>
                   <UiButton variant="ghost" size="icon-sm">
-                    <Icon name="heroicons:ellipsis-vertical" class="size-4 text-muted-foreground" />
+                    <Icon name="heroicons:ellipsis-vertical" class="text-muted-foreground size-4" />
                   </UiButton>
                 </UiDropdownMenuTrigger>
                 <UiDropdownMenuContent align="end" class="w-44">
@@ -450,13 +450,13 @@
               <UiToggleGroup
                 v-model="activeFilter"
                 type="single"
-                class="gap-0.5 rounded-lg border border-border/70 bg-muted/20 p-0.5"
+                class="border-border/70 bg-muted/20 gap-0.5 rounded-lg border p-0.5"
               >
                 <UiToggleGroupItem
                   v-for="f in tableFilters"
                   :key="f"
                   :value="f"
-                  class="w-full rounded-md px-3.5 text-muted-foreground data-[state=on]:bg-background data-[state=on]:text-foreground data-[state=on]:shadow-xs sm:w-auto"
+                  class="text-muted-foreground data-[state=on]:bg-background data-[state=on]:text-foreground w-full rounded-md px-3.5 data-[state=on]:shadow-xs sm:w-auto"
                 >
                   {{ f }}
                 </UiToggleGroupItem>
@@ -516,9 +516,9 @@
 
             <template #percentage-cell="{ row }">
               <div class="flex items-center gap-3">
-                <div class="h-1.5 w-28 overflow-hidden rounded-full bg-muted">
+                <div class="bg-muted h-1.5 w-28 overflow-hidden rounded-full">
                   <div
-                    class="h-full rounded-full bg-primary transition-all"
+                    class="bg-primary h-full rounded-full transition-all"
                     :style="{ width: `${Math.min(100, (row.original.percentage / 65) * 100)}%` }"
                   />
                 </div>
@@ -528,7 +528,7 @@
 
             <template #folder-cell="{ row }">
               <span
-                class="inline-flex items-center gap-1.5 rounded-full border border-border/70 px-2.5 py-0.5 text-xs font-medium"
+                class="border-border/70 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium"
               >
                 <span class="size-1.5 rounded-full bg-emerald-500" />
                 {{ row.original.folder }}
@@ -565,7 +565,7 @@
 
             <template #footer="{ table }">
               <div
-                class="flex w-full flex-col gap-4 border-t border-border/60 px-6 py-4 text-sm font-medium text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
+                class="border-border/60 text-muted-foreground flex w-full flex-col gap-4 border-t px-6 py-4 text-sm font-medium sm:flex-row sm:items-center sm:justify-between"
               >
                 <p>
                   Page {{ table.getState().pagination.pageIndex + 1 }} of

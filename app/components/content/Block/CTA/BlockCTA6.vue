@@ -4,7 +4,7 @@
     Features: Full-width gradient, statistics badges, animated blobs
   -->
   <div
-    class="relative overflow-hidden bg-linear-to-br from-primary/10 via-background to-primary/5 py-20"
+    class="from-primary/10 via-background to-primary/5 relative overflow-hidden bg-linear-to-br py-20"
   >
     <!-- Animated background blobs -->
     <div class="absolute inset-0 overflow-hidden">
@@ -23,7 +23,7 @@
         }"
         initial="initial"
         animate="animate"
-        class="absolute -top-20 -right-20 h-96 w-96 rounded-full bg-primary/20 blur-3xl"
+        class="bg-primary/20 absolute -top-20 -right-20 h-96 w-96 rounded-full blur-3xl"
       />
       <Motion
         :variants="{
@@ -41,7 +41,7 @@
         }"
         initial="initial"
         animate="animate"
-        class="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-primary/15 blur-3xl"
+        class="bg-primary/15 absolute -bottom-32 -left-32 h-96 w-96 rounded-full blur-3xl"
       />
     </div>
 
@@ -72,7 +72,7 @@
         <Motion
           as="p"
           :variants="childVariant"
-          class="mx-auto mb-10 max-w-[700px] text-lg text-muted-foreground lg:text-xl"
+          class="text-muted-foreground mx-auto mb-10 max-w-[700px] text-lg lg:text-xl"
         >
           Join thousands of companies already using {{ COMPANY_NAME }} to accelerate growth.
         </Motion>
@@ -82,8 +82,8 @@
           class="mb-12 flex flex-wrap items-center justify-center gap-8"
         >
           <div v-for="stat in stats" :key="stat.label" class="text-center">
-            <div class="text-3xl font-bold text-primary lg:text-4xl">{{ stat.value }}</div>
-            <div class="mt-1 text-sm text-muted-foreground">{{ stat.label }}</div>
+            <div class="text-primary text-3xl font-bold lg:text-4xl">{{ stat.value }}</div>
+            <div class="text-muted-foreground mt-1 text-sm">{{ stat.label }}</div>
           </div>
         </Motion>
 

@@ -4,7 +4,7 @@ description: Choose from a list of suggested values with full keyboard support.
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/combobox.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/combobox.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="Autocomplete"} to see the source code for this 
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsAutoCompleteBasic
 
@@ -37,7 +37,7 @@ Click :SourceCodeLink{component="Autocomplete"} to see the source code for this 
       <UiAutocompleteAnchor>
         <UiAutocompleteInput placeholder="Select an item" />
         <UiAutocompleteTrigger>
-          <Icon name="lucide:chevron-down" class="size-4 text-muted-foreground" />
+          <Icon name="lucide:chevron-down" class="text-muted-foreground size-4" />
         </UiAutocompleteTrigger>
       </UiAutocompleteAnchor>
 
@@ -92,7 +92,7 @@ Click :SourceCodeLink{component="Autocomplete"} to see the source code for this 
 
 ### Objects
 
-::ShowCase
+::prose-show-case
 
 :DocsAutoCompleteObjects
 
@@ -107,7 +107,7 @@ Click :SourceCodeLink{component="Autocomplete"} to see the source code for this 
       <UiAutocompleteAnchor>
         <UiAutocompleteInput :display-value="displaySelected" placeholder="Select a car..." />
         <UiAutocompleteTrigger>
-          <Icon name="lucide:chevron-down" class="size-4 text-muted-foreground" />
+          <Icon name="lucide:chevron-down" class="text-muted-foreground size-4" />
         </UiAutocompleteTrigger>
       </UiAutocompleteAnchor>
 
@@ -153,7 +153,7 @@ Click :SourceCodeLink{component="Autocomplete"} to see the source code for this 
 
 ### Multiple
 
-::ShowCase
+::prose-show-case
 
 :DocsAutoCompleteMultiple
 
@@ -168,7 +168,7 @@ Click :SourceCodeLink{component="Autocomplete"} to see the source code for this 
       <UiAutocompleteAnchor>
         <UiAutocompleteInput :display-value="displaySelected" placeholder="Select people..." />
         <UiAutocompleteTrigger>
-          <Icon name="lucide:chevron-down" class="size-4 text-muted-foreground" />
+          <Icon name="lucide:chevron-down" class="text-muted-foreground size-4" />
         </UiAutocompleteTrigger>
       </UiAutocompleteAnchor>
 
@@ -217,7 +217,7 @@ Click :SourceCodeLink{component="Autocomplete"} to see the source code for this 
 
 This example shows how you can search for a value and make a call to your API for the results.
 
-::ShowCase
+::prose-show-case
 
 :DocsAutoCompleteAsync
 
@@ -236,11 +236,11 @@ This example shows how you can search for a value and make a call to your API fo
           placeholder="Search for user..."
         />
         <UiAutocompleteTrigger :disabled="loading">
-          <Icon v-if="!loading" name="lucide:chevron-down" class="size-4 text-muted-foreground" />
+          <Icon v-if="!loading" name="lucide:chevron-down" class="text-muted-foreground size-4" />
           <Icon
             v-else
             name="lucide:loader-circle"
-            class="size-4 animate-spin text-muted-foreground"
+            class="text-muted-foreground size-4 animate-spin"
           />
         </UiAutocompleteTrigger>
       </UiAutocompleteAnchor>

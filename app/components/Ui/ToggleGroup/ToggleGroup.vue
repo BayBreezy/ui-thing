@@ -20,7 +20,7 @@
   const props = withDefaults(
     defineProps<
       ToggleGroupRootProps & {
-        /** custom class to add to the parent */
+        /** Custom class to add to the parent. */
         class?: HTMLAttributes["class"];
         variant?: ToggleVariants["variant"];
         size?: ToggleVariants["size"];

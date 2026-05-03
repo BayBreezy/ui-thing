@@ -3,7 +3,7 @@
     <UiCardContent class="space-y-4">
       <div class="flex items-start justify-between">
         <div>
-          <p class="text-sm font-medium text-muted-foreground" v-html="props.label" />
+          <p class="text-muted-foreground text-sm font-medium" v-html="props.label" />
           <h3 class="mt-1 text-2xl font-bold tracking-tight" v-html="props.value" />
         </div>
         <div :class="['rounded-lg p-2', props.iconBg || 'bg-primary/10']">
@@ -19,11 +19,11 @@
         <UiProgress :model-value="props.progressPercent" class="h-2" />
         <div class="flex items-center justify-between text-xs">
           <span class="text-muted-foreground">{{ props.remaining }} remaining</span>
-          <span class="font-medium text-muted-foreground">{{ props.progressPercent }}%</span>
+          <span class="text-muted-foreground font-medium">{{ props.progressPercent }}%</span>
         </div>
       </div>
 
-      <div class="flex items-center gap-2 rounded-lg bg-muted/50 p-3">
+      <div class="bg-muted/50 flex items-center gap-2 rounded-lg p-3">
         <Icon
           :name="props.trend === 'up' ? 'lucide:trending-up' : 'lucide:trending-down'"
           :class="[

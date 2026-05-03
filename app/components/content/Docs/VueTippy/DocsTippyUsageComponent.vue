@@ -21,7 +21,7 @@
             Learn how to build a comprehensive design system using Tailwind CSS, including component
             architecture, and theme customization.
           </p>
-          <div class="flex items-center gap-2 pt-1 text-xs text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 pt-1 text-xs">
             8 min read <span>•</span> Updated 2 days ago
           </div>
         </div>

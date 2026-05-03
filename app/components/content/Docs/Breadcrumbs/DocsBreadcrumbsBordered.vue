@@ -1,7 +1,7 @@
 <template>
   <UiBreadcrumbs
     :items="items"
-    class="mx-auto w-fit rounded-lg border border-border bg-background px-3 py-2 shadow-xs shadow-black/5"
+    class="border-border bg-background mx-auto w-fit rounded-lg border px-3 py-2 shadow-xs shadow-black/5"
   />
 </template>
 

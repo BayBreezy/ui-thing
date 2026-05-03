@@ -7,9 +7,9 @@
         label="Push notifications"
         hint="Turn on push notifications for mentions and replies."
       />
-      <p class="text-sm text-muted-foreground">
+      <p class="text-muted-foreground text-sm">
         Notifications are currently
-        <span class="font-medium text-foreground">{{ enabled ? "on" : "off" }}</span
+        <span class="text-foreground font-medium">{{ enabled ? "on" : "off" }}</span
         >.
       </p>
     </form>

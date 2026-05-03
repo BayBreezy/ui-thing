@@ -8,7 +8,7 @@
   >
     <UiContainer class="py-16 lg:py-24">
       <Motion as-child :variants="childVariant">
-        <p class="mb-8 text-center text-muted-foreground">Join 4,000+ companies already growing</p>
+        <p class="text-muted-foreground mb-8 text-center">Join 4,000+ companies already growing</p>
       </Motion>
       <div class="flex flex-wrap items-center justify-center gap-5">
         <Motion v-for="n in companies" :key="n.text" as-child :variants="logoVariant">

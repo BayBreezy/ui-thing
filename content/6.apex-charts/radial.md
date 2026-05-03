@@ -11,7 +11,7 @@ description: Radial charts are used to display multivariate data in a two-dimens
 
 ### Radial Chart
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsRadial1
 
@@ -34,7 +34,7 @@ description: Radial charts are used to display multivariate data in a two-dimens
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">
+        <div class="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </UiCardFooter>
@@ -64,7 +64,7 @@ description: Radial charts are used to display multivariate data in a two-dimens
 
 ### Radial Chart - Bar Labels
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsRadial2
 
@@ -87,7 +87,7 @@ description: Radial charts are used to display multivariate data in a two-dimens
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">
+        <div class="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </UiCardFooter>
@@ -129,7 +129,7 @@ description: Radial charts are used to display multivariate data in a two-dimens
 
 ### Radial Chart - Custom Text
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsRadial3
 
@@ -152,7 +152,7 @@ description: Radial charts are used to display multivariate data in a two-dimens
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">
+        <div class="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </UiCardFooter>
@@ -198,7 +198,7 @@ description: Radial charts are used to display multivariate data in a two-dimens
 
 ### Radial Chart - Expanded Section
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsRadial4
 
@@ -221,7 +221,7 @@ description: Radial charts are used to display multivariate data in a two-dimens
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">
+        <div class="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </UiCardFooter>

@@ -10,7 +10,7 @@
       <UiContainer class="py-16 text-center lg:py-24">
         <slot name="headline">
           <Motion v-if="headline" as-child :variants="childVariant">
-            <p class="font-semibold text-primary">{{ headline }}</p>
+            <p class="text-primary font-semibold">{{ headline }}</p>
           </Motion>
         </slot>
         <slot name="title">
@@ -20,7 +20,7 @@
         </slot>
         <slot name="description">
           <Motion as-child :variants="childVariant">
-            <p class="mx-auto max-w-[768px] text-lg text-muted-foreground lg:text-xl">
+            <p class="text-muted-foreground mx-auto max-w-[768px] text-lg lg:text-xl">
               {{ description }}
             </p>
           </Motion>
@@ -35,7 +35,7 @@
         <Motion v-for="n in 6" :key="n" as-child :variants="cardVariant">
           <div class="flex flex-col items-center">
             <UiAvatar
-              class="mb-5 h-24 w-24 ring-1 ring-ring/20"
+              class="ring-ring/20 mb-5 h-24 w-24 ring-1"
               :src="`https://i.pravatar.cc/150?img=${n + 10}`"
             />
             <p class="text-lg font-semibold">Jane Doe</p>

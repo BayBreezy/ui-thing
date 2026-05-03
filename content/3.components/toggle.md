@@ -4,7 +4,7 @@ description: A two-state button that can be either on or off.
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/toggle.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/toggle.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="Toggle.vue"} to see the source code for this co
 
 ### Basic example
 
-::ShowCase
+::prose-show-case
 
 :DocsToggle
 

@@ -5,7 +5,7 @@
         <UiNavigationMenuLink as-child>
           <NuxtLink :href>
             <div class="text-sm leading-none font-medium">{{ title }}</div>
-            <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            <p class="text-muted-foreground line-clamp-2 text-sm leading-snug">
               <component :is="$slots.default" />
             </p>
           </NuxtLink>
@@ -23,11 +23,11 @@
               <li class="row-span-3">
                 <UiNavigationMenuLink as-child>
                   <a
-                    class="flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-6 no-underline outline-hidden select-none focus:shadow-md"
+                    class="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
                     href="/"
                   >
                     <div class="mt-4 mb-2 text-lg font-medium">shadcn/ui</div>
-                    <p class="text-sm leading-tight text-muted-foreground">
+                    <p class="text-muted-foreground text-sm leading-tight">
                       Beautifully designed components built with Tailwind CSS.
                     </p>
                   </a>

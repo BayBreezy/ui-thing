@@ -17,7 +17,7 @@
             <nav class="mt-4 flex flex-col gap-1 px-3">
               <template v-for="item in links" :key="item.name">
                 <UiButton variant="ghost" class="w-full justify-start" :href="item.href">
-                  <Icon :name="item.icon" class="size-4 text-muted-foreground/70" />
+                  <Icon :name="item.icon" class="text-muted-foreground/70 size-4" />
                   {{ item.name }}
                 </UiButton>
               </template>

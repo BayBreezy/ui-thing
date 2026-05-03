@@ -1,9 +1,9 @@
 <template>
-  <div class="rounded-md border border-border/50">
+  <div class="border-border/50 rounded-md border">
     <ui-table>
       <ui-table-header>
         <ui-table-row>
-          <ui-table-head class="sticky left-0 w-10 bg-background/50 backdrop-blur-md">
+          <ui-table-head class="bg-background/50 sticky left-0 w-10 backdrop-blur-md">
             <span class="sr-only">Drag handle</span>
           </ui-table-head>
           <ui-table-head>Name</ui-table-head>
@@ -18,7 +18,7 @@
       <ui-draggable handle=".handle" tag="tbody" :list="people" item-key="id">
         <template #item="{ element }">
           <ui-table-row>
-            <ui-table-cell class="sticky left-0 w-10 bg-background/50 backdrop-blur-md">
+            <ui-table-cell class="bg-background/50 sticky left-0 w-10 backdrop-blur-md">
               <ui-fancy-icon
                 size="sm"
                 class="handle size-7 cursor-grab rounded-md border-none"
@@ -35,7 +35,7 @@
         </template>
       </ui-draggable>
     </ui-table>
-    <p class="py-4 text-center text-sm text-muted-foreground">Drag and drop to reorder rows</p>
+    <p class="text-muted-foreground py-4 text-center text-sm">Drag and drop to reorder rows</p>
   </div>
 </template>
 

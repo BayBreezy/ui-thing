@@ -30,7 +30,7 @@
 
         <UiCardFooter class="flex-col gap-4">
           <UiButton class="w-full" effect="ringHover" type="submit">Create account</UiButton>
-          <UiDivider><span class="text-sm text-muted-foreground">or</span></UiDivider>
+          <UiDivider><span class="text-muted-foreground text-sm">or</span></UiDivider>
           <UiButton variant="outline" class="w-full">
             <Icon name="logos:google-icon" />
             <span>Continue with Google</span>

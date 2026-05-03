@@ -26,6 +26,6 @@
   >();
   const forwarded = reactiveOmit(props, "class", "icon");
   const styles = tv({
-    base: "relative flex h-7 items-center gap-1 rounded-sm border border-input bg-transparent px-2 text-xs font-medium hover:bg-background dark:bg-accent",
+    base: "border-input hover:bg-background dark:bg-accent relative flex h-7 items-center gap-1 rounded-sm border bg-transparent px-2 text-xs font-medium",
   });
 </script>

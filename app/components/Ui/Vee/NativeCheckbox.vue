@@ -87,9 +87,9 @@
   export const nativeCheckboxStyles = tv({
     slots: {
       checkbox:
-        "peer form-checkbox shrink-0 cursor-pointer rounded-[4px] border border-input bg-background shadow-xs transition duration-200 focus:ring-[3px] focus:ring-ring/50 focus:ring-offset-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20",
+        "peer form-checkbox border-input bg-background focus:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 shrink-0 cursor-pointer rounded-[4px] border shadow-xs transition duration-200 focus:ring-[3px] focus:ring-offset-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50",
       label: "cursor-pointer font-medium",
-      description: "text-pretty text-muted-foreground",
+      description: "text-muted-foreground text-pretty",
       wrapper: "flex items-start gap-3",
       error: "text-destructive",
     },
@@ -138,49 +138,49 @@
   });
 
   export type NativeCheckboxProps = {
-    /** Custom class(es) to add to the element */
+    /** Custom class(es) to add to the element. */
     class?: HTMLAttributes["class"];
-    /** Custom class(es) to add to the label element */
+    /** Custom class(es) to add to the label element. */
     labelClass?: HTMLAttributes["class"];
-    /** Custom class(es) to add to the description element */
+    /** Custom class(es) to add to the description element. */
     descriptionClass?: HTMLAttributes["class"];
-    /** Custom class(es) to add to the wrapper element */
+    /** Custom class(es) to add to the wrapper element. */
     wrapperClass?: HTMLAttributes["class"];
-    /** The id of the checkbox input element */
+    /** The id of the checkbox input element. */
     id?: string;
-    /** The v-model binding for the checkbox */
+    /** The v-model binding for the checkbox. */
     modelValue?: any;
-    /** The name of the checkbox input element */
+    /** The name of the checkbox input element. */
     name?: string;
-    /** The value of the checkbox input element */
+    /** The value of the checkbox input element. */
     value?: any;
-    /** Whether the checkbox is disabled */
+    /** Whether the checkbox is disabled. */
     disabled?: boolean;
-    /** Whether the checkbox is required */
+    /** Whether the checkbox is required. */
     required?: boolean;
-    /** Whether the checkbox is indeterminate */
+    /** Whether the checkbox is indeterminate. */
     indeterminate?: boolean;
     /**
-     * The color variant of the checkbox
+     * The color variant of the checkbox.
      *
      * @default blue
      */
     color?: VariantProps<typeof nativeCheckboxStyles>["color"];
     /**
-     * The size variant of the checkbox
+     * The size variant of the checkbox.
      *
      * @default md
      */
     size?: VariantProps<typeof nativeCheckboxStyles>["size"];
-    /** The label for the checkbox */
+    /** The label for the checkbox. */
     label?: string;
-    /** The description for the checkbox */
+    /** The description for the checkbox. */
     description?: string;
-    /** The validation rules for the checkbox */
+    /** The validation rules for the checkbox. */
     rules?: any;
-    /** Whether to validate the checkbox on mount */
+    /** Whether to validate the checkbox on mount. */
     validateOnMount?: boolean;
-    /** The value to use when the checkbox is unchecked */
+    /** The value to use when the checkbox is unchecked. */
     unCheckedValue?: any;
   };
 </script>

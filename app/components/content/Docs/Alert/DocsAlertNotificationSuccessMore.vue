@@ -8,7 +8,7 @@
             <Icon name="lucide:x" class="size-3.5" />
           </UiButton>
         </UiAlertDescription>
-        <p class="mb-3 text-sm text-muted-foreground">
+        <p class="text-muted-foreground mb-3 text-sm">
           It demonstrates that the task or request has been processed.
         </p>
         <UiButton class="text-xs" size="xs">Learn more</UiButton>

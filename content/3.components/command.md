@@ -4,7 +4,7 @@ description: A command menu component composed of the Combobox primitives from R
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/combobox.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/combobox.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="Command"} to see the source code for this compo
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsCommand
 
@@ -118,7 +118,7 @@ Click :SourceCodeLink{component="Command"} to see the source code for this compo
 
 ### Dialog
 
-::ShowCase
+::prose-show-case
 
 :DocsCommandShortcut
 
@@ -129,7 +129,7 @@ Click :SourceCodeLink{component="Command"} to see the source code for this compo
 ```vue [DocsCommandShortcut.vue]
 <template>
   <div class="flex flex-col items-center justify-center">
-    <p class="text-sm text-muted-foreground">
+    <p class="text-muted-foreground text-sm">
       Press
       <UiKbd variant="outline"> ⌘J </UiKbd>
     </p>
@@ -205,7 +205,7 @@ Click :SourceCodeLink{component="Command"} to see the source code for this compo
 
 ### Popover
 
-::ShowCase
+::prose-show-case
 
 :DocsCommandPopover
 
@@ -216,7 +216,7 @@ Click :SourceCodeLink{component="Command"} to see the source code for this compo
 ```vue [DocsCommandPopover.vue]
 <template>
   <div class="flex items-center justify-center space-x-4">
-    <p class="text-sm text-muted-foreground">Status</p>
+    <p class="text-muted-foreground text-sm">Status</p>
     <UiPopover v-model:open="open">
       <UiPopoverTrigger as-child>
         <UiButton variant="outline" size="sm" class="w-[150px] justify-start">
@@ -293,7 +293,7 @@ Click :SourceCodeLink{component="Command"} to see the source code for this compo
 
 ### Dropdown Menu
 
-::ShowCase
+::prose-show-case
 
 :DocsCommandDropdown
 
@@ -308,7 +308,7 @@ Click :SourceCodeLink{component="Command"} to see the source code for this compo
       class="flex w-full flex-col items-start justify-between rounded-md border px-4 py-3 sm:flex-row sm:items-center"
     >
       <p class="text-sm leading-none font-medium">
-        <span class="mr-2 rounded-lg bg-primary px-2 py-1 text-xs text-primary-foreground">
+        <span class="bg-primary text-primary-foreground mr-2 rounded-lg px-2 py-1 text-xs">
           {{ labelRef }}
         </span>
         <span class="text-muted-foreground">Create a new project</span>
@@ -387,7 +387,7 @@ Click :SourceCodeLink{component="Command"} to see the source code for this compo
 
 You can create a responsive combobox by using the `<Popover />` on desktop and the `<Drawer />` components on mobile.
 
-::ShowCase
+::prose-show-case
 
 :DocsCommandResponsive
 

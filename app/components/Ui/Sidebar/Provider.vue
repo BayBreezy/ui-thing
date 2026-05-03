@@ -27,17 +27,17 @@
     defineProps<{
       /**
        * Default open state of the sidebar.
+       *
        * @default true
        */
       defaultOpen?: boolean;
       /**
        * Open state of the sidebar (controlled).
+       *
        * @default undefined
        */
       open?: boolean;
-      /**
-       * Additional classes to apply to the parent element.
-       */
+      /** Additional classes to apply to the parent element. */
       class?: HTMLAttributes["class"];
     }>(),
     {

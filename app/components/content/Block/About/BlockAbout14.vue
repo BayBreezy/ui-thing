@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Our Global Presence</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         Operating across continents to serve you better
       </p>
     </div>
@@ -29,30 +29,30 @@
             <div>
               <UiBadge v-if="office.isHQ" variant="default" class="mb-2">Headquarters</UiBadge>
               <h3 class="text-xl font-bold">{{ office.city }}</h3>
-              <p class="text-sm text-muted-foreground">{{ office.country }}</p>
+              <p class="text-muted-foreground text-sm">{{ office.country }}</p>
             </div>
-            <div class="rounded-lg bg-primary/10 p-2">
-              <Icon name="lucide:map-pin" class="size-5 text-primary" />
+            <div class="bg-primary/10 rounded-lg p-2">
+              <Icon name="lucide:map-pin" class="text-primary size-5" />
             </div>
           </div>
 
           <div class="mt-4 space-y-3 text-sm">
-            <div class="flex items-start gap-2 text-muted-foreground">
+            <div class="text-muted-foreground flex items-start gap-2">
               <Icon name="lucide:building" class="mt-0.5 size-4 shrink-0" />
               <span>{{ office.address }}</span>
             </div>
-            <div class="flex items-center gap-2 text-muted-foreground">
+            <div class="text-muted-foreground flex items-center gap-2">
               <Icon name="lucide:users" class="size-4 shrink-0" />
               <span>{{ office.employees }} employees</span>
             </div>
-            <div class="flex items-center gap-2 text-muted-foreground">
+            <div class="text-muted-foreground flex items-center gap-2">
               <Icon name="lucide:phone" class="size-4 shrink-0" />
               <span>{{ office.phone }}</span>
             </div>
           </div>
 
           <div class="mt-4">
-            <h4 class="mb-2 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+            <h4 class="text-muted-foreground mb-2 text-xs font-semibold tracking-wide uppercase">
               Departments
             </h4>
             <div class="flex flex-wrap gap-2">
@@ -70,10 +70,10 @@
       </UiCard>
     </div>
 
-    <div class="mx-auto mt-12 max-w-3xl rounded-2xl border bg-card p-8 text-center">
-      <Icon name="lucide:globe" class="mx-auto size-12 text-primary" />
+    <div class="bg-card mx-auto mt-12 max-w-3xl rounded-2xl border p-8 text-center">
+      <Icon name="lucide:globe" class="text-primary mx-auto size-12" />
       <h3 class="mt-4 text-xl font-semibold">Looking to expand globally?</h3>
-      <p class="mt-2 text-muted-foreground">
+      <p class="text-muted-foreground mt-2">
         We're constantly growing and opening new offices. Check back to see where we're headed next.
       </p>
       <UiButton class="mt-6">View Career Opportunities</UiButton>

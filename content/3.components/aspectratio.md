@@ -4,7 +4,7 @@ description: Displays content within a desired ratio.
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/aspect-ratio.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/aspect-ratio.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="AspectRatio"} to see the source code for this c
 
 Right click the image to perform different actions.
 
-::ShowCase
+::prose-show-case
 
 :DocsAspectRatio
 

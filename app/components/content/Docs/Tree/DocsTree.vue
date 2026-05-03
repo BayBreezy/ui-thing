@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center">
-    <UiScrollArea class="max-h-[500px] w-[250px] rounded-md border bg-background">
+    <UiScrollArea class="bg-background max-h-[500px] w-[250px] rounded-md border">
       <UiTree
         v-slot="{ flattenItems }"
         :default-expanded="['app', 'server']"
@@ -14,7 +14,7 @@
             v-slot="{ isExpanded }"
             v-bind="item.bind"
             :style="{ 'padding-left': `${item.level - 0.5}rem` }"
-            class="flex cursor-pointer items-center gap-2 rounded px-2 py-1 text-sm font-medium focus-visible:ring-2 focus-visible:ring-border focus-visible:outline-none"
+            class="focus-visible:ring-border flex cursor-pointer items-center gap-2 rounded px-2 py-1 text-sm font-medium focus-visible:ring-2 focus-visible:outline-none"
           >
             <template v-if="item.hasChildren">
               <Icon v-if="isExpanded" :name="item.value.openIcon" class="size-3.5" />

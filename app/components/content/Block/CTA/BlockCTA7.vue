@@ -33,7 +33,7 @@
       <Motion
         as="p"
         :variants="childVariant"
-        class="mx-auto mb-8 max-w-[600px] text-lg text-muted-foreground md:text-xl"
+        class="text-muted-foreground mx-auto mb-8 max-w-[600px] text-lg md:text-xl"
       >
         Subscribe to our newsletter to get the latest news and updates.
       </Motion>
@@ -51,9 +51,9 @@
             <Icon name="lucide:send" class="ml-2 h-4 w-4" />
           </UiButton>
         </form>
-        <p class="mt-3 text-sm text-muted-foreground">
+        <p class="text-muted-foreground mt-3 text-sm">
           We care about your data. Read our
-          <a href="#" class="underline hover:text-primary">Privacy Policy</a>.
+          <a href="#" class="hover:text-primary underline">Privacy Policy</a>.
         </p>
       </Motion>
     </UiContainer>

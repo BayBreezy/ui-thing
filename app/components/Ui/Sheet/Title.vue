@@ -16,14 +16,14 @@
 
   const props = defineProps<
     DialogTitleProps & {
-      /** Custom class(es) to add to parent element */
+      /** Custom class(es) to add to parent element. */
       class?: HTMLAttributes["class"];
-      /** Title text */
+      /** Title text. */
       title?: string;
     }
   >();
   const forwarded = reactiveOmit(props, "class", "title");
   const styles = tv({
-    base: "font-semibold text-foreground",
+    base: "text-foreground font-semibold",
   });
 </script>

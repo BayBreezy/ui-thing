@@ -2,7 +2,7 @@
   <div class="flex h-screen items-center justify-center">
     <div class="w-full max-w-[330px] px-5">
       <svg
-        class="mx-auto my-6 h-8 fill-primary"
+        class="fill-primary mx-auto my-6 h-8"
         viewBox="0 0 53 44"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +15,7 @@
 
       <div class="flex flex-col items-center">
         <h1 class="text-2xl font-bold tracking-tight lg:text-3xl">Log in</h1>
-        <p class="mt-1 text-muted-foreground">Enter your email & password to log in.</p>
+        <p class="text-muted-foreground mt-1">Enter your email & password to log in.</p>
       </div>
 
       <form class="mt-10" @submit="submit">
@@ -38,9 +38,9 @@
           </UiButton>
         </fieldset>
       </form>
-      <p class="mt-8 text-center text-sm text-muted-foreground">
+      <p class="text-muted-foreground mt-8 text-center text-sm">
         Don't have an account?
-        <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#"
+        <NuxtLink class="text-primary font-semibold underline-offset-2 hover:underline" to="#"
           >Create account</NuxtLink
         >
       </p>

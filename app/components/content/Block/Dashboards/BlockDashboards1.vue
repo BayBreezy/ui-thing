@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bg-background text-foreground [--color-primary:#8b5cf6] [--primary:#8b5cf6] [--radius:12px] [--ring:#8b5cf6]"
+    class="bg-background text-foreground min-h-screen [--color-primary:#8b5cf6] [--primary:#8b5cf6] [--radius:12px] [--ring:#8b5cf6]"
   >
     <!-- Top navigation -->
     <Motion
@@ -8,13 +8,13 @@
       :initial="{ opacity: 0, y: -16 }"
       :animate="{ opacity: 1, y: 0 }"
       :transition="{ duration: 0.4, ease: 'easeOut' }"
-      class="sticky top-0 z-10 border-b border-border/70 bg-background/85 backdrop-blur-md"
+      class="border-border/70 bg-background/85 sticky top-0 z-10 border-b backdrop-blur-md"
     >
       <UiContainer class="flex min-h-[4.5rem] items-center justify-between gap-4">
         <div class="flex items-center gap-6">
           <div class="flex items-center gap-3">
             <div
-              class="flex size-10 items-center justify-center rounded-xl border border-border/70 bg-muted shadow-xs"
+              class="border-border/70 bg-muted flex size-10 items-center justify-center rounded-xl border shadow-xs"
             >
               <div
                 class="size-5 rounded-full bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,0.95),rgba(255,255,255,0.2)_32%,transparent_34%),linear-gradient(135deg,var(--color-primary),color-mix(in_oklab,var(--color-primary)_40%,white))]"
@@ -41,7 +41,7 @@
                 class="w-full justify-start"
                 :class="
                   item.active
-                    ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                    ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                     : 'text-muted-foreground'
                 "
               >
@@ -59,7 +59,7 @@
               size="sm"
               :class="
                 item.active
-                  ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                  ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                   : 'text-muted-foreground'
               "
             >
@@ -76,7 +76,7 @@
           <UiDropdownMenu>
             <UiDropdownMenuTrigger as-child>
               <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                <Icon name="lucide:settings-2" class="size-4 text-muted-foreground" />
+                <Icon name="lucide:settings-2" class="text-muted-foreground size-4" />
               </UiButton>
             </UiDropdownMenuTrigger>
             <UiDropdownMenuContent align="start" side="left" class="w-64">
@@ -97,7 +97,7 @@
           <UiDropdownMenu>
             <UiDropdownMenuTrigger as-child>
               <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                <Icon name="lucide:bell" class="size-4 text-muted-foreground" />
+                <Icon name="lucide:bell" class="text-muted-foreground size-4" />
               </UiButton>
             </UiDropdownMenuTrigger>
             <UiDropdownMenuContent align="start" side="left" class="w-80">
@@ -134,7 +134,7 @@
               <UiDropdownMenuLabel>
                 <div class="flex flex-col">
                   <p class="text-sm font-medium">{{ currentUser.name }}</p>
-                  <p class="text-xs text-muted-foreground">{{ currentUser.email }}</p>
+                  <p class="text-muted-foreground text-xs">{{ currentUser.email }}</p>
                 </div>
               </UiDropdownMenuLabel>
               <UiDropdownMenuSeparator />
@@ -171,7 +171,7 @@
               Welcome back, {{ currentUser.firstName }}!
             </h1>
 
-            <p class="mt-1 text-lg text-muted-foreground">
+            <p class="text-muted-foreground mt-1 text-lg">
               <ClientOnly>
                 {{ useDateFormat(new Date(), "DD MMMM, YYYY").value }}
               </ClientOnly>
@@ -191,7 +191,7 @@
         class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between"
       >
         <UiTabs v-model="activeRange">
-          <UiTabsList class="border border-border/70 bg-muted/30">
+          <UiTabsList class="border-border/70 bg-muted/30 border">
             <template v-for="item in ranges" :key="item">
               <UiTabsTrigger :value="item">{{ item }}</UiTabsTrigger>
             </template>
@@ -227,7 +227,7 @@
           :key="metric.label"
           as-child
           :variants="kpiCardVariant"
-          class="relative overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm"
+          class="bg-card text-card-foreground relative overflow-hidden rounded-xl border shadow-sm"
         >
           <UiCard>
             <div
@@ -243,7 +243,7 @@
             <UiCardContent class="pl-8">
               <div class="flex items-start justify-between">
                 <div class="flex-1 space-y-1">
-                  <p class="text-sm font-medium text-muted-foreground">{{ metric.label }}</p>
+                  <p class="text-muted-foreground text-sm font-medium">{{ metric.label }}</p>
                   <div class="flex items-baseline gap-2">
                     <h3 class="text-2xl font-bold tracking-tight">{{ metric.value }}</h3>
                     <span
@@ -259,17 +259,17 @@
                       {{ metric.change }}
                     </span>
                   </div>
-                  <p class="text-xs text-muted-foreground">{{ metric.description }}</p>
+                  <p class="text-muted-foreground text-xs">{{ metric.description }}</p>
                 </div>
-                <Icon :name="metric.icon" class="size-8 text-muted-foreground/50" />
+                <Icon :name="metric.icon" class="text-muted-foreground/50 size-8" />
               </div>
               <div class="mt-4 flex items-center gap-4 text-xs">
                 <div class="flex items-center gap-1">
-                  <div class="size-2 rounded-full bg-primary" />
+                  <div class="bg-primary size-2 rounded-full" />
                   <span class="text-muted-foreground">Current: {{ metric.current }}</span>
                 </div>
                 <div class="flex items-center gap-1">
-                  <div class="size-2 rounded-full bg-muted" />
+                  <div class="bg-muted size-2 rounded-full" />
                   <span class="text-muted-foreground">Previous: {{ metric.previous }}</span>
                 </div>
               </div>
@@ -284,8 +284,8 @@
         :animate="{ opacity: 1, y: 0 }"
         :transition="{ duration: 0.4, delay: 0.45, ease: 'easeOut' }"
       >
-        <UiCard class="gap-0 overflow-hidden border-border/70 py-0 shadow-xs">
-          <UiCardHeader class="border-b border-border/60 pt-4 pb-3!">
+        <UiCard class="border-border/70 gap-0 overflow-hidden py-0 shadow-xs">
+          <UiCardHeader class="border-border/60 border-b pt-4 pb-3!">
             <UiCardTitle class="text-base font-semibold">Sales</UiCardTitle>
             <UiCardDescription>
               Total revenue generated in the selected date range, compared with the previous period.
@@ -306,7 +306,7 @@
               </div>
 
               <UiTabs default-value="30 days">
-                <UiTabsList class="border border-border/70 bg-muted/30">
+                <UiTabsList class="border-border/70 bg-muted/30 border">
                   <UiTabsTrigger v-for="range in chartRanges" :key="range" :value="range">
                     {{ range }}
                   </UiTabsTrigger>
@@ -314,7 +314,7 @@
               </UiTabs>
             </div>
 
-            <div class="h-[360px] overflow-hidden rounded-2xl bg-muted/20 p-2">
+            <div class="bg-muted/20 h-[360px] overflow-hidden rounded-2xl p-2">
               <UiApexchart
                 type="area"
                 height="100%"
@@ -332,8 +332,8 @@
         :while-in-view="{ opacity: 1, y: 0 }"
         :transition="{ duration: 0.4, delay: 0.1, ease: 'easeOut' }"
       >
-        <UiCard class="gap-0 overflow-hidden border-border/70 py-0 shadow-xs">
-          <UiCardHeader class="border-b border-border/60 py-4 pb-3!">
+        <UiCard class="border-border/70 gap-0 overflow-hidden py-0 shadow-xs">
+          <UiCardHeader class="border-border/60 border-b py-4 pb-3!">
             <UiCardTitle class="text-base font-semibold">Orders</UiCardTitle>
             <UiCardDescription>
               Recent orders placed in the selected date range, compared with the previous period.
@@ -357,7 +357,7 @@
               </div>
 
               <UiTabs v-model="activeOrderTab">
-                <UiTabsList class="border border-border/70 bg-muted/30">
+                <UiTabsList class="border-border/70 bg-muted/30 border">
                   <UiTabsTrigger v-for="tab in orderTabs" :key="tab" :value="tab">
                     {{ tab }}
                   </UiTabsTrigger>
@@ -367,7 +367,7 @@
           </UiCardContent>
 
           <!-- Orders data grid -->
-          <div class="border-t border-border/60">
+          <div class="border-border/60 border-t">
             <UiTanStackTable
               :data="filteredOrders"
               :columns="orderColumns"
@@ -434,7 +434,7 @@
                 <UiDropdownMenu>
                   <UiDropdownMenuTrigger as-child>
                     <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                      <Icon name="lucide:ellipsis-vertical" class="size-4 text-muted-foreground" />
+                      <Icon name="lucide:ellipsis-vertical" class="text-muted-foreground size-4" />
                     </UiButton>
                   </UiDropdownMenuTrigger>
                   <UiDropdownMenuContent align="end" class="min-w-44">
@@ -457,7 +457,7 @@
 
               <template #footer="{ table }">
                 <div
-                  class="flex w-full flex-col gap-4 border-t border-border/60 px-6 py-4 text-sm font-medium text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
+                  class="border-border/60 text-muted-foreground flex w-full flex-col gap-4 border-t px-6 py-4 text-sm font-medium sm:flex-row sm:items-center sm:justify-between"
                 >
                   <p>
                     Page {{ table.getState().pagination.pageIndex + 1 }} of
@@ -525,7 +525,7 @@
               <UiCardContent class="space-y-5">
                 <div class="flex items-start justify-between gap-4">
                   <div>
-                    <p class="text-sm font-medium text-muted-foreground">Order number</p>
+                    <p class="text-muted-foreground text-sm font-medium">Order number</p>
                     <p class="mt-1 text-2xl font-semibold tracking-tight">
                       #{{ selectedOrder.id }}
                     </p>
@@ -554,14 +554,14 @@
                 />
 
                 <div class="grid gap-4 sm:grid-cols-2">
-                  <div class="rounded-xl border border-border/70 bg-muted/20 p-4">
-                    <p class="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                  <div class="border-border/70 bg-muted/20 rounded-xl border p-4">
+                    <p class="text-muted-foreground text-xs font-medium tracking-wide uppercase">
                       Amount
                     </p>
                     <p class="mt-2 text-xl font-semibold">{{ selectedOrder.amount }}</p>
                   </div>
-                  <div class="rounded-xl border border-border/70 bg-muted/20 p-4">
-                    <p class="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                  <div class="border-border/70 bg-muted/20 rounded-xl border p-4">
+                    <p class="text-muted-foreground text-xs font-medium tracking-wide uppercase">
                       Rating
                     </p>
                     <UiRating
@@ -577,29 +577,29 @@
             <UiCard class="border-border/70 shadow-xs">
               <UiCardContent class="grid gap-4 sm:grid-cols-2">
                 <div class="space-y-1.5">
-                  <p class="text-sm font-medium text-muted-foreground">Placed on</p>
+                  <p class="text-muted-foreground text-sm font-medium">Placed on</p>
                   <p class="font-medium">{{ selectedOrder.date }}</p>
                 </div>
                 <div class="space-y-1.5">
-                  <p class="text-sm font-medium text-muted-foreground">Payment method</p>
+                  <p class="text-muted-foreground text-sm font-medium">Payment method</p>
                   <p class="font-medium">Visa ending in {{ selectedOrder.id.slice(-4) }}</p>
                 </div>
                 <div class="space-y-1.5">
-                  <p class="text-sm font-medium text-muted-foreground">Fulfillment</p>
+                  <p class="text-muted-foreground text-sm font-medium">Fulfillment</p>
                   <p class="font-medium">
                     {{ selectedOrder.status === "Paid" ? "Ready to ship" : "Refund pending" }}
                   </p>
                 </div>
                 <div class="space-y-1.5">
-                  <p class="text-sm font-medium text-muted-foreground">Source</p>
+                  <p class="text-muted-foreground text-sm font-medium">Source</p>
                   <p class="font-medium">Online store</p>
                 </div>
               </UiCardContent>
             </UiCard>
 
-            <div class="rounded-2xl border border-dashed border-border/70 bg-muted/20 p-4">
+            <div class="border-border/70 bg-muted/20 rounded-2xl border border-dashed p-4">
               <p class="text-sm font-medium">Internal note</p>
-              <p class="mt-2 text-sm leading-6 text-muted-foreground">
+              <p class="text-muted-foreground mt-2 text-sm leading-6">
                 Customer activity and payment details look healthy. Consider following up with a
                 shipping update if the order remains in this state for more than 24 hours.
               </p>

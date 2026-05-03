@@ -22,7 +22,7 @@
     <UiContainer class="py-16">
       <div class="mx-auto max-w-[900px]">
         <div class="text-center">
-          <Motion as="p" :variants="childVariant" class="font-semibold text-primary"
+          <Motion as="p" :variants="childVariant" class="text-primary font-semibold"
             >Contact support</Motion
           >
           <Motion
@@ -35,7 +35,7 @@
           <Motion
             as="p"
             :variants="childVariant"
-            class="mx-auto mb-12 max-w-[600px] text-lg text-muted-foreground lg:text-xl"
+            class="text-muted-foreground mx-auto mb-12 max-w-[600px] text-lg lg:text-xl"
           >
             Our dedicated support team is here to assist you with any questions or concerns.
           </Motion>
@@ -80,7 +80,7 @@
                           member.role
                         }}</UiBadge>
                       </div>
-                      <p class="text-sm text-muted-foreground">{{ member.specialty }}</p>
+                      <p class="text-muted-foreground text-sm">{{ member.specialty }}</p>
                     </div>
                   </div>
                 </div>
@@ -92,17 +92,17 @@
                 <h3 class="mb-3 text-lg font-semibold">Quick Info</h3>
                 <div class="space-y-3 text-sm">
                   <div class="flex items-center gap-2">
-                    <Icon name="heroicons:clock" class="h-5 w-5 text-muted-foreground" />
+                    <Icon name="heroicons:clock" class="text-muted-foreground h-5 w-5" />
                     <span class="text-muted-foreground">Response time: ~2 hours</span>
                   </div>
                   <div class="flex items-center gap-2">
-                    <Icon name="heroicons:envelope" class="h-5 w-5 text-muted-foreground" />
+                    <Icon name="heroicons:envelope" class="text-muted-foreground h-5 w-5" />
                     <span class="text-muted-foreground">support@company.com</span>
                   </div>
                   <div class="flex items-center gap-2">
                     <Icon
                       name="heroicons:chat-bubble-left-right"
-                      class="h-5 w-5 text-muted-foreground"
+                      class="text-muted-foreground h-5 w-5"
                     />
                     <span class="text-muted-foreground">24/7 Live chat available</span>
                   </div>

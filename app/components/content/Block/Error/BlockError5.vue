@@ -5,24 +5,24 @@
   -->
   <div
     ref="container"
-    class="relative flex min-h-screen items-center overflow-hidden bg-linear-to-br from-primary/10 via-background to-background"
+    class="from-primary/10 via-background to-background relative flex min-h-screen items-center overflow-hidden bg-linear-to-br"
   >
     <div
-      class="absolute top-[20%] left-[10%] h-[300px] w-[300px] rounded-full bg-primary/20 blur-[100px]"
+      class="bg-primary/20 absolute top-[20%] left-[10%] h-[300px] w-[300px] rounded-full blur-[100px]"
       style="animation: blob-float 8s ease-in-out infinite"
     />
     <div
-      class="absolute right-[10%] bottom-[20%] h-[400px] w-[400px] rounded-full bg-primary/10 blur-[120px]"
+      class="bg-primary/10 absolute right-[10%] bottom-[20%] h-[400px] w-[400px] rounded-full blur-[120px]"
       style="animation: blob-float 10s ease-in-out infinite reverse"
     />
     <div class="relative z-1 container">
-      <p ref="errorCode" class="mb-5 font-bold tracking-tight text-primary">
+      <p ref="errorCode" class="text-primary mb-5 font-bold tracking-tight">
         {{ statusCode }} error
       </p>
       <h1 ref="errorTitle" class="text-4xl font-bold tracking-tight lg:text-6xl">
         {{ title }}
       </h1>
-      <p ref="errorDesc" class="mt-5 max-w-md text-muted-foreground">
+      <p ref="errorDesc" class="text-muted-foreground mt-5 max-w-md">
         The page you're looking for doesn't exist or has been moved. Let's get you back on track.
       </p>
       <div ref="errorButton" class="mt-8 flex items-center gap-3">

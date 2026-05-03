@@ -28,7 +28,7 @@
         </UiTableRow>
       </UiTableFooter>
     </UiTable>
-    <p class="mt-4 text-center text-sm text-muted-foreground">Table without horizontal dividers</p>
+    <p class="text-muted-foreground mt-4 text-center text-sm">Table without horizontal dividers</p>
   </div>
 </template>
 

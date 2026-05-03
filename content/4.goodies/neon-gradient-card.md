@@ -9,9 +9,9 @@ Shout out to [Magic UI](https://magicui.design/docs/components/neon-gradient-car
 
 ## Getting Started
 
-:::Steps
+:::prose-steps
 
-::Step
+::prose-step
 
 ### Create the Component
 
@@ -58,35 +58,35 @@ Create the the `NeonGradientCard` component in the `components` directory.
 
   export interface NeonGradientCardProps extends PrimitiveProps {
     /**
+     * The className of the card.
+     *
      * @default ""
      * @type string
-     * @description
-     * The className of the card
      */
     class?: HTMLAttributes["class"];
 
     /**
+     * The size of the border in pixels.
+     *
      * @default 5
      * @type number
-     * @description
-     * The size of the border in pixels
-     * */
+     */
     borderSize?: number;
 
     /**
+     * The size of the radius in pixels.
+     *
      * @default 20
      * @type number
-     * @description
-     * The size of the radius in pixels
-     * */
+     */
     borderRadius?: number;
 
     /**
+     * The colors of the neon gradient.
+     *
      * @default "{ firstColor: '#ff00aa', secondColor: '#00FFF1' }"
      * @type string
-     * @description
-     * The colors of the neon gradient
-     * */
+     */
     neonColors?: NeonColorsProps;
 
     [key: string]: any;
@@ -144,7 +144,7 @@ Create the the `NeonGradientCard` component in the `components` directory.
 
 ::
 
-::Step
+::prose-step
 
 ### Add animation to `tailwind.css` file
 
@@ -169,7 +169,7 @@ Create the the `NeonGradientCard` component in the `components` directory.
 
 ## Usage
 
-::ShowCase
+::prose-show-case
 
 :DocsNeonGradientCard
 

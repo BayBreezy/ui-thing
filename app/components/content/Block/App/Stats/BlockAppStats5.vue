@@ -12,7 +12,7 @@
             <Icon :name="props.icon" :class="['size-5', props.iconColor || 'text-primary']" />
           </div>
           <div>
-            <p class="text-sm font-medium text-muted-foreground" v-html="props.label" />
+            <p class="text-muted-foreground text-sm font-medium" v-html="props.label" />
             <h3 class="text-xl font-bold tracking-tight" v-html="props.value" />
           </div>
         </div>
@@ -61,7 +61,7 @@
             ]"
             v-html="props.change"
           />
-          <span class="text-sm text-muted-foreground" v-html="props.timeframe" />
+          <span class="text-muted-foreground text-sm" v-html="props.timeframe" />
         </div>
       </div>
     </UiCardContent>

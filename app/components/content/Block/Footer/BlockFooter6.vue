@@ -12,7 +12,7 @@
         Let's get started on something great
       </h2>
 
-      <p class="text-lg text-muted-foreground lg:text-xl">
+      <p class="text-muted-foreground text-lg lg:text-xl">
         We are here to help you with your project
       </p>
 

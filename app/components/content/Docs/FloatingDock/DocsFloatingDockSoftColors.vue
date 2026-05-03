@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative min-h-[280px] rounded-[2rem] bg-linear-to-br from-sky-100 via-white to-violet-100 p-4 dark:from-sky-950/40 dark:via-background dark:to-violet-950/40"
+    class="dark:via-background relative min-h-[280px] rounded-[2rem] bg-linear-to-br from-sky-100 via-white to-violet-100 p-4 dark:from-sky-950/40 dark:to-violet-950/40"
   >
     <UiFloatingDock
       :items="items"

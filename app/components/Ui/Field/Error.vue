@@ -35,19 +35,15 @@
   import type { HTMLAttributes } from "vue";
 
   export const fieldErrorStyles = tv({
-    base: ["text-sm font-normal text-destructive"],
+    base: ["text-destructive text-sm font-normal"],
   });
 </script>
 <script lang="ts" setup>
   const props = defineProps<
     PrimitiveProps & {
-      /**
-       * Additional classes to apply to the element.
-       */
+      /** Additional classes to apply to the element. */
       class?: HTMLAttributes["class"];
-      /**
-       * Error message(s) to display.
-       */
+      /** Error message(s) to display. */
       errors?: string | string[] | Array<{ message: string }>;
     }
   >();

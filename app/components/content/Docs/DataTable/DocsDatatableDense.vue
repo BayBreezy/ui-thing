@@ -77,15 +77,13 @@
 </script>
 
 <template>
-  <div class="overflow-hidden rounded-lg border border-border bg-background">
+  <div class="border-border bg-background overflow-hidden rounded-lg border">
     <UiDatatable class="nowrap compact hover" :data="programmingLanguages" :options />
   </div>
 </template>
 
 <style scoped>
-  @reference "~/assets/css/tailwind.css";
-
   :deep(.dataTable thead tr) {
-    @apply bg-muted/50;
+    background-color: color-mix(in oklab, var(--color-muted) 50%, transparent);
   }
 </style>

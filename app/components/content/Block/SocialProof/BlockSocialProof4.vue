@@ -10,7 +10,7 @@
       <UiContainer>
         <Motion as-child :variants="childVariant">
           <div class="mb-12 text-center">
-            <p class="mb-3 text-sm font-semibold tracking-wider text-primary uppercase">
+            <p class="text-primary mb-3 text-sm font-semibold tracking-wider uppercase">
               Testimonials
             </p>
             <h2 class="mb-4 text-3xl font-bold lg:text-4xl">What our customers say</h2>
@@ -45,12 +45,12 @@
                   class="size-5 fill-yellow-400 text-yellow-400"
                 />
               </div>
-              <p class="mb-6 text-muted-foreground">{{ testimonial.quote }}</p>
+              <p class="text-muted-foreground mb-6">{{ testimonial.quote }}</p>
               <div class="flex items-center gap-3">
                 <UiAvatar :src="testimonial.avatar" />
                 <div>
                   <p class="font-semibold">{{ testimonial.name }}</p>
-                  <p class="text-sm text-muted-foreground">{{ testimonial.role }}</p>
+                  <p class="text-muted-foreground text-sm">{{ testimonial.role }}</p>
                 </div>
               </div>
             </UiCard>
@@ -59,7 +59,7 @@
 
         <Motion as-child :variants="logoSectionVariant">
           <div class="mt-16">
-            <p class="mb-8 text-center text-sm text-muted-foreground">
+            <p class="text-muted-foreground mb-8 text-center text-sm">
               Trusted by leading companies worldwide
             </p>
             <div

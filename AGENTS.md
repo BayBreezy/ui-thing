@@ -116,7 +116,7 @@ If you change markdown docs that embed example code, expect `automd` to refresh 
 - Every markdown page should have at least `title` and `description` frontmatter.
 - Section metadata and icons are often declared in `.navigation.yml`.
 - Component docs use MDC custom components such as:
-  - `::ShowCase`
+  - `::prose-show-case`
   - `:BlockShowcase`
   - `:prose-pm-x`
   - `:SourceCodeLink`

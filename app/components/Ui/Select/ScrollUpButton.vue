@@ -18,7 +18,7 @@
 
   const props = defineProps<
     SelectScrollUpButtonProps & {
-      /** Icon to render */
+      /** Icon to render. */
       icon?: string;
       class?: HTMLAttributes["class"];
     }

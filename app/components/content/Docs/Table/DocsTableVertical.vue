@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto max-w-lg">
-    <div class="overflow-hidden rounded-lg border border-border bg-background">
+    <div class="border-border bg-background overflow-hidden rounded-lg border">
       <UiTable>
         <UiTableBody>
           <UiTableRow class="*:border-border hover:bg-transparent [&>:not(:last-child)]:border-r">
@@ -26,6 +26,6 @@
         </UiTableBody>
       </UiTable>
     </div>
-    <p class="mt-4 text-center text-sm text-muted-foreground">Vertical table</p>
+    <p class="text-muted-foreground mt-4 text-center text-sm">Vertical table</p>
   </div>
 </template>

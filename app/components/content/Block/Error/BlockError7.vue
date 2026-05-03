@@ -37,7 +37,7 @@
           class="mb-8 inline-block"
         >
           <svg
-            class="h-48 w-48 text-primary/20"
+            class="text-primary/20 h-48 w-48"
             viewBox="0 0 200 200"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +60,7 @@
           </svg>
         </Motion>
 
-        <Motion as="h1" :variants="childVariant" class="mb-3 text-6xl font-bold text-primary">
+        <Motion as="h1" :variants="childVariant" class="text-primary mb-3 text-6xl font-bold">
           {{ statusCode }}
         </Motion>
         <Motion
@@ -70,7 +70,7 @@
         >
           {{ title }}
         </Motion>
-        <Motion as="p" :variants="childVariant" class="mb-8 text-muted-foreground">
+        <Motion as="p" :variants="childVariant" class="text-muted-foreground mb-8">
           Oops! The page you're looking for seems to have wandered off. Don't worry, it happens to
           the best of us.
         </Motion>

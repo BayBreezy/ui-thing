@@ -6,7 +6,7 @@
       variant="ghost"
       class="relative w-full shrink-0 justify-start gap-3 overflow-hidden p-3"
     >
-      <Icon v-if="n.icon" :name="n.icon" class="size-5 shrink-0 text-muted-foreground" />
+      <Icon v-if="n.icon" :name="n.icon" class="text-muted-foreground size-5 shrink-0" />
       <span
         class="whitespace-nowrap opacity-0 transition-opacity duration-200 group-hover:opacity-100"
       >

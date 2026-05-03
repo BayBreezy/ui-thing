@@ -13,9 +13,9 @@
             decoding="async"
           />
         </div>
-        <figcaption class="pt-2 text-xs text-muted-foreground">
+        <figcaption class="text-muted-foreground pt-2 text-xs">
           Photo by
-          <span class="font-semibold text-foreground">
+          <span class="text-foreground font-semibold">
             {{ artwork.artist }}
           </span>
         </figcaption>

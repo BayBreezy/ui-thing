@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="Dropfile.vue"} to see the source code for this 
 
 ### Placeholder
 
-::ShowCase
+::prose-show-case
 
 :DocsDropfile
 
@@ -37,7 +37,7 @@ Click :SourceCodeLink{component="Dropfile.vue"} to see the source code for this 
           <Icon name="lucide:file" class="mr-3 h-5 w-5 opacity-60" />
           <p class="w-[80%] truncate text-sm">{{ file.name }}</p>
           <p
-            class="absolute right-3 ml-auto text-xs whitespace-nowrap text-muted-foreground/60 opacity-100 transition group-hover:opacity-0"
+            class="text-muted-foreground/60 absolute right-3 ml-auto text-xs whitespace-nowrap opacity-100 transition group-hover:opacity-0"
           >
             {{ formatFileSize(file.size) }}
           </p>

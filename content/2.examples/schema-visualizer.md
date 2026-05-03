@@ -1,8 +1,6 @@
 ---
 title: Schema Visualizer
 description: A schema visualizer created with Vue Flow. All credits go to the team over at Origin UI.
-layout: examples
 ---
 
 ::Page-Ex-Schema-Visualizer
-::

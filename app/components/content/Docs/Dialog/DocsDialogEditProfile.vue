@@ -9,7 +9,7 @@
         class="flex flex-col gap-0 overflow-y-visible p-0 sm:max-w-lg [&>button:last-child]:top-3.5"
       >
         <UiDialogHeader class="contents space-y-0 text-left">
-          <UiDialogTitle class="border-b border-border px-6 py-4 text-base">
+          <UiDialogTitle class="border-border border-b px-6 py-4 text-base">
             Edit profile
           </UiDialogTitle>
         </UiDialogHeader>
@@ -20,7 +20,7 @@
           <!-- Profile BG -->
           <div class="h-32">
             <div
-              class="relative flex h-full w-full items-center justify-center overflow-hidden bg-muted"
+              class="bg-muted relative flex h-full w-full items-center justify-center overflow-hidden"
             >
               <img
                 v-if="currentImage"
@@ -33,7 +33,7 @@
               <div class="absolute inset-0 flex items-center justify-center gap-2">
                 <button
                   type="button"
-                  class="z-50 flex size-10 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline focus-visible:outline-ring/70"
+                  class="focus-visible:outline-ring/70 z-50 flex size-10 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline"
                   :aria-label="currentImage ? 'Change image' : 'Upload image'"
                   @click="handleBannerClick()"
                 >
@@ -42,7 +42,7 @@
                 <button
                   v-if="currentImage"
                   type="button"
-                  class="z-50 flex size-10 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline-2 focus-visible:outline-ring/70"
+                  class="focus-visible:outline-ring/70 z-50 flex size-10 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline-2"
                   aria-label="Remove image"
                   @click="currentImage = defaultBanner"
                 >
@@ -54,7 +54,7 @@
           <!-- Avatar -->
           <div class="-mt-10 px-6">
             <div
-              class="relative flex size-20 items-center justify-center overflow-hidden rounded-full border-4 border-background bg-muted shadow-xs shadow-black/10"
+              class="border-background bg-muted relative flex size-20 items-center justify-center overflow-hidden rounded-full border-4 shadow-xs shadow-black/10"
             >
               <img
                 v-if="currentAvatarImage"
@@ -67,7 +67,7 @@
 
               <button
                 type="button"
-                class="absolute flex size-8 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline-2 focus-visible:outline-ring/70"
+                class="focus-visible:outline-ring/70 absolute flex size-8 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white outline-offset-2 transition-colors hover:bg-black/80 focus-visible:outline-2"
                 aria-label="Change profile picture"
                 @click="handleAvatarClick()"
               >
@@ -98,7 +98,7 @@
                 >
                   <template #icon>
                     <span
-                      class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center border-r px-3 text-base text-muted-foreground peer-disabled:opacity-50 sm:text-sm"
+                      class="text-muted-foreground pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center border-r px-3 text-base peer-disabled:opacity-50 sm:text-sm"
                     >
                       https://
                     </span>
@@ -117,7 +117,7 @@
             </form>
           </div>
         </div>
-        <UiDialogFooter class="border-t border-border px-6 py-4">
+        <UiDialogFooter class="border-border border-t px-6 py-4">
           <UiDialogClose as-child>
             <UiButton type="button" variant="outline"> Cancel </UiButton>
           </UiDialogClose>

@@ -9,7 +9,7 @@
         </UiSelectContent>
       </UiSelect>
     </div>
-    <div class="grow text-right text-sm whitespace-nowrap text-muted-foreground">
+    <div class="text-muted-foreground grow text-right text-sm whitespace-nowrap">
       <span class="text-foreground">{{ page1 }}</span> of
       <span class="text-foreground">{{ pageTotal }}</span>
     </div>

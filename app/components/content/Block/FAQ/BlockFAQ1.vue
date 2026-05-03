@@ -32,7 +32,7 @@
         <Motion
           as="p"
           :variants="childVariant"
-          class="mx-auto max-w-[800px] text-lg text-muted-foreground lg:text-xl"
+          class="text-muted-foreground mx-auto max-w-[800px] text-lg lg:text-xl"
         >
           Everything you need to know about the product and billing.
         </Motion>
@@ -45,12 +45,12 @@
           class="flex flex-col items-center text-center"
         >
           <div
-            class="flex h-12 w-12 items-center justify-center rounded-lg border bg-primary/5 transition-colors hover:bg-primary/10"
+            class="bg-primary/5 hover:bg-primary/10 flex h-12 w-12 items-center justify-center rounded-lg border transition-colors"
           >
-            <Icon :name="faq.icon" class="h-6 w-6 text-primary" />
+            <Icon :name="faq.icon" class="text-primary h-6 w-6" />
           </div>
           <p class="mt-5 text-lg font-semibold">{{ faq.question }}</p>
-          <p class="mt-2 text-muted-foreground">
+          <p class="text-muted-foreground mt-2">
             {{ faq.answer }}
           </p>
         </Motion>
@@ -58,7 +58,7 @@
 
       <Motion as-child :variants="childVariant">
         <section
-          class="mx-auto mt-16 flex flex-col items-center gap-6 rounded-lg bg-muted/50 py-8 text-center dark:bg-muted/20"
+          class="bg-muted/50 dark:bg-muted/20 mx-auto mt-16 flex flex-col items-center gap-6 rounded-lg py-8 text-center"
         >
           <p class="text-lg font-semibold">Still have questions?</p>
           <p class="text-muted-foreground">

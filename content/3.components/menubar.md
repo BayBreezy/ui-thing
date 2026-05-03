@@ -4,7 +4,7 @@ description: A visually persistent menu common in desktop applications that prov
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/menubar.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/menubar.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="Menubar"} to see the source code for this compo
 
 ### Full example
 
-::ShowCase
+::prose-show-case
 
 :DocsMenubar
 
@@ -192,7 +192,7 @@ Click :SourceCodeLink{component="Menubar"} to see the source code for this compo
 
 A minimal menubar with keyboard shortcuts and disabled items — great as a starting point.
 
-::ShowCase
+::prose-show-case
 
 :DocsMenubarSimple
 
@@ -254,7 +254,7 @@ A minimal menubar with keyboard shortcuts and disabled items — great as a star
 
 Use `UiMenubarLabel` to visually group items within a menu into named sections.
 
-::ShowCase
+::prose-show-case
 
 :DocsMenubarWithLabels
 
@@ -324,7 +324,7 @@ Use `UiMenubarLabel` to visually group items within a menu into named sections.
 
 Use `variant="destructive"` on `UiMenubarItem` to highlight dangerous or irreversible actions.
 
-::ShowCase
+::prose-show-case
 
 :DocsMenubarDestructive
 
@@ -397,7 +397,7 @@ Use `variant="destructive"` on `UiMenubarItem` to highlight dangerous or irrever
 
 Pass `translucent` to `UiMenubarContent` for a frosted-glass panel effect.
 
-::ShowCase
+::prose-show-case
 
 :DocsMenubarTranslucent
 

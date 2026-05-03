@@ -10,10 +10,10 @@
               <UiDropdownMenuTrigger as-child>
                 <UiSidebarMenuButton
                   size="lg"
-                  class="group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-0! data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                  class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-0!"
                 >
                   <div
-                    class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"
+                    class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg"
                   >
                     <Icon v-if="activeTeam" mode="svg" :name="activeTeam?.logo" class="size-4" />
                   </div>
@@ -32,7 +32,7 @@
                 :side="isMobile ? 'bottom' : 'right'"
                 :side-offset="4"
               >
-                <UiDropdownMenuLabel class="text-xs text-muted-foreground">
+                <UiDropdownMenuLabel class="text-muted-foreground text-xs">
                   Teams
                 </UiDropdownMenuLabel>
                 <template v-for="(team, index) in data.teams" :key="index">
@@ -51,11 +51,11 @@
                 <UiDropdownMenuSeparator />
                 <UiDropdownMenuItem class="gap-2 p-2">
                   <div
-                    class="flex size-6 items-center justify-center rounded-md border bg-background"
+                    class="bg-background flex size-6 items-center justify-center rounded-md border"
                   >
                     <Icon name="lucide:plus" class="size-4" />
                   </div>
-                  <div class="font-medium text-muted-foreground">Add team</div>
+                  <div class="text-muted-foreground font-medium">Add team</div>
                 </UiDropdownMenuItem>
               </UiDropdownMenuContent>
             </UiDropdownMenu>
@@ -161,7 +161,7 @@
               <UiSidebarMenuButton class="text-sidebar-foreground/70">
                 <Icon
                   name="lucide:ellipsis-vertical"
-                  class="rotate-90 text-sidebar-foreground/70"
+                  class="text-sidebar-foreground/70 rotate-90"
                 />
                 <span>More</span>
               </UiSidebarMenuButton>

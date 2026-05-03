@@ -1,16 +1,16 @@
 <template>
   <UiContainer class="py-10 lg:py-20">
-    <div class="rounded-lg border bg-card p-8 shadow-sm lg:p-12">
+    <div class="bg-card rounded-lg border p-8 shadow-sm lg:p-12">
       <div class="mb-10 text-center lg:mb-12">
         <h3 class="mb-3 text-3xl font-semibold lg:text-4xl">Why choose us?</h3>
-        <p class="text-lg text-muted-foreground">Numbers that speak for themselves</p>
+        <p class="text-muted-foreground text-lg">Numbers that speak for themselves</p>
       </div>
 
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
         <template v-for="(s, i) in stats" :key="i">
           <div class="text-center">
             <div class="mb-4">
-              <Icon :name="s.icon" class="mx-auto size-7 text-primary" />
+              <Icon :name="s.icon" class="text-primary mx-auto size-7" />
             </div>
             <h4 class="mb-2 text-3xl font-bold lg:text-4xl">
               {{ s.value }}
@@ -18,7 +18,7 @@
             <p class="text-sm font-medium">
               {{ s.text }}
             </p>
-            <p class="mt-2 text-sm text-muted-foreground">
+            <p class="text-muted-foreground mt-2 text-sm">
               {{ s.description }}
             </p>
           </div>

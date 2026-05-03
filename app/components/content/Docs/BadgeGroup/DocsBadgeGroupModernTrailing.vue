@@ -17,6 +17,7 @@
 
 <script lang="ts" setup>
   const colors = [
+    { color: "primary", addonText: "New feature", text: "We've just released a new feature" },
     { color: "gray", addonText: "New feature", text: "We've just released a new feature" },
     { color: "blue", addonText: "New feature", text: "We've just released a new feature" },
     { color: "error", addonText: "Error", text: "There was a problem with that action" },

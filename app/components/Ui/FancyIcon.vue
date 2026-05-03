@@ -15,25 +15,15 @@
 
   const props = withDefaults(
     defineProps<{
-      /**
-       * Custom class(es) to add to the icon container.
-       */
+      /** Custom class(es) to add to the icon container. */
       class?: HTMLAttributes["class"];
-      /**
-       * The icon to display.
-       */
+      /** The icon to display. */
       icon?: string;
-      /**
-       * The color variant of the icon.
-       */
+      /** The color variant of the icon. */
       color?: VariantProps<typeof styles>["color"];
-      /**
-       * The theme variant of the icon.
-       */
+      /** The theme variant of the icon. */
       theme?: VariantProps<typeof styles>["theme"];
-      /**
-       * The size variant of the icon.
-       */
+      /** The size variant of the icon. */
       size?: VariantProps<typeof styles>["size"];
     }>(),
     {
@@ -53,8 +43,8 @@
         dark: "text-white before:absolute before:inset-px before:border before:border-white/10 before:mask-b-from-0%",
         modern: "bg-background ring-1 ring-inset",
         "modern-neue": [
-          "ring-1 ring-inset before:absolute before:inset-1 dark:bg-muted/40",
-          "before:shadow-[0px_1px_2px_0px_rgba(0,0,0,0.1),0px_3px_3px_0px_rgba(0,0,0,0.09),1px_8px_5px_0px_rgba(0,0,0,0.05),2px_21px_6px_0px_rgba(0,0,0,0),0px_0px_0px_1px_rgba(0,0,0,0.08),1px_13px_5px_0px_rgba(0,0,0,0.01),0px_-2px_2px_0px_rgba(0,0,0,0.13)_inset] before:ring-1 before:ring-border",
+          "dark:bg-muted/40 ring-1 ring-inset before:absolute before:inset-1",
+          "before:ring-border before:shadow-[0px_1px_2px_0px_rgba(0,0,0,0.1),0px_3px_3px_0px_rgba(0,0,0,0.09),1px_8px_5px_0px_rgba(0,0,0,0.05),2px_21px_6px_0px_rgba(0,0,0,0),0px_0px_0px_1px_rgba(0,0,0,0.08),1px_13px_5px_0px_rgba(0,0,0,0.01),0px_-2px_2px_0px_rgba(0,0,0,0.13)_inset] before:ring-1",
         ],
         outline:
           "before:absolute before:rounded-full before:border-2 after:absolute after:rounded-full after:border-2",
@@ -124,7 +114,7 @@
         theme: "gradient",
         color: "primary",
         class:
-          "before:border-primary/40 before:bg-primary/10 before:text-white after:bg-primary after:text-white",
+          "before:border-primary/40 before:bg-primary/10 after:bg-primary before:text-white after:text-white",
       },
       {
         theme: "gradient",
@@ -162,7 +152,7 @@
       {
         theme: "dark",
         color: "gray",
-        class: "bg-gray-800/80 before:border-muted/12 dark:bg-gray-700",
+        class: "before:border-muted/12 bg-gray-800/80 dark:bg-gray-700",
       },
       { theme: "dark", color: "error", class: "bg-red-500 before:border-red-800/12" },
       {

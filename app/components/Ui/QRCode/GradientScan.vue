@@ -19,14 +19,12 @@
   import type { HTMLAttributes } from "vue";
 
   const styles = tv({
-    base: "absolute bottom-0 h-1/2 w-full border-t border-primary bg-primary/10",
+    base: "border-primary bg-primary/10 absolute bottom-0 h-1/2 w-full border-t",
   });
 
   const props = defineProps<
     PrimitiveProps & {
-      /**
-       * Additional classes to apply to the FrameHandle component
-       */
+      /** Additional classes to apply to the FrameHandle component. */
       class?: HTMLAttributes["class"];
     }
   >();

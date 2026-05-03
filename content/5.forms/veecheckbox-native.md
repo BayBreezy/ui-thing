@@ -21,7 +21,7 @@ This has been fixed with the `CheckboxGroup` component in Reka UI but I am keepi
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeNativeCheckboxBasic
 
@@ -43,7 +43,7 @@ This has been fixed with the `CheckboxGroup` component in Reka UI but I am keepi
 
 ### Indeterminate
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeNativeCheckboxIndeterminate
 
@@ -65,7 +65,7 @@ This has been fixed with the `CheckboxGroup` component in Reka UI but I am keepi
 
 ### Colors
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeNativeCheckboxColors
 
@@ -114,7 +114,7 @@ This has been fixed with the `CheckboxGroup` component in Reka UI but I am keepi
 
 ### Sizes
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeNativeCheckboxSizes
 
@@ -140,7 +140,7 @@ This has been fixed with the `CheckboxGroup` component in Reka UI but I am keepi
 
 ### Label Only
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeNativeCheckboxLabel
 
@@ -162,7 +162,7 @@ This has been fixed with the `CheckboxGroup` component in Reka UI but I am keepi
 
 ### Description Only
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeNativeCheckboxDescription
 
@@ -184,7 +184,7 @@ This has been fixed with the `CheckboxGroup` component in Reka UI but I am keepi
 
 ### Label & Description
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeNativeCheckboxLabelDescription
 
@@ -209,7 +209,7 @@ This has been fixed with the `CheckboxGroup` component in Reka UI but I am keepi
 
 ### Array of Items
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeNativeCheckboxArray
 

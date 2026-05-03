@@ -14,7 +14,7 @@
     }"
   >
     <div
-      class="group overflow-hidden rounded-xl border bg-background transition-all hover:border-primary/50 hover:shadow-xl"
+      class="group bg-background hover:border-primary/50 overflow-hidden rounded-xl border transition-all hover:shadow-xl"
     >
       <div class="relative">
         <Motion
@@ -52,9 +52,9 @@
                   transition: { delay: 0.3, type: 'spring', stiffness: 200, damping: 15 },
                 },
               }"
-              class="absolute top-4 right-4 flex size-10 items-center justify-center rounded-full bg-background shadow-lg group-hover/img:scale-110"
+              class="bg-background absolute top-4 right-4 flex size-10 items-center justify-center rounded-full shadow-lg group-hover/img:scale-110"
             >
-              <Icon name="lucide:arrow-up-right" class="size-5 text-primary" />
+              <Icon name="lucide:arrow-up-right" class="text-primary size-5" />
             </Motion>
           </NuxtLink>
         </Motion>
@@ -70,7 +70,7 @@
               animate: { opacity: 1, y: 0 },
             }"
           >
-            <UiBadge variant="outline" class="text-xs font-semibold text-primary">
+            <UiBadge variant="outline" class="text-primary text-xs font-semibold">
               {{ headline }}
             </UiBadge>
           </Motion>
@@ -79,7 +79,7 @@
               initial: { opacity: 0, x: 10 },
               animate: { opacity: 1, x: 0 },
             }"
-            class="flex items-center gap-1 text-xs text-muted-foreground"
+            class="text-muted-foreground flex items-center gap-1 text-xs"
           >
             <Icon name="lucide:clock" class="size-3.5" />
             <span>{{ readTime }}</span>
@@ -89,7 +89,7 @@
         <Motion as-child :variants="childVariant">
           <NuxtLink :to="link">
             <h3
-              class="mb-2 text-lg leading-tight font-bold transition-colors hover:text-primary lg:text-xl"
+              class="hover:text-primary mb-2 text-lg leading-tight font-bold transition-colors lg:text-xl"
             >
               {{ title }}
             </h3>
@@ -100,7 +100,7 @@
           v-if="description"
           as="p"
           :variants="childVariant"
-          class="mb-4 line-clamp-3 text-sm text-muted-foreground"
+          class="text-muted-foreground mb-4 line-clamp-3 text-sm"
         >
           {{ description }}
         </Motion>
@@ -114,10 +114,10 @@
             <UiAvatar v-if="userImage" :src="userImage" :alt="userName" size="sm" />
             <div class="flex flex-col">
               <span v-if="userName" class="text-xs font-semibold">{{ userName }}</span>
-              <span v-if="date" class="text-xs text-muted-foreground">{{ date }}</span>
+              <span v-if="date" class="text-muted-foreground text-xs">{{ date }}</span>
             </div>
           </div>
-          <div class="flex items-center gap-3 text-xs text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-3 text-xs">
             <div class="flex items-center gap-1">
               <Icon name="lucide:heart" class="size-3.5" />
               <span>{{ likes }}</span>

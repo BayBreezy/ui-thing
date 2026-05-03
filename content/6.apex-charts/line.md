@@ -11,7 +11,7 @@ description: Line charts are used to display data points over a continuous time 
 
 ### Interactive
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsLine1
 
@@ -33,10 +33,10 @@ description: Line charts are used to display data points over a continuous time 
             v-for="(chart, key) in ['desktop', 'mobile']"
             :key="key"
             :data-active="activeSeries === chart"
-            class="relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-t-0 sm:border-l sm:px-8 sm:py-6"
+            class="data-[active=true]:bg-muted/50 relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l sm:border-t-0 sm:border-l sm:px-8 sm:py-6"
             @click="activeSeries = chart"
           >
-            <span class="text-xs text-muted-foreground">
+            <span class="text-muted-foreground text-xs">
               {{ chart.charAt(0).toUpperCase() + chart.slice(1) }} Visitors
             </span>
             <span class="text-lg leading-none font-bold sm:text-3xl">
@@ -212,7 +212,7 @@ description: Line charts are used to display data points over a continuous time 
 
 ### Line Chart
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsLine2
 
@@ -236,7 +236,7 @@ description: Line charts are used to display data points over a continuous time 
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             Showing total visitors for the last 6 months
           </div>
         </div>
@@ -276,7 +276,7 @@ description: Line charts are used to display data points over a continuous time 
 
 ### Line Chart - Linear
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsLine3
 
@@ -300,7 +300,7 @@ description: Line charts are used to display data points over a continuous time 
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             Showing total visitors for the last 6 months
           </div>
         </div>
@@ -346,7 +346,7 @@ description: Line charts are used to display data points over a continuous time 
 
 ### Line Chart - Multiple
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsLine4
 
@@ -370,7 +370,7 @@ description: Line charts are used to display data points over a continuous time 
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             Showing total visitors for the last 6 months
           </div>
         </div>
@@ -426,7 +426,7 @@ description: Line charts are used to display data points over a continuous time 
 
 ### Line Chart - Step Line
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsLine5
 
@@ -450,7 +450,7 @@ description: Line charts are used to display data points over a continuous time 
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             Showing total visitors for the last 6 months
           </div>
         </div>
@@ -508,7 +508,7 @@ description: Line charts are used to display data points over a continuous time 
 
 ### Line Chart - Label
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsLine6
 
@@ -532,7 +532,7 @@ description: Line charts are used to display data points over a continuous time 
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             Showing total visitors for the last 6 months
           </div>
         </div>
@@ -587,7 +587,7 @@ description: Line charts are used to display data points over a continuous time 
 
 ### Line Chart - Custom Label
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsLine7
 
@@ -611,7 +611,7 @@ description: Line charts are used to display data points over a continuous time 
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             Showing total visitors for the last 6 months
           </div>
         </div>
@@ -679,7 +679,7 @@ description: Line charts are used to display data points over a continuous time 
 
 ### Line Chart - Negative
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsLine8
 
@@ -703,7 +703,7 @@ description: Line charts are used to display data points over a continuous time 
           <div class="flex items-center gap-2 leading-none font-medium">
             Trending up by 5.2% this month <Icon name="lucide:trending-up" class="inline size-4" />
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             Showing total visitors for the last 6 months
           </div>
         </div>

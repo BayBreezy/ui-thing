@@ -9,11 +9,11 @@
     <UiContainer class="py-16 lg:py-24">
       <Motion :variants="childVariant">
         <div class="mx-auto max-w-[760px] text-center">
-          <p class="font-semibold text-primary">Everything you need</p>
+          <p class="text-primary font-semibold">Everything you need</p>
           <h2 class="mt-3 mb-4 text-3xl font-semibold lg:mb-5 lg:text-4xl">
             Built for modern teams
           </h2>
-          <p class="text-lg text-muted-foreground lg:text-xl">
+          <p class="text-muted-foreground text-lg lg:text-xl">
             A comprehensive suite of tools designed to help teams collaborate and succeed.
           </p>
         </div>
@@ -55,8 +55,8 @@
         <!-- Small cards -->
         <Motion :variants="childVariant" class="group col-span-1">
           <UiCard class="h-full p-6 transition-all hover:shadow-lg lg:p-8">
-            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-              <Icon name="lucide:rocket" class="h-6 w-6 text-primary" />
+            <div class="bg-primary/10 mb-4 flex h-12 w-12 items-center justify-center rounded-lg">
+              <Icon name="lucide:rocket" class="text-primary h-6 w-6" />
             </div>
             <h3 class="mb-2 text-xl font-semibold lg:text-2xl">Fast Deployment</h3>
             <p class="text-muted-foreground">
@@ -67,8 +67,8 @@
 
         <Motion :variants="childVariant" class="group col-span-1">
           <UiCard class="h-full p-6 transition-all hover:shadow-lg lg:p-8">
-            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-              <Icon name="lucide:code-2" class="h-6 w-6 text-primary" />
+            <div class="bg-primary/10 mb-4 flex h-12 w-12 items-center justify-center rounded-lg">
+              <Icon name="lucide:code-2" class="text-primary h-6 w-6" />
             </div>
             <h3 class="mb-2 text-xl font-semibold lg:text-2xl">Developer Tools</h3>
             <p class="text-muted-foreground">
@@ -79,8 +79,8 @@
 
         <Motion :variants="childVariant" class="group col-span-1 md:col-span-2 lg:col-span-1">
           <UiCard class="h-full p-6 transition-all hover:shadow-lg lg:p-8">
-            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-              <Icon name="lucide:gauge" class="h-6 w-6 text-primary" />
+            <div class="bg-primary/10 mb-4 flex h-12 w-12 items-center justify-center rounded-lg">
+              <Icon name="lucide:gauge" class="text-primary h-6 w-6" />
             </div>
             <h3 class="mb-2 text-xl font-semibold lg:text-2xl">Performance</h3>
             <p class="text-muted-foreground">
@@ -91,8 +91,8 @@
 
         <Motion :variants="childVariant" class="group col-span-1">
           <UiCard class="h-full p-6 transition-all hover:shadow-lg lg:p-8">
-            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-              <Icon name="lucide:lock" class="h-6 w-6 text-primary" />
+            <div class="bg-primary/10 mb-4 flex h-12 w-12 items-center justify-center rounded-lg">
+              <Icon name="lucide:lock" class="text-primary h-6 w-6" />
             </div>
             <h3 class="mb-2 text-xl font-semibold lg:text-2xl">Secure</h3>
             <p class="text-muted-foreground">Enterprise-grade security with SOC 2 compliance.</p>
@@ -101,8 +101,8 @@
 
         <Motion :variants="childVariant" class="group col-span-1">
           <UiCard class="h-full p-6 transition-all hover:shadow-lg lg:p-8">
-            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-              <Icon name="lucide:headphones" class="h-6 w-6 text-primary" />
+            <div class="bg-primary/10 mb-4 flex h-12 w-12 items-center justify-center rounded-lg">
+              <Icon name="lucide:headphones" class="text-primary h-6 w-6" />
             </div>
             <h3 class="mb-2 text-xl font-semibold lg:text-2xl">24/7 Support</h3>
             <p class="text-muted-foreground">Expert support whenever you need it.</p>

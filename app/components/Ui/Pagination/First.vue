@@ -23,11 +23,11 @@
   const props = withDefaults(
     defineProps<
       PaginationFirstProps & {
-        /** Icon to show */
+        /** Icon to show. */
         icon?: string;
-        /** The variant of the button */
+        /** The variant of the button. */
         variant?: ButtonProps["variant"];
-        /** The size of the button */
+        /** The size of the button. */
         size?: ButtonProps["size"];
       }
     >(),

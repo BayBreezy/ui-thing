@@ -16,9 +16,9 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
-        /** Custom class(es) to add to the parent */
+        /** Custom class(es) to add to the parent. */
         class?: HTMLAttributes["class"];
-        /** The title of the component */
+        /** The title of the component. */
         title?: string;
       }
     >(),

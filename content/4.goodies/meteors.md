@@ -9,9 +9,9 @@ Shout out to [Magic UI](https://magicui.design/docs/components/meteors) for the 
 
 ## Getting Started
 
-:::Steps
+:::prose-steps
 
-::Step
+::prose-step
 
 ### Add Animation
 
@@ -39,7 +39,7 @@ You will need to add this to your `tailwind.css` file.
 
 ::
 
-::Step
+::prose-step
 
 ### Create Component
 
@@ -56,7 +56,7 @@ Create the component `Meteors.client.vue` in the `components` directory.
 
 We can add the `UiMeteors` component to trigger the meteors.
 
-::ShowCase
+::prose-show-case
 
 :DocsMeteors
 

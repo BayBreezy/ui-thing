@@ -17,33 +17,21 @@
   import type { CurrencyInputOptions } from "vue-currency-input";
 
   const props = defineProps<{
-    /**
-     * Custom class(es) to add to the input element
-     */
+    /** Custom class(es) to add to the input element. */
     class?: HTMLAttributes["class"];
-    /**
-     * The id of the input element
-     */
+    /** The id of the input element. */
     id?: string;
-    /**
-     * The name of the input element
-     */
+    /** The name of the input element. */
     name?: string;
-    /**
-     * The placeholder text for the input element
-     */
+    /** The placeholder text for the input element. */
     placeholder?: string;
-    /**
-     * Whether the input is disabled
-     */
+    /** Whether the input is disabled. */
     disabled?: boolean;
-    /**
-     * Whether the input is required
-     */
+    /** Whether the input is required. */
     required?: boolean;
     modelValue?: any;
     /**
-     * Options for the currency input
+     * Options for the currency input.
      *
      * @see https://dm4t2.github.io/vue-currency-input/config.html
      */
@@ -63,7 +51,7 @@
   const id = computed(() => props.id || `currency-input-${useId()}`);
 
   const styles = tv({
-    base: "flex h-9 w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:aria-invalid:ring-destructive/40",
+    base: "border-input selection:bg-primary selection:text-primary-foreground file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:bg-input/30 dark:aria-invalid:ring-destructive/40 flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-[3px] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
   });
 
   defineExpose({ inputRef, formattedValue, numberValue, setOptions, setValue });

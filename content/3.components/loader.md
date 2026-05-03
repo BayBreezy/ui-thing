@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="Loader.vue"} to see the source code for this co
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsLoaderBasic
 
@@ -39,7 +39,7 @@ Click :SourceCodeLink{component="Loader.vue"} to see the source code for this co
 
 So you can use any of the loaders located on the [Iconify Website](https://icones.js.org/collection/svg-spinners). Simply copy the name of the loader and paste it into the `icon` prop.
 
-::ShowCase
+::prose-show-case
 
 :DocsLoaderVariants
 
@@ -72,7 +72,7 @@ So you can use any of the loaders located on the [Iconify Website](https://icone
 
 You can adjust the size of the loader by passing a CSS class to the `class` prop.
 
-::ShowCase
+::prose-show-case
 
 :DocsLoaderSizes
 
@@ -99,7 +99,7 @@ You can adjust the size of the loader by passing a CSS class to the `class` prop
 
 You can adjust the color of the loader by passing a CSS class to the `class` prop.
 
-::ShowCase
+::prose-show-case
 
 :DocsLoaderColors
 
@@ -139,7 +139,7 @@ When the `full-page` prop is passed, the loader will take up the entire screen.
 
 It can be closed manually or by pressing the `esc` key.
 
-::ShowCase
+::prose-show-case
 
 :DocsLoaderBackdrop
 

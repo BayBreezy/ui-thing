@@ -20,7 +20,7 @@ Click :SourceCodeLink{component="Drawer"} to see the source code for this compon
 
 We can bring the different components together to make a simple drawer.
 
-::ShowCase
+::prose-show-case
 
 :DocsDrawerBasic
 
@@ -99,7 +99,7 @@ We can bring the different components together to make a simple drawer.
 
 We can add an image inside as well.
 
-::ShowCase
+::prose-show-case
 
 :DocsDrawerImage
 
@@ -182,7 +182,7 @@ We can add an image inside as well.
 
 You can combine the `Dialog` and `Drawer` components to create a responsive dialog. This renders a `Dialog` component on desktop and a `Drawer` on mobile.
 
-::ShowCase
+::prose-show-case
 
 :DocsDrawerResponsiveDialog
 

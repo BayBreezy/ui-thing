@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Meet Our Team</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         The talented individuals who make everything possible
       </p>
     </div>
@@ -15,14 +15,14 @@
       <div v-for="member in teamMembers" :key="member.name" class="text-center">
         <UiAvatar :src="member.image" :alt="member.name" class="mx-auto size-24 md:size-32" />
         <h3 class="mt-4 text-lg font-semibold">{{ member.name }}</h3>
-        <p class="text-sm text-primary">{{ member.role }}</p>
-        <p class="mt-2 text-sm text-balance text-muted-foreground">{{ member.bio }}</p>
+        <p class="text-primary text-sm">{{ member.role }}</p>
+        <p class="text-muted-foreground mt-2 text-sm text-balance">{{ member.bio }}</p>
         <div class="mt-4 flex justify-center gap-3">
           <a
             v-for="social in member.socials"
             :key="social.platform"
             :href="social.url"
-            class="text-muted-foreground transition-colors hover:text-foreground"
+            class="text-muted-foreground hover:text-foreground transition-colors"
           >
             <Icon :name="social.icon" class="size-4" />
           </a>

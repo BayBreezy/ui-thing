@@ -5,16 +5,16 @@
     />
     <div class="relative z-2 w-full max-w-[400px] px-5">
       <div
-        class="mx-auto mb-6 flex size-14 items-center justify-center rounded-lg border bg-background"
+        class="bg-background mx-auto mb-6 flex size-14 items-center justify-center rounded-lg border"
       >
         <Icon class="size-6" name="lucide:shield-check" />
       </div>
 
       <div class="flex flex-col items-center justify-center text-center">
         <h1 class="text-2xl font-bold tracking-tight lg:text-3xl">{{ title }}</h1>
-        <p class="mt-1 text-muted-foreground">{{ description }}</p>
+        <p class="text-muted-foreground mt-1">{{ description }}</p>
         <div
-          class="mt-4 w-full rounded-md bg-linear-to-b from-muted p-2 text-center text-sm font-medium shadow-xs ring-1 ring-muted"
+          class="from-muted ring-muted mt-4 w-full rounded-md bg-linear-to-b p-2 text-center text-sm font-medium shadow-xs ring-1"
         >
           john@example.com
         </div>
@@ -37,11 +37,11 @@
       </form>
 
       <div class="mt-6 text-center">
-        <p class="text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-sm">
           Didn't receive the code?
           <button
             type="button"
-            class="font-semibold text-primary underline-offset-2 hover:underline"
+            class="text-primary font-semibold underline-offset-2 hover:underline"
             @click="resendCode"
           >
             Resend
@@ -50,7 +50,7 @@
       </div>
 
       <p class="mt-8 text-center text-sm">
-        <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#"
+        <NuxtLink class="text-primary font-semibold underline-offset-2 hover:underline" to="#"
           >Back to Log in</NuxtLink
         >
       </p>

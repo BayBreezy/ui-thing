@@ -10,7 +10,7 @@
       <Motion :variants="childVariant">
         <div class="mx-auto max-w-[760px] text-center">
           <h2 class="mb-4 text-3xl font-semibold lg:mb-5 lg:text-4xl">Feature Comparison</h2>
-          <p class="text-lg text-muted-foreground lg:text-xl">
+          <p class="text-muted-foreground text-lg lg:text-xl">
             See how our platform stacks up with comprehensive feature coverage.
           </p>
         </div>
@@ -21,7 +21,7 @@
           <div class="overflow-x-auto">
             <table class="w-full">
               <thead>
-                <tr class="border-b bg-muted/50">
+                <tr class="bg-muted/50 border-b">
                   <th class="p-4 text-left font-semibold lg:p-6">Feature</th>
                   <th class="p-4 text-center font-semibold lg:p-6">Starter</th>
                   <th class="p-4 text-center font-semibold lg:p-6">Professional</th>
@@ -32,14 +32,14 @@
                 <tr
                   v-for="(feature, i) in features"
                   :key="i"
-                  class="border-b transition-colors last:border-b-0 hover:bg-muted/50"
+                  class="hover:bg-muted/50 border-b transition-colors last:border-b-0"
                 >
                   <td class="p-4 font-medium lg:p-6">
                     <div class="flex items-start gap-4">
-                      <Icon :name="feature.icon" class="size-6 text-primary" />
+                      <Icon :name="feature.icon" class="text-primary size-6" />
                       <div class="flex flex-col gap-0.5">
                         <p class="leading-none">{{ feature.name }}</p>
-                        <p class="text-sm whitespace-nowrap text-muted-foreground">
+                        <p class="text-muted-foreground text-sm whitespace-nowrap">
                           {{ feature.description }}
                         </p>
                       </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full justify-center">
-    <div class="w-full max-w-md space-y-4 rounded-lg border border-border p-4">
+    <div class="border-border w-full max-w-md space-y-4 rounded-lg border p-4">
       <div class="space-y-2">
         <UiSkeleton class="h-4 w-1/4" />
         <UiSkeleton class="h-10 w-full" />

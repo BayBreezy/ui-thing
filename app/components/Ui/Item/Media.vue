@@ -22,7 +22,7 @@
     variants: {
       variant: {
         default: "bg-transparent",
-        icon: "size-8 rounded-sm border bg-muted [&_svg:not([class*='size-'])]:size-4",
+        icon: "bg-muted size-8 rounded-sm border [&_svg:not([class*='size-'])]:size-4",
         image: "size-10 overflow-hidden rounded-sm [&_img]:size-full [&_img]:object-cover",
       },
     },
@@ -34,12 +34,11 @@
   export type ItemMediaProps = PrimitiveProps & {
     /**
      * The variant of the item media.
-     * @default 'default'
+     *
+     * @default "default"
      */
     variant?: VariantProps<typeof itemMediaStyles>["variant"];
-    /**
-     * Additional classes to apply to the parent element.
-     */
+    /** Additional classes to apply to the parent element. */
     class?: HTMLAttributes["class"];
   };
 </script>

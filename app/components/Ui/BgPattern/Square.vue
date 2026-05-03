@@ -50,10 +50,11 @@
   export type BgPatternSquareSize = "sm" | "md" | "lg";
 
   export type BgPatternSquareProps = {
-    /** Additional CSS classes */
+    /** Additional CSS classes. */
     class?: HTMLAttributes["class"];
     /**
-     * Size of the pattern
+     * Size of the pattern.
+     *
      * @default "lg"
      */
     size?: BgPatternSquareSize;

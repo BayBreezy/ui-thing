@@ -2,7 +2,7 @@
   <UiContainer class="py-16 lg:py-24">
     <div class="text-center">
       <h2 class="mb-4 text-3xl font-semibold lg:text-4xl">Pricing plans for teams of all sizes</h2>
-      <p class="mx-auto max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
         Choose an affordable plan that's packed with the best features for engaging your audience,
         creating customer loyalty, and driving sales.
       </p>
@@ -17,7 +17,7 @@
           <div class="flex items-start justify-between">
             <div>
               <h3 class="mb-1 text-xl font-bold">{{ p.title }}</h3>
-              <p class="text-sm text-muted-foreground">{{ p.description }}</p>
+              <p class="text-muted-foreground text-sm">{{ p.description }}</p>
             </div>
             <UiBadge v-if="p.featured" variant="default">Recommended</UiBadge>
           </div>
@@ -27,15 +27,15 @@
               <span class="text-5xl font-bold">${{ p.price }}</span>
               <span class="text-muted-foreground">/month</span>
             </div>
-            <p class="mt-2 text-sm text-muted-foreground">{{ p.billing }}</p>
+            <p class="text-muted-foreground mt-2 text-sm">{{ p.billing }}</p>
           </div>
 
           <div class="mb-8 space-y-4">
             <div v-for="(feature, k) in p.features" :key="k" class="flex items-start gap-3">
-              <Icon name="lucide:check-circle-2" class="mt-0.5 size-5 shrink-0 text-primary" />
+              <Icon name="lucide:check-circle-2" class="text-primary mt-0.5 size-5 shrink-0" />
               <div>
                 <p class="font-medium">{{ feature.name }}</p>
-                <p class="text-sm text-muted-foreground">{{ feature.description }}</p>
+                <p class="text-muted-foreground text-sm">{{ feature.description }}</p>
               </div>
             </div>
           </div>

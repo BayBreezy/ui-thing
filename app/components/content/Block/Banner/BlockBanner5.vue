@@ -5,10 +5,10 @@
     :transition="{ type: 'spring', stiffness: 300, damping: 25 }"
   >
     <UiContainer
-      class="relative overflow-hidden rounded-lg border bg-linear-to-r from-primary/10 via-primary/5 to-background p-4 shadow-lg lg:p-5"
+      class="from-primary/10 via-primary/5 to-background relative overflow-hidden rounded-lg border bg-linear-to-r p-4 shadow-lg lg:p-5"
     >
-      <div class="absolute -top-8 -right-8 size-32 rounded-full bg-primary/10 blur-3xl" />
-      <div class="absolute -bottom-8 -left-8 size-32 rounded-full bg-primary/10 blur-3xl" />
+      <div class="bg-primary/10 absolute -top-8 -right-8 size-32 rounded-full blur-3xl" />
+      <div class="bg-primary/10 absolute -bottom-8 -left-8 size-32 rounded-full blur-3xl" />
 
       <div class="relative flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div class="flex flex-col gap-4 lg:flex-row lg:items-start">
@@ -16,7 +16,7 @@
             :initial="{ scale: 0, rotate: -180 }"
             :animate="{ scale: 1, rotate: 0 }"
             :transition="{ type: 'spring', stiffness: 300, damping: 20, delay: 0.1 }"
-            class="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg"
+            class="bg-primary text-primary-foreground flex size-12 shrink-0 items-center justify-center rounded-full shadow-lg"
           >
             <Icon :name="icon" class="size-6" />
           </Motion>
@@ -33,7 +33,7 @@
               :animate="{ opacity: 1, x: 0 }"
               :transition="{ delay: 0.3 }"
             >
-              <p class="mt-1 text-sm text-muted-foreground" v-html="description" />
+              <p class="text-muted-foreground mt-1 text-sm" v-html="description" />
             </Motion>
           </div>
         </div>
@@ -51,7 +51,7 @@
             Learn More
           </UiButton>
           <UiButton class="hidden lg:flex" size="icon-sm" variant="ghost" aria-label="Close banner">
-            <Icon name="lucide:x" class="size-4 text-muted-foreground" />
+            <Icon name="lucide:x" class="text-muted-foreground size-4" />
           </UiButton>
         </Motion>
       </div>
@@ -62,7 +62,7 @@
         variant="ghost"
         aria-label="Close banner"
       >
-        <Icon name="lucide:x" class="size-4 text-muted-foreground" />
+        <Icon name="lucide:x" class="text-muted-foreground size-4" />
       </UiButton>
     </UiContainer>
   </Motion>

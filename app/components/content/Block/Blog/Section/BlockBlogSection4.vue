@@ -23,10 +23,10 @@
       <!-- Header with gradient background -->
       <Motion
         :variants="childVariant"
-        class="mb-12 rounded-2xl bg-linear-to-br from-primary/10 via-primary/5 to-transparent p-8 lg:mb-16"
+        class="from-primary/10 via-primary/5 mb-12 rounded-2xl bg-linear-to-br to-transparent p-8 lg:mb-16"
       >
         <h3 class="mb-3 text-3xl font-semibold lg:text-4xl">Latest from our blog</h3>
-        <p class="text-lg text-muted-foreground lg:text-xl">
+        <p class="text-muted-foreground text-lg lg:text-xl">
           Insights, stories, and updates from our team
         </p>
       </Motion>
@@ -48,11 +48,11 @@
                 class="h-[400px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div
-                class="absolute inset-0 bg-linear-to-t from-background/95 via-background/50 to-transparent"
+                class="from-background/95 via-background/50 absolute inset-0 bg-linear-to-t to-transparent"
               ></div>
               <div class="absolute right-0 bottom-0 left-0 z-10 p-6 lg:p-8">
                 <UiBadge class="mb-3">{{ headline }}</UiBadge>
-                <h4 class="mb-2 text-2xl font-semibold text-foreground lg:text-3xl">
+                <h4 class="text-foreground mb-2 text-2xl font-semibold lg:text-3xl">
                   {{ title }}
                 </h4>
                 <p class="mb-4 line-clamp-2">{{ description }}</p>
@@ -60,11 +60,11 @@
                   <UiAvatar
                     :src="userImage"
                     :alt="userName"
-                    class="bg-background shadow ring-1 ring-ring/30"
+                    class="bg-background ring-ring/30 shadow ring-1"
                   />
                   <div>
                     <p class="text-sm font-semibold">{{ userName }}</p>
-                    <p class="text-sm text-muted-foreground">{{ date }}</p>
+                    <p class="text-muted-foreground text-sm">{{ date }}</p>
                   </div>
                 </div>
               </div>
@@ -82,14 +82,14 @@
             v-for="item in 3"
             :key="item"
             :variants="childVariant"
-            class="flex gap-3 rounded-lg p-1 hover:bg-muted/50"
+            class="hover:bg-muted/50 flex gap-3 rounded-lg p-1"
           >
             <img :src="image" :alt="alt" class="h-20 w-20 shrink-0 rounded-lg object-cover" />
             <div class="min-w-0 flex-1">
               <NuxtLink :to="link" class="block">
                 <p class="mb-1 line-clamp-2 font-semibold">{{ title }}</p>
               </NuxtLink>
-              <p class="text-xs text-muted-foreground">{{ date }}</p>
+              <p class="text-muted-foreground text-xs">{{ date }}</p>
             </div>
           </Motion>
 

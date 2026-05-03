@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center">
-    <p class="text-sm text-muted-foreground">
+    <p class="text-muted-foreground text-sm">
       Press
       <UiKbd variant="outline"> ⌘J </UiKbd>
     </p>

@@ -14,7 +14,7 @@ Click :SourceCodeLink{component="BadgeGroup.vue"} to see the source code for thi
 
 ## Usage
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeGroupDefault
 
@@ -42,7 +42,7 @@ The `color` prop controls the palette of the badge addon and icon. Applies to th
 
 ### All colors
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeGroupAllColors
 
@@ -69,6 +69,7 @@ The `color` prop controls the palette of the badge addon and icon. Applies to th
 
 <script lang="ts" setup>
   const colors = [
+    "primary",
     "gray",
     "red",
     "orange",
@@ -97,7 +98,7 @@ The `color` prop controls the palette of the badge addon and icon. Applies to th
 
 ### Semantic aliases
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeGroupColors
 
@@ -124,6 +125,7 @@ The `color` prop controls the palette of the badge addon and icon. Applies to th
 
 <script lang="ts" setup>
   const colors = [
+    { color: "primary", addonText: "New feature", text: "We've just released a new feature" },
     { color: "gray", addonText: "New feature", text: "We've just released a new feature" },
     { color: "blue", addonText: "New feature", text: "We've just released a new feature" },
     { color: "error", addonText: "Error", text: "There was a problem with that action" },
@@ -145,7 +147,7 @@ The `color` prop controls the palette of the badge addon and icon. Applies to th
 
 Two sizes are available: `md` and `lg`.
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeGroupSizes
 
@@ -184,7 +186,7 @@ Two sizes are available: `md` and `lg`.
 
 The addon pill appears before the main text with the icon at the trailing end.
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeGroupColors
 
@@ -211,6 +213,7 @@ The addon pill appears before the main text with the icon at the trailing end.
 
 <script lang="ts" setup>
   const colors = [
+    { color: "primary", addonText: "New feature", text: "We've just released a new feature" },
     { color: "gray", addonText: "New feature", text: "We've just released a new feature" },
     { color: "blue", addonText: "New feature", text: "We've just released a new feature" },
     { color: "error", addonText: "Error", text: "There was a problem with that action" },
@@ -232,7 +235,7 @@ The addon pill appears before the main text with the icon at the trailing end.
 
 The main text comes first, followed by the addon pill with the icon inside.
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeGroupTrailing
 
@@ -282,7 +285,7 @@ The main text comes first, followed by the addon pill with the icon inside.
 
 The modern theme uses system-aware background and border tokens with a color dot indicator inside the addon.
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeGroupModernLeading
 
@@ -309,6 +312,7 @@ The modern theme uses system-aware background and border tokens with a color dot
 
 <script lang="ts" setup>
   const colors = [
+    { color: "primary", addonText: "New feature", text: "We've just released a new feature" },
     { color: "gray", addonText: "New feature", text: "We've just released a new feature" },
     { color: "blue", addonText: "New feature", text: "We've just released a new feature" },
     { color: "error", addonText: "Error", text: "There was a problem with that action" },
@@ -328,7 +332,7 @@ The modern theme uses system-aware background and border tokens with a color dot
 
 ### Modern — trailing
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeGroupModernTrailing
 
@@ -356,6 +360,7 @@ The modern theme uses system-aware background and border tokens with a color dot
 
 <script lang="ts" setup>
   const colors = [
+    { color: "primary", addonText: "New feature", text: "We've just released a new feature" },
     { color: "gray", addonText: "New feature", text: "We've just released a new feature" },
     { color: "blue", addonText: "New feature", text: "We've just released a new feature" },
     { color: "error", addonText: "Error", text: "There was a problem with that action" },
@@ -377,7 +382,7 @@ The modern theme uses system-aware background and border tokens with a color dot
 
 Set `:icon="false"` to hide the trailing icon entirely.
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeGroupNoIcon
 

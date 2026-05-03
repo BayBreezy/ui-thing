@@ -20,7 +20,7 @@
     }"
   >
     <div
-      class="relative flex min-h-screen items-center bg-linear-to-br from-background via-background to-primary/5 py-16"
+      class="from-background via-background to-primary/5 relative flex min-h-screen items-center bg-linear-to-br py-16"
     >
       <div
         class="absolute inset-0 bg-[linear-gradient(to_right,--alpha(var(--color-border)/40%)_1px,transparent_1px),linear-gradient(to_bottom,--alpha(var(--color-border)/40%)_1px,transparent_1px)] bg-size-[80px_80px]"
@@ -29,7 +29,7 @@
         <Motion as="div" :variants="childVariant" class="mb-10">
           <UiBadge variant="outline" class="mb-4">Error {{ statusCode }}</UiBadge>
           <h1 class="text-4xl font-bold tracking-tight lg:text-5xl">{{ title }}</h1>
-          <p class="mt-4 text-lg text-muted-foreground">
+          <p class="text-muted-foreground mt-4 text-lg">
             The server encountered an unexpected condition that prevented it from fulfilling the
             request.
           </p>
@@ -57,13 +57,13 @@
         </Motion>
 
         <Motion as-child :variants="childVariant">
-          <UiCard class="mb-8 border-primary/20 bg-primary/5">
+          <UiCard class="border-primary/20 bg-primary/5 mb-8">
             <UiCardHeader>
               <UiCardDescription class="font-mono text-xs">Error Details</UiCardDescription>
             </UiCardHeader>
             <UiCardContent>
               <pre
-                class="overflow-x-auto text-xs text-muted-foreground"
+                class="text-muted-foreground overflow-x-auto text-xs"
               ><code>{{ errorDetails }}</code></pre>
             </UiCardContent>
           </UiCard>

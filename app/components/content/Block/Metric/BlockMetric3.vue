@@ -5,7 +5,7 @@
         <h3 class="mb-4 text-center text-3xl font-semibold md:text-left lg:mb-5 lg:text-4xl">
           Build something great
         </h3>
-        <p class="mb-10 text-center text-lg text-muted-foreground md:text-left lg:mb-16 lg:text-xl">
+        <p class="text-muted-foreground mb-10 text-center text-lg md:text-left lg:mb-16 lg:text-xl">
           Everything you need to build modern UI and great products.
         </p>
       </div>
@@ -19,13 +19,13 @@
     >
       <template v-for="(s, i) in stats" :key="i">
         <div>
-          <h4 class="mb-2 text-5xl font-bold text-primary lg:mb-3 lg:text-6xl">
+          <h4 class="text-primary mb-2 text-5xl font-bold lg:mb-3 lg:text-6xl">
             {{ s.value }}
           </h4>
           <p class="text-lg font-medium">
             {{ s.text }}
           </p>
-          <p class="mt-2 line-clamp-2 hidden text-muted-foreground lg:block">
+          <p class="text-muted-foreground mt-2 line-clamp-2 hidden lg:block">
             Lorem ipsum, dolor sit amet consectetur adipisicing e
           </p>
         </div>

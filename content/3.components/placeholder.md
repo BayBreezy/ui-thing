@@ -13,7 +13,7 @@ Click :SourceCodeLink{component="Placeholder.vue"} to see the source code for th
 
 ## Usage
 
-::ShowCase
+::prose-show-case
 
 :DocsPlaceholder
 

@@ -15,7 +15,7 @@
   const props = withDefaults(
     defineProps<
       TooltipArrowProps & {
-        /** Additional classes for the tooltip arrow */
+        /** Additional classes for the tooltip arrow. */
         class?: HTMLAttributes["class"];
       }
     >(),

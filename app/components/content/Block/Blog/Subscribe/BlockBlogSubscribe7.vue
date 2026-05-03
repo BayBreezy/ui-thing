@@ -27,7 +27,7 @@
             >
               <UiBadge
                 variant="secondary"
-                class="mb-3 bg-primary-foreground/20 text-primary-foreground"
+                class="bg-primary-foreground/20 text-primary-foreground mb-3"
               >
                 <Icon name="lucide:trending-up" class="size-3" />
                 Popular choice
@@ -63,7 +63,7 @@
                 transition: { type: 'spring', stiffness: 300, damping: 20 },
               },
             }"
-            class="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary-foreground/20"
+            class="bg-primary-foreground/20 flex size-12 shrink-0 items-center justify-center rounded-full"
           >
             <Icon name="lucide:crown" class="size-6" />
           </Motion>
@@ -76,13 +76,13 @@
           }"
           class="mb-6 grid grid-cols-2 gap-3"
         >
-          <div class="rounded-lg bg-primary-foreground/10 p-3">
+          <div class="bg-primary-foreground/10 rounded-lg p-3">
             <div class="mb-1 text-2xl font-bold">50+</div>
-            <div class="text-xs text-primary-foreground/80">Articles monthly</div>
+            <div class="text-primary-foreground/80 text-xs">Articles monthly</div>
           </div>
-          <div class="rounded-lg bg-primary-foreground/10 p-3">
+          <div class="bg-primary-foreground/10 rounded-lg p-3">
             <div class="mb-1 text-2xl font-bold">5K+</div>
-            <div class="text-xs text-primary-foreground/80">Active readers</div>
+            <div class="text-primary-foreground/80 text-xs">Active readers</div>
           </div>
         </Motion>
 
@@ -108,7 +108,7 @@
           >
             <UiButton
               size="lg"
-              class="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+              class="bg-primary-foreground text-primary hover:bg-primary-foreground/90 w-full"
               type="submit"
             >
               Start reading
@@ -122,7 +122,7 @@
             initial: { opacity: 0 },
             animate: { opacity: 1 },
           }"
-          class="mt-4 flex items-center justify-center gap-2 text-xs text-primary-foreground"
+          class="text-primary-foreground mt-4 flex items-center justify-center gap-2 text-xs"
         >
           <Icon name="lucide:shield" class="size-3.5" />
           <span>Your data is safe with us. No spam, ever.</span>

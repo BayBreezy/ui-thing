@@ -25,7 +25,7 @@
         <Motion as="h1" :variants="childVariant" class="mb-4 text-4xl font-bold lg:text-5xl">
           Work with us
         </Motion>
-        <Motion as="p" :variants="childVariant" class="mb-8 text-lg text-muted-foreground">
+        <Motion as="p" :variants="childVariant" class="text-muted-foreground mb-8 text-lg">
           Help us build products that millions of people love to use
         </Motion>
 
@@ -38,7 +38,7 @@
 
       <!-- Featured position -->
       <Motion :variants="childVariant" class="mb-12">
-        <UiCard class="overflow-hidden border-2 border-primary/20 bg-primary/5 py-0">
+        <UiCard class="border-primary/20 bg-primary/5 overflow-hidden border-2 py-0">
           <UiCardContent class="p-0">
             <div class="grid grid-cols-1 gap-6 md:grid-cols-12">
               <!-- Image -->
@@ -52,24 +52,24 @@
 
               <!-- Content -->
               <div class="p-6 md:col-span-8 md:flex md:flex-col md:justify-center">
-                <UiBadge class="mb-3 w-fit bg-primary text-primary-foreground">Featured</UiBadge>
+                <UiBadge class="bg-primary text-primary-foreground mb-3 w-fit">Featured</UiBadge>
                 <h3 class="mb-2 text-2xl font-bold lg:text-3xl">Head of Engineering</h3>
-                <p class="mb-4 text-muted-foreground lg:text-lg">
+                <p class="text-muted-foreground mb-4 lg:text-lg">
                   Lead our engineering team and shape the future of our technology stack. We're
                   looking for a visionary leader with deep technical expertise.
                 </p>
 
                 <div class="mb-4 flex flex-wrap gap-4 text-sm">
                   <span class="flex items-center gap-2">
-                    <Icon name="lucide:map-pin" class="h-4 w-4 text-primary" />
+                    <Icon name="lucide:map-pin" class="text-primary h-4 w-4" />
                     San Francisco, CA / Remote
                   </span>
                   <span class="flex items-center gap-2">
-                    <Icon name="lucide:briefcase" class="h-4 w-4 text-primary" />
+                    <Icon name="lucide:briefcase" class="text-primary h-4 w-4" />
                     Full-time
                   </span>
                   <span class="flex items-center gap-2">
-                    <Icon name="lucide:dollar-sign" class="h-4 w-4 text-primary" />
+                    <Icon name="lucide:dollar-sign" class="text-primary h-4 w-4" />
                     $180k - $250k
                   </span>
                 </div>
@@ -101,17 +101,17 @@
             delay: n * 0.05,
           }"
         >
-          <UiCard class="group transition-all hover:border-primary/30 hover:shadow-md">
+          <UiCard class="group hover:border-primary/30 transition-all hover:shadow-md">
             <UiCardContent class="p-6">
               <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div class="flex-1">
                   <div class="mb-2 flex flex-wrap items-center gap-2">
-                    <h3 class="text-lg font-semibold transition-colors group-hover:text-primary">
+                    <h3 class="group-hover:text-primary text-lg font-semibold transition-colors">
                       Software Engineer
                     </h3>
                     <UiBadge variant="outline" size="sm">Engineering</UiBadge>
                   </div>
-                  <div class="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                  <div class="text-muted-foreground flex flex-wrap gap-4 text-sm">
                     <span class="flex items-center gap-1">
                       <Icon name="lucide:map-pin" class="h-3.5 w-3.5" />
                       Remote

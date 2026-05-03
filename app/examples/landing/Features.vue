@@ -7,7 +7,7 @@
       <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
         Everything you need to build faster
       </h2>
-      <p class="mb-12 text-lg text-muted-foreground">
+      <p class="text-muted-foreground mb-12 text-lg">
         A comprehensive toolkit designed for modern web applications
       </p>
     </div>

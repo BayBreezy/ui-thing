@@ -30,7 +30,7 @@
             },
           },
         }"
-        class="mx-auto flex size-16 items-center justify-center rounded-full bg-radial via-transparent to-primary/40"
+        class="to-primary/40 mx-auto flex size-16 items-center justify-center rounded-full bg-radial via-transparent"
       >
         <Motion
           as-child
@@ -43,7 +43,7 @@
             },
           }"
         >
-          <Icon name="lucide:mail-open" class="size-6 text-primary dark:text-foreground" />
+          <Icon name="lucide:mail-open" class="text-primary dark:text-foreground size-6" />
         </Motion>
       </Motion>
 
@@ -64,7 +64,7 @@
             initial: { opacity: 0, y: 10 },
             animate: { opacity: 1, y: 0 },
           }"
-          class="mt-2 mb-6 text-center text-muted-foreground"
+          class="text-muted-foreground mt-2 mb-6 text-center"
         >
           Get notified about new articles, tutorials, and exclusive content delivered straight to
           your inbox.
@@ -109,7 +109,7 @@
               transition: { type: 'spring', stiffness: 200, damping: 20 },
             },
           }"
-          class="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground"
+          class="text-muted-foreground mt-4 flex items-center justify-center gap-2 text-xs"
         >
           <Icon name="lucide:shield-check" class="size-4" />
           <span>We respect your privacy. Unsubscribe anytime.</span>

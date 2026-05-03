@@ -22,21 +22,21 @@
 
 <script lang="ts" setup>
   const badgeVariants = tv({
-    base: "inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-md border whitespace-nowrap transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:pointer-events-none [&>svg]:size-3",
+    base: "focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-md border whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] [&>svg]:pointer-events-none [&>svg]:size-3",
     variants: {
       variant: {
-        default: "border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90",
+        default: "bg-primary text-primary-foreground [a&]:hover:bg-primary/90 border-transparent",
         secondary:
-          "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
+          "bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90 border-transparent",
         destructive:
-          "border-transparent bg-destructive text-white focus-visible:ring-destructive/20 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40 [a&]:hover:bg-destructive/90",
+          "bg-destructive focus-visible:ring-destructive/20 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40 [a&]:hover:bg-destructive/90 border-transparent text-white",
         outline: "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
         success:
           "border-transparent bg-green-500 text-white focus-visible:ring-green-500/20 dark:bg-green-500/60 dark:focus-visible:ring-green-500/40 [a&]:hover:bg-green-600",
         warning:
           "border-transparent bg-yellow-500 text-white focus-visible:ring-yellow-500/20 dark:bg-yellow-500/60 dark:focus-visible:ring-yellow-500/40 [a&]:hover:bg-yellow-600",
         info: "border-transparent bg-blue-500 text-white focus-visible:ring-blue-500/20 dark:bg-blue-500/60 dark:focus-visible:ring-blue-500/40 [a&]:hover:bg-blue-600",
-        ghost: "border-transparent bg-transparent text-foreground [a&]:hover:bg-accent/50",
+        ghost: "text-foreground [a&]:hover:bg-accent/50 border-transparent bg-transparent",
         error:
           "border-transparent bg-red-500 text-white focus-visible:ring-red-500/20 dark:bg-red-500/60 dark:focus-visible:ring-red-500/40 [a&]:hover:bg-red-600",
       },
@@ -60,17 +60,17 @@
 
   const props = defineProps<
     NuxtLinkProps & {
-      /** Any additional class that should be added to the badge */
+      /** Any additional class that should be added to the badge. */
       class?: HTMLAttributes["class"];
-      /** The variant of the badge */
+      /** The variant of the badge. */
       variant?: BadgeProps["variant"];
-      /** The size of the badge */
+      /** The size of the badge. */
       size?: BadgeProps["size"];
-      /** The action to perform when the badge is clicked */
+      /** The action to perform when the badge is clicked. */
       onClick?: () => void;
-      /** Should the badge be disabled or not */
+      /** Should the badge be disabled or not. */
       disabled?: boolean;
-      /** The element to render the badge as */
+      /** The element to render the badge as. */
       tag?: string;
     }
   >();

@@ -4,7 +4,7 @@ description: A number field allows a user to enter a number and increment or dec
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/number-field
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/number-field#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="NumberField"} to see the source code for this c
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsNumberField
 
@@ -46,7 +46,7 @@ Click :SourceCodeLink{component="NumberField"} to see the source code for this c
 
 ### Disabled
 
-::ShowCase
+::prose-show-case
 
 :DocsNumberFieldDisabled
 
@@ -70,7 +70,7 @@ Click :SourceCodeLink{component="NumberField"} to see the source code for this c
 
 ### Decimal
 
-::ShowCase
+::prose-show-case
 
 :DocsNumberFieldDecimal
 
@@ -101,7 +101,7 @@ Click :SourceCodeLink{component="NumberField"} to see the source code for this c
 
 ### Percent
 
-::ShowCase
+::prose-show-case
 
 :DocsNumberFieldPercent
 
@@ -133,7 +133,7 @@ Click :SourceCodeLink{component="NumberField"} to see the source code for this c
 
 ### Currency
 
-::ShowCase
+::prose-show-case
 
 :DocsNumberFieldCurrency
 
@@ -165,7 +165,7 @@ Click :SourceCodeLink{component="NumberField"} to see the source code for this c
 
 ### Custom
 
-::ShowCase
+::prose-show-case
 
 :DocsNumberFieldCustom
 

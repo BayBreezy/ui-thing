@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-4">
-    <div class="flex items-center gap-2 text-sm text-muted-foreground">
+    <div class="text-muted-foreground flex items-center gap-2 text-sm">
       <Icon name="lucide:info" class="size-4" />
       Use the pin menu to choose top, bottom, or unpin.
     </div>
@@ -13,9 +13,9 @@
       </UiTanStackTable>
     </div>
 
-    <div v-if="pinnedTop.length || pinnedBottom.length" class="rounded-lg border bg-muted/50 p-4">
+    <div v-if="pinnedTop.length || pinnedBottom.length" class="bg-muted/50 rounded-lg border p-4">
       <div class="font-semibold">Pinned rows</div>
-      <div class="mt-2 space-y-1 text-sm text-muted-foreground">
+      <div class="text-muted-foreground mt-2 space-y-1 text-sm">
         <div v-if="pinnedTop.length">Top: {{ pinnedTop.map((r) => r.name).join(", ") }}</div>
         <div v-if="pinnedBottom.length">
           Bottom: {{ pinnedBottom.map((r) => r.name).join(", ") }}

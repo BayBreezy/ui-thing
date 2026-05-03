@@ -1,5 +1,5 @@
 <template>
-  <div class="relative min-h-screen overflow-hidden bg-muted/30">
+  <div class="bg-muted/30 relative min-h-screen overflow-hidden">
     <Motion
       initial="initial"
       while-in-view="animate"
@@ -13,7 +13,7 @@
             <h1 class="mb-6 text-5xl font-bold lg:text-6xl xl:text-7xl">
               Ship products faster than ever
             </h1>
-            <p class="mb-8 text-xl text-muted-foreground">
+            <p class="text-muted-foreground mb-8 text-xl">
               Join 10,000+ teams building the future with our platform. From startups to
               enterprises, we've got you covered.
             </p>
@@ -28,16 +28,16 @@
             </form>
             <div class="flex flex-wrap items-center gap-6">
               <div class="flex items-center gap-2">
-                <Icon class="size-5 text-primary" name="lucide:shield-check" />
-                <span class="text-sm text-muted-foreground">SOC 2 Certified</span>
+                <Icon class="text-primary size-5" name="lucide:shield-check" />
+                <span class="text-muted-foreground text-sm">SOC 2 Certified</span>
               </div>
               <div class="flex items-center gap-2">
-                <Icon class="size-5 text-primary" name="lucide:lock" />
-                <span class="text-sm text-muted-foreground">256-bit Encryption</span>
+                <Icon class="text-primary size-5" name="lucide:lock" />
+                <span class="text-muted-foreground text-sm">256-bit Encryption</span>
               </div>
               <div class="flex items-center gap-2">
-                <Icon class="size-5 text-primary" name="lucide:award" />
-                <span class="text-sm text-muted-foreground">GDPR Compliant</span>
+                <Icon class="text-primary size-5" name="lucide:award" />
+                <span class="text-muted-foreground text-sm">GDPR Compliant</span>
               </div>
             </div>
           </div>
@@ -46,9 +46,9 @@
         <Motion as-child :variants="imageVariant">
           <div class="relative">
             <div
-              class="absolute -inset-4 rounded-2xl bg-linear-to-r from-primary/20 to-primary/10 blur-2xl"
+              class="from-primary/20 to-primary/10 absolute -inset-4 rounded-2xl bg-linear-to-r blur-2xl"
             />
-            <div class="relative overflow-hidden rounded-2xl border bg-background shadow-2xl">
+            <div class="bg-background relative overflow-hidden rounded-2xl border shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
                 alt="Product showcase"

@@ -16,21 +16,21 @@
         <div class="flex items-center gap-2">
           <UiBadge variant="secondary">{{ headline }}</UiBadge>
           <UiSeparator orientation="vertical" class="h-4" />
-          <span class="text-xs text-muted-foreground">5 min read</span>
+          <span class="text-muted-foreground text-xs">5 min read</span>
         </div>
         <NuxtLink :to="link">
-          <h4 class="text-lg font-semibold transition-colors hover:text-primary">
+          <h4 class="hover:text-primary text-lg font-semibold transition-colors">
             {{ title }}
           </h4>
         </NuxtLink>
-        <p class="line-clamp-2 text-sm text-muted-foreground">{{ description }}</p>
+        <p class="text-muted-foreground line-clamp-2 text-sm">{{ description }}</p>
         <UiDivider />
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
             <UiAvatar :src="userImage" :alt="userName" size="xs" />
             <span class="text-xs font-medium">{{ userName }}</span>
           </div>
-          <div class="flex items-center gap-3 text-xs text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-3 text-xs">
             <span class="flex items-center gap-1">
               <Icon name="lucide:heart" class="h-3 w-3" />
               124
@@ -66,7 +66,7 @@
         <Motion
           :variants="childVariant"
           as="div"
-          class="mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5"
+          class="bg-primary/10 mb-3 inline-flex items-center gap-2 rounded-full px-4 py-1.5"
         >
           <Motion
             :variants="{
@@ -80,14 +80,14 @@
                 },
               },
             }"
-            class="h-2 w-2 rounded-full bg-primary"
+            class="bg-primary h-2 w-2 rounded-full"
           ></Motion>
-          <span class="text-sm font-semibold text-primary">Weekly updates</span>
+          <span class="text-primary text-sm font-semibold">Weekly updates</span>
         </Motion>
         <Motion as="h3" :variants="childVariant" class="mb-3 text-3xl font-semibold lg:text-4xl">
           Stories worth reading
         </Motion>
-        <Motion as="p" :variants="childVariant" class="text-lg text-muted-foreground lg:text-xl">
+        <Motion as="p" :variants="childVariant" class="text-muted-foreground text-lg lg:text-xl">
           Expert insights and practical tips for modern teams
         </Motion>
       </div>
@@ -101,9 +101,9 @@
 
         <!-- Newsletter signup card -->
         <Motion :variants="childVariant">
-          <UiCard class="relative h-full overflow-hidden border-2 border-dashed border-primary/30">
+          <UiCard class="border-primary/30 relative h-full overflow-hidden border-2 border-dashed">
             <div
-              class="absolute top-0 right-0 h-32 w-32 bg-linear-to-br from-primary/20 to-transparent blur-3xl"
+              class="from-primary/20 absolute top-0 right-0 h-32 w-32 bg-linear-to-br to-transparent blur-3xl"
             ></div>
             <UiCardContent class="relative flex h-full flex-col justify-center p-6 text-center">
               <Motion
@@ -119,17 +119,17 @@
                     },
                   },
                 }"
-                class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10"
+                class="bg-primary/10 mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full"
               >
-                <Icon name="lucide:mail" class="h-8 w-8 text-primary" />
+                <Icon name="lucide:mail" class="text-primary h-8 w-8" />
               </Motion>
               <h4 class="mb-2 text-lg font-semibold">Never miss a post</h4>
-              <p class="mb-4 text-sm text-muted-foreground">
+              <p class="text-muted-foreground mb-4 text-sm">
                 Get the latest articles delivered to your inbox weekly
               </p>
               <UiInput placeholder="Enter your email" class="mb-3" />
               <UiButton class="w-full">Subscribe now</UiButton>
-              <p class="mt-3 text-xs text-muted-foreground">Join 10,000+ subscribers</p>
+              <p class="text-muted-foreground mt-3 text-xs">Join 10,000+ subscribers</p>
             </UiCardContent>
           </UiCard>
         </Motion>

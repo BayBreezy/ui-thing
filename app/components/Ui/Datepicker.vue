@@ -32,8 +32,6 @@
 </script>
 
 <style>
-  @reference "~/assets/css/tailwind.css";
-
   :root {
     --vc-font-family: var(--font-sans);
     --vc-rounded-full: var(--radius);
@@ -96,67 +94,88 @@
     }
   }
   .vc-disabled {
-    @apply pointer-events-none line-through;
+    pointer-events: none;
+    text-decoration-line: line-through;
   }
   .vc-header .vc-title {
-    @apply text-sm font-medium;
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: var(--font-weight-medium);
   }
   .vc-weekdays {
-    @apply my-2 font-normal;
+    margin: calc(var(--spacing) * 2) 0;
+    font-weight: var(--font-weight-normal);
   }
   .vc-day-content,
   .vc-day,
   .vc-highlight {
-    @apply size-9 rounded-md;
+    width: calc(var(--spacing) * 9);
+    height: calc(var(--spacing) * 9);
+    border-radius: var(--radius-md);
   }
-  .vc-focus {
-    @apply ring-ring/40 focus-within:shadow-none focus-visible:ring-2;
+  .vc-focus:focus-within {
+    box-shadow: none;
+  }
+  .vc-focus:focus-visible {
+    box-shadow: 0 0 0 2px color-mix(in oklch, var(--color-ring) 40%, transparent);
   }
   .vc-day {
-    @apply mb-0.5;
+    margin-bottom: calc(var(--spacing) * 0.5);
   }
-
   .vc-base-icon {
-    @apply size-4 stroke-1;
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    stroke-width: 1;
   }
   .vc-header .vc-arrow,
   .vc-nav-arrow {
-    @apply size-7 rounded-md;
+    width: calc(var(--spacing) * 7);
+    height: calc(var(--spacing) * 7);
+    border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
   }
   .vc-header .vc-prev,
   .vc-header .vc-next {
-    @apply border;
+    border: 1px solid var(--color-border);
   }
   .weekday-position-1 .vc-highlights {
-    @apply rounded-l-md;
+    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
   }
   .weekday-position-7 .vc-highlights {
-    @apply rounded-r-md;
+    border-top-right-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
   }
   .vc-highlight-bg-light {
-    @apply bg-accent;
+    background-color: var(--color-accent);
   }
   .vc-nav-item {
-    @apply font-medium;
+    font-weight: var(--font-weight-medium);
   }
   .vc-header .vc-title-wrapper {
-    @apply decoration-accent-foreground/60 underline-offset-2 hover:underline;
+    text-decoration-color: color-mix(in oklch, var(--color-accent-foreground) 60%, transparent);
+    text-underline-offset: 2px;
   }
-  .vc-highlights + .vc-day-content {
-    @apply hover:bg-accent/5;
+  .vc-header .vc-title-wrapper:hover {
+    text-decoration-line: underline;
+  }
+  .vc-highlights + .vc-day-content:hover {
+    background-color: color-mix(in oklch, var(--color-accent) 5%, transparent);
   }
   .vc-time-header,
   .vc-time-select-group {
-    @apply capitalize lining-nums slashed-zero tabular-nums;
+    text-transform: capitalize;
+    font-variant-numeric: lining-nums slashed-zero tabular-nums;
   }
   .vc-expanded {
     .vc-day {
-      @apply h-[50px] w-full;
+      height: 50px;
+      width: 100%;
       .vc-day-content,
       .vc-highlight,
       .vc-highlights {
-        @apply size-full;
+        width: 100%;
+        height: 100%;
       }
     }
   }

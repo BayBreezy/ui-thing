@@ -9,7 +9,7 @@
     class="relative flex w-full touch-none items-center select-none"
     thumb-alignment="contain"
   >
-    <SliderTrack class="relative h-3 w-full grow overflow-hidden rounded-md bg-muted">
+    <SliderTrack class="bg-muted relative h-3 w-full grow overflow-hidden rounded-md">
       <!-- checkerboard -->
       <div
         class="bg-[linear-gradient(45deg,rgba(255,255,255,.18)_25%,transparent_25%,transparent_75%,rgba(255,255,255,.18)_75%,rgba(255,255,255,.18)), linear-gradient(45deg,rgba(255,255,255,.18)_25%,transparent_25%,transparent_75%,rgba(255,255,255,.18)_75%,rgba(255,255,255,.18))] absolute inset-0 bg-size-[12px_12px] bg-position-[0_0,6px_6px] opacity-60"
@@ -24,7 +24,7 @@
     </SliderTrack>
 
     <SliderThumb
-      class="block h-5 w-2 cursor-pointer rounded-sm border border-border/50 bg-white shadow ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
+      class="border-border/50 ring-offset-background focus-visible:ring-ring block h-5 w-2 cursor-pointer rounded-sm border bg-white shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
     />
   </SliderRoot>
 </template>

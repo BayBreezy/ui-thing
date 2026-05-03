@@ -18,7 +18,7 @@
           <div
             v-if="!hideKnob"
             data-slot="drawer-knob"
-            class="mx-auto mt-4 h-1.5 w-[60px] shrink-0 cursor-grab rounded-full bg-muted active:cursor-grabbing"
+            class="bg-muted mx-auto mt-4 h-1.5 w-[60px] shrink-0 cursor-grab rounded-full active:cursor-grabbing"
           />
         </slot>
 
@@ -52,7 +52,7 @@
 
   const styles = tv({
     base: [
-      "group/drawer-content fixed z-50 flex h-auto flex-col bg-background",
+      "group/drawer-content bg-background fixed z-50 flex h-auto flex-col",
       "data-[vaul-drawer-direction=top]:inset-x-0 data-[vaul-drawer-direction=top]:top-0 data-[vaul-drawer-direction=top]:mb-24 data-[vaul-drawer-direction=top]:max-h-[80vh] data-[vaul-drawer-direction=top]:rounded-b-lg data-[vaul-drawer-direction=top]:border-b",
       "data-[vaul-drawer-direction=bottom]:inset-x-0 data-[vaul-drawer-direction=bottom]:bottom-0 data-[vaul-drawer-direction=bottom]:mt-24 data-[vaul-drawer-direction=bottom]:max-h-[80vh] data-[vaul-drawer-direction=bottom]:rounded-t-lg data-[vaul-drawer-direction=bottom]:border-t",
       "data-[vaul-drawer-direction=right]:inset-y-0 data-[vaul-drawer-direction=right]:right-0 data-[vaul-drawer-direction=right]:w-3/4 data-[vaul-drawer-direction=right]:border-l data-[vaul-drawer-direction=right]:sm:max-w-sm",

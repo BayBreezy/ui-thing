@@ -53,7 +53,7 @@
 </script>
 
 <template>
-  <div class="overflow-hidden rounded-lg border border-border bg-background">
+  <div class="border-border bg-background overflow-hidden rounded-lg border">
     <UiDatatable v-if="options" :data="data" :options />
     <div class="flex items-center justify-between border-t px-6 py-6 text-sm">
       <p>Total</p>

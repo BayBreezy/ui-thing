@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Awards & Recognition</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         Honored by industry leaders and innovation champions
       </p>
     </div>
@@ -16,15 +16,15 @@
         <UiCardContent>
           <div class="flex items-start justify-between">
             <div
-              class="flex size-14 items-center justify-center rounded-xl bg-primary/10 transition-transform group-hover:scale-110"
+              class="bg-primary/10 flex size-14 items-center justify-center rounded-xl transition-transform group-hover:scale-110"
             >
-              <Icon :name="award.icon" class="size-7 text-primary" />
+              <Icon :name="award.icon" class="text-primary size-7" />
             </div>
             <UiBadge variant="outline">{{ award.year }}</UiBadge>
           </div>
           <h3 class="mt-4 font-bold">{{ award.title }}</h3>
-          <p class="mt-1 text-sm text-primary">{{ award.organization }}</p>
-          <p class="mt-3 text-sm text-muted-foreground">{{ award.description }}</p>
+          <p class="text-primary mt-1 text-sm">{{ award.organization }}</p>
+          <p class="text-muted-foreground mt-3 text-sm">{{ award.description }}</p>
         </UiCardContent>
       </UiCard>
     </div>
@@ -35,13 +35,13 @@
         <div
           v-for="cert in certifications"
           :key="cert.name"
-          class="flex flex-col items-center rounded-xl border bg-card p-6 text-center transition-colors hover:border-primary/50"
+          class="bg-card hover:border-primary/50 flex flex-col items-center rounded-xl border p-6 text-center transition-colors"
         >
-          <div class="flex size-16 items-center justify-center rounded-full bg-primary/10">
-            <Icon :name="cert.icon" class="size-8 text-primary" />
+          <div class="bg-primary/10 flex size-16 items-center justify-center rounded-full">
+            <Icon :name="cert.icon" class="text-primary size-8" />
           </div>
           <h4 class="mt-4 text-sm font-semibold">{{ cert.name }}</h4>
-          <p class="mt-1 text-xs text-muted-foreground">{{ cert.type }}</p>
+          <p class="text-muted-foreground mt-1 text-xs">{{ cert.type }}</p>
         </div>
       </div>
     </div>
@@ -49,9 +49,9 @@
     <div class="mx-auto mt-16 max-w-3xl text-center">
       <UiCard class="bg-primary/5">
         <UiCardContent>
-          <Icon name="lucide:award" class="mx-auto size-12 text-primary" />
+          <Icon name="lucide:award" class="text-primary mx-auto size-12" />
           <h3 class="mt-4 text-xl font-bold">Industry Recognition</h3>
-          <p class="mt-2 text-muted-foreground">
+          <p class="text-muted-foreground mt-2">
             Featured in Forbes, TechCrunch, and The Wall Street Journal as one of the most
             innovative companies reshaping the industry.
           </p>
@@ -59,7 +59,7 @@
             <div
               v-for="mention in mediaMentions"
               :key="mention"
-              class="text-sm font-semibold text-muted-foreground"
+              class="text-muted-foreground text-sm font-semibold"
             >
               {{ mention }}
             </div>

@@ -3,7 +3,7 @@
     <UiContainer>
       <div class="mx-auto max-w-[760px] text-center">
         <h2 class="mb-4 text-3xl font-semibold lg:text-4xl">Choose your plan</h2>
-        <p class="text-lg text-muted-foreground">
+        <p class="text-muted-foreground text-lg">
           Start building for free, then add a site plan to go live. Account plans unlock additional
           features.
         </p>
@@ -11,7 +11,7 @@
 
       <div class="mt-12 grid grid-cols-1 gap-8 lg:mt-16 lg:grid-cols-3">
         <template v-for="(p, i) in prices" :key="i">
-          <div class="relative rounded-lg border bg-card p-8">
+          <div class="bg-card relative rounded-lg border p-8">
             <UiBadge
               v-if="p.popular"
               class="absolute -top-3 left-1/2 -translate-x-1/2"
@@ -20,11 +20,11 @@
             >
             <div class="mb-6">
               <h3 class="mb-2 text-2xl font-bold">{{ p.title }}</h3>
-              <p class="text-sm text-muted-foreground">{{ p.description }}</p>
+              <p class="text-muted-foreground text-sm">{{ p.description }}</p>
             </div>
             <div class="mb-6">
               <p class="mb-1 text-4xl font-bold">${{ p.price }}</p>
-              <p class="text-sm text-muted-foreground">per user, per month</p>
+              <p class="text-muted-foreground text-sm">per user, per month</p>
             </div>
             <UiButton class="mb-6 w-full" :variant="p.popular ? 'default' : 'outline'">
               {{ p.cta }}
@@ -33,7 +33,7 @@
               <p class="text-sm font-semibold">What's included:</p>
               <ul class="space-y-3">
                 <li v-for="(feature, k) in p.features" :key="k" class="flex items-start gap-3">
-                  <Icon name="lucide:check" class="mt-0.5 size-5 shrink-0 text-primary" />
+                  <Icon name="lucide:check" class="text-primary mt-0.5 size-5 shrink-0" />
                   <span class="text-sm">{{ feature }}</span>
                 </li>
               </ul>

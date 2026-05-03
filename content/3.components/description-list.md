@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="Description"} to see the source code for this c
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsDescriptionListBasic
 
@@ -51,7 +51,7 @@ Click :SourceCodeLink{component="Description"} to see the source code for this c
 
 ### With Card
 
-::ShowCase
+::prose-show-case
 
 :DocsDescriptionListCard
 

@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">What People Say About Us</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         Trusted by companies worldwide
       </p>
     </div>
@@ -17,12 +17,12 @@
           <div class="flex items-center gap-1 text-yellow-500">
             <Icon v-for="i in 5" :key="i" name="lucide:star" class="size-4 fill-current" />
           </div>
-          <p class="mt-4 text-sm text-muted-foreground">"{{ testimonial.quote }}"</p>
+          <p class="text-muted-foreground mt-4 text-sm">"{{ testimonial.quote }}"</p>
           <div class="mt-6 flex items-center gap-3">
             <UiAvatar :src="testimonial.avatar" :alt="testimonial.name" class="size-10" />
             <div>
               <p class="text-sm font-semibold">{{ testimonial.name }}</p>
-              <p class="text-xs text-muted-foreground">{{ testimonial.role }}</p>
+              <p class="text-muted-foreground text-xs">{{ testimonial.role }}</p>
             </div>
           </div>
         </UiCardContent>
@@ -30,10 +30,10 @@
     </div>
 
     <div class="mx-auto mt-12 max-w-3xl text-center">
-      <div class="inline-flex items-center gap-8 rounded-2xl border bg-card p-8">
+      <div class="bg-card inline-flex items-center gap-8 rounded-2xl border p-8">
         <div v-for="stat in stats" :key="stat.label" class="text-center">
-          <div class="text-3xl font-bold text-primary">{{ stat.value }}</div>
-          <div class="mt-1 text-sm text-muted-foreground">{{ stat.label }}</div>
+          <div class="text-primary text-3xl font-bold">{{ stat.value }}</div>
+          <div class="text-muted-foreground mt-1 text-sm">{{ stat.label }}</div>
         </div>
       </div>
     </div>

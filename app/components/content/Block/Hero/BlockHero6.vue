@@ -25,7 +25,7 @@
             Super simplified <br />
             customer service
           </Motion>
-          <Motion as="p" :variants="textVariants" class="text-lg text-muted-foreground lg:text-xl">
+          <Motion as="p" :variants="textVariants" class="text-muted-foreground text-lg lg:text-xl">
             Powerful, self-serve product and growth analytics to help you convert, engage, and
             retain more.
           </Motion>
@@ -45,7 +45,7 @@
                   </Motion>
                 </template>
               </div>
-              <Motion as="p" :variants="textVariants" class="text-sm text-muted-foreground"
+              <Motion as="p" :variants="textVariants" class="text-muted-foreground text-sm"
                 >from 1,000+ customers</Motion
               >
             </div>
@@ -70,7 +70,7 @@
         class="flex shrink-0 items-center justify-center md:w-1/2 lg:h-full"
       >
         <div
-          class="w-full rounded-md bg-muted/50 px-4 py-10 ring-1 ring-muted/30 md:px-10 lg:w-[440px] lg:px-10 dark:bg-muted/5"
+          class="bg-muted/50 ring-muted/30 dark:bg-muted/5 w-full rounded-md px-4 py-10 ring-1 md:px-10 lg:w-[440px] lg:px-10"
         >
           <Motion
             as="img"
@@ -87,7 +87,7 @@
             class="text-center text-2xl font-semibold lg:mt-6 lg:text-3xl"
             >Create an account</Motion
           >
-          <Motion as="p" :variants="textVariants" class="mt-3 text-center text-muted-foreground"
+          <Motion as="p" :variants="textVariants" class="text-muted-foreground mt-3 text-center"
             >Get started with {{ COMPANY_NAME }}</Motion
           >
 
@@ -123,10 +123,10 @@
           <Motion
             as="p"
             :variants="textVariants"
-            class="mt-8 text-center text-sm text-muted-foreground"
+            class="text-muted-foreground mt-8 text-center text-sm"
           >
             Already have an account?
-            <NuxtLink to="#" class="font-semibold text-primary underline-offset-2 hover:underline"
+            <NuxtLink to="#" class="text-primary font-semibold underline-offset-2 hover:underline"
               >Log in</NuxtLink
             >
           </Motion>

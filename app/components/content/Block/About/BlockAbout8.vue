@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Mission & Vision</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         Our purpose and where we're headed
       </p>
     </div>
@@ -15,22 +15,22 @@
       <template v-for="(item, i) in items" :key="i">
         <UiCard class="group relative overflow-hidden border-0">
           <div
-            class="absolute top-0 right-0 size-32 translate-x-8 -translate-y-8 rounded-full bg-primary/10 transition-all duration-300 group-hover:size-44"
+            class="bg-primary/10 absolute top-0 right-0 size-32 translate-x-8 -translate-y-8 rounded-full transition-all duration-300 group-hover:size-44"
           />
           <UiCardContent class="relative">
             <div
-              class="flex size-16 items-center justify-center rounded-full bg-linear-to-b from-primary/30 via-transparent to-transparent"
+              class="from-primary/30 flex size-16 items-center justify-center rounded-full bg-linear-to-b via-transparent to-transparent"
             >
-              <Icon :name="item.icon" class="size-8 text-primary" />
+              <Icon :name="item.icon" class="text-primary size-8" />
             </div>
             <h3 class="mt-6 text-2xl font-bold">{{ item.title }}</h3>
-            <p class="mt-4 text-muted-foreground">
+            <p class="text-muted-foreground mt-4">
               {{ item.description }}
             </p>
             <ul class="mt-6 space-y-3">
               <template v-for="point in item.points" :key="point">
                 <li class="flex items-start gap-3">
-                  <Icon name="lucide:sparkles" class="mt-0.5 size-5 shrink-0 text-primary" />
+                  <Icon name="lucide:sparkles" class="text-primary mt-0.5 size-5 shrink-0" />
                   <span class="text-sm">{{ point }}</span>
                 </li>
               </template>
@@ -38,7 +38,7 @@
           </UiCardContent>
           <UiBorderBeam
             :duration="20"
-            class="from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100"
+            class="via-primary from-transparent to-transparent opacity-0 group-hover:opacity-100"
             :size="200"
           />
         </UiCard>

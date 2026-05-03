@@ -31,7 +31,7 @@
           <Motion
             as="p"
             :variants="textVariants"
-            class="max-w-[560px] text-lg text-muted-foreground lg:text-xl"
+            class="text-muted-foreground max-w-[560px] text-lg lg:text-xl"
           >
             The best customer service software for customer-first teams. Industry-leading email and
             live chat support.
@@ -45,7 +45,7 @@
             <Motion
               as="p"
               :variants="textVariants"
-              class="my-2 text-sm text-muted-foreground lg:hidden"
+              class="text-muted-foreground my-2 text-sm lg:hidden"
             >
               We care about your data in our privacy policy.
             </Motion>
@@ -58,7 +58,7 @@
           <Motion
             as="p"
             :variants="textVariants"
-            class="mt-3 hidden text-sm text-muted-foreground lg:block"
+            class="text-muted-foreground mt-3 hidden text-sm lg:block"
           >
             We care about your data in our privacy policy.
           </Motion>
@@ -79,7 +79,7 @@
                   </Motion>
                 </template>
               </div>
-              <Motion as="p" :variants="textVariants" class="text-sm text-muted-foreground"
+              <Motion as="p" :variants="textVariants" class="text-muted-foreground text-sm"
                 >from 1,000+ customers</Motion
               >
             </div>

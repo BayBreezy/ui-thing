@@ -29,7 +29,7 @@
                   <Icon name="lucide:chevron-up" class="ml-auto" />
                 </UiSidebarMenuButton>
               </UiDropdownMenuTrigger>
-              <UiDropdownMenuContent side="top" class="w-[--radix-popper-anchor-width]">
+              <UiDropdownMenuContent side="top" class="w-(--reka-dropdown-menu-trigger-width)">
                 <UiDropdownMenuItem
                   v-for="item in ['Account', 'Billing', 'Sign Out']"
                   :key="item"

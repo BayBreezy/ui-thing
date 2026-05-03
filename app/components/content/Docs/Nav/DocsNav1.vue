@@ -15,7 +15,7 @@
           <UiDropdownMenuLabel class="flex font-normal">
             <div class="flex flex-col space-y-1">
               <p class="text-sm leading-none font-medium">Behon Baker</p>
-              <p class="text-xs leading-none text-muted-foreground">behon.baker.com</p>
+              <p class="text-muted-foreground text-xs leading-none">behon.baker.com</p>
             </div>
           </UiDropdownMenuLabel>
           <UiDropdownMenuSeparator />

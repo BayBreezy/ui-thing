@@ -25,7 +25,7 @@
   >
     <UiDropdownMenu>
       <UiDropdownMenuTrigger as-child>
-        <UiButton variant="ghost" size="sm" class="-ml-3 h-8 data-[state=open]:bg-accent">
+        <UiButton variant="ghost" size="sm" class="data-[state=open]:bg-accent -ml-3 h-8">
           <span>{{ title }}</span>
           <Icon
             v-if="column.getIsSorted() === 'desc'"
@@ -42,16 +42,16 @@
       </UiDropdownMenuTrigger>
       <UiDropdownMenuContent align="start">
         <UiDropdownMenuItem @click="column.toggleSorting(false)">
-          <Icon name="lucide:arrow-up" class="mr-2 size-3.5 text-muted-foreground/70" />
+          <Icon name="lucide:arrow-up" class="text-muted-foreground/70 mr-2 size-3.5" />
           Asc
         </UiDropdownMenuItem>
         <UiDropdownMenuItem @click="column.toggleSorting(true)">
-          <Icon name="lucide:arrow-down" class="mr-2 size-3.5 text-muted-foreground/70" />
+          <Icon name="lucide:arrow-down" class="text-muted-foreground/70 mr-2 size-3.5" />
           Desc
         </UiDropdownMenuItem>
         <UiDropdownMenuSeparator />
         <UiDropdownMenuItem @click="column.toggleVisibility(false)">
-          <Icon name="lucide:eye-off" class="mr-2 size-3.5 text-muted-foreground/70" />
+          <Icon name="lucide:eye-off" class="text-muted-foreground/70 mr-2 size-3.5" />
           Hide
         </UiDropdownMenuItem>
       </UiDropdownMenuContent>

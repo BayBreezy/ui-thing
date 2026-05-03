@@ -1,5 +1,5 @@
 <template>
-  <div class="relative overflow-hidden bg-muted/50 py-16 lg:py-24">
+  <div class="bg-muted/50 relative overflow-hidden py-16 lg:py-24">
     <div
       class="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]"
     ></div>
@@ -17,7 +17,7 @@
               <h2 class="mb-4 text-3xl font-bold tracking-tight lg:text-4xl">
                 Subscribe to our newsletter
               </h2>
-              <p class="text-lg text-muted-foreground">
+              <p class="text-muted-foreground text-lg">
                 Get the latest news, articles, and resources delivered to your inbox weekly.
               </p>
             </div>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="flex items-start gap-2">
                   <UiCheckbox id="terms" required />
-                  <label for="terms" class="text-sm text-muted-foreground">
+                  <label for="terms" class="text-muted-foreground text-sm">
                     I agree to receive marketing emails and accept the privacy policy
                   </label>
                 </div>

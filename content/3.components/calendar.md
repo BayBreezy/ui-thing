@@ -36,7 +36,7 @@ vcalendar: {
 
 Attributes are visual decorators that can be applied to specific calendar dates. Learn more about them <a href="https://vcalendar.io/calendar/attributes.html" target="_blank">here</a>.
 
-::ShowCase
+::prose-show-case
 
 :DocsCalendarAttributes
 
@@ -144,7 +144,7 @@ Attributes are visual decorators that can be applied to specific calendar dates.
 
 ### Right Title - Left Nav
 
-::ShowCase
+::prose-show-case
 
 :DocsCalendarRightTitle
 
@@ -166,7 +166,7 @@ Attributes are visual decorators that can be applied to specific calendar dates.
 
 ### Header Slot
 
-::ShowCase
+::prose-show-case
 
 :DocsCalendarHeaderSlot
 
@@ -181,7 +181,7 @@ Attributes are visual decorators that can be applied to specific calendar dates.
       <template #header-title="{ title }">
         <div class="flex items-center gap-2">
           <p>{{ title }}</p>
-          <Icon class="size-4 text-muted-foreground" name="lucide:chevron-down" />
+          <Icon class="text-muted-foreground size-4" name="lucide:chevron-down" />
         </div>
       </template>
     </UiCalendar>
@@ -195,7 +195,7 @@ Attributes are visual decorators that can be applied to specific calendar dates.
 
 ### Date Range
 
-::ShowCase
+::prose-show-case
 
 :DocsCalendarRange
 
@@ -230,7 +230,7 @@ Attributes are visual decorators that can be applied to specific calendar dates.
 
 ### Disabled Dates
 
-::ShowCase
+::prose-show-case
 
 :DocsCalendarDisabledDate
 
@@ -265,7 +265,7 @@ Attributes are visual decorators that can be applied to specific calendar dates.
 
 ### Footer Slot
 
-::ShowCase
+::prose-show-case
 
 :DocsCalendarFooterSlot
 
@@ -307,7 +307,7 @@ Attributes are visual decorators that can be applied to specific calendar dates.
 
 ### Week View
 
-::ShowCase
+::prose-show-case
 
 :DocsCalendarWeekView
 

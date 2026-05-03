@@ -16,7 +16,7 @@
 
   const props = defineProps<
     PrimitiveProps & {
-      /** Custom class(es) to add to the element */
+      /** Custom class(es) to add to the element. */
       class?: HTMLAttributes["class"];
     }
   >();
@@ -25,7 +25,7 @@
   const styles = tv({
     base: [
       "group/navbar-mobile flex items-center gap-x-3 px-4 py-2.5 md:hidden",
-      "group-has-data-navbar-sticky/navbar:sticky group-has-data-navbar-sticky/navbar:top-0 group-has-data-navbar-sticky/navbar:border-b group-has-data-navbar-sticky/navbar:bg-background",
+      "group-has-data-navbar-sticky/navbar:bg-background group-has-data-navbar-sticky/navbar:sticky group-has-data-navbar-sticky/navbar:top-0 group-has-data-navbar-sticky/navbar:border-b",
     ],
   });
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="border-b bg-muted/30">
+  <div class="bg-muted/30 border-b">
     <UiContainer class="px-4 py-5 md:px-6">
       <div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
         <div class="flex items-start gap-4">
@@ -16,7 +16,7 @@
             <slot name="subtitle">
               <p
                 v-if="props.subtitle"
-                class="text-xs text-muted-foreground"
+                class="text-muted-foreground text-xs"
                 v-html="props.subtitle"
               />
             </slot>

@@ -12,7 +12,7 @@
               <UiSidebarMenuButton size="lg" as-child class="md:h-8 md:p-0">
                 <NuxtLink href="#">
                   <div
-                    class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"
+                    class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg"
                   >
                     <Icon mode="svg" name="lucide:command" class="size-4" />
                   </div>
@@ -116,7 +116,7 @@
       <UiSidebar collapsible="none" class="hidden flex-1 md:flex">
         <UiSidebarHeader class="gap-3.5 border-b p-4">
           <div class="flex w-full items-center justify-between">
-            <div class="text-base font-medium text-foreground">
+            <div class="text-foreground text-base font-medium">
               {{ activeItem?.title }}
             </div>
             <UiLabel class="flex items-center gap-2 text-sm">
@@ -133,7 +133,7 @@
                 v-for="mail in mails"
                 :key="mail.email"
                 href="#"
-                class="flex flex-col items-start gap-2 border-b p-4 text-sm leading-tight whitespace-nowrap last:border-b-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground flex flex-col items-start gap-2 border-b p-4 text-sm leading-tight whitespace-nowrap last:border-b-0"
               >
                 <div class="flex w-full items-center gap-2">
                   <span>{{ mail.name }}</span>

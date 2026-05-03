@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full flex-col items-center justify-center gap-5">
-    <p class="text-sm text-muted-foreground">Select your appointment date & time</p>
+    <p class="text-muted-foreground text-sm">Select your appointment date & time</p>
     <p class="text-sm font-semibold">
       Selected:
       <span class="text-emerald-500">{{

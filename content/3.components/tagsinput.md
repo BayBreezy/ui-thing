@@ -4,7 +4,7 @@ description: Tag inputs render tags inside an input, followed by an actual text 
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/tags-input.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/tags-input.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="TagsInput"} to see the source code for this com
 
 ### Basic example
 
-::ShowCase
+::prose-show-case
 
 :DocsTagsInput
 
@@ -51,7 +51,7 @@ Click :SourceCodeLink{component="TagsInput"} to see the source code for this com
       <UiLabel :for="id + 'some-other'">Input with inner tags</UiLabel>
       <UiTagsInput
         v-model="tags2"
-        class="h-auto p-1 shadow-xs outline-none focus-within:border-ring focus-within:ring-[3px] focus-within:ring-ring/50"
+        class="focus-within:border-ring focus-within:ring-ring/50 h-auto p-1 shadow-xs outline-none focus-within:ring-[3px]"
       >
         <UiTagsInputItem v-for="tag in tags2" :key="tag" :value="tag" />
 

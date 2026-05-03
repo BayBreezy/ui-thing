@@ -12,7 +12,7 @@
             <UiDialogTitle class="px-6 pt-6">Frequently Asked Questions (FAQ)</UiDialogTitle>
             <UiDialogDescription>
               <div class="p-6">
-                <div class="space-y-4 [&_strong]:font-semibold [&_strong]:text-foreground">
+                <div class="[&_strong]:text-foreground space-y-4 [&_strong]:font-semibold">
                   <div class="space-y-1">
                     <p>
                       <strong>Account Management</strong>

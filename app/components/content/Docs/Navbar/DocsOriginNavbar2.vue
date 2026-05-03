@@ -43,7 +43,7 @@
                   class="w-full"
                 >
                   <template v-if="link.submenu">
-                    <div class="px-2 py-1.5 text-xs font-medium text-muted-foreground">
+                    <div class="text-muted-foreground px-2 py-1.5 text-xs font-medium">
                       {{ link.label }}
                     </div>
                     <ul>
@@ -72,7 +72,7 @@
                       <div
                         role="separator"
                         aria-orientation="horizontal"
-                        class="-mx-1 my-1 h-px w-full bg-border"
+                        class="bg-border -mx-1 my-1 h-px w-full"
                       />
                     </template>
                   </template>
@@ -100,12 +100,12 @@
                 <!--Check if link has a submenu -->
                 <template v-if="link.submenu">
                   <UiNavigationMenuTrigger
-                    class="bg-transparent px-2 py-1.5 font-medium text-muted-foreground hover:text-primary *:[svg]:-me-0.5 *:[svg]:size-3.5"
+                    class="text-muted-foreground hover:text-primary bg-transparent px-2 py-1.5 font-medium *:[svg]:-me-0.5 *:[svg]:size-3.5"
                   >
                     {{ link.label }}
                   </UiNavigationMenuTrigger>
                   <UiNavigationMenuContent
-                    class="z-50 p-1 data-[motion=from-end]:slide-in-from-right-16! data-[motion=from-start]:slide-in-from-left-16! data-[motion=to-end]:slide-out-to-right-16! data-[motion=to-start]:slide-out-to-left-16!"
+                    class="data-[motion=from-end]:slide-in-from-right-16! data-[motion=from-start]:slide-in-from-left-16! data-[motion=to-end]:slide-out-to-right-16! data-[motion=to-start]:slide-out-to-left-16! z-50 p-1"
                   >
                     <ul :class="link.type === 'description' ? 'min-w-64' : 'min-w-48'">
                       <li v-for="(item, itemIndex) in link.items" :key="itemIndex">
@@ -116,7 +116,7 @@
                               <Icon
                                 v-if="item.icon"
                                 :name="item.icon"
-                                class="size-4 text-foreground opacity-60"
+                                class="text-foreground size-4 opacity-60"
                                 aria-hidden="true"
                               />
                               <span>{{ item.label }}</span>
@@ -128,7 +128,7 @@
                           <template v-if="link.type == 'description' && 'description' in item">
                             <div class="space-y-1">
                               <div class="font-medium">{{ item.label }}</div>
-                              <p class="line-clamp-2 text-xs text-muted-foreground">
+                              <p class="text-muted-foreground line-clamp-2 text-xs">
                                 {{ item.description }}
                               </p>
                             </div>
@@ -150,7 +150,7 @@
                 <template v-else>
                   <UiNavigationMenuLink
                     :href="link?.href"
-                    class="py-1.5 font-medium text-muted-foreground hover:text-primary"
+                    class="text-muted-foreground hover:text-primary py-1.5 font-medium"
                   >
                     {{ link.label }}
                   </UiNavigationMenuLink>

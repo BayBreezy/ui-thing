@@ -17,7 +17,7 @@
   const props = withDefaults(
     defineProps<
       ScrollAreaThumbProps & {
-        /** Custom class(es) to add to the parent */
+        /** Custom class(es) to add to the parent. */
         class?: HTMLAttributes["class"];
         orientation?: "vertical" | "horizontal";
       }
@@ -28,7 +28,7 @@
   );
   const forwarded = reactiveOmit(props, "class");
   const styles = tv({
-    base: "relative flex-1 rounded-full bg-border",
+    base: "bg-border relative flex-1 rounded-full",
     variants: {
       orientation: {
         vertical: "flex-1",

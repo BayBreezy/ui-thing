@@ -1,6 +1,6 @@
 <template>
   <div class="grid gap-2 md:flex md:items-center md:justify-between md:px-2">
-    <div class="flex-1 text-sm text-muted-foreground">
+    <div class="text-muted-foreground flex-1 text-sm">
       {{ table.getFilteredSelectedRowModel().rows.length }} of
       {{ table.getFilteredRowModel().rows.length }} row(s) selected.
     </div>

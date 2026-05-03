@@ -1,16 +1,16 @@
 <template>
-  <div class="relative flex min-h-screen items-center justify-center bg-muted/30 p-4">
+  <div class="bg-muted/30 relative flex min-h-screen items-center justify-center p-4">
     <UiCard class="w-full max-w-md shadow-none">
       <div class="p-6 lg:p-8">
         <div class="mb-6 flex justify-center">
-          <div class="flex size-16 items-center justify-center rounded-full bg-primary/10">
-            <Icon class="size-8 text-primary" name="lucide:key-round" />
+          <div class="bg-primary/10 flex size-16 items-center justify-center rounded-full">
+            <Icon class="text-primary size-8" name="lucide:key-round" />
           </div>
         </div>
 
         <div class="mb-8 text-center">
           <h1 class="mb-2 text-2xl font-bold tracking-tight">{{ title }}</h1>
-          <p class="text-sm text-muted-foreground">{{ description }}</p>
+          <p class="text-muted-foreground text-sm">{{ description }}</p>
         </div>
 
         <form @submit="submit">
@@ -29,9 +29,9 @@
         <UiDivider class="my-6" label="or" />
 
         <div class="text-center">
-          <p class="text-sm text-muted-foreground">
+          <p class="text-muted-foreground text-sm">
             Remember your password?
-            <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#">
+            <NuxtLink class="text-primary font-semibold underline-offset-2 hover:underline" to="#">
               Sign in
             </NuxtLink>
           </p>

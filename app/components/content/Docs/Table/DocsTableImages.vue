@@ -17,7 +17,7 @@
               <UiAvatar class="size-8" :src="item.image" :alt="item.name" />
               <div class="leading-none">
                 <div class="font-medium">{{ item.name }}</div>
-                <span class="mt-1 inline-block text-xs text-muted-foreground"
+                <span class="text-muted-foreground mt-1 inline-block text-xs"
                   >@{{ item.username }}</span
                 >
               </div>
@@ -30,7 +30,7 @@
         </UiTableRow>
       </UiTableBody>
     </UiTable>
-    <p class="mt-4 text-center text-sm text-muted-foreground">Table with images</p>
+    <p class="text-muted-foreground mt-4 text-center text-sm">Table with images</p>
   </div>
 </template>
 

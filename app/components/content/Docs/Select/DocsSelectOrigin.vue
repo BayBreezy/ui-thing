@@ -45,7 +45,7 @@
       <UiSelect default-value="1">
         <UiSelectTrigger class="relative ps-9">
           <div
-            class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 group-has-[select[disabled]]:opacity-50"
+            class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 group-has-[select[disabled]]:opacity-50"
           >
             <Icon name="lucide:clock" class="size-4" aria-hidden="true" />
           </div>
@@ -72,7 +72,7 @@
           }}</UiSelectItem>
         </UiSelectContent>
       </UiSelect>
-      <p class="text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground text-xs" role="region" aria-live="polite">
         Tell us what's your favorite Select framework
       </p>
     </div>
@@ -105,7 +105,7 @@
           }}</UiSelectItem>
         </UiSelectContent>
       </UiSelect>
-      <p class="mt-2 text-xs text-destructive" role="alert" aria-live="polite">
+      <p class="text-destructive mt-2 text-xs" role="alert" aria-live="polite">
         Selected option is invalid
       </p>
     </div>
@@ -113,7 +113,7 @@
     <div class="*:not-first:mt-2">
       <UiLabel>Select with gray background</UiLabel>
       <UiSelect default-value="2">
-        <UiSelectTrigger class="w-full border-transparent bg-muted shadow-none">
+        <UiSelectTrigger class="bg-muted w-full border-transparent shadow-none">
           <UiSelectValue placeholder="Select framework" />
         </UiSelectTrigger>
         <UiSelectContent>
@@ -191,7 +191,7 @@
 
     <div class="group relative">
       <label
-        class="absolute start-1 top-0 z-10 block -translate-y-1/2 bg-background px-2 text-xs font-medium text-foreground group-has-disabled:opacity-50"
+        class="bg-background text-foreground absolute start-1 top-0 z-10 block -translate-y-1/2 px-2 text-xs font-medium group-has-disabled:opacity-50"
       >
         Select with overlapping label
       </label>
@@ -233,7 +233,7 @@
       <UiLabel>Options with flag</UiLabel>
       <UiSelect v-model="selectedOption">
         <UiSelectTrigger
-          class="[&>span]:flex [&>span]:items-center [&>span]:gap-2 [&>span_svg]:shrink-0 [&>span_svg]:text-muted-foreground/80"
+          class="[&>span_svg]:text-muted-foreground/80 [&>span]:flex [&>span]:items-center [&>span]:gap-2 [&>span_svg]:shrink-0"
         >
           <UiSelectValue placeholder="Select country">
             <template v-if="selectedOption">
@@ -243,7 +243,7 @@
           </UiSelectValue>
         </UiSelectTrigger>
         <UiSelectContent
-          class="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2 [&_*[role=option]>span]:flex [&_*[role=option]>span]:items-center [&_*[role=option]>span]:gap-2 [&_*[role=option]>span>svg]:shrink-0 [&_*[role=option]>span>svg]:text-muted-foreground/80"
+          class="[&_*[role=option]>span>svg]:text-muted-foreground/80 [&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2 [&_*[role=option]>span]:flex [&_*[role=option]>span]:items-center [&_*[role=option]>span]:gap-2 [&_*[role=option]>span>svg]:shrink-0"
         >
           <UiSelectGroup v-for="continent in options" :key="continent.continent">
             <UiSelectLabel class="ps-2">{{ continent.continent }}</UiSelectLabel>

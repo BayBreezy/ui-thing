@@ -7,7 +7,7 @@
         label="Checkbox with expansion"
         aria-controls="checkbox-input-11"
       />
-      <p class="ml-[30px] text-xs text-muted-foreground">
+      <p class="text-muted-foreground ml-[30px] text-xs">
         Check the <span class="font-semibold">Checkbox</span> to expand the input field.
       </p>
     </div>

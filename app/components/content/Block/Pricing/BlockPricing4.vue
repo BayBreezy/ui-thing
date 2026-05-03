@@ -1,11 +1,11 @@
 <template>
   <UiContainer class="relative py-16 lg:py-24">
     <div class="mx-auto max-w-[760px] text-center">
-      <p class="font-semibold text-primary">Pricing</p>
+      <p class="text-primary font-semibold">Pricing</p>
       <h2 class="mt-3 mb-4 text-3xl font-semibold lg:mb-6 lg:text-4xl">
         Compare our plans and find yours
       </h2>
-      <p class="text-lg text-muted-foreground lg:text-xl">
+      <p class="text-muted-foreground text-lg lg:text-xl">
         Simple, transparent pricing that grows with you. Try any plan free for 30 days.
       </p>
     </div>
@@ -26,9 +26,9 @@
           <p class="text-xl font-semibold">{{ p.title }}</p>
           <div class="mt-10 flex items-end">
             <p class="text-3xl font-semibold lg:text-5xl">${{ p.price }}</p>
-            <p class="ml-1 text-muted-foreground">per user / month</p>
+            <p class="text-muted-foreground ml-1">per user / month</p>
           </div>
-          <p class="mt-6 text-sm text-muted-foreground">{{ p.description }}</p>
+          <p class="text-muted-foreground mt-6 text-sm">{{ p.description }}</p>
           <div class="mt-7 flex flex-col gap-3">
             <UiButton class="w-full">Get started</UiButton>
             <UiButton variant="outline" class="w-full">Contact sales</UiButton>
@@ -36,7 +36,7 @@
 
           <div class="mt-10 grid gap-5 lg:hidden">
             <div>
-              <p class="mb-4 text-sm font-semibold text-primary">Overview</p>
+              <p class="text-primary mb-4 text-sm font-semibold">Overview</p>
               <ul>
                 <li class="grid grid-cols-2">
                   <template v-for="(o, k) in p.overview" :key="`overview-${k}`">
@@ -70,7 +70,7 @@
               </ul>
             </div>
             <div>
-              <p class="mb-4 text-sm font-semibold text-primary">Reporting and analytics</p>
+              <p class="text-primary mb-4 text-sm font-semibold">Reporting and analytics</p>
               <ul>
                 <li class="grid grid-cols-2">
                   <template v-for="(o, k) in p.reporting" :key="`reporting-${k}`">
@@ -104,7 +104,7 @@
               </ul>
             </div>
             <div>
-              <p class="mb-4 text-sm font-semibold text-primary">User access</p>
+              <p class="text-primary mb-4 text-sm font-semibold">User access</p>
               <ul>
                 <li class="grid grid-cols-2">
                   <template v-for="(o, k) in p.access" :key="`access-${k}`">
@@ -144,7 +144,7 @@
 
     <div class="hidden lg:block">
       <div>
-        <p class="mb-4 text-sm font-semibold text-primary">Overview</p>
+        <p class="text-primary mb-4 text-sm font-semibold">Overview</p>
         <ul>
           <li class="grid grid-cols-2 lg:grid-cols-4">
             <template
@@ -185,7 +185,7 @@
         </ul>
       </div>
       <div class="mt-10">
-        <p class="mb-4 text-sm font-semibold text-primary">Reporting and analytics</p>
+        <p class="text-primary mb-4 text-sm font-semibold">Reporting and analytics</p>
         <ul>
           <li class="grid grid-cols-2 lg:grid-cols-4">
             <template
@@ -226,7 +226,7 @@
         </ul>
       </div>
       <div class="mt-10">
-        <p class="mb-4 text-sm font-semibold text-primary">User access</p>
+        <p class="text-primary mb-4 text-sm font-semibold">User access</p>
         <ul>
           <li class="grid grid-cols-2 lg:grid-cols-4">
             <template

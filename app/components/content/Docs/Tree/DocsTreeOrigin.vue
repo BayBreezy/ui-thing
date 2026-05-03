@@ -19,12 +19,12 @@
           >
             <div
               :class="[isSelected ? 'bg-accent' : 'bg-background']"
-              class="flex items-center gap-1 rounded-sm px-2 py-1.5 text-sm transition-colors not-in-data-[folder=true]:ps-7 hover:bg-accent focus-visible:ring-[3px] focus-visible:ring-ring/50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
+              class="hover:bg-accent focus-visible:ring-ring/50 flex items-center gap-1 rounded-sm px-2 py-1.5 text-sm transition-colors not-in-data-[folder=true]:ps-7 focus-visible:ring-[3px] [&_svg]:pointer-events-none [&_svg]:shrink-0"
             >
               <template v-if="item.hasChildren">
                 <Icon
                   name="lucide:chevron-right"
-                  class="size-3.5 text-muted-foreground"
+                  class="text-muted-foreground size-3.5"
                   :class="[
                     isExpanded ? 'rotate-90' : '',
                     'transition-transform duration-200 ease-in-out',
@@ -57,12 +57,12 @@
           >
             <div
               :class="[isSelected ? 'bg-accent' : 'bg-background']"
-              class="flex items-center gap-1 rounded-sm px-2 py-1.5 text-sm transition-colors not-in-data-[folder=true]:ps-7 hover:bg-accent focus-visible:ring-[3px] focus-visible:ring-ring/50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
+              class="hover:bg-accent focus-visible:ring-ring/50 flex items-center gap-1 rounded-sm px-2 py-1.5 text-sm transition-colors not-in-data-[folder=true]:ps-7 focus-visible:ring-[3px] [&_svg]:pointer-events-none [&_svg]:shrink-0"
             >
               <template v-if="item.hasChildren">
                 <Icon
                   name="lucide:chevron-right"
-                  class="size-3.5 text-muted-foreground"
+                  class="text-muted-foreground size-3.5"
                   :class="[
                     isExpanded ? 'rotate-90' : '',
                     'transition-transform duration-200 ease-in-out',
@@ -102,7 +102,7 @@
           >
             <div
               :class="[isSelected ? 'bg-accent' : 'bg-background']"
-              class="flex items-center gap-1 rounded-sm px-2 py-1.5 text-sm transition-colors not-in-data-[folder=true]:ps-7 hover:bg-accent focus-visible:ring-[3px] focus-visible:ring-ring/50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
+              class="hover:bg-accent focus-visible:ring-ring/50 flex items-center gap-1 rounded-sm px-2 py-1.5 text-sm transition-colors not-in-data-[folder=true]:ps-7 focus-visible:ring-[3px] [&_svg]:pointer-events-none [&_svg]:shrink-0"
             >
               <template v-if="item.hasChildren">
                 <Icon v-if="isExpanded" class="text-muted-foreground" name="lucide:folder-open" />
@@ -116,7 +116,7 @@
               <template v-if="item.hasChildren">
                 <Icon
                   name="lucide:chevron-right"
-                  class="ml-auto size-3.5 text-muted-foreground"
+                  class="text-muted-foreground ml-auto size-3.5"
                   :class="[
                     isExpanded ? 'rotate-90' : '',
                     'transition-transform duration-200 ease-in-out',

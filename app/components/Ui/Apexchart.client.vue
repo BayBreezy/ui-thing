@@ -15,7 +15,8 @@
   }
 
   /**
-   * This is the default configuration for ApexCharts, which can be overridden by the `options` prop.
+   * This is the default configuration for ApexCharts, which can be overridden by the `options`
+   * prop.
    *
    * It sets the default styles, colors, and other properties for the charts.
    */
@@ -92,13 +93,13 @@
 
   export type ApexChartProps = {
     /**
-     * All the optional configuration of the chart goes in this property
+     * All the optional configuration of the chart goes in this property.
      *
      * @default {}
      */
     options?: ApexOptions;
     /**
-     * The chart type
+     * The chart type.
      *
      * @default line
      */
@@ -119,21 +120,21 @@
       | "polarArea"
       | "treemap";
     /**
-     * The data which you want to display in the chart
+     * The data which you want to display in the chart.
      *
-     * @default []
+     * @default [ ]
      */
     series?: ApexOptions["series"];
     /**
-     * Width of the chart
+     * Width of the chart.
      *
-     * @default '100%'
+     * @default "100%"
      */
     width?: string | number;
     /**
-     * Height of the chart
+     * Height of the chart.
      *
-     * @default '100%'
+     * @default "100%"
      */
     height?: string | number;
   };
@@ -178,7 +179,8 @@
   /**
    * The ApexCharts instance.
    *
-   * You can use this to call methods on the chart instance, such as `chart.updateOptions()`, `chart.refresh()`, etc.
+   * You can use this to call methods on the chart instance, such as `chart.updateOptions()`,
+   * `chart.refresh()`, etc.
    */
   const chart = useTemplateRef<ChartInstanceMethods>("chart");
 

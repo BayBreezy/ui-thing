@@ -2,7 +2,7 @@
   <UiCard>
     <UiCardContent>
       <div class="mb-4 flex items-center justify-between">
-        <p class="text-sm font-medium text-muted-foreground" v-html="props.label" />
+        <p class="text-muted-foreground text-sm font-medium" v-html="props.label" />
         <UiButton variant="ghost" size="icon-sm">
           <Icon name="lucide:info" class="size-4" />
         </UiButton>

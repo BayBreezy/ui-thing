@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-6">
     <div class="grid gap-4 md:grid-cols-2">
       <div v-for="variant in variants" :key="variant" class="space-y-2">
-        <p class="text-sm text-muted-foreground">Variant: {{ variant }}</p>
+        <p class="text-muted-foreground text-sm">Variant: {{ variant }}</p>
         <UiFlipClock size="sm" :variant="variant" />
       </div>
     </div>

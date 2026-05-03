@@ -3,14 +3,14 @@ import { searchLibrary } from "~~/server/mcp/utils/library";
 
 export default defineMcpTool({
   description:
-    "Fuzzy search across UI Thing components, blocks, and prose components. Use search-documentation-pages for docs content search.",
+    "Fuzzy search across UI Thing components and blocks. Use search-documentation-pages for docs content search.",
   inputSchema: {
     query: z
       .string()
       .min(1)
       .describe("Search query, such as 'date picker', 'hero', or 'code tabs'."),
     type: z
-      .enum(["all", "component", "block", "prose"])
+      .enum(["all", "component", "block"])
       .optional()
       .default("all")
       .describe("Optional library kind filter."),

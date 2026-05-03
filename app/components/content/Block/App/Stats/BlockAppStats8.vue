@@ -5,7 +5,7 @@
         <div
           :class="[
             'flex size-12 items-center justify-center rounded-xl',
-            props.iconBg || 'bg-linear-to-br from-primary/20 to-primary/5',
+            props.iconBg || 'from-primary/20 to-primary/5 bg-linear-to-br',
           ]"
         >
           <Icon :name="props.icon" :class="['size-6', props.iconColor || 'text-primary']" />
@@ -15,7 +15,7 @@
         </UiButton>
       </div>
       <div>
-        <p class="text-sm font-medium text-muted-foreground" v-html="props.label" />
+        <p class="text-muted-foreground text-sm font-medium" v-html="props.label" />
         <h3 class="mt-1 text-3xl font-bold tracking-tight" v-html="props.value" />
       </div>
       <div class="flex items-center justify-between">
@@ -38,7 +38,7 @@
             ]"
             v-html="props.change"
           />
-          <span class="text-xs text-muted-foreground" v-html="props.timeframe" />
+          <span class="text-muted-foreground text-xs" v-html="props.timeframe" />
         </div>
       </div>
     </UiCardContent>

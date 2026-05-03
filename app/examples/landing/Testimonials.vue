@@ -1,5 +1,5 @@
 <template>
-  <section class="border-y bg-muted/50 py-20 md:py-32">
+  <section class="bg-muted/50 border-y py-20 md:py-32">
     <div class="container">
       <div class="mx-auto max-w-4xl text-center">
         <UiBadge variant="outline" size="lg" class="mb-4">
@@ -8,7 +8,7 @@
         <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
           Loved by developers
         </h2>
-        <p class="mb-12 text-lg text-muted-foreground">
+        <p class="text-muted-foreground mb-12 text-lg">
           See what developers are saying about UI Thing
         </p>
       </div>
@@ -28,7 +28,7 @@
             </div>
           </UiCardHeader>
           <UiCardContent class="flex-1">
-            <p class="text-sm text-muted-foreground">{{ testimonial.content }}</p>
+            <p class="text-muted-foreground text-sm">{{ testimonial.content }}</p>
           </UiCardContent>
           <UiCardFooter>
             <UiRating :model-value="5" icon="material-symbols:star-rate" />

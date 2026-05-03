@@ -16,9 +16,9 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
-        /** Custom class(es) to add to the parent */
+        /** Custom class(es) to add to the parent. */
         class?: HTMLAttributes["class"];
-        /** The subtitle of the component */
+        /** The subtitle of the component. */
         subtitle?: string;
       }
     >(),
@@ -28,6 +28,6 @@
   );
   const forwarded = reactiveOmit(props, "class", "subtitle");
   const styles = tv({
-    base: "text-sm text-muted-foreground",
+    base: "text-muted-foreground text-sm",
   });
 </script>

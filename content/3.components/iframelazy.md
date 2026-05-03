@@ -24,7 +24,7 @@ Click :SourceCodeLink{component="IframeLazy.vue"} to see the source code for thi
 
 The simplest way to use the component is by passing a `src` prop. The iframe will load only when it comes into view.
 
-::ShowCase
+::prose-show-case
 
 :DocsIframeLazy
 
@@ -47,7 +47,7 @@ The simplest way to use the component is by passing a `src` prop. The iframe wil
 
 You can customize the placeholder shown before the iframe loads using the `#placeholder` slot.
 
-::ShowCase
+::prose-show-case
 
 :DocsIframeLazyCustomPlaceholder
 
@@ -81,7 +81,7 @@ You can customize the placeholder shown before the iframe loads using the `#plac
 
 Set `loading="eager"` to load the iframe immediately without waiting for intersection.
 
-::ShowCase
+::prose-show-case
 
 :DocsIframeLazyEager
 
@@ -107,7 +107,7 @@ Set `loading="eager"` to load the iframe immediately without waiting for interse
 
 Disable the placeholder by setting `placeholder` to `false`.
 
-::ShowCase
+::prose-show-case
 
 :DocsIframeLazyNoPlaceholder
 
@@ -134,7 +134,7 @@ Disable the placeholder by setting `placeholder` to `false`.
 
 Listen to the `@load` event to know when the iframe has finished loading.
 
-::ShowCase
+::prose-show-case
 
 :DocsIframeLazyLoadEvent
 
@@ -177,7 +177,7 @@ Listen to the `@load` event to know when the iframe has finished loading.
 
 Adjust when the iframe loads by changing the `rootMargin`. Positive values trigger loading earlier, negative values later.
 
-::ShowCase
+::prose-show-case
 
 :DocsIframeLazyRootMargin
 
@@ -216,7 +216,7 @@ Adjust when the iframe loads by changing the `rootMargin`. Positive values trigg
 
 Use multiple lazy-loaded iframes on the same page for better performance.
 
-::ShowCase
+::prose-show-case
 
 :DocsIframeLazyMultiple
 

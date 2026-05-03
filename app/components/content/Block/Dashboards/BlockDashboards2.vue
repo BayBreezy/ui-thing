@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bg-background text-foreground [--color-primary:var(--color-emerald-500)] [--primary:var(--color-emerald-500)] [--radius:12px] [--ring:var(--color-emerald-500)]"
+    class="bg-background text-foreground min-h-screen [--color-primary:var(--color-emerald-500)] [--primary:var(--color-emerald-500)] [--radius:12px] [--ring:var(--color-emerald-500)]"
   >
     <!-- Sticky top header -->
     <Motion
@@ -8,14 +8,14 @@
       :initial="{ opacity: 0, y: -16 }"
       :animate="{ opacity: 1, y: 0 }"
       :transition="{ duration: 0.4, ease: 'easeOut' }"
-      class="sticky top-0 z-10 border-b border-border/70 bg-background/85 backdrop-blur-md"
+      class="border-border/70 bg-background/85 sticky top-0 z-10 border-b backdrop-blur-md"
     >
       <UiContainer class="flex min-h-[4rem] items-center justify-between gap-4">
         <!-- Logo + nav -->
         <div class="flex items-center gap-5">
           <div class="flex items-center gap-2.5">
             <div
-              class="flex size-8 items-center justify-center rounded-lg border border-border/70 bg-muted shadow-xs"
+              class="border-border/70 bg-muted flex size-8 items-center justify-center rounded-lg border shadow-xs"
             >
               <div
                 class="size-4 rounded-full bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,0.95),rgba(255,255,255,0.2)_32%,transparent_34%),linear-gradient(135deg,var(--color-primary),color-mix(in_oklab,var(--color-primary)_40%,white))]"
@@ -40,7 +40,7 @@
                 class="w-full justify-start"
                 :class="
                   item.active
-                    ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                    ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                     : 'text-muted-foreground'
                 "
               >
@@ -58,7 +58,7 @@
               size="sm"
               :class="
                 item.active
-                  ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                  ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                   : 'text-muted-foreground'
               "
             >
@@ -73,7 +73,7 @@
           <UiDropdownMenu>
             <UiDropdownMenuTrigger as-child>
               <UiButton variant="ghost" size="icon" class="rounded-full">
-                <Icon name="solar:settings-bold-duotone" class="size-5 text-muted-foreground" />
+                <Icon name="solar:settings-bold-duotone" class="text-muted-foreground size-5" />
               </UiButton>
             </UiDropdownMenuTrigger>
             <UiDropdownMenuContent align="end" class="w-56">
@@ -99,7 +99,7 @@
           <UiDropdownMenu>
             <UiDropdownMenuTrigger as-child>
               <UiButton variant="ghost" size="icon" class="rounded-full">
-                <Icon name="solar:bell-bold-duotone" class="size-5 text-muted-foreground" />
+                <Icon name="solar:bell-bold-duotone" class="text-muted-foreground size-5" />
               </UiButton>
             </UiDropdownMenuTrigger>
             <UiDropdownMenuContent align="end" class="w-80">
@@ -161,7 +161,7 @@
               <UiDropdownMenuLabel>
                 <div class="flex flex-col">
                   <p class="text-sm font-medium">{{ currentUser.name }}</p>
-                  <p class="text-xs text-muted-foreground">{{ currentUser.email }}</p>
+                  <p class="text-muted-foreground text-xs">{{ currentUser.email }}</p>
                 </div>
               </UiDropdownMenuLabel>
               <UiDropdownMenuSeparator />
@@ -191,7 +191,7 @@
       :initial="{ opacity: 0 }"
       :animate="{ opacity: 1 }"
       :transition="{ duration: 0.35, delay: 0.1 }"
-      class="border-b border-border/70 bg-background"
+      class="border-border/70 bg-background border-b"
     >
       <UiContainer>
         <div class="flex items-center justify-between gap-4">
@@ -203,7 +203,7 @@
               :class="
                 activeTab === tab
                   ? 'border-primary text-foreground'
-                  : 'border-transparent text-muted-foreground hover:text-foreground'
+                  : 'text-muted-foreground hover:text-foreground border-transparent'
               "
               @click="activeTab = tab"
             >
@@ -244,7 +244,7 @@
         class="mb-8 flex flex-wrap items-center justify-between gap-3"
       >
         <UiTabs v-model="activeRange">
-          <UiTabsList class="border border-border/70 bg-muted/30">
+          <UiTabsList class="border-border/70 bg-muted/30 border">
             <UiTabsTrigger v-for="range in timeRanges" :key="range.value" :value="range.value">
               <span class="hidden sm:inline">{{ range.label }}</span>
               <span class="sm:hidden">{{ range.short }}</span>
@@ -253,11 +253,11 @@
         </UiTabs>
         <div class="flex items-center gap-2">
           <UiButton variant="outline">
-            <Icon name="solar:calendar-bold-duotone" class="size-5 text-muted-foreground" />
+            <Icon name="solar:calendar-bold-duotone" class="text-muted-foreground size-5" />
             <span class="hidden sm:inline">Select dates</span>
           </UiButton>
           <UiButton variant="outline">
-            <Icon name="solar:tuning-3-bold-duotone" class="size-5 text-muted-foreground" />
+            <Icon name="solar:tuning-3-bold-duotone" class="text-muted-foreground size-5" />
             <span class="hidden sm:inline">Filters</span>
           </UiButton>
         </div>
@@ -283,7 +283,7 @@
             :transition="{ duration: 0.4, delay: 0.28, ease: 'easeOut' }"
           >
             <div>
-              <p class="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+              <p class="text-muted-foreground text-xs font-semibold tracking-widest uppercase">
                 MRR
               </p>
               <div class="mt-1.5 flex items-center gap-3">
@@ -314,7 +314,7 @@
             class="grid grid-cols-3 gap-4 lg:hidden"
           >
             <div v-for="stat in memberStats" :key="stat.label" class="space-y-1">
-              <p class="text-xs text-muted-foreground">{{ stat.label }}</p>
+              <p class="text-muted-foreground text-xs">{{ stat.label }}</p>
               <div class="flex flex-wrap items-center gap-1.5">
                 <span class="text-xl font-bold tracking-tight">{{ stat.value }}</span>
                 <span
@@ -341,7 +341,7 @@
                     <UiButton variant="ghost" size="icon-sm">
                       <Icon
                         name="solar:menu-dots-bold-duotone"
-                        class="size-5 rotate-90 text-muted-foreground"
+                        class="text-muted-foreground size-5 rotate-90"
                       />
                     </UiButton>
                   </UiDropdownMenuTrigger>
@@ -361,12 +361,12 @@
                 <div
                   v-for="action in quickActions"
                   :key="action.title"
-                  class="flex cursor-pointer items-center gap-4 rounded-xl border border-border/70 bg-card p-4 transition-colors hover:bg-muted/30"
+                  class="border-border/70 bg-card hover:bg-muted/30 flex cursor-pointer items-center gap-4 rounded-xl border p-4 transition-colors"
                 >
                   <UiFancyIcon class="rounded-lg" theme="light" :icon="action.icon" />
                   <div>
                     <p class="text-sm font-semibold">{{ action.title }}</p>
-                    <p class="text-sm text-muted-foreground">{{ action.description }}</p>
+                    <p class="text-muted-foreground text-sm">{{ action.description }}</p>
                   </div>
                 </div>
               </div>
@@ -387,7 +387,7 @@
                     <UiButton variant="ghost" size="icon-sm">
                       <Icon
                         name="solar:menu-dots-bold-duotone"
-                        class="size-5 rotate-90 text-muted-foreground"
+                        class="text-muted-foreground size-5 rotate-90"
                       />
                     </UiButton>
                   </UiDropdownMenuTrigger>
@@ -430,11 +430,11 @@
                   </div>
                   <div class="mt-3 space-y-1">
                     <h3 class="leading-snug font-semibold">{{ post.title }}</h3>
-                    <p class="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+                    <p class="text-muted-foreground line-clamp-2 text-sm leading-relaxed">
                       {{ post.excerpt }}
                     </p>
                     <span
-                      class="mt-1 inline-flex cursor-pointer items-center gap-1 text-sm font-medium text-primary hover:underline"
+                      class="text-primary mt-1 inline-flex cursor-pointer items-center gap-1 text-sm font-medium hover:underline"
                     >
                       Read post
                       <Icon name="solar:arrow-right-up-bold-duotone" class="size-3.5" />
@@ -468,12 +468,12 @@
                       class="size-9"
                     />
                     <span
-                      class="absolute right-0 bottom-0 size-2.5 rounded-full border-2 border-background bg-emerald-500"
+                      class="border-background absolute right-0 bottom-0 size-2.5 rounded-full border-2 bg-emerald-500"
                     />
                   </div>
                   <div class="min-w-0 flex-1">
                     <p class="truncate text-sm font-medium">{{ member.name }}</p>
-                    <p class="truncate text-xs text-muted-foreground">{{ member.since }}</p>
+                    <p class="text-muted-foreground truncate text-xs">{{ member.since }}</p>
                   </div>
                 </div>
               </div>
@@ -488,7 +488,7 @@
             :variants="statsContainerVariant"
             initial="initial"
             animate="animate"
-            class="space-y-6 border-b border-border/70 pb-8"
+            class="border-border/70 space-y-6 border-b pb-8"
           >
             <Motion
               v-for="stat in memberStats"
@@ -496,7 +496,7 @@
               :variants="statItemVariant"
               class="space-y-1.5"
             >
-              <p class="text-sm text-muted-foreground">{{ stat.label }}</p>
+              <p class="text-muted-foreground text-sm">{{ stat.label }}</p>
               <div class="flex items-center gap-2">
                 <span class="text-3xl font-bold tracking-tight">{{ stat.value }}</span>
                 <span
@@ -531,12 +531,12 @@
                       class="size-9"
                     />
                     <span
-                      class="absolute right-0 bottom-0 size-2.5 rounded-full border-2 border-background bg-emerald-500"
+                      class="border-background absolute right-0 bottom-0 size-2.5 rounded-full border-2 bg-emerald-500"
                     />
                   </div>
                   <div class="min-w-0 flex-1">
                     <p class="truncate text-sm font-medium">{{ member.name }}</p>
-                    <p class="truncate text-xs text-muted-foreground">{{ member.since }}</p>
+                    <p class="text-muted-foreground truncate text-xs">{{ member.since }}</p>
                   </div>
                 </div>
               </div>

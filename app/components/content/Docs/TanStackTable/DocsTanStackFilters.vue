@@ -305,17 +305,17 @@
               <Icon
                 v-if="header.column.getIsSorted() == 'asc'"
                 name="lucide:chevron-up"
-                class="size-4 shrink-0 text-muted-foreground"
+                class="text-muted-foreground size-4 shrink-0"
               />
               <Icon
                 v-else-if="header.column.getIsSorted() == 'desc'"
                 name="lucide:chevron-down"
-                class="size-4 shrink-0 text-muted-foreground"
+                class="text-muted-foreground size-4 shrink-0"
               />
               <Icon
                 v-else-if="header.column.getCanSort()"
                 name="lucide:chevrons-up-down"
-                class="size-4 shrink-0 text-muted-foreground/30"
+                class="text-muted-foreground/30 size-4 shrink-0"
               />
               <div
                 v-if="
@@ -385,10 +385,10 @@
         </template>
       </UiTableBody>
     </UiTable>
-    <p class="mt-4 text-center text-sm text-muted-foreground">
+    <p class="text-muted-foreground mt-4 text-center text-sm">
       Data table with filters made with
       <a
-        class="underline hover:text-foreground"
+        class="hover:text-foreground underline"
         href="https://tanstack.com/table"
         target="_blank"
         rel="noopener noreferrer"

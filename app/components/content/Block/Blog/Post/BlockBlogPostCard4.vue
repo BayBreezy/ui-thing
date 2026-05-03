@@ -36,7 +36,7 @@
           v-if="headline"
           as="p"
           :variants="childVariant"
-          class="mb-2 text-sm font-semibold text-primary"
+          class="text-primary mb-2 text-sm font-semibold"
           >{{ headline }}</Motion
         >
         <Motion as-child :variants="childVariant" class="block">
@@ -48,7 +48,7 @@
           v-if="description"
           as="p"
           :variants="childVariant"
-          class="mb-5 line-clamp-2 text-ellipsis text-muted-foreground"
+          class="text-muted-foreground mb-5 line-clamp-2 text-ellipsis"
         >
           {{ description }}
         </Motion>
@@ -57,11 +57,11 @@
             v-if="userImage"
             :src="userImage"
             :alt="userName"
-            class="mr-3 rounded-full bg-background shadow ring-1 ring-ring/30"
+            class="bg-background ring-ring/30 mr-3 rounded-full shadow ring-1"
           />
           <div>
             <p v-if="userName" class="text-sm font-semibold">{{ userName }}</p>
-            <p v-if="date" class="text-sm text-muted-foreground">{{ date }}</p>
+            <p v-if="date" class="text-muted-foreground text-sm">{{ date }}</p>
           </div>
         </Motion>
       </div>

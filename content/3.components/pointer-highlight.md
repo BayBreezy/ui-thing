@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="PointerHighlight.vue"} to see the source code f
 
 ### Inline text
 
-::ShowCase
+::prose-show-case
 
 :DocsPointerHighlightInline
 
@@ -40,7 +40,7 @@ Click :SourceCodeLink{component="PointerHighlight.vue"} to see the source code f
 
 ### Basic example
 
-::ShowCase
+::prose-show-case
 
 :DocsPointerHighlightBasic
 
@@ -66,7 +66,7 @@ Click :SourceCodeLink{component="PointerHighlight.vue"} to see the source code f
 
 ### Animated background
 
-::ShowCase
+::prose-show-case
 
 :DocsPointerHighlightBackground
 
@@ -94,7 +94,7 @@ Click :SourceCodeLink{component="PointerHighlight.vue"} to see the source code f
 
 ### Styled card
 
-::ShowCase
+::prose-show-case
 
 :DocsPointerHighlightCard
 
@@ -111,7 +111,7 @@ Click :SourceCodeLink{component="PointerHighlight.vue"} to see the source code f
       pointer-class="text-primary"
     >
       <UiCard
-        class="m-1! w-full max-w-[320px] rounded-lg border-dashed bg-linear-to-br from-background via-muted/40 to-background py-0"
+        class="from-background via-muted/40 to-background m-1! w-full max-w-[320px] rounded-lg border-dashed bg-linear-to-br py-0"
       >
         <UiCardHeader class="border-b py-6">
           <UiCardTitle>Early access invite</UiCardTitle>
@@ -120,7 +120,7 @@ Click :SourceCodeLink{component="PointerHighlight.vue"} to see the source code f
           </UiCardDescription>
         </UiCardHeader>
         <UiCardContent class="space-y-4 py-6">
-          <p class="text-sm text-muted-foreground">
+          <p class="text-muted-foreground text-sm">
             Get early builds, changelog previews, and a private feedback channel with the team.
           </p>
           <UiButton class="w-full">Request invite</UiButton>
@@ -137,7 +137,7 @@ Click :SourceCodeLink{component="PointerHighlight.vue"} to see the source code f
 
 ### Marketing grid
 
-::ShowCase
+::prose-show-case
 
 :DocsPointerHighlightMarketing
 
@@ -212,7 +212,7 @@ Click :SourceCodeLink{component="PointerHighlight.vue"} to see the source code f
 
 Use `containerClass`, `rectangleClass`, and `pointerClass` to control the spacing and appearance of the highlight treatment.
 
-::ShowCase
+::prose-show-case
 
 :DocsPointerHighlightClasses
 
@@ -233,7 +233,7 @@ Use `containerClass`, `rectangleClass`, and `pointerClass` to control the spacin
       <UiPointerHighlight
         rectangle-class="rounded-2xl border-dashed border-emerald-500/70 shadow-[0_0_0_1px_rgba(16,185,129,0.2)]"
       >
-        <div class="rounded-2xl border bg-card px-6 py-4 text-sm font-medium">Custom rectangle</div>
+        <div class="bg-card rounded-2xl border px-6 py-4 text-sm font-medium">Custom rectangle</div>
       </UiPointerHighlight>
     </div>
 
@@ -241,7 +241,7 @@ Use `containerClass`, `rectangleClass`, and `pointerClass` to control the spacin
       <UiPointerHighlight
         pointer-class="text-rose-500 size-6 drop-shadow-[0_0_12px_rgba(244,63,94,0.45)]"
       >
-        <div class="rounded-2xl bg-primary/10 px-6 py-4 text-sm font-medium text-primary">
+        <div class="bg-primary/10 text-primary rounded-2xl px-6 py-4 text-sm font-medium">
           Custom pointer
         </div>
       </UiPointerHighlight>

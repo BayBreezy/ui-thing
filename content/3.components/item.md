@@ -40,7 +40,7 @@ If you only need to display content such as a title, description, and actions, u
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsItem
 
@@ -85,7 +85,7 @@ If you only need to display content such as a title, description, and actions, u
 
 ### Variants
 
-::ShowCase
+::prose-show-case
 
 :DocsItemVariants
 
@@ -142,7 +142,7 @@ If you only need to display content such as a title, description, and actions, u
 
 The `Item` component has different sizes for different use cases. For example, you can use the `sm` size for a compact item or the `default` size for a standard item.
 
-::ShowCase
+::prose-show-case
 
 :DocsItemSize
 
@@ -185,7 +185,7 @@ The `Item` component has different sizes for different use cases. For example, y
 
 ### Icon
 
-::ShowCase
+::prose-show-case
 
 :DocsItemIcon
 
@@ -218,7 +218,7 @@ The `Item` component has different sizes for different use cases. For example, y
 
 ### Avatar
 
-::ShowCase
+::prose-show-case
 
 :DocsItemAvatar
 
@@ -249,7 +249,7 @@ The `Item` component has different sizes for different use cases. For example, y
     <UiItem variant="outline">
       <UiItemMedia>
         <div
-          class="flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-background *:data-[slot=avatar]:grayscale"
+          class="*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale"
         >
           <UiAvatar class="hidden sm:flex">
             <UiAvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
@@ -289,7 +289,7 @@ The `Item` component has different sizes for different use cases. For example, y
 
 ### Image
 
-::ShowCase
+::prose-show-case
 
 :DocsItemImage
 
@@ -358,7 +358,7 @@ The `Item` component has different sizes for different use cases. For example, y
 
 ### Group
 
-::ShowCase
+::prose-show-case
 
 :DocsItemGroup
 
@@ -421,7 +421,7 @@ The `Item` component has different sizes for different use cases. For example, y
 
 ### Header
 
-::ShowCase
+::prose-show-case
 
 :DocsItemHeader
 
@@ -487,7 +487,7 @@ The `Item` component has different sizes for different use cases. For example, y
 
 To render an item as a link, use the `as-child` prop. The hover and focus states will be applied to the anchor element.
 
-::ShowCase
+::prose-show-case
 
 :DocsItemLink
 
@@ -532,7 +532,7 @@ To render an item as a link, use the `as-child` prop. The hover and focus states
 
 ### Dropdown
 
-::ShowCase
+::prose-show-case
 
 :DocsItemDropdown
 

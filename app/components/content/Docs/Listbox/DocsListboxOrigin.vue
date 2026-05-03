@@ -31,7 +31,7 @@
         <UiListboxContent class="bg-background p-1">
           <template v-for="(group, index) in groups" :key="index">
             <UiListboxGroup>
-              <UiListboxGroupLabel class="px-2 py-1.5 text-xs font-medium text-muted-foreground">{{
+              <UiListboxGroupLabel class="text-muted-foreground px-2 py-1.5 text-xs font-medium">{{
                 group.title
               }}</UiListboxGroupLabel>
               <UiListboxItem v-for="(item, k) in group.items" :key="k" :value="item.id">

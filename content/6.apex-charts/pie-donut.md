@@ -11,7 +11,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
 
 ### Pie Chart
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsPieDonut1
 
@@ -34,7 +34,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">
+        <div class="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </UiCardFooter>
@@ -66,7 +66,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
 
 ### Pie Chart - Labels
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsPieDonut2
 
@@ -89,7 +89,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">
+        <div class="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </UiCardFooter>
@@ -129,7 +129,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
 
 ### Pie Chart - Legend
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsPieDonut3
 
@@ -152,7 +152,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">
+        <div class="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </UiCardFooter>
@@ -185,7 +185,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
 
 ### Donut Chart - Labels
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsPieDonut4
 
@@ -208,7 +208,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">
+        <div class="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </UiCardFooter>
@@ -245,7 +245,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
 
 ### Donut Chart - Inner Text
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsPieDonut5
 
@@ -268,7 +268,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">
+        <div class="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </UiCardFooter>
@@ -330,7 +330,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
 
 ### Donut Chart - Semi
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsPieDonut6
 
@@ -353,7 +353,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">
+        <div class="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </UiCardFooter>
@@ -393,7 +393,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
 
 ### Donut Chart - Gradient
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsPieDonut7
 
@@ -416,7 +416,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">
+        <div class="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </UiCardFooter>
@@ -479,7 +479,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
 
 ### Pie Chart - Images
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsPieDonut8
 
@@ -502,7 +502,7 @@ description: Pie and Donut charts are used to represent data in a circular forma
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">
+        <div class="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </UiCardFooter>

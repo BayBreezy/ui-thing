@@ -64,7 +64,7 @@
           <h1 v-if="title" class="text-lg font-bold" v-html="title" />
         </slot>
         <slot name="description">
-          <p v-if="description" class="text-sm text-muted-foreground" v-html="description" />
+          <p v-if="description" class="text-muted-foreground text-sm" v-html="description" />
         </slot>
       </div>
       <div class="flex items-center gap-2">

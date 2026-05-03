@@ -5,7 +5,7 @@
   >
     <EditorContent :editor="editor" />
     <div
-      class="flex flex-wrap items-center gap-1 rounded-br-md rounded-bl-md border border-input bg-transparent p-1"
+      class="border-input flex flex-wrap items-center gap-1 rounded-br-md rounded-bl-md border bg-transparent p-1"
     >
       <UiButton
         size="sm"
@@ -211,7 +211,7 @@
     editorProps: {
       attributes: {
         class:
-          tw`max-h-[250px] min-h-[150px] w-full overflow-auto rounded-md rounded-br-none rounded-bl-none border border-b-0 border-input bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50` as any,
+          tw`border-input ring-offset-background placeholder:text-muted-foreground max-h-[250px] min-h-[150px] w-full overflow-auto rounded-md rounded-br-none rounded-bl-none border border-b-0 bg-transparent px-3 py-2 text-sm focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50` as any,
       },
     },
     onUpdate(val) {

@@ -8,11 +8,11 @@
           placeholder="Search for user..."
         />
         <UiAutocompleteTrigger :disabled="loading">
-          <Icon v-if="!loading" name="lucide:chevron-down" class="size-4 text-muted-foreground" />
+          <Icon v-if="!loading" name="lucide:chevron-down" class="text-muted-foreground size-4" />
           <Icon
             v-else
             name="lucide:loader-circle"
-            class="size-4 animate-spin text-muted-foreground"
+            class="text-muted-foreground size-4 animate-spin"
           />
         </UiAutocompleteTrigger>
       </UiAutocompleteAnchor>

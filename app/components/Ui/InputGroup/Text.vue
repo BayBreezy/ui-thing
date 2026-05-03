@@ -15,13 +15,11 @@
   import type { HTMLAttributes } from "vue";
 
   const inputGroupTextStyles = tv({
-    base: "flex items-center gap-2 text-sm text-muted-foreground [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
+    base: "text-muted-foreground flex items-center gap-2 text-sm [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
   });
 
   export type InputGroupText = PrimitiveProps & {
-    /**
-     * Additional classes to apply to the input group addon container.
-     */
+    /** Additional classes to apply to the input group addon container. */
     class?: HTMLAttributes["class"];
   };
 </script>

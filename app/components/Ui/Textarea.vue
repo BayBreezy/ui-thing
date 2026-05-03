@@ -14,25 +14,25 @@
   import type { HTMLAttributes, TextareaHTMLAttributes } from "vue";
 
   export type TextareaProps = {
-    /** Additional classes to add to the textarea */
+    /** Additional classes to add to the textarea. */
     class?: HTMLAttributes["class"];
-    /** The name of the textarea */
+    /** The name of the textarea. */
     name?: TextareaHTMLAttributes["name"];
-    /** The id of the textarea */
+    /** The id of the textarea. */
     id?: TextareaHTMLAttributes["id"];
-    /** The placeholder of the textarea */
+    /** The placeholder of the textarea. */
     placeholder?: TextareaHTMLAttributes["placeholder"];
-    /** Whether the textarea is required */
+    /** Whether the textarea is required. */
     required?: boolean;
-    /** Whether the textarea is disabled */
+    /** Whether the textarea is disabled. */
     disabled?: boolean;
-    /** The number of rows to display */
+    /** The number of rows to display. */
     rows?: number;
-    /** The value of the textarea */
+    /** The value of the textarea. */
     modelValue?: string;
-    /** The maximum number of characters allowed */
+    /** The maximum number of characters allowed. */
     maxlength?: number;
-    /** The `RegExp` pattern of the textarea */
+    /** The `RegExp` pattern of the textarea. */
     pattern?: string;
     /** Whether the textarea should be focused when mounted. */
     autofocus?: boolean;
@@ -72,7 +72,7 @@
   };
 
   const styles = tv({
-    base: "flex field-sizing-content min-h-16 w-full rounded-md border border-input bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:aria-invalid:ring-destructive/40",
+    base: "border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:bg-input/30 dark:aria-invalid:ring-destructive/40 flex field-sizing-content min-h-16 w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
   });
 
   onMounted(() => {

@@ -15,9 +15,9 @@
 
   const props = defineProps<
     AlertDialogDescriptionProps & {
-      /** Text to display in the description */
+      /** Text to display in the description. */
       description?: string;
-      /** Custom class(es) to add to the description */
+      /** Custom class(es) to add to the description. */
       class?: any;
     }
   >();
@@ -25,6 +25,6 @@
   const forwarded = reactiveOmit(props, "class", "description");
 
   const styles = tv({
-    base: "text-sm text-balance text-muted-foreground md:text-pretty *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground",
+    base: "text-muted-foreground *:[a]:hover:text-foreground text-sm text-balance md:text-pretty *:[a]:underline *:[a]:underline-offset-3",
   });
 </script>

@@ -18,13 +18,9 @@
 
   const props = defineProps<
     DrawerTitleProps & {
-      /**
-       * Custom class(es) to add to the parent.
-       */
+      /** Custom class(es) to add to the parent. */
       class?: HTMLAttributes["class"];
-      /**
-       * The text content of the title.
-       */
+      /** The text content of the title. */
       text?: string;
     }
   >();

@@ -6,7 +6,7 @@
         <template v-for="(page, index) in items" :key="index">
           <UiPaginationItem v-if="page.type === 'page'" as-child v-bind="page">
             <UiButton
-              class="size-9 rounded-none border-0 shadow-none data-[selected=true]:bg-primary data-[selected=true]:text-primary-foreground dark:bg-transparent dark:data-[selected=true]:bg-primary dark:data-[selected=true]:text-primary-foreground"
+              class="data-[selected=true]:bg-primary data-[selected=true]:text-primary-foreground dark:data-[selected=true]:bg-primary dark:data-[selected=true]:text-primary-foreground size-9 rounded-none border-0 shadow-none dark:bg-transparent"
               variant="outline"
               size="icon-sm"
               >{{ page.value }}</UiButton

@@ -39,6 +39,7 @@
 
   export type BadgeGroupSize = "md" | "lg";
   export type BadgeGroupColor =
+    | "primary"
     | "gray"
     | "red"
     | "orange"
@@ -67,26 +68,26 @@
 <script setup lang="ts">
   const props = withDefaults(
     defineProps<{
-      /** The text shown in the badge addon pill */
+      /** The text shown in the badge addon pill. */
       addonText: string;
-      /** Size of the badge group */
+      /** Size of the badge group. */
       size?: BadgeGroupSize;
-      /** Color variant — only applies to the light theme */
+      /** Color variant — only applies to the light theme. */
       color?: BadgeGroupColor;
       /** Visual theme: pill-style (light) or card-style with dot (modern) */
       theme?: BadgeGroupTheme;
-      /** Whether the badge addon appears before or after the main text */
+      /** Whether the badge addon appears before or after the main text. */
       align?: BadgeGroupAlign;
       /** Icon name passed to `<Icon>`. Set to `false` to hide the icon. */
       icon?: string | false;
-      /** Animate the modern theme dot with a ping pulse */
+      /** Animate the modern theme dot with a ping pulse. */
       pulse?: boolean;
-      /** Additional classes applied to the root element */
+      /** Additional classes applied to the root element. */
       class?: HTMLAttributes["class"];
     }>(),
     {
       size: "md",
-      color: "blue",
+      color: "primary",
       theme: "light",
       align: "leading",
       icon: "lucide:arrow-right",
@@ -105,6 +106,8 @@
   // ─── Color maps ──────────────────────────────────────────────────────────────
 
   const lightRootColors: Record<BadgeGroupColor, string> = {
+    primary:
+      "bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary ring-primary/20 dark:ring-primary/40 hover:bg-primary/15 dark:hover:bg-primary/30",
     gray: "bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-200 ring-gray-200 dark:ring-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700",
     red: "bg-red-50 dark:bg-red-900/50 text-red-700 dark:text-red-300 ring-red-200 dark:ring-red-500 hover:bg-red-100 dark:hover:bg-red-900",
     orange:
@@ -141,6 +144,7 @@
   };
 
   const lightAddonColors: Record<BadgeGroupColor, string> = {
+    primary: "bg-background text-current ring-primary/20 dark:ring-primary/40",
     gray: "bg-background text-current ring-gray-200 dark:ring-gray-500",
     red: "bg-background text-current ring-red-200 dark:ring-red-500",
     orange: "bg-background text-current ring-orange-200 dark:ring-orange-500",
@@ -165,6 +169,7 @@
   };
 
   const lightIconColors: Record<BadgeGroupColor, string> = {
+    primary: "text-primary",
     gray: "text-gray-500",
     red: "text-red-500",
     orange: "text-orange-500",
@@ -189,6 +194,7 @@
   };
 
   const modernDotColors: Record<BadgeGroupColor, string> = {
+    primary: "bg-primary outline-3 -outline-offset-1 outline-primary/20 dark:outline-primary/30",
     gray: "bg-gray-500 outline-3 -outline-offset-1 outline-gray-100 dark:outline-gray-600/50",
     red: "bg-red-500 outline-3 -outline-offset-1 outline-red-100 dark:outline-red-600/50",
     orange:
@@ -228,7 +234,7 @@
 
     const themeBase =
       props.theme === "modern"
-        ? "rounded-[10px] bg-background text-muted-foreground shadow-xs ring-1 ring-inset ring-border hover:bg-muted"
+        ? "rounded-md bg-background text-muted-foreground shadow-xs ring-1 ring-inset ring-border hover:bg-muted"
         : "rounded-full ring-1 ring-inset";
 
     const colorCls = props.theme === "light" ? lightRootColors[props.color] : "";

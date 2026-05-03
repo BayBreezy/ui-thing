@@ -16,7 +16,7 @@
 
   const props = defineProps<
     TabsContentProps & {
-      /** Custom class(es) to add to parent element */
+      /** Custom class(es) to add to parent element. */
       class?: HTMLAttributes["class"];
     }
   >();

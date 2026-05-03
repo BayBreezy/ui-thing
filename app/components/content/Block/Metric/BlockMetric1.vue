@@ -3,16 +3,16 @@
     <h3 class="mb-4 text-center text-3xl font-semibold lg:mb-5 lg:text-4xl">
       Great products, faster than ever
     </h3>
-    <p class="mb-10 text-center text-lg text-muted-foreground lg:mb-16 lg:text-xl">
+    <p class="text-muted-foreground mb-10 text-center text-lg lg:mb-16 lg:text-xl">
       Everything you need to build modern UI and great products.
     </p>
 
     <div
-      class="grid grid-cols-1 place-items-center gap-y-14 rounded-lg bg-muted py-10 text-center lg:grid-cols-3 lg:px-8 lg:py-16 dark:bg-muted/30"
+      class="bg-muted dark:bg-muted/30 grid grid-cols-1 place-items-center gap-y-14 rounded-lg py-10 text-center lg:grid-cols-3 lg:px-8 lg:py-16"
     >
       <template v-for="(s, i) in stats" :key="i">
         <div>
-          <h4 class="mb-2 text-5xl font-bold text-primary lg:mb-3 lg:text-6xl">
+          <h4 class="text-primary mb-2 text-5xl font-bold lg:mb-3 lg:text-6xl">
             {{ s.value }}
           </h4>
           <p class="text-lg font-medium">

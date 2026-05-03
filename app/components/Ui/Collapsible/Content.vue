@@ -16,12 +16,12 @@
 
   const props = defineProps<
     CollapsibleContentProps & {
-      /** Customer class(es) to add to the element */
+      /** Customer class(es) to add to the element. */
       class?: HTMLAttributes["class"];
     }
   >();
   const forwarded = reactiveOmit(props, "class");
   const styles = tv({
-    base: "overflow-hidden transition duration-200 will-change-auto data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down",
+    base: "data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down overflow-hidden transition duration-200 will-change-auto",
   });
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full flex-col justify-center">
-    <UiLabel v-if="value" for="text-date" class="mb-2 text-sm text-muted-foreground">
+    <UiLabel v-if="value" for="text-date" class="text-muted-foreground mb-2 text-sm">
       The entered date is {{ formattedValue }}
     </UiLabel>
     <UiDateField id="text-date" v-model="value" />

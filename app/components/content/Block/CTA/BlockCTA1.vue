@@ -27,7 +27,7 @@
       >
         Start your free trial
       </Motion>
-      <Motion as="p" :variants="childVariant" class="text-lg text-muted-foreground md:text-xl">
+      <Motion as="p" :variants="childVariant" class="text-muted-foreground text-lg md:text-xl">
         Join over 4,000+ startups already growing with {{ COMPANY_NAME }}.
       </Motion>
       <Motion

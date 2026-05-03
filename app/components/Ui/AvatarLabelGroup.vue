@@ -23,18 +23,14 @@
 
   export type AvatarLabelGroupProps = AvatarProps & {
     /**
-     * Size of the group
+     * Size of the group.
      *
      * @default "md"
      */
     size?: VariantProps<typeof avatarLabelGroupStyles>["size"];
-    /**
-     * Title text to display next to the avatar
-     */
+    /** Title text to display next to the avatar. */
     title?: string;
-    /**
-     * Subtitle text to display below the title
-     */
+    /** Subtitle text to display below the title. */
     subtitle?: string;
   };
 
@@ -43,7 +39,7 @@
       base: ["group flex min-w-0 flex-1 items-center"],
       figcaption: ["min-w-0 flex-1"],
       title: "text-foreground",
-      subtitle: "truncate text-muted-foreground",
+      subtitle: "text-muted-foreground truncate",
       avatar: "",
     },
     variants: {
@@ -97,21 +93,13 @@
     ...props,
   }));
   defineSlots<{
-    /**
-     * Avatar slot to customize the avatar component
-     */
+    /** Avatar slot to customize the avatar component. */
     avatar: (p: typeof slotProps.value) => any;
-    /**
-     * Figcaption slot to customize the figcaption element
-     */
+    /** Figcaption slot to customize the figcaption element. */
     figcaption: (p: typeof slotProps.value) => any;
-    /**
-     * Title slot to customize the title element
-     */
+    /** Title slot to customize the title element. */
     title: (p: typeof slotProps.value) => any;
-    /**
-     * Subtitle slot to customize the subtitle element
-     */
+    /** Subtitle slot to customize the subtitle element. */
     subtitle: (p: typeof slotProps.value) => any;
   }>();
 </script>

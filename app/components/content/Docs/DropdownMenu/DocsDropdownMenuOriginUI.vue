@@ -138,14 +138,14 @@
               <UiDropdownMenuLabel>Add block</UiDropdownMenuLabel>
               <UiDropdownMenuItem v-for="(block, i) in blocks" :key="i">
                 <div
-                  class="flex size-8 items-center justify-center rounded-md border bg-accent text-accent-foreground"
+                  class="bg-accent text-accent-foreground flex size-8 items-center justify-center rounded-md border"
                   aria-hidden="true"
                 >
                   <Icon :name="block.icon" size="16" />
                 </div>
                 <div>
                   <div class="text-sm font-medium">{{ block.title }}</div>
-                  <div class="text-xs text-muted-foreground">{{ block.description }}</div>
+                  <div class="text-muted-foreground text-xs">{{ block.description }}</div>
                 </div>
               </UiDropdownMenuItem>
             </UiDropdownMenuContent>

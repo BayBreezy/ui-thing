@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-center">
-    <UiEmpty class="h-full bg-gradient-to-b from-muted/50 from-30% to-background">
+    <UiEmpty class="from-muted/50 to-background h-full bg-gradient-to-b from-30%">
       <UiEmptyHeader>
         <UiEmptyMedia variant="icon">
           <Icon name="lucide:bell" />

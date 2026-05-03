@@ -3,13 +3,13 @@
     <div class="flex w-full max-w-md flex-col items-center gap-6 text-center">
       <div class="flex items-center gap-3">
         <div class="-rotate-8 rounded-md border p-3 shadow">
-          <Icon :name="icon1" class="size-5 text-muted-foreground" />
+          <Icon :name="icon1" class="text-muted-foreground size-5" />
         </div>
         <div class="-translate-y-2 rounded-md border p-3 shadow">
-          <Icon :name="icon2" class="size-5 text-muted-foreground" />
+          <Icon :name="icon2" class="text-muted-foreground size-5" />
         </div>
         <div class="rotate-8 rounded-md border p-3 shadow">
-          <Icon :name="icon3" class="size-5 text-muted-foreground" />
+          <Icon :name="icon3" class="text-muted-foreground size-5" />
         </div>
       </div>
       <div class="flex flex-col gap-2">
@@ -17,7 +17,7 @@
           <h1 v-if="title" class="text-lg font-bold" v-html="title" />
         </slot>
         <slot name="description">
-          <p v-if="description" class="text-sm text-muted-foreground" v-html="description" />
+          <p v-if="description" class="text-muted-foreground text-sm" v-html="description" />
         </slot>
       </div>
       <div class="flex items-center gap-2">

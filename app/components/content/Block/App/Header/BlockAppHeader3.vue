@@ -11,7 +11,7 @@
           <slot name="description">
             <p
               v-if="props.description"
-              class="text-sm text-muted-foreground"
+              class="text-muted-foreground text-sm"
               v-html="props.description"
             />
           </slot>

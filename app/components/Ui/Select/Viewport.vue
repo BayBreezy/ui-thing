@@ -17,7 +17,7 @@
   const props = defineProps<
     SelectViewportProps & {
       position?: "item-aligned" | "popper";
-      /** Custom class(es) to add to the parent */
+      /** Custom class(es) to add to the parent. */
       class?: HTMLAttributes["class"];
     }
   >();

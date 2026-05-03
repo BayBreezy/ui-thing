@@ -7,7 +7,7 @@
       <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
         Simple, transparent pricing
       </h2>
-      <p class="mb-12 text-lg text-muted-foreground">Choose the plan that's right for you</p>
+      <p class="text-muted-foreground mb-12 text-lg">Choose the plan that's right for you</p>
     </div>
 
     <div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-3">
@@ -16,14 +16,14 @@
         :key="plan.name"
         :class="[
           'relative flex flex-col',
-          plan.featured && 'shadow-lg shadow-primary/10 md:scale-105',
+          plan.featured && 'shadow-primary/10 shadow-lg md:scale-105',
         ]"
       >
         <UiBorderBeam
           v-if="plan.featured"
           :size="400"
           :duration="10"
-          class="from-transparent via-primary to-transparent"
+          class="via-primary from-transparent to-transparent"
         />
         <UiCardHeader>
           <UiBadge v-if="plan.featured" variant="default" class="mb-2 w-fit">
@@ -39,7 +39,7 @@
         <UiCardContent class="flex-1">
           <ul class="space-y-3">
             <li v-for="feature in plan.features" :key="feature" class="flex items-start gap-2">
-              <UiIcon name="lucide:check" class="mt-0.5 size-5 shrink-0 text-primary" />
+              <UiIcon name="lucide:check" class="text-primary mt-0.5 size-5 shrink-0" />
               <span class="text-sm">{{ feature }}</span>
             </li>
           </ul>

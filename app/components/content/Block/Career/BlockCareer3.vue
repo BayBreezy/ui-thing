@@ -21,7 +21,7 @@
   >
     <UiContainer class="pb-16">
       <UiContainer class="py-16 text-center lg:py-24">
-        <Motion as="p" :variants="childVariant" class="font-semibold text-primary">
+        <Motion as="p" :variants="childVariant" class="text-primary font-semibold">
           We're hiring!
         </Motion>
         <Motion
@@ -34,7 +34,7 @@
         <Motion
           as="p"
           :variants="childVariant"
-          class="mx-auto max-w-[768px] text-lg text-muted-foreground lg:text-xl"
+          class="text-muted-foreground mx-auto max-w-[768px] text-lg lg:text-xl"
         >
           Our philosophy is simple — hire a team of diverse, passionate people and foster a culture
           that empowers you to do your best work.
@@ -50,22 +50,22 @@
               delay: n * 0.05,
             }"
             as="li"
-            class="group border-t pt-6 transition-colors hover:border-primary/50"
+            class="group hover:border-primary/50 border-t pt-6 transition-colors"
           >
             <div class="flex flex-wrap items-center gap-2">
-              <span class="text-lg font-semibold transition-colors group-hover:text-primary"
+              <span class="group-hover:text-primary text-lg font-semibold transition-colors"
                 >Product Designer</span
               >
               <UiBadge class="text-sm font-medium" variant="outline">Design</UiBadge>
             </div>
-            <p class="mt-2 text-muted-foreground">
+            <p class="text-muted-foreground mt-2">
               We're looking for a mid-level product designer to join our team.
             </p>
             <ul class="mt-5 flex flex-wrap items-center gap-5">
-              <li class="flex items-center gap-2 text-muted-foreground">
+              <li class="text-muted-foreground flex items-center gap-2">
                 <Icon class="opacity-80" name="heroicons:map-pin" /> Remote
               </li>
-              <li class="flex items-center gap-2 text-muted-foreground">
+              <li class="text-muted-foreground flex items-center gap-2">
                 <Icon class="opacity-80" name="heroicons:clock" /> Full-time
               </li>
               <li class="md:ml-auto">

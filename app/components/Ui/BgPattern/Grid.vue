@@ -88,10 +88,11 @@
   export type BgPatternGridSize = "sm" | "md" | "lg";
 
   export type BgPatternGridProps = {
-    /** Additional CSS classes */
+    /** Additional CSS classes. */
     class?: HTMLAttributes["class"];
     /**
-     * Size of the pattern
+     * Size of the pattern.
+     *
      * @default "lg"
      */
     size?: BgPatternGridSize;

@@ -21,7 +21,7 @@
         >
           <Icon
             :name="f.icon"
-            class="h-5 w-5 transition-colors group-hover:text-primary lg:h-6 lg:w-6"
+            class="group-hover:text-primary h-5 w-5 transition-colors lg:h-6 lg:w-6"
           />
         </Motion>
         <Motion
@@ -33,7 +33,7 @@
         /></Motion>
         <Motion
           as-child
-          class="mt-1 max-w-[400px] text-center text-balance text-muted-foreground lg:mt-2 lg:max-w-none"
+          class="text-muted-foreground mt-1 max-w-[400px] text-center text-balance lg:mt-2 lg:max-w-none"
           :variants="itemVariant"
         >
           <p v-html="f.description" />

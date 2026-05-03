@@ -33,30 +33,30 @@
               </div>
               <div class="grid gap-4 sm:grid-cols-3">
                 <div class="flex items-start gap-3">
-                  <div class="mt-1 rounded-lg bg-primary/10 p-2">
-                    <Icon name="lucide:mail" class="size-4 text-primary" />
+                  <div class="bg-primary/10 mt-1 rounded-lg p-2">
+                    <Icon name="lucide:mail" class="text-primary size-4" />
                   </div>
                   <div>
                     <p class="font-medium">Weekly digest</p>
-                    <p class="text-sm text-muted-foreground">Curated content every Monday</p>
+                    <p class="text-muted-foreground text-sm">Curated content every Monday</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
-                  <div class="mt-1 rounded-lg bg-primary/10 p-2">
-                    <Icon name="lucide:bell" class="size-4 text-primary" />
+                  <div class="bg-primary/10 mt-1 rounded-lg p-2">
+                    <Icon name="lucide:bell" class="text-primary size-4" />
                   </div>
                   <div>
                     <p class="font-medium">Instant updates</p>
-                    <p class="text-sm text-muted-foreground">Breaking news alerts</p>
+                    <p class="text-muted-foreground text-sm">Breaking news alerts</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
-                  <div class="mt-1 rounded-lg bg-primary/10 p-2">
-                    <Icon name="lucide:gift" class="size-4 text-primary" />
+                  <div class="bg-primary/10 mt-1 rounded-lg p-2">
+                    <Icon name="lucide:gift" class="text-primary size-4" />
                   </div>
                   <div>
                     <p class="font-medium">Exclusive offers</p>
-                    <p class="text-sm text-muted-foreground">Subscriber-only deals</p>
+                    <p class="text-muted-foreground text-sm">Subscriber-only deals</p>
                   </div>
                 </div>
               </div>

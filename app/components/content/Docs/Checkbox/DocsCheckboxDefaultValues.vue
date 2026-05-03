@@ -4,7 +4,7 @@
       <UiCheckbox id="default-value" default-value="indeterminate" />
       <div class="mt-0.5 grid gap-1.5 leading-none">
         <UiLabel for="default-value"> Waiting...</UiLabel>
-        <p class="text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-sm">
           This checkbox will be in the indeterminate state by default.
         </p>
       </div>

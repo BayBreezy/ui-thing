@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center">
     <form class="w-full max-w-lg space-y-4" @submit="onSubmit">
-      <div class="rounded-xl border bg-card p-5 shadow-sm">
+      <div class="bg-card rounded-xl border p-5 shadow-sm">
         <UiVeeSwitch
           name="airplaneMode"
           label="Airplane mode"
@@ -11,7 +11,7 @@
           <template #label="{ errorMessage }">
             <div class="grid gap-1 pr-4">
               <UiLabel :class="[errorMessage && 'text-destructive']">Airplane mode</UiLabel>
-              <p class="text-sm text-muted-foreground">
+              <p class="text-muted-foreground text-sm">
                 Disable wireless connections while still allowing access to offline content.
               </p>
             </div>

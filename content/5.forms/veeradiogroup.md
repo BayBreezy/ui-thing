@@ -21,7 +21,7 @@ Click :SourceCodeLink{component="Vee/RadioGroup.vue"} to see the source code for
 
 In the form below, we are using the `<UiVeeRadioGroup/>` component to create a radio group that allows the user to select how they want to be notified. The component uses the composition API provided by Vee-Validate to perform validation. Notice that we pass the different `RadioItems` into the default slot of the component.
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeRadioGroup
 

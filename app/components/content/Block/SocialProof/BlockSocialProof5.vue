@@ -13,7 +13,7 @@
             <h2 class="mb-4 text-3xl font-bold lg:text-4xl">
               Powering innovation at companies of all sizes
             </h2>
-            <p class="text-lg text-muted-foreground">From startups to Fortune 500 companies</p>
+            <p class="text-muted-foreground text-lg">From startups to Fortune 500 companies</p>
           </div>
         </Motion>
 

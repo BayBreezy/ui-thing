@@ -8,7 +8,7 @@
     >
       <Motion :variants="headerVariant" class="flex items-start gap-4">
         <div
-          class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"
+          class="bg-primary/10 text-primary flex size-12 shrink-0 items-center justify-center rounded-lg"
         >
           <Icon :name="icon" class="size-6" />
         </div>
@@ -19,7 +19,7 @@
             </h1>
           </slot>
           <slot name="description">
-            <p v-if="description" class="text-[15px] text-muted-foreground">
+            <p v-if="description" class="text-muted-foreground text-[15px]">
               <span v-html="description" />
             </p>
           </slot>
@@ -29,14 +29,14 @@
       <Motion :variants="cardsVariant" class="grid gap-3 sm:grid-cols-2">
         <slot name="card1">
           <Motion :variants="cardVariant">
-            <UiCard class="cursor-pointer transition-colors hover:bg-muted/50">
+            <UiCard class="hover:bg-muted/50 cursor-pointer transition-colors">
               <UiCardContent class="flex items-start gap-3">
-                <div class="rounded-md bg-primary/10 p-2">
-                  <Icon :name="card1Icon" class="size-5 text-primary" />
+                <div class="bg-primary/10 rounded-md p-2">
+                  <Icon :name="card1Icon" class="text-primary size-5" />
                 </div>
                 <div class="flex-1">
                   <h3 class="font-semibold" v-html="card1Title" />
-                  <p class="mt-1 text-sm text-muted-foreground" v-html="card1Description" />
+                  <p class="text-muted-foreground mt-1 text-sm" v-html="card1Description" />
                 </div>
               </UiCardContent>
             </UiCard>
@@ -44,14 +44,14 @@
         </slot>
         <slot name="card2">
           <Motion :variants="cardVariant">
-            <UiCard class="cursor-pointer transition-colors hover:bg-muted/50">
+            <UiCard class="hover:bg-muted/50 cursor-pointer transition-colors">
               <UiCardContent class="flex items-start gap-3">
-                <div class="rounded-md bg-primary/10 p-2">
-                  <Icon :name="card2Icon" class="size-5 text-primary" />
+                <div class="bg-primary/10 rounded-md p-2">
+                  <Icon :name="card2Icon" class="text-primary size-5" />
                 </div>
                 <div class="flex-1">
                   <h3 class="font-semibold" v-html="card2Title" />
-                  <p class="mt-1 text-sm text-muted-foreground" v-html="card2Description" />
+                  <p class="text-muted-foreground mt-1 text-sm" v-html="card2Description" />
                 </div>
               </UiCardContent>
             </UiCard>
@@ -61,8 +61,8 @@
 
       <Motion :variants="footerVariant" class="flex items-center gap-2">
         <slot name="helpText">
-          <Icon name="lucide:info" class="size-4 text-muted-foreground" />
-          <p v-if="helpText" class="text-sm text-muted-foreground" v-html="helpText" />
+          <Icon name="lucide:info" class="text-muted-foreground size-4" />
+          <p v-if="helpText" class="text-muted-foreground text-sm" v-html="helpText" />
         </slot>
       </Motion>
     </Motion>

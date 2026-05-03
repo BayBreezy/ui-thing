@@ -7,7 +7,7 @@
       <template #label>
         <UiLabel for="checkbox-10" class="justify-start gap-2">
           Label
-          <span class="text-xs leading-[inherit] font-normal text-muted-foreground">
+          <span class="text-muted-foreground text-xs leading-[inherit] font-normal">
             (Sublabel)
           </span>
         </UiLabel>

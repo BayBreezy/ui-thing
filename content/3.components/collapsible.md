@@ -4,7 +4,7 @@ description: An interactive component which expands/collapses a panel.
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/collapsible.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/collapsible.html#api-reference
     icon: "icon-park-solid:api"
@@ -20,7 +20,7 @@ Click :SourceCodeLink{component="Collapsible"} to see the source code for this c
 
 ## Usage
 
-::ShowCase
+::prose-show-case
 
 :DocsCollapsible
 
@@ -34,7 +34,7 @@ Click :SourceCodeLink{component="Collapsible"} to see the source code for this c
     <UiCollapsible v-slot="{ open }" class="w-[350px] space-y-2">
       <div class="flex items-center justify-between space-x-4 px-2">
         <div class="flex items-center gap-3">
-          <UiAvatar src="https://behonbaker.com/icon.png" class="ring ring-muted/50" />
+          <UiAvatar src="https://behonbaker.com/icon.png" class="ring-muted/50 ring" />
           <h4 class="text-sm font-semibold">BayBreezy starred 3 repositories</h4>
         </div>
         <UiCollapsibleTrigger as-child>

@@ -13,7 +13,7 @@
     }"
   >
     <UiCard
-      class="border-none shadow-sm ring-1 ring-muted/30 dark:bg-linear-to-br dark:from-primary/10 dark:via-background dark:to-background dark:ring-primary/5"
+      class="ring-muted/30 dark:from-primary/10 dark:via-background dark:to-background dark:ring-primary/5 border-none shadow-sm ring-1 dark:bg-linear-to-br"
     >
       <UiCardContent>
         <div class="mb-6 flex items-center gap-4">
@@ -26,9 +26,9 @@
                 transition: { type: 'spring', stiffness: 200, damping: 20 },
               },
             }"
-            class="flex size-12 shrink-0 items-center justify-center rounded-md bg-linear-to-br from-primary/20"
+            class="from-primary/20 flex size-12 shrink-0 items-center justify-center rounded-md bg-linear-to-br"
           >
-            <Icon name="lucide:book-open" class="size-6 text-primary dark:text-foreground" />
+            <Icon name="lucide:book-open" class="text-primary dark:text-foreground size-6" />
           </Motion>
           <div class="flex-1">
             <Motion
@@ -47,7 +47,7 @@
                 initial: { opacity: 0, x: -20 },
                 animate: { opacity: 1, x: 0, transition: { type: 'keyframes' } },
               }"
-              class="text-sm text-muted-foreground"
+              class="text-muted-foreground text-sm"
             >
               Fresh content every week
             </Motion>
@@ -60,7 +60,7 @@
             initial: { opacity: 0, y: 10 },
             animate: { opacity: 1, y: 0 },
           }"
-          class="mb-6 text-muted-foreground"
+          class="text-muted-foreground mb-6"
         >
           Don't miss out on our latest posts, tutorials, and industry insights. Get them delivered
           to your inbox.
@@ -95,7 +95,7 @@
               initial: { opacity: 0 },
               animate: { opacity: 1 },
             }"
-            class="mt-3 text-xs text-muted-foreground"
+            class="text-muted-foreground mt-3 text-xs"
           >
             By subscribing, you agree to our Privacy Policy and consent to receive updates.
           </Motion>
@@ -106,7 +106,7 @@
             initial: { opacity: 0, scaleX: 0 },
             animate: { opacity: 1, scaleX: 1, transition: { delay: 0.5, duration: 0.5 } },
           }"
-          class="mt-6 h-px origin-left bg-linear-to-r from-primary/50 via-primary/20"
+          class="from-primary/50 via-primary/20 mt-6 h-px origin-left bg-linear-to-r"
         />
 
         <Motion
@@ -114,7 +114,7 @@
             initial: { opacity: 0, y: 10 },
             animate: { opacity: 1, y: 0 },
           }"
-          class="mt-4 flex items-center justify-center gap-6 text-xs text-muted-foreground"
+          class="text-muted-foreground mt-4 flex items-center justify-center gap-6 text-xs"
         >
           <div class="flex items-center gap-1.5">
             <Icon name="lucide:users" class="size-3.5" />

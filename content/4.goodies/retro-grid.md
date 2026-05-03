@@ -9,8 +9,8 @@ Shout out to [Magic UI](https://magicui.design/docs/components/retro-grid) for t
 
 ## Getting Started
 
-:::Steps
-::Step
+:::prose-steps
+::prose-step
 
 ### Add Animation
 
@@ -30,7 +30,7 @@ You will need to add this to your `tailwind.css` file.
 ```
 
 ::
-::Step
+::prose-step
 
 ### Create Component
 
@@ -54,7 +54,7 @@ Create the component `RetroGrid.vue` in the `components` directory.
   >
     <div class="absolute inset-0 transform-[rotateX(var(--grid-angle))]">
       <div
-        class="inset-[0%_0px] -ml-[200%] h-[300vh] w-[600vw] origin-[100%_0_0] animate-grid bg-[linear-gradient(to_right,var(--light-line)_1px,transparent_0),linear-gradient(to_bottom,var(--light-line)_1px,transparent_0)] bg-size-[var(--cell-size)_var(--cell-size)] bg-repeat dark:bg-[linear-gradient(to_right,var(--dark-line)_1px,transparent_0),linear-gradient(to_bottom,var(--dark-line)_1px,transparent_0)]"
+        class="animate-grid inset-[0%_0px] -ml-[200%] h-[300vh] w-[600vw] origin-[100%_0_0] bg-[linear-gradient(to_right,var(--light-line)_1px,transparent_0),linear-gradient(to_bottom,var(--light-line)_1px,transparent_0)] bg-size-[var(--cell-size)_var(--cell-size)] bg-repeat dark:bg-[linear-gradient(to_right,var(--dark-line)_1px,transparent_0),linear-gradient(to_bottom,var(--dark-line)_1px,transparent_0)]"
       />
     </div>
 
@@ -69,32 +69,35 @@ Create the component `RetroGrid.vue` in the `components` directory.
   import type { HTMLAttributes } from "vue";
 
   export type RetroGridProps = PrimitiveProps & {
-    /**
-     * Additional CSS classes to apply to the grid container
-     */
+    /** Additional CSS classes to apply to the grid container. */
     class?: HTMLAttributes["class"];
     /**
-     * Rotation angle of the grid in degrees
+     * Rotation angle of the grid in degrees.
+     *
      * @default 65
      */
     angle?: number;
     /**
-     * Grid cell size in pixels
+     * Grid cell size in pixels.
+     *
      * @default 60
      */
     cellSize?: number;
     /**
-     * Grid opacity value between 0 and 1
+     * Grid opacity value between 0 and 1.
+     *
      * @default 0.5
      */
     opacity?: number;
     /**
-     * Grid line color in light mode
+     * Grid line color in light mode.
+     *
      * @default "gray"
      */
     lightLineColor?: string;
     /**
-     * Grid line color in dark mode
+     * Grid line color in dark mode.
+     *
      * @default "gray"
      */
     darkLineColor?: string;
@@ -127,7 +130,7 @@ Create the component `RetroGrid.vue` in the `components` directory.
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsRetroGrid
 
@@ -138,7 +141,7 @@ Create the component `RetroGrid.vue` in the `components` directory.
 ```vue [DocsRetroGrid.vue]
 <template>
   <div
-    class="relative mx-auto flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border bg-background p-20"
+    class="bg-background relative mx-auto flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border p-20"
   >
     <span
       class="pointer-events-none z-10 bg-gradient-to-b from-[#ffd319] via-[#ff2975] to-[#8c1eff] bg-clip-text text-center text-7xl leading-none font-bold tracking-tighter whitespace-pre-wrap text-transparent"

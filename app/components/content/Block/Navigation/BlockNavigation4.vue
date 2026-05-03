@@ -1,5 +1,5 @@
 <template>
-  <header class="z-20 border-b bg-background/90 backdrop-blur">
+  <header class="bg-background/90 z-20 border-b backdrop-blur">
     <UiContainer class="flex h-16 items-center justify-between lg:h-20">
       <div class="flex items-center gap-10">
         <NuxtLink to="#" class="flex items-center gap-3">
@@ -23,28 +23,28 @@
               <UiNavigationMenuItem>
                 <UiNavigationMenuTrigger class="h-9 px-3 text-sm capitalize" :title="l.title" />
                 <UiNavigationMenuContent class="p-0">
-                  <div class="w-[360px] bg-background shadow">
+                  <div class="bg-background w-[360px] shadow">
                     <ul class="flex flex-col gap-3 p-3">
                       <li v-for="(item, k) in l.items" :key="k">
                         <UiNavigationMenuLink as-child>
                           <NuxtLink
                             to="#"
-                            class="group flex flex-row gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none dark:hover:bg-muted/20"
+                            class="group hover:bg-muted/80 focus-visible:ring-ring/50 dark:hover:bg-muted/20 flex flex-row gap-4 rounded-md p-3 transition focus-visible:ring-2 focus-visible:outline-none"
                           >
-                            <Icon :name="item.icon" class="mt-px h-5 w-5 shrink-0 text-primary" />
+                            <Icon :name="item.icon" class="text-primary mt-px h-5 w-5 shrink-0" />
                             <div class="flex flex-col gap-1.5 leading-none">
                               <p class="text-sm font-semibold">{{ item.name }}</p>
-                              <p class="text-sm text-muted-foreground" v-html="item.description" />
+                              <p class="text-muted-foreground text-sm" v-html="item.description" />
                             </div>
                           </NuxtLink>
                         </UiNavigationMenuLink>
                       </li>
                     </ul>
                     <div
-                      class="col-span-full flex items-center justify-center bg-muted/20 py-5 dark:bg-muted/5"
+                      class="bg-muted/20 dark:bg-muted/5 col-span-full flex items-center justify-center py-5"
                     >
                       <NuxtLink
-                        class="flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+                        class="text-primary flex items-center gap-2 text-sm font-semibold hover:underline"
                         to="#"
                         >Learn more <Icon class="shrink-0" name="lucide:arrow-right"
                       /></NuxtLink>
@@ -97,11 +97,11 @@
                               <li v-for="item in l.items" :key="item.name">
                                 <NuxtLink
                                   :to="item.href"
-                                  class="flex gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none"
+                                  class="hover:bg-muted/80 focus-visible:ring-ring/50 flex gap-4 rounded-md p-3 transition focus-visible:ring-2 focus-visible:outline-none"
                                 >
                                   <Icon
                                     :name="item.icon"
-                                    class="mt-px h-5 w-5 shrink-0 text-primary"
+                                    class="text-primary mt-px h-5 w-5 shrink-0"
                                   />
                                   <div class="flex flex-col gap-1.5 leading-none">
                                     <p class="text-sm font-semibold">{{ item.name }}</p>

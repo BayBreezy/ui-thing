@@ -79,7 +79,7 @@ Click :SourceCodeLink{component="Form"} to see the source code for this componen
 
 ### User profile form
 
-::ShowCase
+::prose-show-case
 
 :DocsFormUser
 

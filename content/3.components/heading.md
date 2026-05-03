@@ -17,7 +17,7 @@ Feel free to copy it and adjust it for your own use.
 
 ### Basic example
 
-::ShowCase
+::prose-show-case
 
 :DocsHeadingBasic
 

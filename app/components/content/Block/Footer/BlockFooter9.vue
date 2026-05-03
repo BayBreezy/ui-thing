@@ -1,5 +1,5 @@
 <template>
-  <footer class="border-t bg-muted/50">
+  <footer class="bg-muted/50 border-t">
     <UiContainer class="py-16 lg:py-24">
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
         <!-- Company Info -->
@@ -14,7 +14,7 @@
             />
             <span class="text-xl font-semibold">{{ COMPANY_NAME }}</span>
           </NuxtLink>
-          <p class="mb-5 text-muted-foreground">
+          <p class="text-muted-foreground mb-5">
             Making the world a better place through constructing elegant hierarchies.
           </p>
           <div class="flex items-center gap-4">
@@ -50,7 +50,7 @@
           <h3 class="mb-4 text-sm font-semibold tracking-wider uppercase">Solutions</h3>
           <ul class="space-y-3">
             <li v-for="item in ['Marketing', 'Analytics', 'Commerce', 'Insights']" :key="item">
-              <NuxtLink class="text-muted-foreground transition-colors hover:text-primary" to="#">
+              <NuxtLink class="text-muted-foreground hover:text-primary transition-colors" to="#">
                 {{ item }}
               </NuxtLink>
             </li>
@@ -62,7 +62,7 @@
           <h3 class="mb-4 text-sm font-semibold tracking-wider uppercase">Support</h3>
           <ul class="space-y-3">
             <li v-for="item in ['Pricing', 'Documentation', 'Guides', 'API Status']" :key="item">
-              <NuxtLink class="text-muted-foreground transition-colors hover:text-primary" to="#">
+              <NuxtLink class="text-muted-foreground hover:text-primary transition-colors" to="#">
                 {{ item }}
               </NuxtLink>
             </li>
@@ -74,7 +74,7 @@
           <h3 class="mb-4 text-sm font-semibold tracking-wider uppercase">Company</h3>
           <ul class="space-y-3">
             <li v-for="item in ['About', 'Blog', 'Jobs', 'Press']" :key="item">
-              <NuxtLink class="text-muted-foreground transition-colors hover:text-primary" to="#">
+              <NuxtLink class="text-muted-foreground hover:text-primary transition-colors" to="#">
                 {{ item }}
               </NuxtLink>
             </li>
@@ -83,7 +83,7 @@
       </div>
 
       <div class="mt-12 border-t pt-8 lg:mt-16">
-        <p class="text-center text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-center text-sm">
           &copy; {{ new Date().getFullYear() }} {{ COMPANY_NAME }}, Inc. All rights reserved.
         </p>
       </div>

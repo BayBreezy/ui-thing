@@ -17,7 +17,7 @@
 
   const props = defineProps<
     ContextMenuItemIndicatorProps & {
-      /** The icon to display */
+      /** The icon to display. */
       icon?: string;
       class?: HTMLAttributes["class"];
     }

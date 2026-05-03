@@ -20,17 +20,17 @@
   const props = withDefaults(
     defineProps<
       AlertDialogCancelProps & {
-        /** Action to perform when the button is clicked */
+        /** Action to perform when the button is clicked. */
         onClick?: () => void;
-        /** Text to display in the button */
+        /** Text to display in the button. */
         text?: string;
-        /** Custom class(es) to add to the button */
+        /** Custom class(es) to add to the button. */
         class?: any;
-        /** Whether the button is disabled */
+        /** Whether the button is disabled. */
         disabled?: boolean;
-        /** The button's visual variant */
+        /** The button's visual variant. */
         variant?: VariantProps<typeof buttonStyles>["variant"];
-        /** The button's visual size */
+        /** The button's visual size. */
         size?: VariantProps<typeof buttonStyles>["size"];
       }
     >(),

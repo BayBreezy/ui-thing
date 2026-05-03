@@ -53,19 +53,38 @@
 </template>
 
 <style scoped>
-  @reference "~/assets/css/tailwind.css";
-
   :deep(table.dataTable td) {
     border-bottom-width: 0px;
     border-top-width: 0px;
   }
   :deep(table.dataTable tbody tr) {
-    @apply border-none odd:bg-muted/50 hover:bg-transparent odd:hover:bg-muted/50;
+    border-style: none;
+
+    &:nth-child(odd) {
+      background-color: color-mix(in oklab, var(--color-muted) 50%, transparent);
+    }
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    &:nth-child(odd):hover {
+      background-color: color-mix(in oklab, var(--color-muted) 50%, transparent);
+    }
   }
   :deep(table.dataTable tbody) {
-    @apply [&_td:first-child]:rounded-l-lg [&_td:last-child]:rounded-r-lg;
+    td:first-child {
+      border-top-left-radius: var(--radius-lg);
+      border-bottom-left-radius: var(--radius-lg);
+    }
+
+    td:last-child {
+      border-top-right-radius: var(--radius-lg);
+      border-bottom-right-radius: var(--radius-lg);
+    }
+
     tr {
-      @apply rounded-lg;
+      border-radius: var(--radius-lg);
     }
   }
 </style>

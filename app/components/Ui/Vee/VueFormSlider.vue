@@ -8,11 +8,11 @@
     >
     <Slider v-bind="{ ...forwarded, ...$attrs }" v-model="model" />
     <TransitionSlide group tag="div">
-      <p v-if="hint && !errorMessage" key="hint" class="mt-1.5 text-sm text-muted-foreground">
+      <p v-if="hint && !errorMessage" key="hint" class="text-muted-foreground mt-1.5 text-sm">
         {{ hint }}
       </p>
 
-      <p v-if="errorMessage" key="errorMessage" class="mt-1.5 text-sm text-destructive">
+      <p v-if="errorMessage" key="errorMessage" class="text-destructive mt-1.5 text-sm">
         {{ errorMessage }}
       </p>
     </TransitionSlide>
@@ -26,133 +26,141 @@
   export type SliderFormatObject = {
     /**
      * Prefix to prepend to the value.
-     * @example "$"
+     *
+     * @example
+     *   "$";
      */
     prefix?: string;
     /**
      * Suffix to append to the value.
-     * @example "USD"
+     *
+     * @example
+     *   "USD";
      */
     suffix?: string;
     /**
      * Number of decimals to show.
-     * @example 2
+     *
+     * @example
+     *   2;
      */
     decimals?: number;
     /**
      * Character to use as thousand separator.
-     * @example ","
+     *
+     * @example
+     *   ",";
      */
     thousand?: string;
   };
 
   export interface SliderProps {
-    /**
-     * The hint to display below the slider.
-     */
+    /** The hint to display below the slider. */
     hint?: string;
-    /**
-     * The rules for the slider. Used with vee-validate for validation.
-     */
+    /** The rules for the slider. Used with vee-validate for validation. */
     rules?: any;
-    /**
-     * Whether the slider should be validated on mount.
-     */
+    /** Whether the slider should be validated on mount. */
     validateOnMount?: boolean;
-    /**
-     * The label of the slider. Used with vee-validate for error messages
-     */
+    /** The label of the slider. Used with vee-validate for error messages. */
     label?: string;
-    /**
-     * The name we want to give this slider in the form.
-     */
+    /** The name we want to give this slider in the form. */
     name?: string;
     /**
      * The id attribute of slider container DOM.
+     *
      * @default "slider"
      */
     id?: string;
     /**
      * Whether to update v-model only when the slider value is set and not while dragging.
      *
-     * If disabled you must not use inline objects as props (eg. format, options, classes) but outsource them to a data property.
+     * If disabled you must not use inline objects as props (eg. format, options, classes) but
+     * outsource them to a data property.
      *
      * @default true
      */
     lazy?: boolean;
     /**
      * Whether the slider should be disabled.
+     *
      * @default false
      */
     disabled?: boolean;
     /**
      * Minimum value of the slider.
+     *
      * @default 0
      */
     min?: number;
     /**
      * Maximum value of the slider.
+     *
      * @default 100
      */
     max?: number;
     /**
      * The jump between intervals. If `-1` it enables fractions (eg. `1.23`).
+     *
      * @default 1
      */
     step?: number;
     /**
      * Whether tooltips should show above handlers.
+     *
      * @default true
      */
     tooltips?: boolean;
     /**
      * When tooltips should be shown.
+     *
      * @default "always"
      */
     showTooltip?: "always" | "focus" | "drag";
     /**
-     * The step distance between two handles when their tooltips should be merged (when step is `-1` then `1` is assumed).
+     * The step distance between two handles when their tooltips should be merged (when step is `-1`
+     * then `1` is assumed).
      *
      * @example
+     *   ```js
+     *   { merge: 5, step: 10 }
+     *   // values: 0, <=50 will merge
+     *   // values: 0, 60 will not merge
      *
-     * ```js
-     * { merge: 5, step: 10 }
-     * // values: 0, <=50 will merge
-     * // values: 0, 60 will not merge
+     *   { merge: 5, step: -1 }
      *
-     * { merge: 5, step: -1 }
+     *   // values: 0, <=5 will merge
+     *   // values: 0, 5.01 will not merge
+     *   ```;
      *
-     * // values: 0, <=5 will merge
-     * // values: 0, 5.01 will not merge
-     *
-     * ```
      * @default -1
      */
     merge?: number;
     /**
      * Formats the tooltip.
      *
-     * It can be either a function that receives a `value` param and expects a string or number as return or an object with the following properties:
+     * It can be either a function that receives a `value` param and expects a string or number as
+     * return or an object with the following properties:
      *
+     * Prefix - eg $ -> $100.
      *
-     * prefix - eg $ -> $100
+     * Suffix - eg USD -> 100USD.
      *
-     * suffix - eg USD -> 100USD
+     * Decimals - eg 2 -> 100.00.
      *
-     * decimals - eg 2 -> 100.00
-     *
-     * thousand - eg , - 1,000
+     * Thousand - eg , - 1,000.
      */
     format?: SliderFormatObject | ((value: number) => string | number);
     /**
      * The orientation of the slider.
+     *
      * @default "horizontal"
      */
     orientation?: "horizontal" | "vertical";
     /**
      * The direction of the slider.
      *
-     * By default value increases left-to-right and top-to-bottom, which is reversed when using `rtl`.
+     * By default value increases left-to-right and top-to-bottom, which is reversed when using
+     * `rtl`.
      *
      * @default "ltr"
      */
@@ -162,31 +170,26 @@
      *
      * Possible values: `null` | `top` | `bottom` | `left` | `right` depending on orientation prop.
      *
-     * When null it equals to orientation default (`top` for `horizontal` and `left` for `vertical`).
+     * When null it equals to orientation default (`top` for `horizontal` and `left` for
+     * `vertical`).
+     *
      * @default null
      */
     tooltipPosition?: null | "top" | "bottom" | "left" | "right";
-    /**
-     * An object containing aria attributes to be added for each handle.
-     */
+    /** An object containing aria attributes to be added for each handle. */
     aria?: Record<string, any>;
-    /**
-     * Sets the aria-labelledby attribute of handles.
-     */
+    /** Sets the aria-labelledby attribute of handles. */
     ariaLabelledby?: string;
     /**
      * Additional options for noUiSlider.
+     *
      * @see https://refreshless.com/nouislider/slider-options/
      */
     options?: Record<string, any>;
-    /**
-     * Initial value of the slider.
-     */
+    /** Initial value of the slider. */
     modelValue?: any;
     value?: any;
-    /**
-     * An object of class names that gets merged with the default values
-     */
+    /** An object of class names that gets merged with the default values. */
     classes?: Record<string, any>;
     /**
      * Whether the slider is required.
@@ -198,36 +201,29 @@
 
   export type SliderEmits = {
     /**
-     * Emitted when dragging the slider is finished or it's value changed by clicking, keyboard or programmatically set.
+     * Emitted when dragging the slider is finished or it's value changed by clicking, keyboard or
+     * programmatically set.
      */
     change: [v: any];
     /**
-     * Emitted in the same scenarios as in `@change`, but also when the slider is being dragged if `lazy` option is disabled.
+     * Emitted in the same scenarios as in `@change`, but also when the slider is being dragged if
+     * `lazy` option is disabled.
      */
     update: [v: any];
     /**
-     * Emitted in the same scenarios as in `@change`, but also when the slider's `.set()` method is called.
+     * Emitted in the same scenarios as in `@change`, but also when the slider's `.set()` method is
+     * called.
      */
     set: [v: any];
-    /**
-     * Emitted while the slider moves.
-     */
+    /** Emitted while the slider moves. */
     slide: [v: any];
-    /**
-     * Emitted the slider connect moves while dragging.
-     */
+    /** Emitted the slider connect moves while dragging. */
     drag: [v: any];
-    /**
-     * Emitted when the handle is activated and dragging started.
-     */
+    /** Emitted when the handle is activated and dragging started. */
     start: [v: any];
-    /**
-     * Emitted when the dragging ended.
-     */
+    /** Emitted when the dragging ended. */
     end: [v: any];
-    /**
-     * Emitted when the slider's value is updated.
-     */
+    /** Emitted when the slider's value is updated. */
     "update:modelValue": [v: any];
   };
 </script>

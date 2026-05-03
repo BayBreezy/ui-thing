@@ -3,7 +3,7 @@ title: Animated Tooltip
 description: A group of animated tooltips that display on hover with smooth spring animations and dynamic positioning based on mouse movement.
 links:
   - title: Inspira UI
-    href: https://inspira-ui.com/docs/components/miscellaneous/animated-tooltip
+    href: https://inspira-ui.com/docs/en/components/miscellaneous/animated-tooltip
     icon: "lucide:sparkles"
 ---
 
@@ -45,7 +45,7 @@ Pass a list of `items` to the component. Each item should contain an image, titl
 
 Display a group of avatars with animated tooltips that appear on hover. The tooltips follow mouse movement with smooth spring animations.
 
-::ShowCase
+::prose-show-case
 
 :DocsAnimatedTooltip
 
@@ -100,7 +100,7 @@ Display a group of avatars with animated tooltips that appear on hover. The tool
 
 You can omit the description field to show only the title in the tooltip.
 
-::ShowCase
+::prose-show-case
 
 :DocsAnimatedTooltipNoDescription
 
@@ -145,7 +145,7 @@ You can omit the description field to show only the title in the tooltip.
 
 The component works well with larger groups of people. The avatars automatically stack with negative margin.
 
-::ShowCase
+::prose-show-case
 
 :DocsAnimatedTooltipLarge
 

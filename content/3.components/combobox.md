@@ -4,7 +4,7 @@ description: Autocomplete input and command palette with a list of suggestions.
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/combobox.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/combobox.html#api-reference
     icon: "icon-park-solid:api"
@@ -83,7 +83,7 @@ See installation instructions for the [Popover](/components/popover) and the [Co
 
 ### Combobox
 
-::ShowCase
+::prose-show-case
 
 :DocsCombobox
 
@@ -160,7 +160,7 @@ See installation instructions for the [Popover](/components/popover) and the [Co
 
 ### Origin UI
 
-::ShowCase
+::prose-show-case
 
 :DocsComboboxOrigin
 
@@ -179,10 +179,10 @@ See installation instructions for the [Popover](/components/popover) and the [Co
             <span :class="['truncate', selectedFramework ? '' : 'text-muted-foreground']">{{
               selectedFramework || "Select a framework"
             }}</span>
-            <Icon name="lucide:chevron-down" class="size-4 shrink-0 text-muted-foreground/50" />
+            <Icon name="lucide:chevron-down" class="text-muted-foreground/50 size-4 shrink-0" />
           </UiButton>
         </UiPopoverTrigger>
-        <UiPopoverContent class="w-(--reka-popover-trigger-width) border-input p-0">
+        <UiPopoverContent class="border-input w-(--reka-popover-trigger-width) p-0">
           <UiCommand v-model="value" by="label">
             <UiCommandInput placeholder="Search framework..." />
             <UiCommandList>

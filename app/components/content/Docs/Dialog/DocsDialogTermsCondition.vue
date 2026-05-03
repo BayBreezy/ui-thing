@@ -9,13 +9,13 @@
       >
         <UiDialogHeader class="contents space-y-0 text-left">
           <UiDialogTitle
-            class="border-b border-border px-6 py-4 text-base"
+            class="border-border border-b px-6 py-4 text-base"
             title="Terms & Conditions"
           />
           <div ref="contentRef" class="overflow-y-auto">
             <UiDialogDescription>
               <div class="px-6 py-4">
-                <div class="space-y-4 [&_strong]:font-semibold [&_strong]:text-foreground">
+                <div class="[&_strong]:text-foreground space-y-4 [&_strong]:font-semibold">
                   <div class="space-y-4">
                     <div class="space-y-1">
                       <p>
@@ -112,11 +112,11 @@
             </UiDialogDescription>
           </div>
         </UiDialogHeader>
-        <UiDialogFooter class="border-t border-border px-6 py-4 sm:items-center">
+        <UiDialogFooter class="border-border border-t px-6 py-4 sm:items-center">
           <TransitionSlide appear>
             <span
               v-if="!arrivedState.bottom"
-              class="grow text-xs text-muted-foreground max-sm:text-center"
+              class="text-muted-foreground grow text-xs max-sm:text-center"
             >
               Read all terms before accepting.
             </span>

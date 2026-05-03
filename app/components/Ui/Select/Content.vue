@@ -31,11 +31,11 @@
   const props = withDefaults(
     defineProps<
       SelectContentProps & {
-        /** Where to render the portal */
+        /** Where to render the portal. */
         to?: string | HTMLElement;
-        /** Custom class(es) to add to the parent */
+        /** Custom class(es) to add to the parent. */
         class?: HTMLAttributes["class"];
-        /** Whether to render the content with a translucent surface */
+        /** Whether to render the content with a translucent surface. */
         translucent?: boolean;
       }
     >(),
@@ -52,7 +52,7 @@
   const forwarded = useForwardPropsEmits(reactiveOmit(props, "class", "to", "translucent"), emits);
 
   const styles = tv({
-    base: "relative z-50 max-h-(--reka-select-content-available-height) min-w-[8rem] origin-(--reka-select-content-transform-origin) overflow-visible rounded-md border bg-popover text-popover-foreground shadow-md data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
+    base: "bg-popover text-popover-foreground data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 relative z-50 max-h-(--reka-select-content-available-height) min-w-[8rem] origin-(--reka-select-content-transform-origin) overflow-visible rounded-md border shadow-md",
     variants: {
       position: {
         popper:

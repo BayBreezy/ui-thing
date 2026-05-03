@@ -1,13 +1,13 @@
 <template>
   <UiContainer class="py-16 text-center lg:py-24">
     <slot name="headline">
-      <p class="font-semibold text-primary">{{ headline }}</p>
+      <p class="text-primary font-semibold">{{ headline }}</p>
     </slot>
     <slot name="title">
       <h2 class="mt-2 mb-4 text-4xl font-bold lg:mt-3 lg:mb-6 lg:text-5xl">{{ title }}</h2>
     </slot>
     <slot name="description">
-      <p class="mx-auto max-w-[800px] text-lg text-muted-foreground lg:text-xl">
+      <p class="text-muted-foreground mx-auto max-w-[800px] text-lg lg:text-xl">
         {{ description }}
       </p>
     </slot>
@@ -18,7 +18,7 @@
             <div class="w-full lg:w-[335px]">
               <UiVeeInput required placeholder="Enter your email" aria-label="Enter your email" />
             </div>
-            <p class="my-2 text-left text-sm text-muted-foreground md:hidden">
+            <p class="text-muted-foreground my-2 text-left text-sm md:hidden">
               We care about your data in our privacy policy.
             </p>
             <div>
@@ -27,7 +27,7 @@
               >
             </div>
           </form>
-          <p class="mt-3 hidden text-left text-sm text-muted-foreground md:block">
+          <p class="text-muted-foreground mt-3 hidden text-left text-sm md:block">
             We care about your data in our privacy policy.
           </p>
         </div>

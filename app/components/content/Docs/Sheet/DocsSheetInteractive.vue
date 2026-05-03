@@ -44,9 +44,9 @@
           <template #content>
             <UiGradientDivider class="-my-2" />
             <div class="space-y-4 p-4">
-              <div class="rounded-lg border border-border bg-muted/30 p-3">
+              <div class="border-border bg-muted/30 rounded-lg border p-3">
                 <h4 class="mb-2 text-sm font-medium">Current Settings</h4>
-                <ul class="space-y-1 text-sm text-muted-foreground">
+                <ul class="text-muted-foreground space-y-1 text-sm">
                   <li>
                     <span class="font-medium">Variant:</span>
                     {{ variantOptions.find((opt) => opt.value === variant)?.label || "Default" }}
@@ -61,7 +61,7 @@
                   </li>
                 </ul>
               </div>
-              <p class="text-sm text-muted-foreground">
+              <p class="text-muted-foreground text-sm">
                 Try changing the controls above and reopening the sheet to see the different
                 configurations in action.
               </p>

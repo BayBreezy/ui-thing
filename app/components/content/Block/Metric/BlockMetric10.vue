@@ -3,11 +3,11 @@
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <template v-for="(s, i) in stats" :key="i">
         <div
-          class="group relative overflow-hidden rounded-lg border bg-card p-6 transition-shadow hover:shadow-md"
+          class="group bg-card relative overflow-hidden rounded-lg border p-6 transition-shadow hover:shadow-md"
         >
           <div class="mb-4 flex items-start justify-between">
-            <div class="rounded-full bg-linear-to-b from-primary/50 via-transparent p-3">
-              <Icon :name="s.icon" class="size-6 text-primary" />
+            <div class="from-primary/50 rounded-full bg-linear-to-b via-transparent p-3">
+              <Icon :name="s.icon" class="text-primary size-6" />
             </div>
             <UiBadge :variant="s.badgeVariant">{{ s.badge }}</UiBadge>
           </div>
@@ -17,7 +17,7 @@
           <p class="mb-3 text-base font-medium">
             {{ s.text }}
           </p>
-          <p class="text-sm text-muted-foreground">
+          <p class="text-muted-foreground text-sm">
             {{ s.description }}
           </p>
         </div>

@@ -26,7 +26,7 @@
           <Motion as="h3" :variants="childVariant" class="text-3xl font-semibold lg:text-4xl">
             Browse our articles
           </Motion>
-          <Motion as="p" :variants="childVariant" class="text-lg text-muted-foreground lg:text-xl">
+          <Motion as="p" :variants="childVariant" class="text-muted-foreground text-lg lg:text-xl">
             Discover insights across design, development, and business
           </Motion>
         </div>
@@ -66,16 +66,16 @@
             </div>
             <UiCardContent class="space-y-3 p-6">
               <NuxtLink :to="link">
-                <h4 class="text-xl font-semibold transition-colors hover:text-primary lg:text-2xl">
+                <h4 class="hover:text-primary text-xl font-semibold transition-colors lg:text-2xl">
                   {{ title }}
                 </h4>
               </NuxtLink>
-              <p class="mt-2 line-clamp-3 text-muted-foreground">{{ description }}</p>
+              <p class="text-muted-foreground mt-2 line-clamp-3">{{ description }}</p>
               <div class="flex items-center gap-3 pt-2">
                 <UiAvatar :src="userImage" :alt="userName" size="sm" />
                 <div>
                   <p class="text-sm font-medium">{{ userName }}</p>
-                  <p class="text-xs text-muted-foreground">{{ date }} · 5 min read</p>
+                  <p class="text-muted-foreground text-xs">{{ date }} · 5 min read</p>
                 </div>
               </div>
             </UiCardContent>
@@ -97,12 +97,12 @@
             <UiCardContent class="space-y-2 pb-5">
               <UiBadge variant="outline" size="sm">{{ headline }}</UiBadge>
               <NuxtLink :to="link">
-                <h5 class="font-semibold transition-colors hover:text-primary">{{ title }}</h5>
+                <h5 class="hover:text-primary font-semibold transition-colors">{{ title }}</h5>
               </NuxtLink>
-              <p class="line-clamp-2 text-sm text-muted-foreground">{{ description }}</p>
+              <p class="text-muted-foreground line-clamp-2 text-sm">{{ description }}</p>
               <div class="flex items-center gap-2 pt-2">
                 <UiAvatar :src="userImage" :alt="userName" size="xs" />
-                <p class="text-xs text-muted-foreground">{{ userName }} · {{ date }}</p>
+                <p class="text-muted-foreground text-xs">{{ userName }} · {{ date }}</p>
               </div>
             </UiCardContent>
           </UiCard>

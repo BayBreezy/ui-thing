@@ -18,7 +18,7 @@ Click :SourceCodeLink{component="Draggable.vue"} to see the source code for this
 
 ### Simple
 
-::ShowCase
+::prose-show-case
 
 :DocsDraggableSimple
 
@@ -46,7 +46,7 @@ Click :SourceCodeLink{component="Draggable.vue"} to see the source code for this
       <template #item="{ element }">
         <div
           :class="[
-            'flex cursor-grab items-center justify-between gap-3 rounded-md border bg-background p-3 shadow-xs',
+            'bg-background flex cursor-grab items-center justify-between gap-3 rounded-md border p-3 shadow-xs',
             toggledState ? '' : 'cursor-not-allowed opacity-50',
           ]"
         >
@@ -58,7 +58,7 @@ Click :SourceCodeLink{component="Draggable.vue"} to see the source code for this
             variant="ghost"
             @click="removeItem(element.id)"
           >
-            <icon name="lucide:trash-2" class="size-4 text-destructive" />
+            <icon name="lucide:trash-2" class="text-destructive size-4" />
             <span class="sr-only">Remove item</span>
           </ui-button>
         </div>
@@ -99,7 +99,7 @@ Click :SourceCodeLink{component="Draggable.vue"} to see the source code for this
 
 ### Two Lists
 
-::ShowCase
+::prose-show-case
 
 :DocsDraggableTwoLists
 
@@ -117,11 +117,11 @@ Click :SourceCodeLink{component="Draggable.vue"} to see the source code for this
       class="grid w-full grid-cols-1 gap-2"
       :class="[
         'min-h-5',
-        names1.length === 0 ? 'rounded-md border-2 border-dashed border-muted p-4' : '',
+        names1.length === 0 ? 'border-muted rounded-md border-2 border-dashed p-4' : '',
       ]"
     >
       <template #item="{ element }">
-        <div class="cursor-grab rounded-md border bg-background p-3 shadow-xs">
+        <div class="bg-background cursor-grab rounded-md border p-3 shadow-xs">
           <span class="text-sm font-medium">{{ element.name }}</span>
         </div>
       </template>
@@ -133,11 +133,11 @@ Click :SourceCodeLink{component="Draggable.vue"} to see the source code for this
       class="grid w-full grid-cols-1 gap-2"
       :class="[
         'min-h-5',
-        names2.length === 0 ? 'rounded-md border-2 border-dashed border-muted p-4' : '',
+        names2.length === 0 ? 'border-muted rounded-md border-2 border-dashed p-4' : '',
       ]"
     >
       <template #item="{ element }">
-        <div class="cursor-grab rounded-md border bg-background p-3 shadow-xs">
+        <div class="bg-background cursor-grab rounded-md border p-3 shadow-xs">
           <span class="text-sm font-medium">{{ element.name }}</span>
         </div>
       </template>
@@ -170,7 +170,7 @@ Click :SourceCodeLink{component="Draggable.vue"} to see the source code for this
 
 ### Clone
 
-::ShowCase
+::prose-show-case
 
 :DocsDraggableClone
 
@@ -192,11 +192,11 @@ Click :SourceCodeLink{component="Draggable.vue"} to see the source code for this
       class="grid w-full grid-cols-1 gap-2"
       :class="[
         'min-h-5',
-        names1.length === 0 ? 'rounded-md border-2 border-dashed border-muted p-4' : '',
+        names1.length === 0 ? 'border-muted rounded-md border-2 border-dashed p-4' : '',
       ]"
     >
       <template #item="{ element }">
-        <div class="cursor-grab rounded-md border bg-background p-3 shadow-xs">
+        <div class="bg-background cursor-grab rounded-md border p-3 shadow-xs">
           <span class="text-sm font-medium">{{ element.name }}</span>
         </div>
       </template>
@@ -208,11 +208,11 @@ Click :SourceCodeLink{component="Draggable.vue"} to see the source code for this
       class="grid w-full grid-cols-1 gap-2"
       :class="[
         'min-h-5',
-        names2.length === 0 ? 'rounded-md border-2 border-dashed border-muted p-4' : '',
+        names2.length === 0 ? 'border-muted rounded-md border-2 border-dashed p-4' : '',
       ]"
     >
       <template #item="{ element }">
-        <div class="cursor-grab rounded-md border bg-background p-3 shadow-xs">
+        <div class="bg-background cursor-grab rounded-md border p-3 shadow-xs">
           <span class="text-sm font-medium">{{ element.name }}</span>
         </div>
       </template>
@@ -247,7 +247,7 @@ Click :SourceCodeLink{component="Draggable.vue"} to see the source code for this
 
 ### Custom Clone
 
-::ShowCase
+::prose-show-case
 
 :DocsDraggableCustomClone
 
@@ -270,11 +270,11 @@ Click :SourceCodeLink{component="Draggable.vue"} to see the source code for this
       class="grid w-full grid-cols-1 gap-2"
       :class="[
         'min-h-5',
-        names1.length === 0 ? 'rounded-md border-2 border-dashed border-muted p-4' : '',
+        names1.length === 0 ? 'border-muted rounded-md border-2 border-dashed p-4' : '',
       ]"
     >
       <template #item="{ element }">
-        <div class="cursor-grab rounded-md border bg-background p-3 shadow-xs">
+        <div class="bg-background cursor-grab rounded-md border p-3 shadow-xs">
           <span class="text-sm font-medium">{{ element.name }}</span>
         </div>
       </template>
@@ -286,11 +286,11 @@ Click :SourceCodeLink{component="Draggable.vue"} to see the source code for this
       class="grid w-full grid-cols-1 gap-2"
       :class="[
         'min-h-5',
-        names2.length === 0 ? 'rounded-md border-2 border-dashed border-muted p-4' : '',
+        names2.length === 0 ? 'border-muted rounded-md border-2 border-dashed p-4' : '',
       ]"
     >
       <template #item="{ element }">
-        <div class="cursor-grab rounded-md border bg-background p-3 shadow-xs">
+        <div class="bg-background cursor-grab rounded-md border p-3 shadow-xs">
           <span class="text-sm font-medium">{{ element.name }}</span>
         </div>
       </template>
@@ -327,7 +327,7 @@ Click :SourceCodeLink{component="Draggable.vue"} to see the source code for this
 
 Press the `Meta` key (Command on Mac, Windows key on Windows) while dragging to clone an item.
 
-::ShowCase
+::prose-show-case
 
 :DocsDraggableCloneOnMeta
 
@@ -353,11 +353,11 @@ Press the `Meta` key (Command on Mac, Windows key on Windows) while dragging to 
         class="grid w-full grid-cols-1 gap-2"
         :class="[
           'min-h-5',
-          names1.length === 0 ? 'rounded-md border-2 border-dashed border-muted p-4' : '',
+          names1.length === 0 ? 'border-muted rounded-md border-2 border-dashed p-4' : '',
         ]"
       >
         <template #item="{ element }">
-          <div class="cursor-grab rounded-md border bg-background p-3 shadow-xs">
+          <div class="bg-background cursor-grab rounded-md border p-3 shadow-xs">
             <span class="text-sm font-medium">{{ element.name }}</span>
           </div>
         </template>
@@ -369,11 +369,11 @@ Press the `Meta` key (Command on Mac, Windows key on Windows) while dragging to 
         class="grid w-full grid-cols-1 gap-2"
         :class="[
           'min-h-5',
-          names2.length === 0 ? 'rounded-md border-2 border-dashed border-muted p-4' : '',
+          names2.length === 0 ? 'border-muted rounded-md border-2 border-dashed p-4' : '',
         ]"
       >
         <template #item="{ element }">
-          <div class="cursor-grab rounded-md border bg-background p-3 shadow-xs">
+          <div class="bg-background cursor-grab rounded-md border p-3 shadow-xs">
             <span class="text-sm font-medium">{{ element.name }}</span>
           </div>
         </template>
@@ -414,7 +414,7 @@ Press the `Meta` key (Command on Mac, Windows key on Windows) while dragging to 
 
 ### Handle
 
-::ShowCase
+::prose-show-case
 
 :DocsDraggableHandle
 
@@ -443,7 +443,7 @@ Press the `Meta` key (Command on Mac, Windows key on Windows) while dragging to 
       <template #item="{ element }">
         <div
           :class="[
-            'flex items-center justify-between gap-3 rounded-md border bg-background p-3 shadow-xs',
+            'bg-background flex items-center justify-between gap-3 rounded-md border p-3 shadow-xs',
             toggledState ? '' : 'cursor-not-allowed opacity-50',
           ]"
         >
@@ -465,7 +465,7 @@ Press the `Meta` key (Command on Mac, Windows key on Windows) while dragging to 
             variant="ghost"
             @click="removeItem(element.id)"
           >
-            <icon name="lucide:trash-2" class="size-4 text-destructive" />
+            <icon name="lucide:trash-2" class="text-destructive size-4" />
             <span class="sr-only">Remove item</span>
           </ui-button>
         </div>
@@ -506,7 +506,7 @@ Press the `Meta` key (Command on Mac, Windows key on Windows) while dragging to 
 
 ### Table
 
-::ShowCase
+::prose-show-case
 
 :DocsDraggableTable
 
@@ -516,11 +516,11 @@ Press the `Meta` key (Command on Mac, Windows key on Windows) while dragging to 
 
 ```vue [DocsDraggableTable.vue]
 <template>
-  <div class="rounded-md border border-border/50">
+  <div class="border-border/50 rounded-md border">
     <ui-table>
       <ui-table-header>
         <ui-table-row>
-          <ui-table-head class="sticky left-0 w-10 bg-background/50 backdrop-blur-md">
+          <ui-table-head class="bg-background/50 sticky left-0 w-10 backdrop-blur-md">
             <span class="sr-only">Drag handle</span>
           </ui-table-head>
           <ui-table-head>Name</ui-table-head>
@@ -535,7 +535,7 @@ Press the `Meta` key (Command on Mac, Windows key on Windows) while dragging to 
       <ui-draggable handle=".handle" tag="tbody" :list="people" item-key="id">
         <template #item="{ element }">
           <ui-table-row>
-            <ui-table-cell class="sticky left-0 w-10 bg-background/50 backdrop-blur-md">
+            <ui-table-cell class="bg-background/50 sticky left-0 w-10 backdrop-blur-md">
               <ui-fancy-icon
                 size="sm"
                 class="handle size-7 cursor-grab rounded-md border-none"
@@ -552,7 +552,7 @@ Press the `Meta` key (Command on Mac, Windows key on Windows) while dragging to 
         </template>
       </ui-draggable>
     </ui-table>
-    <p class="py-4 text-center text-sm text-muted-foreground">Drag and drop to reorder rows</p>
+    <p class="text-muted-foreground py-4 text-center text-sm">Drag and drop to reorder rows</p>
   </div>
 </template>
 
@@ -579,7 +579,7 @@ Press the `Meta` key (Command on Mac, Windows key on Windows) while dragging to 
 
 ### Slots
 
-::ShowCase
+::prose-show-case
 
 :DocsDraggableSlots
 
@@ -593,20 +593,20 @@ Press the `Meta` key (Command on Mac, Windows key on Windows) while dragging to 
     <ui-draggable :list="names" item-key="id" class="grid grid-cols-1 gap-2">
       <template #header>
         <div class="py-4">
-          <p class="mb-3 text-sm text-muted-foreground">Drag and drop to reorder items</p>
+          <p class="text-muted-foreground mb-3 text-sm">Drag and drop to reorder items</p>
           <ui-gradient-divider />
         </div>
       </template>
       <template #footer>
         <div class="py-4">
           <ui-gradient-divider />
-          <p class="mt-3 text-sm text-muted-foreground">Drag and drop to reorder items</p>
+          <p class="text-muted-foreground mt-3 text-sm">Drag and drop to reorder items</p>
         </div>
       </template>
       <template #item="{ element }">
         <div
           :class="[
-            'flex cursor-grab items-center justify-between gap-3 rounded-md border bg-background p-3 shadow-xs',
+            'bg-background flex cursor-grab items-center justify-between gap-3 rounded-md border p-3 shadow-xs',
           ]"
         >
           <span class="text-sm font-medium">{{ element.name }}</span>
@@ -635,7 +635,7 @@ Press the `Meta` key (Command on Mac, Windows key on Windows) while dragging to 
 
 ### Nested
 
-::ShowCase
+::prose-show-case
 
 :DocsDraggableNested
 

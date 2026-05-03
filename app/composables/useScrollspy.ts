@@ -311,11 +311,11 @@ export function useScrollspy(options: UseScrollspyOptions = {}) {
   return {
     /** Container that holds the anchors (use this if you didn't pass `root`) */
     root,
-    /** Currently active section id */
+    /** Currently active section id. */
     activeId,
-    /** Currently active section ids */
+    /** Currently active section ids. */
     activeIds,
-    /** Programmatically scroll to a section id or anchor element */
+    /** Programmatically scroll to a section id or anchor element. */
     scrollTo,
     /** Force recompute (e.g., after dynamic layout changes) */
     recompute: () => handleScroll(),

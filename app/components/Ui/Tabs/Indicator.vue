@@ -10,7 +10,7 @@
       }"
     >
       <slot>
-        <div class="h-full w-full rounded-md bg-primary" />
+        <div class="bg-primary h-full w-full rounded-md" />
       </slot>
     </TabsIndicator>
   </ClientOnly>
@@ -26,7 +26,7 @@
 
   const props = defineProps<
     TabsIndicatorProps & {
-      /** Custom class(es) to add to parent element */
+      /** Custom class(es) to add to parent element. */
       class?: HTMLAttributes["class"];
     }
   >();

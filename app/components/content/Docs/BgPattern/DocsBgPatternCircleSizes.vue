@@ -3,7 +3,7 @@
     <div
       v-for="size in sizes"
       :key="size"
-      class="relative flex items-center justify-center overflow-hidden rounded-lg border bg-background"
+      class="bg-background relative flex items-center justify-center overflow-hidden rounded-lg border"
       :class="{
         'size-[180px]': size === 'sm',
         'size-[240px]': size === 'md',
@@ -11,7 +11,7 @@
       }"
     >
       <span
-        class="pointer-events-none relative z-10 text-sm font-semibold tracking-widest text-muted-foreground uppercase"
+        class="text-muted-foreground pointer-events-none relative z-10 text-sm font-semibold tracking-widest uppercase"
       >
         {{ size }}
       </span>

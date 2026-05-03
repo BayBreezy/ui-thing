@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="Rating.vue"} to see the source code for this co
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsRating
 
@@ -37,7 +37,7 @@ Click :SourceCodeLink{component="Rating.vue"} to see the source code for this co
 
 ### Decimal
 
-::ShowCase
+::prose-show-case
 
 :DocsRatingDecimal
 
@@ -59,7 +59,7 @@ Click :SourceCodeLink{component="Rating.vue"} to see the source code for this co
 
 ### Show Rating
 
-::ShowCase
+::prose-show-case
 
 :DocsRatingShowValue
 
@@ -81,7 +81,7 @@ Click :SourceCodeLink{component="Rating.vue"} to see the source code for this co
 
 ### Editable
 
-::ShowCase
+::prose-show-case
 
 :DocsRatingEditable
 
@@ -107,7 +107,7 @@ Click :SourceCodeLink{component="Rating.vue"} to see the source code for this co
 
 ### Size
 
-::ShowCase
+::prose-show-case
 
 :DocsRatingSize
 
@@ -131,7 +131,7 @@ Click :SourceCodeLink{component="Rating.vue"} to see the source code for this co
 
 ### Icons
 
-::ShowCase
+::prose-show-case
 
 :DocsRatingIcons
 
@@ -160,7 +160,7 @@ Click :SourceCodeLink{component="Rating.vue"} to see the source code for this co
 
 ### Statistics
 
-::ShowCase
+::prose-show-case
 
 :DocsRatingStatistics
 
@@ -187,7 +187,7 @@ Click :SourceCodeLink{component="Rating.vue"} to see the source code for this co
           <span class="w-2 text-sm font-medium">{{ item.stars }}</span>
           <UiRating :model-value="item.stars" />
         </div>
-        <div class="flex items-center gap-0.5 text-sm text-muted-foreground">
+        <div class="text-muted-foreground flex items-center gap-0.5 text-sm">
           <span>{{ Intl.NumberFormat().format(item.count) }}</span>
           <span>({{ item.percentage }}%)</span>
         </div>

@@ -15,7 +15,7 @@
         <UiTableRow
           v-for="item in data"
           :key="item.id"
-          class="border-none odd:bg-muted/50 hover:bg-transparent odd:hover:bg-muted/50"
+          class="odd:bg-muted/50 odd:hover:bg-muted/50 border-none hover:bg-transparent"
         >
           <UiTableCell class="py-2.5 font-medium">{{ item.name }}</UiTableCell>
           <UiTableCell class="py-2.5">{{ item.email }}</UiTableCell>
@@ -32,7 +32,7 @@
         </UiTableRow>
       </UiTableFooter>
     </UiTable>
-    <p class="mt-4 text-center text-sm text-muted-foreground">Striped table</p>
+    <p class="text-muted-foreground mt-4 text-center text-sm">Striped table</p>
   </div>
 </template>
 

@@ -16,7 +16,7 @@
 
   const props = defineProps<
     SelectScrollDownButtonProps & {
-      /** Icon to render */
+      /** Icon to render. */
       icon?: string;
       class?: HTMLAttributes["class"];
     }

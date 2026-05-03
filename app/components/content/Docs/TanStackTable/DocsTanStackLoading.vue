@@ -15,7 +15,7 @@
       :page-size-options="[5, 10, 50, 100]"
     >
       <template #loading="{ loading }">
-        <div v-if="loading" class="flex items-center gap-2 px-4 py-2 text-sm text-primary">
+        <div v-if="loading" class="text-primary flex items-center gap-2 px-4 py-2 text-sm">
           <Icon name="lucide:loader-2" class="size-4 animate-spin" />
           <span>Fetching data...</span>
         </div>

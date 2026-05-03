@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="ButtonGroup"} to see the source code for this c
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGroup
 
@@ -87,7 +87,7 @@ Click :SourceCodeLink{component="ButtonGroup"} to see the source code for this c
 
 ### Orientation
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGroupOrientation
 
@@ -116,7 +116,7 @@ Click :SourceCodeLink{component="ButtonGroup"} to see the source code for this c
 
 ### Size
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGroupSize
 
@@ -163,7 +163,7 @@ Click :SourceCodeLink{component="ButtonGroup"} to see the source code for this c
 
 ### Nested
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGroupNested
 
@@ -201,7 +201,7 @@ The `ButtonGroupSeparator` component visually divides buttons within a group.
 
 Buttons with variant `outline` do not need a separator since they have a border. For other variants, a separator is recommended to improve the visual hierarchy.
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGroupSeparator
 
@@ -227,7 +227,7 @@ Buttons with variant `outline` do not need a separator since they have a border.
 
 ### Split
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGroupSplit
 
@@ -255,7 +255,7 @@ Buttons with variant `outline` do not need a separator since they have a border.
 
 ### Input
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGroupInput
 
@@ -282,7 +282,7 @@ Buttons with variant `outline` do not need a separator since they have a border.
 
 ### Input Group
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGroupInputGroup
 
@@ -338,7 +338,7 @@ Buttons with variant `outline` do not need a separator since they have a border.
 
 ### Dropdown
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGroupDropdown
 
@@ -397,7 +397,7 @@ Buttons with variant `outline` do not need a separator since they have a border.
 
 ### Select
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGroupSelect
 
@@ -446,7 +446,7 @@ Buttons with variant `outline` do not need a separator since they have a border.
 
 ### Popover
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGroupPopover
 

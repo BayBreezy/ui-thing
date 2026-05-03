@@ -1,5 +1,5 @@
 <template>
-  <header class="z-20 border-b bg-background/90 backdrop-blur">
+  <header class="bg-background/90 z-20 border-b backdrop-blur">
     <UiContainer class="flex h-16 items-center justify-between lg:h-20">
       <div class="flex items-center gap-10">
         <NuxtLink to="#" class="flex items-center gap-3">
@@ -27,22 +27,22 @@
                     class="grid grid-cols-1 gap-5 p-4 lg:w-[750px] lg:grid-cols-2 xl:w-[1000px] xl:grid-cols-3"
                   >
                     <div v-for="(item, cat, index) in data" :key="`${cat}-${index}`">
-                      <p class="mb-5 text-sm font-semibold text-primary capitalize">{{ cat }}</p>
+                      <p class="text-primary mb-5 text-sm font-semibold capitalize">{{ cat }}</p>
                       <ul class="flex w-full flex-col gap-2">
                         <li v-for="(child, k) in item" :key="k">
                           <UiNavigationMenuLink class="data-active:bg-muted/80" as-child>
                             <NuxtLink
                               :to="child.href"
-                              class="flex flex-row gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none"
+                              class="hover:bg-muted/80 focus-visible:ring-ring/50 flex flex-row gap-4 rounded-md p-3 transition focus-visible:ring-2 focus-visible:outline-none"
                             >
                               <Icon
                                 :name="child.icon"
-                                class="mt-px h-5 w-5 shrink-0 text-primary"
+                                class="text-primary mt-px h-5 w-5 shrink-0"
                               />
                               <div class="flex flex-col gap-1.5 leading-none">
                                 <p class="text-sm font-semibold">{{ child.name }}</p>
                                 <p
-                                  class="text-sm text-muted-foreground"
+                                  class="text-muted-foreground text-sm"
                                   v-html="child.description"
                                 />
                               </div>
@@ -97,7 +97,7 @@
                             :key="`${cat}-${index}`"
                             class="mt-5"
                           >
-                            <p class="mb-5 text-sm font-semibold text-primary capitalize">
+                            <p class="text-primary mb-5 text-sm font-semibold capitalize">
                               {{ cat }}
                             </p>
                             <ul class="flex w-full flex-col gap-2">
@@ -105,11 +105,11 @@
                                 <UiNavigationMenuLink class="data-active:bg-muted/80" as-child>
                                   <NuxtLink
                                     :to="child.href"
-                                    class="flex flex-row gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none"
+                                    class="hover:bg-muted/80 focus-visible:ring-ring/50 flex flex-row gap-4 rounded-md p-3 transition focus-visible:ring-2 focus-visible:outline-none"
                                   >
                                     <Icon
                                       :name="child.icon"
-                                      class="mt-px h-5 w-5 shrink-0 text-primary"
+                                      class="text-primary mt-px h-5 w-5 shrink-0"
                                     />
                                     <div class="flex flex-col gap-1.5 leading-none">
                                       <p class="text-sm font-semibold">{{ child.name }}</p>

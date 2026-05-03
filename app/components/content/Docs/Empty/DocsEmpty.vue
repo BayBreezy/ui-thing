@@ -17,7 +17,7 @@
         </div>
       </UiEmptyContent>
       <UiButton variant="link" as-child size="sm">
-        <a href="#" class="flex items-center gap-2 text-muted-foreground">
+        <a href="#" class="text-muted-foreground flex items-center gap-2">
           Learn More <Icon name="lucide:arrow-up-right" />
         </a>
       </UiButton>

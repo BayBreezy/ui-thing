@@ -19,7 +19,7 @@
           <NuxtLink
             v-for="item in ['About', 'Features', 'Pricing', 'Blog', 'Docs', 'Contact']"
             :key="item"
-            class="text-muted-foreground transition-colors hover:text-primary"
+            class="text-muted-foreground hover:text-primary transition-colors"
             to="#"
           >
             {{ item }}
@@ -27,7 +27,7 @@
         </nav>
 
         <!-- Copyright -->
-        <p class="text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-sm">
           &copy; {{ new Date().getFullYear() }} {{ COMPANY_NAME }}
         </p>
       </div>

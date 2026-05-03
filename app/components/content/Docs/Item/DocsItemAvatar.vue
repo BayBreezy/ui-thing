@@ -20,7 +20,7 @@
     <UiItem variant="outline">
       <UiItemMedia>
         <div
-          class="flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-background *:data-[slot=avatar]:grayscale"
+          class="*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale"
         >
           <UiAvatar class="hidden sm:flex">
             <UiAvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />

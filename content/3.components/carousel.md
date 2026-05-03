@@ -16,7 +16,7 @@ Click :SourceCodeLink{component="Carousel"} to see the source code for this comp
 
 ## About
 
-The carousel component is built using the [Embla Carousel](https://www.embla-carousel.com/) library.
+The carousel component is built using the [Embla Carousel](https://www.embla-carousel.com/){target="\_blank"} library.
 
 ## Installation
 
@@ -48,7 +48,7 @@ The carousel component is built using the [Embla Carousel](https://www.embla-car
 
 To set the size of the items, you can use the `basis` utility class on the `<UiCarouselItem />`.
 
-::ShowCase
+::prose-show-case
 
 :DocsCarouselSizes
 
@@ -89,9 +89,9 @@ To set the size of the items, you can use the `basis` utility class on the `<UiC
 
 Other Size Example
 
-<!-- automd:file src="../../app/components/content/Docs/Carousel/DocsCarouselSizesExample.vue" code lang="html" -->
+<!-- automd:file src="../../app/components/content/Docs/Carousel/DocsCarouselSizesExample.vue" code lang="vue" -->
 
-```html [DocsCarouselSizesExample.vue]
+```vue [DocsCarouselSizesExample.vue]
 <template>
   <!-- 33% of the carousel width. -->
   <UiCarousel>
@@ -108,9 +108,9 @@ Other Size Example
 
 Responsive
 
-<!-- automd:file src="../../app/components/content/Docs/Carousel/DocsCarouselSizesResponsive.vue" code lang="html" -->
+<!-- automd:file src="../../app/components/content/Docs/Carousel/DocsCarouselSizesResponsive.vue" code lang="vue" -->
 
-```html [DocsCarouselSizesResponsive.vue]
+```vue [DocsCarouselSizesResponsive.vue]
 <template>
   <!-- 50% on small screens and 33% on larger screens. -->
   <UiCarousel>
@@ -129,7 +129,7 @@ Responsive
 
 To set the spacing between the items, we use a `pl-[VALUE]` utility on the `<UiCarouselItem />` and a negative `-ml-[VALUE]` on the `<UiCarouselContent />`.
 
-::prose-callout{title="Why not use gap?"}
+::prose-callout{title="Why not use gap?" variant="warning"}
 
 I tried to use the `gap` property or a `grid` layout on the `
 CarouselContent` but it required a lot of math and mental effort to get the
@@ -140,7 +140,7 @@ You can always adjust this in your own project if you need to.
 
 ::
 
-::ShowCase
+::prose-show-case
 
 :DocsCarouselSpacing
 
@@ -181,9 +181,9 @@ You can always adjust this in your own project if you need to.
 
 Other Spacing Example
 
-<!-- automd:file src="../../app/components/content/Docs/Carousel/DocsCarouselSpacingExample.vue" code lang="html" -->
+<!-- automd:file src="../../app/components/content/Docs/Carousel/DocsCarouselSpacingExample.vue" code lang="vue" -->
 
-```html [DocsCarouselSpacingExample.vue]
+```vue [DocsCarouselSpacingExample.vue]
 <template>
   <UiCarousel>
     <UiCarouselContent class="-ml-4">
@@ -199,9 +199,9 @@ Other Spacing Example
 
 Responsive
 
-<!-- automd:file src="../../app/components/content/Docs/Carousel/DocsCarouselSpacingResponsive.vue" code lang="html" -->
+<!-- automd:file src="../../app/components/content/Docs/Carousel/DocsCarouselSpacingResponsive.vue" code lang="vue" -->
 
-```html [DocsCarouselSpacingResponsive.vue]
+```vue [DocsCarouselSpacingResponsive.vue]
 <template>
   <UiCarousel>
     <UiCarouselContent class="-ml-2 md:-ml-4">
@@ -219,7 +219,7 @@ Responsive
 
 Use the `orientation` prop to set the orientation of the carousel.
 
-::ShowCase
+::prose-show-case
 
 :DocsCarouselOrientation
 
@@ -259,7 +259,7 @@ Use the `orientation` prop to set the orientation of the carousel.
 
 ### Thumbnail
 
-::ShowCase
+::prose-show-case
 
 :DocsCarouselThumbnail
 
@@ -345,7 +345,7 @@ Use the `orientation` prop to set the orientation of the carousel.
 
 ## Options
 
-You can pass options to the carousel using the `opts` prop. See the [Embla Carousel docs](https://www.embla-carousel.com/api/options/) for more information.
+You can pass options to the carousel using the `opts` prop. See the [Embla Carousel docs](https://www.embla-carousel.com/api/options/){target="\_blank"} for more information.
 
 ```vue
 <template>
@@ -365,7 +365,7 @@ You can pass options to the carousel using the `opts` prop. See the [Embla Carou
 
 Use the `@init-api` emit method on `<UiCarousel />` component to set the instance of the API.
 
-::ShowCase
+::prose-show-case
 
 :DocsCarouselMethod1
 
@@ -392,7 +392,7 @@ Use the `@init-api` emit method on `<UiCarousel />` component to set the instanc
       <UiCarouselNext />
     </UiCarousel>
 
-    <div class="py-2 text-center text-sm text-muted-foreground">
+    <div class="text-muted-foreground py-2 text-center text-sm">
       Slide {{ current }} of {{ totalCount }}
     </div>
   </div>
@@ -473,7 +473,7 @@ You can listen to events using the API. To get the API instance use the `@init-a
 </script>
 ```
 
-See the [Embla Carousel docs](https://www.embla-carousel.com/api/events/) for more information on using events.
+See the [Embla Carousel docs](https://www.embla-carousel.com/api/events/){target="\_blank"} for more information on using events.
 
 ## Slot Props
 
@@ -507,7 +507,7 @@ npm i embla-carousel-autoplay
 </script>
 ```
 
-::ShowCase
+::prose-show-case
 
 :DocsCarouselPlugin
 
@@ -556,4 +556,4 @@ npm i embla-carousel-autoplay
 
 ::
 
-See the [Embla Carousel docs](https://www.embla-carousel.com/api/plugins/) for more information on using plugins.
+See the [Embla Carousel docs](https://www.embla-carousel.com/api/plugins/){target="\_blank"} for more information on using plugins.

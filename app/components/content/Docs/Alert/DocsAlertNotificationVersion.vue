@@ -13,7 +13,7 @@
             <Icon name="lucide:x" class="size-3.5" />
           </UiButton>
         </UiAlertDescription>
-        <p class="mb-3 text-sm text-muted-foreground">
+        <p class="text-muted-foreground mb-3 text-sm">
           This update contains several bug fixes and performance improvements.
         </p>
         <div class="flex items-center gap-2">

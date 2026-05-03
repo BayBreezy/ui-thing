@@ -2,11 +2,11 @@
   <UiSelect v-model="currentFormat">
     <UiSelectTrigger
       size="sm"
-      class="w-fit border-secondary bg-secondary text-secondary-foreground shadow-none"
+      class="border-secondary bg-secondary text-secondary-foreground w-fit shadow-none"
       :class="props.class"
     >
       <span class="font-medium">Format: </span>
-      <span class="font-mono text-muted-foreground">{{ currentFormat }}</span>
+      <span class="text-muted-foreground font-mono">{{ currentFormat }}</span>
     </UiSelectTrigger>
     <UiSelectContent align="end" class="rounded-xl">
       <UiSelectItem
@@ -16,7 +16,7 @@
         class="gap-2 rounded-lg [&>span]:flex [&>span]:items-center [&>span]:gap-2"
       >
         <span class="font-medium">{{ f }}</span>
-        <span class="font-mono text-xs text-muted-foreground"> {{ v }} </span>
+        <span class="text-muted-foreground font-mono text-xs"> {{ v }} </span>
       </UiSelectItem>
     </UiSelectContent>
   </UiSelect>

@@ -4,7 +4,7 @@ description: A modal dialog that interrupts the user with important content and 
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/alert-dialog.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/alert-dialog.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="AlertDialog"} to see the source code for this c
 
 ### Simple
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertDialog
 
@@ -68,7 +68,7 @@ Click :SourceCodeLink{component="AlertDialog"} to see the source code for this c
 
 ### Stacked Left
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertDialogStackedLeft
 
@@ -108,7 +108,7 @@ Click :SourceCodeLink{component="AlertDialog"} to see the source code for this c
 
 ### Media
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertDialogMedia
 
@@ -151,7 +151,7 @@ Click :SourceCodeLink{component="AlertDialog"} to see the source code for this c
 
 ### Alert w/ Icon
 
-::ShowCase
+::prose-show-case
 
 :DocsAlertDialogWithIcon
 
@@ -169,7 +169,7 @@ Click :SourceCodeLink{component="AlertDialog"} to see the source code for this c
       <UiAlertDialogContent>
         <div class="flex flex-col gap-2 max-sm:items-center sm:flex-row sm:gap-4">
           <div
-            class="flex size-9 shrink-0 items-center justify-center rounded-full border border-border"
+            class="border-border flex size-9 shrink-0 items-center justify-center rounded-full border"
             aria-hidden="true"
           >
             <Icon name="lucide:circle-alert" class="size-4 opacity-80" />

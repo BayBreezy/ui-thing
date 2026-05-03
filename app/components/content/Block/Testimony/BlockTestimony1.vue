@@ -13,7 +13,7 @@
                 src="https://api.dicebear.com/7.x/lorelei/svg?flip=false"
               />
               <p class="mt-4 text-lg font-semibold">{{ item.user.name }}</p>
-              <p class="mt-1 text-muted-foreground">
+              <p class="text-muted-foreground mt-1">
                 {{ item.user.position }}, {{ item.user.companyName }}
               </p>
               <div class="mt-2">

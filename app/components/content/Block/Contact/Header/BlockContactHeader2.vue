@@ -24,7 +24,7 @@
     >
       <Motion :variants="childVariant" class="mx-auto">
         <h1 class="mb-4 text-4xl font-semibold lg:mb-6 lg:text-5xl">Contact us</h1>
-        <p class="mb-12 text-lg text-muted-foreground lg:text-xl">
+        <p class="text-muted-foreground mb-12 text-lg lg:text-xl">
           Our friendly team would love to hear from you.
         </p>
         <form class="max-w-[480px]" @submit="submit">

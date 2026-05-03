@@ -29,7 +29,7 @@
             <option value="4">03:00 AM - 02:59 PM</option>
           </UiNativeSelect>
           <div
-            class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 group-has-[select[disabled]]:opacity-50"
+            class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 group-has-[select[disabled]]:opacity-50"
           >
             <Icon name="lucide:clock" class="size-4" aria-hidden="true" />
           </div>
@@ -43,7 +43,7 @@
           <option value="3">Astro</option>
           <option value="4">Gatsby</option>
         </UiNativeSelect>
-        <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+        <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
           Tell us what's your favorite Select framework
         </p>
       </div>
@@ -67,14 +67,14 @@
           <option value="3">Astro</option>
           <option value="4">Gatsby</option>
         </UiNativeSelect>
-        <p class="mt-2 text-xs text-destructive" role="alert" aria-live="polite">
+        <p class="text-destructive mt-2 text-xs" role="alert" aria-live="polite">
           Selected option is invalid
         </p>
       </div>
 
       <div class="*:not-first:mt-2">
         <UiLabel>Gray background</UiLabel>
-        <UiNativeSelect class="border-transparent bg-muted shadow-none">
+        <UiNativeSelect class="bg-muted border-transparent shadow-none">
           <option value="1">React</option>
           <option value="2">Next.js</option>
           <option value="3">Astro</option>
@@ -133,7 +133,7 @@
 
       <div class="group relative">
         <label
-          class="absolute start-1 top-0 z-10 block -translate-y-1/2 bg-background px-2 text-xs font-medium text-foreground group-has-[select:disabled]:opacity-50"
+          class="bg-background text-foreground absolute start-1 top-0 z-10 block -translate-y-1/2 px-2 text-xs font-medium group-has-[select:disabled]:opacity-50"
         >
           Select with overlapping label
         </label>
@@ -147,9 +147,9 @@
       </div>
 
       <div
-        class="relative rounded-md border border-input bg-background shadow-xs transition-[color,box-shadow] outline-none focus-within:border-ring focus-within:ring-[3px] focus-within:ring-ring/50 has-aria-invalid:border-destructive has-aria-invalid:ring-destructive/20 has-[select:disabled]:cursor-not-allowed has-[select:disabled]:opacity-50 has-[select:is(:disabled)_*]:pointer-events-none dark:has-aria-invalid:ring-destructive/40"
+        class="border-input bg-background focus-within:border-ring focus-within:ring-ring/50 has-aria-invalid:border-destructive has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40 relative rounded-md border shadow-xs transition-[color,box-shadow] outline-none focus-within:ring-[3px] has-[select:disabled]:cursor-not-allowed has-[select:disabled]:opacity-50 has-[select:is(:disabled)_*]:pointer-events-none"
       >
-        <label class="block px-3 pt-2 text-xs font-medium text-foreground">
+        <label class="text-foreground block px-3 pt-2 text-xs font-medium">
           Select with inset label
         </label>
         <UiNativeSelect

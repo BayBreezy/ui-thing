@@ -5,7 +5,7 @@
       <div
         ref="dropzoneRef"
         role="button"
-        class="relative flex size-26 items-center justify-center overflow-hidden rounded-full border border-dashed border-input transition-colors hover:bg-accent/50 has-disabled:pointer-events-none has-disabled:opacity-50 has-[img]:border-none has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50"
+        class="border-input hover:bg-accent/50 has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 relative flex size-26 items-center justify-center overflow-hidden rounded-full border border-dashed transition-colors has-disabled:pointer-events-none has-disabled:opacity-50 has-[img]:border-none has-[input:focus]:ring-[3px]"
         @click="openFileDialog"
       >
         <input ref="inputRef" hidden aria-label="Upload image file" />
@@ -25,7 +25,7 @@
       <UiButton
         v-if="currentFile"
         size="icon"
-        class="absolute -top-1 -right-1 size-6 rounded-full border-2 border-background shadow-none focus-visible:border-background"
+        class="border-background focus-visible:border-background absolute -top-1 -right-1 size-6 rounded-full border-2 shadow-none"
         aria-label="Remove image"
         @click="removeFile(currentFile.id)"
       >
@@ -33,7 +33,7 @@
       </UiButton>
     </div>
     <p class="text-sm font-bold">Upload Avatar</p>
-    <p aria-live="polite" role="region" class="text-xs text-muted-foreground">
+    <p aria-live="polite" role="region" class="text-muted-foreground text-xs">
       Avatar uploader with droppable area
     </p>
   </div>

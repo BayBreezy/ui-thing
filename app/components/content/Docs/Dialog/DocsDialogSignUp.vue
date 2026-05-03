@@ -41,7 +41,7 @@
             >
           </fieldset>
         </form>
-        <p class="text-center text-xs text-muted-foreground">
+        <p class="text-muted-foreground text-center text-xs">
           By signing up you agree to our <a class="underline hover:no-underline" href="#">Terms</a>.
         </p>
       </UiDialogContent>

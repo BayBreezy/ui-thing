@@ -44,11 +44,11 @@
   import { navProviderKey } from "./Provider.vue";
 
   export type NavbarProps = {
-    /** Custom class(es) to add to the wrapper element */
+    /** Custom class(es) to add to the wrapper element. */
     wrapperClass?: HTMLAttributes["class"];
-    /** Custom class(es) to add to the child element */
+    /** Custom class(es) to add to the child element. */
     childClass?: HTMLAttributes["class"];
-    /** Custom class(es) to add to the inner element */
+    /** Custom class(es) to add to the inner element. */
     innerClass?: HTMLAttributes["class"];
     intent?: "default" | "float" | "inset";
     isSticky?: boolean;
@@ -83,11 +83,11 @@
     },
     variants: {
       intent: {
-        default: { child: "border-b bg-background px-6" },
+        default: { child: "bg-background border-b px-6" },
         float: {
           wrapper: "md:px-22 md:pt-10",
           child:
-            "*:data-[navbar=content]:max-w-7xl *:data-[navbar=content]:rounded-xl *:data-[navbar=content]:border *:data-[navbar=content]:bg-background *:data-[navbar=content]:px-4 *:data-[navbar=content]:shadow-xs",
+            "*:data-[navbar=content]:bg-background *:data-[navbar=content]:max-w-7xl *:data-[navbar=content]:rounded-xl *:data-[navbar=content]:border *:data-[navbar=content]:px-4 *:data-[navbar=content]:shadow-xs",
         },
         inset: { child: "px-6" },
       },

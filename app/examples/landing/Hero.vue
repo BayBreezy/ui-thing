@@ -9,11 +9,11 @@
       <div class="space-y-4">
         <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
           Build beautiful interfaces
-          <span class="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+          <span class="from-primary bg-gradient-to-r to-purple-600 bg-clip-text text-transparent">
             in minutes
           </span>
         </h1>
-        <p class="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl">
+        <p class="text-muted-foreground mx-auto max-w-2xl text-lg md:text-xl">
           A comprehensive component library built with Nuxt, Vue, and TailwindCSS. Copy, paste, and
           ship production-ready interfaces faster than ever.
         </p>
@@ -28,22 +28,22 @@
       </div>
 
       <div
-        class="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground"
+        class="text-muted-foreground mt-8 flex flex-wrap items-center justify-center gap-6 text-sm"
       >
         <div class="flex items-center gap-2">
-          <UiIcon name="lucide:check-circle-2" class="size-4 text-primary" />
+          <UiIcon name="lucide:check-circle-2" class="text-primary size-4" />
           <span>60+ Components</span>
         </div>
         <div class="flex items-center gap-2">
-          <UiIcon name="lucide:check-circle-2" class="size-4 text-primary" />
+          <UiIcon name="lucide:check-circle-2" class="text-primary size-4" />
           <span>100+ Blocks</span>
         </div>
         <div class="flex items-center gap-2">
-          <UiIcon name="lucide:check-circle-2" class="size-4 text-primary" />
+          <UiIcon name="lucide:check-circle-2" class="text-primary size-4" />
           <span>Dark Mode</span>
         </div>
         <div class="flex items-center gap-2">
-          <UiIcon name="lucide:check-circle-2" class="size-4 text-primary" />
+          <UiIcon name="lucide:check-circle-2" class="text-primary size-4" />
           <span>TypeScript</span>
         </div>
       </div>

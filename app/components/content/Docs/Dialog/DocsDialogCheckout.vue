@@ -24,7 +24,7 @@
                 v-for="plan in plans"
                 :key="plan.id"
                 :for="`radio-${plan.id}`"
-                class="relative flex cursor-pointer flex-col gap-1 rounded-lg border border-input p-4 shadow-xs shadow-black/5 transition-colors has-focus-visible:outline-3 has-focus-visible:outline-ring/50 has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent/70"
+                class="border-input has-focus-visible:outline-ring/50 has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent/70 relative flex cursor-pointer flex-col gap-1 rounded-lg border p-4 shadow-xs shadow-black/5 transition-colors has-focus-visible:outline-3"
               >
                 <UiRadioGroupItem
                   :id="`radio-${plan.id}`"
@@ -32,16 +32,16 @@
                   class="sr-only after:absolute after:inset-0"
                 />
                 <div class="inline-flex items-start justify-between gap-2">
-                  <p class="font-medium text-foreground md:text-sm">{{ plan.name }}</p>
+                  <p class="text-foreground font-medium md:text-sm">{{ plan.name }}</p>
                   <UiBadge v-if="plan.popular">Popular</UiBadge>
                 </div>
-                <p class="text-sm text-muted-foreground">{{ plan.price }}</p>
+                <p class="text-muted-foreground text-sm">{{ plan.price }}</p>
               </label>
             </UiRadioGroup>
 
             <UiVeeInput name="nameOnCard" label="Name on card" required />
             <div class="space-y-2">
-              <legend class="text-sm font-medium text-foreground">Card Details</legend>
+              <legend class="text-foreground text-sm font-medium">Card Details</legend>
               <div class="rounded-lg shadow-xs shadow-black/5">
                 <div class="relative focus-within:z-10">
                   <UiVeeInput
@@ -92,7 +92,7 @@
           <UiButton type="button" class="w-full"> Subscribe </UiButton>
         </form>
 
-        <p class="text-center text-xs text-muted-foreground">
+        <p class="text-muted-foreground text-center text-xs">
           Payments are non-refundable. Cancel anytime.
         </p>
       </UiDialogContent>

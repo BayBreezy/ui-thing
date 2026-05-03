@@ -19,7 +19,7 @@
         </h3>
 
         <p class="mt-5 text-lg font-semibold">Jane Doe</p>
-        <p class="mt-1 text-muted-foreground">Head of Design, Layers</p>
+        <p class="text-muted-foreground mt-1">Head of Design, Layers</p>
       </div>
     </div>
 

@@ -10,7 +10,7 @@
       <Motion as-child :variants="childVariant">
         <div class="mb-12 text-center">
           <h2 class="mb-3 text-3xl font-bold lg:text-4xl">Trusted by industry leaders</h2>
-          <p class="text-lg text-muted-foreground">
+          <p class="text-muted-foreground text-lg">
             Over 10,000+ companies use our platform to grow their business
           </p>
         </div>
@@ -19,7 +19,7 @@
       <div class="grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12">
         <Motion v-for="company in companies" :key="company.text" as-child :variants="cardVariant">
           <div
-            class="flex items-center justify-center rounded-lg border bg-card p-6 hover:border-primary/50 hover:shadow-md"
+            class="bg-card hover:border-primary/50 flex items-center justify-center rounded-lg border p-6 hover:shadow-md"
           >
             <span class="sr-only">{{ company.text }}</span>
             <Icon :name="company.icon" class="h-16 w-16 lg:h-20 lg:w-20" />

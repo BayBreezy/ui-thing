@@ -4,7 +4,7 @@ description: A control that allows the user to toggle between checked and not ch
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/listbox.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/listbox.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="Listbox"} to see the source code for this compo
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsListboxBasic
 
@@ -84,7 +84,7 @@ Click :SourceCodeLink{component="Listbox"} to see the source code for this compo
 
 ### Objects
 
-::ShowCase
+::prose-show-case
 
 :DocsListboxObjects
 
@@ -107,7 +107,7 @@ Click :SourceCodeLink{component="Listbox"} to see the source code for this compo
                   <UiAvatar class="size-8" :src="p.avatar" />
                   <div class="text-sm">
                     <p class="font-medium">{{ p.name }}</p>
-                    <p class="text-xs text-muted-foreground">{{ p.email }}</p>
+                    <p class="text-muted-foreground text-xs">{{ p.email }}</p>
                   </div>
                 </div>
               </UiListboxItem>
@@ -157,7 +157,7 @@ Click :SourceCodeLink{component="Listbox"} to see the source code for this compo
 
 ### Multiple - Strings
 
-::ShowCase
+::prose-show-case
 
 :DocsListboxStringMultiple
 
@@ -225,7 +225,7 @@ Click :SourceCodeLink{component="Listbox"} to see the source code for this compo
 
 ### Multiple - Objects
 
-::ShowCase
+::prose-show-case
 
 :DocsListboxObjectsMultiple
 
@@ -248,7 +248,7 @@ Click :SourceCodeLink{component="Listbox"} to see the source code for this compo
                   <UiAvatar class="size-8" :src="p.avatar" />
                   <div class="text-sm">
                     <p class="font-medium">{{ p.name }}</p>
-                    <p class="text-xs text-muted-foreground">{{ p.email }}</p>
+                    <p class="text-muted-foreground text-xs">{{ p.email }}</p>
                   </div>
                 </div>
               </UiListboxItem>
@@ -296,7 +296,7 @@ Click :SourceCodeLink{component="Listbox"} to see the source code for this compo
 
 ### Virtualizer - Strings
 
-::ShowCase
+::prose-show-case
 
 :DocsListboxStringVirtualizer
 
@@ -338,7 +338,7 @@ Click :SourceCodeLink{component="Listbox"} to see the source code for this compo
 
 ### Origin UI
 
-::ShowCase
+::prose-show-case
 
 :DocsListboxOrigin
 
@@ -380,7 +380,7 @@ Click :SourceCodeLink{component="Listbox"} to see the source code for this compo
         <UiListboxContent class="bg-background p-1">
           <template v-for="(group, index) in groups" :key="index">
             <UiListboxGroup>
-              <UiListboxGroupLabel class="px-2 py-1.5 text-xs font-medium text-muted-foreground">{{
+              <UiListboxGroupLabel class="text-muted-foreground px-2 py-1.5 text-xs font-medium">{{
                 group.title
               }}</UiListboxGroupLabel>
               <UiListboxItem v-for="(item, k) in group.items" :key="k" :value="item.id">
@@ -437,7 +437,7 @@ Click :SourceCodeLink{component="Listbox"} to see the source code for this compo
 
 ### Transfer
 
-::ShowCase
+::prose-show-case
 
 :DocsListboxTransfer
 

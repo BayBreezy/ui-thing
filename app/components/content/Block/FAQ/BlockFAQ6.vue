@@ -25,7 +25,7 @@
           <div class="lg:sticky lg:top-16 lg:self-start">
             <UiBadge class="mb-4">FAQ</UiBadge>
             <h2 class="mb-4 text-4xl font-bold lg:text-5xl">Questions & Answers</h2>
-            <p class="mb-8 text-lg text-muted-foreground">
+            <p class="text-muted-foreground mb-8 text-lg">
               Everything you need to know about our product and how it works.
             </p>
             <UiButton variant="outline">

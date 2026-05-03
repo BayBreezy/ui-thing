@@ -4,7 +4,7 @@ description: Displays an input field used for editing a single line of text, ren
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/editable.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/editable.html#api-reference
     icon: "icon-park-solid:api"
@@ -24,7 +24,7 @@ The `Editable` component is one that will be used differently in different parts
 
 Since we already have styled buttons and inputs, it kinda makes no sense to force a specific style on the `Editable` component when we can just use the `asChild` prop to pass in the children we want to use.
 
-::ShowCase
+::prose-show-case
 
 :DocsEditable
 
@@ -37,7 +37,7 @@ Since we already have styled buttons and inputs, it kinda makes no sense to forc
   <div>
     <div class="w-full">
       <h1 class="text-lg font-semibold">Application</h1>
-      <p class="mt-px text-sm text-muted-foreground">
+      <p class="text-muted-foreground mt-px text-sm">
         Below is the information submitted. Click on the values to edit them.
       </p>
 
@@ -50,7 +50,7 @@ Since we already have styled buttons and inputs, it kinda makes no sense to forc
 
             <UiEditable v-slot="{ isEditing }" v-model="d.value">
               <UiEditableArea>
-                <UiEditablePreview as="dd" class="h-8 cursor-pointer text-muted-foreground">
+                <UiEditablePreview as="dd" class="text-muted-foreground h-8 cursor-pointer">
                   <span class="flex size-full items-center">
                     {{ d.value }}
                   </span>

@@ -32,7 +32,7 @@
         <Motion
           as="p"
           :variants="childVariant"
-          class="mx-auto max-w-[800px] text-lg text-muted-foreground lg:text-xl"
+          class="text-muted-foreground mx-auto max-w-[800px] text-lg lg:text-xl"
         >
           Search our FAQ or browse by category below.
         </Motion>
@@ -61,12 +61,12 @@
               <UiAccordion type="single" collapsible>
                 <UiAccordionItem v-for="i in generalFaqs" :key="i.value" :value="i.value">
                   <UiAccordionHeader>
-                    <UiAccordionTrigger class="text-base hover:text-primary">{{
+                    <UiAccordionTrigger class="hover:text-primary text-base">{{
                       i.title
                     }}</UiAccordionTrigger>
                   </UiAccordionHeader>
                   <UiAccordionContent>
-                    <p class="text-base text-muted-foreground">{{ i.content }}</p>
+                    <p class="text-muted-foreground text-base">{{ i.content }}</p>
                   </UiAccordionContent>
                 </UiAccordionItem>
               </UiAccordion>
@@ -78,12 +78,12 @@
               <UiAccordion type="single" collapsible>
                 <UiAccordionItem v-for="i in billingFaqs" :key="i.value" :value="i.value">
                   <UiAccordionHeader>
-                    <UiAccordionTrigger class="text-base hover:text-primary">{{
+                    <UiAccordionTrigger class="hover:text-primary text-base">{{
                       i.title
                     }}</UiAccordionTrigger>
                   </UiAccordionHeader>
                   <UiAccordionContent>
-                    <p class="text-base text-muted-foreground">{{ i.content }}</p>
+                    <p class="text-muted-foreground text-base">{{ i.content }}</p>
                   </UiAccordionContent>
                 </UiAccordionItem>
               </UiAccordion>
@@ -95,12 +95,12 @@
               <UiAccordion type="single" collapsible>
                 <UiAccordionItem v-for="i in technicalFaqs" :key="i.value" :value="i.value">
                   <UiAccordionHeader>
-                    <UiAccordionTrigger class="text-base hover:text-primary">{{
+                    <UiAccordionTrigger class="hover:text-primary text-base">{{
                       i.title
                     }}</UiAccordionTrigger>
                   </UiAccordionHeader>
                   <UiAccordionContent>
-                    <p class="text-base text-muted-foreground">{{ i.content }}</p>
+                    <p class="text-muted-foreground text-base">{{ i.content }}</p>
                   </UiAccordionContent>
                 </UiAccordionItem>
               </UiAccordion>
@@ -111,7 +111,7 @@
 
       <Motion as-child :variants="childVariant">
         <section
-          class="mx-auto mt-16 flex max-w-4xl flex-col items-center gap-6 rounded-lg bg-muted/50 py-8 text-center dark:bg-muted/20"
+          class="bg-muted/50 dark:bg-muted/20 mx-auto mt-16 flex max-w-4xl flex-col items-center gap-6 rounded-lg py-8 text-center"
         >
           <p class="text-lg font-semibold">Still need help?</p>
           <p class="text-muted-foreground">Our support team is here to answer your questions.</p>

@@ -3,9 +3,9 @@
     <UiContainer>
       <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="flex flex-col justify-center">
-          <p class="mb-3 font-semibold text-primary">By the numbers</p>
+          <p class="text-primary mb-3 font-semibold">By the numbers</p>
           <h3 class="mb-4 text-3xl font-semibold lg:text-4xl">Making an impact that matters</h3>
-          <p class="text-lg text-muted-foreground">
+          <p class="text-muted-foreground text-lg">
             Our platform helps teams around the world ship better products faster. Here's how we're
             making a difference.
           </p>
@@ -14,10 +14,10 @@
         <div class="grid grid-cols-2 gap-8">
           <template v-for="(s, i) in stats" :key="i">
             <div>
-              <h4 class="mb-2 text-4xl font-bold text-primary lg:text-5xl">
+              <h4 class="text-primary mb-2 text-4xl font-bold lg:text-5xl">
                 {{ s.value }}
               </h4>
-              <p class="text-sm font-medium text-muted-foreground">
+              <p class="text-muted-foreground text-sm font-medium">
                 {{ s.text }}
               </p>
             </div>

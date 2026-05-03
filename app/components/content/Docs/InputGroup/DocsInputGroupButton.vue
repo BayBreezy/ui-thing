@@ -28,7 +28,7 @@
           <p>You should not enter any sensitive information on this site.</p>
         </UiPopoverContent>
       </UiPopover>
-      <UiInputGroupAddon class="pl-1.5 text-muted-foreground"> https:// </UiInputGroupAddon>
+      <UiInputGroupAddon class="text-muted-foreground pl-1.5"> https:// </UiInputGroupAddon>
       <UiInputGroupInput id="input-secure-19" />
       <UiInputGroupAddon align="inline-end">
         <UiInputGroupButton size="icon-xs" @click="isFavorite = !isFavorite">

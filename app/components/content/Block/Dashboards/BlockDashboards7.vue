@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-background text-foreground">
+  <div class="bg-background text-foreground min-h-screen">
     <!-- Upgrade plan dialog -->
     <UiDialog v-model:open="upgradeOpen">
       <UiDialogContent class="sm:max-w-lg">
@@ -54,11 +54,11 @@
                 />
               </div>
 
-              <p class="pr-6 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
+              <p class="text-muted-foreground pr-6 text-xs font-semibold tracking-wider uppercase">
                 Free
               </p>
               <p class="mt-2 text-2xl font-bold">$0<span class="text-sm font-normal">/mo</span></p>
-              <ul class="mt-3 space-y-2 text-sm text-muted-foreground">
+              <ul class="text-muted-foreground mt-3 space-y-2 text-sm">
                 <li class="flex items-center gap-2">
                   <Icon name="heroicons:check" class="size-4 shrink-0 text-emerald-500" />
                   Up to 250 customers
@@ -68,11 +68,11 @@
                   Basic analytics
                 </li>
                 <li class="flex items-center gap-2">
-                  <Icon name="heroicons:x-mark" class="size-4 shrink-0 text-muted-foreground/40" />
+                  <Icon name="heroicons:x-mark" class="text-muted-foreground/40 size-4 shrink-0" />
                   CSV import
                 </li>
                 <li class="flex items-center gap-2">
-                  <Icon name="heroicons:x-mark" class="size-4 shrink-0 text-muted-foreground/40" />
+                  <Icon name="heroicons:x-mark" class="text-muted-foreground/40 size-4 shrink-0" />
                   Priority support
                 </li>
               </ul>
@@ -137,7 +137,7 @@
             </button>
           </div>
 
-          <p class="text-center text-xs text-muted-foreground">
+          <p class="text-muted-foreground text-center text-xs">
             No credit card required. Cancel anytime.
           </p>
         </div>
@@ -170,14 +170,14 @@
 
         <div class="space-y-4 py-2">
           <label
-            class="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed border-border/70 bg-muted/30 px-6 py-10 text-center transition-colors hover:bg-muted/50"
+            class="border-border/70 bg-muted/30 hover:bg-muted/50 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed px-6 py-10 text-center transition-colors"
             :class="{ 'border-[--color-primary] bg-sky-50/50 dark:bg-sky-950/20': importDragOver }"
             @dragover.prevent="importDragOver = true"
             @dragleave.prevent="importDragOver = false"
             @drop.prevent="onImportDrop"
           >
             <div
-              class="flex size-12 items-center justify-center rounded-full bg-muted text-muted-foreground"
+              class="bg-muted text-muted-foreground flex size-12 items-center justify-center rounded-full"
             >
               <Icon name="heroicons:arrow-up-tray" class="size-6" />
             </div>
@@ -185,33 +185,33 @@
               <p class="text-sm font-medium">
                 <span class="text-[--color-primary]">Click to upload</span> or drag and drop
               </p>
-              <p class="text-xs text-muted-foreground">CSV files only, up to 10 MB</p>
+              <p class="text-muted-foreground text-xs">CSV files only, up to 10 MB</p>
             </div>
             <input type="file" accept=".csv" class="sr-only" @change="onImportFileChange" />
           </label>
 
           <div
             v-if="importFile"
-            class="flex items-center gap-3 rounded-lg border border-border/70 bg-card px-4 py-3"
+            class="border-border/70 bg-card flex items-center gap-3 rounded-lg border px-4 py-3"
           >
             <Icon name="heroicons:document-text" class="size-5 shrink-0 text-[--color-primary]" />
             <div class="min-w-0 flex-1">
               <p class="truncate text-sm font-medium">{{ importFile.name }}</p>
-              <p class="text-xs text-muted-foreground">
+              <p class="text-muted-foreground text-xs">
                 {{ (importFile.size / 1024).toFixed(1) }} KB
               </p>
             </div>
             <UiButton
               variant="ghost"
               size="icon-sm"
-              class="shrink-0 text-muted-foreground"
+              class="text-muted-foreground shrink-0"
               @click="importFile = null"
             >
               <Icon name="heroicons:x-mark" class="size-4" />
             </UiButton>
           </div>
 
-          <p class="text-center text-xs text-muted-foreground">
+          <p class="text-muted-foreground text-center text-xs">
             Not sure about the format?
             <button class="font-medium text-[--color-primary] underline-offset-2 hover:underline">
               Download template
@@ -360,7 +360,7 @@
         </UiCommandGroup>
       </UiCommandList>
       <div
-        class="flex items-center gap-5 border-t border-border/70 bg-muted/20 px-4 py-2.5 text-xs text-muted-foreground"
+        class="border-border/70 bg-muted/20 text-muted-foreground flex items-center gap-5 border-t px-4 py-2.5 text-xs"
       >
         <span class="flex items-center gap-1.5"><UiKbd>↵</UiKbd> to select</span>
         <span class="flex items-center gap-1.5"><UiKbd>↑↓</UiKbd> to navigate</span>
@@ -374,14 +374,14 @@
       :initial="{ opacity: 0, y: -16 }"
       :animate="{ opacity: 1, y: 0 }"
       :transition="{ duration: 0.4, ease: 'easeOut' }"
-      class="sticky top-0 z-10 border-b border-border/70 bg-background/85 backdrop-blur-md"
+      class="border-border/70 bg-background/85 sticky top-0 z-10 border-b backdrop-blur-md"
     >
       <UiContainer class="flex min-h-[4rem] items-center justify-between gap-4">
         <!-- Logo + nav -->
         <div class="flex items-center gap-5">
           <div class="flex items-center gap-2.5">
             <div
-              class="flex size-8 items-center justify-center rounded-lg border border-border/70 bg-muted shadow-xs"
+              class="border-border/70 bg-muted flex size-8 items-center justify-center rounded-lg border shadow-xs"
             >
               <div
                 class="size-4 rounded-full bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,0.95),rgba(255,255,255,0.2)_32%,transparent_34%),linear-gradient(135deg,var(--color-primary),color-mix(in_oklab,var(--color-primary)_40%,white))]"
@@ -406,7 +406,7 @@
                 class="w-full justify-start"
                 :class="
                   item.active
-                    ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                    ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                     : 'text-muted-foreground'
                 "
               >
@@ -424,7 +424,7 @@
               size="sm"
               :class="
                 item.active
-                  ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                  ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                   : 'text-muted-foreground'
               "
             >
@@ -463,7 +463,7 @@
                 <UiTooltipTrigger as-child>
                   <UiDropdownMenuTrigger as-child>
                     <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                      <Icon name="heroicons:cog-6-tooth" class="size-5 text-muted-foreground" />
+                      <Icon name="heroicons:cog-6-tooth" class="text-muted-foreground size-5" />
                     </UiButton>
                   </UiDropdownMenuTrigger>
                 </UiTooltipTrigger>
@@ -490,7 +490,7 @@
                 <UiTooltipTrigger as-child>
                   <UiDropdownMenuTrigger as-child>
                     <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                      <Icon name="heroicons:bell" class="size-5 text-muted-foreground" />
+                      <Icon name="heroicons:bell" class="text-muted-foreground size-5" />
                     </UiButton>
                   </UiDropdownMenuTrigger>
                 </UiTooltipTrigger>
@@ -537,7 +537,7 @@
                   <UiDropdownMenuLabel>
                     <div class="flex flex-col">
                       <p class="text-sm font-medium">Olivia Rhye</p>
-                      <p class="text-xs text-muted-foreground">olivia@ui-thing.com</p>
+                      <p class="text-muted-foreground text-xs">olivia@ui-thing.com</p>
                     </div>
                   </UiDropdownMenuLabel>
                   <UiDropdownMenuSeparator />
@@ -562,7 +562,7 @@
       :initial="{ opacity: 0, y: -8 }"
       :animate="{ opacity: 1, y: 0 }"
       :transition="{ duration: 0.35, delay: 0.05, ease: 'easeOut' }"
-      class="border-b border-border/70 bg-background"
+      class="border-border/70 bg-background border-b"
     >
       <UiContainer class="flex items-center justify-between gap-4 py-0">
         <!-- Tabs (desktop) -->
@@ -573,7 +573,7 @@
             class="relative shrink-0 px-3 py-3.5 text-sm font-medium transition-colors"
             :class="
               tab.active
-                ? 'text-foreground after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-primary'
+                ? 'text-foreground after:bg-primary after:absolute after:inset-x-0 after:bottom-0 after:h-0.5'
                 : 'text-muted-foreground hover:text-foreground'
             "
             @click="setActiveTab(tab.label)"
@@ -587,7 +587,7 @@
           <UiPopoverTrigger as-child>
             <UiButton variant="ghost" size="sm" class="gap-1.5 text-sm font-medium sm:hidden">
               {{ activeTabLabel }}
-              <Icon name="heroicons:chevron-down" class="size-4 text-muted-foreground" />
+              <Icon name="heroicons:chevron-down" class="text-muted-foreground size-4" />
             </UiButton>
           </UiPopoverTrigger>
           <UiPopoverContent align="start" class="w-52 p-1">
@@ -609,7 +609,7 @@
         <UiButton
           variant="outline"
           size="sm"
-          class="hidden shrink-0 gap-2 text-muted-foreground sm:flex"
+          class="text-muted-foreground hidden shrink-0 gap-2 sm:flex"
           @click="searchOpen = true"
         >
           <Icon name="heroicons:magnifying-glass" class="size-4" />
@@ -630,7 +630,7 @@
       >
         <div>
           <h1 class="text-2xl font-bold tracking-tight">Welcome back, Olivia</h1>
-          <p class="mt-1 text-sm text-muted-foreground">
+          <p class="text-muted-foreground mt-1 text-sm">
             Track, manage and forecast your customers and orders.
           </p>
         </div>
@@ -656,16 +656,16 @@
         <div
           v-for="stat in statCards"
           :key="stat.label"
-          class="flex flex-col justify-between overflow-hidden rounded-xl border border-border/70 bg-card p-5 shadow-xs"
+          class="border-border/70 bg-card flex flex-col justify-between overflow-hidden rounded-xl border p-5 shadow-xs"
         >
           <!-- Card header -->
           <div class="flex items-center justify-between">
-            <p class="text-sm font-medium text-muted-foreground">{{ stat.label }}</p>
+            <p class="text-muted-foreground text-sm font-medium">{{ stat.label }}</p>
             <UiTooltip>
               <UiDropdownMenu>
                 <UiTooltipTrigger as-child>
                   <UiDropdownMenuTrigger as-child>
-                    <UiButton variant="ghost" size="icon-sm" class="-mr-1 text-muted-foreground">
+                    <UiButton variant="ghost" size="icon-sm" class="text-muted-foreground -mr-1">
                       <Icon name="heroicons:ellipsis-vertical" class="size-4" />
                     </UiButton>
                   </UiDropdownMenuTrigger>
@@ -702,7 +702,7 @@
                   />
                   {{ stat.trend }}
                 </span>
-                <span class="text-xs text-muted-foreground">vs last month</span>
+                <span class="text-muted-foreground text-xs">vs last month</span>
               </div>
             </div>
 
@@ -731,11 +731,11 @@
           <button
             v-for="chip in activeFilters"
             :key="chip.label"
-            class="flex items-center gap-1.5 rounded-full border border-border/70 bg-card px-3 py-1 text-xs font-medium text-foreground transition-colors hover:bg-muted/60"
+            class="border-border/70 bg-card text-foreground hover:bg-muted/60 flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium transition-colors"
             @click="removeFilter(chip.label)"
           >
             {{ chip.label }}
-            <Icon name="heroicons:x-mark" class="size-3.5 text-muted-foreground" />
+            <Icon name="heroicons:x-mark" class="text-muted-foreground size-3.5" />
           </button>
           <UiButton variant="outline" size="sm" class="h-7 rounded-full text-xs">
             <Icon name="heroicons:funnel" class="size-3.5" />
@@ -747,13 +747,13 @@
         <div class="relative w-full sm:w-64">
           <Icon
             name="heroicons:magnifying-glass"
-            class="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground"
+            class="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2"
           />
           <input
             v-model="tableSearch"
             type="text"
             placeholder="Search customers..."
-            class="h-9 w-full rounded-lg border border-border/70 bg-card pr-3 pl-9 text-sm text-foreground shadow-xs transition-colors placeholder:text-muted-foreground focus:border-[--color-primary] focus:ring-1 focus:ring-[--color-primary] focus:outline-none"
+            class="border-border/70 bg-card text-foreground placeholder:text-muted-foreground h-9 w-full rounded-lg border pr-3 pl-9 text-sm shadow-xs transition-colors focus:border-[--color-primary] focus:ring-1 focus:ring-[--color-primary] focus:outline-none"
           />
         </div>
       </Motion>
@@ -764,7 +764,7 @@
         :animate="{ opacity: 1, y: 0 }"
         :transition="{ duration: 0.4, delay: 0.32, ease: 'easeOut' }"
       >
-        <UiCard class="gap-0 overflow-hidden border-border/70 py-0 shadow-xs">
+        <UiCard class="border-border/70 gap-0 overflow-hidden py-0 shadow-xs">
           <UiTanStackTable
             :data="filteredCompanies"
             :columns="companyColumns"
@@ -807,7 +807,7 @@
                 </div>
                 <div class="flex min-w-0 flex-col">
                   <span class="truncate text-sm font-medium">{{ row.original.name }}</span>
-                  <span class="truncate text-xs text-muted-foreground">{{
+                  <span class="text-muted-foreground truncate text-xs">{{
                     row.original.domain
                   }}</span>
                 </div>
@@ -817,8 +817,8 @@
             <!-- License use cell: progress bar + value -->
             <template #licenseUse-cell="{ row }">
               <div class="flex w-28 flex-col gap-1.5">
-                <span class="text-xs text-muted-foreground">{{ row.original.licenseUse }}%</span>
-                <div class="h-1.5 w-full overflow-hidden rounded-full bg-muted">
+                <span class="text-muted-foreground text-xs">{{ row.original.licenseUse }}%</span>
+                <div class="bg-muted h-1.5 w-full overflow-hidden rounded-full">
                   <div
                     class="h-full rounded-full"
                     :style="{
@@ -839,7 +839,7 @@
               >
                 {{ row.original.status }}
               </UiBadge>
-              <span v-else class="text-sm text-muted-foreground">{{ row.original.status }}</span>
+              <span v-else class="text-muted-foreground text-sm">{{ row.original.status }}</span>
             </template>
 
             <!-- Users cell: avatar group -->
@@ -852,10 +852,10 @@
                     :src="url"
                     :alt="`User ${i + 1}`"
                     fallback="U"
-                    class="size-7 shrink-0 ring-2 ring-background"
+                    class="ring-background size-7 shrink-0 ring-2"
                   />
                 </div>
-                <span class="ml-1.5 text-xs text-muted-foreground">+5</span>
+                <span class="text-muted-foreground ml-1.5 text-xs">+5</span>
               </div>
             </template>
 
@@ -863,7 +863,7 @@
             <template #about-cell="{ row }">
               <div class="flex min-w-0 flex-col">
                 <span class="truncate text-sm font-medium">{{ row.original.aboutProduct }}</span>
-                <span class="truncate text-xs text-muted-foreground">{{
+                <span class="text-muted-foreground truncate text-xs">{{
                   row.original.aboutDescription
                 }}</span>
               </div>
@@ -911,9 +911,9 @@
             <!-- Footer with pagination -->
             <template #footer="{ table }">
               <div
-                class="flex w-full flex-col gap-3 border-t border-border/60 px-5 py-4 sm:flex-row sm:items-center sm:justify-between"
+                class="border-border/60 flex w-full flex-col gap-3 border-t px-5 py-4 sm:flex-row sm:items-center sm:justify-between"
               >
-                <p class="shrink-0 text-sm text-muted-foreground">
+                <p class="text-muted-foreground shrink-0 text-sm">
                   <template v-if="table.getFilteredSelectedRowModel().rows.length > 0">
                     {{ table.getFilteredSelectedRowModel().rows.length }} selected
                   </template>
@@ -935,13 +935,13 @@
                         Previous
                       </UiButton>
                     </UiPaginationPrev>
-                    <div class="text-sm text-muted-foreground">
+                    <div class="text-muted-foreground text-sm">
                       Page
-                      <span class="font-medium text-foreground">{{
+                      <span class="text-foreground font-medium">{{
                         table.getState().pagination.pageIndex + 1
                       }}</span>
                       of
-                      <span class="font-medium text-foreground">{{ table.getPageCount() }}</span>
+                      <span class="text-foreground font-medium">{{ table.getPageCount() }}</span>
                     </div>
                     <UiPaginationNext as-child>
                       <UiButton variant="outline" size="sm">
@@ -966,7 +966,7 @@
                         <Icon name="heroicons:arrow-left" class="size-4" />
                       </UiButton>
                     </UiPaginationPrev>
-                    <span class="text-sm text-muted-foreground">
+                    <span class="text-muted-foreground text-sm">
                       Page {{ table.getState().pagination.pageIndex + 1 }} of
                       {{ table.getPageCount() }}
                     </span>

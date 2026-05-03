@@ -48,10 +48,10 @@
       <Motion :variants="childVariant" class="relative">
         <!-- Gradient fade on edges (desktop only) -->
         <div
-          class="pointer-events-none absolute top-0 left-0 z-10 hidden h-full w-20 bg-linear-to-r from-background to-transparent lg:block"
+          class="from-background pointer-events-none absolute top-0 left-0 z-10 hidden h-full w-20 bg-linear-to-r to-transparent lg:block"
         ></div>
         <div
-          class="pointer-events-none absolute top-0 right-0 z-10 hidden h-full w-20 bg-linear-to-l from-background to-transparent lg:block"
+          class="from-background pointer-events-none absolute top-0 right-0 z-10 hidden h-full w-20 bg-linear-to-l to-transparent lg:block"
         ></div>
 
         <!-- Horizontal scroll -->
@@ -84,12 +84,12 @@
                     class="h-[200px] w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div
-                    class="absolute inset-0 bg-linear-to-t from-background/90 via-background/40 to-transparent"
+                    class="from-background/90 via-background/40 absolute inset-0 bg-linear-to-t to-transparent"
                   ></div>
 
                   <!-- Trending badge -->
                   <div
-                    class="absolute top-4 left-4 flex items-center gap-2 rounded-full bg-background/90 px-3 py-1.5 shadow-lg backdrop-blur-sm"
+                    class="bg-background/90 absolute top-4 left-4 flex items-center gap-2 rounded-full px-3 py-1.5 shadow-lg backdrop-blur-sm"
                   >
                     <Motion
                       :variants="{
@@ -104,14 +104,14 @@
                         },
                       }"
                     >
-                      <Icon name="lucide:trending-up" class="h-4 w-4 text-primary" />
+                      <Icon name="lucide:trending-up" class="text-primary h-4 w-4" />
                     </Motion>
                     <span class="text-xs font-semibold">Trending</span>
                   </div>
 
                   <!-- Stats overlay -->
                   <div class="absolute right-4 bottom-4 left-4 flex items-center justify-between">
-                    <div class="flex items-center gap-3 text-xs text-foreground">
+                    <div class="text-foreground flex items-center gap-3 text-xs">
                       <span class="flex items-center gap-1">
                         <Icon name="lucide:eye" class="h-3.5 w-3.5" />
                         2.4k
@@ -136,18 +136,18 @@
                   <UiBadge variant="outline" size="sm">{{ headline }}</UiBadge>
                   <NuxtLink :to="link" class="block">
                     <h4
-                      class="line-clamp-2 text-lg font-semibold transition-colors hover:text-primary"
+                      class="hover:text-primary line-clamp-2 text-lg font-semibold transition-colors"
                     >
                       {{ title }}
                     </h4>
                   </NuxtLink>
-                  <p class="line-clamp-2 text-sm text-muted-foreground">{{ description }}</p>
+                  <p class="text-muted-foreground line-clamp-2 text-sm">{{ description }}</p>
                   <UiDivider class="my-3!" />
                   <div class="flex items-center gap-2">
                     <UiAvatar :src="userImage" :alt="userName" size="xs" />
                     <div class="min-w-0 flex-1">
                       <p class="truncate text-xs font-medium">{{ userName }}</p>
-                      <p class="text-xs text-muted-foreground">{{ date }}</p>
+                      <p class="text-muted-foreground text-xs">{{ date }}</p>
                     </div>
                   </div>
                 </UiCardContent>

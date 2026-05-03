@@ -4,7 +4,7 @@ description: An image element with a fallback for representing the user.
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/avatar.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/avatar.html#api-reference
     icon: "icon-park-solid:api"
@@ -20,7 +20,7 @@ Click :SourceCodeLink{component="Avatar"} to see the source code for this compon
 
 ## Usage
 
-::ShowCase
+::prose-show-case
 
 :DocsAvatar
 
@@ -73,7 +73,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Simple
 
-::ShowCase
+::prose-show-case
 
 :DocsAvatarSimple
 
@@ -106,7 +106,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Initials Only
 
-::ShowCase
+::prose-show-case
 
 :DocsAvatarInitialOnly
 
@@ -130,7 +130,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Icon Only
 
-::ShowCase
+::prose-show-case
 
 :DocsAvatarIconOnly
 
@@ -166,7 +166,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Chip
 
-::ShowCase
+::prose-show-case
 
 :DocsAvatarChip
 
@@ -205,7 +205,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Badge
 
-::ShowCase
+::prose-show-case
 
 :DocsAvatarBadge
 
@@ -216,10 +216,10 @@ To use these examples you will have to copy the code and adjust it for your own 
 ```vue [DocsAvatarBadge.vue]
 <template>
   <div class="flex items-center justify-center gap-10">
-    <UiChip size="3xl" class="h-auto min-w-fit translate-x-0 bg-background p-0 ring-1">
+    <UiChip size="3xl" class="bg-background h-auto min-w-fit translate-x-0 p-0 ring-1">
       <template #content>
         <div class="flex items-center justify-center">
-          <Icon name="heroicons:check-badge-solid" class="size-5 text-foreground" />
+          <Icon name="heroicons:check-badge-solid" class="text-foreground size-5" />
         </div>
       </template>
       <UiAvatar>
@@ -243,7 +243,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Group
 
-::ShowCase
+::prose-show-case
 
 :DocsAvatarGroup
 
@@ -255,33 +255,33 @@ To use these examples you will have to copy the code and adjust it for your own 
 <template>
   <div class="flex flex-col items-center justify-center gap-10">
     <div class="flex -space-x-1">
-      <UiAvatar v-for="u in users" :key="u.name" class="size-8 ring-2 ring-background">
+      <UiAvatar v-for="u in users" :key="u.name" class="ring-background size-8 ring-2">
         <UiAvatarImage :src="u.avatar" :alt="u.name" />
         <UiAvatarFallback>{{ u.initials }}</UiAvatarFallback>
       </UiAvatar>
     </div>
     <div class="flex -space-x-1">
-      <UiAvatar v-for="u in users" :key="u.name" class="size-8 ring-2 ring-background">
+      <UiAvatar v-for="u in users" :key="u.name" class="ring-background size-8 ring-2">
         <UiAvatarImage :src="u.avatar" :alt="u.name" />
         <UiAvatarFallback>{{ u.initials }}</UiAvatarFallback>
       </UiAvatar>
       <UiButton
         v-tippy="{ content: 'Add user' }"
         variant="secondary"
-        class="z-10 flex size-8 items-center justify-center rounded-full bg-secondary text-xs text-muted-foreground ring-2 ring-background hover:bg-secondary hover:text-foreground"
+        class="bg-secondary text-muted-foreground ring-background hover:bg-secondary hover:text-foreground z-10 flex size-8 items-center justify-center rounded-full text-xs ring-2"
         size="icon"
       >
         +3
       </UiButton>
     </div>
     <div class="flex -space-x-3">
-      <UiAvatar v-for="u in users" :key="u.name" class="size-12 ring-2 ring-background">
+      <UiAvatar v-for="u in users" :key="u.name" class="ring-background size-12 ring-2">
         <UiAvatarImage :src="u.avatar" :alt="u.name" />
         <UiAvatarFallback>{{ u.initials }}</UiAvatarFallback>
       </UiAvatar>
     </div>
     <div class="flex -space-x-2">
-      <UiAvatar v-for="u in users" :key="u.name" class="size-20 ring-2 ring-background">
+      <UiAvatar v-for="u in users" :key="u.name" class="ring-background size-20 ring-2">
         <UiAvatarImage :src="u.avatar" :alt="u.name" />
         <UiAvatarFallback>{{ u.initials }}</UiAvatarFallback>
       </UiAvatar>
@@ -321,7 +321,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Badge Group
 
-::ShowCase
+::prose-show-case
 
 :DocsAvatarBadgeGroup
 
@@ -333,16 +333,16 @@ To use these examples you will have to copy the code and adjust it for your own 
 <template>
   <div class="flex items-center justify-center gap-10">
     <div
-      class="flex items-center rounded-full border border-border bg-background p-1 shadow shadow-black/5"
+      class="border-border bg-background flex items-center rounded-full border p-1 shadow shadow-black/5"
     >
       <div class="flex -space-x-1">
-        <UiAvatar v-for="u in users" :key="u.name" class="size-5 ring-1 ring-background">
+        <UiAvatar v-for="u in users" :key="u.name" class="ring-background size-5 ring-1">
           <UiAvatarImage :src="u.avatar" :alt="u.name" />
           <UiAvatarFallback>{{ u.initials }}</UiAvatarFallback>
         </UiAvatar>
       </div>
-      <p class="px-2 text-xs text-muted-foreground">
-        Trusted by <strong class="font-medium text-foreground">60K+</strong> developers.
+      <p class="text-muted-foreground px-2 text-xs">
+        Trusted by <strong class="text-foreground font-medium">60K+</strong> developers.
       </p>
     </div>
   </div>
@@ -380,7 +380,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Avatar Label Group
 
-::ShowCase
+::prose-show-case
 
 :DocsAvatarLabelGroup
 

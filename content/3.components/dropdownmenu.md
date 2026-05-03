@@ -4,7 +4,7 @@ description: Displays a menu to the user—such as a set of actions or functions
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/dropdown-menu.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/dropdown-menu.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="DropdownMenu"} to see the source code for this 
 
 ### Menu Items w/ Submenu
 
-::ShowCase
+::prose-show-case
 
 :DocsDropdownMenuBasic
 
@@ -113,7 +113,7 @@ Click :SourceCodeLink{component="DropdownMenu"} to see the source code for this 
 
 Use the `translucent` prop on the content surface when you want a softer glassmorphic menu treatment without changing the menu behavior.
 
-::ShowCase
+::prose-show-case
 
 :DocsDropdownMenuTranslucent
 
@@ -155,7 +155,7 @@ Use the `translucent` prop on the content surface when you want a softer glassmo
 
 ### Checkbox Menu Items
 
-::ShowCase
+::prose-show-case
 
 :DocsDropdownMenuCheckItems
 
@@ -225,7 +225,7 @@ Use the `translucent` prop on the content surface when you want a softer glassmo
 
 ### Radio Menu Items
 
-::ShowCase
+::prose-show-case
 
 :DocsDropdownMenuRadioItems
 
@@ -284,7 +284,7 @@ Use the `translucent` prop on the content surface when you want a softer glassmo
 
 ### Origin UI Examples
 
-::ShowCase
+::prose-show-case
 
 :DocsDropdownMenuOriginU-I
 
@@ -433,14 +433,14 @@ Use the `translucent` prop on the content surface when you want a softer glassmo
               <UiDropdownMenuLabel>Add block</UiDropdownMenuLabel>
               <UiDropdownMenuItem v-for="(block, i) in blocks" :key="i">
                 <div
-                  class="flex size-8 items-center justify-center rounded-md border bg-accent text-accent-foreground"
+                  class="bg-accent text-accent-foreground flex size-8 items-center justify-center rounded-md border"
                   aria-hidden="true"
                 >
                   <Icon :name="block.icon" size="16" />
                 </div>
                 <div>
                   <div class="text-sm font-medium">{{ block.title }}</div>
-                  <div class="text-xs text-muted-foreground">{{ block.description }}</div>
+                  <div class="text-muted-foreground text-xs">{{ block.description }}</div>
                 </div>
               </UiDropdownMenuItem>
             </UiDropdownMenuContent>

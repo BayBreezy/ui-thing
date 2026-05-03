@@ -60,7 +60,7 @@
             <input
               type="email"
               placeholder="Enter your email"
-              class="rounded-md border-slate-700 bg-slate-800 px-4 py-2 text-sm text-white placeholder-slate-400 focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none"
+              class="focus:border-primary focus:ring-primary rounded-md border-slate-700 bg-slate-800 px-4 py-2 text-sm text-white placeholder-slate-400 focus:ring-2 focus:outline-none"
             />
             <UiButton size="sm" class="w-full">Subscribe</UiButton>
           </form>

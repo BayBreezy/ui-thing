@@ -12,7 +12,7 @@
                   <UiAvatar class="size-8" :src="p.avatar" />
                   <div class="text-sm">
                     <p class="font-medium">{{ p.name }}</p>
-                    <p class="text-xs text-muted-foreground">{{ p.email }}</p>
+                    <p class="text-muted-foreground text-xs">{{ p.email }}</p>
                   </div>
                 </div>
               </UiListboxItem>

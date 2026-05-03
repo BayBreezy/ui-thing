@@ -3,7 +3,7 @@
     <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end">
       <div class="basis-1/2">
         <slot name="headline">
-          <p class="font-semibold text-primary">{{ headline }}</p>
+          <p class="text-primary font-semibold">{{ headline }}</p>
         </slot>
         <slot name="title">
           <h2 class="mt-2 text-4xl font-bold text-balance md:mt-3 md:text-5xl">
@@ -13,7 +13,7 @@
       </div>
       <slot name="description">
         <p
-          class="max-w-[700px] basis-1/2 text-lg text-balance text-muted-foreground md:text-right lg:text-xl"
+          class="text-muted-foreground max-w-[700px] basis-1/2 text-lg text-balance md:text-right lg:text-xl"
         >
           {{ description }}
         </p>
@@ -25,7 +25,7 @@
           <div class="w-full lg:w-[335px]">
             <UiVeeInput required placeholder="Enter your email" aria-label="Enter your email" />
           </div>
-          <p class="my-2 text-sm text-muted-foreground lg:hidden">
+          <p class="text-muted-foreground my-2 text-sm lg:hidden">
             We care about your data in our privacy policy.
           </p>
           <div>
@@ -34,7 +34,7 @@
             >
           </div>
         </form>
-        <p class="mt-3 hidden text-left text-sm text-muted-foreground lg:block">
+        <p class="text-muted-foreground mt-3 hidden text-left text-sm lg:block">
           We care about your data in our privacy policy.
         </p>
       </div>

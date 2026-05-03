@@ -6,12 +6,12 @@
           <template v-for="(n, k) in notes" :key="k">
             <ToggleGroupItem
               :value="n.title"
-              class="group flex w-full items-start gap-4 rounded-md p-4 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground"
+              class="group data-[state=on]:bg-accent data-[state=on]:text-accent-foreground flex w-full items-start gap-4 rounded-md p-4"
             >
-              <Icon :name="n.icon" class="mt-px size-5 group-data-[state=on]:text-primary" />
+              <Icon :name="n.icon" class="group-data-[state=on]:text-primary mt-px size-5" />
               <div class="flex flex-col gap-0.5 text-left">
                 <p class="text-sm leading-none font-medium">{{ n.title }}</p>
-                <p class="text-sm text-muted-foreground">{{ n.description }}</p>
+                <p class="text-muted-foreground text-sm">{{ n.description }}</p>
               </div>
             </ToggleGroupItem>
           </template>

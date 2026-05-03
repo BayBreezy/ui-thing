@@ -70,8 +70,6 @@
 </script>
 
 <style scoped>
-  @reference "~/assets/css/tailwind.css";
-
   :deep(.tiptap) {
     :first-child {
       margin-top: 0;
@@ -79,9 +77,15 @@
     /* List styles */
     ul,
     ol {
-      @apply mx-3 my-5 list-inside px-4 py-0;
+      margin-inline: calc(var(--spacing) * 3);
+      margin-block: calc(var(--spacing) * 5);
+      list-style-position: inside;
+      padding-inline: calc(var(--spacing) * 4);
+      padding-block: calc(var(--spacing) * 0);
+
       li p {
-        @apply my-0 inline-block;
+        margin-block: calc(var(--spacing) * 0);
+        display: inline-block;
       }
     }
     ul {
@@ -92,7 +96,10 @@
     }
 
     a {
-      @apply cursor-pointer text-violet-500 underline underline-offset-2;
+      cursor: pointer;
+      color: var(--color-violet-500);
+      text-decoration-line: underline;
+      text-underline-offset: 2px;
     }
 
     /* Heading styles */
@@ -102,12 +109,16 @@
     h4,
     h5,
     h6 {
-      @apply mt-9 leading-tight font-bold text-pretty;
+      margin-top: calc(var(--spacing) * 9);
+      line-height: 1.25;
+      font-weight: var(--font-weight-bold);
+      text-wrap: pretty;
     }
 
     h1,
     h2 {
-      @apply mt-14 mb-6;
+      margin-top: calc(var(--spacing) * 14);
+      margin-bottom: calc(var(--spacing) * 6);
     }
 
     h1 {
@@ -130,27 +141,68 @@
 
     /* Code and preformatted text styles */
     code {
-      @apply rounded bg-muted px-1 font-mono text-sm font-medium text-foreground;
+      border-radius: var(--radius-sm);
+      background-color: var(--color-muted);
+      padding-inline: calc(var(--spacing) * 1);
+      color: var(--color-foreground);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      line-height: var(--text-sm--line-height);
+      font-weight: var(--font-weight-medium);
     }
 
     pre {
-      @apply my-6 rounded-md bg-muted p-4 font-mono text-sm text-foreground;
+      margin-block: calc(var(--spacing) * 6);
+      border-radius: var(--radius-md);
+      background-color: var(--color-muted);
+      padding: calc(var(--spacing) * 4);
+      color: var(--color-foreground);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      line-height: var(--text-sm--line-height);
+
       code {
-        @apply bg-none p-0 text-sm text-inherit;
+        background-image: none;
+        padding: calc(var(--spacing) * 0);
+        font-size: var(--text-sm);
+        line-height: var(--text-sm--line-height);
+        color: inherit;
       }
     }
     blockquote {
-      @apply mx-0 my-5 border-l-4 border-border py-2 pl-4;
+      margin-inline: calc(var(--spacing) * 0);
+      margin-block: calc(var(--spacing) * 5);
+      border-left-style: solid;
+      border-left-width: 4px;
+      border-color: var(--color-border);
+      padding-block: calc(var(--spacing) * 2);
+      padding-left: calc(var(--spacing) * 4);
     }
     hr {
-      @apply my-6 border-0 border-t border-border;
+      margin-block: calc(var(--spacing) * 6);
+      border-width: 0;
+      border-top-style: solid;
+      border-top-width: 1px;
+      border-color: var(--color-border);
     }
     table {
-      @apply m-0 w-full table-fixed border-collapse overflow-hidden;
+      margin: calc(var(--spacing) * 0);
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+      overflow: hidden;
 
       td,
       th {
-        @apply relative box-border min-w-4 border border-border px-3 py-2 align-top;
+        position: relative;
+        box-sizing: border-box;
+        min-width: calc(var(--spacing) * 4);
+        border-style: solid;
+        border-width: 1px;
+        border-color: var(--color-border);
+        padding-inline: calc(var(--spacing) * 3);
+        padding-block: calc(var(--spacing) * 2);
+        vertical-align: top;
 
         > * {
           margin-bottom: 0;
@@ -164,7 +216,16 @@
       }
     }
     mark {
-      @apply rounded bg-sky-400/40 box-decoration-clone p-1 text-accent-foreground dark:bg-sky-500/70 dark:text-white;
+      border-radius: var(--radius-sm);
+      background-color: color-mix(in oklab, var(--color-sky-400) 40%, transparent);
+      box-decoration-break: clone;
+      padding: calc(var(--spacing) * 1);
+      color: var(--color-accent-foreground);
+
+      &:is(.dark *) {
+        background-color: color-mix(in oklab, var(--color-sky-500) 70%, transparent);
+        color: var(--color-white);
+      }
     }
   }
 </style>

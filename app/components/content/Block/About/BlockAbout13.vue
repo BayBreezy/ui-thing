@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Meet Our Founders</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         The visionaries behind our success story
       </p>
     </div>
@@ -31,18 +31,18 @@
         <div class="flex flex-col justify-center" :class="index % 2 === 1 ? 'lg:order-1' : ''">
           <UiBadge class="w-fit">{{ founder.role }}</UiBadge>
           <h3 class="mt-4 text-3xl font-bold">{{ founder.name }}</h3>
-          <p class="mt-2 text-primary">{{ founder.title }}</p>
+          <p class="text-primary mt-2">{{ founder.title }}</p>
 
-          <div class="mt-6 space-y-4 text-muted-foreground">
+          <div class="text-muted-foreground mt-6 space-y-4">
             <p v-for="paragraph in founder.bio" :key="paragraph">{{ paragraph }}</p>
           </div>
 
           <div class="mt-6 space-y-4">
             <div>
               <h4 class="text-sm font-semibold">Background</h4>
-              <ul class="mt-2 space-y-1 text-sm text-muted-foreground">
+              <ul class="text-muted-foreground mt-2 space-y-1 text-sm">
                 <li v-for="item in founder.background" :key="item" class="flex items-start gap-2">
-                  <Icon name="lucide:check" class="mt-0.5 size-4 shrink-0 text-primary" />
+                  <Icon name="lucide:check" class="text-primary mt-0.5 size-4 shrink-0" />
                   <span>{{ item }}</span>
                 </li>
               </ul>

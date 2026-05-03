@@ -6,7 +6,7 @@
       </UiHoverCardTrigger>
       <UiHoverCardContent class="w-80">
         <div class="flex justify-between space-x-4">
-          <UiAvatar class="ring-1 ring-muted">
+          <UiAvatar class="ring-muted ring-1">
             <UiAvatarImage src="https://github.com/vuejs.png" />
             <UiAvatarFallback>VC</UiAvatarFallback>
           </UiAvatar>
@@ -17,7 +17,7 @@
             </p>
             <div class="flex items-center pt-2">
               <Icon name="lucide:calendar-days" class="mr-2 size-4 opacity-70" />
-              <span class="text-xs text-muted-foreground"> Joined January 2014 </span>
+              <span class="text-muted-foreground text-xs"> Joined January 2014 </span>
             </div>
           </div>
         </div>

@@ -20,13 +20,13 @@
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<{
-    /**Custom class(es) to add to the element */
+    /** Custom class(es) to add to the element. */
     class?: HTMLAttributes["class"];
-    /** Function called when the item is clicked */
+    /** Function called when the item is clicked. */
     onClick?: () => void;
-    /** The location that the item should navigate to when clicked */
+    /** The location that the item should navigate to when clicked. */
     to?: string;
-    /** The href for the `a` tag */
+    /** The href for the `a` tag. */
     href?: string;
   }>();
 
@@ -34,7 +34,7 @@
     base: "flex w-full items-center gap-5 px-4 py-2",
     variants: {
       hover: {
-        true: "cursor-pointer outline-none hover:bg-muted focus-visible:ring-4 focus-visible:ring-primary/10",
+        true: "hover:bg-muted focus-visible:ring-primary/10 cursor-pointer outline-none focus-visible:ring-4",
       },
     },
   });

@@ -1,9 +1,9 @@
 <template>
   <div class="flex items-center justify-center gap-10">
-    <UiChip size="3xl" class="h-auto min-w-fit translate-x-0 bg-background p-0 ring-1">
+    <UiChip size="3xl" class="bg-background h-auto min-w-fit translate-x-0 p-0 ring-1">
       <template #content>
         <div class="flex items-center justify-center">
-          <Icon name="heroicons:check-badge-solid" class="size-5 text-foreground" />
+          <Icon name="heroicons:check-badge-solid" class="text-foreground size-5" />
         </div>
       </template>
       <UiAvatar>

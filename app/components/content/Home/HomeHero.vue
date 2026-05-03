@@ -4,7 +4,7 @@
       <h1 class="text-3xl font-bold tracking-tighter lg:text-4xl">
         Build your <span class="text-primary">Nuxt</span> applications with ease
       </h1>
-      <p class="mt-2 text-center text-lg text-pretty text-muted-foreground">
+      <p class="text-muted-foreground mt-2 text-center text-lg text-pretty">
         Awesome components that you can copy and paste into your Nuxt applications.
       </p>
       <div class="mt-6 grid w-full grid-cols-1 gap-3 sm:flex sm:w-fit sm:items-center">

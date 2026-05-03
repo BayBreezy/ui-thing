@@ -13,9 +13,9 @@
       },
     }"
   >
-    <div class="group relative overflow-hidden rounded-2xl bg-background shadow-lg">
+    <div class="group bg-background relative overflow-hidden rounded-2xl shadow-lg">
       <div
-        class="absolute inset-0 bg-linear-to-br from-primary/30 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100"
+        class="from-primary/30 absolute inset-0 bg-linear-to-br via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100"
       />
 
       <div class="relative">
@@ -29,7 +29,7 @@
           <NuxtLink :to="link" class="relative block">
             <img v-if="image" :src="image" :alt="alt" class="h-[220px] w-full object-cover" />
             <div
-              class="absolute inset-0 bg-linear-to-t from-background/90 via-background/30 to-transparent"
+              class="from-background/90 via-background/30 absolute inset-0 bg-linear-to-t to-transparent"
             />
             <Motion
               :variants="{
@@ -47,7 +47,7 @@
         </Motion>
 
         <div class="p-6">
-          <div class="mb-3 flex items-center gap-2 text-xs text-muted-foreground">
+          <div class="text-muted-foreground mb-3 flex items-center gap-2 text-xs">
             <Motion
               :variants="{
                 initial: { opacity: 0, x: -10 },
@@ -80,7 +80,7 @@
           <Motion as-child :variants="childVariant">
             <NuxtLink :to="link">
               <h3
-                class="mb-3 text-xl leading-tight font-bold transition-colors hover:text-primary lg:text-2xl"
+                class="hover:text-primary mb-3 text-xl leading-tight font-bold transition-colors lg:text-2xl"
               >
                 {{ title }}
               </h3>
@@ -91,7 +91,7 @@
             v-if="description"
             as="p"
             :variants="childVariant"
-            class="mb-5 line-clamp-2 text-sm text-muted-foreground"
+            class="text-muted-foreground mb-5 line-clamp-2 text-sm"
           >
             {{ description }}
           </Motion>
@@ -102,23 +102,23 @@
                 v-if="userImage"
                 :src="userImage"
                 :alt="userName"
-                class="size-10 ring-2 ring-muted"
+                class="ring-muted size-10 ring-2"
               />
               <div>
                 <p v-if="userName" class="text-sm font-semibold">{{ userName }}</p>
-                <p v-if="date" class="text-xs text-muted-foreground">{{ date }}</p>
+                <p v-if="date" class="text-muted-foreground text-xs">{{ date }}</p>
               </div>
             </div>
             <div class="flex items-center gap-2">
               <UiButton size="icon-sm" variant="ghost">
                 <Icon
                   name="lucide:heart"
-                  class="size-4 text-muted-foreground transition-colors hover:fill-red-500 hover:text-red-500"
+                  class="text-muted-foreground size-4 transition-colors hover:fill-red-500 hover:text-red-500"
                 />
                 <span class="sr-only">Like</span>
               </UiButton>
               <UiButton size="icon-sm" variant="ghost">
-                <Icon name="lucide:share-2" class="size-4 text-muted-foreground" />
+                <Icon name="lucide:share-2" class="text-muted-foreground size-4" />
                 <span class="sr-only">Share</span>
               </UiButton>
             </div>

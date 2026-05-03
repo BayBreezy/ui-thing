@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 gap-5 md:flex md:items-center md:justify-between">
       <div class="flex flex-col">
         <h1 class="font-semibold">Users</h1>
-        <p class="text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-sm">
           A list of all the users in your account including their name, title, email and role.
         </p>
       </div>
@@ -14,18 +14,18 @@
 
     <div class="mt-10 [&>div]:max-h-[500px]">
       <UiTable class="">
-        <UiTableHeader class="sticky top-0 z-10 bg-background/90 backdrop-blur-sm">
+        <UiTableHeader class="bg-background/90 sticky top-0 z-10 backdrop-blur-sm">
           <UiTableRow>
-            <UiTableHead class="pl-0 font-semibold text-foreground backdrop-blur">Name</UiTableHead>
+            <UiTableHead class="text-foreground pl-0 font-semibold backdrop-blur">Name</UiTableHead>
             <UiTableHead
-              class="hidden bg-background/90 pl-0 font-semibold text-foreground backdrop-blur lg:table-cell"
+              class="bg-background/90 text-foreground hidden pl-0 font-semibold backdrop-blur lg:table-cell"
               >Title</UiTableHead
             >
             <UiTableHead
-              class="hidden bg-background/90 pl-0 font-semibold text-foreground backdrop-blur md:table-cell"
+              class="bg-background/90 text-foreground hidden pl-0 font-semibold backdrop-blur md:table-cell"
               >Email</UiTableHead
             >
-            <UiTableHead class="pl-0 font-semibold text-foreground backdrop-blur">Role</UiTableHead>
+            <UiTableHead class="text-foreground pl-0 font-semibold backdrop-blur">Role</UiTableHead>
             <UiTableHead class="pl-0 backdrop-blur">
               <span class="sr-only">Actions</span>
             </UiTableHead>
@@ -41,13 +41,13 @@
                   <p class="text-muted-foreground md:hidden">{{ user.email }}</p>
                 </div>
               </UiTableCell>
-              <UiTableCell class="hidden pl-0 text-muted-foreground lg:table-cell">{{
+              <UiTableCell class="text-muted-foreground hidden pl-0 lg:table-cell">{{
                 user.title
               }}</UiTableCell>
-              <UiTableCell class="hidden pl-0 text-muted-foreground md:table-cell">{{
+              <UiTableCell class="text-muted-foreground hidden pl-0 md:table-cell">{{
                 user.email
               }}</UiTableCell>
-              <UiTableCell class="pl-0 text-muted-foreground">{{ user.role }}</UiTableCell>
+              <UiTableCell class="text-muted-foreground pl-0">{{ user.role }}</UiTableCell>
               <UiTableCell class="pl-0 text-right">
                 <UiButton size="sm" variant="linkHover2">Edit</UiButton>
               </UiTableCell>

@@ -22,7 +22,7 @@
     <UiContainer class="py-16 lg:py-24">
       <!-- Centered header -->
       <div class="text-center">
-        <Motion as="p" :variants="childVariant" class="mb-3 font-semibold text-primary">
+        <Motion as="p" :variants="childVariant" class="text-primary mb-3 font-semibold">
           Our blog
         </Motion>
         <Motion
@@ -32,7 +32,7 @@
         >
           Resources and insights
         </Motion>
-        <Motion as="p" :variants="childVariant" class="text-lg text-muted-foreground lg:text-xl">
+        <Motion as="p" :variants="childVariant" class="text-muted-foreground text-lg lg:text-xl">
           The latest industry news, interviews, technologies, and resources.
         </Motion>
       </div>
@@ -43,7 +43,7 @@
           <div class="w-full">
             <UiVeeInput required placeholder="Enter your email" aria-label="Enter your email" />
           </div>
-          <p class="my-2 text-sm text-muted-foreground lg:hidden">
+          <p class="text-muted-foreground my-2 text-sm lg:hidden">
             We care about your data in our privacy policy.
           </p>
           <div>
@@ -52,7 +52,7 @@
             >
           </div>
         </form>
-        <p class="mt-3 hidden text-sm text-muted-foreground lg:block">
+        <p class="text-muted-foreground mt-3 hidden text-sm lg:block">
           We care about your data in our privacy policy.
         </p>
       </Motion>
@@ -80,7 +80,7 @@
         >
           <NuxtLink to="#">
             <h2
-              class="mb-2 text-xl font-semibold transition-colors hover:text-primary/80 md:text-2xl"
+              class="hover:text-primary/80 mb-2 text-xl font-semibold transition-colors md:text-2xl"
             >
               Improve your design skills: Develop an "eye" for design
             </h2>
@@ -118,15 +118,15 @@
             class="mb-5 h-[240px] w-full rounded-lg object-cover shadow transition-transform duration-300 hover:scale-[1.02]"
           />
         </NuxtLink>
-        <p v-if="headline" class="mb-2 text-sm font-semibold text-primary">
+        <p v-if="headline" class="text-primary mb-2 text-sm font-semibold">
           {{ headline }} <span v-if="date">- {{ date }}</span>
         </p>
         <NuxtLink :to="link">
-          <p class="mb-2 text-xl font-semibold transition-colors hover:text-primary lg:text-2xl">
+          <p class="hover:text-primary mb-2 text-xl font-semibold transition-colors lg:text-2xl">
             {{ title }}
           </p>
         </NuxtLink>
-        <p v-if="description" class="mb-3 line-clamp-2 text-ellipsis text-muted-foreground">
+        <p v-if="description" class="text-muted-foreground mb-3 line-clamp-2 text-ellipsis">
           {{ description }}
         </p>
         <div class="flex flex-wrap items-center gap-2">
@@ -157,17 +157,17 @@
                 class="mb-5 h-[240px] w-full rounded-lg object-cover shadow transition-transform duration-300 hover:scale-[1.02]"
               />
             </NuxtLink>
-            <p v-if="headline" class="mb-2 text-sm font-semibold text-primary">
+            <p v-if="headline" class="text-primary mb-2 text-sm font-semibold">
               {{ headline }} <span v-if="date">- {{ date }}</span>
             </p>
             <NuxtLink :to="link">
               <p
-                class="mb-2 text-xl font-semibold transition-colors hover:text-primary lg:text-2xl"
+                class="hover:text-primary mb-2 text-xl font-semibold transition-colors lg:text-2xl"
               >
                 {{ title }}
               </p>
             </NuxtLink>
-            <p v-if="description" class="mb-3 line-clamp-2 text-ellipsis text-muted-foreground">
+            <p v-if="description" class="text-muted-foreground mb-3 line-clamp-2 text-ellipsis">
               {{ description }}
             </p>
             <div class="flex flex-wrap items-center gap-2">

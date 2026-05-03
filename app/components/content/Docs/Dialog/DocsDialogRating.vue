@@ -8,7 +8,7 @@
         class="flex flex-col gap-0 p-0 sm:max-w-[400px] [&>button:last-child]:top-3.5"
       >
         <UiDialogHeader class="contents space-y-0 text-left">
-          <UiDialogTitle class="border-b border-border px-6 py-4 text-base">
+          <UiDialogTitle class="border-border border-b px-6 py-4 text-base">
             Help us improve
           </UiDialogTitle>
           <UiDialogDescription class="sr-only">
@@ -20,7 +20,7 @@
             <div class="space-y-4">
               <div>
                 <fieldset class="space-y-4">
-                  <legend class="text-lg leading-none font-semibold text-foreground">
+                  <legend class="text-foreground text-lg leading-none font-semibold">
                     How hard was it to set up your account?
                   </legend>
                   <UiRadioGroup
@@ -31,7 +31,7 @@
                       v-for="number in 8"
                       :key="number"
                       :for="`radio-17-r${number}`"
-                      class="relative flex size-9 flex-1 cursor-pointer flex-col items-center justify-center gap-3 border border-input text-center text-sm outline-offset-2 transition-colors first:rounded-s-lg last:rounded-e-lg has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring/70 has-[[data-disabled]]:cursor-not-allowed has-[[data-disabled]]:opacity-50 has-[[data-state=checked]]:z-10 has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent"
+                      class="border-input has-[:focus-visible]:outline-ring/70 has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent relative flex size-9 flex-1 cursor-pointer flex-col items-center justify-center gap-3 border text-center text-sm outline-offset-2 transition-colors first:rounded-s-lg last:rounded-e-lg has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[[data-disabled]]:cursor-not-allowed has-[[data-disabled]]:opacity-50 has-[[data-state=checked]]:z-10"
                     >
                       <RadioGroupItem
                         :id="`radio-17-r${number}`"
@@ -42,7 +42,7 @@
                     </label>
                   </UiRadioGroup>
                 </fieldset>
-                <div class="mt-2 flex justify-between text-xs text-muted-foreground">
+                <div class="text-muted-foreground mt-2 flex justify-between text-xs">
                   <p>Very easy</p>
                   <p>Very difficult</p>
                 </div>

@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col gap-10">
     <section class="space-y-3">
-      <p class="text-sm text-muted-foreground">Live clock</p>
+      <p class="text-muted-foreground text-sm">Live clock</p>
       <UiFlipClock size="lg" />
     </section>
 
     <section class="space-y-3">
-      <p class="text-sm text-muted-foreground">Countdown (shows days, violet variant)</p>
+      <p class="text-muted-foreground text-sm">Countdown (shows days, violet variant)</p>
       <UiFlipClock countdown show-days="always" :target-date="targetDate" variant="violet" />
     </section>
   </div>

@@ -2,7 +2,7 @@
   <div
     ref="svBoxRef"
     data-slot="color-picker-sv"
-    class="relative h-40 w-60 cursor-crosshair touch-none overflow-hidden rounded-md select-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
+    class="focus-visible:ring-ring relative h-40 w-60 cursor-crosshair touch-none overflow-hidden rounded-md select-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
     tabindex="0"
     :style="{ backgroundColor: `hsl(${ctx.hue.value}, 100%, 50%)` }"
     @pointerdown="onPointerDown"

@@ -1,16 +1,16 @@
 <template>
   <div class="flex items-center justify-center gap-10">
     <div
-      class="flex items-center rounded-full border border-border bg-background p-1 shadow shadow-black/5"
+      class="border-border bg-background flex items-center rounded-full border p-1 shadow shadow-black/5"
     >
       <div class="flex -space-x-1">
-        <UiAvatar v-for="u in users" :key="u.name" class="size-5 ring-1 ring-background">
+        <UiAvatar v-for="u in users" :key="u.name" class="ring-background size-5 ring-1">
           <UiAvatarImage :src="u.avatar" :alt="u.name" />
           <UiAvatarFallback>{{ u.initials }}</UiAvatarFallback>
         </UiAvatar>
       </div>
-      <p class="px-2 text-xs text-muted-foreground">
-        Trusted by <strong class="font-medium text-foreground">60K+</strong> developers.
+      <p class="text-muted-foreground px-2 text-xs">
+        Trusted by <strong class="text-foreground font-medium">60K+</strong> developers.
       </p>
     </div>
   </div>

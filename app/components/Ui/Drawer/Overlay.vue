@@ -15,6 +15,6 @@
   const props = defineProps<DialogOverlayProps & { class?: HTMLAttributes["class"] }>();
 
   const styles = tv({
-    base: "fixed inset-0 z-50 bg-background/40 backdrop-blur",
+    base: "bg-background/40 fixed inset-0 z-50 backdrop-blur",
   });
 </script>

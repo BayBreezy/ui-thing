@@ -14,7 +14,7 @@
               <h2 class="mb-4 text-3xl font-bold tracking-tight lg:text-4xl">
                 Join 10,000+ Subscribers
               </h2>
-              <p class="mb-6 text-lg text-muted-foreground">
+              <p class="text-muted-foreground mb-6 text-lg">
                 Get weekly insights, tips, and exclusive content delivered to your inbox. No spam,
                 ever.
               </p>
@@ -28,23 +28,23 @@
                 />
                 <UiButton type="submit" class="whitespace-nowrap">Get Started</UiButton>
               </form>
-              <div class="mt-6 flex items-center gap-6 text-sm text-muted-foreground">
+              <div class="text-muted-foreground mt-6 flex items-center gap-6 text-sm">
                 <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="size-5 text-primary" />
+                  <Icon name="lucide:check-circle" class="text-primary size-5" />
                   <span>Free forever</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <Icon name="lucide:shield-check" class="size-5 text-primary" />
+                  <Icon name="lucide:shield-check" class="text-primary size-5" />
                   <span>Secure</span>
                 </div>
               </div>
             </div>
           </Motion>
           <Motion as-child :variants="imageVariant">
-            <div class="relative h-64 bg-linear-to-br from-primary/20 to-primary/5 lg:h-auto">
+            <div class="from-primary/20 to-primary/5 relative h-64 bg-linear-to-br lg:h-auto">
               <div class="absolute inset-0 flex items-center justify-center p-8">
                 <div class="grid grid-cols-2 gap-4">
-                  <div v-for="i in 4" :key="i" class="h-24 w-24 rounded-lg bg-card shadow-lg"></div>
+                  <div v-for="i in 4" :key="i" class="bg-card h-24 w-24 rounded-lg shadow-lg"></div>
                 </div>
               </div>
             </div>

@@ -7,9 +7,9 @@
       class="flex w-full max-w-md flex-col items-center gap-6 text-center"
     >
       <Motion :variants="spinnerVariant" class="relative flex items-center justify-center">
-        <div class="animate-spin rounded-full border-2 border-dashed animation-duration-[8.5s]">
-          <div class="relative z-10 animate-none rounded-full bg-background p-6">
-            <Icon :name="icon" class="size-8 text-muted-foreground" />
+        <div class="animation-duration-[8.5s] animate-spin rounded-full border-2 border-dashed">
+          <div class="bg-background relative z-10 animate-none rounded-full p-6">
+            <Icon :name="icon" class="text-muted-foreground size-8" />
           </div>
         </div>
       </Motion>
@@ -20,7 +20,7 @@
           </h1>
         </slot>
         <slot name="description">
-          <p v-if="description" class="text-sm text-muted-foreground">
+          <p v-if="description" class="text-muted-foreground text-sm">
             <span v-html="description" />
           </p>
         </slot>
@@ -38,11 +38,11 @@
             class="flex items-start gap-3 text-left"
           >
             <div
-              class="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground"
+              class="bg-primary text-primary-foreground flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-semibold"
             >
               {{ index + 1 }}
             </div>
-            <p class="text-sm text-muted-foreground" v-html="step" />
+            <p class="text-muted-foreground text-sm" v-html="step" />
           </Motion>
         </slot>
       </Motion>

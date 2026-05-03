@@ -19,7 +19,7 @@
             initial: { scale: 0, y: 20 },
             animate: { scale: 1, y: 0 },
           }"
-          class="inline-flex size-16 items-center justify-center rounded-full bg-linear-to-b from-primary/50 text-primary"
+          class="from-primary/50 text-primary inline-flex size-16 items-center justify-center rounded-full bg-linear-to-b"
         >
           <Icon name="lucide:send" class="h-6 w-6" />
         </Motion>
@@ -39,7 +39,7 @@
             initial: { opacity: 0, y: 10 },
             animate: { opacity: 1, y: 0 },
           }"
-          class="mb-6 text-muted-foreground"
+          class="text-muted-foreground mb-6"
         >
           No spam. Just the latest releases and tips, interesting articles, and exclusive interviews
           in your inbox every week.
@@ -60,7 +60,7 @@
               initial: { opacity: 0, y: 10 },
               animate: { opacity: 1, y: 0 },
             }"
-            class="my-4 text-sm text-muted-foreground"
+            class="text-muted-foreground my-4 text-sm"
           >
             Read about our privacy policy <a href="#" class="text-primary">here</a>.
           </Motion>

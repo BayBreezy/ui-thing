@@ -27,6 +27,6 @@
   const forwarded = useForwardPropsEmits(reactiveOmit(props, "class", "icon"), emits);
 
   const styles = tv({
-    base: "relative flex w-full cursor-pointer items-center rounded-sm py-2 pr-8 pl-3 text-sm outline-none select-none focus:bg-accent focus:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:ring-1 data-highlighted:ring-border",
+    base: "focus:bg-accent focus:text-accent-foreground data-highlighted:ring-border relative flex w-full cursor-pointer items-center rounded-sm py-2 pr-8 pl-3 text-sm outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:ring-1",
   });
 </script>

@@ -23,7 +23,7 @@
       </Motion>
 
       <Motion as-child :variants="childVariant">
-        <p class="mx-auto max-w-2xl text-lg text-muted-foreground lg:text-xl">
+        <p class="text-muted-foreground mx-auto max-w-2xl text-lg lg:text-xl">
           The most powerful platform for teams to build, ship, and scale their products. Join
           thousands of companies already using our tools.
         </p>
@@ -44,15 +44,15 @@
 
       <Motion as-child :variants="childVariant">
         <div class="mt-10 flex flex-wrap items-center justify-center gap-8 lg:mt-16">
-          <div class="flex items-center gap-2 text-sm text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 text-sm">
             <Icon class="size-5 text-green-600" name="lucide:check-circle-2" />
             <span>No credit card required</span>
           </div>
-          <div class="flex items-center gap-2 text-sm text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 text-sm">
             <Icon class="size-5 text-green-600" name="lucide:check-circle-2" />
             <span>14-day free trial</span>
           </div>
-          <div class="flex items-center gap-2 text-sm text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 text-sm">
             <Icon class="size-5 text-green-600" name="lucide:check-circle-2" />
             <span>Cancel anytime</span>
           </div>
@@ -61,7 +61,7 @@
 
       <Motion as-child :variants="imageVariant">
         <div
-          class="mx-auto mt-12 max-w-5xl overflow-hidden rounded-xl border bg-muted/30 shadow-2xl lg:mt-16"
+          class="bg-muted/30 mx-auto mt-12 max-w-5xl overflow-hidden rounded-xl border shadow-2xl lg:mt-16"
         >
           <img
             src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"

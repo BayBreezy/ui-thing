@@ -22,7 +22,7 @@
     <UiContainer class="py-16">
       <div class="mx-auto max-w-[700px]">
         <div class="text-center">
-          <Motion as="p" :variants="childVariant" class="font-semibold text-primary"
+          <Motion as="p" :variants="childVariant" class="text-primary font-semibold"
             >Contact us</Motion
           >
           <Motion
@@ -35,7 +35,7 @@
           <Motion
             as="p"
             :variants="childVariant"
-            class="mb-10 text-lg text-muted-foreground lg:text-xl"
+            class="text-muted-foreground mb-10 text-lg lg:text-xl"
           >
             Choose a department and we'll route your message to the right team.
           </Motion>
@@ -62,7 +62,7 @@
                   </div>
                   <p
                     v-if="selectedDepartment"
-                    class="mt-2 flex items-center gap-1.5 text-sm text-muted-foreground"
+                    class="text-muted-foreground mt-2 flex items-center gap-1.5 text-sm"
                   >
                     <Icon name="heroicons:clock" class="h-4 w-4" />
                     Typical response time: {{ getResponseTime(selectedDepartment) }}

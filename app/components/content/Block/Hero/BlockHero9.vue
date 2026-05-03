@@ -2,7 +2,7 @@
   <div class="relative min-h-screen overflow-hidden">
     <!-- Animated Background -->
     <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-linear-to-br from-primary/10 via-background to-background" />
+      <div class="from-primary/10 via-background to-background absolute inset-0 bg-linear-to-br" />
       <div
         class="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-size-[80px_80px]"
       />
@@ -20,13 +20,13 @@
       >
         <Motion as-child :variants="childVariant">
           <div
-            class="inline-flex items-center gap-2 rounded-full border bg-muted/50 px-4 py-2 text-sm"
+            class="bg-muted/50 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm"
           >
             <span class="relative flex size-2">
               <span
-                class="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-75"
+                class="bg-primary absolute inline-flex size-full animate-ping rounded-full opacity-75"
               />
-              <span class="relative inline-flex size-2 rounded-full bg-primary" />
+              <span class="bg-primary relative inline-flex size-2 rounded-full" />
             </span>
             <span>Now in public beta</span>
           </div>
@@ -39,7 +39,7 @@
         </Motion>
 
         <Motion as-child :variants="childVariant">
-          <p class="mx-auto max-w-2xl text-xl text-muted-foreground">
+          <p class="text-muted-foreground mx-auto max-w-2xl text-xl">
             Ship faster, collaborate better, and build products your customers love. Everything you
             need in one powerful platform.
           </p>
@@ -62,15 +62,15 @@
           <div class="mt-16 grid grid-cols-3 gap-8 lg:gap-16">
             <div class="flex flex-col items-center">
               <p class="text-3xl font-bold lg:text-4xl">50K+</p>
-              <p class="mt-1 text-sm text-muted-foreground">Active Users</p>
+              <p class="text-muted-foreground mt-1 text-sm">Active Users</p>
             </div>
             <div class="flex flex-col items-center">
               <p class="text-3xl font-bold lg:text-4xl">99.9%</p>
-              <p class="mt-1 text-sm text-muted-foreground">Uptime</p>
+              <p class="text-muted-foreground mt-1 text-sm">Uptime</p>
             </div>
             <div class="flex flex-col items-center">
               <p class="text-3xl font-bold lg:text-4xl">24/7</p>
-              <p class="mt-1 text-sm text-muted-foreground">Support</p>
+              <p class="text-muted-foreground mt-1 text-sm">Support</p>
             </div>
           </div>
         </Motion>

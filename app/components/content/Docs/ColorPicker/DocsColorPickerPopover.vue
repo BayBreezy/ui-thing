@@ -3,7 +3,7 @@
     <UiPopover>
       <UiPopoverTrigger as-child>
         <UiButton variant="outline" class="w-fit justify-start gap-2 px-2">
-          <div class="size-4 rounded border border-input" :style="{ backgroundColor: color }"></div>
+          <div class="border-input size-4 rounded border" :style="{ backgroundColor: color }"></div>
           <span class="font-mono text-xs">{{ color }}</span>
         </UiButton>
       </UiPopoverTrigger>

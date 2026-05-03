@@ -41,13 +41,9 @@
          * @default true
          */
         showCloseButton?: boolean;
-        /**
-         * Whether to render the dialog content with a translucent surface.
-         */
+        /** Whether to render the dialog content with a translucent surface. */
         translucent?: boolean;
-        /**
-         * When `true`, hover over item will trigger highlight
-         */
+        /** When `true`, hover over item will trigger highlight. */
         highlightOnHover?: boolean;
       }
     >(),

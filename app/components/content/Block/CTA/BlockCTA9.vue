@@ -31,7 +31,7 @@
         <Motion
           as="p"
           :variants="childVariant"
-          class="mx-auto mb-12 max-w-[700px] text-lg text-muted-foreground md:text-xl"
+          class="text-muted-foreground mx-auto mb-12 max-w-[700px] text-lg md:text-xl"
         >
           See what our customers have to say about their experience.
         </Motion>
@@ -61,7 +61,7 @@
                     />
                   </template>
                 </div>
-                <p class="mb-6 text-lg text-muted-foreground italic lg:text-xl">
+                <p class="text-muted-foreground mb-6 text-lg italic lg:text-xl">
                   "{{ testimonial.quote }}"
                 </p>
                 <div class="flex items-center justify-center gap-3">
@@ -71,7 +71,7 @@
                   </UiAvatar>
                   <div class="text-left">
                     <p class="font-semibold">{{ testimonial.name }}</p>
-                    <p class="text-sm text-muted-foreground">
+                    <p class="text-muted-foreground text-sm">
                       {{ testimonial.role }} at {{ testimonial.company }}
                     </p>
                   </div>

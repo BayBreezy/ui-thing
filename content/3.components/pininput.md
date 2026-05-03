@@ -4,7 +4,7 @@ description: A sequence of one-character alphanumeric inputs. Useful for PIN cod
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/pin-input.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/pin-input.html#api-reference
     icon: "icon-park-solid:api"
@@ -24,7 +24,7 @@ Click :SourceCodeLink{component="PinInput"} to see the source code for this comp
 
 Passing a value to the placeholder prop will render a placeholder character in each input.
 
-::ShowCase
+::prose-show-case
 
 :DocsPinInput
 
@@ -51,7 +51,7 @@ Passing a value to the placeholder prop will render a placeholder character in e
 
 Passing a value to the separator prop will render a separator character between each input.
 
-::ShowCase
+::prose-show-case
 
 :DocsPinInputSeparator
 
@@ -78,7 +78,7 @@ Passing a value to the separator prop will render a separator character between 
 
 The complete event is emitted when the user has entered a value in all inputs.
 
-::ShowCase
+::prose-show-case
 
 :DocsPinInputComplete
 
@@ -91,7 +91,7 @@ The complete event is emitted when the user has entered a value in all inputs.
   <div class="flex items-center justify-center">
     <UiLabel class="flex flex-col items-start">
       <p class="mb-3 text-sm font-medium">Enter OTP sent to your email</p>
-      <UiPinInput :input-count="5" type="number" @complete="toast({ title: 'Complete' })" />
+      <UiPinInput :input-count="5" type="number" @complete="useSonner.success('OTP Complete')" />
     </UiLabel>
   </div>
 </template>
@@ -103,7 +103,7 @@ The complete event is emitted when the user has entered a value in all inputs.
 
 ### Origin UI
 
-::ShowCase
+::prose-show-case
 
 :DocsPinInputOrigin
 
@@ -116,14 +116,14 @@ The complete event is emitted when the user has entered a value in all inputs.
   <div class="mx-auto grid max-w-xs grid-cols-1 gap-10">
     <div class="flex flex-col gap-3">
       <UiLabel for="otp-single">OTP input single</UiLabel>
-      <UiPinInput id="otp-single" otp>
+      <UiPinInput id="otp-single">
         <UiPinInputGroup>
-          <UiPinInputInput
-            v-for="n in 4"
-            :key="n"
-            :index="n"
-            class="rounded-s-none rounded-e-none border-l-0 will-change-[box-shadow] first:rounded-s-md first:border-l last:rounded-e-md focus:z-20 focus:border-l"
-          />
+          <template v-for="(item, i) in 4" :key="i">
+            <UiPinInputInput
+              :index="i"
+              class="rounded-s-none rounded-e-none border-l-0 will-change-[box-shadow] first:rounded-s-md first:border-l last:rounded-e-md focus:z-20 focus:border-l"
+            />
+          </template>
         </UiPinInputGroup>
       </UiPinInput>
     </div>
@@ -131,7 +131,7 @@ The complete event is emitted when the user has entered a value in all inputs.
       <UiLabel for="otp-double">OTP input double</UiLabel>
       <UiPinInput id="otp-double" otp>
         <UiPinInputGroup>
-          <template v-for="n in [1, 2, 3]" :key="n">
+          <template v-for="(item, n) in [1, 2, 3]" :key="n">
             <UiPinInputInput
               :index="n"
               class="rounded-s-none rounded-e-none border-l-0 will-change-[box-shadow] first:rounded-s-md first:border-l last:rounded-e-md focus:z-20 focus:border-l"
@@ -140,9 +140,9 @@ The complete event is emitted when the user has entered a value in all inputs.
         </UiPinInputGroup>
         <Icon name="lucide:minus" />
         <UiPinInputGroup>
-          <template v-for="n in [4, 5, 6]" :key="n">
+          <template v-for="(item, n) in [4, 5, 6]" :key="n">
             <UiPinInputInput
-              :index="n"
+              :index="n + 3"
               class="rounded-s-none rounded-e-none border-l-0 will-change-[box-shadow] first:rounded-s-md first:border-l last:rounded-e-md focus:z-20 focus:border-l"
             />
           </template>
@@ -151,8 +151,6 @@ The complete event is emitted when the user has entered a value in all inputs.
     </div>
   </div>
 </template>
-
-<script lang="ts" setup></script>
 ```
 
 <!-- /automd -->

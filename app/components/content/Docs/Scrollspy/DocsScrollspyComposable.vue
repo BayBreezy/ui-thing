@@ -17,8 +17,8 @@
       <div ref="parentRef" class="-me-5 h-[300px] overflow-y-auto pe-5">
         <div class="space-y-8">
           <div v-for="item in nav" :id="item.id" :key="item.id" class="space-y-2.5">
-            <h3 class="text-base text-foreground">{{ item.label }}</h3>
-            <div class="h-[350px] rounded-lg bg-muted"></div>
+            <h3 class="text-foreground text-base">{{ item.label }}</h3>
+            <div class="bg-muted h-[350px] rounded-lg"></div>
           </div>
         </div>
       </div>

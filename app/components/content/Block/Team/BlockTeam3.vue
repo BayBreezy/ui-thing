@@ -10,7 +10,7 @@
       <UiContainer class="py-16 text-center lg:py-24">
         <slot name="headline">
           <Motion as-child :variants="childVariant">
-            <p v-if="headline" class="font-semibold text-primary">{{ headline }}</p>
+            <p v-if="headline" class="text-primary font-semibold">{{ headline }}</p>
           </Motion>
         </slot>
         <slot name="title">
@@ -20,7 +20,7 @@
         </slot>
         <slot name="description">
           <Motion as-child :variants="childVariant">
-            <p class="mx-auto max-w-[768px] text-lg text-muted-foreground lg:text-xl">
+            <p class="text-muted-foreground mx-auto max-w-[768px] text-lg lg:text-xl">
               {{ description }}
             </p>
           </Motion>
@@ -41,7 +41,7 @@
             />
             <p class="text-lg font-semibold">Jane Doe</p>
             <p class="text-primary">Marketing Manager</p>
-            <p class="mt-2 text-muted-foreground">
+            <p class="text-muted-foreground mt-2">
               Lead engineering teams at Figma, Pitch, and Protocol Labs.
             </p>
           </div>

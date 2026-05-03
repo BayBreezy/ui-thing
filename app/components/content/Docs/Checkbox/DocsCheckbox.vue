@@ -13,7 +13,7 @@
       <UiCheckbox id="terms1" v-model="terms1" />
       <div class="mt-0.5 grid gap-1.5 leading-none">
         <UiLabel for="terms1"> Accept terms and conditions </UiLabel>
-        <p class="text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-sm">
           You agree to our Terms of Service and Privacy Policy.
         </p>
       </div>

@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Our Culture & Values</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         What makes us unique and drives our success
       </p>
     </div>
@@ -14,17 +14,17 @@
     <div class="mt-12 grid gap-8 lg:grid-cols-2">
       <div>
         <h3 class="text-2xl font-bold">Culture First</h3>
-        <p class="mt-4 text-muted-foreground">
+        <p class="text-muted-foreground mt-4">
           We believe that a strong culture is the foundation of success. Our workplace is built on
           trust, respect, and a shared commitment to excellence.
         </p>
 
         <div class="mt-8 space-y-6">
           <div v-for="benefit in benefits" :key="benefit.title" class="flex gap-4">
-            <Icon :name="benefit.icon" class="size-4 text-muted-foreground" />
+            <Icon :name="benefit.icon" class="text-muted-foreground size-4" />
             <div>
               <h4 class="leading-none font-semibold">{{ benefit.title }}</h4>
-              <p class="mt-1.5 text-sm text-muted-foreground">{{ benefit.description }}</p>
+              <p class="text-muted-foreground mt-1.5 text-sm">{{ benefit.description }}</p>
             </div>
           </div>
         </div>
@@ -35,13 +35,13 @@
           <UiCardContent>
             <div class="flex items-start gap-4">
               <div
-                class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10"
+                class="bg-primary/10 flex size-12 shrink-0 items-center justify-center rounded-xl"
               >
-                <Icon :name="culture.icon" class="size-6 text-primary" />
+                <Icon :name="culture.icon" class="text-primary size-6" />
               </div>
               <div>
                 <h4 class="font-semibold">{{ culture.title }}</h4>
-                <p class="mt-2 text-sm text-muted-foreground">{{ culture.description }}</p>
+                <p class="text-muted-foreground mt-2 text-sm">{{ culture.description }}</p>
                 <div class="mt-3 flex flex-wrap gap-2">
                   <UiBadge
                     v-for="tag in culture.tags"

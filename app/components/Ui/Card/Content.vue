@@ -20,9 +20,9 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
-        /** Content to display in the card */
+        /** Content to display in the card. */
         content?: string;
-        /** Custom class(es) to add to the element */
+        /** Custom class(es) to add to the element. */
         class?: HTMLAttributes["class"];
       }
     >(),

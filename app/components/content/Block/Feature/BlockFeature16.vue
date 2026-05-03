@@ -10,7 +10,7 @@
       <Motion :variants="childVariant">
         <div class="mx-auto max-w-[760px] text-center">
           <h2 class="mb-4 text-3xl font-semibold lg:mb-5 lg:text-4xl">Why choose our platform?</h2>
-          <p class="text-lg text-muted-foreground lg:text-xl">
+          <p class="text-muted-foreground text-lg lg:text-xl">
             Discover the features that make us the best choice for your business.
           </p>
         </div>
@@ -27,7 +27,7 @@
         <Motion
           v-for="(feature, i) in features"
           :key="i"
-          class="group relative overflow-hidden rounded-xl border bg-card p-6 hover:shadow-xl lg:p-8"
+          class="group bg-card relative overflow-hidden rounded-xl border p-6 hover:shadow-xl lg:p-8"
           :variants="childVariant"
         >
           <div class="relative z-10">
@@ -42,7 +42,7 @@
             </div>
 
             <h3 class="mb-3 text-xl font-semibold lg:text-2xl">{{ feature.title }}</h3>
-            <p class="mb-6 text-muted-foreground">{{ feature.description }}</p>
+            <p class="text-muted-foreground mb-6">{{ feature.description }}</p>
 
             <div class="space-y-3">
               <div
@@ -50,12 +50,12 @@
                 :key="j"
                 class="flex items-start gap-2 transition-transform duration-300 hover:translate-x-1"
               >
-                <Icon name="heroicons:check-circle" class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                <Icon name="heroicons:check-circle" class="text-primary mt-0.5 h-5 w-5 shrink-0" />
                 <span class="text-sm">{{ point }}</span>
               </div>
             </div>
 
-            <div class="mt-6 flex items-center gap-2 text-sm font-semibold text-primary">
+            <div class="text-primary mt-6 flex items-center gap-2 text-sm font-semibold">
               <span>Explore feature</span>
               <Icon
                 name="heroicons:arrow-right"

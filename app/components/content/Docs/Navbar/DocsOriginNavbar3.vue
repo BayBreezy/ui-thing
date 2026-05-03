@@ -76,7 +76,7 @@
                   :active="link.active"
                   :href="link.href"
                   :data-active="link.active"
-                  class="h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium text-muted-foreground hover:border-b-primary hover:bg-transparent hover:text-primary data-[active=true]:border-b-primary data-[active=true]:bg-transparent!"
+                  class="text-muted-foreground hover:border-b-primary hover:text-primary data-[active=true]:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active=true]:bg-transparent!"
                 >
                   {{ link.label }}
                 </UiNavigationMenuLink>

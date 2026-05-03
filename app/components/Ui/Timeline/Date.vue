@@ -16,7 +16,7 @@
   import type { HTMLAttributes } from "vue";
 
   const styles = tv({
-    base: "mb-1 block text-xs font-medium text-muted-foreground group-data-[orientation=vertical]/timeline:max-sm:h-4",
+    base: "text-muted-foreground mb-1 block text-xs font-medium group-data-[orientation=vertical]/timeline:max-sm:h-4",
   });
   const props = withDefaults(
     defineProps<

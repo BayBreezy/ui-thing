@@ -6,7 +6,7 @@
     <div class="relative">
       <slot name="icon">
         <span v-if="hasIcon" class="absolute">
-          <Icon v-if="icon" :name="icon" class="size-4 text-muted-foreground" />
+          <Icon v-if="icon" :name="icon" class="text-muted-foreground size-4" />
         </span>
       </slot>
       <UiSelect
@@ -33,7 +33,7 @@
           exit="initial"
           animate="animate"
           :transition="{ type: 'keyframes' }"
-          class="mt-1.5 text-sm text-muted-foreground"
+          class="text-muted-foreground mt-1.5 text-sm"
         >
           {{ hint }}
         </motion.p>
@@ -46,7 +46,7 @@
           exit="initial"
           animate="animate"
           :transition="{ type: 'keyframes' }"
-          class="mt-1.5 text-sm text-destructive"
+          class="text-destructive mt-1.5 text-sm"
         >
           {{ errorMessage }}
         </motion.p>

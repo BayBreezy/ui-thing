@@ -24,7 +24,7 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
 
 ### Objects
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeMultiselectObject
 
@@ -101,7 +101,7 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
 
 ### Groups
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeMultiselectGroup
 
@@ -176,7 +176,7 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
 
 ### Search
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeMultiselectSearch
 
@@ -221,7 +221,7 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
 
 ### Tags w/ Search & Create
 
-::ShowCase
+::prose-show-case
 
 :DocsMultiselectTagsSearchCreate
 
@@ -258,7 +258,7 @@ You can visit the [VueForm Multiselect page](https://www.npmjs.com/package/@vuef
 
 ### Autocomplete w/ Async
 
-::ShowCase
+::prose-show-case
 
 :DocsMultiselectAutocompleteAsync
 

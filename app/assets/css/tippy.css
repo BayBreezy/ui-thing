@@ -1,14 +1,26 @@
-@reference "./tailwind.css";
-
 [data-tippy-root] {
   .tippy-box {
-    @apply rounded-md bg-popover px-2 py-1 text-popover-foreground shadow ring-1 ring-border;
+    border-radius: var(--radius-md);
+    background-color: var(--color-popover);
+    padding-inline: calc(var(--spacing) * 2);
+    padding-block: calc(var(--spacing) * 1);
+    color: var(--color-popover-foreground);
+    box-shadow:
+      0 0 0 1px var(--color-border),
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
+
     .tippy-content {
-      @apply text-[13px];
+      font-size: 13px;
     }
   }
 
   .tippy-box[data-theme~="error"] {
-    @apply bg-destructive text-destructive-foreground ring-destructive;
+    background-color: var(--color-destructive);
+    color: var(--color-destructive-foreground);
+    box-shadow:
+      0 0 0 1px var(--color-destructive),
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
 }

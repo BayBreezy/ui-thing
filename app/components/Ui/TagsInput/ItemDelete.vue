@@ -24,6 +24,6 @@
   );
   const forwarded = reactiveOmit(props, "class", "icon");
   const styles = tv({
-    base: "flex items-center justify-center p-0 text-muted-foreground/80 transition-[color,box-shadow] outline-none hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50",
+    base: "text-muted-foreground/80 hover:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 flex items-center justify-center p-0 transition-[color,box-shadow] outline-none focus-visible:ring-[3px]",
   });
 </script>

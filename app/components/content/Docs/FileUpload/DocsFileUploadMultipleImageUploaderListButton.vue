@@ -4,18 +4,18 @@
     <div
       ref="dropzoneRef"
       :data-files="files.length > 0 || undefined"
-      class="relative flex min-h-52 flex-col items-center overflow-hidden rounded-xl border border-dashed border-input p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50"
+      class="border-input has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 relative flex min-h-52 flex-col items-center overflow-hidden rounded-xl border border-dashed p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:ring-[3px]"
     >
       <input ref="inputRef" hidden aria-label="Upload image file" />
       <div class="flex flex-col items-center justify-center px-4 py-3 text-center">
         <div
-          class="mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border bg-background"
+          class="bg-background mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border"
           aria-hidden="true"
         >
           <Icon name="lucide:image" class="size-4 opacity-60" />
         </div>
         <p class="mb-1.5 text-sm font-medium">Drop your images here</p>
-        <p class="text-xs text-muted-foreground">SVG, PNG, JPG or GIF (max. {{ maxSizeMB }}MB)</p>
+        <p class="text-muted-foreground text-xs">SVG, PNG, JPG or GIF (max. {{ maxSizeMB }}MB)</p>
         <UiButton variant="outline" class="mt-4" @click="openFileDialog">
           <Icon name="lucide:upload" class="-ms-1 size-4 opacity-60" aria-hidden="true" />
           Select images
@@ -25,7 +25,7 @@
 
     <div
       v-if="errors.length > 0"
-      class="flex items-center gap-1 text-xs text-destructive"
+      class="text-destructive flex items-center gap-1 text-xs"
       role="alert"
     >
       <Icon name="lucide:circle-alert" class="size-3 shrink-0" />
@@ -37,10 +37,10 @@
       <div
         v-for="file in files"
         :key="file.id"
-        class="flex items-center justify-between gap-2 rounded-lg border bg-background p-2 pe-3"
+        class="bg-background flex items-center justify-between gap-2 rounded-lg border p-2 pe-3"
       >
         <div class="flex items-center gap-3 overflow-hidden">
-          <div class="aspect-square shrink-0 rounded bg-accent">
+          <div class="bg-accent aspect-square shrink-0 rounded">
             <img
               :src="file.preview"
               :alt="file.file.name"
@@ -51,7 +51,7 @@
             <p class="truncate text-[13px] font-medium">
               {{ file.file.name }}
             </p>
-            <p class="text-xs text-muted-foreground">
+            <p class="text-muted-foreground text-xs">
               {{ formatBytes(file.file.size) }}
             </p>
           </div>
@@ -60,7 +60,7 @@
         <UiButton
           size="icon"
           variant="ghost"
-          class="-me-2 size-8 text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
+          class="text-muted-foreground/80 hover:text-foreground -me-2 size-8 hover:bg-transparent"
           aria-label="Remove file"
           @click="removeFile(file.id)"
         >
@@ -74,7 +74,7 @@
       </div>
     </div>
 
-    <p aria-live="polite" role="region" class="mt-2 text-center text-xs text-muted-foreground">
+    <p aria-live="polite" role="region" class="text-muted-foreground mt-2 text-center text-xs">
       Multiple image uploader w/ image list
     </p>
   </div>

@@ -22,7 +22,7 @@
     <UiContainer class="py-16">
       <div class="mx-auto max-w-[1100px]">
         <div class="text-center">
-          <Motion as="p" :variants="childVariant" class="font-semibold text-primary"
+          <Motion as="p" :variants="childVariant" class="text-primary font-semibold"
             >Support</Motion
           >
           <Motion
@@ -35,7 +35,7 @@
           <Motion
             as="p"
             :variants="childVariant"
-            class="mx-auto mb-12 max-w-[700px] text-lg text-muted-foreground lg:text-xl"
+            class="text-muted-foreground mx-auto mb-12 max-w-[700px] text-lg lg:text-xl"
           >
             Check out our frequently asked questions or reach out to us directly.
           </Motion>

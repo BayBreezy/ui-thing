@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="not-prose overflow-hidden rounded-lg border">
     <ExamplesLandingLanding />
   </div>
 </template>

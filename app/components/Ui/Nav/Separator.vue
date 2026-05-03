@@ -11,7 +11,7 @@
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<{
-    /** Custom class(es) to add to the element */
+    /** Custom class(es) to add to the element. */
     class?: HTMLAttributes["class"];
   }>();
   const forwarded = reactiveOmit(props, "class");

@@ -105,8 +105,8 @@
       </UiContextMenuContent>
     </UiContextMenu>
 
-    <div v-if="selectedUser" class="mt-4 rounded-lg border bg-muted/50 p-4">
-      <p class="text-sm text-muted-foreground">
+    <div v-if="selectedUser" class="bg-muted/50 mt-4 rounded-lg border p-4">
+      <p class="text-muted-foreground text-sm">
         <span class="font-semibold">Last Selected:</span> {{ selectedUser.name }} ({{
           selectedUser.email
         }})

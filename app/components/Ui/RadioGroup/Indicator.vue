@@ -8,7 +8,7 @@
       <Icon
         :name="icon || 'lucide:circle'"
         mode="svg"
-        class="absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary fill-primary stroke-primary"
+        class="bg-primary fill-primary stroke-primary absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full"
       />
     </slot>
   </RadioGroupIndicator>
@@ -22,9 +22,9 @@
 
   const props = defineProps<
     RadioGroupIndicatorProps & {
-      /** Custom class(es) to add to the parent */
+      /** Custom class(es) to add to the parent. */
       class?: HTMLAttributes["class"];
-      /** Icon to show */
+      /** Icon to show. */
       icon?: string;
     }
   >();

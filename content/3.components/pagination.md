@@ -4,7 +4,7 @@ description: Displays data in paged format and provides navigation between pages
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/pagination.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/pagination.html#api-reference
     icon: "icon-park-solid:api"
@@ -48,7 +48,7 @@ Click :SourceCodeLink{component="Pagination"} to see the source code for this co
 
 ### Full example
 
-::ShowCase
+::prose-show-case
 
 :DocsPagination
 
@@ -70,13 +70,13 @@ Click :SourceCodeLink{component="Pagination"} to see the source code for this co
 
 ## Origin UI Examples
 
-These are some examples that I found today over here [Origin UI](https://originui.com/breadcrumbs-paginations) ❤️. I think they are cool.
+These are some examples that I found today over here [Origin UI](https://originui.com/breadcrumbs-paginations){target="\_blank"} ❤️. I think they are cool.
 
 To use these examples you will have to copy the code and adjust it for your own use.
 
 ### Apart
 
-::ShowCase
+::prose-show-case
 
 :DocsPaginationApart
 
@@ -139,7 +139,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Info Center
 
-::ShowCase
+::prose-show-case
 
 :DocsPaginationInfoCenter
 
@@ -158,7 +158,7 @@ To use these examples you will have to copy the code and adjust it for your own 
             <Icon name="lucide:chevron-left" class="size-4" />
           </UiButton>
         </UiPaginationPrev>
-        <div class="text-sm text-muted-foreground">
+        <div class="text-muted-foreground text-sm">
           Page <span class="text-foreground">{{ page1 }}</span> of
           <span class="text-foreground">{{ itemsPerPage }}</span>
         </div>
@@ -178,7 +178,7 @@ To use these examples you will have to copy the code and adjust it for your own 
             <Icon name="lucide:chevron-left" class="size-4" />
           </UiButton>
         </UiPaginationPrev>
-        <div class="text-sm text-muted-foreground">
+        <div class="text-muted-foreground text-sm">
           Page <span class="text-foreground">{{ page2 }}</span> of
           <span class="text-foreground">{{ itemsPerPage }}</span>
         </div>
@@ -207,7 +207,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Info Start & End
 
-::ShowCase
+::prose-show-case
 
 :DocsPaginationInfoStartEnd
 
@@ -220,7 +220,7 @@ To use these examples you will have to copy the code and adjust it for your own 
   <div class="mx-auto flex w-full max-w-md flex-col items-center gap-10">
     <UiPagination v-model:page="page1" :total :items-per-page>
       <UiPaginationList class="w-full justify-between">
-        <div class="text-sm text-muted-foreground">
+        <div class="text-muted-foreground text-sm">
           Page <span class="text-foreground">{{ page1 }}</span> of
           <span class="text-foreground">{{ itemsPerPage }}</span>
         </div>
@@ -240,7 +240,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     </UiPagination>
     <UiPagination v-model:page="page1" :total :items-per-page class="mx-auto w-full max-w-md">
       <UiPaginationList class="w-full justify-between">
-        <div class="text-sm text-muted-foreground">
+        <div class="text-muted-foreground text-sm">
           Page <span class="text-foreground">{{ page1 }}</span> of
           <span class="text-foreground">{{ itemsPerPage }}</span>
         </div>
@@ -274,7 +274,7 @@ To use these examples you will have to copy the code and adjust it for your own 
             </UiButton>
           </UiPaginationNext>
         </div>
-        <div class="text-sm text-muted-foreground">
+        <div class="text-muted-foreground text-sm">
           Page <span class="text-foreground">{{ page2 }}</span> of
           <span class="text-foreground">{{ itemsPerPage }}</span>
         </div>
@@ -296,7 +296,7 @@ To use these examples you will have to copy the code and adjust it for your own 
             </UiButton>
           </UiPaginationNext>
         </div>
-        <div class="text-sm text-muted-foreground">
+        <div class="text-muted-foreground text-sm">
           Page <span class="text-foreground">{{ page2 }}</span> of
           <span class="text-foreground">{{ itemsPerPage }}</span>
         </div>
@@ -319,7 +319,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Bootstrap
 
-::ShowCase
+::prose-show-case
 
 :DocsPaginationBootstrap
 
@@ -336,7 +336,7 @@ To use these examples you will have to copy the code and adjust it for your own 
         <template v-for="(page, index) in items" :key="index">
           <UiPaginationItem v-if="page.type === 'page'" as-child v-bind="page">
             <UiButton
-              class="size-9 rounded-none border-0 shadow-none data-[selected=true]:bg-primary data-[selected=true]:text-primary-foreground dark:bg-transparent dark:data-[selected=true]:bg-primary dark:data-[selected=true]:text-primary-foreground"
+              class="data-[selected=true]:bg-primary data-[selected=true]:text-primary-foreground dark:data-[selected=true]:bg-primary dark:data-[selected=true]:text-primary-foreground size-9 rounded-none border-0 shadow-none dark:bg-transparent"
               variant="outline"
               size="icon-sm"
               >{{ page.value }}</UiButton
@@ -368,7 +368,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Table
 
-::ShowCase
+::prose-show-case
 
 :DocsPaginationTable
 
@@ -388,7 +388,7 @@ To use these examples you will have to copy the code and adjust it for your own 
         </UiSelectContent>
       </UiSelect>
     </div>
-    <div class="grow text-right text-sm whitespace-nowrap text-muted-foreground">
+    <div class="text-muted-foreground grow text-right text-sm whitespace-nowrap">
       <span class="text-foreground">{{ page1 }}</span> of
       <span class="text-foreground">{{ pageTotal }}</span>
     </div>

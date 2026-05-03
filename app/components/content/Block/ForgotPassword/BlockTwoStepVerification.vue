@@ -8,12 +8,12 @@
     <div class="relative z-2 w-full max-w-md">
       <div class="mb-8 text-center">
         <div class="mb-4 flex justify-center">
-          <div class="flex size-16 items-center justify-center rounded-2xl bg-primary/10">
-            <Icon class="size-8 text-primary" name="lucide:smartphone" />
+          <div class="bg-primary/10 flex size-16 items-center justify-center rounded-2xl">
+            <Icon class="text-primary size-8" name="lucide:smartphone" />
           </div>
         </div>
         <h1 class="mb-2 text-3xl font-bold tracking-tight">{{ title }}</h1>
-        <p class="text-sm text-muted-foreground">{{ description }}</p>
+        <p class="text-muted-foreground text-sm">{{ description }}</p>
       </div>
 
       <form class="space-y-6" @submit="submit">
@@ -21,12 +21,12 @@
           <UiCard>
             <UiCardContent>
               <div class="mb-4 flex items-center gap-3">
-                <div class="flex size-10 items-center justify-center rounded-lg bg-primary/10">
-                  <Icon class="size-5 text-primary" name="lucide:mail" />
+                <div class="bg-primary/10 flex size-10 items-center justify-center rounded-lg">
+                  <Icon class="text-primary size-5" name="lucide:mail" />
                 </div>
                 <div class="flex-1">
                   <p class="text-sm font-medium">Email Verification</p>
-                  <p class="text-xs text-muted-foreground">We'll send you a 6-digit code</p>
+                  <p class="text-muted-foreground text-xs">We'll send you a 6-digit code</p>
                 </div>
                 <label
                   for="emailMethod"
@@ -73,12 +73,12 @@
           <UiCard>
             <UiCardContent>
               <div class="mb-4 flex items-center gap-3">
-                <div class="flex size-10 items-center justify-center rounded-lg bg-primary/10">
-                  <Icon class="size-5 text-primary" name="lucide:message-square" />
+                <div class="bg-primary/10 flex size-10 items-center justify-center rounded-lg">
+                  <Icon class="text-primary size-5" name="lucide:message-square" />
                 </div>
                 <div class="flex-1">
                   <p class="text-sm font-medium">SMS Verification</p>
-                  <p class="text-xs text-muted-foreground">We'll text you a 6-digit code</p>
+                  <p class="text-muted-foreground text-xs">We'll text you a 6-digit code</p>
                 </div>
                 <label
                   for="smsMethod"
@@ -131,7 +131,7 @@
 
       <div class="mt-6 text-center">
         <NuxtLink
-          class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+          class="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 text-sm"
           to="#"
         >
           <Icon name="lucide:arrow-left" />

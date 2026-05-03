@@ -2,7 +2,7 @@
   <div class="flex items-center justify-center">
     <UiVeeInput
       label="Input with gray background"
-      class="border-transparent bg-muted shadow-none"
+      class="bg-muted border-transparent shadow-none"
       placeholder="Email"
       type="email"
     />

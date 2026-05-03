@@ -9,7 +9,7 @@
       <template #icon>
         <select
           aria-label="Protocol"
-          class="absolute inset-y-0 start-0 flex form-select items-center justify-center rounded-s-md border border-input bg-background ps-3 text-sm text-muted-foreground ring-offset-background peer-disabled:opacity-50 focus:border-input focus:ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
+          class="form-select border-input bg-background text-muted-foreground ring-offset-background focus:border-input focus:ring-offset-background focus-visible:ring-ring absolute inset-y-0 start-0 flex items-center justify-center rounded-s-md border ps-3 text-sm peer-disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
         >
           <option value="https://">https://</option>
           <option value="http://">http://</option>

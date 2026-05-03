@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bg-background text-foreground [--color-primary:#8b5cf6] [--primary:#8b5cf6] [--ring:#8b5cf6]"
+    class="bg-background text-foreground min-h-screen [--color-primary:#8b5cf6] [--primary:#8b5cf6] [--ring:#8b5cf6]"
   >
     <!-- Edit customer sheet -->
     <UiSheet v-model:open="editOpen">
@@ -98,7 +98,7 @@
         </UiCommandGroup>
       </UiCommandList>
       <div
-        class="flex items-center gap-5 border-t border-border/70 bg-muted/20 px-4 py-2.5 text-xs text-muted-foreground"
+        class="border-border/70 bg-muted/20 text-muted-foreground flex items-center gap-5 border-t px-4 py-2.5 text-xs"
       >
         <span class="flex items-center gap-1.5"><UiKbd>↵</UiKbd> to select</span>
         <span class="flex items-center gap-1.5"><UiKbd>↑↓</UiKbd> to navigate</span>
@@ -112,14 +112,14 @@
       :initial="{ opacity: 0, y: -16 }"
       :animate="{ opacity: 1, y: 0 }"
       :transition="{ duration: 0.4, ease: 'easeOut' }"
-      class="sticky top-0 z-10 border-b border-border/70 bg-background/85 backdrop-blur-md"
+      class="border-border/70 bg-background/85 sticky top-0 z-10 border-b backdrop-blur-md"
     >
       <UiContainer class="flex min-h-14 items-center justify-between gap-4">
         <!-- Logo + nav -->
         <div class="flex items-center gap-5">
           <div class="flex items-center gap-2.5">
             <div
-              class="flex size-7 items-center justify-center rounded-md border border-border/70 bg-muted shadow-xs"
+              class="border-border/70 bg-muted flex size-7 items-center justify-center rounded-md border shadow-xs"
             >
               <div
                 class="size-3.5 rounded-full bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,0.9),rgba(255,255,255,0.15)_32%,transparent_34%),linear-gradient(135deg,var(--color-primary),color-mix(in_oklab,var(--color-primary)_40%,white))]"
@@ -134,7 +134,7 @@
               <UiButton variant="ghost" size="icon-sm" class="rounded-full lg:hidden">
                 <Icon
                   name="fluent:line-horizontal-3-24-regular"
-                  class="size-5 text-muted-foreground"
+                  class="text-muted-foreground size-5"
                 />
               </UiButton>
             </UiPopoverTrigger>
@@ -161,7 +161,7 @@
               size="sm"
               :class="
                 item.active
-                  ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                  ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                   : 'text-muted-foreground'
               "
             >
@@ -182,7 +182,7 @@
           <UiDropdownMenu>
             <UiDropdownMenuTrigger as-child>
               <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                <Icon name="fluent:settings-24-regular" class="size-5 text-muted-foreground" />
+                <Icon name="fluent:settings-24-regular" class="text-muted-foreground size-5" />
               </UiButton>
             </UiDropdownMenuTrigger>
             <UiDropdownMenuContent align="end" class="w-56">
@@ -199,7 +199,7 @@
           <UiDropdownMenu>
             <UiDropdownMenuTrigger as-child>
               <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                <Icon name="fluent:alert-24-regular" class="size-5 text-muted-foreground" />
+                <Icon name="fluent:alert-24-regular" class="text-muted-foreground size-5" />
               </UiButton>
             </UiDropdownMenuTrigger>
             <UiDropdownMenuContent align="end" class="w-80">
@@ -241,7 +241,7 @@
               <UiDropdownMenuLabel>
                 <div class="flex flex-col">
                   <p class="text-sm font-medium">{{ currentUser.name }}</p>
-                  <p class="text-xs text-muted-foreground">{{ currentUser.email }}</p>
+                  <p class="text-muted-foreground text-xs">{{ currentUser.email }}</p>
                 </div>
               </UiDropdownMenuLabel>
               <UiDropdownMenuSeparator />
@@ -264,7 +264,7 @@
     </Motion>
 
     <!-- Sub-nav -->
-    <div class="border-b border-border/70 bg-background/85 backdrop-blur-md">
+    <div class="border-border/70 bg-background/85 border-b backdrop-blur-md">
       <UiContainer class="flex items-center justify-between gap-4">
         <div class="scrollbar-none overflow-x-auto">
           <UiTabs v-model="activeSubNav">
@@ -273,7 +273,7 @@
                 v-for="tab in subNavTabs"
                 :key="tab"
                 :value="tab"
-                class="rounded-none border-b-2 border-transparent px-3.5 py-3.5 text-sm font-medium text-muted-foreground shadow-none transition-colors hover:text-foreground data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none"
+                class="text-muted-foreground hover:text-foreground data-[state=active]:border-primary data-[state=active]:text-foreground rounded-none border-b-2 border-transparent px-3.5 py-3.5 text-sm font-medium shadow-none transition-colors data-[state=active]:bg-transparent data-[state=active]:shadow-none"
               >
                 {{ tab }}
               </UiTabsTrigger>
@@ -285,7 +285,7 @@
         <div class="hidden shrink-0 sm:block">
           <UiButton
             variant="outline"
-            class="h-9 w-52 justify-start gap-2 border-border/70 font-normal text-muted-foreground"
+            class="border-border/70 text-muted-foreground h-9 w-52 justify-start gap-2 font-normal"
             @click="searchOpen = true"
           >
             <Icon name="fluent:search-24-regular" class="size-4 shrink-0" />
@@ -317,15 +317,15 @@
       >
         <Motion v-for="metric in metrics" :key="metric.label" :variants="cardVariant">
           <UiCard
-            class="gap-4 border-border/70 p-5 shadow-xs transition-all hover:border-primary/50 hover:ring-1 hover:ring-primary/15"
+            class="border-border/70 hover:border-primary/50 hover:ring-primary/15 gap-4 p-5 shadow-xs transition-all hover:ring-1"
           >
             <div
-              class="flex size-9 items-center justify-center rounded-lg border border-border/70 bg-muted/50"
+              class="border-border/70 bg-muted/50 flex size-9 items-center justify-center rounded-lg border"
             >
-              <Icon :name="metric.icon" class="size-5 text-muted-foreground" />
+              <Icon :name="metric.icon" class="text-muted-foreground size-5" />
             </div>
             <div>
-              <p class="mb-1 text-sm text-muted-foreground">{{ metric.label }}</p>
+              <p class="text-muted-foreground mb-1 text-sm">{{ metric.label }}</p>
               <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
                 <span class="text-2xl font-bold tracking-tight">{{ metric.value }}</span>
                 <span
@@ -346,7 +346,7 @@
         :animate="{ opacity: 1, y: 0 }"
         :transition="{ duration: 0.4, delay: 0.3, ease: 'easeOut' }"
       >
-        <UiCard class="gap-0 overflow-hidden border-border/70 py-0 shadow-xs">
+        <UiCard class="border-border/70 gap-0 overflow-hidden py-0 shadow-xs">
           <!-- Header row -->
           <div
             class="flex flex-col gap-4 px-6 pt-6 pb-4 sm:flex-row sm:items-start sm:justify-between"
@@ -355,7 +355,7 @@
             <div>
               <UiDropdownMenu>
                 <UiDropdownMenuTrigger
-                  class="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                  class="text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm font-medium transition-colors"
                 >
                   Net revenue
                   <Icon name="fluent:chevron-down-24-regular" class="size-3.5" />
@@ -381,7 +381,7 @@
             <!-- Time tabs + filters -->
             <div class="flex flex-wrap items-center gap-2">
               <UiTabs v-model="activeRange">
-                <UiTabsList class="border border-border/70 bg-muted/30">
+                <UiTabsList class="border-border/70 bg-muted/30 border">
                   <UiTabsTrigger v-for="r in timeRanges" :key="r.value" :value="r.value">
                     {{ r.label }}
                   </UiTabsTrigger>
@@ -415,8 +415,8 @@
         :animate="{ opacity: 1, y: 0 }"
         :transition="{ duration: 0.4, delay: 0.4, ease: 'easeOut' }"
       >
-        <UiCard class="gap-0 overflow-hidden border-border/70 py-0 shadow-xs">
-          <UiCardHeader class="border-b border-border/60 py-5">
+        <UiCard class="border-border/70 gap-0 overflow-hidden py-0 shadow-xs">
+          <UiCardHeader class="border-border/60 border-b py-5">
             <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <UiCardTitle class="text-base font-semibold">Customers</UiCardTitle>
               <div class="shrink-0 sm:w-56">
@@ -472,7 +472,7 @@
                 />
                 <div class="min-w-0">
                   <p class="truncate text-sm font-medium">{{ row.original.name }}</p>
-                  <p class="truncate text-xs text-muted-foreground">{{ row.original.handle }}</p>
+                  <p class="text-muted-foreground truncate text-xs">{{ row.original.handle }}</p>
                 </div>
               </div>
             </template>
@@ -521,7 +521,7 @@
 
             <template #footer="{ table }">
               <div
-                class="flex w-full flex-col gap-4 border-t border-border/60 px-6 py-4 text-sm font-medium text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
+                class="border-border/60 text-muted-foreground flex w-full flex-col gap-4 border-t px-6 py-4 text-sm font-medium sm:flex-row sm:items-center sm:justify-between"
               >
                 <p>
                   Page {{ table.getState().pagination.pageIndex + 1 }} of

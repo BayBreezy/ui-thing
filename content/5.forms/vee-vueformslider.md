@@ -24,7 +24,7 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 ### Single Slider
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeVueFormSliderSingle
 
@@ -50,7 +50,7 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 ### Multiple Sliders
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeVueFormSliderMultiple
 
@@ -76,7 +76,7 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 ### Tooltip Formatting
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeVueFormSliderTooltip
 
@@ -118,7 +118,7 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 ### Tooltip Merging
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeVueFormSliderMerging
 
@@ -144,7 +144,7 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 ### Vertical Slider
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeVueFormSliderVertical
 
@@ -177,7 +177,7 @@ You can visit the [VueForm Slider page](https://github.com/vueform/slider?tab=re
 
 ### Form Validation
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeVueFormSliderValidate
 

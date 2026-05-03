@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-background text-foreground">
+  <div class="bg-background text-foreground min-h-screen">
     <!-- Invite dialog -->
     <UiDialog v-model:open="inviteOpen" @update:open="onInviteDialogClose">
       <UiDialogContent class="sm:max-w-md">
@@ -13,7 +13,7 @@
         <div class="space-y-4 py-1">
           <!-- Email chip input area -->
           <div
-            class="min-h-[80px] cursor-text rounded-xl border border-border/70 bg-muted/20 p-3 transition-colors focus-within:border-primary focus-within:ring-1 focus-within:ring-primary"
+            class="border-border/70 bg-muted/20 focus-within:border-primary focus-within:ring-primary min-h-[80px] cursor-text rounded-xl border p-3 transition-colors focus-within:ring-1"
             @click="focusInviteInput"
           >
             <div class="flex flex-wrap gap-2">
@@ -21,16 +21,16 @@
               <span
                 v-for="email in inviteEmails"
                 :key="email"
-                class="flex items-center gap-1.5 rounded-full border border-border/70 bg-background px-2.5 py-1 text-xs font-medium text-foreground shadow-xs"
+                class="border-border/70 bg-background text-foreground flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium shadow-xs"
               >
                 <span
-                  class="flex size-4 items-center justify-center rounded-full bg-linear-to-br from-primary to-primary text-[9px] font-bold text-white"
+                  class="from-primary to-primary flex size-4 items-center justify-center rounded-full bg-linear-to-br text-[9px] font-bold text-white"
                   >{{ email[0]?.toUpperCase() }}</span
                 >
                 {{ email }}
                 <button
                   type="button"
-                  class="ml-0.5 rounded-full text-muted-foreground transition-colors hover:text-foreground"
+                  class="text-muted-foreground hover:text-foreground ml-0.5 rounded-full transition-colors"
                   @click.stop="removeInviteEmail(email)"
                 >
                   <Icon name="heroicons:x-mark" class="size-3" />
@@ -44,7 +44,7 @@
                 v-model="inviteInputVal"
                 type="email"
                 placeholder="name@company.com"
-                class="min-w-[160px] flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
+                class="text-foreground placeholder:text-muted-foreground min-w-[160px] flex-1 bg-transparent text-sm outline-none"
                 @keydown.enter.prevent="addInviteEmail"
                 @keydown.tab.prevent="addInviteEmail"
                 @keydown.space.prevent="addInviteEmail"
@@ -68,11 +68,11 @@
             <p v-if="inviteError" class="text-destructive">{{ inviteError }}</p>
             <p v-else class="text-muted-foreground">
               Press
-              <kbd class="rounded border border-border/70 bg-muted px-1 py-0.5 font-mono">Enter</kbd
+              <kbd class="border-border/70 bg-muted rounded border px-1 py-0.5 font-mono">Enter</kbd
               >,
-              <kbd class="rounded border border-border/70 bg-muted px-1 py-0.5 font-mono">Tab</kbd>,
+              <kbd class="border-border/70 bg-muted rounded border px-1 py-0.5 font-mono">Tab</kbd>,
               or
-              <kbd class="rounded border border-border/70 bg-muted px-1 py-0.5 font-mono">,</kbd> to
+              <kbd class="border-border/70 bg-muted rounded border px-1 py-0.5 font-mono">,</kbd> to
               add
             </p>
             <p
@@ -89,21 +89,21 @@
 
           <!-- Suggested teammates -->
           <div v-if="inviteEmails.length < 4" class="space-y-1.5">
-            <p class="text-xs font-medium text-muted-foreground">Suggestions</p>
+            <p class="text-muted-foreground text-xs font-medium">Suggestions</p>
             <div class="space-y-1">
               <button
                 v-for="s in inviteSuggestions.filter((s) => !inviteEmails.includes(s.email))"
                 :key="s.email"
                 type="button"
-                class="flex w-full items-center gap-3 rounded-lg px-2 py-1.5 text-left transition-colors hover:bg-muted/60"
+                class="hover:bg-muted/60 flex w-full items-center gap-3 rounded-lg px-2 py-1.5 text-left transition-colors"
                 @click="addSuggestedEmail(s.email)"
               >
                 <UiAvatar :src="s.avatar" :alt="s.name" :fallback="s.name[0]" class="size-7" />
                 <div class="min-w-0 flex-1">
                   <p class="truncate text-sm font-medium">{{ s.name }}</p>
-                  <p class="truncate text-xs text-muted-foreground">{{ s.email }}</p>
+                  <p class="text-muted-foreground truncate text-xs">{{ s.email }}</p>
                 </div>
-                <Icon name="heroicons:plus" class="size-4 shrink-0 text-muted-foreground" />
+                <Icon name="heroicons:plus" class="text-muted-foreground size-4 shrink-0" />
               </button>
             </div>
           </div>
@@ -142,7 +142,7 @@
               v-model="genChartName"
               type="text"
               placeholder="e.g. Monthly revenue breakdown"
-              class="w-full rounded-lg border border-border/70 bg-muted/20 px-3 py-2 text-sm text-foreground transition-colors outline-none placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary"
+              class="border-border/70 bg-muted/20 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary w-full rounded-lg border px-3 py-2 text-sm transition-colors outline-none focus:ring-1"
             />
           </div>
 
@@ -165,11 +165,11 @@
                 :key="ct.value"
                 :value="ct.value"
                 :aria-label="ct.label"
-                class="group h-auto flex-col gap-1.5 rounded-xl border-2 border-border/60 bg-muted/30 p-3 hover:border-border hover:bg-muted/50 data-[state=on]:bg-card data-[state=on]:shadow-sm"
+                class="group border-border/60 bg-muted/30 hover:border-border hover:bg-muted/50 data-[state=on]:bg-card h-auto flex-col gap-1.5 rounded-xl border-2 p-3 data-[state=on]:shadow-sm"
                 :style="genChartType === ct.value ? { borderColor: 'var(--color-primary)' } : {}"
               >
                 <span
-                  class="flex size-8 items-center justify-center rounded-lg bg-muted text-muted-foreground transition-colors group-hover:bg-muted/80 group-data-[state=on]:text-white"
+                  class="bg-muted text-muted-foreground group-hover:bg-muted/80 flex size-8 items-center justify-center rounded-lg transition-colors group-data-[state=on]:text-white"
                   :style="
                     genChartType === ct.value ? { backgroundColor: 'var(--color-primary)' } : {}
                   "
@@ -188,7 +188,7 @@
               <div class="relative">
                 <select
                   v-model="genChartMetric"
-                  class="w-full appearance-none rounded-lg border border-border/70 bg-muted/20 px-3 py-2 pr-8 text-sm text-foreground transition-colors outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                  class="border-border/70 bg-muted/20 text-foreground focus:border-primary focus:ring-primary w-full appearance-none rounded-lg border px-3 py-2 pr-8 text-sm transition-colors outline-none focus:ring-1"
                 >
                   <option v-for="m in genChartMetrics" :key="m.value" :value="m.value">
                     {{ m.label }}
@@ -196,7 +196,7 @@
                 </select>
                 <Icon
                   name="heroicons:chevron-down"
-                  class="pointer-events-none absolute top-2.5 right-2.5 size-4 text-muted-foreground"
+                  class="text-muted-foreground pointer-events-none absolute top-2.5 right-2.5 size-4"
                 />
               </div>
             </div>
@@ -206,7 +206,7 @@
               <div class="relative">
                 <select
                   v-model="genChartRange"
-                  class="w-full appearance-none rounded-lg border border-border/70 bg-muted/20 px-3 py-2 pr-8 text-sm text-foreground transition-colors outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                  class="border-border/70 bg-muted/20 text-foreground focus:border-primary focus:ring-primary w-full appearance-none rounded-lg border px-3 py-2 pr-8 text-sm transition-colors outline-none focus:ring-1"
                 >
                   <option v-for="r in genChartRanges" :key="r.value" :value="r.value">
                     {{ r.label }}
@@ -214,7 +214,7 @@
                 </select>
                 <Icon
                   name="heroicons:chevron-down"
-                  class="pointer-events-none absolute top-2.5 right-2.5 size-4 text-muted-foreground"
+                  class="text-muted-foreground pointer-events-none absolute top-2.5 right-2.5 size-4"
                 />
               </div>
             </div>
@@ -222,11 +222,11 @@
 
           <!-- Compare toggle -->
           <div
-            class="flex items-center justify-between rounded-lg border border-border/70 bg-muted/20 px-3 py-2.5"
+            class="border-border/70 bg-muted/20 flex items-center justify-between rounded-lg border px-3 py-2.5"
           >
             <div>
               <p class="text-sm font-medium">Compare to previous period</p>
-              <p class="text-xs text-muted-foreground">
+              <p class="text-muted-foreground text-xs">
                 Overlay the prior period as a reference line
               </p>
             </div>
@@ -321,10 +321,10 @@
 
             <div>
               <p class="text-sm leading-none font-semibold">{{ fmt.label }}</p>
-              <p class="mt-1 text-xs text-muted-foreground">{{ fmt.description }}</p>
+              <p class="text-muted-foreground mt-1 text-xs">{{ fmt.description }}</p>
             </div>
 
-            <p class="text-xs text-muted-foreground/70">{{ fmt.size }}</p>
+            <p class="text-muted-foreground/70 text-xs">{{ fmt.size }}</p>
           </button>
         </div>
 
@@ -370,7 +370,7 @@
         </UiCommandGroup>
       </UiCommandList>
       <div
-        class="flex items-center gap-5 border-t border-border/70 bg-muted/20 px-4 py-2.5 text-xs text-muted-foreground"
+        class="border-border/70 bg-muted/20 text-muted-foreground flex items-center gap-5 border-t px-4 py-2.5 text-xs"
       >
         <span class="flex items-center gap-1.5"><UiKbd>↵</UiKbd> to select</span>
         <span class="flex items-center gap-1.5"><UiKbd>↑↓</UiKbd> to navigate</span>
@@ -384,14 +384,14 @@
       :initial="{ opacity: 0, y: -16 }"
       :animate="{ opacity: 1, y: 0 }"
       :transition="{ duration: 0.4, ease: 'easeOut' }"
-      class="sticky top-0 z-10 border-b border-border/70 bg-background/85 backdrop-blur-md"
+      class="border-border/70 bg-background/85 sticky top-0 z-10 border-b backdrop-blur-md"
     >
       <UiContainer class="flex min-h-[4rem] items-center justify-between gap-4">
         <!-- Logo + nav -->
         <div class="flex items-center gap-5">
           <div class="flex items-center gap-2.5">
             <div
-              class="flex size-8 items-center justify-center rounded-lg border border-border/70 bg-muted shadow-xs"
+              class="border-border/70 bg-muted flex size-8 items-center justify-center rounded-lg border shadow-xs"
             >
               <div
                 class="size-4 rounded-full bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,0.95),rgba(255,255,255,0.2)_32%,transparent_34%),linear-gradient(135deg,var(--color-primary),color-mix(in_oklab,var(--color-primary)_40%,white))]"
@@ -416,7 +416,7 @@
                 class="w-full justify-start"
                 :class="
                   item.active
-                    ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                    ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                     : 'text-muted-foreground'
                 "
               >
@@ -434,7 +434,7 @@
               size="sm"
               :class="
                 item.active
-                  ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                  ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                   : 'text-muted-foreground'
               "
             >
@@ -460,7 +460,7 @@
                 <UiTooltipTrigger as-child>
                   <UiDropdownMenuTrigger as-child>
                     <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                      <Icon name="heroicons:cog-6-tooth" class="size-5 text-muted-foreground" />
+                      <Icon name="heroicons:cog-6-tooth" class="text-muted-foreground size-5" />
                     </UiButton>
                   </UiDropdownMenuTrigger>
                 </UiTooltipTrigger>
@@ -486,7 +486,7 @@
                 <UiTooltipTrigger as-child>
                   <UiDropdownMenuTrigger as-child>
                     <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                      <Icon name="heroicons:bell" class="size-5 text-muted-foreground" />
+                      <Icon name="heroicons:bell" class="text-muted-foreground size-5" />
                     </UiButton>
                   </UiDropdownMenuTrigger>
                 </UiTooltipTrigger>
@@ -535,7 +535,7 @@
                   <UiDropdownMenuLabel>
                     <div class="flex flex-col">
                       <p class="text-sm font-medium">Olivia Rhye</p>
-                      <p class="text-xs text-muted-foreground">olivia@ui-thing.com</p>
+                      <p class="text-muted-foreground text-xs">olivia@ui-thing.com</p>
                     </div>
                   </UiDropdownMenuLabel>
                   <UiDropdownMenuSeparator />
@@ -567,7 +567,7 @@
       :initial="{ opacity: 0, y: -8 }"
       :animate="{ opacity: 1, y: 0 }"
       :transition="{ duration: 0.35, delay: 0.05, ease: 'easeOut' }"
-      class="border-b border-border/70 bg-background"
+      class="border-border/70 bg-background border-b"
     >
       <UiContainer class="flex items-center justify-between gap-4 py-0">
         <!-- Tabs (desktop) -->
@@ -578,7 +578,7 @@
             class="relative shrink-0 px-3 py-3.5 text-sm font-medium transition-colors"
             :class="
               tab.active
-                ? 'text-foreground after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-primary'
+                ? 'text-foreground after:bg-primary after:absolute after:inset-x-0 after:bottom-0 after:h-0.5'
                 : 'text-muted-foreground hover:text-foreground'
             "
             @click="setActiveTab(tab.label)"
@@ -592,7 +592,7 @@
           <UiPopoverTrigger as-child>
             <UiButton variant="ghost" size="sm" class="gap-1.5 text-sm font-medium sm:hidden">
               {{ activeTabLabel }}
-              <Icon name="heroicons:chevron-down" class="size-4 text-muted-foreground" />
+              <Icon name="heroicons:chevron-down" class="text-muted-foreground size-4" />
             </UiButton>
           </UiPopoverTrigger>
           <UiPopoverContent align="start" class="w-52 p-1">
@@ -614,7 +614,7 @@
         <UiButton
           variant="outline"
           size="sm"
-          class="hidden shrink-0 justify-start gap-2 text-muted-foreground sm:flex lg:w-60"
+          class="text-muted-foreground hidden shrink-0 justify-start gap-2 sm:flex lg:w-60"
           @click="searchOpen = true"
         >
           <Icon name="heroicons:magnifying-glass" class="size-4" />
@@ -635,7 +635,7 @@
       >
         <div>
           <h1 class="text-2xl font-bold tracking-tight">Sales overview</h1>
-          <p class="mt-1 text-sm text-muted-foreground">Your current sales summary and activity.</p>
+          <p class="text-muted-foreground mt-1 text-sm">Your current sales summary and activity.</p>
         </div>
         <div class="flex items-center gap-2">
           <UiButton variant="outline" size="sm" class="gap-2" @click="exportOpen = true">
@@ -677,7 +677,7 @@
         <!-- Date range + filters -->
         <div class="flex items-center gap-2">
           <UiButton variant="outline" size="sm" class="gap-2 text-sm">
-            <Icon name="heroicons:calendar-days" class="size-4 text-muted-foreground" />
+            <Icon name="heroicons:calendar-days" class="text-muted-foreground size-4" />
             Jan 10, 2025 – Jan 16, 2025
           </UiButton>
           <UiButton variant="outline" size="sm" class="gap-2">
@@ -701,10 +701,10 @@
             <div
               v-for="kpi in kpiCards"
               :key="kpi.label"
-              class="rounded-xl border border-border/70 bg-card p-5 shadow-xs"
+              class="border-border/70 bg-card rounded-xl border p-5 shadow-xs"
             >
               <div class="flex items-center justify-between">
-                <p class="text-sm text-muted-foreground">{{ kpi.label }}</p>
+                <p class="text-muted-foreground text-sm">{{ kpi.label }}</p>
                 <UiTooltip>
                   <UiDropdownMenu>
                     <UiTooltipTrigger as-child>
@@ -712,7 +712,7 @@
                         <UiButton
                           variant="ghost"
                           size="icon-sm"
-                          class="-mr-1 text-muted-foreground"
+                          class="text-muted-foreground -mr-1"
                         >
                           <Icon name="heroicons:ellipsis-vertical" class="size-4" />
                         </UiButton>
@@ -745,7 +745,7 @@
                 </span>
               </div>
 
-              <div class="mt-4 border-t border-border/60 pt-3">
+              <div class="border-border/60 mt-4 border-t pt-3">
                 <button
                   class="text-sm font-medium transition-colors"
                   :style="{ color: 'var(--color-primary)' }"
@@ -757,7 +757,7 @@
           </div>
 
           <!-- Sales report card -->
-          <div class="rounded-xl border border-border/70 bg-card shadow-xs">
+          <div class="border-border/70 bg-card rounded-xl border shadow-xs">
             <div class="flex items-center justify-between px-5 pt-5">
               <h2 class="text-base font-semibold">Sales report</h2>
               <UiButton variant="outline" size="sm">View report</UiButton>
@@ -771,7 +771,7 @@
                 class="relative mr-4 pb-2 text-sm font-medium transition-colors"
                 :class="
                   activeSalesTab === t
-                    ? 'text-foreground after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-primary'
+                    ? 'text-foreground after:bg-primary after:absolute after:inset-x-0 after:bottom-0 after:h-0.5'
                     : 'text-muted-foreground hover:text-foreground'
                 "
                 @click="activeSalesTab = t"
@@ -779,13 +779,13 @@
                 {{ t }}
               </button>
             </div>
-            <div class="border-t border-border/60" />
+            <div class="border-border/60 border-t" />
 
             <UiApexchart type="area" height="220" :series="salesSeries" :options="salesOptions" />
           </div>
 
           <!-- Store traffic card -->
-          <div class="rounded-xl border border-border/70 bg-card shadow-xs">
+          <div class="border-border/70 bg-card rounded-xl border shadow-xs">
             <div class="flex items-center justify-between px-5 pt-5">
               <h2 class="text-base font-semibold">Store traffic</h2>
               <UiButton variant="outline" size="sm">View report</UiButton>
@@ -799,7 +799,7 @@
                 class="relative mr-4 pb-2 text-sm font-medium transition-colors"
                 :class="
                   activeTrafficTab === t
-                    ? 'text-foreground after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-primary'
+                    ? 'text-foreground after:bg-primary after:absolute after:inset-x-0 after:bottom-0 after:h-0.5'
                     : 'text-muted-foreground hover:text-foreground'
                 "
                 @click="activeTrafficTab = t"
@@ -807,7 +807,7 @@
                 {{ t }}
               </button>
             </div>
-            <div class="border-t border-border/60" />
+            <div class="border-border/60 border-t" />
 
             <UiApexchart
               type="bar"
@@ -818,7 +818,7 @@
           </div>
 
           <!-- Add button -->
-          <div class="flex justify-center border-t border-border/60 pt-2">
+          <div class="border-border/60 flex justify-center border-t pt-2">
             <UiButton variant="outline" size="sm" class="gap-2" @click="genChartOpen = true">
               <Icon name="heroicons:plus" class="size-4" />
               Add
@@ -854,7 +854,7 @@
                 />
                 <span
                   v-if="item.online"
-                  class="absolute right-0 bottom-0 size-2.5 rounded-full border-2 border-background bg-emerald-500"
+                  class="border-background absolute right-0 bottom-0 size-2.5 rounded-full border-2 bg-emerald-500"
                 />
               </div>
               <div class="min-w-0 text-sm leading-snug">

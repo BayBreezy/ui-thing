@@ -1,11 +1,11 @@
 <template>
   <UiContainer class="py-10 lg:py-20">
-    <p class="mb-3 text-center font-semibold text-primary lg:text-left">Launch faster</p>
+    <p class="text-primary mb-3 text-center font-semibold lg:text-left">Launch faster</p>
     <h3 class="mb-4 text-center text-3xl font-semibold lg:mb-5 lg:text-left lg:text-4xl">
       Build something great
     </h3>
     <p
-      class="mb-10 max-w-[760px] text-center text-lg text-muted-foreground lg:mb-16 lg:text-left lg:text-xl"
+      class="text-muted-foreground mb-10 max-w-[760px] text-center text-lg lg:mb-16 lg:text-left lg:text-xl"
     >
       Everything you need to build modern UI and great products. We've done all the heavy lifting so
       you don't have to — the perfect starting point for any project.
@@ -16,13 +16,13 @@
       >
         <template v-for="(s, i) in stats" :key="i">
           <div>
-            <h4 class="mb-2 text-5xl font-bold text-primary lg:mb-3 lg:text-6xl">
+            <h4 class="text-primary mb-2 text-5xl font-bold lg:mb-3 lg:text-6xl">
               {{ s.value }}
             </h4>
             <p class="text-lg font-medium">
               {{ s.text }}
             </p>
-            <p class="mt-2 line-clamp-2 hidden text-muted-foreground lg:block">
+            <p class="text-muted-foreground mt-2 line-clamp-2 hidden lg:block">
               Lorem ipsum, dolor sit amet consectetur adipisicing e
             </p>
           </div>

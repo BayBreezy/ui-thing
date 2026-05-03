@@ -17,9 +17,7 @@
 </script>
 <script setup lang="ts">
   const props = defineProps<{
-    /**
-     * Additional classes to apply to the sidebar content.
-     */
+    /** Additional classes to apply to the sidebar content. */
     class?: HTMLAttributes["class"];
   }>();
 </script>

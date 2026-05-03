@@ -7,7 +7,7 @@
           :key="t.title"
           :value="t.title"
           :pill="false"
-          class="group flex-1 flex-col p-3 text-xs data-[state=active]:bg-muted data-[state=active]:shadow-none"
+          class="group data-[state=active]:bg-muted flex-1 flex-col p-3 text-xs data-[state=active]:shadow-none"
         >
           <UiBadge
             class="mb-1.5 flex min-w-5 items-center justify-center px-1 transition-opacity group-data-[state=inactive]:opacity-50"
@@ -17,7 +17,7 @@
         </UiTabsTrigger>
       </UiTabsList>
       <UiTabsContent v-for="t in tabs" :key="t.title" :value="t.title">
-        <p class="mx-auto max-w-sm p-4 text-center text-sm text-pretty text-muted-foreground">
+        <p class="text-muted-foreground mx-auto max-w-sm p-4 text-center text-sm text-pretty">
           {{ t.content }}
         </p>
       </UiTabsContent>

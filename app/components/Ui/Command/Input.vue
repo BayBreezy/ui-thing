@@ -1,7 +1,7 @@
 <template>
   <div data-slot="command-input-wrapper" class="p-1 pb-0" cmdk-input-wrapper>
     <UiInputGroup
-      class="h-8! rounded-lg! border-input/30 bg-input/30 shadow-none! *:data-[slot=input-group-addon]:pl-2!"
+      class="border-input/30 bg-input/30 h-8! rounded-lg! shadow-none! *:data-[slot=input-group-addon]:pl-2!"
     >
       <ListboxFilter
         v-bind="{ ...forwardedProps, ...$attrs }"
@@ -32,7 +32,7 @@
   const props = withDefaults(
     defineProps<
       ListboxFilterProps & {
-        /** Custom class(es) to add to the element */
+        /** Custom class(es) to add to the element. */
         class?: HTMLAttributes["class"];
         /**
          * The name of the icon to display for the search input.

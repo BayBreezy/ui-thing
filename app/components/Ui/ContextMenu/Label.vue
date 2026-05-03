@@ -17,17 +17,17 @@
 
   const props = defineProps<
     ContextMenuLabelProps & {
-      /**Custom class(es) to add to the element */
+      /** Custom class(es) to add to the element. */
       class?: HTMLAttributes["class"];
-      /** Wether an indentation should be added to the item or not */
+      /** Wether an indentation should be added to the item or not. */
       inset?: boolean;
-      /** The label for the item */
+      /** The label for the item. */
       label?: string;
     }
   >();
   const forwarded = reactiveOmit(props, "class", "inset", "label");
   const styles = tv({
-    base: "px-2 py-1.5 text-sm font-medium text-foreground data-[inset=true]:pl-8",
+    base: "text-foreground px-2 py-1.5 text-sm font-medium data-[inset=true]:pl-8",
     variants: {
       inset: { true: "pl-8" },
     },

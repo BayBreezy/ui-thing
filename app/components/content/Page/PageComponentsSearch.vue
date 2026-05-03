@@ -30,7 +30,7 @@
           :rotation-interval="5000"
         />
         <!-- Stats -->
-        <div class="flex items-center justify-center gap-6 text-sm text-muted-foreground">
+        <div class="text-muted-foreground flex items-center justify-center gap-6 text-sm">
           <div class="flex items-center gap-2">
             <UiIcon name="lucide:box" class="size-4" />
             <span
@@ -55,30 +55,27 @@
         v-for="component in filteredComponents"
         :key="component.path"
         :to="component.path"
-        class="group relative overflow-hidden rounded-lg bg-card ring-1 ring-border transition-all hover:shadow-lg hover:shadow-primary/10 hover:ring-border/40"
+        class="group bg-card ring-border hover:shadow-primary/10 hover:ring-border/40 relative overflow-hidden rounded-lg ring-1 transition-all hover:shadow-lg"
       >
         <UiBorderBeam
-          class="hidden from-transparent via-primary to-transparent group-hover:block"
+          class="via-primary hidden from-transparent to-transparent group-hover:block"
           :size="200"
           :duration="10"
         />
         <div class="relative p-6">
           <div class="mb-3 flex items-start justify-between gap-2">
-            <h3 class="font-semibold transition-colors group-hover:text-primary">
+            <h3 class="group-hover:text-primary font-semibold transition-colors">
               {{ component.title }}
             </h3>
-            <UiBadge v-if="component.label" variant="secondary" class="shrink-0">
-              {{ component.label }}
-            </UiBadge>
           </div>
-          <p class="line-clamp-2 text-sm text-muted-foreground">
+          <p class="text-muted-foreground line-clamp-2 text-sm">
             {{ component.description }}
           </p>
         </div>
 
         <!-- Arrow indicator -->
         <div
-          class="absolute right-4 bottom-4 flex size-8 items-center justify-center rounded-full border bg-background opacity-0 transition-all group-hover:opacity-100"
+          class="bg-background absolute right-4 bottom-4 flex size-8 items-center justify-center rounded-full border opacity-0 transition-all group-hover:opacity-100"
         >
           <UiIcon name="lucide:arrow-right" class="size-4" />
         </div>
@@ -112,10 +109,10 @@
   const { data: components, pending } = await useAsyncData(
     "components-list",
     async () => {
-      const items = await queryCollection("content")
+      const items = await queryCollection("docs")
         .where("path", "LIKE", "/components/%")
         .where("extension", "=", "md")
-        .select("path", "title", "description", "label")
+        .select("path", "title", "description")
         .all();
       return items;
     },

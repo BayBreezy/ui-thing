@@ -24,11 +24,11 @@
             >Components</UiTabsTrigger
           >
           <UiTabsIndicator
-            class="inset-0 size-full rounded px-0 py-0.5 [&>div]:rounded [&>div]:bg-muted"
+            class="[&>div]:bg-muted inset-0 size-full rounded px-0 py-0.5 [&>div]:rounded"
           />
         </UiTabsList>
         <div
-          class="inline-flex h-auto w-fit items-center rounded-md border bg-background p-0.5 shadow-xs"
+          class="bg-background inline-flex h-auto w-fit items-center rounded-md border p-0.5 shadow-xs"
         >
           <AnimatePresence>
             <Motion
@@ -92,19 +92,19 @@
       </div>
 
       <UiTabsContent value="preview">
-        <div class="relative h-(--container-height) rounded-lg bg-muted">
+        <div class="bg-muted relative h-(--container-height) rounded-lg">
           <ClientOnly>
             <UiSplitter id="block-resizable" direction="horizontal" class="relative z-10">
               <UiSplitterPanel
                 id="block-resizable-panel-1"
-                class="relative overflow-hidden rounded-lg border bg-background transition-all"
+                class="bg-background relative overflow-hidden rounded-lg border transition-all"
                 :default-size="100"
                 :min-size="40"
                 @ready="resizableRef = $event"
               >
-                <div v-if="externalViewLink" class="absolute inset-0 bg-background">
+                <div v-if="externalViewLink" class="bg-background absolute inset-0">
                   <UiIframeLazy
-                    class="z-20 h-(--container-height) w-full bg-background"
+                    class="bg-background z-20 h-(--container-height) w-full"
                     :src="externalViewLink"
                     :iframe-class="props.frameClass"
                   />

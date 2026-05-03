@@ -35,12 +35,11 @@
   export type ButtonGroupProps = PrimitiveProps & {
     /**
      * The orientation of the button group.
-     * @default 'horizontal'
+     *
+     * @default "horizontal"
      */
     orientation?: VariantProps<typeof buttonGroupVariants>["orientation"];
-    /**
-     * Additional classes to apply to the button group.
-     */
+    /** Additional classes to apply to the button group. */
     class?: HTMLAttributes["class"];
   };
 </script>

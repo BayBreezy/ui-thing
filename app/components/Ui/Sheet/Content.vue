@@ -47,15 +47,15 @@
   defineOptions({ inheritAttrs: false });
 
   const styles = tv({
-    base: "fixed z-50 flex flex-col gap-4 bg-background shadow-lg transition ease-in-out data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:animate-in data-[state=open]:duration-500",
+    base: "bg-background data-[state=closed]:animate-out data-[state=open]:animate-in fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
     variants: {
       side: {
-        top: "inset-x-0 top-0 h-auto border-b data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top",
+        top: "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b",
         bottom:
-          "inset-x-0 bottom-0 h-auto border-t data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom",
-        left: "inset-y-0 left-0 h-full w-3/4 border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm",
+          "data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto border-t",
+        left: "data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-sm",
         right:
-          "inset-y-0 right-0 h-full w-3/4 border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm",
+          "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 border-l sm:max-w-sm",
       },
       isBlurred: {
         true: "backdrop-blur-sm",
@@ -145,54 +145,42 @@
   const props = withDefaults(
     defineProps<
       DialogContentProps & {
-        /**
-         * Custom icon for the close button
-         */
+        /** Custom icon for the close button. */
         icon?: string;
-        /**
-         * Title text for the sheet header
-         */
+        /** Title text for the sheet header. */
         title?: string;
-        /**
-         * Description text for the sheet header
-         */
+        /** Description text for the sheet header. */
         description?: string;
-        /**
-         * Custom class for the sheet content element
-         */
+        /** Custom class for the sheet content element. */
         class?: HTMLAttributes["class"];
         /**
-         * Side from which the sheet will appear
+         * Side from which the sheet will appear.
          *
          * @default "left"
          */
 
         side?: VariantProps<typeof styles>["side"];
         /**
-         * Visual variant of the sheet
+         * Visual variant of the sheet.
          *
          * @default "default"
          */
         variant?: VariantProps<typeof styles>["variant"];
         /**
-         * Whether the sheet should take the full screen
+         * Whether the sheet should take the full screen.
          *
          * @default false
          */
         fullscreen?: VariantProps<typeof styles>["fullscreen"];
-        /**
-         * Target element or selector for the sheet portal
-         */
+        /** Target element or selector for the sheet portal. */
         to?: string | HTMLElement;
         /**
-         * Whether the overlay should have a blur effect
+         * Whether the overlay should have a blur effect.
          *
          * @default true
          */
         isBlurred?: boolean;
-        /**
-         * Whether to render the content with a translucent surface
-         */
+        /** Whether to render the content with a translucent surface. */
         translucent?: boolean;
       }
     >(),
@@ -216,37 +204,21 @@
   );
 
   defineSlots<{
-    /**
-     * Default slot for custom sheet structure
-     */
+    /** Default slot for custom sheet structure. */
     default: () => any;
-    /**
-     * Slot for custom overlay content
-     */
+    /** Slot for custom overlay content. */
     overlay: () => any;
-    /**
-     * Slot for custom close button
-     */
+    /** Slot for custom close button. */
     close: () => any;
-    /**
-     * Slot for header content (title and description)
-     */
+    /** Slot for header content (title and description) */
     header: () => any;
-    /**
-     * Slot for title content
-     */
+    /** Slot for title content. */
     title: () => any;
-    /**
-     * Slot for description content
-     */
+    /** Slot for description content. */
     description: () => any;
-    /**
-     * Slot for main content of the sheet
-     */
+    /** Slot for main content of the sheet. */
     content: () => any;
-    /**
-     * Slot for footer content of the sheet
-     */
+    /** Slot for footer content of the sheet. */
     footer: () => any;
   }>();
 </script>

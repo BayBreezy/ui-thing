@@ -15,7 +15,7 @@
 
   const props = defineProps<
     PaginationEllipsisProps & {
-      /** Icon to show */
+      /** Icon to show. */
       icon?: string;
     }
   >();

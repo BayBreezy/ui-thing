@@ -4,7 +4,7 @@
     Features: Full-width gradient background, centered form, social links, animated blobs
   -->
   <div
-    class="relative overflow-hidden bg-linear-to-br from-primary/10 via-background to-primary/5 py-20"
+    class="from-primary/10 via-background to-primary/5 relative overflow-hidden bg-linear-to-br py-20"
   >
     <!-- Animated background blobs -->
     <div class="absolute inset-0 overflow-hidden">
@@ -23,7 +23,7 @@
         }"
         initial="initial"
         animate="animate"
-        class="absolute -top-20 -right-20 h-96 w-96 rounded-full bg-primary/20 blur-3xl"
+        class="bg-primary/20 absolute -top-20 -right-20 h-96 w-96 rounded-full blur-3xl"
       />
       <Motion
         :variants="{
@@ -41,7 +41,7 @@
         }"
         initial="initial"
         animate="animate"
-        class="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-primary/15 blur-3xl"
+        class="bg-primary/15 absolute -bottom-32 -left-32 h-96 w-96 rounded-full blur-3xl"
       />
     </div>
 
@@ -73,7 +73,7 @@
           <Motion
             as="p"
             :variants="childVariant"
-            class="mb-10 text-lg text-muted-foreground lg:text-xl"
+            class="text-muted-foreground mb-10 text-lg lg:text-xl"
           >
             We're always happy to hear from you. Send us a message and we'll respond as soon as
             possible.

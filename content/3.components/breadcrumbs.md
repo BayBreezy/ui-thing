@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="Breadcrumbs.vue"} to see the source code for th
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsBreadcrumbs
 
@@ -63,7 +63,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Dots Dropdown
 
-::ShowCase
+::prose-show-case
 
 :DocsBreadcrumbsDotDropdown
 
@@ -77,7 +77,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     <template #dots>
       <UiDropdownMenu>
         <UiDropdownMenuTrigger
-          class="flex items-center justify-center text-muted-foreground hover:text-foreground"
+          class="text-muted-foreground hover:text-foreground flex items-center justify-center"
         >
           <Icon name="lucide:ellipsis" class="size-4" />
           <span class="sr-only">Toggle menu</span>
@@ -116,7 +116,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Icon Dropdown
 
-::ShowCase
+::prose-show-case
 
 :DocsBreadcrumbsIconDropdown
 
@@ -130,7 +130,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     <template #folder>
       <UiDropdownMenu v-model:open="open">
         <UiDropdownMenuTrigger
-          class="flex items-center justify-center text-muted-foreground hover:text-foreground"
+          class="text-muted-foreground hover:text-foreground flex items-center justify-center"
         >
           <Icon :name="open ? 'lucide:folder-open-dot' : 'lucide:folder'" class="size-4" />
           <span class="sr-only">Toggle folder</span>
@@ -169,7 +169,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Icons
 
-::ShowCase
+::prose-show-case
 
 :DocsBreadcrumbsIcons
 
@@ -199,7 +199,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Separator
 
-::ShowCase
+::prose-show-case
 
 :DocsBreadcrumbsSeparator
 
@@ -232,7 +232,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Bordered
 
-::ShowCase
+::prose-show-case
 
 :DocsBreadcrumbsBordered
 
@@ -244,7 +244,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 <template>
   <UiBreadcrumbs
     :items="items"
-    class="mx-auto w-fit rounded-lg border border-border bg-background px-3 py-2 shadow-xs shadow-black/5"
+    class="border-border bg-background mx-auto w-fit rounded-lg border px-3 py-2 shadow-xs shadow-black/5"
   />
 </template>
 
@@ -265,7 +265,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Select
 
-::ShowCase
+::prose-show-case
 
 :DocsBreadcrumbsSelect
 

@@ -13,7 +13,7 @@
         <UiTimelineDate>{{ item.date }}</UiTimelineDate>
         <UiTimelineTitle>{{ item.title }}</UiTimelineTitle>
         <UiTimelineIndicator
-          class="flex size-6 items-center justify-center group-data-completed/timeline-item:border-none group-data-completed/timeline-item:bg-primary group-data-completed/timeline-item:text-primary-foreground group-data-[orientation=vertical]/timeline:-left-7"
+          class="group-data-completed/timeline-item:bg-primary group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center group-data-completed/timeline-item:border-none group-data-[orientation=vertical]/timeline:-left-7"
         >
           <Icon
             name="lucide:check"

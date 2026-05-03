@@ -18,7 +18,7 @@
       <template #item="{ element }">
         <div
           :class="[
-            'flex items-center justify-between gap-3 rounded-md border bg-background p-3 shadow-xs',
+            'bg-background flex items-center justify-between gap-3 rounded-md border p-3 shadow-xs',
             toggledState ? '' : 'cursor-not-allowed opacity-50',
           ]"
         >
@@ -40,7 +40,7 @@
             variant="ghost"
             @click="removeItem(element.id)"
           >
-            <icon name="lucide:trash-2" class="size-4 text-destructive" />
+            <icon name="lucide:trash-2" class="text-destructive size-4" />
             <span class="sr-only">Remove item</span>
           </ui-button>
         </div>

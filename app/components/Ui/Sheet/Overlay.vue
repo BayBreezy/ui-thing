@@ -15,10 +15,10 @@
   const props = withDefaults(
     defineProps<
       DialogOverlayProps & {
-        /** Custom class(es) to add to parent element */
+        /** Custom class(es) to add to parent element. */
         class?: HTMLAttributes["class"];
         /**
-         * Whether or not to apply a backdrop blur to the overlay
+         * Whether or not to apply a backdrop blur to the overlay.
          *
          * @default true
          */
@@ -32,7 +32,7 @@
 
   const forwarded = reactiveOmit(props, "class");
   const styles = tv({
-    base: "fixed inset-0 z-50 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0",
+    base: "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0 fixed inset-0 z-50",
     variants: {
       isBlurred: {
         true: "bg-background/50 backdrop-blur-sm",

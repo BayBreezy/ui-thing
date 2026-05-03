@@ -8,18 +8,18 @@
     >
       <Motion :variants="iconVariant" class="relative">
         <div
-          class="group rounded-2xl border-2 border-dashed border-border bg-muted/30 p-12 transition-all hover:border-primary"
+          class="group border-border bg-muted/30 hover:border-primary rounded-2xl border-2 border-dashed p-12 transition-all"
         >
           <Icon
             :name="icon"
-            class="size-8 text-muted-foreground/50 transition-all duration-300 group-hover:-translate-y-1"
+            class="text-muted-foreground/50 size-8 transition-all duration-300 group-hover:-translate-y-1"
           />
         </div>
         <Motion
           :variants="badgeVariant"
-          class="absolute -top-2 -right-2 rounded-full bg-primary p-2 shadow-lg ring-4 ring-background"
+          class="bg-primary ring-background absolute -top-2 -right-2 rounded-full p-2 shadow-lg ring-4"
         >
-          <Icon :name="badgeIcon" class="size-4 text-primary-foreground" />
+          <Icon :name="badgeIcon" class="text-primary-foreground size-4" />
         </Motion>
       </Motion>
       <div class="flex flex-col gap-2">
@@ -33,7 +33,7 @@
             v-if="description"
             as="p"
             :variants="childVariant"
-            class="text-sm text-muted-foreground"
+            class="text-muted-foreground text-sm"
           >
             <span v-html="description" />
           </Motion>
@@ -51,7 +51,7 @@
             :variants="featureVariant"
             class="flex items-center gap-2 text-sm"
           >
-            <Icon name="lucide:check" class="size-4 shrink-0 text-primary" />
+            <Icon name="lucide:check" class="text-primary size-4 shrink-0" />
             <span class="text-muted-foreground" v-html="feature" />
           </Motion>
         </Motion>

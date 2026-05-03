@@ -3,9 +3,9 @@ import { buildInstallPlan } from "~~/server/mcp/utils/library";
 
 export default defineMcpTool({
   description:
-    "Build one normalized install plan for a mixed set of UI Thing components, blocks, or prose components.",
+    "Build one normalized install plan for a mixed set of UI Thing components and blocks.",
   inputSchema: {
-    items: z.array(z.string()).min(1).describe("Component, block, or prose selections to include."),
+    items: z.array(z.string()).min(1).describe("Component or block selections to include."),
     packageManager: z
       .enum(["npm", "pnpm", "yarn", "bun"])
       .optional()

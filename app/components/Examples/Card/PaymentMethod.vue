@@ -15,7 +15,7 @@
                 <UiRadioGroupItem :id="p.id" :value="p.id" class="peer sr-only" />
                 <UiLabel
                   :for="p.id"
-                  class="flex flex-col items-center justify-between gap-3 rounded-md border-2 border-muted bg-popover p-4 peer-data-[state=checked]:border-primary hover:bg-accent hover:text-accent-foreground [&:has([data-state=checked])]:border-primary"
+                  class="border-muted bg-popover peer-data-[state=checked]:border-primary hover:bg-accent hover:text-accent-foreground [&:has([data-state=checked])]:border-primary flex flex-col items-center justify-between gap-3 rounded-md border-2 p-4"
                 >
                   <Icon class="h-6 w-6" :name="p.icon" />
                   <span class="text-sm">{{ p.name }}</span>

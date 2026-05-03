@@ -33,13 +33,9 @@
 </script>
 <script setup lang="ts">
   const props = defineProps<{
-    /**
-     * Whether to show the icon skeleton.
-     */
+    /** Whether to show the icon skeleton. */
     showIcon?: boolean;
-    /**
-     * Additional classes to apply to the parent element.
-     */
+    /** Additional classes to apply to the parent element. */
     class?: HTMLAttributes["class"];
   }>();
 

@@ -12,7 +12,7 @@
           <h2 class="mb-4 text-3xl font-semibold lg:mb-5 lg:text-4xl">
             Explore our powerful features
           </h2>
-          <p class="text-lg text-muted-foreground lg:text-xl">
+          <p class="text-muted-foreground text-lg lg:text-xl">
             Everything you need to build, deploy, and scale your applications with confidence.
           </p>
         </div>
@@ -49,7 +49,7 @@
                   <Motion
                     as="p"
                     :variants="childVariant"
-                    class="mb-6 text-muted-foreground lg:text-lg"
+                    class="text-muted-foreground mb-6 lg:text-lg"
                   >
                     {{ selectedFeat?.description }}
                   </Motion>
@@ -63,10 +63,10 @@
                       animate: { opacity: 1, x: 0 },
                     }"
                   >
-                    <Icon name="heroicons:check-circle" class="h-6 w-6 shrink-0 text-primary" />
+                    <Icon name="heroicons:check-circle" class="text-primary h-6 w-6 shrink-0" />
                     <div>
                       <p class="font-semibold">{{ f.title }}</p>
-                      <p class="text-sm text-muted-foreground">{{ f.description }}</p>
+                      <p class="text-muted-foreground text-sm">{{ f.description }}</p>
                     </div>
                   </Motion>
                 </div>

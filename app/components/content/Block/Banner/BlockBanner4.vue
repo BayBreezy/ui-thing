@@ -7,7 +7,7 @@
       <p class="text-muted-foreground lg:text-sm">{{ description }}</p>
     </div>
     <UiButton class="shrink-0" size="icon" variant="ghost">
-      <Icon name="lucide:x" class="h-5 w-5 text-muted-foreground" />
+      <Icon name="lucide:x" class="text-muted-foreground h-5 w-5" />
     </UiButton>
   </UiContainer>
 </template>

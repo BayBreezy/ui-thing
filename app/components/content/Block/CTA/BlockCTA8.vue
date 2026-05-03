@@ -26,7 +26,7 @@
             <h3 class="mb-4 text-3xl font-semibold lg:mb-6 lg:text-4xl">
               Everything you need to succeed
             </h3>
-            <p class="mx-auto mb-10 max-w-[600px] text-lg text-muted-foreground lg:text-xl">
+            <p class="text-muted-foreground mx-auto mb-10 max-w-[600px] text-lg lg:text-xl">
               All the tools and features you need in one powerful platform.
             </p>
           </div>
@@ -39,12 +39,12 @@
               class="group text-center"
             >
               <div
-                class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 transition-colors group-hover:bg-primary/20"
+                class="bg-primary/10 group-hover:bg-primary/20 mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full transition-colors"
               >
-                <Icon :name="feature.icon" class="h-6 w-6 text-primary" />
+                <Icon :name="feature.icon" class="text-primary h-6 w-6" />
               </div>
               <h4 class="mb-2 font-semibold">{{ feature.title }}</h4>
-              <p class="text-sm text-muted-foreground">{{ feature.description }}</p>
+              <p class="text-muted-foreground text-sm">{{ feature.description }}</p>
             </Motion>
           </div>
 

@@ -9,13 +9,13 @@
       >
         <UiDialogHeader class="contents space-y-0 text-left">
           <UiDialogTitle
-            class="border-b border-border px-6 py-4 text-base"
+            class="border-border border-b px-6 py-4 text-base"
             title="Frequently Asked Questions (FAQ)"
           />
           <div class="overflow-y-auto">
             <UiDialogDescription>
               <div class="px-6 py-4">
-                <div class="space-y-4 [&_strong]:font-semibold [&_strong]:text-foreground">
+                <div class="[&_strong]:text-foreground space-y-4 [&_strong]:font-semibold">
                   <div class="space-y-1">
                     <p>
                       <strong>Account Management</strong>

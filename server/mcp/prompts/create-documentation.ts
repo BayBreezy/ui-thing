@@ -1,5 +1,5 @@
 export default defineMcpPrompt({
-  description: "Guide AI to create docs pages with UI Thing prose components.",
+  description: "Guide AI to create docs pages for UI Thing components.",
   handler: async () => {
     return {
       messages: [
@@ -7,11 +7,11 @@ export default defineMcpPrompt({
           role: "user",
           content: {
             type: "text",
-            text: `Create technical documentation with UI Thing prose components.
+            text: `Create technical documentation for a UI Thing component.
 
 Preferred workflow:
-1. Call list-prose or search-components with type="prose" to discover prose components.
-2. Call get-prose for exact implementation details.
+1. Call search-components or list-components to find the component.
+2. Call get-component for exact implementation details.
 3. Call get-documentation-page to inspect an existing docs page when you need a reference structure.
 
 Default structure:

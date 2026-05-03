@@ -13,7 +13,7 @@
                   class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
                   <div
-                    class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"
+                    class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg"
                   >
                     <Icon name="lucide:gallery-vertical-end" class="size-4" />
                   </div>
@@ -59,7 +59,7 @@
             <UiSidebarGroup>
               <UiCollapsibleTrigger as-child>
                 <UiSidebarGroupLabel
-                  class="text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                  class="text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground text-sm"
                   >{{ item.title }}
                   <Icon
                     class="ml-auto transition-transform"

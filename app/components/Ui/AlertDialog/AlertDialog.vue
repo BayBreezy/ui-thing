@@ -40,7 +40,7 @@
 
   const props = defineProps<
     AlertDialogProps & {
-      /** Text to display in the trigger button */
+      /** Text to display in the trigger button. */
       triggerText?: string;
       /** Text to be passed to the `AlertDialogTitle` */
       title?: string;

@@ -18,7 +18,7 @@
     <UiContainer class="py-16 lg:py-24">
       <Motion :variants="childVariant" :transition="{ duration: 0.5 }">
         <div class="max-w-[760px]">
-          <Motion as="p" :variants="childVariant" class="font-semibold text-primary"
+          <Motion as="p" :variants="childVariant" class="text-primary font-semibold"
             >Features</Motion
           >
           <Motion
@@ -28,7 +28,7 @@
           >
             Beautiful analytics to grow smarter
           </Motion>
-          <Motion as="p" :variants="childVariant" class="text-lg text-muted-foreground lg:text-xl">
+          <Motion as="p" :variants="childVariant" class="text-muted-foreground text-lg lg:text-xl">
             Powerful, self-serve product and growth analytics to help you convert, engage, and
             retain more users. Trusted by over 4,000 startups.
           </Motion>
@@ -47,13 +47,13 @@
           <div class="flex h-12 w-12 items-center justify-center rounded-md border">
             <Icon
               :name="f.icon"
-              class="h-5 w-5 transition-colors group-hover:text-primary lg:h-6 lg:w-6"
+              class="group-hover:text-primary h-5 w-5 transition-colors lg:h-6 lg:w-6"
             />
           </div>
           <h3 class="mt-4 text-lg font-semibold text-balance lg:mt-5 lg:text-xl" v-html="f.title" />
-          <p class="mt-1 text-balance text-muted-foreground lg:mt-2" v-html="f.description" />
+          <p class="text-muted-foreground mt-1 text-balance lg:mt-2" v-html="f.description" />
           <NuxtLink
-            class="mt-4 inline-flex items-center gap-2 font-semibold text-primary underline-offset-2 hover:underline lg:mt-5"
+            class="text-primary mt-4 inline-flex items-center gap-2 font-semibold underline-offset-2 hover:underline lg:mt-5"
             :to="f.link.to"
             >{{ f.link.text }}
             <Icon

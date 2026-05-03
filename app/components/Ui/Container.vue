@@ -18,9 +18,9 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
-        /** Custom class(es) to add to the element */
+        /** Custom class(es) to add to the element. */
         class?: HTMLAttributes["class"];
-        /** Whether to constrain the width of the container */
+        /** Whether to constrain the width of the container. */
         constrained?: boolean;
       }
     >(),

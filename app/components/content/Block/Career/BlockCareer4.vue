@@ -22,7 +22,7 @@
     <UiContainer class="py-16 lg:py-24">
       <!-- Header -->
       <div class="mb-12 text-center lg:mb-16">
-        <Motion as="p" :variants="childVariant" class="mb-2 font-semibold text-primary">
+        <Motion as="p" :variants="childVariant" class="text-primary mb-2 font-semibold">
           Careers
         </Motion>
         <Motion as="h2" :variants="childVariant" class="mb-4 text-4xl font-bold lg:text-5xl">
@@ -31,7 +31,7 @@
         <Motion
           as="p"
           :variants="childVariant"
-          class="mx-auto max-w-2xl text-lg text-muted-foreground lg:text-xl"
+          class="text-muted-foreground mx-auto max-w-2xl text-lg lg:text-xl"
         >
           Join a team of passionate individuals working on cutting-edge products
         </Motion>
@@ -60,7 +60,7 @@
             delay: n * 0.05,
           }"
         >
-          <UiCard class="group h-full py-0 transition-all hover:border-primary/50 hover:shadow-lg">
+          <UiCard class="group hover:border-primary/50 h-full py-0 transition-all hover:shadow-lg">
             <UiCardContent class="p-6">
               <div class="mb-4 flex items-start justify-between">
                 <UiBadge variant="secondary">Design</UiBadge>
@@ -69,23 +69,23 @@
                 </UiButton>
               </div>
 
-              <h3 class="mb-2 text-xl font-semibold transition-colors group-hover:text-primary">
+              <h3 class="group-hover:text-primary mb-2 text-xl font-semibold transition-colors">
                 Senior Product Designer
               </h3>
-              <p class="mb-4 text-sm text-muted-foreground">
+              <p class="text-muted-foreground mb-4 text-sm">
                 Lead design initiatives for our flagship products and mentor junior designers.
               </p>
 
               <div class="mb-4 space-y-2 text-sm">
-                <div class="flex items-center gap-2 text-muted-foreground">
+                <div class="text-muted-foreground flex items-center gap-2">
                   <Icon name="lucide:map-pin" class="h-4 w-4" />
                   Remote · San Francisco, CA
                 </div>
-                <div class="flex items-center gap-2 text-muted-foreground">
+                <div class="text-muted-foreground flex items-center gap-2">
                   <Icon name="lucide:briefcase" class="h-4 w-4" />
                   Full-time · Senior level
                 </div>
-                <div class="flex items-center gap-2 text-muted-foreground">
+                <div class="text-muted-foreground flex items-center gap-2">
                   <Icon name="lucide:dollar-sign" class="h-4 w-4" />
                   $120k - $160k
                 </div>

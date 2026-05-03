@@ -28,7 +28,7 @@
           <Motion as="h1" :variants="childVariant" class="mb-2 text-4xl font-bold lg:text-5xl">
             The Magazine
           </Motion>
-          <Motion as="p" :variants="childVariant" class="text-lg text-muted-foreground">
+          <Motion as="p" :variants="childVariant" class="text-muted-foreground text-lg">
             Stories that matter. Ideas that inspire.
           </Motion>
         </div>
@@ -37,17 +37,17 @@
         <Motion :variants="childVariant" class="flex gap-6">
           <div class="text-center">
             <p class="text-2xl font-bold">500+</p>
-            <p class="text-sm text-muted-foreground">Articles</p>
+            <p class="text-muted-foreground text-sm">Articles</p>
           </div>
           <UiSeparator orientation="vertical" class="h-auto" />
           <div class="text-center">
             <p class="text-2xl font-bold">50K+</p>
-            <p class="text-sm text-muted-foreground">Readers</p>
+            <p class="text-muted-foreground text-sm">Readers</p>
           </div>
           <UiSeparator orientation="vertical" class="h-auto" />
           <div class="text-center">
             <p class="text-2xl font-bold">100+</p>
-            <p class="text-sm text-muted-foreground">Authors</p>
+            <p class="text-muted-foreground text-sm">Authors</p>
           </div>
         </Motion>
       </div>
@@ -66,23 +66,23 @@
                 class="h-[400px] w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:h-[500px]"
               />
               <div
-                class="absolute inset-0 bg-linear-to-t from-background via-background/60 to-transparent"
+                class="from-background via-background/60 absolute inset-0 bg-linear-to-t to-transparent"
               ></div>
               <div class="absolute right-0 bottom-0 left-0 p-6 lg:p-8">
-                <UiBadge class="mb-3 bg-primary text-primary-foreground">Featured</UiBadge>
+                <UiBadge class="bg-primary text-primary-foreground mb-3">Featured</UiBadge>
                 <NuxtLink :to="link">
                   <h2
-                    class="mb-3 text-2xl font-bold transition-colors hover:text-primary lg:text-3xl"
+                    class="hover:text-primary mb-3 text-2xl font-bold transition-colors lg:text-3xl"
                   >
                     {{ title }}
                   </h2>
                 </NuxtLink>
-                <p class="mb-4 line-clamp-2 text-muted-foreground lg:text-lg">{{ description }}</p>
+                <p class="text-muted-foreground mb-4 line-clamp-2 lg:text-lg">{{ description }}</p>
                 <div class="flex items-center gap-3">
                   <UiAvatar :src="userImage" :alt="userName" />
                   <div>
                     <p class="font-semibold">{{ userName }}</p>
-                    <p class="text-sm text-muted-foreground">{{ date }} · 8 min read</p>
+                    <p class="text-muted-foreground text-sm">{{ date }} · 8 min read</p>
                   </div>
                 </div>
               </div>
@@ -115,12 +115,12 @@
                   <UiBadge variant="secondary" size="sm" class="mb-2">{{ headline }}</UiBadge>
                   <NuxtLink :to="link" class="block">
                     <h4
-                      class="mb-1 line-clamp-2 font-semibold transition-colors hover:text-primary"
+                      class="hover:text-primary mb-1 line-clamp-2 font-semibold transition-colors"
                     >
                       {{ title }}
                     </h4>
                   </NuxtLink>
-                  <p class="text-xs text-muted-foreground">{{ date }} · 5 min</p>
+                  <p class="text-muted-foreground text-xs">{{ date }} · 5 min</p>
                 </div>
               </div>
             </UiCard>
@@ -170,11 +170,11 @@
             <UiCardContent class="p-6 pt-0">
               <UiBadge variant="outline" size="sm" class="mb-3">{{ headline }}</UiBadge>
               <NuxtLink :to="link">
-                <h4 class="mb-2 font-semibold transition-colors hover:text-primary">
+                <h4 class="hover:text-primary mb-2 font-semibold transition-colors">
                   {{ title }}
                 </h4>
               </NuxtLink>
-              <p class="mb-4 line-clamp-2 text-sm text-muted-foreground">{{ description }}</p>
+              <p class="text-muted-foreground mb-4 line-clamp-2 text-sm">{{ description }}</p>
               <div class="flex items-center gap-2">
                 <UiAvatar :src="userImage" :alt="userName" size="xs" />
                 <span class="text-xs font-medium">{{ userName }}</span>

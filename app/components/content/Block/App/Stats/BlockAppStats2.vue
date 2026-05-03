@@ -2,7 +2,7 @@
   <UiCard>
     <UiCardContent class="flex items-center justify-between">
       <div class="flex-1">
-        <p class="text-sm font-medium text-muted-foreground" v-html="props.label" />
+        <p class="text-muted-foreground text-sm font-medium" v-html="props.label" />
         <h3 class="mt-2 text-2xl font-bold tracking-tight" v-html="props.value" />
         <div class="mt-2 flex items-center gap-1.5 text-sm">
           <Icon

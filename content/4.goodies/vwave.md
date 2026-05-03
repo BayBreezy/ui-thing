@@ -5,8 +5,8 @@ description: The material-ripple directive for Vue that actually works!
 
 ## Getting Started
 
-:::Steps
-::Step
+:::prose-steps
+::prose-step
 
 ### Installation
 
@@ -15,7 +15,7 @@ To get started, you will need to install the package. You can visit the [V-Wave]
 :prose-pm-install{name="v-wave"}
 
 ::
-::Step
+::prose-step
 
 ### Add it to `nuxt.config.ts`
 
@@ -34,7 +34,7 @@ modules: ["v-wave/nuxt"];
 
 You can add the `v-wave` directive to any button. Be sure to check out the available options in the repo.
 
-::ShowCase
+::prose-show-case
 
 :DocsVWaveButton
 
@@ -58,7 +58,7 @@ You can add the `v-wave` directive to any button. Be sure to check out the avail
 
 You can change the color of the ripple effect by passing a color to the directive. Even background images are allowed.
 
-::ShowCase
+::prose-show-case
 
 :DocsVWaveColor
 

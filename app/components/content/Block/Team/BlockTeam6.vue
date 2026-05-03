@@ -9,7 +9,7 @@
     <UiContainer class="py-16 lg:py-24">
       <Motion as-child :variants="childVariant">
         <div class="mb-12">
-          <p class="mb-3 text-center font-semibold text-primary">The Team</p>
+          <p class="text-primary mb-3 text-center font-semibold">The Team</p>
           <h2 class="mb-4 text-center text-4xl font-bold lg:text-5xl">
             Meet the people making it happen
           </h2>
@@ -33,18 +33,18 @@
               >
                 <div class="relative mb-4">
                   <UiAvatar
-                    class="h-32 w-32 ring-2 ring-ring/20 transition-all group-hover:ring-4 group-hover:ring-primary/50"
+                    class="ring-ring/20 group-hover:ring-primary/50 h-32 w-32 ring-2 transition-all group-hover:ring-4"
                     :src="member.avatar"
                   />
                   <div
-                    class="absolute -right-2 -bottom-2 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground"
+                    class="bg-primary text-primary-foreground absolute -right-2 -bottom-2 rounded-full px-3 py-1 text-xs font-semibold"
                   >
                     {{ member.badge }}
                   </div>
                 </div>
                 <p class="mb-1 font-semibold">{{ member.name }}</p>
-                <p class="mb-2 text-sm text-primary">{{ member.role }}</p>
-                <p class="text-xs text-muted-foreground">{{ member.location }}</p>
+                <p class="text-primary mb-2 text-sm">{{ member.role }}</p>
+                <p class="text-muted-foreground text-xs">{{ member.location }}</p>
               </div>
             </div>
           </div>

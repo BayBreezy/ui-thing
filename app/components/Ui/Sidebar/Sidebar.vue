@@ -33,7 +33,7 @@
 
   <div
     v-else
-    class="group peer hidden text-sidebar-foreground md:block"
+    class="group peer text-sidebar-foreground hidden md:block"
     data-slot="sidebar"
     :data-state="state"
     :data-collapsible="state === 'collapsed' ? collapsible : ''"
@@ -69,16 +69,16 @@
   export const sideBarStyles = tv({
     slots: {
       collapsible:
-        "flex h-full w-(--sidebar-width) flex-col bg-sidebar-background text-sidebar-foreground",
+        "bg-sidebar-background text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col",
       mobileSheet:
-        "w-(--sidebar-width) bg-sidebar-background p-0 text-sidebar-foreground [&>button]:hidden",
+        "bg-sidebar-background text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden",
       mobileInner: "flex size-full flex-col",
       sideBarWrapper:
         "relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear group-data-[collapsible=offcanvas]:w-0 group-data-[side=right]:rotate-180",
       sideBarWrapper2:
         "fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex",
       sideBarInner:
-        "flex h-full w-full flex-col bg-sidebar-background group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow-sm",
+        "bg-sidebar-background group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm",
     },
     variants: {
       side: {
@@ -125,23 +125,24 @@
 
   export type SideBarProps = {
     /**
-     * The side that the sidebar is on
+     * The side that the sidebar is on.
+     *
      * @default "left"
      */
     side?: VariantProps<typeof sideBarStyles>["side"];
     /**
-     * The variant of the sidebar
+     * The variant of the sidebar.
+     *
      * @default "sidebar"
      */
     variant?: VariantProps<typeof sideBarStyles>["variant"];
     /**
-     * The collapsible state of the sidebar
+     * The collapsible state of the sidebar.
+     *
      * @default "offcanvas"
      */
     collapsible?: VariantProps<typeof sideBarStyles>["collapsible"];
-    /**
-     * Additional classes to add to the sidebar
-     */
+    /** Additional classes to add to the sidebar. */
     class?: HTMLAttributes["class"];
   };
 </script>

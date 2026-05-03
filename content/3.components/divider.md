@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="Divider.vue"} to see the source code for this c
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsDivider
 
@@ -37,7 +37,7 @@ Click :SourceCodeLink{component="Divider.vue"} to see the source code for this c
 
 ### Label
 
-::ShowCase
+::prose-show-case
 
 :DocsDividerLabel
 
@@ -59,7 +59,7 @@ Click :SourceCodeLink{component="Divider.vue"} to see the source code for this c
 
 ### Icon
 
-::ShowCase
+::prose-show-case
 
 :DocsDividerIcon
 
@@ -81,7 +81,7 @@ Click :SourceCodeLink{component="Divider.vue"} to see the source code for this c
 
 ### Avatar
 
-::ShowCase
+::prose-show-case
 
 :DocsDividerAvatar
 
@@ -103,7 +103,7 @@ Click :SourceCodeLink{component="Divider.vue"} to see the source code for this c
 
 ### Vertical
 
-::ShowCase
+::prose-show-case
 
 :DocsDividerVertical
 

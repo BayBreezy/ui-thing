@@ -8,7 +8,7 @@
             <Icon name="lucide:x" class="size-3.5" />
           </UiButton>
         </UiAlertDescription>
-        <p class="mb-3 text-sm text-muted-foreground">
+        <p class="text-muted-foreground mb-3 text-sm">
           We use cookies to improve your experience, and show personalized content.
         </p>
         <div class="flex items-center gap-2">

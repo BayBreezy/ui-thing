@@ -18,13 +18,13 @@
 
   const props = defineProps<
     SeparatorProps & {
-      /** Custom class(es) to add to the element */
+      /** Custom class(es) to add to the element. */
       class?: HTMLAttributes["class"];
     }
   >();
 
   const forwarded = reactiveOmit(props, "class");
   const styles = tv({
-    base: "-mx-1 h-px bg-border",
+    base: "bg-border -mx-1 h-px",
   });
 </script>

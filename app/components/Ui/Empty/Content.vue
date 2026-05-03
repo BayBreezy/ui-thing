@@ -19,9 +19,7 @@
   });
 
   export type EmptyContentProps = PrimitiveProps & {
-    /**
-     * Additional classes to apply to the parent element.
-     */
+    /** Additional classes to apply to the parent element. */
     class?: HTMLAttributes["class"];
   };
 </script>

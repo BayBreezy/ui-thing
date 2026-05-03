@@ -10,14 +10,14 @@
     thumb-alignment="contain"
   >
     <SliderTrack
-      class="relative grow overflow-hidden rounded-md bg-muted data-[orientation=vertical]:w-3"
+      class="bg-muted relative grow overflow-hidden rounded-md data-[orientation=vertical]:w-3"
       :style="{ backgroundImage: hueGradient }"
     >
       <SliderRange class="absolute bg-transparent" />
     </SliderTrack>
 
     <SliderThumb
-      class="block h-2 w-5 cursor-pointer rounded-sm border border-border/50 bg-white shadow ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
+      class="border-border/50 ring-offset-background focus-visible:ring-ring block h-2 w-5 cursor-pointer rounded-sm border bg-white shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
     />
   </SliderRoot>
 </template>

@@ -3,7 +3,7 @@
     :id="formMessageId"
     as="p"
     :name="toValue(name)"
-    class="text-sm font-medium text-destructive"
+    class="text-destructive text-sm font-medium"
   />
 </template>
 

@@ -26,7 +26,7 @@
             v-if="headline"
             as="p"
             :variants="childVariant"
-            class="font-semibold text-primary"
+            class="text-primary font-semibold"
           >
             {{ headline }}
           </Motion>
@@ -44,7 +44,7 @@
           <Motion
             as="p"
             :variants="childVariant"
-            class="mx-auto max-w-[800px] text-lg text-muted-foreground lg:text-xl"
+            class="text-muted-foreground mx-auto max-w-[800px] text-lg lg:text-xl"
           >
             {{ description }}
           </Motion>

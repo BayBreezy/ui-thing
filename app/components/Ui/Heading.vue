@@ -14,11 +14,9 @@
   import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
-  /**
-   * Styles for the heading component
-   */
+  /** Styles for the heading component. */
   export const headingStyles = tv({
-    base: "font-sans text-foreground",
+    base: "text-foreground font-sans",
     variants: {
       level: {
         1: "text-xl font-semibold sm:text-2xl",
@@ -34,9 +32,7 @@
     },
   });
 
-  /**
-   * Props for the heading component
-   */
+  /** Props for the heading component. */
   export type HeadingProps = Omit<PrimitiveProps, "as"> & {
     /**
      * The heading level to use, which will determine the HTML tag used.
@@ -44,9 +40,7 @@
      * @default 1
      */
     level?: VariantProps<typeof headingStyles>["level"];
-    /**
-     * Custom class(es) to apply to the heading element.
-     */
+    /** Custom class(es) to apply to the heading element. */
     class?: HTMLAttributes["class"];
   };
 </script>

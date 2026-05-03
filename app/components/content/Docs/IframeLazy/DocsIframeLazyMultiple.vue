@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-6">
-    <p class="text-sm text-muted-foreground">
+    <p class="text-muted-foreground text-sm">
       Each iframe loads independently when scrolled into view. Scrolling is disabled within the
       iframes.
     </p>
@@ -12,10 +12,10 @@
       <div class="h-[350px] w-full rounded-lg border">
         <UiIframeLazy disable-scroll :src="site.url" iframe-class="rounded-lg">
           <template #placeholder>
-            <div class="flex size-full items-center justify-center bg-muted/50">
+            <div class="bg-muted/50 flex size-full items-center justify-center">
               <div class="flex flex-col items-center gap-2">
-                <Icon :name="site.icon" class="size-8 text-muted-foreground" />
-                <p class="text-sm text-muted-foreground">Loading {{ site.name }}...</p>
+                <Icon :name="site.icon" class="text-muted-foreground size-8" />
+                <p class="text-muted-foreground text-sm">Loading {{ site.name }}...</p>
               </div>
             </div>
           </template>

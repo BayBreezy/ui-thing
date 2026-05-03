@@ -5,7 +5,7 @@
     <div
       ref="dropzoneRef"
       :data-files="files.length > 0 || undefined"
-      class="relative flex min-h-52 flex-col items-center overflow-hidden rounded-xl border border-dashed border-input p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50"
+      class="border-input has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 relative flex min-h-52 flex-col items-center overflow-hidden rounded-xl border border-dashed p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:ring-[3px]"
     >
       <div v-if="files.length > 0" class="flex w-full flex-col gap-3">
         <div class="flex items-center justify-between gap-2">
@@ -24,8 +24,8 @@
 
         <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
           <div v-for="file in files" :key="file.id" class="relative">
-            <div class="relative flex flex-col overflow-hidden rounded-md border bg-background">
-              <div class="flex aspect-square items-center justify-center overflow-hidden bg-accent">
+            <div class="bg-background relative flex flex-col overflow-hidden rounded-md border">
+              <div class="bg-accent flex aspect-square items-center justify-center overflow-hidden">
                 <img
                   v-if="getFilePreview(file).type === 'image'"
                   :src="getFilePreview(file).url"
@@ -38,14 +38,14 @@
                 <p class="truncate text-[13px] font-medium">
                   {{ file.file.name }}
                 </p>
-                <p class="truncate text-xs text-muted-foreground">
+                <p class="text-muted-foreground truncate text-xs">
                   {{ formatBytes(file.file.size) }}
                 </p>
               </div>
             </div>
             <UiButton
               size="icon"
-              class="absolute -top-2 -right-2 size-6 rounded-full border-2 border-background shadow-none focus-visible:border-background"
+              class="border-background focus-visible:border-background absolute -top-2 -right-2 size-6 rounded-full border-2 shadow-none"
               aria-label="Remove file"
               @click="removeFile(file.id)"
             >
@@ -57,13 +57,13 @@
 
       <div v-else class="flex flex-col items-center justify-center px-4 py-3 text-center">
         <div
-          class="mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border bg-background"
+          class="bg-background mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border"
           aria-hidden="true"
         >
           <Icon name="lucide:image" class="size-4 opacity-60" />
         </div>
         <p class="mb-1.5 text-sm font-medium">Drop your files here</p>
-        <p class="text-xs text-muted-foreground">
+        <p class="text-muted-foreground text-xs">
           Max {{ maxFiles }} files ∙ Up to {{ maxSizeMB }}MB
         </p>
         <UiButton size="sm" variant="outline" class="mt-4" @click="openFileDialog">
@@ -75,14 +75,14 @@
 
     <div
       v-if="errors.length > 0"
-      class="flex items-center gap-1 text-xs text-destructive"
+      class="text-destructive flex items-center gap-1 text-xs"
       role="alert"
     >
       <Icon name="lucide:circle-alert" class="size-3 shrink-0" />
       <span>{{ errors[0] }}</span>
     </div>
 
-    <p aria-live="polite" role="region" class="mt-2 text-center text-xs text-muted-foreground">
+    <p aria-live="polite" role="region" class="text-muted-foreground mt-2 text-center text-xs">
       Mixed content w/ card
     </p>
   </div>

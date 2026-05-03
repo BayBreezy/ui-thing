@@ -22,7 +22,7 @@
     <UiContainer class="py-16 lg:py-24">
       <!-- Centered header -->
       <div class="text-center">
-        <Motion as="p" :variants="childVariant" class="mb-3 font-semibold text-primary">
+        <Motion as="p" :variants="childVariant" class="text-primary mb-3 font-semibold">
           Our blog
         </Motion>
         <Motion
@@ -32,7 +32,7 @@
         >
           The latest writings from our team
         </Motion>
-        <Motion as="p" :variants="childVariant" class="text-lg text-muted-foreground lg:text-xl">
+        <Motion as="p" :variants="childVariant" class="text-muted-foreground text-lg lg:text-xl">
           The latest industry news, interviews, technologies, and resources.
         </Motion>
       </div>
@@ -60,7 +60,7 @@
         >
           <NuxtLink to="#">
             <h2
-              class="mb-2 text-xl font-semibold transition-colors hover:text-primary/80 md:text-2xl"
+              class="hover:text-primary/80 mb-2 text-xl font-semibold transition-colors md:text-2xl"
             >
               Improve your design skills: Develop an "eye" for design
             </h2>
@@ -101,15 +101,15 @@
         <UiBadge
           v-if="headline || readTime"
           variant="outline"
-          class="mb-2 border-ring/50 px-3 py-1 text-sm font-medium text-primary"
+          class="border-ring/50 text-primary mb-2 px-3 py-1 text-sm font-medium"
           >{{ headline }} <span v-if="readTime" class="ml-1">{{ readTime }}</span></UiBadge
         >
         <NuxtLink :to="link">
-          <p class="mb-2 text-xl font-semibold transition-colors hover:text-primary lg:text-2xl">
+          <p class="hover:text-primary mb-2 text-xl font-semibold transition-colors lg:text-2xl">
             {{ title }}
           </p>
         </NuxtLink>
-        <p v-if="description" class="mb-5 line-clamp-2 text-ellipsis text-muted-foreground">
+        <p v-if="description" class="text-muted-foreground mb-5 line-clamp-2 text-ellipsis">
           {{ description }}
         </p>
         <div class="flex items-center">
@@ -117,11 +117,11 @@
             v-if="userImage"
             :src="userImage"
             :alt="userName"
-            class="mr-3 rounded-full bg-background shadow ring-1 ring-ring/30"
+            class="bg-background ring-ring/30 mr-3 rounded-full shadow ring-1"
           />
           <div>
             <p v-if="userName" class="text-sm font-semibold">{{ userName }}</p>
-            <p v-if="date" class="text-sm text-muted-foreground">{{ date }}</p>
+            <p v-if="date" class="text-muted-foreground text-sm">{{ date }}</p>
           </div>
         </div>
       </Motion>
@@ -129,11 +129,11 @@
       <!-- Articles grid with sidebar -->
       <section class="mt-12 grid grid-cols-1 gap-y-12 lg:mt-16 lg:grid-cols-12 lg:gap-x-8">
         <!-- Sidebar -->
-        <Motion :variants="childVariant" class="col-span-full bg-background lg:col-span-4">
+        <Motion :variants="childVariant" class="bg-background col-span-full lg:col-span-4">
           <div class="sticky top-5">
             <UiVeeInput placeholder="Search" icon="lucide:search" />
 
-            <p class="mt-5 font-semibold text-primary md:text-sm">Blog categories</p>
+            <p class="text-primary mt-5 font-semibold md:text-sm">Blog categories</p>
             <ul class="mt-5 flex flex-col gap-5 pl-2 font-medium md:text-sm">
               <Motion
                 v-for="(c, index) in categories"
@@ -150,7 +150,7 @@
                 }"
                 as="li"
               >
-                <NuxtLink class="transition-colors hover:text-primary" to="#">{{ c }}</NuxtLink>
+                <NuxtLink class="hover:text-primary transition-colors" to="#">{{ c }}</NuxtLink>
               </Motion>
             </ul>
           </div>
@@ -178,17 +178,17 @@
               <UiBadge
                 v-if="headline || readTime"
                 variant="outline"
-                class="mb-2 border-ring/50 px-3 py-1 text-sm font-medium text-primary"
+                class="border-ring/50 text-primary mb-2 px-3 py-1 text-sm font-medium"
                 >{{ headline }} <span v-if="readTime" class="ml-1">{{ readTime }}</span></UiBadge
               >
               <NuxtLink :to="link">
                 <p
-                  class="mb-2 text-xl font-semibold transition-colors hover:text-primary lg:text-2xl"
+                  class="hover:text-primary mb-2 text-xl font-semibold transition-colors lg:text-2xl"
                 >
                   {{ title }}
                 </p>
               </NuxtLink>
-              <p v-if="description" class="mb-5 line-clamp-2 text-ellipsis text-muted-foreground">
+              <p v-if="description" class="text-muted-foreground mb-5 line-clamp-2 text-ellipsis">
                 {{ description }}
               </p>
               <div class="flex items-center">
@@ -196,11 +196,11 @@
                   v-if="userImage"
                   :src="userImage"
                   :alt="userName"
-                  class="mr-3 rounded-full bg-background shadow ring-1 ring-ring/30"
+                  class="bg-background ring-ring/30 mr-3 rounded-full shadow ring-1"
                 />
                 <div>
                   <p v-if="userName" class="text-sm font-semibold">{{ userName }}</p>
-                  <p v-if="date" class="text-sm text-muted-foreground">{{ date }}</p>
+                  <p v-if="date" class="text-muted-foreground text-sm">{{ date }}</p>
                 </div>
               </div>
             </div>

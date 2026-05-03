@@ -20,12 +20,12 @@
                   class="justify-start gap-4 px-3"
                   @click="setMiniBarItems(n.items)"
                 >
-                  <Icon v-if="n.icon" :name="n.icon" class="size-4 text-muted-foreground" />
+                  <Icon v-if="n.icon" :name="n.icon" class="text-muted-foreground size-4" />
                   <span>{{ n.title }}</span>
                   <Icon
                     v-if="n.items"
                     name="lucide:chevron-right"
-                    class="ml-auto size-4 text-muted-foreground/80"
+                    class="text-muted-foreground/80 ml-auto size-4"
                   />
                 </UiButton>
               </template>
@@ -39,25 +39,25 @@
                   class="justify-start gap-4 px-3"
                   @click="setMiniBarItems(n.items)"
                 >
-                  <Icon v-if="n.icon" :name="n.icon" class="size-4 text-muted-foreground" />
+                  <Icon v-if="n.icon" :name="n.icon" class="text-muted-foreground size-4" />
                   <span>{{ n.title }}</span>
                   <Icon
                     v-if="n.items"
                     name="lucide:chevron-right"
-                    class="ml-auto size-4 text-muted-foreground/80"
+                    class="text-muted-foreground/80 ml-auto size-4"
                   />
                 </UiButton>
               </template>
             </nav>
           </div>
-          <div class="mt-auto rounded-lg bg-muted/50 p-4 text-sm">
+          <div class="bg-muted/50 mt-auto rounded-lg p-4 text-sm">
             <div class="flex items-center justify-between">
               <p class="font-semibold">Used space</p>
               <UiButton class="size-6" size="icon-sm" variant="ghost">
-                <Icon name="lucide:x" class="size-4 text-muted-foreground" />
+                <Icon name="lucide:x" class="text-muted-foreground size-4" />
               </UiButton>
             </div>
-            <p class="mt-3 text-muted-foreground">
+            <p class="text-muted-foreground mt-3">
               Your team has used 80% of your available space. Need more?
             </p>
             <UiProgress class="my-4 h-2" :model-value="80" />
@@ -75,13 +75,13 @@
               <UiAvatar :src="user.avatar" class="size-10" />
               <div>
                 <p class="text-sm font-semibold" v-html="user.username" />
-                <p class="text-sm text-muted-foreground" v-html="user.email" />
+                <p class="text-muted-foreground text-sm" v-html="user.email" />
               </div>
             </div>
             <UiTooltip>
               <UiTooltipTrigger as-child>
                 <UiButton class="ml-auto shrink-0" size="icon-sm" variant="ghost">
-                  <Icon name="lucide:log-out" class="size-4 text-muted-foreground" />
+                  <Icon name="lucide:log-out" class="text-muted-foreground size-4" />
                 </UiButton>
               </UiTooltipTrigger>
               <UiTooltipContent side="right" align="center">Logout</UiTooltipContent>
@@ -95,7 +95,7 @@
         <nav class="flex flex-col gap-1">
           <template v-for="(n, i) in miniSidebarItems" :key="i">
             <UiButton :to="n.link" size="default" variant="ghost" class="justify-start gap-4 px-3">
-              <Icon v-if="n.icon" :name="n.icon" class="size-4 text-muted-foreground" />
+              <Icon v-if="n.icon" :name="n.icon" class="text-muted-foreground size-4" />
               <span>{{ n.title }}</span>
             </UiButton>
           </template>

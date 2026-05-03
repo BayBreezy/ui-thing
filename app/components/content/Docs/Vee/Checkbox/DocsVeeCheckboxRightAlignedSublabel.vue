@@ -3,11 +3,11 @@
     <div class="grid grow gap-2">
       <UiLabel for="checkbox-12" class="justify-start gap-2">
         Label
-        <span class="text-xs leading-[inherit] font-normal text-muted-foreground">
+        <span class="text-muted-foreground text-xs leading-[inherit] font-normal">
           (Sublabel)
         </span>
       </UiLabel>
-      <p id="checkbox-12-description" class="text-xs text-muted-foreground">
+      <p id="checkbox-12-description" class="text-muted-foreground text-xs">
         You can use this checkbox with a label and a description.
       </p>
     </div>

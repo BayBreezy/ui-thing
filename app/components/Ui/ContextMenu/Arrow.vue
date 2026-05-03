@@ -20,9 +20,9 @@
   const props = withDefaults(
     defineProps<
       ContextMenuArrowProps & {
-        /** Custom class(es) to add to the arrow */
+        /** Custom class(es) to add to the arrow. */
         class?: HTMLAttributes["class"];
-        /** Whether to render the arrow with a translucent surface */
+        /** Whether to render the arrow with a translucent surface. */
         translucent?: boolean;
       }
     >(),

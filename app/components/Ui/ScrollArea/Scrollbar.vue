@@ -18,7 +18,7 @@
   const props = withDefaults(
     defineProps<
       ScrollAreaScrollbarProps & {
-        /** Class to apply to the scrollbar */
+        /** Class to apply to the scrollbar. */
         class?: HTMLAttributes["class"];
       }
     >(),

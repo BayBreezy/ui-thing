@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">About Us in Numbers</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         Our achievements speak for themselves
       </p>
     </div>
@@ -15,19 +15,19 @@
       <UiCard v-for="stat in stats" :key="stat.label" class="text-center">
         <UiCardContent class="flex flex-col items-center justify-center">
           <div
-            class="flex size-16 items-center justify-center rounded-full bg-linear-to-b from-primary/50 via-transparent"
+            class="from-primary/50 flex size-16 items-center justify-center rounded-full bg-linear-to-b via-transparent"
           >
-            <Icon :name="stat.icon" class="size-8 text-primary" />
+            <Icon :name="stat.icon" class="text-primary size-8" />
           </div>
-          <div class="mt-4 text-4xl font-bold text-primary">{{ stat.value }}</div>
+          <div class="text-primary mt-4 text-4xl font-bold">{{ stat.value }}</div>
           <div class="mt-2 text-sm font-medium">{{ stat.label }}</div>
-          <p class="mt-2 text-xs text-muted-foreground">{{ stat.description }}</p>
+          <p class="text-muted-foreground mt-2 text-xs">{{ stat.description }}</p>
         </UiCardContent>
       </UiCard>
     </div>
 
     <div class="mx-auto mt-16 max-w-3xl text-center">
-      <p class="text-lg text-pretty text-muted-foreground">
+      <p class="text-muted-foreground text-lg text-pretty">
         We're a dynamic team of creators, thinkers, and doers committed to delivering exceptional
         results. Our diverse backgrounds and shared passion for excellence drive us to continuously
         innovate and exceed expectations.

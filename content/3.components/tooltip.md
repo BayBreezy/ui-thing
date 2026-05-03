@@ -4,7 +4,7 @@ description: A popup that displays information related to an element when the el
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/tooltip.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/tooltip.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="Tooltip"} to see the source code for this compo
 
 ### Basic example
 
-::ShowCase
+::prose-show-case
 
 :DocsTooltip
 
@@ -55,7 +55,7 @@ Click :SourceCodeLink{component="Tooltip"} to see the source code for this compo
 
 ### Origin UI
 
-::ShowCase
+::prose-show-case
 
 :DocsTooltipOrigin
 
@@ -108,7 +108,7 @@ Click :SourceCodeLink{component="Tooltip"} to see the source code for this compo
           <UiTooltipContent class="py-3">
             <div class="space-y-1">
               <p class="text-[13px] font-medium">Tooltip with title</p>
-              <p class="text-xs text-muted-foreground">
+              <p class="text-muted-foreground text-xs">
                 Tooltips are made to be highly customizable, with features like dynamic placement,
                 rich content, and a robust API. You can even use them as a full-featured dropdown
                 menu by setting the
@@ -136,7 +136,7 @@ Click :SourceCodeLink{component="Tooltip"} to see the source code for this compo
               />
               <div class="space-y-1">
                 <p class="text-[13px] font-medium">Tooltip with title and icon</p>
-                <p class="text-xs text-muted-foreground">
+                <p class="text-muted-foreground text-xs">
                   Tooltips are made to be highly customizable, with features like dynamic placement,
                   rich content, and a robust API.
                 </p>
@@ -162,7 +162,7 @@ Click :SourceCodeLink{component="Tooltip"} to see the source code for this compo
               />
               <div class="space-y-1">
                 <p class="text-[13px] font-medium">Tooltip with title and icon</p>
-                <p class="text-xs text-muted-foreground">
+                <p class="text-muted-foreground text-xs">
                   Tooltips are made to be highly customizable, with features like dynamic placement,
                   rich content, and a robust API.
                 </p>

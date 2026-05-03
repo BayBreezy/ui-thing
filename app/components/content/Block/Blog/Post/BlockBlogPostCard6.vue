@@ -14,7 +14,7 @@
     }"
   >
     <div
-      class="overflow-hidden rounded-2xl border-2 bg-background shadow-md transition-all hover:border-primary/50 hover:shadow-xl"
+      class="bg-background hover:border-primary/50 overflow-hidden rounded-2xl border-2 shadow-md transition-all hover:shadow-xl"
     >
       <div class="flex flex-col md:flex-row">
         <Motion
@@ -55,7 +55,7 @@
                 initial: { opacity: 0, y: 10 },
                 animate: { opacity: 1, y: 0 },
               }"
-              class="mb-3 flex items-center gap-2 text-xs text-muted-foreground"
+              class="text-muted-foreground mb-3 flex items-center gap-2 text-xs"
             >
               <Icon name="lucide:calendar" class="size-3.5" />
               <span>{{ date }}</span>
@@ -66,7 +66,7 @@
 
             <Motion as-child :variants="childVariant">
               <NuxtLink :to="link">
-                <h3 class="mb-3 text-2xl font-bold transition-colors hover:text-primary">
+                <h3 class="hover:text-primary mb-3 text-2xl font-bold transition-colors">
                   {{ title }}
                 </h3>
               </NuxtLink>
@@ -76,7 +76,7 @@
               v-if="description"
               as="p"
               :variants="childVariant"
-              class="mb-4 line-clamp-2 text-muted-foreground"
+              class="text-muted-foreground mb-4 line-clamp-2"
             >
               {{ description }}
             </Motion>

@@ -69,7 +69,7 @@
                 <UiNavigationMenuLink
                   :active="link.active"
                   :href="link.href"
-                  class="py-1.5 font-medium text-muted-foreground hover:text-primary"
+                  class="text-muted-foreground hover:text-primary py-1.5 font-medium"
                 >
                   {{ link.label }}
                 </UiNavigationMenuLink>

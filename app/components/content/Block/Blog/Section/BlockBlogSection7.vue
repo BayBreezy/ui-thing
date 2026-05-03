@@ -22,13 +22,13 @@
     <UiContainer class="py-16 lg:py-24">
       <!-- Header -->
       <div class="mb-12 lg:mb-16">
-        <Motion as="p" :variants="childVariant" class="mb-2 font-semibold text-primary">
+        <Motion as="p" :variants="childVariant" class="text-primary mb-2 font-semibold">
           Our journey
         </Motion>
         <Motion as="h3" :variants="childVariant" class="mb-3 text-3xl font-semibold lg:text-4xl">
           Recent updates
         </Motion>
-        <Motion as="p" :variants="childVariant" class="text-lg text-muted-foreground lg:text-xl">
+        <Motion as="p" :variants="childVariant" class="text-muted-foreground text-lg lg:text-xl">
           Follow our latest stories and announcements
         </Motion>
       </div>
@@ -42,7 +42,7 @@
             height: '100%',
             transition: { duration: 1, delay: 0.2 },
           }"
-          class="absolute top-0 left-px hidden w-0.5 bg-linear-to-b from-primary via-primary/50 to-transparent md:block"
+          class="from-primary via-primary/50 absolute top-0 left-px hidden w-0.5 bg-linear-to-b to-transparent md:block"
         ></Motion>
 
         <!-- Timeline items -->
@@ -72,7 +72,7 @@
                 },
               },
             }"
-            class="absolute top-3 left-0 hidden size-4 -translate-x-1.5 rounded-full bg-primary ring-4 ring-background md:block"
+            class="bg-primary ring-background absolute top-3 left-0 hidden size-4 -translate-x-1.5 rounded-full ring-4 md:block"
           ></Motion>
 
           <!-- Content card -->
@@ -86,7 +86,7 @@
                   <Icon name="lucide:calendar" class="mr-1.5 h-3 w-3" />
                   {{ date }}
                 </UiBadge>
-                <span class="text-sm text-muted-foreground">5 min read</span>
+                <span class="text-muted-foreground text-sm">5 min read</span>
               </div>
 
               <!-- Image section -->
@@ -103,17 +103,17 @@
                 <UiBadge class="mb-3 w-fit" variant="secondary">{{ headline }}</UiBadge>
                 <NuxtLink :to="link">
                   <h4
-                    class="mb-2 text-xl font-semibold transition-colors hover:text-primary lg:text-2xl"
+                    class="hover:text-primary mb-2 text-xl font-semibold transition-colors lg:text-2xl"
                   >
                     {{ title }}
                   </h4>
                 </NuxtLink>
-                <p class="mb-4 line-clamp-2 text-muted-foreground">{{ description }}</p>
+                <p class="text-muted-foreground mb-4 line-clamp-2">{{ description }}</p>
                 <div class="flex items-center gap-3">
                   <UiAvatar :src="userImage" :alt="userName" size="sm" />
                   <div>
                     <p class="text-sm font-medium">{{ userName }}</p>
-                    <p class="text-xs text-muted-foreground">Author</p>
+                    <p class="text-muted-foreground text-xs">Author</p>
                   </div>
                 </div>
               </UiCardContent>

@@ -13,7 +13,7 @@ Shout out to [Julien Thibeaut](https://ibelick.com/) for the source code. I disc
 
 This may not be a component that can be reused across multiple projects, but it's a fun one to have in your back pocket.
 
-::ShowCase
+::prose-show-case
 
 :DocsGooeyMenu
 
@@ -37,18 +37,18 @@ This may not be a component that can be reused across multiple projects, but it'
       >
         <input id="menu" type="checkbox" class="peer hidden" name="menu" />
         <label
-          class="absolute right-10 bottom-10 z-10 flex size-14 scale-125 cursor-pointer items-center justify-center rounded-full bg-primary text-primary-foreground transition-all duration-1000 [transition-timing-function:var(--spring-easing)] peer-checked:scale-100 peer-checked:rotate-[135deg]"
+          class="bg-primary text-primary-foreground absolute right-10 bottom-10 z-10 flex size-14 scale-125 cursor-pointer items-center justify-center rounded-full transition-all duration-1000 [transition-timing-function:var(--spring-easing)] peer-checked:scale-100 peer-checked:rotate-[135deg]"
           for="menu"
         >
           <Icon name="lucide:plus" class="size-5" />
         </label>
         <button
-          class="absolute right-10 bottom-10 flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform duration-300 ease-in peer-checked:translate-y-[-80px] peer-checked:duration-1000 peer-checked:[transition-timing-function:var(--spring-easing)]"
+          class="bg-primary text-primary-foreground absolute right-10 bottom-10 flex size-14 items-center justify-center rounded-full transition-transform duration-300 ease-in peer-checked:translate-y-[-80px] peer-checked:duration-1000 peer-checked:[transition-timing-function:var(--spring-easing)]"
         >
           <Icon name="lucide:settings-2" class="size-5" />
         </button>
         <button
-          class="absolute right-10 bottom-10 flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform duration-300 ease-in peer-checked:translate-y-[-162px] peer-checked:duration-1000 peer-checked:[transition-timing-function:var(--spring-easing)]"
+          class="bg-primary text-primary-foreground absolute right-10 bottom-10 flex size-14 items-center justify-center rounded-full transition-transform duration-300 ease-in peer-checked:translate-y-[-162px] peer-checked:duration-1000 peer-checked:[transition-timing-function:var(--spring-easing)]"
         >
           <Icon name="lucide:heart" class="size-5" />
         </button>

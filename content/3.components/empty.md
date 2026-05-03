@@ -34,7 +34,7 @@ Click :SourceCodeLink{component="Empty"} to see the source code for this compone
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsEmpty
 
@@ -62,7 +62,7 @@ Click :SourceCodeLink{component="Empty"} to see the source code for this compone
         </div>
       </UiEmptyContent>
       <UiButton variant="link" as-child size="sm">
-        <a href="#" class="flex items-center gap-2 text-muted-foreground">
+        <a href="#" class="text-muted-foreground flex items-center gap-2">
           Learn More <Icon name="lucide:arrow-up-right" />
         </a>
       </UiButton>
@@ -77,7 +77,7 @@ Click :SourceCodeLink{component="Empty"} to see the source code for this compone
 
 ### Outline
 
-::ShowCase
+::prose-show-case
 
 :DocsEmptyOutline
 
@@ -112,7 +112,7 @@ Click :SourceCodeLink{component="Empty"} to see the source code for this compone
 
 ### Background
 
-::ShowCase
+::prose-show-case
 
 :DocsEmptyBackground
 
@@ -123,7 +123,7 @@ Click :SourceCodeLink{component="Empty"} to see the source code for this compone
 ```vue [DocsEmptyBackground.vue]
 <template>
   <div class="flex items-center justify-center">
-    <UiEmpty class="h-full bg-gradient-to-b from-muted/50 from-30% to-background">
+    <UiEmpty class="from-muted/50 to-background h-full bg-gradient-to-b from-30%">
       <UiEmptyHeader>
         <UiEmptyMedia variant="icon">
           <Icon name="lucide:bell" />
@@ -150,7 +150,7 @@ Click :SourceCodeLink{component="Empty"} to see the source code for this compone
 
 ### Avatar
 
-::ShowCase
+::prose-show-case
 
 :DocsEmptyAvatar
 
@@ -188,7 +188,7 @@ Click :SourceCodeLink{component="Empty"} to see the source code for this compone
 
 ### Avatar Group
 
-::ShowCase
+::prose-show-case
 
 :DocsEmptyAvatarGroup
 
@@ -203,7 +203,7 @@ Click :SourceCodeLink{component="Empty"} to see the source code for this compone
       <UiEmptyHeader>
         <UiEmptyMedia>
           <div
-            class="flex -space-x-2 *:data-[slot=avatar]:size-12 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-background *:data-[slot=avatar]:grayscale"
+            class="*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:size-12 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale"
           >
             <UiAvatar>
               <UiAvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
@@ -239,7 +239,7 @@ Click :SourceCodeLink{component="Empty"} to see the source code for this compone
 
 ### Input Group
 
-::ShowCase
+::prose-show-case
 
 :DocsEmptyInputGroup
 

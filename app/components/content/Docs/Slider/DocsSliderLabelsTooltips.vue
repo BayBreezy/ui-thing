@@ -3,7 +3,7 @@
     <UiLabel>Slider with labels and tooltip</UiLabel>
     <div>
       <span
-        class="mb-3 flex w-full items-center justify-between gap-2 text-xs font-medium text-muted-foreground"
+        class="text-muted-foreground mb-3 flex w-full items-center justify-between gap-2 text-xs font-medium"
         aria-hidden="true"
       >
         <span>Low</span>

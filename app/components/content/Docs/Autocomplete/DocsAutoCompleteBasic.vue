@@ -4,7 +4,7 @@
       <UiAutocompleteAnchor>
         <UiAutocompleteInput placeholder="Select an item" />
         <UiAutocompleteTrigger>
-          <Icon name="lucide:chevron-down" class="size-4 text-muted-foreground" />
+          <Icon name="lucide:chevron-down" class="text-muted-foreground size-4" />
         </UiAutocompleteTrigger>
       </UiAutocompleteAnchor>
 

@@ -4,7 +4,7 @@
       <UiCheckbox :id="id" :aria-describedby="`${id}-description`" />
       <div class="grid grow gap-2">
         <UiLabel :for="id" hint="(Sublabel)" class="justify-start"> Label </UiLabel>
-        <p :id="`${id}-description`" class="text-xs text-muted-foreground">
+        <p :id="`${id}-description`" class="text-muted-foreground text-xs">
           You can use this checkbox with a label and a description.
         </p>
       </div>
@@ -14,14 +14,14 @@
       <UiCheckbox :id="id2" :aria-describedby="`${id2}-description`" class="order-1" />
       <div class="grid grow gap-2">
         <UiLabel :for="id2" hint="(Sublabel)" class="justify-start"> Label </UiLabel>
-        <p :id="`${id2}-description`" class="text-xs text-muted-foreground">
+        <p :id="`${id2}-description`" class="text-muted-foreground text-xs">
           You can use this checkbox with a label and a description.
         </p>
       </div>
     </div>
 
     <div
-      class="relative flex w-full items-start gap-2 rounded-md border border-input p-4 shadow-xs outline-none has-data-[state=checked]:border-primary/50"
+      class="border-input has-data-[state=checked]:border-primary/50 relative flex w-full items-start gap-2 rounded-md border p-4 shadow-xs outline-none"
     >
       <UiCheckbox
         :id="id3"
@@ -30,14 +30,14 @@
       />
       <div class="grid grow gap-2">
         <UiLabel :for="id3" hint="(Sublabel)" class="justify-start"> Label </UiLabel>
-        <p :id="`${id3}-description`" class="text-xs text-muted-foreground">
+        <p :id="`${id3}-description`" class="text-muted-foreground text-xs">
           A short description goes here
         </p>
       </div>
     </div>
 
     <div
-      class="relative flex w-full items-start gap-2 rounded-md border border-input p-4 shadow-xs outline-none has-data-[state=checked]:border-primary/50"
+      class="border-input has-data-[state=checked]:border-primary/50 relative flex w-full items-start gap-2 rounded-md border p-4 shadow-xs outline-none"
     >
       <UiCheckbox
         :id="id4"
@@ -48,7 +48,7 @@
         <Icon name="logos:mastercard" class="size-6" />
         <div class="grid gap-2">
           <UiLabel :for="id4" hint="(Sublabel)" class="justify-start"> Label </UiLabel>
-          <p :id="`${id4}-description`" class="text-xs text-muted-foreground">
+          <p :id="`${id4}-description`" class="text-muted-foreground text-xs">
             A short description goes here.
           </p>
         </div>

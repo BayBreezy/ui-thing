@@ -34,7 +34,7 @@ vcalendar: {
 
 ### Datetime Mode
 
-::ShowCase
+::prose-show-case
 
 :DocsDatepickerMode
 
@@ -68,7 +68,7 @@ vcalendar: {
 
 ### Custom Title
 
-::ShowCase
+::prose-show-case
 
 :DocsDatepickerTitle
 
@@ -83,7 +83,7 @@ vcalendar: {
       <template #header-title="{ title }">
         <div class="flex items-center gap-2">
           <p>{{ title }}</p>
-          <Icon class="size-4 text-muted-foreground" name="lucide:chevron-down" />
+          <Icon class="text-muted-foreground size-4" name="lucide:chevron-down" />
         </div>
       </template>
     </UiDatepicker>
@@ -97,7 +97,7 @@ vcalendar: {
 
 ### Button Slot
 
-::ShowCase
+::prose-show-case
 
 :DocsDatepickerButton
 
@@ -136,7 +136,7 @@ vcalendar: {
 
 ### Input Slot
 
-::ShowCase
+::prose-show-case
 
 :DocsDatepickerInput
 
@@ -168,7 +168,7 @@ vcalendar: {
 
 One a mobile screen, the `Datepicker` will expand to full width and display only one column. On larger screens, it will display two columns.
 
-::ShowCase
+::prose-show-case
 
 :DocsDatepickerResponsive
 
@@ -209,7 +209,7 @@ Limit the time selection by setting [Time Rules](https://vcalendar.io/datepicker
 
 Here the user can set an appointment between 9 AM and 5 PM, with a 30-minute interval. Weekends are disabled.
 
-::ShowCase
+::prose-show-case
 
 :DocsDatepickerTimeRules
 
@@ -220,7 +220,7 @@ Here the user can set an appointment between 9 AM and 5 PM, with a 30-minute int
 ```vue [DocsDatepickerTimeRules.vue]
 <template>
   <div class="flex w-full flex-col items-center justify-center gap-5">
-    <p class="text-sm text-muted-foreground">Select your appointment date & time</p>
+    <p class="text-muted-foreground text-sm">Select your appointment date & time</p>
     <p class="text-sm font-semibold">
       Selected:
       <span class="text-emerald-500">{{
@@ -258,7 +258,7 @@ Here the user can set an appointment between 9 AM and 5 PM, with a 30-minute int
 
 ### Presets
 
-::ShowCase
+::prose-show-case
 
 :DocsDatepickerPresets
 
@@ -350,7 +350,7 @@ Here the user can set an appointment between 9 AM and 5 PM, with a 30-minute int
 
 ### Custom Day Content
 
-::ShowCase
+::prose-show-case
 
 :DocsDatepickerCustomDayContent
 
@@ -392,7 +392,8 @@ Here the user can set an appointment between 9 AM and 5 PM, with a 30-minute int
     .vc-day-content,
     .vc-highlight,
     .vc-highlights {
-      @apply size-full;
+      width: 100%;
+      height: 100%;
     }
   }
 </style>

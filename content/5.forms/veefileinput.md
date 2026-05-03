@@ -21,7 +21,7 @@ Click :SourceCodeLink{component="Vee/FileInput.vue"} to see the source code for 
 
 Why not use the `VeeInput` to accept file uploads? Well, we cannot force select a file from a user's device so the way how data binding works with file inputs and `vee-validate` is a bit different. According to the [docs](https://vee-validate.logaretm.com/v4/api/field#rendering-complex-fields-with-scoped-slots) it is better to use the `handleChange` and `handleBlur` methods to handle the file input changes.
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeInputFiles
 

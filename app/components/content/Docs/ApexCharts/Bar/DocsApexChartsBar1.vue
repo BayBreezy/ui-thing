@@ -11,10 +11,10 @@
             v-for="(chart, key) in ['desktop', 'mobile']"
             :key="key"
             :data-active="activeSeries === chart"
-            class="relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-t-0 sm:border-l sm:px-8 sm:py-6"
+            class="data-[active=true]:bg-muted/50 relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l sm:border-t-0 sm:border-l sm:px-8 sm:py-6"
             @click="activeSeries = chart"
           >
-            <span class="text-xs text-muted-foreground">
+            <span class="text-muted-foreground text-xs">
               {{ chart.charAt(0).toUpperCase() + chart.slice(1) }} Visitors
             </span>
             <span class="text-lg leading-none font-bold sm:text-3xl">

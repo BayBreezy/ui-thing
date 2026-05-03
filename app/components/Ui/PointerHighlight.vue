@@ -61,17 +61,11 @@
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<{
-    /**
-     * Custom class(es) for the outer container.
-     */
+    /** Custom class(es) for the outer container. */
     containerClass?: HTMLAttributes["class"];
-    /**
-     * Custom class(es) for the animated rectangle.
-     */
+    /** Custom class(es) for the animated rectangle. */
     rectangleClass?: HTMLAttributes["class"];
-    /**
-     * Custom class(es) for the pointer icon.
-     */
+    /** Custom class(es) for the pointer icon. */
     pointerClass?: HTMLAttributes["class"];
   }>();
 
@@ -82,7 +76,7 @@
 
   const containerStyles = tv({ base: "relative w-fit" });
 
-  const rectangleStyles = tv({ base: "absolute inset-0 border border-muted-foreground/50" });
+  const rectangleStyles = tv({ base: "border-muted-foreground/50 absolute inset-0 border" });
 
   const pointerStyles = tv({ base: "size-5 text-blue-500" });
 </script>

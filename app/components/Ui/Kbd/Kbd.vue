@@ -17,16 +17,18 @@
     defineProps<
       PrimitiveProps & {
         /**
-         * The size of the component
+         * The size of the component.
+         *
          * @default "sm"
-         * */
+         */
         size?: VariantProps<typeof styles>["size"];
-        /** Custom class(es) to add to the parent */
+        /** Custom class(es) to add to the parent. */
         class?: HTMLAttributes["class"];
         /**
-         * The variant of the component
+         * The variant of the component.
+         *
          * @default "solid"
-         * */
+         */
         variant?: VariantProps<typeof styles>["variant"];
       }
     >(),

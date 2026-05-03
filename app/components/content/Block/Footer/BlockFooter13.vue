@@ -15,7 +15,7 @@
             />
             <span class="text-2xl font-bold">{{ COMPANY_NAME }}</span>
           </NuxtLink>
-          <p class="mb-6 text-muted-foreground">
+          <p class="text-muted-foreground mb-6">
             We're on a mission to transform the way teams collaborate and build products together.
             Join us in shaping the future of work.
           </p>
@@ -24,21 +24,21 @@
           <div class="mb-6 flex flex-col gap-3 sm:flex-row">
             <NuxtLink
               to="#"
-              class="flex items-center gap-3 rounded-lg border px-4 py-2.5 transition-colors hover:border-primary hover:bg-primary/5"
+              class="hover:border-primary hover:bg-primary/5 flex items-center gap-3 rounded-lg border px-4 py-2.5 transition-colors"
             >
               <Icon name="logos:apple-app-store" class="size-6" />
               <div class="text-left">
-                <p class="text-xs text-muted-foreground">Download on the</p>
+                <p class="text-muted-foreground text-xs">Download on the</p>
                 <p class="text-sm font-semibold">App Store</p>
               </div>
             </NuxtLink>
             <NuxtLink
               to="#"
-              class="flex items-center gap-3 rounded-lg border px-4 py-2.5 transition-colors hover:border-primary hover:bg-primary/5"
+              class="hover:border-primary hover:bg-primary/5 flex items-center gap-3 rounded-lg border px-4 py-2.5 transition-colors"
             >
               <Icon name="logos:google-play-icon" class="size-6" />
               <div class="text-left">
-                <p class="text-xs text-muted-foreground">Get it on</p>
+                <p class="text-muted-foreground text-xs">Get it on</p>
                 <p class="text-sm font-semibold">Google Play</p>
               </div>
             </NuxtLink>
@@ -58,7 +58,7 @@
                 ]"
                 :key="social"
                 to="#"
-                class="flex h-10 w-10 items-center justify-center rounded-full border transition-all hover:scale-110 hover:border-primary hover:bg-primary/5"
+                class="hover:border-primary hover:bg-primary/5 flex h-10 w-10 items-center justify-center rounded-full border transition-all hover:scale-110"
               >
                 <Icon :name="social" class="h-5 w-5" />
               </NuxtLink>
@@ -83,7 +83,7 @@
                 :key="item"
               >
                 <NuxtLink
-                  class="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  class="text-muted-foreground hover:text-primary text-sm transition-colors"
                   to="#"
                 >
                   {{ item }}
@@ -107,7 +107,7 @@
                 :key="item"
               >
                 <NuxtLink
-                  class="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  class="text-muted-foreground hover:text-primary text-sm transition-colors"
                   to="#"
                 >
                   {{ item }}
@@ -124,7 +124,7 @@
                 :key="item"
               >
                 <NuxtLink
-                  class="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  class="text-muted-foreground hover:text-primary text-sm transition-colors"
                   to="#"
                 >
                   {{ item }}
@@ -139,13 +139,13 @@
       <div
         class="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 lg:mt-16 lg:flex-row"
       >
-        <p class="text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-sm">
           &copy; {{ new Date().getFullYear() }} {{ COMPANY_NAME }}, Inc. All rights reserved.
         </p>
-        <div class="flex flex-wrap gap-6 text-sm text-muted-foreground">
-          <NuxtLink to="#" class="transition-colors hover:text-primary">Privacy Policy</NuxtLink>
-          <NuxtLink to="#" class="transition-colors hover:text-primary">Terms of Service</NuxtLink>
-          <NuxtLink to="#" class="transition-colors hover:text-primary">Cookie Policy</NuxtLink>
+        <div class="text-muted-foreground flex flex-wrap gap-6 text-sm">
+          <NuxtLink to="#" class="hover:text-primary transition-colors">Privacy Policy</NuxtLink>
+          <NuxtLink to="#" class="hover:text-primary transition-colors">Terms of Service</NuxtLink>
+          <NuxtLink to="#" class="hover:text-primary transition-colors">Cookie Policy</NuxtLink>
         </div>
       </div>
     </UiContainer>

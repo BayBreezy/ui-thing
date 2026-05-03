@@ -39,7 +39,7 @@
     slots: {
       wrapper:
         "relative flex items-center justify-center overflow-hidden rounded-md border border-dashed px-4 opacity-75",
-      svg: "absolute inset-0 size-full stroke-foreground/10",
+      svg: "stroke-foreground/10 absolute inset-0 size-full",
     },
   });
 </script>
@@ -47,9 +47,7 @@
 <script lang="ts" setup>
   const props = defineProps<
     PrimitiveProps & {
-      /**
-       * Additional classes to add to the parent element.
-       */
+      /** Additional classes to add to the parent element. */
       class?: HTMLAttributes["class"];
     }
   >();

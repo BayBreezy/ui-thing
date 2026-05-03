@@ -64,9 +64,7 @@
        * @default `true`
        */
       show?: boolean;
-      /**
-       * Additional classes to apply to the chip.
-       */
+      /** Additional classes to apply to the chip. */
       class?: HTMLAttributes["class"];
     }>(),
     { show: true, color: "bg-primary", inset: false }
@@ -75,7 +73,7 @@
   const localModel = defineModel<boolean>("show", { default: true });
 
   const styles = tv({
-    base: "absolute flex items-center justify-center rounded-full font-medium whitespace-nowrap text-foreground ring-2 ring-background",
+    base: "text-foreground ring-background absolute flex items-center justify-center rounded-full font-medium whitespace-nowrap ring-2",
     variants: {
       position: {
         "top-right": "top-0 right-0",

@@ -8,7 +8,7 @@
       <div class="flex flex-col items-center gap-4">
         <div class="size-48 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 shadow-xs" />
         <UiProgress :model-value="26.5" class="h-1" />
-        <div class="flex w-full justify-between text-sm text-muted-foreground">
+        <div class="text-muted-foreground flex w-full justify-between text-sm">
           <span>2:45</span>
           <span>8:02</span>
         </div>

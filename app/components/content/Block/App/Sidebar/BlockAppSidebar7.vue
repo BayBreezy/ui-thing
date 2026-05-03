@@ -13,8 +13,8 @@
       />
       <div class="flex-1 overflow-hidden text-left">
         <p class="truncate text-sm">{{ project.title }}</p>
-        <p v-if="project.team" class="truncate text-xs text-muted-foreground">{{ project.team }}</p>
-        <p v-if="project.updated" class="truncate text-xs text-muted-foreground">
+        <p v-if="project.team" class="text-muted-foreground truncate text-xs">{{ project.team }}</p>
+        <p v-if="project.updated" class="text-muted-foreground truncate text-xs">
           {{ project.updated }}
         </p>
       </div>
@@ -27,7 +27,7 @@
         <Icon
           :name="project.starred ? 'lucide:star' : 'lucide:star'"
           :class="project.starred ? 'fill-yellow-400 text-yellow-400' : ''"
-          class="size-3.5 text-muted-foreground"
+          class="text-muted-foreground size-3.5"
         />
       </UiButton>
     </UiButton>
@@ -43,7 +43,7 @@
           <UiDropdownMenu>
             <UiDropdownMenuTrigger as-child>
               <UiButton size="icon-sm" variant="ghost">
-                <Icon name="lucide:plus" class="size-4 text-muted-foreground" />
+                <Icon name="lucide:plus" class="text-muted-foreground size-4" />
               </UiButton>
             </UiDropdownMenuTrigger>
             <UiDropdownMenuContent align="end">
@@ -99,7 +99,7 @@
 
           <div>
             <div class="mb-2 px-2">
-              <span class="text-xs font-semibold tracking-wider text-muted-foreground uppercase"
+              <span class="text-muted-foreground text-xs font-semibold tracking-wider uppercase"
                 >Quick Links</span
               >
             </div>
@@ -112,7 +112,7 @@
                 variant="ghost"
                 class="justify-start gap-3 px-2"
               >
-                <Icon :name="link.icon" class="size-4 text-muted-foreground" />
+                <Icon :name="link.icon" class="text-muted-foreground size-4" />
                 <span>{{ link.title }}</span>
               </UiButton>
             </nav>
@@ -124,12 +124,12 @@
             <UiAvatar :src="user.avatar" class="size-9" />
             <div class="flex-1 overflow-hidden">
               <p class="truncate text-sm font-semibold">{{ user.username }}</p>
-              <p class="truncate text-xs text-muted-foreground">{{ user.workspace }}</p>
+              <p class="text-muted-foreground truncate text-xs">{{ user.workspace }}</p>
             </div>
             <UiDropdownMenu>
               <UiDropdownMenuTrigger as-child>
                 <UiButton size="icon-sm" variant="ghost">
-                  <Icon name="lucide:chevrons-up-down" class="size-4 text-muted-foreground" />
+                  <Icon name="lucide:chevrons-up-down" class="text-muted-foreground size-4" />
                 </UiButton>
               </UiDropdownMenuTrigger>
               <UiDropdownMenuContent align="end">

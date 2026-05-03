@@ -2,7 +2,7 @@
   <div class="mx-auto flex w-full max-w-md flex-col items-center gap-10">
     <UiPagination v-model:page="page1" :total :items-per-page>
       <UiPaginationList class="w-full justify-between">
-        <div class="text-sm text-muted-foreground">
+        <div class="text-muted-foreground text-sm">
           Page <span class="text-foreground">{{ page1 }}</span> of
           <span class="text-foreground">{{ itemsPerPage }}</span>
         </div>
@@ -22,7 +22,7 @@
     </UiPagination>
     <UiPagination v-model:page="page1" :total :items-per-page class="mx-auto w-full max-w-md">
       <UiPaginationList class="w-full justify-between">
-        <div class="text-sm text-muted-foreground">
+        <div class="text-muted-foreground text-sm">
           Page <span class="text-foreground">{{ page1 }}</span> of
           <span class="text-foreground">{{ itemsPerPage }}</span>
         </div>
@@ -56,7 +56,7 @@
             </UiButton>
           </UiPaginationNext>
         </div>
-        <div class="text-sm text-muted-foreground">
+        <div class="text-muted-foreground text-sm">
           Page <span class="text-foreground">{{ page2 }}</span> of
           <span class="text-foreground">{{ itemsPerPage }}</span>
         </div>
@@ -78,7 +78,7 @@
             </UiButton>
           </UiPaginationNext>
         </div>
-        <div class="text-sm text-muted-foreground">
+        <div class="text-muted-foreground text-sm">
           Page <span class="text-foreground">{{ page2 }}</span> of
           <span class="text-foreground">{{ itemsPerPage }}</span>
         </div>

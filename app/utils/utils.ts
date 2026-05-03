@@ -2,16 +2,12 @@ import type { Updater } from "@tanstack/vue-table";
 
 import { Icon } from "#components";
 
-/**
- * Function used to update a ref value with a new value or a function that returns a new value.
- */
+/** Function used to update a ref value with a new value or a function that returns a new value. */
 export function tanstackValueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
   ref.value = typeof updaterOrValue === "function" ? updaterOrValue(ref.value) : updaterOrValue;
 }
 
-/**
- * Represents a task in the system.
- */
+/** Represents a task in the system. */
 export interface HomeTask {
   id: string;
   title: string;

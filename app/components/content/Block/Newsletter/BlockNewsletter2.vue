@@ -2,7 +2,7 @@
   <UiContainer class="flex flex-col justify-between gap-10 py-16 lg:flex-row lg:py-24">
     <div>
       <h3 class="mb-4 text-3xl font-semibold md:mb-5 md:text-4xl">Sign up for our newsletter</h3>
-      <p class="text-lg text-muted-foreground md:text-xl">
+      <p class="text-muted-foreground text-lg md:text-xl">
         Be the first to know about releases and industry news and insights.
       </p>
     </div>
@@ -11,14 +11,14 @@
         <div class="w-full lg:w-[300px] xl:w-[400px]">
           <UiVeeInput required placeholder="Enter your email" aria-label="Enter your email" />
         </div>
-        <p class="my-2 text-sm text-muted-foreground lg:hidden">
+        <p class="text-muted-foreground my-2 text-sm lg:hidden">
           We care about your data in our privacy policy.
         </p>
         <div>
           <UiButton class="w-full whitespace-nowrap lg:w-auto" type="submit">Subscribe</UiButton>
         </div>
       </form>
-      <p class="mt-3 hidden text-sm text-muted-foreground lg:block">
+      <p class="text-muted-foreground mt-3 hidden text-sm lg:block">
         We care about your data in our privacy policy.
       </p>
     </div>

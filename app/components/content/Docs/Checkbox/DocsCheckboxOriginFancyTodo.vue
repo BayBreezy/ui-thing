@@ -4,7 +4,7 @@
       <UiCheckbox :id class="rounded-full" default-value />
       <UiLabel
         :for="id"
-        class="relative peer-data-[state=checked]:text-muted-foreground after:absolute after:top-1/2 after:left-0 after:h-px after:w-full after:origin-bottom after:-translate-y-1/2 after:scale-x-0 after:bg-muted-foreground after:transition-transform after:duration-500 after:ease-in-out peer-data-[state=checked]:after:origin-bottom peer-data-[state=checked]:after:scale-x-100"
+        class="peer-data-[state=checked]:text-muted-foreground after:bg-muted-foreground relative after:absolute after:top-1/2 after:left-0 after:h-px after:w-full after:origin-bottom after:-translate-y-1/2 after:scale-x-0 after:transition-transform after:duration-500 after:ease-in-out peer-data-[state=checked]:after:origin-bottom peer-data-[state=checked]:after:scale-x-100"
       >
         Fancy todo item
       </UiLabel>

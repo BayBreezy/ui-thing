@@ -207,8 +207,6 @@
 </script>
 
 <style>
-  @reference "~/assets/css/tailwind.css";
-
   :root {
     --vc-font-family: var(--font-sans);
     --vc-rounded-full: var(--radius);
@@ -264,57 +262,76 @@
     }
   }
   .vc-disabled {
-    @apply pointer-events-none line-through;
+    pointer-events: none;
+    text-decoration-line: line-through;
   }
   .vc-header .vc-title {
-    @apply text-sm font-medium;
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: var(--font-weight-medium);
   }
   .vc-weekday {
-    @apply rounded-md text-[0.8rem] font-normal text-muted-foreground;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-normal);
+    color: var(--color-muted-foreground);
   }
   .vc-weekdays {
-    @apply my-2 font-normal;
+    margin-top: calc(var(--spacing) * 2);
+    margin-bottom: calc(var(--spacing) * 2);
+    font-weight: var(--font-weight-normal);
   }
   .vc-day-content,
   .vc-day,
   .vc-highlight {
-    @apply size-9 rounded-md;
+    width: calc(var(--spacing) * 9);
+    height: calc(var(--spacing) * 9);
+    border-radius: var(--radius-md);
   }
-  .vc-focus {
-    @apply focus-within:shadow-none;
+  .vc-focus:focus-within {
+    box-shadow: none;
   }
   .vc-day {
-    @apply mb-0.5;
+    margin-bottom: calc(var(--spacing) * 0.5);
   }
-
   .vc-base-icon {
-    @apply size-4 stroke-1;
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    stroke-width: 1;
   }
   .vc-header .vc-arrow,
   .vc-nav-arrow {
-    @apply size-7 rounded-md;
+    width: calc(var(--spacing) * 7);
+    height: calc(var(--spacing) * 7);
+    border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
   }
   .vc-header .vc-prev,
   .vc-header .vc-next {
-    @apply border;
+    border: 1px solid var(--color-border);
   }
   .weekday-position-1 .vc-highlights {
-    @apply rounded-l-md;
+    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
   }
   .weekday-position-7 .vc-highlights {
-    @apply rounded-r-md;
+    border-top-right-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
   }
   .vc-highlight-bg-light {
-    @apply bg-accent;
+    background-color: var(--color-accent);
   }
   .vc-nav-item {
-    @apply font-medium;
+    font-weight: var(--font-weight-medium);
   }
   .vc-header .vc-title-wrapper {
-    @apply decoration-accent-foreground/60 underline-offset-2 hover:underline;
+    text-decoration-color: color-mix(in oklch, var(--color-accent-foreground) 60%, transparent);
+    text-underline-offset: 2px;
   }
-  .vc-highlights + .vc-day-content {
-    @apply hover:bg-accent/5;
+  .vc-header .vc-title-wrapper:hover {
+    text-decoration-line: underline;
+  }
+  .vc-highlights + .vc-day-content:hover {
+    background-color: color-mix(in oklch, var(--color-accent) 5%, transparent);
   }
 </style>

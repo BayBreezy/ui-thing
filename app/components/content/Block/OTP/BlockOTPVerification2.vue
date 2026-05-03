@@ -1,15 +1,15 @@
 <template>
-  <div class="relative flex min-h-screen items-center justify-center bg-muted/30 p-4">
+  <div class="bg-muted/30 relative flex min-h-screen items-center justify-center p-4">
     <UiCard class="w-full max-w-lg">
       <div class="p-6 lg:p-8">
         <div class="mb-8 text-center">
           <div class="mb-4 flex justify-center">
-            <div class="flex size-16 items-center justify-center rounded-full bg-primary/10">
-              <Icon class="size-8 text-primary" name="lucide:lock-keyhole" />
+            <div class="bg-primary/10 flex size-16 items-center justify-center rounded-full">
+              <Icon class="text-primary size-8" name="lucide:lock-keyhole" />
             </div>
           </div>
           <h1 class="mb-2 text-2xl font-bold tracking-tight">{{ title }}</h1>
-          <p class="text-sm text-muted-foreground">
+          <p class="text-muted-foreground text-sm">
             We sent a verification code to <strong>john@example.com</strong>
           </p>
         </div>
@@ -27,7 +27,7 @@
                 type="text"
                 placeholder="0"
               />
-              <p class="mt-2 text-center text-xs text-muted-foreground">
+              <p class="text-muted-foreground mt-2 text-center text-xs">
                 Enter the 6-digit code we sent you
               </p>
             </div>
@@ -39,11 +39,11 @@
         <UiDivider class="my-6" />
 
         <div class="text-center">
-          <p class="text-sm text-muted-foreground">
+          <p class="text-muted-foreground text-sm">
             Didn't receive the code?
             <button
               type="button"
-              class="font-semibold text-primary underline-offset-2 hover:underline"
+              class="text-primary font-semibold underline-offset-2 hover:underline"
             >
               Resend code
             </button>
@@ -52,7 +52,7 @@
 
         <div class="mt-4 text-center">
           <NuxtLink
-            class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+            class="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 text-sm"
             to="#"
           >
             <Icon name="lucide:arrow-left" />

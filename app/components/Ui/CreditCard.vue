@@ -105,8 +105,8 @@
   export type CardNetworkType = "visa" | "mastercard" | "amex" | "discover" | "unknown";
 
   /**
-   * Detect the card network from a card number string.
-   * Accepts raw digits or formatted strings (spaces/dashes are stripped).
+   * Detect the card network from a card number string. Accepts raw digits or formatted strings
+   * (spaces/dashes are stripped).
    */
   export function getCardType(cardNumber: string): CardNetworkType {
     const cleaned = cardNumber.replace(/\D/g, "");
@@ -163,7 +163,7 @@
     variants: {
       variant: {
         transparent: {
-          root: "bg-black/10 bg-linear-to-br from-white/30 to-transparent backdrop-blur-[6px] before:pointer-events-none before:absolute before:inset-0 before:z-1 before:rounded-[inherit] before:ring-1 before:ring-border before:ring-inset dark:before:ring-white/30",
+          root: "before:ring-border bg-black/10 bg-linear-to-br from-white/30 to-transparent backdrop-blur-[6px] before:pointer-events-none before:absolute before:inset-0 before:z-1 before:rounded-[inherit] before:ring-1 before:ring-inset dark:before:ring-white/30",
           company: "text-muted-foreground dark:text-white",
           footerText: "text-muted-foreground dark:text-white",
           paypassIcon: "text-muted-foreground dark:text-white",
@@ -177,14 +177,14 @@
           cardTypeRoot: "bg-muted/50 dark:bg-white/10",
         },
         "brand-dark": {
-          root: "bg-linear-to-tr from-primary/90 to-primary before:pointer-events-none before:absolute before:inset-0 before:z-1 before:rounded-[inherit] before:ring-1 before:ring-white/30 before:ring-inset",
+          root: "from-primary/90 to-primary bg-linear-to-tr before:pointer-events-none before:absolute before:inset-0 before:z-1 before:rounded-[inherit] before:ring-1 before:ring-white/30 before:ring-inset",
           company: "text-white",
           footerText: "text-white",
           paypassIcon: "text-white",
           cardTypeRoot: "bg-white/10",
         },
         "brand-light": {
-          root: "bg-primary/10 before:pointer-events-none before:absolute before:inset-0 before:z-1 before:rounded-[inherit] before:ring-1 before:ring-primary/10 before:ring-inset dark:bg-primary/70 dark:before:ring-white/20",
+          root: "bg-primary/10 before:ring-primary/10 dark:bg-primary/70 before:pointer-events-none before:absolute before:inset-0 before:z-1 before:rounded-[inherit] before:ring-1 before:ring-inset dark:before:ring-white/20",
           company: "text-primary dark:text-foreground",
           footerText: "text-primary dark:text-foreground",
           paypassIcon: "text-primary dark:text-foreground",
@@ -205,7 +205,7 @@
           cardTypeRoot: "bg-white",
         },
         "transparent-strip": {
-          root: "bg-linear-to-br from-white/30 to-transparent backdrop-blur-[6px] before:pointer-events-none before:absolute before:inset-0 before:z-1 before:rounded-[inherit] before:ring-1 before:ring-border/50 before:ring-inset dark:before:ring-white/30",
+          root: "before:ring-border/50 bg-linear-to-br from-white/30 to-transparent backdrop-blur-[6px] before:pointer-events-none before:absolute before:inset-0 before:z-1 before:rounded-[inherit] before:ring-1 before:ring-inset dark:before:ring-white/30",
           company: "text-muted-foreground dark:text-white",
           footerText: "text-white",
           paypassIcon: "text-muted-foreground dark:text-white",
@@ -275,20 +275,18 @@
       /** Visual variant of the card. */
       variant?: CreditCardVariant;
       /**
-       * Desired render width in pixels. The card scales proportionally from
-       * its native 316×190 px dimensions. Omit to use native size.
+       * Desired render width in pixels. The card scales proportionally from its native 316×190 px
+       * dimensions. Omit to use native size.
        */
       width?: number;
       /**
-       * Icon name for the network logo, e.g. `"logos:visa"`.
-       * Falls back to Mastercard (colored or white depending on variant).
-       * Overridden entirely by the `network-icon` slot.
+       * Icon name for the network logo, e.g. `"logos:visa"`. Falls back to Mastercard (colored or
+       * white depending on variant). Overridden entirely by the `network-icon` slot.
        */
       networkIcon?: string;
       /**
-       * Icon name for the contactless symbol.
-       * Defaults to `"mdi:contactless-payment"`.
-       * Overridden entirely by the `contactless-icon` slot.
+       * Icon name for the contactless symbol. Defaults to `"mdi:contactless-payment"`. Overridden
+       * entirely by the `contactless-icon` slot.
        */
       contactlessIcon?: string;
     }>(),

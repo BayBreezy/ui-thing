@@ -19,7 +19,7 @@ Click :SourceCodeLink{component="Input.vue"} to see the source code for this com
 
 ### Email
 
-::ShowCase
+::prose-show-case
 
 :DocsInputEmail
 
@@ -41,7 +41,7 @@ Click :SourceCodeLink{component="Input.vue"} to see the source code for this com
 
 ### Disabled
 
-::ShowCase
+::prose-show-case
 
 :DocsInputDisabled
 
@@ -63,7 +63,7 @@ Click :SourceCodeLink{component="Input.vue"} to see the source code for this com
 
 ### Label
 
-::ShowCase
+::prose-show-case
 
 :DocsInputLabel
 
@@ -88,7 +88,7 @@ Click :SourceCodeLink{component="Input.vue"} to see the source code for this com
 
 ### Form
 
-::ShowCase
+::prose-show-case
 
 :DocsInputForm
 
@@ -139,7 +139,7 @@ Click :SourceCodeLink{component="Input.vue"} to see the source code for this com
 
 Restrict the number of characters that can be entered into the input field.
 
-::ShowCase
+::prose-show-case
 
 :DocsInputMaxLength
 
@@ -152,7 +152,7 @@ Restrict the number of characters that can be entered into the input field.
   <div class="mx-auto max-w-md">
     <div class="flex w-full flex-col gap-3">
       <UiInput :maxlength="5" placeholder="Enter username" />
-      <p class="text-sm text-muted-foreground">No more than 5 characters</p>
+      <p class="text-muted-foreground text-sm">No more than 5 characters</p>
     </div>
   </div>
 </template>
@@ -168,7 +168,7 @@ Restrict the type of characters that can be entered into the input field.
 
 You don't need to use `/` at the beginning and end of the pattern as the RegExp is being created internally with the `new RegExp()` constructor.
 
-::ShowCase
+::prose-show-case
 
 :DocsInputPattern
 
@@ -181,7 +181,7 @@ You don't need to use `/` at the beginning and end of the pattern as the RegExp 
   <div class="mx-auto max-w-md">
     <div class="flex w-full flex-col gap-3">
       <UiInput pattern="[^\s]" placeholder="Enter username" />
-      <p class="text-sm text-muted-foreground">No spaces can be entered</p>
+      <p class="text-muted-foreground text-sm">No spaces can be entered</p>
     </div>
   </div>
 </template>

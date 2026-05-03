@@ -9,9 +9,9 @@ Shout out to [Magic UI](https://magicui.design/docs/components/terminal) for the
 
 ## Getting Started
 
-:::Steps
+:::prose-steps
 
-::Step
+::prose-step
 
 ### Add Components
 
@@ -25,7 +25,7 @@ This consists of four(4) components
 <template>
   <div ref="containerRef" :class="styles({ class: normalizeClass(props.class) || undefined })">
     <div
-      class="sticky top-0 left-0 z-10 flex flex-col gap-y-2 border-b border-border bg-background p-4"
+      class="border-border bg-background sticky top-0 left-0 z-10 flex flex-col gap-y-2 border-b p-4"
     >
       <div class="flex flex-row gap-x-2">
         <div
@@ -45,33 +45,23 @@ This consists of four(4) components
   import type { HTMLAttributes } from "vue";
 
   export type SequenceContextValue = {
-    /**
-     * Marks the item at the given index as complete in the sequence.
-     */
+    /** Marks the item at the given index as complete in the sequence. */
     completeItem: (index: number) => void;
-    /**
-     * The currently active index in the sequence.
-     */
+    /** The currently active index in the sequence. */
     activeIndex: number;
-    /**
-     * Whether the sequence has started.
-     */
+    /** Whether the sequence has started. */
     sequenceStarted: boolean;
   };
 
-  /**
-   * Injection key for the sequence context.
-   */
+  /** Injection key for the sequence context. */
   export const SequenceKey = Symbol("sequence") as InjectionKey<
     ComputedRef<SequenceContextValue | null>
   >;
-  /**
-   * Injection key for the item index within the sequence.
-   */
+  /** Injection key for the item index within the sequence. */
   export const ItemIndexKey = Symbol("itemIndex") as InjectionKey<number | null>;
 
   const styles = tv({
-    base: "relative z-0 size-full max-w-lg overflow-auto rounded-lg border border-border bg-background",
+    base: "border-border bg-background relative z-0 size-full max-w-lg overflow-auto rounded-lg border",
   });
 </script>
 
@@ -79,21 +69,13 @@ This consists of four(4) components
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
-        /**
-         * Additional classes for the terminal container.
-         */
+        /** Additional classes for the terminal container. */
         class?: HTMLAttributes["class"];
-        /**
-         * Colors for the terminal control buttons.
-         */
+        /** Colors for the terminal control buttons. */
         buttonColors?: string[];
-        /**
-         * Whether to enable sequence mode.
-         */
+        /** Whether to enable sequence mode. */
         sequence?: boolean;
-        /**
-         * Whether to start the terminal animation when it comes into view.
-         */
+        /** Whether to start the terminal animation when it comes into view. */
         startOnView?: boolean;
       }
     >(),
@@ -207,25 +189,15 @@ This consists of four(4) components
   import { ItemIndexKey, SequenceKey } from "./Terminal.vue";
 
   export interface AnimatedSpanProps extends Omit<MotionProps, "as" | "asChild">, PrimitiveProps {
-    /**
-     * Additional classes for the animated span.
-     */
+    /** Additional classes for the animated span. */
     class?: HTMLAttributes["class"];
-    /**
-     * Delay before the animation starts (in milliseconds).
-     */
+    /** Delay before the animation starts (in milliseconds). */
     delay?: number;
-    /**
-     * Whether to start the animation when the element comes into view.
-     */
+    /** Whether to start the animation when the element comes into view. */
     startOnView?: boolean;
-    /**
-     * Optional item index for sequence mode.
-     */
+    /** Optional item index for sequence mode. */
     itemIndex?: number;
-    /**
-     * Text content to display if no slot is provided.
-     */
+    /** Text content to display if no slot is provided. */
     text?: string;
   }
 
@@ -320,29 +292,17 @@ This consists of four(4) components
 
   export interface TypingAnimationProps
     extends Omit<MotionProps, "as" | "asChild">, PrimitiveProps {
-    /**
-     * Text to be typed out in the animation.
-     */
+    /** Text to be typed out in the animation. */
     text?: string;
-    /**
-     * Additional classes for the typing animation component.
-     */
+    /** Additional classes for the typing animation component. */
     class?: HTMLAttributes["class"];
-    /**
-     * Duration of typing for each character (in milliseconds).
-     */
+    /** Duration of typing for each character (in milliseconds). */
     duration?: number;
-    /**
-     * Delay before the typing starts (in milliseconds).
-     */
+    /** Delay before the typing starts (in milliseconds). */
     delay?: number;
-    /**
-     * Whether to start the typing animation when the element comes into view.
-     */
+    /** Whether to start the typing animation when the element comes into view. */
     startOnView?: boolean;
-    /**
-     * Optional item index for sequence mode.
-     */
+    /** Optional item index for sequence mode. */
     itemIndex?: number;
   }
 
@@ -463,7 +423,7 @@ This consists of four(4) components
 
 ## Usage
 
-::ShowCase
+::prose-show-case
 
 :DocsTerminal
 

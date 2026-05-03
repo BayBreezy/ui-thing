@@ -37,13 +37,9 @@
   });
 
   export type QRCodeProps = {
-    /**
-     * The value to encode in the QR code.
-     */
+    /** The value to encode in the QR code. */
     value: string;
-    /**
-     * Additional options to customize the QR code.
-     */
+    /** Additional options to customize the QR code. */
     options?: QRCodeStylingOptions;
     /**
      * The size of the QR code.
@@ -51,15 +47,11 @@
      * @default "md"
      */
     size?: VariantProps<typeof qrCodeStyles>["size"];
-    /**
-     * The class name to apply to the QR code.
-     */
+    /** The class name to apply to the QR code. */
     class?: string;
   };
 
-  /**
-   * QR code size configurations
-   */
+  /** QR code size configurations. */
   export const QR_CODE_SIZES = {
     md: { width: 96, height: 96 },
     lg: { width: 128, height: 128 },
@@ -107,25 +99,15 @@
   );
 
   defineSlots<{
-    /**
-     * Slot for the top-left frame handle
-     */
+    /** Slot for the top-left frame handle. */
     "top-left": () => any;
-    /**
-     * Slot for the top-right frame handle
-     */
+    /** Slot for the top-right frame handle. */
     "top-right": () => any;
-    /**
-     * Slot for the bottom-right frame handle
-     */
+    /** Slot for the bottom-right frame handle. */
     "bottom-right": () => any;
-    /**
-     * Slot for the bottom-left frame handle
-     */
+    /** Slot for the bottom-left frame handle. */
     "bottom-left": () => any;
-    /**
-     * Slot for overlay content (like gradient scan)
-     */
+    /** Slot for overlay content (like gradient scan) */
     overlay: () => any;
   }>();
 

@@ -9,9 +9,9 @@
     <UiContainer class="py-16 lg:py-24">
       <Motion as-child :variants="childVariant">
         <div class="mb-12 text-center">
-          <p class="mb-3 font-semibold text-primary">Our Leadership</p>
+          <p class="text-primary mb-3 font-semibold">Our Leadership</p>
           <h2 class="mb-4 text-4xl font-bold lg:text-5xl">Meet the team</h2>
-          <p class="mx-auto max-w-2xl text-lg text-muted-foreground">
+          <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
             Passionate experts dedicated to building the future of technology
           </p>
         </div>
@@ -34,16 +34,16 @@
             </div>
             <div class="p-6 pt-0">
               <h3 class="mb-1 text-xl font-semibold">{{ member.name }}</h3>
-              <p class="mb-3 text-sm text-primary">{{ member.role }}</p>
-              <p class="mb-4 text-sm text-muted-foreground">{{ member.bio }}</p>
+              <p class="text-primary mb-3 text-sm">{{ member.role }}</p>
+              <p class="text-muted-foreground mb-4 text-sm">{{ member.bio }}</p>
               <div class="flex items-center gap-3">
-                <a href="#" class="text-muted-foreground transition-colors hover:text-primary">
+                <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
                   <Icon name="logos:twitter" class="size-5" />
                 </a>
-                <a href="#" class="text-muted-foreground transition-colors hover:text-primary">
+                <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
                   <Icon name="logos:linkedin-icon" class="size-5" />
                 </a>
-                <a href="#" class="text-muted-foreground transition-colors hover:text-primary">
+                <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
                   <Icon name="logos:whatsapp-icon" class="size-5" />
                 </a>
               </div>

@@ -17,11 +17,11 @@
   >
     <UiContainer class="py-16 lg:py-24">
       <Motion :variants="childVariant" :transition="{ duration: 0.5 }">
-        <p class="text-center font-semibold text-primary">Features</p>
+        <p class="text-primary text-center font-semibold">Features</p>
         <h2 class="mt-3 mb-4 text-center text-3xl font-semibold lg:mb-5 lg:text-4xl">
           Beautiful analytics to grow smarter
         </h2>
-        <p class="mx-auto max-w-[760px] text-center text-lg text-muted-foreground lg:text-xl">
+        <p class="text-muted-foreground mx-auto max-w-[760px] text-center text-lg lg:text-xl">
           Powerful, self-serve product and growth analytics to help you convert, engage, and retain
           more users. Trusted by over 4,000 startups.
         </p>
@@ -39,7 +39,7 @@
           <div class="flex h-12 w-12 items-center justify-center rounded-md border">
             <Icon
               :name="f.icon"
-              class="h-5 w-5 transition-colors group-hover:text-primary lg:h-6 lg:w-6"
+              class="group-hover:text-primary h-5 w-5 transition-colors lg:h-6 lg:w-6"
             />
           </div>
           <h3
@@ -47,7 +47,7 @@
             v-html="f.title"
           />
           <p
-            class="mt-1 max-w-[400px] text-center text-balance text-muted-foreground lg:mt-2"
+            class="text-muted-foreground mt-1 max-w-[400px] text-center text-balance lg:mt-2"
             v-html="f.description"
           />
         </Motion>

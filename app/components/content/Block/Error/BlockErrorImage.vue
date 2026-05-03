@@ -25,7 +25,7 @@
           <Motion
             as="p"
             :variants="childVariant"
-            class="mb-5 font-bold tracking-tight text-primary"
+            class="text-primary mb-5 font-bold tracking-tight"
           >
             {{ statusCode }} error
           </Motion>

@@ -12,7 +12,7 @@
 <template>
   <UiDropdownMenu>
     <UiDropdownMenuTrigger as-child>
-      <UiButton variant="ghost" class="flex size-8 p-0 data-[state=open]:bg-muted">
+      <UiButton variant="ghost" class="data-[state=open]:bg-muted flex size-8 p-0">
         <Icon name="lucide:ellipsis" class="size-4" />
         <span class="sr-only">Open menu</span>
       </UiButton>

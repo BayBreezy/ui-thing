@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto max-w-sm">
     <div class="space-y-4">
-      <legend class="text-center text-sm font-medium text-foreground">Equalizer</legend>
+      <legend class="text-foreground text-center text-sm font-medium">Equalizer</legend>
       <div class="flex h-48 justify-center gap-8">
         <div class="flex flex-col items-center gap-2">
           <UiSlider
@@ -13,7 +13,7 @@
             class="[&_[data-slot=slider-thumb]]:h-6 [&_[data-slot=slider-thumb]]:w-4 [&_[data-slot=slider-thumb]]:rounded"
             aria-label="60 Hz"
           />
-          <UiLabel class="flex w-0 justify-center text-xs text-muted-foreground">60</UiLabel>
+          <UiLabel class="text-muted-foreground flex w-0 justify-center text-xs">60</UiLabel>
         </div>
         <div class="flex flex-col items-center gap-2">
           <UiSlider
@@ -25,7 +25,7 @@
             class="[&_[data-slot=slider-thumb]]:h-6 [&_[data-slot=slider-thumb]]:w-4 [&_[data-slot=slider-thumb]]:rounded"
             aria-label="250 Hz"
           />
-          <UiLabel class="flex w-0 justify-center text-xs text-muted-foreground">250</UiLabel>
+          <UiLabel class="text-muted-foreground flex w-0 justify-center text-xs">250</UiLabel>
         </div>
         <div class="flex flex-col items-center gap-2">
           <UiSlider
@@ -37,7 +37,7 @@
             class="[&_[data-slot=slider-thumb]]:h-6 [&_[data-slot=slider-thumb]]:w-4 [&_[data-slot=slider-thumb]]:rounded"
             aria-label="1k"
           />
-          <UiLabel class="flex w-0 justify-center text-xs text-muted-foreground">1k</UiLabel>
+          <UiLabel class="text-muted-foreground flex w-0 justify-center text-xs">1k</UiLabel>
         </div>
         <div class="flex flex-col items-center gap-2">
           <UiSlider
@@ -49,7 +49,7 @@
             class="[&_[data-slot=slider-thumb]]:h-6 [&_[data-slot=slider-thumb]]:w-4 [&_[data-slot=slider-thumb]]:rounded"
             aria-label="4k"
           />
-          <UiLabel class="flex w-0 justify-center text-xs text-muted-foreground">4k</UiLabel>
+          <UiLabel class="text-muted-foreground flex w-0 justify-center text-xs">4k</UiLabel>
         </div>
         <div class="flex flex-col items-center gap-2">
           <UiSlider
@@ -61,7 +61,7 @@
             class="[&_[data-slot=slider-thumb]]:h-6 [&_[data-slot=slider-thumb]]:w-4 [&_[data-slot=slider-thumb]]:rounded"
             aria-label="16k"
           />
-          <UiLabel class="flex w-0 justify-center text-xs text-muted-foreground">16K</UiLabel>
+          <UiLabel class="text-muted-foreground flex w-0 justify-center text-xs">16K</UiLabel>
         </div>
       </div>
     </div>

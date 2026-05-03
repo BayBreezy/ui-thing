@@ -38,7 +38,7 @@
         v-for="item in items"
         :key="item.id"
         :value="item.value"
-        class="border bg-background px-4 py-1 first:rounded-t-lg last:rounded-b-lg last:border-b"
+        class="bg-background border px-4 py-1 first:rounded-t-lg last:rounded-b-lg last:border-b"
       >
         <UiAccordionTrigger class="w-full py-2 text-[15px] leading-6 hover:no-underline">
           {{ item.title }}

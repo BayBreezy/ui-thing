@@ -1,11 +1,11 @@
 <template>
-  <footer class="bg-linear-to-br from-primary/5 via-purple-500/5 to-pink-500/5">
+  <footer class="from-primary/5 bg-linear-to-br via-purple-500/5 to-pink-500/5">
     <UiContainer class="py-16 lg:py-24">
       <!-- Top Section -->
       <div class="mb-12 grid grid-cols-1 gap-8 lg:mb-16 lg:grid-cols-2">
         <div>
           <h2 class="mb-3 text-3xl font-bold lg:text-4xl">Ready to get started?</h2>
-          <p class="text-lg text-muted-foreground">
+          <p class="text-muted-foreground text-lg">
             Join thousands of companies already using our platform.
           </p>
         </div>
@@ -26,7 +26,7 @@
           <ul class="space-y-3">
             <li v-for="link in section.links" :key="link">
               <NuxtLink
-                class="text-sm text-muted-foreground transition-colors hover:text-primary"
+                class="text-muted-foreground hover:text-primary text-sm transition-colors"
                 to="#"
               >
                 {{ link }}
@@ -49,10 +49,10 @@
           <span class="text-xl font-semibold">{{ COMPANY_NAME }}</span>
         </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
-          <NuxtLink to="#" class="transition-colors hover:text-primary">Privacy</NuxtLink>
-          <NuxtLink to="#" class="transition-colors hover:text-primary">Terms</NuxtLink>
-          <NuxtLink to="#" class="transition-colors hover:text-primary">Sitemap</NuxtLink>
+        <div class="text-muted-foreground flex flex-wrap items-center justify-center gap-6 text-sm">
+          <NuxtLink to="#" class="hover:text-primary transition-colors">Privacy</NuxtLink>
+          <NuxtLink to="#" class="hover:text-primary transition-colors">Terms</NuxtLink>
+          <NuxtLink to="#" class="hover:text-primary transition-colors">Sitemap</NuxtLink>
           <span>&copy; {{ new Date().getFullYear() }}</span>
         </div>
 
@@ -61,7 +61,7 @@
             v-for="social in ['facebook', 'twitter', 'linkedin-icon', 'github-icon']"
             :key="social"
             to="#"
-            class="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 transition-all hover:bg-primary hover:text-white"
+            class="bg-primary/10 hover:bg-primary flex h-9 w-9 items-center justify-center rounded-full transition-all hover:text-white"
           >
             <Icon :name="`logos:${social}`" class="size-4" />
           </NuxtLink>

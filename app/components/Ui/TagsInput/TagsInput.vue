@@ -21,8 +21,8 @@
 
   const styles = tv({
     base: [
-      "flex h-9 flex-wrap items-center gap-2 rounded-md border border-input bg-transparent px-1 text-sm shadow-xs dark:bg-input/30",
-      "focus-within:border-ring focus-within:ring-[3px] focus-within:ring-ring/50",
+      "border-input dark:bg-input/30 flex h-9 flex-wrap items-center gap-2 rounded-md border bg-transparent px-1 text-sm shadow-xs",
+      "focus-within:border-ring focus-within:ring-ring/50 focus-within:ring-[3px]",
     ],
   });
 </script>

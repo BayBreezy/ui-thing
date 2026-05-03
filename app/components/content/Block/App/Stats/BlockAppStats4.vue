@@ -3,14 +3,14 @@
     <UiCardContent class="p-0">
       <div class="flex">
         <div :class="['flex w-16 items-center justify-center', props.accentColor || 'bg-primary']">
-          <Icon :name="props.icon" class="size-8 text-primary-foreground" />
+          <Icon :name="props.icon" class="text-primary-foreground size-8" />
         </div>
         <div class="flex-1 p-6">
-          <p class="text-sm font-medium text-muted-foreground" v-html="props.label" />
+          <p class="text-muted-foreground text-sm font-medium" v-html="props.label" />
           <h3 class="mt-1 text-2xl font-bold tracking-tight" v-html="props.value" />
           <div class="flex items-center gap-4">
             <div class="flex items-center gap-1 text-sm">
-              <Icon name="lucide:calendar" class="size-3.5 text-muted-foreground" />
+              <Icon name="lucide:calendar" class="text-muted-foreground size-3.5" />
               <span class="text-muted-foreground" v-html="props.period" />
             </div>
             <UiBadge variant="outline">{{ props.status }}</UiBadge>

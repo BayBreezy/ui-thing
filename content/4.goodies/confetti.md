@@ -9,9 +9,9 @@ Shout out to [Magic UI](https://magicui.design/docs/components/confetti) for the
 
 ## Getting Started
 
-:::Steps
+:::prose-steps
 
-::Step
+::prose-step
 
 ### Installation
 
@@ -21,7 +21,7 @@ To get started, you will need to install the package. You can visit the [Canvas 
 
 ::
 
-::Step
+::prose-step
 
 ### Create Composable
 
@@ -41,7 +41,7 @@ Add this to the file:
 
 We can just call the `useConfetti` method to trigger the confetti.
 
-::ShowCase
+::prose-show-case
 
 :DocsConfetti
 
@@ -71,7 +71,7 @@ We can just call the `useConfetti` method to trigger the confetti.
 
 This is how you can shoot confetti off in a random direction.
 
-::ShowCase
+::prose-show-case
 
 :DocsConfettiRandomDirection
 
@@ -107,7 +107,7 @@ This is how you can shoot confetti off in a random direction.
 
 ### Fireworks
 
-::ShowCase
+::prose-show-case
 
 :DocsConfettiFireworks
 
@@ -160,7 +160,7 @@ This is how you can shoot confetti off in a random direction.
 
 ### Stars
 
-::ShowCase
+::prose-show-case
 
 :DocsConfettiStars
 
@@ -215,7 +215,7 @@ This is how you can shoot confetti off in a random direction.
 
 ### Snow
 
-::ShowCase
+::prose-show-case
 
 :DocsConfettiSnow
 
@@ -277,7 +277,7 @@ This is how you can shoot confetti off in a random direction.
 
 ### Side Cannon
 
-::ShowCase
+::prose-show-case
 
 :DocsConfettiSideCannon
 
@@ -327,7 +327,7 @@ This is how you can shoot confetti off in a random direction.
 
 ### Emoji
 
-::ShowCase
+::prose-show-case
 
 :DocsConfettiEmoji
 

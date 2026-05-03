@@ -1,7 +1,7 @@
 <template>
   <form class="mx-auto max-w-md" @submit="onSubmit">
     <p class="font-semibold">Terms of Service</p>
-    <p class="mt-2 mb-4 text-sm text-muted-foreground">
+    <p class="text-muted-foreground mt-2 mb-4 text-sm">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, perspiciatis sunt, quae
       architecto, dicta nobis corrupti commodi tempora asperiores eligendi id dolore dolores.
       Dolores quaerat architecto in sapiente expedita cum?

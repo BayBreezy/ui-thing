@@ -3,20 +3,20 @@
     <ui-draggable :list="names" item-key="id" class="grid grid-cols-1 gap-2">
       <template #header>
         <div class="py-4">
-          <p class="mb-3 text-sm text-muted-foreground">Drag and drop to reorder items</p>
+          <p class="text-muted-foreground mb-3 text-sm">Drag and drop to reorder items</p>
           <ui-gradient-divider />
         </div>
       </template>
       <template #footer>
         <div class="py-4">
           <ui-gradient-divider />
-          <p class="mt-3 text-sm text-muted-foreground">Drag and drop to reorder items</p>
+          <p class="text-muted-foreground mt-3 text-sm">Drag and drop to reorder items</p>
         </div>
       </template>
       <template #item="{ element }">
         <div
           :class="[
-            'flex cursor-grab items-center justify-between gap-3 rounded-md border bg-background p-3 shadow-xs',
+            'bg-background flex cursor-grab items-center justify-between gap-3 rounded-md border p-3 shadow-xs',
           ]"
         >
           <span class="text-sm font-medium">{{ element.name }}</span>

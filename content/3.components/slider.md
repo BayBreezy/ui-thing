@@ -4,7 +4,7 @@ description: An input where the user selects a value from within a given range.
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/slider.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/slider.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="Slider"} to see the source code for this compon
 
 ### Basic example
 
-::ShowCase
+::prose-show-case
 
 :DocsSlider
 
@@ -49,7 +49,7 @@ Click :SourceCodeLink{component="Slider"} to see the source code for this compon
 
 ### Multiple thumbs
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderMultiple
 
@@ -82,7 +82,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Square Thumb
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderSquareThumb
 
@@ -117,7 +117,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Solid Thumb
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderSolidThumb
 
@@ -150,7 +150,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Tiny Thumb
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderTinyThumb
 
@@ -165,7 +165,7 @@ To use these examples you will have to copy the code and adjust it for your own 
       <UiLabel>Slider with tiny thumb</UiLabel>
       <UiSlider
         v-model="value"
-        class="[&_[data-slot=slider-thumb]]:h-6 [&_[data-slot=slider-thumb]]:w-2.5 [&_[data-slot=slider-thumb]]:border-[3px] [&_[data-slot=slider-thumb]]:border-background [&_[data-slot=slider-thumb]]:bg-primary [&_[data-slot=slider-thumb]]:ring-offset-0"
+        class="[&_[data-slot=slider-thumb]]:border-background [&_[data-slot=slider-thumb]]:bg-primary [&_[data-slot=slider-thumb]]:h-6 [&_[data-slot=slider-thumb]]:w-2.5 [&_[data-slot=slider-thumb]]:border-[3px] [&_[data-slot=slider-thumb]]:ring-offset-0"
         aria-label="Slider with tiny thumb"
       />
     </div>
@@ -183,7 +183,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Reference Labels
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderReferenceLabels
 
@@ -199,7 +199,7 @@ To use these examples you will have to copy the code and adjust it for your own 
       <div>
         <UiSlider v-model="value" :min="5" :max="35" aria-label="Slider with reference labels" />
         <div
-          class="mt-4 flex w-full items-center justify-between gap-1 text-xs font-medium text-muted-foreground"
+          class="text-muted-foreground mt-4 flex w-full items-center justify-between gap-1 text-xs font-medium"
           aria-hidden="true"
         >
           <span v-for="size in [5, 20, 35]" :key="size">{{ size }} GB</span>
@@ -220,7 +220,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Ticks
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderTicks
 
@@ -236,7 +236,7 @@ To use these examples you will have to copy the code and adjust it for your own 
       <div>
         <UiSlider v-model="value" :max="max" aria-label="Slider with ticks" />
         <span
-          class="mt-3 flex w-full items-center justify-between gap-1 px-2.5 text-xs font-medium text-muted-foreground"
+          class="text-muted-foreground mt-3 flex w-full items-center justify-between gap-1 px-2.5 text-xs font-medium"
           aria-hidden="true"
         >
           <span
@@ -244,7 +244,7 @@ To use these examples you will have to copy the code and adjust it for your own 
             :key="i"
             class="flex w-0 flex-col items-center justify-center gap-2"
           >
-            <span :class="['h-1 w-px bg-muted-foreground/70', i % skipInterval !== 0 && 'h-0.5']" />
+            <span :class="['bg-muted-foreground/70 h-1 w-px', i % skipInterval !== 0 && 'h-0.5']" />
             <span :class="[i % skipInterval === 0 && 'opacity-0']">{{ i }}</span>
           </span>
         </span>
@@ -267,7 +267,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Slider w/ Output
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderOutput
 
@@ -299,7 +299,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Slider w/ Labels
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderLabels
 
@@ -314,7 +314,7 @@ To use these examples you will have to copy the code and adjust it for your own 
       <UiLabel>Slider with labels</UiLabel>
       <div>
         <span
-          class="mb-3 flex w-full items-center justify-between gap-2 text-xs font-medium text-muted-foreground"
+          class="text-muted-foreground mb-3 flex w-full items-center justify-between gap-2 text-xs font-medium"
           aria-hidden="true"
         >
           <span>Low</span>
@@ -337,7 +337,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Slider w/ Labels & Tooltip
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderLabelsTooltips
 
@@ -351,7 +351,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     <UiLabel>Slider with labels and tooltip</UiLabel>
     <div>
       <span
-        class="mb-3 flex w-full items-center justify-between gap-2 text-xs font-medium text-muted-foreground"
+        class="text-muted-foreground mb-3 flex w-full items-center justify-between gap-2 text-xs font-medium"
         aria-hidden="true"
       >
         <span>Low</span>
@@ -378,7 +378,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Dual Range
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderDualRange
 
@@ -407,7 +407,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Dual Range w/ Output
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderDualRangeOutput
 
@@ -439,7 +439,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Volume
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderVolume
 
@@ -475,7 +475,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Temperature
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderTemperature
 
@@ -552,7 +552,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Input
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderInput
 
@@ -599,7 +599,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Rate your experience
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderRateExp1
 
@@ -638,7 +638,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Rate your experience (tooltip)
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderRateExpTooltip
 
@@ -683,7 +683,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Dual Range w/ Input
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderDualRangeInput
 
@@ -737,7 +737,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Credits per Month
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderCreditsPerMonth
 
@@ -813,7 +813,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Money Range
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderMoneyRange
 
@@ -858,7 +858,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Vertical
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderVertical
 
@@ -889,7 +889,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Vertical Input
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderVerticalInput
 
@@ -937,7 +937,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Vertical Dual Range w/ Tooltip
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderVerticalDualTooltip
 
@@ -974,7 +974,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Object Position
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderObjectPosition
 
@@ -986,10 +986,10 @@ To use these examples you will have to copy the code and adjust it for your own 
 <template>
   <div class="mx-auto max-w-sm">
     <div class="space-y-4">
-      <legend class="text-sm font-medium text-foreground">Object position</legend>
+      <legend class="text-foreground text-sm font-medium">Object position</legend>
       <div class="space-y-2">
         <div class="flex items-center gap-2">
-          <UiLabel class="text-xs text-muted-foreground">X</UiLabel>
+          <UiLabel class="text-muted-foreground text-xs">X</UiLabel>
           <UiSlider
             v-model="x"
             class="flex-grow [&>:last-child>div]:rounded"
@@ -1000,7 +1000,7 @@ To use these examples you will have to copy the code and adjust it for your own 
           <UiInput v-model="x[0]" class="h-8 w-12 px-2 py-1" type="text" aria-label="Enter value" />
         </div>
         <div class="flex items-center gap-2">
-          <UiLabel class="text-xs text-muted-foreground">Y</UiLabel>
+          <UiLabel class="text-muted-foreground text-xs">Y</UiLabel>
           <UiSlider
             v-model="y"
             class="flex-grow [&>:last-child>div]:rounded"
@@ -1011,7 +1011,7 @@ To use these examples you will have to copy the code and adjust it for your own 
           <UiInput v-model="y[0]" class="h-8 w-12 px-2 py-1" type="text" aria-label="Enter value" />
         </div>
         <div class="flex items-center gap-2">
-          <UiLabel class="text-xs text-muted-foreground">Z</UiLabel>
+          <UiLabel class="text-muted-foreground text-xs">Z</UiLabel>
           <UiSlider
             v-model="z"
             class="flex-grow [&>:last-child>div]:rounded"
@@ -1052,7 +1052,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Price
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderPrice
 
@@ -1076,7 +1076,7 @@ To use these examples you will have to copy the code and adjust it for your own 
           >
             <span
               :data-selected="isBarInSelectedRange(i, minValue, priceStep, value)"
-              class="h-full w-full bg-primary/20 data-[selected=true]:bg-emerald-500/70"
+              class="bg-primary/20 h-full w-full data-[selected=true]:bg-emerald-500/70"
             />
           </div>
         </div>
@@ -1097,7 +1097,7 @@ To use these examples you will have to copy the code and adjust it for your own 
               aria-label="Enter minimum price"
             />
             <span
-              class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm text-muted-foreground peer-disabled:opacity-50"
+              class="text-muted-foreground pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm peer-disabled:opacity-50"
             >
               $
             </span>
@@ -1115,7 +1115,7 @@ To use these examples you will have to copy the code and adjust it for your own 
               aria-label="Enter maximum price"
             />
             <span
-              class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm text-muted-foreground peer-disabled:opacity-50"
+              class="text-muted-foreground pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm peer-disabled:opacity-50"
             >
               $
             </span>
@@ -1304,7 +1304,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Equalizer
 
-::ShowCase
+::prose-show-case
 
 :DocsSliderEqualizer
 
@@ -1316,7 +1316,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 <template>
   <div class="mx-auto max-w-sm">
     <div class="space-y-4">
-      <legend class="text-center text-sm font-medium text-foreground">Equalizer</legend>
+      <legend class="text-foreground text-center text-sm font-medium">Equalizer</legend>
       <div class="flex h-48 justify-center gap-8">
         <div class="flex flex-col items-center gap-2">
           <UiSlider
@@ -1328,7 +1328,7 @@ To use these examples you will have to copy the code and adjust it for your own 
             class="[&_[data-slot=slider-thumb]]:h-6 [&_[data-slot=slider-thumb]]:w-4 [&_[data-slot=slider-thumb]]:rounded"
             aria-label="60 Hz"
           />
-          <UiLabel class="flex w-0 justify-center text-xs text-muted-foreground">60</UiLabel>
+          <UiLabel class="text-muted-foreground flex w-0 justify-center text-xs">60</UiLabel>
         </div>
         <div class="flex flex-col items-center gap-2">
           <UiSlider
@@ -1340,7 +1340,7 @@ To use these examples you will have to copy the code and adjust it for your own 
             class="[&_[data-slot=slider-thumb]]:h-6 [&_[data-slot=slider-thumb]]:w-4 [&_[data-slot=slider-thumb]]:rounded"
             aria-label="250 Hz"
           />
-          <UiLabel class="flex w-0 justify-center text-xs text-muted-foreground">250</UiLabel>
+          <UiLabel class="text-muted-foreground flex w-0 justify-center text-xs">250</UiLabel>
         </div>
         <div class="flex flex-col items-center gap-2">
           <UiSlider
@@ -1352,7 +1352,7 @@ To use these examples you will have to copy the code and adjust it for your own 
             class="[&_[data-slot=slider-thumb]]:h-6 [&_[data-slot=slider-thumb]]:w-4 [&_[data-slot=slider-thumb]]:rounded"
             aria-label="1k"
           />
-          <UiLabel class="flex w-0 justify-center text-xs text-muted-foreground">1k</UiLabel>
+          <UiLabel class="text-muted-foreground flex w-0 justify-center text-xs">1k</UiLabel>
         </div>
         <div class="flex flex-col items-center gap-2">
           <UiSlider
@@ -1364,7 +1364,7 @@ To use these examples you will have to copy the code and adjust it for your own 
             class="[&_[data-slot=slider-thumb]]:h-6 [&_[data-slot=slider-thumb]]:w-4 [&_[data-slot=slider-thumb]]:rounded"
             aria-label="4k"
           />
-          <UiLabel class="flex w-0 justify-center text-xs text-muted-foreground">4k</UiLabel>
+          <UiLabel class="text-muted-foreground flex w-0 justify-center text-xs">4k</UiLabel>
         </div>
         <div class="flex flex-col items-center gap-2">
           <UiSlider
@@ -1376,7 +1376,7 @@ To use these examples you will have to copy the code and adjust it for your own 
             class="[&_[data-slot=slider-thumb]]:h-6 [&_[data-slot=slider-thumb]]:w-4 [&_[data-slot=slider-thumb]]:rounded"
             aria-label="16k"
           />
-          <UiLabel class="flex w-0 justify-center text-xs text-muted-foreground">16K</UiLabel>
+          <UiLabel class="text-muted-foreground flex w-0 justify-center text-xs">16K</UiLabel>
         </div>
       </div>
     </div>

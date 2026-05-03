@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="InputGroup"} to see the source code for this co
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsInputGroup
 
@@ -80,7 +80,7 @@ Click :SourceCodeLink{component="InputGroup"} to see the source code for this co
       <UiInputGroupInput placeholder="@uithing" />
       <UiInputGroupAddon align="inline-end">
         <div
-          class="flex size-4 items-center justify-center rounded-full bg-primary text-primary-foreground"
+          class="bg-primary text-primary-foreground flex size-4 items-center justify-center rounded-full"
         >
           <Icon name="lucide:check" class="size-3" />
         </div>
@@ -96,7 +96,7 @@ Click :SourceCodeLink{component="InputGroup"} to see the source code for this co
 
 ### Icon
 
-::ShowCase
+::prose-show-case
 
 :DocsInputGroupIcon
 
@@ -145,7 +145,7 @@ Click :SourceCodeLink{component="InputGroup"} to see the source code for this co
 
 ### Text
 
-::ShowCase
+::prose-show-case
 
 :DocsInputGroupText
 
@@ -183,7 +183,7 @@ Click :SourceCodeLink{component="InputGroup"} to see the source code for this co
     <UiInputGroup>
       <UiInputGroupTextarea placeholder="Enter your message" />
       <UiInputGroupAddon align="block-end">
-        <UiInputGroupText class="text-xs text-muted-foreground">
+        <UiInputGroupText class="text-muted-foreground text-xs">
           120 characters left
         </UiInputGroupText>
       </UiInputGroupAddon>
@@ -198,7 +198,7 @@ Click :SourceCodeLink{component="InputGroup"} to see the source code for this co
 
 ### Button
 
-::ShowCase
+::prose-show-case
 
 :DocsInputGroupButton
 
@@ -237,7 +237,7 @@ Click :SourceCodeLink{component="InputGroup"} to see the source code for this co
           <p>You should not enter any sensitive information on this site.</p>
         </UiPopoverContent>
       </UiPopover>
-      <UiInputGroupAddon class="pl-1.5 text-muted-foreground"> https:// </UiInputGroupAddon>
+      <UiInputGroupAddon class="text-muted-foreground pl-1.5"> https:// </UiInputGroupAddon>
       <UiInputGroupInput id="input-secure-19" />
       <UiInputGroupAddon align="inline-end">
         <UiInputGroupButton size="icon-xs" @click="isFavorite = !isFavorite">
@@ -270,7 +270,7 @@ Click :SourceCodeLink{component="InputGroup"} to see the source code for this co
 
 ### Tooltip
 
-::ShowCase
+::prose-show-case
 
 :DocsInputGroupTooltip
 
@@ -339,7 +339,7 @@ Click :SourceCodeLink{component="InputGroup"} to see the source code for this co
 
 ### Textarea
 
-::ShowCase
+::prose-show-case
 
 :DocsInputGroupTextarea
 
@@ -385,7 +385,7 @@ Click :SourceCodeLink{component="InputGroup"} to see the source code for this co
 
 ### Loader
 
-::ShowCase
+::prose-show-case
 
 :DocsInputGroupLoader
 
@@ -434,7 +434,7 @@ Click :SourceCodeLink{component="InputGroup"} to see the source code for this co
 
 ### Label
 
-::ShowCase
+::prose-show-case
 
 :DocsInputGroupLabel
 
@@ -482,7 +482,7 @@ Click :SourceCodeLink{component="InputGroup"} to see the source code for this co
 
 ### Dropdown
 
-::ShowCase
+::prose-show-case
 
 :DocsInputGroupDropdown
 

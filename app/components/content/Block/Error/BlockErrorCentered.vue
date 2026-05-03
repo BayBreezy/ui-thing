@@ -24,7 +24,7 @@
         class="absolute h-full w-full bg-[radial-gradient(var(--color-border)_1px,transparent_1px)] mask-[radial-gradient(ellipse_closest-side_at_50%_50%,#000_60%,transparent_100%)] bg-size-[20px_20px]"
       />
       <div class="relative z-1 container flex flex-col items-center justify-center text-center">
-        <Motion as="p" :variants="childVariant" class="mb-5 font-bold tracking-tight text-primary">
+        <Motion as="p" :variants="childVariant" class="text-primary mb-5 font-bold tracking-tight">
           {{ statusCode }} error
         </Motion>
         <Motion

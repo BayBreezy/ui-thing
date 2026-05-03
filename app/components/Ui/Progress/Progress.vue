@@ -22,7 +22,7 @@
   const props = withDefaults(
     defineProps<
       ProgressRootProps & {
-        /** Custom class(es) to add to the parent */
+        /** Custom class(es) to add to the parent. */
         class?: HTMLAttributes["class"];
       }
     >(),
@@ -36,6 +36,6 @@
   const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);
 
   const styles = tv({
-    base: "relative h-2 w-full overflow-hidden rounded-full bg-primary/20",
+    base: "bg-primary/20 relative h-2 w-full overflow-hidden rounded-full",
   });
 </script>

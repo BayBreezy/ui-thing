@@ -8,20 +8,20 @@
   >
     <UiContainer class="py-16 lg:py-24">
       <UiCard class="relative overflow-hidden border-2">
-        <div class="absolute top-0 right-0 h-40 w-40 rounded-bl-full bg-primary/10"></div>
+        <div class="bg-primary/10 absolute top-0 right-0 h-40 w-40 rounded-bl-full"></div>
         <div class="relative p-8 lg:p-12">
           <div class="mx-auto max-w-xl text-center">
             <Motion as-child :variants="childVariant">
               <div class="mb-6">
                 <div
-                  class="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-primary/10"
+                  class="bg-primary/10 mx-auto mb-4 flex size-16 items-center justify-center rounded-full"
                 >
-                  <Icon name="lucide:sparkles" class="size-8 text-primary" />
+                  <Icon name="lucide:sparkles" class="text-primary size-8" />
                 </div>
                 <h2 class="mb-4 text-3xl font-bold tracking-tight lg:text-4xl">
                   Don't miss out on our updates
                 </h2>
-                <p class="text-lg text-muted-foreground">
+                <p class="text-muted-foreground text-lg">
                   Join our community and be the first to know about new features, updates, and
                   special offers.
                 </p>
@@ -46,15 +46,15 @@
             </Motion>
             <Motion as-child :variants="childVariant">
               <div class="flex flex-wrap items-center justify-center gap-6 text-sm">
-                <div class="flex items-center gap-2 text-muted-foreground">
+                <div class="text-muted-foreground flex items-center gap-2">
                   <Icon name="lucide:users" class="size-4" />
                   <span>15K+ subscribers</span>
                 </div>
-                <div class="flex items-center gap-2 text-muted-foreground">
+                <div class="text-muted-foreground flex items-center gap-2">
                   <Icon name="lucide:star" class="size-4" />
                   <span>4.9 rating</span>
                 </div>
-                <div class="flex items-center gap-2 text-muted-foreground">
+                <div class="text-muted-foreground flex items-center gap-2">
                   <Icon name="lucide:lock" class="size-4" />
                   <span>100% secure</span>
                 </div>

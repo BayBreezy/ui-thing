@@ -11,7 +11,7 @@
                   <Icon name="lucide:chevron-down" class="ml-auto" />
                 </UiSidebarMenuButton>
               </UiDropdownMenuTrigger>
-              <UiDropdownMenuContent class="w-[--radix-popper-anchor-width]">
+              <UiDropdownMenuContent class="w-(--reka-dropdown-menu-trigger-width)">
                 <UiDropdownMenuItem>
                   <span>Acme Inc</span>
                 </UiDropdownMenuItem>

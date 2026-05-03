@@ -16,7 +16,7 @@
     }"
   >
     <UiContainer class="py-16 lg:py-24">
-      <Motion as="p" :variants="childVariant" class="text-center font-semibold text-primary"
+      <Motion as="p" :variants="childVariant" class="text-primary text-center font-semibold"
         >Features</Motion
       >
       <Motion
@@ -29,7 +29,7 @@
       <Motion
         as="p"
         :variants="childVariant"
-        class="mx-auto max-w-[760px] text-center text-lg text-muted-foreground lg:text-xl"
+        class="text-muted-foreground mx-auto max-w-[760px] text-center text-lg lg:text-xl"
       >
         Powerful, self-serve product and growth analytics to help you convert, engage, and retain
         more users. Trusted by over 4,000 startups.
@@ -42,9 +42,9 @@
           >
             <div :class="[i % 2 == 0 ? 'lg:order-0' : 'lg:order-1']">
               <div
-                class="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary/20"
+                class="bg-primary/20 mb-5 flex h-12 w-12 items-center justify-center rounded-full"
               >
-                <Icon name="heroicons:chat-bubble-left-right" class="h-6 w-6 text-primary" />
+                <Icon name="heroicons:chat-bubble-left-right" class="text-primary h-6 w-6" />
               </div>
               <h3 class="mb-2 text-2xl font-semibold lg:mb-4 lg:text-3xl" v-html="f.title" />
               <p class="text-muted-foreground lg:text-lg" v-html="f.description" />

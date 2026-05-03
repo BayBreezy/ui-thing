@@ -22,7 +22,7 @@
       v-if="headline"
       as="p"
       :variants="childVariant"
-      class="mb-2 text-sm font-semibold text-primary"
+      class="text-primary mb-2 text-sm font-semibold"
     >
       {{ headline }} <span v-if="date">- {{ date }}</span>
     </Motion>
@@ -35,7 +35,7 @@
       v-if="description"
       as="p"
       :variants="childVariant"
-      class="mb-3 line-clamp-2 text-ellipsis text-muted-foreground"
+      class="text-muted-foreground mb-3 line-clamp-2 text-ellipsis"
     >
       {{ description }}
     </Motion>

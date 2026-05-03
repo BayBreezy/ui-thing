@@ -4,7 +4,7 @@ description: For sighted users to preview content available behind a link.
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/hover-card.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/hover-card.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="HoverCard"} to see the source code for this com
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsHoverCard
 
@@ -36,7 +36,7 @@ Click :SourceCodeLink{component="HoverCard"} to see the source code for this com
     <UiHoverCard>
       <UiHoverCardTrigger as-child>
         <div
-          class="flex h-20 w-20 cursor-pointer items-center justify-center rounded-full border bg-background shadow-xs"
+          class="bg-background flex h-20 w-20 cursor-pointer items-center justify-center rounded-full border shadow-xs"
         >
           <Icon name="logos:nuxt-icon" class="h-8 w-8" />
         </div>
@@ -66,7 +66,7 @@ Click :SourceCodeLink{component="HoverCard"} to see the source code for this com
             </p>
 
             <div class="mt-5 hidden transition-all group-hover:block">
-              <UiButton class="w-full dark:bg-primary-foreground dark:text-primary"
+              <UiButton class="dark:bg-primary-foreground dark:text-primary w-full"
                 >View profile</UiButton
               >
             </div>
@@ -84,7 +84,7 @@ Click :SourceCodeLink{component="HoverCard"} to see the source code for this com
 
 ### Vue
 
-::ShowCase
+::prose-show-case
 
 :DocsHoverCardVue
 
@@ -101,7 +101,7 @@ Click :SourceCodeLink{component="HoverCard"} to see the source code for this com
       </UiHoverCardTrigger>
       <UiHoverCardContent class="w-80">
         <div class="flex justify-between space-x-4">
-          <UiAvatar class="ring-1 ring-muted">
+          <UiAvatar class="ring-muted ring-1">
             <UiAvatarImage src="https://github.com/vuejs.png" />
             <UiAvatarFallback>VC</UiAvatarFallback>
           </UiAvatar>
@@ -112,7 +112,7 @@ Click :SourceCodeLink{component="HoverCard"} to see the source code for this com
             </p>
             <div class="flex items-center pt-2">
               <Icon name="lucide:calendar-days" class="mr-2 size-4 opacity-70" />
-              <span class="text-xs text-muted-foreground"> Joined January 2014 </span>
+              <span class="text-muted-foreground text-xs"> Joined January 2014 </span>
             </div>
           </div>
         </div>

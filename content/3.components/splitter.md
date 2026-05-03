@@ -4,7 +4,7 @@ description: A component that divides your layout into resizable sections.
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/splitter.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/splitter.html#api-reference
     icon: "icon-park-solid:api"
@@ -24,7 +24,7 @@ Click :SourceCodeLink{component="Splitter"} to see the source code for this comp
 
 We can put the parts together to build a simple layout with a resizable sidebar.
 
-::ShowCase
+::prose-show-case
 
 :DocsSplitterBasic
 
@@ -76,7 +76,7 @@ We can even pass in a custom icon to display for the handle.
 
 Do note that the handle will be rotated because of this class that is added to it `[&[data-orientation=vertical]>div]:rotate-90`.
 
-::ShowCase
+::prose-show-case
 
 :DocsSplitterHandle
 
@@ -124,7 +124,7 @@ Do note that the handle will be rotated because of this class that is added to i
 
 We can use the `collapsible` prop to make the panels go down to the `collapsedSize` when the `minSize` is reached.
 
-::ShowCase
+::prose-show-case
 
 :DocsSplitterCollapsible
 
@@ -174,7 +174,7 @@ We can use the `autoSaveId` prop to persist the layout data into the local stora
 
 Try changing the layout and then refresh the page to see the layout persist.
 
-::ShowCase
+::prose-show-case
 
 :DocsSplitterPersist
 

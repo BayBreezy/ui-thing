@@ -1,10 +1,10 @@
 <template>
   <div class="flex h-screen items-center justify-center px-5">
     <div class="w-full max-w-[360px]">
-      <div class="rounded-lg border bg-card p-6 shadow-sm">
+      <div class="bg-card rounded-lg border p-6 shadow-sm">
         <div class="mb-6">
           <h1 class="text-xl font-bold tracking-tight">Create account</h1>
-          <p class="mt-1 text-sm text-muted-foreground">Sign up to get started</p>
+          <p class="text-muted-foreground mt-1 text-sm">Sign up to get started</p>
         </div>
 
         <form @submit="submit">
@@ -17,17 +17,17 @@
         </form>
 
         <div class="mt-4 text-center text-sm">
-          <NuxtLink class="font-medium text-primary underline-offset-2 hover:underline" to="#"
+          <NuxtLink class="text-primary font-medium underline-offset-2 hover:underline" to="#"
             >Already have an account?</NuxtLink
           >
         </div>
       </div>
 
-      <p class="mt-6 text-center text-xs text-muted-foreground">
+      <p class="text-muted-foreground mt-6 text-center text-xs">
         By signing up, you agree to our
-        <NuxtLink class="underline underline-offset-2 hover:text-foreground" to="#">Terms</NuxtLink>
+        <NuxtLink class="hover:text-foreground underline underline-offset-2" to="#">Terms</NuxtLink>
         and
-        <NuxtLink class="underline underline-offset-2 hover:text-foreground" to="#"
+        <NuxtLink class="hover:text-foreground underline underline-offset-2" to="#"
           >Privacy Policy</NuxtLink
         >
       </p>

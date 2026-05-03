@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-center space-x-4">
-    <p class="text-sm text-muted-foreground">Status</p>
+    <p class="text-muted-foreground text-sm">Status</p>
     <UiPopover v-model:open="open">
       <UiPopoverTrigger as-child>
         <UiButton variant="outline" size="sm" class="w-[150px] justify-start">

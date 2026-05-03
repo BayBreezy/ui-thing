@@ -27,7 +27,7 @@
           <h3 class="text-center text-3xl font-semibold lg:text-left lg:text-5xl">
             Growth performance tracking made easy
           </h3>
-          <p class="my-5 text-center text-lg text-muted-foreground md:text-xl lg:my-8 lg:text-left">
+          <p class="text-muted-foreground my-5 text-center text-lg md:text-xl lg:my-8 lg:text-left">
             Start your 30-day free trial today.
           </p>
           <div class="grid gap-2 md:flex md:justify-center lg:justify-start">

@@ -3,7 +3,7 @@
     <div class="w-full max-w-[380px]">
       <div class="text-center">
         <svg
-          class="mx-auto mb-6 h-10 fill-primary"
+          class="fill-primary mx-auto mb-6 h-10"
           viewBox="0 0 53 44"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +14,7 @@
           />
         </svg>
         <h1 class="text-2xl font-bold tracking-tight lg:text-3xl">Get started for free</h1>
-        <p class="mt-2 text-muted-foreground">
+        <p class="text-muted-foreground mt-2">
           No credit card required. Start building immediately.
         </p>
       </div>
@@ -55,9 +55,9 @@
           </fieldset>
         </form>
 
-        <p class="mt-6 text-center text-sm text-muted-foreground">
+        <p class="text-muted-foreground mt-6 text-center text-sm">
           Already have an account?
-          <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#"
+          <NuxtLink class="text-primary font-semibold underline-offset-2 hover:underline" to="#"
             >Sign in</NuxtLink
           >
         </p>

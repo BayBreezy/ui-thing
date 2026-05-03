@@ -32,7 +32,7 @@
         <Motion
           as="p"
           :variants="childVariant"
-          class="mb-8 text-lg text-muted-foreground lg:text-xl"
+          class="text-muted-foreground mb-8 text-lg lg:text-xl"
         >
           Discover stories, thinking, and expertise from writers on any topic
         </Motion>
@@ -44,7 +44,7 @@
 
         <!-- Trending topics -->
         <Motion :variants="childVariant" class="mt-6">
-          <p class="mb-6 text-sm font-semibold text-muted-foreground">Trending topics</p>
+          <p class="text-muted-foreground mb-6 text-sm font-semibold">Trending topics</p>
           <div class="flex flex-wrap items-center justify-center gap-2">
             <Motion
               v-for="(topic, index) in trendingTopics"
@@ -63,7 +63,7 @@
             >
               <UiBadge
                 variant="outline"
-                class="cursor-pointer hover:bg-primary hover:text-primary-foreground"
+                class="hover:bg-primary hover:text-primary-foreground cursor-pointer"
               >
                 {{ topic }}
               </UiBadge>
@@ -107,18 +107,18 @@
                 <div class="mb-3 flex items-center gap-2">
                   <UiAvatar :src="userImage" :alt="userName" size="xs" />
                   <span class="text-sm font-medium">{{ userName }}</span>
-                  <span class="text-sm text-muted-foreground">·</span>
-                  <span class="text-sm text-muted-foreground">{{ date }}</span>
+                  <span class="text-muted-foreground text-sm">·</span>
+                  <span class="text-muted-foreground text-sm">{{ date }}</span>
                 </div>
                 <NuxtLink :to="link">
                   <h3
-                    class="mb-2 text-xl font-semibold transition-colors hover:text-primary lg:text-2xl"
+                    class="hover:text-primary mb-2 text-xl font-semibold transition-colors lg:text-2xl"
                   >
                     {{ title }}
                   </h3>
                 </NuxtLink>
-                <p class="mb-3 line-clamp-2 text-muted-foreground">{{ description }}</p>
-                <div class="flex items-center gap-4 text-sm text-muted-foreground">
+                <p class="text-muted-foreground mb-3 line-clamp-2">{{ description }}</p>
+                <div class="text-muted-foreground flex items-center gap-4 text-sm">
                   <span class="flex items-center gap-1">
                     <Icon name="lucide:clock" class="h-4 w-4" />
                     5 min read

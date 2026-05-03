@@ -29,9 +29,9 @@
         <Motion :variants="childVariant">
           <div class="mx-auto max-w-[900px] text-center">
             <div
-              class="mb-4 inline-flex items-center gap-2 rounded-full border bg-background/50 px-4 py-1.5 shadow-sm backdrop-blur-sm"
+              class="bg-background/50 mb-4 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 shadow-sm backdrop-blur-sm"
             >
-              <Icon name="lucide:award" class="size-4 text-primary" />
+              <Icon name="lucide:award" class="text-primary size-4" />
               <span class="text-sm font-medium">Award-Winning Platform</span>
             </div>
             <h2 class="mb-6 text-4xl font-extrabold tracking-tight lg:text-6xl">
@@ -65,7 +65,7 @@
                 </svg>
               </span>
             </h2>
-            <p class="text-lg text-muted-foreground lg:text-xl">
+            <p class="text-muted-foreground text-lg lg:text-xl">
               Discover a new way to work with intelligent automation and seamless integrations.
             </p>
           </div>
@@ -82,7 +82,7 @@
         >
           <Motion :variants="childVariant" class="group relative md:col-span-2">
             <UiCard
-              class="h-full overflow-hidden bg-transparent pt-0 transition-all hover:border-primary/50 hover:shadow-2xl"
+              class="hover:border-primary/50 h-full overflow-hidden bg-transparent pt-0 transition-all hover:shadow-2xl"
             >
               <div
                 class="relative h-48 overflow-hidden bg-linear-to-br from-purple-500 to-pink-500"
@@ -93,7 +93,7 @@
               </div>
               <UiCardContent>
                 <h3 class="mb-3 text-2xl font-bold">AI-First Approach</h3>
-                <p class="mb-4 text-muted-foreground">
+                <p class="text-muted-foreground mb-4">
                   Harness the power of artificial intelligence to automate tasks, predict outcomes,
                   and optimize your workflow.
                 </p>
@@ -115,13 +115,13 @@
                   <Icon name="lucide:gauge" class="h-7 w-7 text-white" />
                 </div>
                 <h3 class="mb-2 text-xl font-bold">Lightning Speed</h3>
-                <p class="mb-4 text-sm text-muted-foreground">
+                <p class="text-muted-foreground mb-4 text-sm">
                   Experience sub-100ms response times globally.
                 </p>
                 <div class="mt-auto"></div>
-                <div class="rounded-lg bg-muted/50 p-4">
+                <div class="bg-muted/50 rounded-lg p-4">
                   <p class="text-3xl font-bold text-blue-600">99.9%</p>
-                  <p class="text-xs text-muted-foreground">Uptime SLA</p>
+                  <p class="text-muted-foreground text-xs">Uptime SLA</p>
                 </div>
               </UiCardContent>
             </UiCard>
@@ -136,7 +136,7 @@
                   <Icon name="lucide:shield-check" class="h-7 w-7 text-white" />
                 </div>
                 <h3 class="mb-2 text-xl font-bold">Secure by Default</h3>
-                <p class="mb-4 text-sm text-muted-foreground">
+                <p class="text-muted-foreground mb-4 text-sm">
                   Enterprise-grade security built into every layer.
                 </p>
                 <div class="mt-auto" />
@@ -165,22 +165,22 @@
                   </div>
                   <div>
                     <h3 class="text-2xl font-bold">Team Collaboration</h3>
-                    <p class="text-sm text-muted-foreground">Work together seamlessly</p>
+                    <p class="text-muted-foreground text-sm">Work together seamlessly</p>
                   </div>
                 </div>
                 <div class="mt-auto" />
                 <div class="grid grid-cols-3 gap-4">
-                  <div class="rounded-lg bg-muted/50 p-4 text-center">
+                  <div class="bg-muted/50 rounded-lg p-4 text-center">
                     <p class="text-2xl font-bold text-orange-600">50+</p>
-                    <p class="text-xs text-muted-foreground">Integrations</p>
+                    <p class="text-muted-foreground text-xs">Integrations</p>
                   </div>
-                  <div class="rounded-lg bg-muted/50 p-4 text-center">
+                  <div class="bg-muted/50 rounded-lg p-4 text-center">
                     <p class="text-2xl font-bold text-orange-600">24/7</p>
-                    <p class="text-xs text-muted-foreground">Support</p>
+                    <p class="text-muted-foreground text-xs">Support</p>
                   </div>
-                  <div class="rounded-lg bg-muted/50 p-4 text-center">
+                  <div class="bg-muted/50 rounded-lg p-4 text-center">
                     <p class="text-2xl font-bold text-orange-600">100%</p>
-                    <p class="text-xs text-muted-foreground">Satisfaction</p>
+                    <p class="text-muted-foreground text-xs">Satisfaction</p>
                   </div>
                 </div>
               </UiCardContent>
@@ -196,7 +196,7 @@
                   <Icon name="lucide:rocket" class="h-7 w-7 text-white" />
                 </div>
                 <h3 class="mb-2 text-xl font-bold">Deploy Anywhere</h3>
-                <p class="text-sm text-muted-foreground">
+                <p class="text-muted-foreground text-sm">
                   Multi-cloud support with one-click deployment.
                 </p>
               </UiCardContent>

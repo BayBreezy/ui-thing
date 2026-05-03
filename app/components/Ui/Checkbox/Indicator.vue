@@ -22,21 +22,21 @@
   const props = withDefaults(
     defineProps<
       CheckboxIndicatorProps & {
-        /** The state of the checkbox */
+        /** The state of the checkbox. */
         modelValue?: CheckboxCheckedState;
-        /**
-         * The state of the checkbox
-         */
+        /** The state of the checkbox. */
         state?: CheckboxCheckedState;
-        /** Custom class(es) to add to the element */
+        /** Custom class(es) to add to the element. */
         class?: HTMLAttributes["class"];
         /**
-         * Icon to display when the checkbox is checked
+         * Icon to display when the checkbox is checked.
+         *
          * @default lucide:check
          */
         icon?: string;
         /**
-         * Icon to display when the checkbox is in indeterminate state
+         * Icon to display when the checkbox is in indeterminate state.
+         *
          * @default lucide:minus
          */
         indeterminateIcon?: string;

@@ -1,12 +1,12 @@
 <template>
   <div class="flex justify-center">
     <fieldset class="space-y-4">
-      <legend class="text-sm leading-none font-medium text-foreground">Days of the week</legend>
+      <legend class="text-foreground text-sm leading-none font-medium">Days of the week</legend>
       <div class="flex gap-1.5">
         <label
           v-for="item in items"
           :key="item.id"
-          class="relative flex size-9 cursor-pointer flex-col items-center justify-center gap-3 rounded-full border border-input text-center shadow-xs shadow-black/5 outline-offset-2 transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring/70 has-[[data-disabled]]:cursor-not-allowed has-[[data-disabled]]:opacity-50 has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary has-[[data-state=checked]]:text-primary-foreground"
+          class="border-input has-[:focus-visible]:outline-ring/70 has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary has-[[data-state=checked]]:text-primary-foreground relative flex size-9 cursor-pointer flex-col items-center justify-center gap-3 rounded-full border text-center shadow-xs shadow-black/5 outline-offset-2 transition-colors has-[:focus-visible]:outline-2 has-[[data-disabled]]:cursor-not-allowed has-[[data-disabled]]:opacity-50"
         >
           <UiVeeCheckbox
             :id="item.id"

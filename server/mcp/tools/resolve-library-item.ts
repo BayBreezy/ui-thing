@@ -3,11 +3,11 @@ import { resolveLibraryItem } from "~~/server/mcp/utils/library";
 
 export default defineMcpTool({
   description:
-    "Resolve a fuzzy component, block, or prose request to the exact UI Thing library item before calling get-component, get-block, or get-prose.",
+    "Resolve a fuzzy component or block request to the exact UI Thing library item before calling get-component or get-block.",
   inputSchema: {
-    query: z.string().min(1).describe("User-facing component, block, or prose request."),
+    query: z.string().min(1).describe("User-facing component or block request."),
     type: z
-      .enum(["all", "component", "block", "prose"])
+      .enum(["all", "component", "block"])
       .optional()
       .default("all")
       .describe("Optional kind constraint."),

@@ -7,7 +7,7 @@
       <UiPopoverContent class="w-80 p-6">
         <div class="flex h-full flex-col gap-1.5">
           <p class="leading-none font-semibold">Dimensions</p>
-          <p class="text-sm text-muted-foreground">Set the dimensions for the layer.</p>
+          <p class="text-muted-foreground text-sm">Set the dimensions for the layer.</p>
           <div class="mt-5 grid gap-3">
             <div class="grid grid-cols-3 items-center gap-4">
               <UiLabel for="width">Width</UiLabel>

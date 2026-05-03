@@ -15,10 +15,10 @@
                 <li
                   v-for="(item, i) in beachAmenities"
                   :key="i"
-                  class="rounded-md p-3 text-sm hover:bg-muted"
+                  class="hover:bg-muted rounded-md p-3 text-sm"
                 >
-                  <p class="mb-1 leading-none font-semibold text-foreground">{{ item.title }}</p>
-                  <p class="line-clamp-2 text-muted-foreground">{{ item.description }}</p>
+                  <p class="text-foreground mb-1 leading-none font-semibold">{{ item.title }}</p>
+                  <p class="text-muted-foreground line-clamp-2">{{ item.description }}</p>
                 </li>
               </ul>
             </div>
@@ -49,8 +49,8 @@
                 class="h-full w-full"
               />
               <div>
-                <p class="text-lg font-semibold text-foreground">Radix Vue</p>
-                <p class="mt-2 text-muted-foreground">
+                <p class="text-foreground text-lg font-semibold">Radix Vue</p>
+                <p class="text-muted-foreground mt-2">
                   Unstyled, accessible components for building high-quality design systems and web
                   apps in Vue.
                 </p>

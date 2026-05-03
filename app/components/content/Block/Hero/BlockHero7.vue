@@ -22,7 +22,7 @@
         </h1>
       </Motion>
       <Motion as-child :variants="childVariant">
-        <p class="mx-auto max-w-[760px] text-lg text-muted-foreground lg:text-center lg:text-xl">
+        <p class="text-muted-foreground mx-auto max-w-[760px] text-lg lg:text-center lg:text-xl">
           Powerful, self-serve team engagement tools and analytics. Supercharge your managers & keep
           employees engaged from anywhere.
         </p>

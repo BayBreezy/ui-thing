@@ -10,7 +10,7 @@
       <UiContainer class="py-16 text-center lg:py-24">
         <slot name="headline">
           <Motion as-child :variants="childVariant">
-            <p class="font-semibold text-primary">{{ headline }}</p>
+            <p class="text-primary font-semibold">{{ headline }}</p>
           </Motion>
         </slot>
         <slot name="title">
@@ -20,7 +20,7 @@
         </slot>
         <slot name="description">
           <Motion as-child :variants="childVariant">
-            <p class="mx-auto max-w-[768px] text-lg text-muted-foreground lg:text-xl">
+            <p class="text-muted-foreground mx-auto max-w-[768px] text-lg lg:text-xl">
               {{ description }}
             </p>
           </Motion>
@@ -32,19 +32,19 @@
         <Motion v-for="n in 9" :key="n" as-child :variants="cardVariant">
           <div class="flex flex-col">
             <UiAvatar
-              class="mb-5 h-24 w-24 ring-1 ring-ring/20"
+              class="ring-ring/20 mb-5 h-24 w-24 ring-1"
               :src="`https://i.pravatar.cc/150?img=${n}`"
             />
             <p class="text-lg font-semibold">Jane Doe</p>
             <p class="text-primary">Marketing Manager</p>
-            <ul class="mt-2 text-muted-foreground">
+            <ul class="text-muted-foreground mt-2">
               <li>Former co-founder of Opendoor.</li>
               <li>Early staff at Spotify and Clearbit.</li>
             </ul>
             <div class="mt-2 flex items-center gap-3">
-              <Icon name="logos:twitter" class="h-5 w-5 text-muted-foreground" />
-              <Icon name="logos:linkedin-icon" class="h-5 w-5 text-muted-foreground" />
-              <Icon name="logos:dribbble-icon" class="h-5 w-5 text-muted-foreground" />
+              <Icon name="logos:twitter" class="text-muted-foreground h-5 w-5" />
+              <Icon name="logos:linkedin-icon" class="text-muted-foreground h-5 w-5" />
+              <Icon name="logos:dribbble-icon" class="text-muted-foreground h-5 w-5" />
             </div>
           </div>
         </Motion>

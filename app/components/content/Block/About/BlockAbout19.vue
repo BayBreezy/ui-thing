@@ -7,42 +7,42 @@
     <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
       <div>
         <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Let's Work Together</h2>
-        <p class="mt-4 text-lg text-muted-foreground">
+        <p class="text-muted-foreground mt-4 text-lg">
           We're passionate about helping businesses succeed. Get in touch to learn how we can
           support your goals.
         </p>
 
         <div class="mt-8 space-y-6">
           <div class="flex gap-4">
-            <div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-              <Icon name="lucide:mail" class="size-6 text-primary" />
+            <div class="bg-primary/10 flex size-12 shrink-0 items-center justify-center rounded-xl">
+              <Icon name="lucide:mail" class="text-primary size-6" />
             </div>
             <div>
               <h3 class="font-semibold">Email Us</h3>
-              <p class="text-sm text-muted-foreground">hello@company.com</p>
-              <p class="text-sm text-muted-foreground">support@company.com</p>
+              <p class="text-muted-foreground text-sm">hello@company.com</p>
+              <p class="text-muted-foreground text-sm">support@company.com</p>
             </div>
           </div>
 
           <div class="flex gap-4">
-            <div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-              <Icon name="lucide:phone" class="size-6 text-primary" />
+            <div class="bg-primary/10 flex size-12 shrink-0 items-center justify-center rounded-xl">
+              <Icon name="lucide:phone" class="text-primary size-6" />
             </div>
             <div>
               <h3 class="font-semibold">Call Us</h3>
-              <p class="text-sm text-muted-foreground">+1 (415) 555-0100</p>
-              <p class="text-sm text-muted-foreground">Mon-Fri 9am-6pm PST</p>
+              <p class="text-muted-foreground text-sm">+1 (415) 555-0100</p>
+              <p class="text-muted-foreground text-sm">Mon-Fri 9am-6pm PST</p>
             </div>
           </div>
 
           <div class="flex gap-4">
-            <div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-              <Icon name="lucide:map-pin" class="size-6 text-primary" />
+            <div class="bg-primary/10 flex size-12 shrink-0 items-center justify-center rounded-xl">
+              <Icon name="lucide:map-pin" class="text-primary size-6" />
             </div>
             <div>
               <h3 class="font-semibold">Visit Us</h3>
-              <p class="text-sm text-muted-foreground">123 Market Street, Suite 500</p>
-              <p class="text-sm text-muted-foreground">San Francisco, CA 94103</p>
+              <p class="text-muted-foreground text-sm">123 Market Street, Suite 500</p>
+              <p class="text-muted-foreground text-sm">San Francisco, CA 94103</p>
             </div>
           </div>
         </div>
@@ -60,7 +60,7 @@
       <UiCard>
         <UiCardContent>
           <h3 class="text-xl font-bold">Send us a message</h3>
-          <p class="mt-2 text-sm text-muted-foreground">
+          <p class="text-muted-foreground mt-2 text-sm">
             Fill out the form below and we'll get back to you within 24 hours.
           </p>
 

@@ -14,13 +14,13 @@
         <template #content>
           <UiGradientDivider class="-my-2" />
           <div class="space-y-4 p-4">
-            <p class="text-sm text-muted-foreground">
+            <p class="text-muted-foreground text-sm">
               Notice how the background content is clearly visible without any blur effect. This can
               be useful for maintaining full context visibility.
             </p>
-            <div class="rounded-lg border border-border bg-muted/50 p-3">
+            <div class="border-border bg-muted/50 rounded-lg border p-3">
               <p class="text-sm font-medium">Background Content Visible</p>
-              <p class="text-xs text-muted-foreground">
+              <p class="text-muted-foreground text-xs">
                 You can see the page clearly behind this sheet
               </p>
             </div>

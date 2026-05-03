@@ -22,7 +22,7 @@
           :class="
             hasCustomItemSlot
               ? 'relative flex aspect-square items-center justify-center'
-              : 'relative flex aspect-square items-center justify-center rounded-full border border-border/70 bg-background/5 shadow-xs transition-colors duration-300 hover:bg-background/90'
+              : 'border-border/70 bg-background/5 hover:bg-background/90 relative flex aspect-square items-center justify-center rounded-full border shadow-xs transition-colors duration-300'
           "
           @mouseenter="hoveredIndex = index"
           @mouseleave="hoveredIndex = null"
@@ -36,19 +36,19 @@
               :exit="{ opacity: 0, y: 2, x: '-50%' }"
               :class="
                 hasCustomItemSlot
-                  ? 'absolute -top-9 left-1/2 z-20 w-fit rounded-full border border-border bg-background px-3 py-1 text-xs whitespace-nowrap text-foreground shadow-[0_10px_30px_-12px_rgba(0,0,0,0.45)] backdrop-blur-lg'
-                  : 'absolute -top-11 left-1/2 z-20 w-fit rounded-full border border-border bg-background px-3 py-1 text-xs whitespace-nowrap text-foreground shadow-[0_10px_30px_-12px_rgba(0,0,0,0.45)] backdrop-blur-lg'
+                  ? 'border-border bg-background text-foreground absolute -top-9 left-1/2 z-20 w-fit rounded-full border px-3 py-1 text-xs whitespace-nowrap shadow-[0_10px_30px_-12px_rgba(0,0,0,0.45)] backdrop-blur-lg'
+                  : 'border-border bg-background text-foreground absolute -top-11 left-1/2 z-20 w-fit rounded-full border px-3 py-1 text-xs whitespace-nowrap shadow-[0_10px_30px_-12px_rgba(0,0,0,0.45)] backdrop-blur-lg'
               "
             >
               {{ item.title }}
 
               <span
                 aria-hidden="true"
-                class="absolute top-full left-1/2 h-2 w-4 -translate-x-1/2 -translate-y-px rounded-b-full bg-background"
+                class="bg-background absolute top-full left-1/2 h-2 w-4 -translate-x-1/2 -translate-y-px rounded-b-full"
               />
               <span
                 aria-hidden="true"
-                class="absolute top-full left-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-[3px] border-r border-b border-border bg-background"
+                class="border-border bg-background absolute top-full left-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-[3px] border-r border-b"
               />
             </motion.div>
           </AnimatePresence>
@@ -57,7 +57,7 @@
             data-slot="floating-dock-icon"
             :animate="hasCustomItemSlot ? getCustomItemAnimate(index) : getIconAnimate(index)"
             :transition="iconSpringTransition"
-            class="flex origin-center items-center justify-center text-foreground"
+            class="text-foreground flex origin-center items-center justify-center"
           >
             <slot name="item" :item="item" :index="index" :is-mobile="false">
               <Icon v-if="item.icon && isIconName(item.icon)" :name="item.icon" class="size-full" />
@@ -70,7 +70,7 @@
             data-slot="floating-dock-active-dot"
             :animate="getDotAnimate(index)"
             :transition="dotSpringTransition"
-            class="absolute left-1/2 z-10 -translate-x-1/2 rounded-full bg-primary"
+            class="bg-primary absolute left-1/2 z-10 -translate-x-1/2 rounded-full"
           />
         </motion.div>
       </NuxtLink>
@@ -102,7 +102,7 @@
               :class="
                 hasCustomItemSlot
                   ? 'relative flex size-12 items-center justify-center'
-                  : 'relative flex size-12 items-center justify-center rounded-full border border-border/70 bg-background/95 shadow-xs'
+                  : 'border-border/70 bg-background/95 relative flex size-12 items-center justify-center rounded-full border shadow-xs'
               "
               @click="open = false"
             >
@@ -110,15 +110,15 @@
                 <Icon
                   v-if="item.icon && isIconName(item.icon)"
                   :name="item.icon"
-                  class="size-5 text-foreground"
+                  class="text-foreground size-5"
                 />
-                <component :is="item.icon" v-else-if="item.icon" class="size-5 text-foreground" />
+                <component :is="item.icon" v-else-if="item.icon" class="text-foreground size-5" />
               </slot>
 
               <span
                 v-if="item.active"
                 data-slot="floating-dock-active-dot"
-                class="absolute bottom-1 left-1/2 z-10 size-1 -translate-x-1/2 rounded-full bg-primary"
+                class="bg-primary absolute bottom-1 left-1/2 z-10 size-1 -translate-x-1/2 rounded-full"
               />
             </NuxtLink>
           </motion.div>
@@ -129,12 +129,12 @@
         data-slot="floating-dock-mobile-trigger"
         type="button"
         aria-label="Toggle floating dock"
-        class="flex size-12 items-center justify-center rounded-full border border-border/70 bg-background/95 shadow-xs"
+        class="border-border/70 bg-background/95 flex size-12 items-center justify-center rounded-full border shadow-xs"
         @click="open = !open"
       >
         <Icon
           name="lucide:panel-bottom-open"
-          class="size-5 text-muted-foreground transition-transform duration-300"
+          class="text-muted-foreground size-5 transition-transform duration-300"
           :class="{ 'rotate-180': open }"
         />
       </button>
@@ -158,7 +158,7 @@
   };
 
   export const desktopDockStyles = tv({
-    base: "mx-auto hidden h-16 items-end gap-4 rounded-2xl border bg-muted/10 px-4 pb-3 backdrop-blur-lg md:flex",
+    base: "bg-muted/10 mx-auto hidden h-16 items-end gap-4 rounded-2xl border px-4 pb-3 backdrop-blur-lg md:flex",
   });
 
   export const mobileDockStyles = tv({

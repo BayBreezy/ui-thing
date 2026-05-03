@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Why Choose Us</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         What sets us apart from the competition
       </p>
     </div>
@@ -26,18 +26,18 @@
         <div class="flex flex-col justify-center" :class="index % 2 === 1 ? 'lg:order-1' : ''">
           <UiBadge class="w-fit">{{ section.category }}</UiBadge>
           <h3 class="mt-4 text-3xl font-bold">{{ section.title }}</h3>
-          <p class="mt-4 text-lg text-muted-foreground">{{ section.description }}</p>
+          <p class="text-muted-foreground mt-4 text-lg">{{ section.description }}</p>
 
           <ul class="mt-6 space-y-4">
             <li v-for="feature in section.features" :key="feature.title" class="flex gap-3">
               <div
-                class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10"
+                class="bg-primary/10 flex size-10 shrink-0 items-center justify-center rounded-lg"
               >
-                <Icon :name="feature.icon" class="size-5 text-primary" />
+                <Icon :name="feature.icon" class="text-primary size-5" />
               </div>
               <div>
                 <h4 class="font-semibold">{{ feature.title }}</h4>
-                <p class="text-sm text-muted-foreground">{{ feature.description }}</p>
+                <p class="text-muted-foreground text-sm">{{ feature.description }}</p>
               </div>
             </li>
           </ul>

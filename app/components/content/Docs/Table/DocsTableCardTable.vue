@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="overflow-hidden rounded-lg border border-border bg-background">
+    <div class="border-border bg-background overflow-hidden rounded-lg border">
       <UiTable>
         <UiTableHeader>
           <UiTableRow class="hover:bg-transparent">
@@ -38,7 +38,7 @@
         </UiTableFooter>
       </UiTable>
     </div>
-    <p class="mt-4 text-center text-sm text-muted-foreground">Table with row selection</p>
+    <p class="text-muted-foreground mt-4 text-center text-sm">Table with row selection</p>
   </div>
 </template>
 

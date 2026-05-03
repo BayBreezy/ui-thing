@@ -21,7 +21,7 @@
       >
         <button
           type="button"
-          class="size-6 rounded border border-input shadow-xs transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
+          class="border-input focus-visible:ring-ring focus-visible:ring-offset-background size-6 rounded border shadow-xs transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
           :style="{ backgroundColor: preset }"
           :aria-label="`Preset ${preset}`"
           @click="ctx.setFromString(preset)"

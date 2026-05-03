@@ -25,9 +25,9 @@
         </form>
 
         <div class="mt-8 text-center">
-          <p class="text-sm text-muted-foreground">
+          <p class="text-muted-foreground text-sm">
             Remember your password?
-            <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#">
+            <NuxtLink class="text-primary font-semibold underline-offset-2 hover:underline" to="#">
               Sign in
             </NuxtLink>
           </p>
@@ -36,11 +36,11 @@
     </div>
 
     <!-- Right Side - Visual -->
-    <div class="hidden items-center justify-center bg-muted/50 p-8 lg:flex">
+    <div class="bg-muted/50 hidden items-center justify-center p-8 lg:flex">
       <div class="max-w-md text-center">
         <div class="mb-6 flex justify-center">
-          <div class="flex size-24 items-center justify-center rounded-2xl bg-primary/10">
-            <Icon class="size-12 text-primary" name="lucide:lock" />
+          <div class="bg-primary/10 flex size-24 items-center justify-center rounded-2xl">
+            <Icon class="text-primary size-12" name="lucide:lock" />
           </div>
         </div>
         <h2 class="mb-4 text-2xl font-bold">Secure Password Recovery</h2>
@@ -51,36 +51,36 @@
 
         <div class="mt-8 grid gap-4">
           <div class="flex items-start gap-3 text-left">
-            <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-              <Icon class="size-5 text-primary" name="lucide:shield-check" />
+            <div class="bg-primary/10 flex size-10 shrink-0 items-center justify-center rounded-lg">
+              <Icon class="text-primary size-5" name="lucide:shield-check" />
             </div>
             <div>
               <p class="font-medium">Secure & Encrypted</p>
-              <p class="text-sm text-muted-foreground">
+              <p class="text-muted-foreground text-sm">
                 All reset links are encrypted and time-limited
               </p>
             </div>
           </div>
 
           <div class="flex items-start gap-3 text-left">
-            <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-              <Icon class="size-5 text-primary" name="lucide:clock" />
+            <div class="bg-primary/10 flex size-10 shrink-0 items-center justify-center rounded-lg">
+              <Icon class="text-primary size-5" name="lucide:clock" />
             </div>
             <div>
               <p class="font-medium">Quick Process</p>
-              <p class="text-sm text-muted-foreground">
+              <p class="text-muted-foreground text-sm">
                 Reset your password in less than 2 minutes
               </p>
             </div>
           </div>
 
           <div class="flex items-start gap-3 text-left">
-            <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-              <Icon class="size-5 text-primary" name="lucide:mail-check" />
+            <div class="bg-primary/10 flex size-10 shrink-0 items-center justify-center rounded-lg">
+              <Icon class="text-primary size-5" name="lucide:mail-check" />
             </div>
             <div>
               <p class="font-medium">Email Confirmation</p>
-              <p class="text-sm text-muted-foreground">Check your inbox for the reset link</p>
+              <p class="text-muted-foreground text-sm">Check your inbox for the reset link</p>
             </div>
           </div>
         </div>

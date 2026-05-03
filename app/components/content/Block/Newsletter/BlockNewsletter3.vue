@@ -17,7 +17,7 @@
           </h2>
         </Motion>
         <Motion as-child :variants="childVariant">
-          <p class="mb-8 text-lg text-muted-foreground lg:text-xl">
+          <p class="text-muted-foreground mb-8 text-lg lg:text-xl">
             Join our newsletter to get the latest updates, exclusive content, and special offers
             delivered straight to your inbox.
           </p>
@@ -35,7 +35,7 @@
           </form>
         </Motion>
         <Motion as-child :variants="childVariant">
-          <p class="mt-4 text-sm text-muted-foreground">
+          <p class="text-muted-foreground mt-4 text-sm">
             We respect your privacy. Unsubscribe at any time.
           </p>
         </Motion>

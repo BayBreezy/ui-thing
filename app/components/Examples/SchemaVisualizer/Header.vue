@@ -1,7 +1,7 @@
 <template>
-  <header class="fixed top-16 z-50 w-full px-2 md:px-5">
+  <header class="absolute top-5 z-50 w-full px-2 md:px-5">
     <div
-      class="flex h-14 items-center justify-between gap-2 rounded-xl border border-border/80 bg-card/80 px-4 shadow-lg backdrop-blur-md md:h-16"
+      class="border-border/80 bg-card/80 flex h-14 items-center justify-between gap-2 rounded-xl border px-4 shadow-lg backdrop-blur-md md:h-16"
     >
       <div class="flex flex-1 items-center">
         <NuxtLink class="inline-flex" href="#">

@@ -4,9 +4,9 @@
       <Motion
         :variants="iconVariant"
         :transition="{ type: 'spring', stiffness: 200, damping: 25 }"
-        class="flex size-16 shrink-0 items-center justify-center rounded-xl border-2 border-dashed border-primary/50 bg-primary/5"
+        class="border-primary/50 bg-primary/5 flex size-16 shrink-0 items-center justify-center rounded-xl border-2 border-dashed"
       >
-        <Icon :name="icon" class="size-6 text-primary" />
+        <Icon :name="icon" class="text-primary size-6" />
       </Motion>
 
       <div class="flex-1">
@@ -21,7 +21,7 @@
               </div>
             </Motion>
             <Motion :variants="childVariant" :transition="{ delay: 0.2 }">
-              <p class="text-sm text-muted-foreground" v-html="description" />
+              <p class="text-muted-foreground text-sm" v-html="description" />
             </Motion>
             <Motion :variants="childVariant" :transition="{ delay: 0.3 }">
               <div class="mt-2 flex flex-wrap gap-2">
@@ -37,7 +37,7 @@
             size="icon-sm"
             variant="ghost"
           >
-            <Icon name="lucide:x" class="size-4 text-muted-foreground" />
+            <Icon name="lucide:x" class="text-muted-foreground size-4" />
           </UiButton>
         </div>
       </div>
@@ -55,13 +55,13 @@
       </Motion>
 
       <UiButton class="hidden shrink-0 lg:flex" size="icon-sm" variant="ghost">
-        <Icon name="lucide:x" class="size-4 text-muted-foreground" />
+        <Icon name="lucide:x" class="text-muted-foreground size-4" />
       </UiButton>
     </div>
 
     <Motion
       :variants="progressVariant"
-      class="h-1 origin-left bg-linear-to-r from-primary via-primary/50 to-transparent"
+      class="from-primary via-primary/50 h-1 origin-left bg-linear-to-r to-transparent"
     />
   </Motion>
 </template>

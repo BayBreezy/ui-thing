@@ -4,7 +4,7 @@ description: Displays a menu located at the pointer, triggered by a right-click 
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/context-menu.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/context-menu.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="ContextMenu"} to see the source code for this c
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsContextMenuBasic
 
@@ -105,7 +105,7 @@ Click :SourceCodeLink{component="ContextMenu"} to see the source code for this c
 
 ### Checkbox Items
 
-::ShowCase
+::prose-show-case
 
 :DocsContextMenuCheckItems
 
@@ -180,7 +180,7 @@ Click :SourceCodeLink{component="ContextMenu"} to see the source code for this c
 
 ### Radio Items
 
-::ShowCase
+::prose-show-case
 
 :DocsContextMenuRadioItems
 

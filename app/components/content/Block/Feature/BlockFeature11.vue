@@ -17,7 +17,7 @@
         <Motion
           as="p"
           :variants="childVariant"
-          class="mx-auto max-w-[760px] text-center text-lg text-muted-foreground lg:text-xl"
+          class="text-muted-foreground mx-auto max-w-[760px] text-center text-lg lg:text-xl"
         >
           Connect your tools, connect your teams. With over 100 apps already available in our
           directory, your team's favourite tools are just a click away.
@@ -40,17 +40,17 @@
           <div class="flex h-12 w-12 items-center justify-center rounded-md border">
             <Icon
               :name="f.icon"
-              class="h-5 w-5 transition-colors group-hover:text-primary lg:h-6 lg:w-6"
+              class="group-hover:text-primary h-5 w-5 transition-colors lg:h-6 lg:w-6"
             />
           </div>
           <h3 class="mt-4 text-center text-lg font-semibold text-balance lg:mt-5 lg:text-xl">
             {{ f.title }} integration
           </h3>
-          <p class="mt-1 max-w-[650px] text-center text-balance text-muted-foreground lg:mt-2">
+          <p class="text-muted-foreground mt-1 max-w-[650px] text-center text-balance lg:mt-2">
             Work faster and smarter by integrating directly with {{ f.title }}, right in the app.
           </p>
           <NuxtLink
-            class="mt-4 inline-flex items-center gap-2 font-semibold text-primary underline-offset-2 hover:underline lg:mt-5"
+            class="text-primary mt-4 inline-flex items-center gap-2 font-semibold underline-offset-2 hover:underline lg:mt-5"
             to="#"
             >View integration
             <Icon

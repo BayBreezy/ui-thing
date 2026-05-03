@@ -30,7 +30,7 @@
         exit="initial"
         animate="animate"
         :transition="{ type: 'keyframes' }"
-        class="mt-1.5 text-sm text-muted-foreground"
+        class="text-muted-foreground mt-1.5 text-sm"
       >
         {{ hint }}
       </motion.p>
@@ -42,7 +42,7 @@
         exit="initial"
         animate="animate"
         :transition="{ type: 'keyframes' }"
-        class="mt-1.5 text-sm text-destructive"
+        class="text-destructive mt-1.5 text-sm"
       >
         {{ errorMessage }}
       </motion.p>
@@ -60,41 +60,23 @@
   };
 
   interface Props extends NumberFieldRootProps {
-    /**
-     * The label to display above the field
-     */
+    /** The label to display above the field. */
     label?: string;
-    /**
-     * The label hint to display next to the label.
-     */
+    /** The label hint to display next to the label. */
     labelHint?: string;
-    /**
-     * Hint to display below the input field.
-     */
+    /** Hint to display below the input field. */
     hint?: string;
-    /**
-     * Whether the field is disabled.
-     */
+    /** Whether the field is disabled. */
     disabled?: boolean;
-    /**
-     * The name of the field, used for form submission.
-     */
+    /** The name of the field, used for form submission. */
     name?: string;
-    /**
-     * The id of the input element.
-     */
+    /** The id of the input element. */
     id?: string;
-    /**
-     * Rules for the field validation.
-     */
+    /** Rules for the field validation. */
     rules?: any;
-    /**
-     * Whether to validate the field on mount.
-     */
+    /** Whether to validate the field on mount. */
     validateOnMount?: boolean;
-    /**
-     * Whether the field is required.
-     */
+    /** Whether the field is required. */
     required?: boolean;
   }
   const props = defineProps<Props>();

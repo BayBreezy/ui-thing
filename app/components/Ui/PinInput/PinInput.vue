@@ -26,13 +26,11 @@
       PinInputRootProps & {
         /** Custom class(es) to apply to the parent element. */
         class?: HTMLAttributes["class"];
-        /** The number of inputs to render.  @default 4 */
+        /** The number of inputs to render. @default 4. */
         inputCount?: number;
-        /** The separator to render between inputs.  @default undefined */
+        /** The separator to render between inputs. @default undefined. */
         separator?: string;
-        /**
-         * Whether the input should be marked as invalid for accessibility purposes.
-         */
+        /** Whether the input should be marked as invalid for accessibility purposes. */
         ariaInvalid?: boolean;
       }
     >(),

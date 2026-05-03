@@ -19,9 +19,9 @@
             initial: { scale: 0, rotate: -180 },
             animate: { scale: 1, rotate: 0 },
           }"
-          class="flex size-16 items-center justify-center rounded-full bg-radial via-primary/5 to-primary/40"
+          class="via-primary/5 to-primary/40 flex size-16 items-center justify-center rounded-full bg-radial"
         >
-          <Icon :name="icon" class="size-6 text-primary" />
+          <Icon :name="icon" class="text-primary size-6" />
         </Motion>
 
         <div class="flex-1">
@@ -42,7 +42,7 @@
               animate: { opacity: 1, y: 0 },
             }"
           >
-            <p class="text-sm text-muted-foreground" v-html="description" />
+            <p class="text-muted-foreground text-sm" v-html="description" />
           </Motion>
 
           <div class="mt-2 flex items-center gap-3">
@@ -55,9 +55,9 @@
               }"
               class="flex items-center gap-1.5"
             >
-              <Icon :name="stat.icon" class="size-4 text-muted-foreground" />
+              <Icon :name="stat.icon" class="text-muted-foreground size-4" />
               <span class="text-sm font-semibold">{{ stat.value }}</span>
-              <span class="text-sm text-muted-foreground">{{ stat.label }}</span>
+              <span class="text-muted-foreground text-sm">{{ stat.label }}</span>
             </Motion>
           </div>
         </div>
@@ -79,13 +79,13 @@
             <Icon name="lucide:external-link" class="size-4" />
           </UiButton>
           <UiButton class="hidden lg:flex" size="icon-sm" variant="ghost">
-            <Icon name="lucide:x" class="size-3.5 text-muted-foreground" />
+            <Icon name="lucide:x" class="text-muted-foreground size-3.5" />
           </UiButton>
         </div>
       </Motion>
 
       <UiButton class="absolute top-0 right-2 z-10 lg:hidden" size="icon-sm" variant="ghost">
-        <Icon name="lucide:x" class="size-3.5 text-muted-foreground" />
+        <Icon name="lucide:x" class="text-muted-foreground size-3.5" />
       </UiButton>
     </div>
   </Motion>

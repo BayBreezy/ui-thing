@@ -26,7 +26,7 @@
             v-if="headline"
             as="p"
             :variants="childVariant"
-            class="font-semibold text-primary"
+            class="text-primary font-semibold"
           >
             {{ headline }}
           </Motion>
@@ -44,7 +44,7 @@
           <Motion
             as="p"
             :variants="childVariant"
-            class="mx-auto max-w-[800px] text-lg text-muted-foreground lg:text-xl"
+            class="text-muted-foreground mx-auto max-w-[800px] text-lg lg:text-xl"
           >
             {{ description }}
           </Motion>
@@ -69,21 +69,21 @@
         <template v-for="c in contactInfo" :key="c.title">
           <Motion
             :variants="childVariant"
-            class="group flex flex-col items-center gap-2 rounded-lg border border-border bg-card p-6 transition-shadow hover:shadow-lg"
+            class="group border-border bg-card flex flex-col items-center gap-2 rounded-lg border p-6 transition-shadow hover:shadow-lg"
           >
             <div
-              class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 transition-colors group-hover:bg-primary/30"
+              class="bg-primary/20 group-hover:bg-primary/30 flex h-12 w-12 items-center justify-center rounded-full transition-colors"
             >
-              <Icon :name="c.icon" class="h-6 w-6 text-primary" />
+              <Icon :name="c.icon" class="text-primary h-6 w-6" />
             </div>
             <h3 class="mt-4 text-lg font-medium lg:text-xl">{{ c.title }}</h3>
-            <p class="text-center text-muted-foreground">
+            <p class="text-muted-foreground text-center">
               {{ c.description }}
             </p>
             <a
               :href="c.link"
               target="_blank"
-              class="text-center font-medium text-pretty text-primary hover:underline"
+              class="text-primary text-center font-medium text-pretty hover:underline"
             >
               {{ c.value }}
             </a>

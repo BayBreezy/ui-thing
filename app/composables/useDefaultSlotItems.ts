@@ -21,9 +21,7 @@ export type UseDefaultSlotItemsOptions<TMeta> = {
   mapMeta?: (ctx: SlotMetaContext) => TMeta;
 };
 
-/**
- * Composable to extract and manage items from the default slot
- */
+/** Composable to extract and manage items from the default slot. */
 export function useDefaultSlotItems<TMeta = Record<string, any>>(
   options: UseDefaultSlotItemsOptions<TMeta> = {}
 ) {

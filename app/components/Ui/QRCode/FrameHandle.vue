@@ -11,14 +11,12 @@
   import type { HTMLAttributes } from "vue";
 
   const styles = tv({
-    base: "size-3 rounded-tl border-t-2 border-l-2 border-primary dark:border-border",
+    base: "border-primary dark:border-border size-3 rounded-tl border-t-2 border-l-2",
   });
 
   const props = defineProps<
     PrimitiveProps & {
-      /**
-       * Additional classes to apply to the FrameHandle component
-       */
+      /** Additional classes to apply to the FrameHandle component. */
       class?: HTMLAttributes["class"];
     }
   >();

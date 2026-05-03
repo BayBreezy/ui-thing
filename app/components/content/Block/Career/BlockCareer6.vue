@@ -23,11 +23,11 @@
       <!-- Gradient hero section -->
       <Motion
         :variants="childVariant"
-        class="relative mb-16 overflow-hidden rounded-2xl bg-linear-to-br from-primary/20 via-primary/10 to-transparent p-8 lg:mb-24 lg:p-16"
+        class="from-primary/20 via-primary/10 relative mb-16 overflow-hidden rounded-2xl bg-linear-to-br to-transparent p-8 lg:mb-24 lg:p-16"
       >
         <UiContainer class="relative z-10 text-center">
           <h1 class="mb-4 text-4xl font-bold lg:text-6xl">Join our mission</h1>
-          <p class="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground lg:text-xl">
+          <p class="text-muted-foreground mx-auto mb-8 max-w-2xl text-lg lg:text-xl">
             We're building the future of technology. Come help us make a difference.
           </p>
 
@@ -35,17 +35,17 @@
           <div class="mx-auto flex max-w-2xl flex-wrap justify-center gap-8 lg:gap-12">
             <div class="text-center">
               <p class="text-3xl font-bold lg:text-4xl">150+</p>
-              <p class="text-sm text-muted-foreground">Team members</p>
+              <p class="text-muted-foreground text-sm">Team members</p>
             </div>
             <UiSeparator orientation="vertical" class="hidden h-auto md:block" />
             <div class="text-center">
               <p class="text-3xl font-bold lg:text-4xl">25+</p>
-              <p class="text-sm text-muted-foreground">Countries</p>
+              <p class="text-muted-foreground text-sm">Countries</p>
             </div>
             <UiSeparator orientation="vertical" class="hidden h-auto md:block" />
             <div class="text-center">
               <p class="text-3xl font-bold lg:text-4xl">100%</p>
-              <p class="text-sm text-muted-foreground">Remote</p>
+              <p class="text-muted-foreground text-sm">Remote</p>
             </div>
           </div>
         </UiContainer>
@@ -73,12 +73,12 @@
               <UiCard class="py-0 text-center">
                 <UiCardContent class="p-6">
                   <div
-                    class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10"
+                    class="bg-primary/10 mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full"
                   >
-                    <Icon :name="perk.icon" class="h-6 w-6 text-primary" />
+                    <Icon :name="perk.icon" class="text-primary h-6 w-6" />
                   </div>
                   <h3 class="mb-2 line-clamp-2 font-semibold">{{ perk.title }}</h3>
-                  <p :title="perk.description" class="line-clamp-2 text-sm text-muted-foreground">
+                  <p :title="perk.description" class="text-muted-foreground line-clamp-2 text-sm">
                     {{ perk.description }}
                   </p>
                 </UiCardContent>
@@ -108,7 +108,7 @@
                         <h3 class="text-lg font-semibold">Senior Full Stack Developer</h3>
                         <UiBadge variant="secondary" size="sm">Engineering</UiBadge>
                       </div>
-                      <div class="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                      <div class="text-muted-foreground flex flex-wrap gap-4 text-sm">
                         <span class="flex items-center gap-1">
                           <Icon name="lucide:map-pin" class="h-3.5 w-3.5" />
                           Remote
@@ -129,7 +129,7 @@
                   <div class="space-y-4">
                     <div>
                       <h4 class="mb-2 font-semibold">About the role</h4>
-                      <p class="text-sm text-muted-foreground">
+                      <p class="text-muted-foreground text-sm">
                         We're looking for a talented full stack developer to join our growing
                         engineering team. You'll work on building and scaling our core platform.
                       </p>
@@ -137,7 +137,7 @@
 
                     <div>
                       <h4 class="mb-2 font-semibold">Requirements</h4>
-                      <ul class="list-inside list-disc space-y-1 text-sm text-muted-foreground">
+                      <ul class="text-muted-foreground list-inside list-disc space-y-1 text-sm">
                         <li>5+ years of professional development experience</li>
                         <li>Strong proficiency in React, Node.js, and TypeScript</li>
                         <li>Experience with cloud platforms (AWS, GCP, or Azure)</li>
@@ -171,7 +171,7 @@
           <UiCard class="bg-muted/50">
             <UiCardContent class="p-8">
               <h3 class="mb-2 text-2xl font-semibold">Don't see a perfect fit?</h3>
-              <p class="mb-6 text-muted-foreground">
+              <p class="text-muted-foreground mb-6">
                 We're always looking for talented people. Send us your resume and we'll keep you in
                 mind for future opportunities.
               </p>

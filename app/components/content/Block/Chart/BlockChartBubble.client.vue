@@ -109,12 +109,16 @@
 </script>
 
 <style>
-  @reference "~/assets/css/tailwind.css";
-
   .apexcharts-menu {
-    @apply border-border bg-background text-foreground;
+    border-color: var(--color-border);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+
     .apexcharts-menu-item {
-      @apply hover:bg-primary! hover:text-primary-foreground!;
+      &:hover {
+        background-color: var(--color-primary) !important;
+        color: var(--color-primary-foreground) !important;
+      }
     }
   }
 

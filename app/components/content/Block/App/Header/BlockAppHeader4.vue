@@ -6,7 +6,7 @@
           <slot name="icon">
             <div
               v-if="props.icon"
-              class="flex size-14 items-center justify-center rounded-lg bg-primary/10 text-primary"
+              class="bg-primary/10 text-primary flex size-14 items-center justify-center rounded-lg"
             >
               <Icon :name="props.icon" class="size-6" />
             </div>
@@ -42,7 +42,7 @@
       <slot name="description">
         <p
           v-if="props.description"
-          class="text-sm text-muted-foreground"
+          class="text-muted-foreground text-sm"
           v-html="props.description"
         />
       </slot>

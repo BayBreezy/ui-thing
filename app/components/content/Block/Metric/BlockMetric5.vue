@@ -4,15 +4,15 @@
       <template v-for="(s, i) in stats" :key="i">
         <div class="flex items-start gap-3">
           <div
-            class="inline-flex size-12 items-center justify-center rounded-full bg-linear-to-b from-primary/50 via-transparent"
+            class="from-primary/50 inline-flex size-12 items-center justify-center rounded-full bg-linear-to-b via-transparent"
           >
-            <Icon :name="s.icon" class="size-5 text-primary" />
+            <Icon :name="s.icon" class="text-primary size-5" />
           </div>
           <div class="flex flex-col">
             <h4 class="text-4xl font-bold lg:text-5xl">
               {{ s.value }}
             </h4>
-            <p class="text-sm font-medium text-muted-foreground">
+            <p class="text-muted-foreground text-sm font-medium">
               {{ s.text }}
             </p>
           </div>

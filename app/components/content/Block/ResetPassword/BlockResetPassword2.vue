@@ -1,10 +1,10 @@
 <template>
-  <div class="relative flex min-h-screen items-center justify-center bg-muted/30 p-4">
+  <div class="bg-muted/30 relative flex min-h-screen items-center justify-center p-4">
     <UiCard class="w-full max-w-md">
       <div class="p-6 lg:p-8">
         <div class="mb-8 text-center">
           <h1 class="mb-2 text-2xl font-bold tracking-tight">{{ title }}</h1>
-          <p class="text-sm text-muted-foreground">{{ description }}</p>
+          <p class="text-muted-foreground text-sm">{{ description }}</p>
         </div>
 
         <form @submit="submit">
@@ -23,9 +23,9 @@
               placeholder="••••••••"
             />
 
-            <div class="rounded-lg bg-muted/50 p-4">
-              <p class="mb-2 text-xs font-medium text-muted-foreground">Password must contain:</p>
-              <ul class="space-y-1 text-xs text-muted-foreground">
+            <div class="bg-muted/50 rounded-lg p-4">
+              <p class="text-muted-foreground mb-2 text-xs font-medium">Password must contain:</p>
+              <ul class="text-muted-foreground space-y-1 text-xs">
                 <li class="flex items-center gap-2">
                   <Icon
                     :class="['size-4', meta.valid ? 'text-green-600' : 'text-muted-foreground/40']"

@@ -1,11 +1,11 @@
 <template>
   <UiContainer class="relative py-16 lg:py-24">
     <div class="max-w-[760px]">
-      <p class="font-semibold text-primary">Pricing</p>
+      <p class="text-primary font-semibold">Pricing</p>
       <h2 class="mt-3 mb-4 text-3xl font-semibold lg:mb-5 lg:text-4xl">
         Simple, transparent pricing
       </h2>
-      <p class="text-lg text-muted-foreground lg:text-xl">
+      <p class="text-muted-foreground text-lg lg:text-xl">
         We believe {{ COMPANY_NAME }} should be accessible to all companies, no matter the size.
       </p>
     </div>
@@ -22,21 +22,21 @@
           :class="[i == prices.length - 2 ? 'border-primary shadow-lg' : '']"
         >
           <UiCardContent class="flex w-full flex-col items-center">
-            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
-              <Icon :name="p.icon" class="h-6 w-6 text-primary" />
+            <div class="bg-primary/20 mb-5 flex h-12 w-12 items-center justify-center rounded-full">
+              <Icon :name="p.icon" class="text-primary h-6 w-6" />
             </div>
-            <h3 class="mb-2 text-xl font-semibold text-primary">{{ p.title }} plan</h3>
+            <h3 class="text-primary mb-2 text-xl font-semibold">{{ p.title }} plan</h3>
             <p class="text-4xl/loose font-semibold lg:text-5xl/snug">${{ p.price }}/mth</p>
-            <p class="mt-2 text-muted-foreground">Billed annually</p>
+            <p class="text-muted-foreground mt-2">Billed annually</p>
 
             <ul class="flex w-full flex-col items-center gap-4 px-5 py-8 lg:items-start">
               <li v-for="(perk, k) in p.perks" :key="k" class="flex items-center gap-3">
-                <Icon name="heroicons:check-circle" class="h-6 w-6 shrink-0 text-primary" />
+                <Icon name="heroicons:check-circle" class="text-primary h-6 w-6 shrink-0" />
                 <span class="opacity-80">{{ perk }}</span>
               </li>
             </ul>
           </UiCardContent>
-          <UiCardFooter class="border-t bg-muted pt-6! dark:border-muted/50 dark:bg-muted/30">
+          <UiCardFooter class="bg-muted dark:border-muted/50 dark:bg-muted/30 border-t pt-6!">
             <UiButton class="w-full"> Get started </UiButton>
           </UiCardFooter>
         </UiCard>

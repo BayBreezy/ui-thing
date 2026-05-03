@@ -23,21 +23,19 @@
   export interface SidebarMenuButtonProps extends PrimitiveProps {
     /**
      * The variant of the button.
+     *
      * @default "default"
      */
     variant?: SidebarMenuButtonVariants["variant"];
     /**
      * The size of the button.
+     *
      * @default "default"
      */
     size?: SidebarMenuButtonVariants["size"];
-    /**
-     * Whether the button is active.
-     */
+    /** Whether the button is active. */
     isActive?: boolean;
-    /**
-     * Additional classes to apply to the parent element.
-     */
+    /** Additional classes to apply to the parent element. */
     class?: HTMLAttributes["class"];
   }
 </script>

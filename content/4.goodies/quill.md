@@ -12,8 +12,8 @@ links:
 
 ## Getting Started
 
-:::Steps
-::Step
+:::prose-steps
+::prose-step
 
 ### Installation
 
@@ -22,7 +22,7 @@ To get started, you can install the package with the following command:
 :prose-pm-install{name="@vueup/vue-quill"}
 
 ::
-::Step
+::prose-step
 
 ### Create CSS File
 
@@ -39,7 +39,7 @@ In order to make the editor match the design of this website (and the whole shad
 
 Here is a basic example of how to use the Quill component. We are using a technique called `Slot Forwarding` so that if the developer wants to create a component and pass through the `toolbar` slot, they can do so.
 
-::ShowCase
+::prose-show-case
 
 :DocsQuill
 
@@ -71,7 +71,7 @@ Here is a basic example of how to use the Quill component. We are using a techni
 
 We can add our custom toolbar configuration by using the `toolbar` prop.
 
-::ShowCase
+::prose-show-case
 
 :DocsQuillToolbar
 
@@ -125,7 +125,7 @@ We can add our custom toolbar configuration by using the `toolbar` prop.
 
 Another way of customizing the toolbar is by using the `toolbar` slot. This way, we can create a custom toolbar with our own components.
 
-::ShowCase
+::prose-show-case
 
 :DocsQuillToolbar2
 
@@ -177,7 +177,7 @@ We can pass the `bubble` value to the `theme` prop to use the snow theme.
 
 You have to select something in the editor to see the toolbar.
 
-::ShowCase
+::prose-show-case
 
 :DocsQuillBubble
 
@@ -247,7 +247,7 @@ Something like this:
 
 Upload an image to see the module in action.
 
-::ShowCase
+::prose-show-case
 
 :DocsQuillModule
 

@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="List"} to see the source code for this componen
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsListBasic
 
@@ -60,7 +60,7 @@ Click :SourceCodeLink{component="List"} to see the source code for this componen
 
 ### Mini cart
 
-::ShowCase
+::prose-show-case
 
 :DocsListProducts
 
@@ -109,7 +109,7 @@ Click :SourceCodeLink{component="List"} to see the source code for this componen
 
 ### Navigation list
 
-::ShowCase
+::prose-show-case
 
 :DocsListNav
 
@@ -120,14 +120,14 @@ Click :SourceCodeLink{component="List"} to see the source code for this componen
 ```vue [DocsListNav.vue]
 <template>
   <div class="flex items-center justify-center">
-    <UiList class="max-w-[250px] rounded-lg border bg-background">
+    <UiList class="bg-background max-w-[250px] rounded-lg border">
       <template v-for="n in navList" :key="n.title">
         <UiListItem :to="n.link" class="">
-          <Icon :name="n.icon" class="h-5 w-5 text-muted-foreground" />
+          <Icon :name="n.icon" class="text-muted-foreground h-5 w-5" />
           <UiListContent>
             <UiListTitle :title="n.title" class="text-sm font-medium" />
           </UiListContent>
-          <span class="ml-auto shrink-0 self-center rounded-full text-muted-foreground/70">
+          <span class="text-muted-foreground/70 ml-auto shrink-0 self-center rounded-full">
             <Icon name="lucide:chevron-right" />
           </span>
         </UiListItem>

@@ -3,7 +3,7 @@
     <div class="flex items-center justify-center px-5">
       <div class="w-full max-w-[400px]">
         <h1 class="text-2xl font-bold tracking-tight lg:text-3xl">Welcome back</h1>
-        <p class="mt-1 text-muted-foreground">Log in to your account to continue.</p>
+        <p class="text-muted-foreground mt-1">Log in to your account to continue.</p>
 
         <form class="mt-8" @submit="submit">
           <fieldset :disabled="isSubmitting" class="grid gap-5">
@@ -12,7 +12,7 @@
             <div class="flex items-center justify-between">
               <UiVeeCheckbox label="Remember me" name="remember" />
               <NuxtLink
-                class="text-sm font-medium text-primary underline-offset-2 hover:underline"
+                class="text-primary text-sm font-medium underline-offset-2 hover:underline"
                 to="#"
                 >Forgot password?</NuxtLink
               >
@@ -34,18 +34,18 @@
           </UiButton>
         </div>
 
-        <p class="mt-6 text-sm text-muted-foreground">
+        <p class="text-muted-foreground mt-6 text-sm">
           Don't have an account?
-          <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#"
+          <NuxtLink class="text-primary font-semibold underline-offset-2 hover:underline" to="#"
             >Create account</NuxtLink
           >
         </p>
       </div>
     </div>
-    <div class="hidden bg-muted lg:block">
+    <div class="bg-muted hidden lg:block">
       <div class="flex h-full flex-col items-center justify-center p-8">
         <div class="max-w-md text-center">
-          <Icon name="lucide:lock-keyhole" class="mx-auto mb-6 size-16 text-primary" />
+          <Icon name="lucide:lock-keyhole" class="text-primary mx-auto mb-6 size-16" />
           <h2 class="mb-4 text-2xl font-bold">Secure & Private</h2>
           <p class="text-muted-foreground">
             Your data is encrypted and secure. We never share your information with third parties.

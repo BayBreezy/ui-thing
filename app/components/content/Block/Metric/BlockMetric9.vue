@@ -1,25 +1,25 @@
 <template>
   <UiContainer class="py-10 lg:py-20">
-    <div class="relative overflow-hidden rounded-lg bg-primary px-8 py-12 lg:px-16 lg:py-20">
+    <div class="bg-primary relative overflow-hidden rounded-lg px-8 py-12 lg:px-16 lg:py-20">
       <div class="relative z-10">
         <div class="mb-10 text-center lg:mb-16">
-          <h3 class="mb-3 text-3xl font-semibold text-primary-foreground lg:text-4xl">
+          <h3 class="text-primary-foreground mb-3 text-3xl font-semibold lg:text-4xl">
             Powering innovation worldwide
           </h3>
-          <p class="text-lg text-primary-foreground/80">
+          <p class="text-primary-foreground/80 text-lg">
             Trusted by leading companies and startups
           </p>
         </div>
 
         <div
-          class="grid grid-cols-2 gap-8 text-center text-primary-foreground md:grid-cols-4 lg:gap-12"
+          class="text-primary-foreground grid grid-cols-2 gap-8 text-center md:grid-cols-4 lg:gap-12"
         >
           <template v-for="(s, i) in stats" :key="i">
             <div>
               <h4 class="mb-2 text-4xl font-bold lg:text-5xl">
                 {{ s.value }}
               </h4>
-              <p class="text-sm font-medium text-primary-foreground/80">
+              <p class="text-primary-foreground/80 text-sm font-medium">
                 {{ s.text }}
               </p>
             </div>

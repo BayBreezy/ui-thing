@@ -39,13 +39,13 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
-        /** Title that should be displayed. Passed to the `CardTitle` component */
+        /** Title that should be displayed. Passed to the `CardTitle` component. */
         title?: string;
-        /** Description that should be displayed. Passed to the `CardDescription` component */
+        /** Description that should be displayed. Passed to the `CardDescription` component. */
         description?: string;
-        /** Content that should be displayed. Passed to the `CardContent` component */
+        /** Content that should be displayed. Passed to the `CardContent` component. */
         content?: string;
-        /** Custom class(es) to add to the element */
+        /** Custom class(es) to add to the element. */
         class?: HTMLAttributes["class"];
       }
     >(),
@@ -53,6 +53,6 @@
   );
 
   const styles = tv({
-    base: "flex flex-col gap-6 rounded-xl border bg-card py-6 text-card-foreground shadow-sm",
+    base: "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
   });
 </script>

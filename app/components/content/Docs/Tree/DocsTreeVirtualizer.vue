@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center">
-    <UiScrollArea class="max-h-[500px] w-[300px] rounded-md border bg-background">
+    <UiScrollArea class="bg-background max-h-[500px] w-[300px] rounded-md border">
       <UiTree multiple :items="data" :get-key="(i) => i.email" class="p-2 pr-3">
         <p class="mb-3 font-semibold">Contact List</p>
         <UiTreeVirtualizer v-slot="{ item }" :text-content="(o) => o.email">
@@ -8,7 +8,7 @@
             v-slot="{ isSelected }"
             v-bind="item.bind"
             :style="{ 'padding-left': item.level > 1 ? `${item.level * 8}px` : '0px' }"
-            class="group rounded px-2 py-1 text-sm focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none"
+            class="group focus-visible:ring-border rounded px-2 py-1 text-sm focus-visible:ring-1 focus-visible:outline-none"
           >
             <div
               class="line-clamp-1 flex w-full cursor-pointer items-center gap-2 px-2 select-none"

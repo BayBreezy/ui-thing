@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bg-background py-16 text-foreground [--color-primary:#6366f1] [--primary:#6366f1] [--radius:10px] [--ring:#6366f1] lg:py-24"
+    class="bg-background text-foreground min-h-screen py-16 [--color-primary:#6366f1] [--primary:#6366f1] [--radius:10px] [--ring:#6366f1] lg:py-24"
   >
     <UiContainer>
       <!-- Header -->
@@ -16,7 +16,7 @@
         <h2 class="mb-4 text-4xl font-bold tracking-tight lg:text-5xl">
           Simple, transparent pricing
         </h2>
-        <p class="text-lg text-muted-foreground">
+        <p class="text-muted-foreground text-lg">
           Start for free, scale as you grow. No contracts, no hidden fees — cancel anytime.
         </p>
       </Motion>
@@ -71,7 +71,7 @@
           class="relative flex flex-col rounded-2xl border p-8"
           :class="[
             plan.highlighted
-              ? 'border-primary bg-primary/5 shadow-xl ring-1 shadow-primary/10 ring-primary'
+              ? 'border-primary bg-primary/5 shadow-primary/10 ring-primary shadow-xl ring-1'
               : 'border-border bg-card',
           ]"
         >
@@ -88,7 +88,7 @@
           <!-- Plan name & description -->
           <div class="mb-6">
             <h3 class="mb-1 text-xl font-bold">{{ plan.title }}</h3>
-            <p class="text-sm text-muted-foreground">{{ plan.description }}</p>
+            <p class="text-muted-foreground text-sm">{{ plan.description }}</p>
           </div>
 
           <!-- Price display -->
@@ -97,7 +97,7 @@
               <span class="text-5xl font-extrabold tracking-tight">
                 ${{ isAnnual ? plan.annualPrice : plan.monthlyPrice }}
               </span>
-              <span class="text-sm text-muted-foreground">/mo</span>
+              <span class="text-muted-foreground text-sm">/mo</span>
             </div>
             <div v-else>
               <span class="text-4xl font-extrabold tracking-tight">Custom</span>
@@ -110,7 +110,7 @@
                 :exit="{ opacity: 0, height: 0 }"
                 :transition="{ duration: 0.25, ease: 'easeOut' }"
                 as="p"
-                class="mt-1 overflow-hidden text-xs text-muted-foreground"
+                class="text-muted-foreground mt-1 overflow-hidden text-xs"
               >
                 Billed as ${{ (plan.annualPrice ?? 0) * 12 }}/yr
               </Motion>
@@ -149,16 +149,16 @@
         :initial="{ opacity: 0, y: 16 }"
         :animate="{ opacity: 1, y: 0 }"
         :transition="{ duration: 0.4, delay: 0.55, ease: 'easeOut' }"
-        class="mt-20 border-t border-border pt-12"
+        class="border-border mt-20 border-t pt-12"
       >
-        <p class="mb-8 text-center text-sm text-muted-foreground">
+        <p class="text-muted-foreground mb-8 text-center text-sm">
           Trusted by teams at world-class companies
         </p>
         <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
           <div
             v-for="brand in brands"
             :key="brand.name"
-            class="flex items-center gap-2 text-muted-foreground/50 transition-colors duration-200 hover:text-muted-foreground"
+            class="text-muted-foreground/50 hover:text-muted-foreground flex items-center gap-2 transition-colors duration-200"
           >
             <Icon :name="brand.icon" class="size-6 shrink-0" />
             <span class="text-base font-semibold tracking-tight">{{ brand.name }}</span>

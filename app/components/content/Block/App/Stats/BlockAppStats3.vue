@@ -2,7 +2,7 @@
   <UiCard>
     <UiCardContent class="space-y-4">
       <div class="flex items-center justify-between">
-        <p class="text-sm font-medium text-muted-foreground" v-html="props.label" />
+        <p class="text-muted-foreground text-sm font-medium" v-html="props.label" />
         <UiBadge :variant="props.trend === 'up' ? 'default' : 'destructive'">
           <Icon
             :name="props.trend === 'up' ? 'lucide:arrow-up' : 'lucide:arrow-down'"
@@ -13,10 +13,10 @@
       </div>
       <div>
         <h3 class="text-3xl font-bold tracking-tight" v-html="props.value" />
-        <p class="mt-1 text-xs text-muted-foreground" v-html="props.description" />
+        <p class="text-muted-foreground mt-1 text-xs" v-html="props.description" />
       </div>
       <UiProgress :model-value="props.progress" class="h-1.5" />
-      <div class="flex items-center justify-between text-xs text-muted-foreground">
+      <div class="text-muted-foreground flex items-center justify-between text-xs">
         <span v-html="props.progressLabel" />
         <span>{{ props.progress }}%</span>
       </div>

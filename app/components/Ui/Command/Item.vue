@@ -38,13 +38,13 @@
 
   const props = defineProps<
     ListboxItemProps & {
-      /** Custom class(es) to add to the element */
+      /** Custom class(es) to add to the element. */
       class?: HTMLAttributes["class"];
-      /** Icon to render */
+      /** Icon to render. */
       icon?: string;
-      /** Text to render */
+      /** Text to render. */
       text?: string;
-      /** Shortcut to render */
+      /** Shortcut to render. */
       shortcut?: string;
     }
   >();
@@ -60,7 +60,7 @@
   const groupContext = useCommandGroup();
 
   const styles = tv({
-    base: "group/command-item relative flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none select-none in-data-[slot=dialog-content]:rounded-lg! data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground data-[state=checked]:bg-muted data-[state=checked]:text-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-selected:*:[svg]:text-foreground",
+    base: "group/command-item data-highlighted:bg-accent data-highlighted:text-accent-foreground data-[state=checked]:bg-muted data-[state=checked]:text-foreground data-selected:*:[svg]:text-foreground relative flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none select-none in-data-[slot=dialog-content]:rounded-lg! data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   });
 
   const isRender = computed(() => {

@@ -1,10 +1,23 @@
 ---
 title: Accordion
 description: A vertically stacked set of interactive headings that each reveal an associated section of content.
+componentApi:
+  heading: API Reference
+  components:
+    - path: app/components/Ui/Accordion/Accordion.vue
+      title: Accordion Root
+    - path: app/components/Ui/Accordion/Content.vue
+      title: Accordion Content
+    - path: app/components/Ui/Accordion/Header.vue
+      title: Accordion Header
+    - path: app/components/Ui/Accordion/Item.vue
+      title: Accordion Item
+    - path: app/components/Ui/Accordion/Trigger.vue
+      title: Accordion Trigger
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/accordion
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/accordion#api-reference
     icon: "icon-park-solid:api"
@@ -53,7 +66,7 @@ Or use each part individually
 
 The most common way to use the accordion is by just passing an array of items to the `items` prop. Each item should have a `value`, `title`, and `content`.
 
-::ShowCase
+::prose-show-case
 
 :DocsAccordion
 
@@ -97,7 +110,7 @@ The most common way to use the accordion is by just passing an array of items to
 
 If you want to change the way that the items look, you can do so by using the different components that the accordion is composed of.
 
-::ShowCase
+::prose-show-case
 
 :DocsAccordionVariant
 
@@ -118,7 +131,7 @@ If you want to change the way that the items look, you can do so by using the di
           <UiAccordionHeader>
             <UiAccordionTrigger
               :class="[open ? 'bg-muted underline hover:!underline' : 'bg-muted/50 no-underline']"
-              class="mb-2 rounded-md px-3 text-left text-sm underline-offset-2 hover:bg-muted hover:no-underline"
+              class="hover:bg-muted mb-2 rounded-md px-3 text-left text-sm underline-offset-2 hover:no-underline"
               >{{ i.title }}</UiAccordionTrigger
             >
           </UiAccordionHeader>
@@ -163,7 +176,7 @@ If you want to change the way that the items look, you can do so by using the di
 
 You can change the `icon` that is displayed based on the open state of an item. Just override the the `trigger` slot and then override the `icon` slot.
 
-::ShowCase
+::prose-show-case
 
 :DocsAccordionIcon
 
@@ -227,7 +240,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### With Chevron
 
-::ShowCase
+::prose-show-case
 
 :DocsAccordionWithChevron
 
@@ -294,7 +307,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### With Chevron Left
 
-::ShowCase
+::prose-show-case
 
 :DocsAccordionWithChevronLeft
 
@@ -362,7 +375,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### With Chevron & Icon
 
-::ShowCase
+::prose-show-case
 
 :DocsAccordionWithChevronIcon
 
@@ -420,7 +433,7 @@ To use these examples you will have to copy the code and adjust it for your own 
         </UiAccordionTrigger>
       </template>
       <template #content="{ item }">
-        <UiAccordionContent class="ps-7 text-muted-foreground">{{
+        <UiAccordionContent class="text-muted-foreground ps-7">{{
           item.content
         }}</UiAccordionContent>
       </template>
@@ -435,7 +448,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### With Sub-Header & Chevron
 
-::ShowCase
+::prose-show-case
 
 :DocsAccordionWithChevronSubHeader
 
@@ -506,7 +519,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### With Icon, Sub-Header & Chevron
 
-::ShowCase
+::prose-show-case
 
 :DocsAccordionWithChevronSubHeaderIcon
 
@@ -571,7 +584,7 @@ To use these examples you will have to copy the code and adjust it for your own 
         </UiAccordionTrigger>
       </template>
       <template #content="{ item }">
-        <UiAccordionContent class="ps-12 text-muted-foreground">{{
+        <UiAccordionContent class="text-muted-foreground ps-12">{{
           item.content
         }}</UiAccordionContent>
       </template>
@@ -586,7 +599,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Tabs with Chevron
 
-::ShowCase
+::prose-show-case
 
 :DocsAccordionTabsWithChevron
 
@@ -635,7 +648,7 @@ To use these examples you will have to copy the code and adjust it for your own 
         v-for="item in items"
         :key="item.id"
         :value="item.value"
-        class="rounded-lg border bg-background px-4 py-1 last:border-b"
+        class="bg-background rounded-lg border px-4 py-1 last:border-b"
       >
         <UiAccordionTrigger class="w-full py-2 text-[15px] leading-6 hover:no-underline">
           {{ item.title }}
@@ -655,7 +668,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Tabs with Left Chevron
 
-::ShowCase
+::prose-show-case
 
 :DocsAccordionTabsWithChevronLeft
 
@@ -704,7 +717,7 @@ To use these examples you will have to copy the code and adjust it for your own 
         v-for="item in items"
         :key="item.id"
         :value="item.value"
-        class="rounded-lg border bg-background px-4 last:border-b"
+        class="bg-background rounded-lg border px-4 last:border-b"
       >
         <UiAccordionTrigger
           :icon="''"
@@ -728,7 +741,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Table with Chevron
 
-::ShowCase
+::prose-show-case
 
 :DocsAccordionTableWithChevron
 
@@ -777,7 +790,7 @@ To use these examples you will have to copy the code and adjust it for your own 
         v-for="item in items"
         :key="item.id"
         :value="item.value"
-        class="border bg-background px-4 py-1 first:rounded-t-lg last:rounded-b-lg last:border-b"
+        class="bg-background border px-4 py-1 first:rounded-t-lg last:rounded-b-lg last:border-b"
       >
         <UiAccordionTrigger class="w-full py-2 text-[15px] leading-6 hover:no-underline">
           {{ item.title }}
@@ -797,7 +810,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Table with Left Chevron
 
-::ShowCase
+::prose-show-case
 
 :DocsAccordionTableWithChevronLeft
 
@@ -846,7 +859,7 @@ To use these examples you will have to copy the code and adjust it for your own 
         v-for="item in items"
         :key="item.id"
         :value="item.value"
-        class="border bg-background px-4 py-1 first:rounded-t-lg last:rounded-b-lg last:border-b"
+        class="bg-background border px-4 py-1 first:rounded-t-lg last:rounded-b-lg last:border-b"
       >
         <UiAccordionTrigger
           :icon="''"
@@ -870,7 +883,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Multi-Level
 
-::ShowCase
+::prose-show-case
 
 :DocsAccordionMultiLevel
 
@@ -952,7 +965,7 @@ To use these examples you will have to copy the code and adjust it for your own 
         v-for="item in items"
         :key="item.id"
         :value="item.id"
-        class="overflow-hidden border bg-background first:rounded-t-lg last:rounded-b-lg last:border-b"
+        class="bg-background overflow-hidden border first:rounded-t-lg last:rounded-b-lg last:border-b"
       >
         <UiAccordionTrigger
           :title="item.title"
@@ -962,7 +975,7 @@ To use these examples you will have to copy the code and adjust it for your own 
           <UiCollapsible
             v-for="collapsible in item.collapsibles"
             :key="collapsible.title"
-            class="space-y-1 border-t border-border bg-accent px-4 py-3"
+            class="border-border bg-accent space-y-1 border-t px-4 py-3"
             :default-open="collapsible.open"
           >
             <UiCollapsibleTrigger
@@ -978,7 +991,7 @@ To use these examples you will have to copy the code and adjust it for your own 
               {{ collapsible.title }}
             </UiCollapsibleTrigger>
             <UiCollapsibleContent
-              class="overflow-hidden ps-6 text-sm text-muted-foreground transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down"
+              class="text-muted-foreground data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down overflow-hidden ps-6 text-sm transition-all"
             >
               {{ collapsible.content }}
             </UiCollapsibleContent>

@@ -15,27 +15,27 @@
   import type { HTMLAttributes, InputHTMLAttributes } from "vue";
 
   export type InputProps = {
-    /** Additional classes to add to the input */
+    /** Additional classes to add to the input. */
     class?: HTMLAttributes["class"];
-    /** The id of the input */
+    /** The id of the input. */
     id?: string;
-    /** The name of the input */
+    /** The name of the input. */
     name?: string;
-    /** The placeholder of the input */
+    /** The placeholder of the input. */
     placeholder?: string;
-    /** Whether the input is disabled */
+    /** Whether the input is disabled. */
     disabled?: boolean;
-    /** Whether the input is required */
+    /** Whether the input is required. */
     required?: boolean;
-    /** The type of the input */
+    /** The type of the input. */
     type?: InputHTMLAttributes["type"];
-    /** The value of the input */
+    /** The value of the input. */
     modelValue?: any;
-    /** The maximum length of the input */
+    /** The maximum length of the input. */
     maxlength?: number;
-    /** The `RegExp` pattern of the input */
+    /** The `RegExp` pattern of the input. */
     pattern?: string;
-    /** When `true`, the input will be focused when mounted */
+    /** When `true`, the input will be focused when mounted. */
     autofocus?: boolean;
   };
 </script>
@@ -75,15 +75,15 @@
 
   const styles = tv({
     base: [
-      "flex h-9 w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground/70 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30",
-      "focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50",
+      "border-input selection:bg-primary selection:text-primary-foreground file:text-foreground placeholder:text-muted-foreground/70 dark:bg-input/30 flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-sm shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
+      "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
       "aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40",
     ],
     variants: {
       type: {
         search:
           "[&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none [&::-webkit-search-results-button]:appearance-none [&::-webkit-search-results-decoration]:appearance-none",
-        file: "p-0 pr-3 text-muted-foreground/70 italic file:me-3 file:h-full file:border-0 file:border-r file:border-solid file:border-input file:bg-transparent file:px-3 file:text-sm file:font-medium file:text-foreground file:not-italic",
+        file: "text-muted-foreground/70 file:border-input file:text-foreground p-0 pr-3 italic file:me-3 file:h-full file:border-0 file:border-r file:border-solid file:bg-transparent file:px-3 file:text-sm file:font-medium file:not-italic",
       },
     },
   });

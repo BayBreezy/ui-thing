@@ -26,17 +26,13 @@
   const timelineData = inject<TimelineData>(timelineDataSymbol);
 
   const styles = tv({
-    base: "group/timeline-item relative flex flex-1 flex-col gap-0.5 group-data-[orientation=horizontal]/timeline:mt-8 group-data-[orientation=horizontal]/timeline:not-last:pe-8 group-data-[orientation=vertical]/timeline:ms-8 group-data-[orientation=vertical]/timeline:not-last:pb-12 has-[+[data-completed]]:**:data-[slot=timeline-separator]:bg-primary",
+    base: "group/timeline-item has-[+[data-completed]]:**:data-[slot=timeline-separator]:bg-primary relative flex flex-1 flex-col gap-0.5 group-data-[orientation=horizontal]/timeline:mt-8 group-data-[orientation=horizontal]/timeline:not-last:pe-8 group-data-[orientation=vertical]/timeline:ms-8 group-data-[orientation=vertical]/timeline:not-last:pb-12",
   });
   const props = defineProps<
     PrimitiveProps & {
-      /**
-       * Additional class(es) to add to the parent
-       */
+      /** Additional class(es) to add to the parent. */
       class?: HTMLAttributes["class"];
-      /**
-       * Step number
-       */
+      /** Step number. */
       step: number;
     }
   >();

@@ -4,8 +4,8 @@
       <UiCard class="w-full max-w-lg">
         <UiCardContent class="flex flex-col items-center gap-6 text-center">
           <Motion :variants="childVariant" class="relative rounded-full">
-            <div class="rounded-full bg-muted p-6">
-              <Icon :name="icon" class="size-6 text-muted-foreground" />
+            <div class="bg-muted rounded-full p-6">
+              <Icon :name="icon" class="text-muted-foreground size-6" />
             </div>
           </Motion>
           <div class="flex flex-col gap-2">
@@ -24,7 +24,7 @@
                 v-if="description"
                 as="p"
                 :variants="childVariant"
-                class="text-sm text-muted-foreground"
+                class="text-muted-foreground text-sm"
               >
                 {{ description }}
               </Motion>

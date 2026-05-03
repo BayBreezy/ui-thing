@@ -15,7 +15,7 @@
 
   const props = defineProps<
     PrimitiveProps & {
-      /** Custom class(es) to add to the element */
+      /** Custom class(es) to add to the element. */
       class?: any;
     }
   >();
@@ -23,7 +23,7 @@
   const forwarded = reactiveOmit(props, "class");
   const styles = tv({
     base: [
-      "group/avatar-group flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-background",
+      "group/avatar-group *:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:ring-2",
     ],
   });
 </script>

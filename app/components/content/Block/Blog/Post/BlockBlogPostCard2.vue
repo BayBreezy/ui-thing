@@ -22,7 +22,7 @@
     <Motion v-if="headline || readTime" as-child :variants="childVariant">
       <UiBadge
         variant="outline"
-        class="mb-2 rounded-none border-ring/50 px-3 py-1 text-sm font-medium text-primary"
+        class="border-ring/50 text-primary mb-2 rounded-none px-3 py-1 text-sm font-medium"
         >{{ headline }} <span v-if="readTime" class="ml-1">{{ readTime }}</span></UiBadge
       >
     </Motion>
@@ -35,7 +35,7 @@
       v-if="description"
       as="p"
       :variants="childVariant"
-      class="mb-4 line-clamp-2 text-ellipsis text-muted-foreground"
+      class="text-muted-foreground mb-4 line-clamp-2 text-ellipsis"
     >
       {{ description }}
     </Motion>
@@ -44,11 +44,11 @@
         v-if="userImage"
         :src="userImage"
         :alt="userName"
-        class="mr-3 rounded-none bg-background shadow ring-1 ring-ring/30"
+        class="bg-background ring-ring/30 mr-3 rounded-none shadow ring-1"
       />
       <div>
         <p v-if="userName" class="text-sm font-semibold">{{ userName }}</p>
-        <p v-if="date" class="text-sm text-muted-foreground">{{ date }}</p>
+        <p v-if="date" class="text-muted-foreground text-sm">{{ date }}</p>
       </div>
     </Motion>
   </Motion>

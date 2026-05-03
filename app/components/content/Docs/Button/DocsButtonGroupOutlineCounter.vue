@@ -10,7 +10,7 @@
       >
         <Icon name="lucide:chevron-up" class="size-4" :aria-hidden="true" />
       </UiButton>
-      <span class="flex items-center border border-input px-3 text-sm font-medium">{{
+      <span class="border-input flex items-center border px-3 text-sm font-medium">{{
         counter
       }}</span>
       <UiButton

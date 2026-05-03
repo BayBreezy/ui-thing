@@ -16,6 +16,7 @@
 
 <script lang="ts" setup>
   const colors = [
+    "primary",
     "gray",
     "red",
     "orange",

@@ -23,19 +23,17 @@
   import { AccordionRoot, useForwardPropsEmits } from "reka-ui";
   import type { AcceptableValue, AccordionRootEmits, AccordionRootProps } from "reka-ui";
 
-  /**
-   * Interface that represents a single item in the accordion
-   */
+  /** Interface that represents a single item in the accordion. */
   export interface AccordionItem {
-    /** The title of the accordion item */
+    /** The title of the accordion item. */
     title?: string;
-    /** The content of the accordion item */
+    /** The content of the accordion item. */
     content?: string;
-    /** The value of the accordion item */
+    /** The value of the accordion item. */
     value: string;
-    /** Whether the accordion item is disabled */
+    /** Whether the accordion item is disabled. */
     disabled?: boolean;
-    /** The icon of the accordion item */
+    /** The icon of the accordion item. */
     icon?: string;
     [key: string]: any;
   }
@@ -55,22 +53,26 @@
   const forwarded = useForwardPropsEmits(reactiveOmit(props, "items"), emits);
 
   defineSlots<{
+    /** Default slot for the accordion. */
     default: (props: {
       items: AccordionItem[];
       modelValue: AcceptableValue | AcceptableValue[] | undefined;
     }) => any;
+    /** Slot for the accordion header. */
     header: (props: {
       items: AccordionItem[];
       item: AccordionItem;
       modelValue: AcceptableValue | AcceptableValue[] | undefined;
       open: boolean;
     }) => any;
+    /** Slot for the accordion trigger. */
     trigger: (props: {
       items: AccordionItem[];
       item: AccordionItem;
       modelValue: AcceptableValue | AcceptableValue[] | undefined;
       open: boolean;
     }) => any;
+    /** Slot for the accordion content. */
     content: (props: {
       items: AccordionItem[];
       item: AccordionItem;

@@ -20,13 +20,13 @@
 
   const props = defineProps<
     ToggleGroupItemProps & {
-      /** custom class to add to the toggle */
+      /** Custom class to add to the toggle. */
       class?: HTMLAttributes["class"];
-      /** icon to display */
+      /** Icon to display. */
       icon?: string;
-      /** variant of the toggle */
+      /** Variant of the toggle. */
       variant?: VariantProps<typeof toggleStyles>["variant"];
-      /** size of the toggle */
+      /** Size of the toggle. */
       size?: VariantProps<typeof toggleStyles>["size"];
     }
   >();

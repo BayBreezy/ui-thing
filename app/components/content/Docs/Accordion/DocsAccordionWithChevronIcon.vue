@@ -47,7 +47,7 @@
         </UiAccordionTrigger>
       </template>
       <template #content="{ item }">
-        <UiAccordionContent class="ps-7 text-muted-foreground">{{
+        <UiAccordionContent class="text-muted-foreground ps-7">{{
           item.content
         }}</UiAccordionContent>
       </template>

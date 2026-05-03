@@ -4,7 +4,7 @@ description: A tree view widget displays a hierarchical list of items that can b
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/tree.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/tree.html#api-reference
     icon: "icon-park-solid:api"
@@ -24,7 +24,7 @@ Click :SourceCodeLink{component="Tree"} to see the source code for this componen
 
 The `Tree` component can be styled to look like anything you want. For that reason, I decided to not style the tree component at all. Instead, I provide a basic example of how to use the tree component.
 
-::ShowCase
+::prose-show-case
 
 :DocsTree
 
@@ -35,7 +35,7 @@ The `Tree` component can be styled to look like anything you want. For that reas
 ```vue [DocsTree.vue]
 <template>
   <div class="flex justify-center">
-    <UiScrollArea class="max-h-[500px] w-[250px] rounded-md border bg-background">
+    <UiScrollArea class="bg-background max-h-[500px] w-[250px] rounded-md border">
       <UiTree
         v-slot="{ flattenItems }"
         :default-expanded="['app', 'server']"
@@ -49,7 +49,7 @@ The `Tree` component can be styled to look like anything you want. For that reas
             v-slot="{ isExpanded }"
             v-bind="item.bind"
             :style="{ 'padding-left': `${item.level - 0.5}rem` }"
-            class="flex cursor-pointer items-center gap-2 rounded px-2 py-1 text-sm font-medium focus-visible:ring-2 focus-visible:ring-border focus-visible:outline-none"
+            class="focus-visible:ring-border flex cursor-pointer items-center gap-2 rounded px-2 py-1 text-sm font-medium focus-visible:ring-2 focus-visible:outline-none"
           >
             <template v-if="item.hasChildren">
               <Icon v-if="isExpanded" :name="item.value.openIcon" class="size-3.5" />
@@ -284,7 +284,7 @@ We can render a large number of items using the `Virtualizer` component.
 
 Click on one of the items to see the details.
 
-::ShowCase
+::prose-show-case
 
 :DocsTreeVirtualizer
 
@@ -295,7 +295,7 @@ Click on one of the items to see the details.
 ```vue [DocsTreeVirtualizer.vue]
 <template>
   <div class="flex justify-center">
-    <UiScrollArea class="max-h-[500px] w-[300px] rounded-md border bg-background">
+    <UiScrollArea class="bg-background max-h-[500px] w-[300px] rounded-md border">
       <UiTree multiple :items="data" :get-key="(i) => i.email" class="p-2 pr-3">
         <p class="mb-3 font-semibold">Contact List</p>
         <UiTreeVirtualizer v-slot="{ item }" :text-content="(o) => o.email">
@@ -303,7 +303,7 @@ Click on one of the items to see the details.
             v-slot="{ isSelected }"
             v-bind="item.bind"
             :style="{ 'padding-left': item.level > 1 ? `${item.level * 8}px` : '0px' }"
-            class="group rounded px-2 py-1 text-sm focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none"
+            class="group focus-visible:ring-border rounded px-2 py-1 text-sm focus-visible:ring-1 focus-visible:outline-none"
           >
             <div
               class="line-clamp-1 flex w-full cursor-pointer items-center gap-2 px-2 select-none"
@@ -354,7 +354,7 @@ Click on one of the items to see the details.
 
 ### Origin UI
 
-::ShowCase
+::prose-show-case
 
 :DocsTreeOrigin
 
@@ -384,12 +384,12 @@ Click on one of the items to see the details.
           >
             <div
               :class="[isSelected ? 'bg-accent' : 'bg-background']"
-              class="flex items-center gap-1 rounded-sm px-2 py-1.5 text-sm transition-colors not-in-data-[folder=true]:ps-7 hover:bg-accent focus-visible:ring-[3px] focus-visible:ring-ring/50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
+              class="hover:bg-accent focus-visible:ring-ring/50 flex items-center gap-1 rounded-sm px-2 py-1.5 text-sm transition-colors not-in-data-[folder=true]:ps-7 focus-visible:ring-[3px] [&_svg]:pointer-events-none [&_svg]:shrink-0"
             >
               <template v-if="item.hasChildren">
                 <Icon
                   name="lucide:chevron-right"
-                  class="size-3.5 text-muted-foreground"
+                  class="text-muted-foreground size-3.5"
                   :class="[
                     isExpanded ? 'rotate-90' : '',
                     'transition-transform duration-200 ease-in-out',
@@ -422,12 +422,12 @@ Click on one of the items to see the details.
           >
             <div
               :class="[isSelected ? 'bg-accent' : 'bg-background']"
-              class="flex items-center gap-1 rounded-sm px-2 py-1.5 text-sm transition-colors not-in-data-[folder=true]:ps-7 hover:bg-accent focus-visible:ring-[3px] focus-visible:ring-ring/50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
+              class="hover:bg-accent focus-visible:ring-ring/50 flex items-center gap-1 rounded-sm px-2 py-1.5 text-sm transition-colors not-in-data-[folder=true]:ps-7 focus-visible:ring-[3px] [&_svg]:pointer-events-none [&_svg]:shrink-0"
             >
               <template v-if="item.hasChildren">
                 <Icon
                   name="lucide:chevron-right"
-                  class="size-3.5 text-muted-foreground"
+                  class="text-muted-foreground size-3.5"
                   :class="[
                     isExpanded ? 'rotate-90' : '',
                     'transition-transform duration-200 ease-in-out',
@@ -467,7 +467,7 @@ Click on one of the items to see the details.
           >
             <div
               :class="[isSelected ? 'bg-accent' : 'bg-background']"
-              class="flex items-center gap-1 rounded-sm px-2 py-1.5 text-sm transition-colors not-in-data-[folder=true]:ps-7 hover:bg-accent focus-visible:ring-[3px] focus-visible:ring-ring/50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
+              class="hover:bg-accent focus-visible:ring-ring/50 flex items-center gap-1 rounded-sm px-2 py-1.5 text-sm transition-colors not-in-data-[folder=true]:ps-7 focus-visible:ring-[3px] [&_svg]:pointer-events-none [&_svg]:shrink-0"
             >
               <template v-if="item.hasChildren">
                 <Icon v-if="isExpanded" class="text-muted-foreground" name="lucide:folder-open" />
@@ -481,7 +481,7 @@ Click on one of the items to see the details.
               <template v-if="item.hasChildren">
                 <Icon
                   name="lucide:chevron-right"
-                  class="ml-auto size-3.5 text-muted-foreground"
+                  class="text-muted-foreground ml-auto size-3.5"
                   :class="[
                     isExpanded ? 'rotate-90' : '',
                     'transition-transform duration-200 ease-in-out',

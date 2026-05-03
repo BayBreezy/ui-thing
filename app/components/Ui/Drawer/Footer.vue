@@ -20,9 +20,7 @@
   });
 
   export type DrawerHeaderProps = PrimitiveProps & {
-    /**
-     * Classes to add to the parent.
-     */
+    /** Classes to add to the parent. */
     class?: HTMLAttributes["class"];
   };
 </script>

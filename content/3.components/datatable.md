@@ -31,7 +31,7 @@ By default, the `Datatable` component has `@reference "~/assets/css/tailwind.css
 
 Take note of how the [`dom`](https://datatables.net/reference/option/dom) option is configured in the code. We use it to structure the layout of the table.
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableBasic
 
@@ -115,7 +115,7 @@ Take note of how the [`dom`](https://datatables.net/reference/option/dom) option
 
 With the new version of DataTables.net, you can now use custom Vue components in your table.
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableComponent
 
@@ -216,7 +216,7 @@ You can read more about it [here](https://datatables.net/reference/option/layout
 
 For this, you will actually need to add some custom classes for things to look how you want.
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableLayout
 
@@ -343,7 +343,7 @@ For this, you will actually need to add some custom classes for things to look h
 
 ### Simple
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableSimple
 
@@ -413,7 +413,7 @@ For this, you will actually need to add some custom classes for things to look h
 
 ### Image
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableImages
 
@@ -488,7 +488,7 @@ For this, you will actually need to add some custom classes for things to look h
         <UiAvatar :src="cellData.image" :alt="cellData.name" />
         <div>
           <div class="font-medium">{{ cellData.name }}</div>
-          <span class="text-xs text-muted-foreground">@{{ cellData.username }}</span>
+          <span class="text-muted-foreground text-xs">@{{ cellData.username }}</span>
         </div>
       </div>
     </template>
@@ -502,7 +502,7 @@ For this, you will actually need to add some custom classes for things to look h
 
 ### No Horizontal
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableNoHorizontal
 
@@ -579,7 +579,7 @@ For this, you will actually need to add some custom classes for things to look h
 
 ### Striped
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableStriped
 
@@ -643,19 +643,38 @@ For this, you will actually need to add some custom classes for things to look h
 </template>
 
 <style scoped>
-  @reference "~/assets/css/tailwind.css";
-
   :deep(table.dataTable td) {
     border-bottom-width: 0px;
     border-top-width: 0px;
   }
   :deep(table.dataTable tbody tr) {
-    @apply border-none odd:bg-muted/50 hover:bg-transparent odd:hover:bg-muted/50;
+    border-style: none;
+
+    &:nth-child(odd) {
+      background-color: color-mix(in oklab, var(--color-muted) 50%, transparent);
+    }
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    &:nth-child(odd):hover {
+      background-color: color-mix(in oklab, var(--color-muted) 50%, transparent);
+    }
   }
   :deep(table.dataTable tbody) {
-    @apply [&_td:first-child]:rounded-l-lg [&_td:last-child]:rounded-r-lg;
+    td:first-child {
+      border-top-left-radius: var(--radius-lg);
+      border-bottom-left-radius: var(--radius-lg);
+    }
+
+    td:last-child {
+      border-top-right-radius: var(--radius-lg);
+      border-bottom-right-radius: var(--radius-lg);
+    }
+
     tr {
-      @apply rounded-lg;
+      border-radius: var(--radius-lg);
     }
   }
 </style>
@@ -667,7 +686,7 @@ For this, you will actually need to add some custom classes for things to look h
 
 ### Vertical Lines
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableVerticalLines
 
@@ -731,10 +750,14 @@ For this, you will actually need to add some custom classes for things to look h
 </template>
 
 <style scoped>
-  @reference "~/assets/css/tailwind.css";
-
   :deep(.dataTable.cell-border tr th) {
-    @apply border-r first:border-l;
+    border-right-style: solid;
+    border-right-width: 1px;
+
+    &:first-child {
+      border-left-style: solid;
+      border-left-width: 1px;
+    }
   }
 </style>
 ```
@@ -745,7 +768,7 @@ For this, you will actually need to add some custom classes for things to look h
 
 ### Dense
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableDense
 
@@ -833,16 +856,14 @@ For this, you will actually need to add some custom classes for things to look h
 </script>
 
 <template>
-  <div class="overflow-hidden rounded-lg border border-border bg-background">
+  <div class="border-border bg-background overflow-hidden rounded-lg border">
     <UiDatatable class="nowrap compact hover" :data="programmingLanguages" :options />
   </div>
 </template>
 
 <style scoped>
-  @reference "~/assets/css/tailwind.css";
-
   :deep(.dataTable thead tr) {
-    @apply bg-muted/50;
+    background-color: color-mix(in oklab, var(--color-muted) 50%, transparent);
   }
 </style>
 ```
@@ -853,7 +874,7 @@ For this, you will actually need to add some custom classes for things to look h
 
 ### Row Selection
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableRowSelection
 
@@ -930,7 +951,7 @@ For this, you will actually need to add some custom classes for things to look h
 
 ### Card
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableCard
 
@@ -992,7 +1013,7 @@ For this, you will actually need to add some custom classes for things to look h
 </script>
 
 <template>
-  <div class="overflow-hidden rounded-lg border border-border bg-background">
+  <div class="border-border bg-background overflow-hidden rounded-lg border">
     <UiDatatable v-if="options" :data="data" :options />
     <div class="flex items-center justify-between border-t px-6 py-6 text-sm">
       <p>Total</p>
@@ -1010,7 +1031,7 @@ For this, you will actually need to add some custom classes for things to look h
 
 ### Scroll with Sticky Header
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableScrollY
 
@@ -1074,7 +1095,7 @@ For this, you will actually need to add some custom classes for things to look h
 </script>
 
 <template>
-  <div class="overflow-hidden rounded-lg border border-border bg-background">
+  <div class="border-border bg-background overflow-hidden rounded-lg border">
     <UiDatatable v-if="options" :data="data" :options />
     <div class="flex items-center justify-between border-t px-6 py-6 text-sm">
       <p>Total</p>
@@ -1100,7 +1121,7 @@ For this, you will actually need to add some custom classes for things to look h
 
 ### Badge & Icons
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableBadge
 
@@ -1185,7 +1206,7 @@ For this, you will actually need to add some custom classes for things to look h
 </script>
 
 <template>
-  <div class="overflow-hidden rounded-lg border border-border bg-background">
+  <div class="border-border bg-background overflow-hidden rounded-lg border">
     <UiDatatable v-if="options" :data="data" :options>
       <template #status="{ cellData }">
         <UiBadge :variant="cellData.status == 'Inactive' ? 'outline' : 'default'">{{
@@ -1209,10 +1230,10 @@ For this, you will actually need to add some custom classes for things to look h
 </template>
 
 <style scoped>
-  @reference "~/assets/css/tailwind.css";
-
   :deep(.dt-scroll-body table thead tr) {
-    @apply first:hidden;
+    &:first-child {
+      display: none;
+    }
   }
 </style>
 ```
@@ -1223,7 +1244,7 @@ For this, you will actually need to add some custom classes for things to look h
 
 ### Search & Sort
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableSearchSort
 
@@ -1374,7 +1395,7 @@ For this, you will actually need to add some custom classes for things to look h
 
 ### Fixed Columns
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableFixedColumn
 
@@ -1502,7 +1523,7 @@ import "datatables.net-colreorder-dt";
 import "datatables.net-colreorder-dt/css/colReorder.dataTables.css";
 ```
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatableColumnReOrder
 
@@ -1565,7 +1586,7 @@ import "datatables.net-colreorder-dt/css/colReorder.dataTables.css";
   <div>
     <div>
       <h3 class="text-lg font-semibold">Column Reorder</h3>
-      <p class="mb-2 text-sm text-muted-foreground">
+      <p class="text-muted-foreground mb-2 text-sm">
         You can reorder the columns by dragging and dropping the column header.
       </p>
       <div class="mb-4 flex gap-2">
@@ -1591,17 +1612,19 @@ import "datatables.net-colreorder-dt/css/colReorder.dataTables.css";
 </template>
 
 <style scoped>
-  @reference "~/assets/css/tailwind.css";
-
   :deep(.dataTable) {
     .dtcr-moving-first {
-      @apply border-l border-primary;
+      border-left-style: var(--tw-border-style);
+      border-left-width: 1px;
+      border-color: var(--color-primary);
     }
     .dtcr-moving-last {
-      @apply border-r border-primary;
+      border-right-style: var(--tw-border-style);
+      border-right-width: 1px;
+      border-color: var(--color-primary);
     }
     thead > tr {
-      @apply bg-muted/50;
+      background-color: color-mix(in oklab, var(--color-muted) 50%, transparent);
     }
   }
 </style>
@@ -1613,7 +1636,7 @@ import "datatables.net-colreorder-dt/css/colReorder.dataTables.css";
 
 ### Pagination
 
-::ShowCase
+::prose-show-case
 
 :DocsDatatablePagination
 

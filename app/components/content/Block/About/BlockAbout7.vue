@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Leadership Team</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         Meet the visionaries driving our company forward
       </p>
     </div>
@@ -17,8 +17,8 @@
           <UiAvatar :src="leader.image" :alt="leader.name" class="size-24 shrink-0 sm:size-32" />
           <div class="flex-1">
             <h3 class="text-xl font-semibold">{{ leader.name }}</h3>
-            <p class="text-sm text-primary">{{ leader.role }}</p>
-            <p class="mt-3 text-sm text-muted-foreground">{{ leader.bio }}</p>
+            <p class="text-primary text-sm">{{ leader.role }}</p>
+            <p class="text-muted-foreground mt-3 text-sm">{{ leader.bio }}</p>
             <div class="mt-4 flex flex-wrap gap-2">
               <UiBadge v-for="skill in leader.expertise" :key="skill" variant="secondary">
                 {{ skill }}
@@ -29,7 +29,7 @@
                 v-for="social in leader.socials"
                 :key="social.platform"
                 :href="social.url"
-                class="text-muted-foreground transition-colors hover:text-foreground"
+                class="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Icon :name="social.icon" class="size-5" />
               </a>

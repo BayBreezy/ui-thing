@@ -14,7 +14,7 @@
             />
             <span class="text-xl font-semibold">{{ COMPANY_NAME }}</span>
           </NuxtLink>
-          <p class="mb-6 max-w-md text-muted-foreground">
+          <p class="text-muted-foreground mb-6 max-w-md">
             Building exceptional digital products that help businesses grow and succeed in the
             modern world.
           </p>
@@ -22,7 +22,7 @@
             <NuxtLink
               v-for="item in ['About', 'Features', 'Pricing', 'Blog', 'Contact', 'Careers']"
               :key="item"
-              class="text-sm font-medium transition-colors hover:text-primary"
+              class="hover:text-primary text-sm font-medium transition-colors"
               to="#"
             >
               {{ item }}
@@ -37,44 +37,44 @@
             <div class="flex gap-3">
               <NuxtLink
                 to="#"
-                class="flex size-9 items-center justify-center rounded-md border transition-colors hover:border-primary hover:bg-primary/5"
+                class="hover:border-primary hover:bg-primary/5 flex size-9 items-center justify-center rounded-md border transition-colors"
               >
                 <Icon name="logos:facebook" class="size-4" />
               </NuxtLink>
               <NuxtLink
                 to="#"
-                class="flex size-9 items-center justify-center rounded-md border transition-colors hover:border-primary hover:bg-primary/5"
+                class="hover:border-primary hover:bg-primary/5 flex size-9 items-center justify-center rounded-md border transition-colors"
               >
                 <Icon name="logos:twitter" class="size-4" />
               </NuxtLink>
               <NuxtLink
                 to="#"
-                class="flex size-9 items-center justify-center rounded-md border transition-colors hover:border-primary hover:bg-primary/5"
+                class="hover:border-primary hover:bg-primary/5 flex size-9 items-center justify-center rounded-md border transition-colors"
               >
                 <Icon name="logos:linkedin-icon" class="size-4" />
               </NuxtLink>
               <NuxtLink
                 to="#"
-                class="flex size-9 items-center justify-center rounded-md border transition-colors hover:border-primary hover:bg-primary/5"
+                class="hover:border-primary hover:bg-primary/5 flex size-9 items-center justify-center rounded-md border transition-colors"
               >
                 <Icon name="ri:instagram-fill" class="size-4" />
               </NuxtLink>
             </div>
           </div>
-          <div class="mt-6 flex flex-wrap gap-4 text-sm text-muted-foreground lg:mt-0">
-            <NuxtLink to="#" class="transition-colors hover:text-primary">Privacy Policy</NuxtLink>
+          <div class="text-muted-foreground mt-6 flex flex-wrap gap-4 text-sm lg:mt-0">
+            <NuxtLink to="#" class="hover:text-primary transition-colors">Privacy Policy</NuxtLink>
             <span>•</span>
-            <NuxtLink to="#" class="transition-colors hover:text-primary"
+            <NuxtLink to="#" class="hover:text-primary transition-colors"
               >Terms of Service</NuxtLink
             >
             <span>•</span>
-            <NuxtLink to="#" class="transition-colors hover:text-primary">Cookies</NuxtLink>
+            <NuxtLink to="#" class="hover:text-primary transition-colors">Cookies</NuxtLink>
           </div>
         </div>
       </div>
 
       <div class="mt-8 border-t pt-6 lg:mt-12">
-        <p class="text-center text-sm text-muted-foreground lg:text-left">
+        <p class="text-muted-foreground text-center text-sm lg:text-left">
           &copy; {{ new Date().getFullYear() }} {{ COMPANY_NAME }}. All rights reserved.
         </p>
       </div>

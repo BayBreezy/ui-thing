@@ -6,7 +6,7 @@
   >
     <slot
       >{{ label }}
-      <span class="ml-auto font-normal text-muted-foreground/80">{{ hint }}</span></slot
+      <span class="text-muted-foreground/80 ml-auto font-normal">{{ hint }}</span></slot
     >
   </Label>
 </template>
@@ -25,7 +25,7 @@
   const { error, formItemId } = useFormField();
 
   const styles = tv({
-    base: "flex w-full items-center justify-between text-left text-sm font-medium tracking-tight text-foreground hover:cursor-pointer",
+    base: "text-foreground flex w-full items-center justify-between text-left text-sm font-medium tracking-tight hover:cursor-pointer",
     variants: {
       error: {
         true: "text-destructive",

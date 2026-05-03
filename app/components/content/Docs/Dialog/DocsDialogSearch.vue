@@ -3,10 +3,10 @@
     <UiButton class="w-full" variant="outline" @click="dialog = !dialog">
       <Icon
         name="lucide:search"
-        class="size-4 shrink-0 text-muted-foreground/80"
+        class="text-muted-foreground/80 size-4 shrink-0"
         aria-hidden="true"
       />
-      <span class="font-normal text-muted-foreground/70">Search</span>
+      <span class="text-muted-foreground/70 font-normal">Search</span>
 
       <UiKbd class="ml-auto"> ⌘+Shift+K </UiKbd>
     </UiButton>

@@ -18,7 +18,7 @@
         </div>
         <!-- Separator -->
         <UiDivider>
-          <span class="text-xs text-muted-foreground uppercase">or continue with</span>
+          <span class="text-muted-foreground text-xs uppercase">or continue with</span>
         </UiDivider>
         <!-- Form -->
         <UiVeeInput

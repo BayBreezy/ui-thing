@@ -4,7 +4,7 @@ description: A control that allows the user to toggle between checked and not ch
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/checkbox.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/checkbox.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsCheckbox
 
@@ -46,7 +46,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
       <UiCheckbox id="terms1" v-model="terms1" />
       <div class="mt-0.5 grid gap-1.5 leading-none">
         <UiLabel for="terms1"> Accept terms and conditions </UiLabel>
-        <p class="text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-sm">
           You agree to our Terms of Service and Privacy Policy.
         </p>
       </div>
@@ -66,7 +66,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
 
 ### Default
 
-::ShowCase
+::prose-show-case
 
 :DocsCheckboxDefaultValues
 
@@ -81,7 +81,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
       <UiCheckbox id="default-value" default-value="indeterminate" />
       <div class="mt-0.5 grid gap-1.5 leading-none">
         <UiLabel for="default-value"> Waiting...</UiLabel>
-        <p class="text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-sm">
           This checkbox will be in the indeterminate state by default.
         </p>
       </div>
@@ -96,7 +96,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
 
 ### Shadcn
 
-::ShowCase
+::prose-show-case
 
 :DocsCheckboxShadcn
 
@@ -116,7 +116,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
         <UiCheckbox id="terms-2" default-value />
         <div class="grid gap-2">
           <UiLabel for="terms-2">Accept terms and conditions</UiLabel>
-          <p class="text-sm text-muted-foreground">
+          <p class="text-muted-foreground text-sm">
             By clicking this checkbox, you agree to the terms and conditions.
           </p>
         </div>
@@ -126,7 +126,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
         <UiLabel for="toggle">Enable notifications</UiLabel>
       </div>
       <UiLabel
-        class="flex items-start justify-start gap-3 rounded-lg border p-3 hover:bg-accent/50 has-[[aria-checked=true]]:border-blue-600 has-[[aria-checked=true]]:bg-blue-50 dark:has-[[aria-checked=true]]:border-blue-900 dark:has-[[aria-checked=true]]:bg-blue-950"
+        class="hover:bg-accent/50 flex items-start justify-start gap-3 rounded-lg border p-3 has-[[aria-checked=true]]:border-blue-600 has-[[aria-checked=true]]:bg-blue-50 dark:has-[[aria-checked=true]]:border-blue-900 dark:has-[[aria-checked=true]]:bg-blue-950"
       >
         <UiCheckbox
           id="toggle-2"
@@ -135,7 +135,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
         />
         <div class="grid gap-1.5 font-normal">
           <p class="text-sm leading-none font-medium">Enable notifications</p>
-          <p class="text-sm text-muted-foreground">
+          <p class="text-muted-foreground text-sm">
             You can enable or disable notifications at any time.
           </p>
         </div>
@@ -155,7 +155,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
 
 ### Simple
 
-::ShowCase
+::prose-show-case
 
 :DocsCheckboxOriginSimple
 
@@ -184,7 +184,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
 
 ### Indeterminate
 
-::ShowCase
+::prose-show-case
 
 :DocsCheckboxOriginIndeterminate
 
@@ -213,7 +213,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
 
 ### Colored
 
-::ShowCase
+::prose-show-case
 
 :DocsCheckboxOriginColored
 
@@ -244,7 +244,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
 
 ### Disabled
 
-::ShowCase
+::prose-show-case
 
 :DocsCheckboxOriginDisabled
 
@@ -273,7 +273,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
 
 ### Line Through
 
-::ShowCase
+::prose-show-case
 
 :DocsCheckboxOriginLineThrough
 
@@ -302,7 +302,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
 
 ### Fancy Todo
 
-::ShowCase
+::prose-show-case
 
 :DocsCheckboxOriginFancyTodo
 
@@ -317,7 +317,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
       <UiCheckbox :id class="rounded-full" default-value />
       <UiLabel
         :for="id"
-        class="relative peer-data-[state=checked]:text-muted-foreground after:absolute after:top-1/2 after:left-0 after:h-px after:w-full after:origin-bottom after:-translate-y-1/2 after:scale-x-0 after:bg-muted-foreground after:transition-transform after:duration-500 after:ease-in-out peer-data-[state=checked]:after:origin-bottom peer-data-[state=checked]:after:scale-x-100"
+        class="peer-data-[state=checked]:text-muted-foreground after:bg-muted-foreground relative after:absolute after:top-1/2 after:left-0 after:h-px after:w-full after:origin-bottom after:-translate-y-1/2 after:scale-x-0 after:transition-transform after:duration-500 after:ease-in-out peer-data-[state=checked]:after:origin-bottom peer-data-[state=checked]:after:scale-x-100"
       >
         Fancy todo item
       </UiLabel>
@@ -336,7 +336,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
 
 ### Frameworks (Group Checkbox)
 
-::ShowCase
+::prose-show-case
 
 :DocsCheckboxOriginGroupFrameworks
 
@@ -385,7 +385,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
 
 ### Frameworks (Group Checkbox - Vertical)
 
-::ShowCase
+::prose-show-case
 
 :DocsCheckboxOriginGroupVertical
 
@@ -434,7 +434,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
 
 ### Checkbox with Description
 
-::ShowCase
+::prose-show-case
 
 :DocsCheckboxOriginDescription
 
@@ -449,7 +449,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
       <UiCheckbox :id="id" :aria-describedby="`${id}-description`" />
       <div class="grid grow gap-2">
         <UiLabel :for="id" hint="(Sublabel)" class="justify-start"> Label </UiLabel>
-        <p :id="`${id}-description`" class="text-xs text-muted-foreground">
+        <p :id="`${id}-description`" class="text-muted-foreground text-xs">
           You can use this checkbox with a label and a description.
         </p>
       </div>
@@ -459,14 +459,14 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
       <UiCheckbox :id="id2" :aria-describedby="`${id2}-description`" class="order-1" />
       <div class="grid grow gap-2">
         <UiLabel :for="id2" hint="(Sublabel)" class="justify-start"> Label </UiLabel>
-        <p :id="`${id2}-description`" class="text-xs text-muted-foreground">
+        <p :id="`${id2}-description`" class="text-muted-foreground text-xs">
           You can use this checkbox with a label and a description.
         </p>
       </div>
     </div>
 
     <div
-      class="relative flex w-full items-start gap-2 rounded-md border border-input p-4 shadow-xs outline-none has-data-[state=checked]:border-primary/50"
+      class="border-input has-data-[state=checked]:border-primary/50 relative flex w-full items-start gap-2 rounded-md border p-4 shadow-xs outline-none"
     >
       <UiCheckbox
         :id="id3"
@@ -475,14 +475,14 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
       />
       <div class="grid grow gap-2">
         <UiLabel :for="id3" hint="(Sublabel)" class="justify-start"> Label </UiLabel>
-        <p :id="`${id3}-description`" class="text-xs text-muted-foreground">
+        <p :id="`${id3}-description`" class="text-muted-foreground text-xs">
           A short description goes here
         </p>
       </div>
     </div>
 
     <div
-      class="relative flex w-full items-start gap-2 rounded-md border border-input p-4 shadow-xs outline-none has-data-[state=checked]:border-primary/50"
+      class="border-input has-data-[state=checked]:border-primary/50 relative flex w-full items-start gap-2 rounded-md border p-4 shadow-xs outline-none"
     >
       <UiCheckbox
         :id="id4"
@@ -493,7 +493,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
         <Icon name="logos:mastercard" class="size-6" />
         <div class="grid gap-2">
           <UiLabel :for="id4" hint="(Sublabel)" class="justify-start"> Label </UiLabel>
-          <p :id="`${id4}-description`" class="text-xs text-muted-foreground">
+          <p :id="`${id4}-description`" class="text-muted-foreground text-xs">
             A short description goes here.
           </p>
         </div>
@@ -516,7 +516,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
 
 ### Selections
 
-::ShowCase
+::prose-show-case
 
 :DocsCheckboxOriginOptions
 
@@ -532,7 +532,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
       <div
         v-for="item in options"
         :key="`${id}-${item.value}`"
-        class="relative flex cursor-pointer flex-col gap-4 rounded-md border border-input p-4 shadow-xs outline-none has-data-[state=checked]:border-primary/50"
+        class="border-input has-data-[state=checked]:border-primary/50 relative flex cursor-pointer flex-col gap-4 rounded-md border p-4 shadow-xs outline-none"
       >
         <div class="flex justify-between gap-2">
           <UiCheckbox
@@ -547,12 +547,12 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
     </UiCheckboxGroup>
 
     <fieldset class="space-y-4">
-      <legend class="text-sm leading-none font-medium text-foreground">Days of the week</legend>
+      <legend class="text-foreground text-sm leading-none font-medium">Days of the week</legend>
       <UiCheckboxGroup v-model="selectedDays" class="flex gap-1.5">
         <label
           v-for="item in items"
           :key="`${id}-${item.value}`"
-          class="relative flex size-9 cursor-pointer flex-col items-center justify-center gap-3 rounded-full border border-input text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:border-ring has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50 has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-[state=checked]:border-primary has-data-[state=checked]:bg-primary has-data-[state=checked]:text-primary-foreground"
+          class="border-input has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-data-[state=checked]:border-primary has-data-[state=checked]:bg-primary has-data-[state=checked]:text-primary-foreground relative flex size-9 cursor-pointer flex-col items-center justify-center gap-3 rounded-full border text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50"
         >
           <UiCheckbox
             :id="`${id}-${item.value}`"
@@ -567,7 +567,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
     </fieldset>
 
     <div class="space-y-4">
-      <legend class="text-sm leading-none font-medium text-foreground">
+      <legend class="text-foreground text-sm leading-none font-medium">
         Dark mode toggle checkbox
       </legend>
       <div class="flex flex-col justify-center">
@@ -580,7 +580,7 @@ Click :SourceCodeLink{component="Checkbox"} to see the source code for this comp
           @change="colorMode.preference = colorMode.value == 'dark' ? 'light' : 'dark'"
         />
         <label
-          class="group relative inline-flex size-9 cursor-pointer items-center justify-center rounded-md border border-input bg-background text-foreground shadow-xs transition-[color,box-shadow] outline-none peer-focus-visible:border-ring peer-focus-visible:ring-[3px] peer-focus-visible:ring-ring/50 hover:bg-accent hover:text-accent-foreground"
+          class="group border-input bg-background text-foreground peer-focus-visible:border-ring peer-focus-visible:ring-ring/50 hover:bg-accent hover:text-accent-foreground relative inline-flex size-9 cursor-pointer items-center justify-center rounded-md border shadow-xs transition-[color,box-shadow] outline-none peer-focus-visible:ring-[3px]"
           :for="darkModeId"
           :aria-label="`Switch to ${colorMode.value === 'dark' ? 'light' : 'dark'} mode`"
         >

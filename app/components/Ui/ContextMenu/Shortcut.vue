@@ -17,14 +17,12 @@
 
   const props = defineProps<
     PrimitiveProps & {
-      /**
-       * The custom class(es) to add to the element
-       */
+      /** The custom class(es) to add to the element. */
       class?: HTMLAttributes["class"];
     }
   >();
 
   const styles = tv({
-    base: "ml-auto text-xs tracking-widest text-muted-foreground",
+    base: "text-muted-foreground ml-auto text-xs tracking-widest",
   });
 </script>

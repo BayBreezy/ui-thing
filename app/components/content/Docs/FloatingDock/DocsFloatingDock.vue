@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative min-h-[280px] rounded-3xl border bg-linear-to-br from-background to-muted/30"
+    class="from-background to-muted/30 relative min-h-[280px] rounded-3xl border bg-linear-to-br"
   >
     <UiFloatingDock
       :items="items"

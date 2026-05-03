@@ -2,7 +2,7 @@
   <div class="flex h-screen items-center justify-center">
     <div class="w-full max-w-[360px] px-5">
       <svg
-        class="my-6 h-8 fill-primary"
+        class="fill-primary my-6 h-8"
         viewBox="0 0 53 44"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +14,7 @@
       </svg>
 
       <h1 class="text-2xl font-bold tracking-tight lg:text-3xl">Log in</h1>
-      <p class="mt-1 text-muted-foreground">Enter your email & password to log in.</p>
+      <p class="text-muted-foreground mt-1">Enter your email & password to log in.</p>
 
       <form class="mt-10" @submit="submit">
         <fieldset :disabled="isSubmitting" class="grid gap-5">
@@ -22,7 +22,7 @@
           <UiVeeInput label="Password" type="password" name="password" />
           <div class="flex items-start justify-between">
             <UiVeeCheckbox label="Remember me" name="remember" />
-            <NuxtLink class="text-sm font-medium text-primary underline underline-offset-2" to="#"
+            <NuxtLink class="text-primary text-sm font-medium underline underline-offset-2" to="#"
               >Forgot password?</NuxtLink
             >
           </div>
@@ -30,9 +30,9 @@
         </fieldset>
       </form>
 
-      <p class="mt-6 text-sm text-muted-foreground">
+      <p class="text-muted-foreground mt-6 text-sm">
         Don't have an account?
-        <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#"
+        <NuxtLink class="text-primary font-semibold underline-offset-2 hover:underline" to="#"
           >Create account</NuxtLink
         >
       </p>

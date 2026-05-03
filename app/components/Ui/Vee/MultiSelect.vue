@@ -38,7 +38,7 @@
         exit="initial"
         animate="animate"
         :transition="{ type: 'keyframes' }"
-        class="mt-1.5 text-sm text-muted-foreground"
+        class="text-muted-foreground mt-1.5 text-sm"
       >
         {{ hint }}
       </motion.p>
@@ -50,7 +50,7 @@
         exit="initial"
         animate="animate"
         :transition="{ type: 'keyframes' }"
-        class="mt-1.5 text-sm text-destructive"
+        class="text-destructive mt-1.5 text-sm"
       >
         {{ errorMessage }}
       </motion.p>
@@ -69,91 +69,62 @@
   type OptionItem = OptionValue | Record<string, any>;
 
   export interface MultiselectInstance {
-    /**
-     * Opens the options dropdown.
-     */
+    /** Opens the options dropdown. */
     open(): void;
 
-    /**
-     * Closes the options dropdown.
-     */
+    /** Closes the options dropdown. */
     close(): void;
 
-    /**
-     * Selects a given option by object.
-     */
+    /** Selects a given option by object. */
     select(option: any): void;
 
-    /**
-     * Deselects a given option by object.
-     */
+    /** Deselects a given option by object. */
     deselect(option: any): void;
 
-    /**
-     * Alias for `deselect`.
-     */
+    /** Alias for `deselect`. */
     remove(option: any): void;
 
-    /**
-     * Selects all options (if using `multiple` or `tags` mode).
-     */
+    /** Selects all options (if using `multiple` or `tags` mode). */
     selectAll(): void;
 
-    /**
-     * Deselects all selected options.
-     */
+    /** Deselects all selected options. */
     clear(): void;
 
-    /**
-     * Clears the current search input.
-     */
+    /** Clears the current search input. */
     clearSearch(): void;
 
     /**
      * Refreshes async options list.
-     * @param callback Function to call after refreshing
+     *
+     * @param callback Function to call after refreshing.
      */
     refreshOptions(callback?: () => void): void;
 
-    /**
-     * Sets the active pointer to a specific option.
-     */
+    /** Sets the active pointer to a specific option. */
     setPointer(option: any): void;
   }
 
   export type MultiselectSlots = {
-    /**
-     * Rendered as placeholder when no value is selected
-     * and the `placeholder` prop is defined.
-     */
+    /** Rendered as placeholder when no value is selected and the `placeholder` prop is defined. */
     placeholder(): any;
 
-    /**
-     * Rendered before the options list.
-     */
+    /** Rendered before the options list. */
     beforelist(): any;
 
-    /**
-     * Rendered after the options list.
-     */
+    /** Rendered after the options list. */
     afterlist(): any;
 
     /**
      * Rendered when using `multiple` mode and options are selected.
+     *
      * @param values The selected values array.
      */
     multiplelabel(props: { values: any[] }): any;
 
-    /**
-     * Rendered when the options list is empty.
-     * Defaults to `noOptionsText`.
-     */
+    /** Rendered when the options list is empty. Defaults to `noOptionsText`. */
     nooptions(): any;
 
-    /**
-     * Rendered when search yields no matching results.
-     * Defaults to `noResultsText`.
-     */
+    /** Rendered when search yields no matching results. Defaults to `noResultsText`. */
     noresults(): any;
 
     /**
@@ -186,6 +157,7 @@
 
     /**
      * Renders the label in single-select mode.
+     *
      * @param value The selected option object.
      */
     singlelabel(props: { value: any }): any;
@@ -214,14 +186,10 @@
      */
     clear(props: { clear: () => void }): any;
 
-    /**
-     * Renders a loader icon during async fetching.
-     */
+    /** Renders a loader icon during async fetching. */
     spinner(): any;
 
-    /**
-     * Renders a loader icon during infinite scroll loading.
-     */
+    /** Renders a loader icon during infinite scroll loading. */
     infinite(): any;
   };
 
@@ -278,10 +246,9 @@
     /**
      * Emitted when a new tag is being created by pressing Enter.
      *
+     * @deprecated since v2.3.0 - Use `@create` instead.
      * @param query - The search input that triggered tag creation.
      * @param select$ - The Multiselect component instance.
-     *
-     * @deprecated since v2.3.0 - Use `@create` instead.
      */
 
     tag: [query: string, select$: MultiselectInstance];
@@ -289,10 +256,9 @@
     /**
      * Emitted when a new option is being created by pressing Enter.
      *
+     * @deprecated since v2.6.0 - Use `@create` instead.
      * @param query - The search input that triggered option creation.
      * @param select$ - The Multiselect component instance.
-     *
-     * @deprecated since v2.6.0 - Use `@create` instead.
      */
 
     option: [query: string, select$: MultiselectInstance];
@@ -340,8 +306,7 @@
     keyup: [event: KeyboardEvent, select$: MultiselectInstance];
 
     /**
-     * Emitted when the maximum number of selected options is reached
-     * in `multiple` or `tags` mode.
+     * Emitted when the maximum number of selected options is reached in `multiple` or `tags` mode.
      *
      * @param select$ - The Multiselect component instance.
      */
@@ -354,15 +319,11 @@
      * @param select$ - The Multiselect component instance.
      */
     ready: [select$?: MultiselectInstance];
-    /**
-     * Emitted when the model value changes.
-     */
+    /** Emitted when the model value changes. */
     "update:modelValue": [value: T | T[]];
   }
 
-  /**
-   * Multiselect component class names used for styling and customization.
-   */
+  /** Multiselect component class names used for styling and customization. */
   export type MultiselectClasses = {
     container: string;
     containerDisabled: string;
@@ -419,17 +380,16 @@
     spacer: string;
   };
 
-  /**
-   * Advanced props for the @vueform/multiselect component.
-   */
+  /** Advanced props for the @vueform/multiselect component. */
   export interface MultiselectAdvancedProps {
     /**
-     * Whether values not present in the options list should be allowed.
-     * Useful when using async options and string values where label and value are the same.
+     * Whether values not present in the options list should be allowed. Useful when using async
+     * options and string values where label and value are the same.
+     *
+     * @example
+     *   allowAbsent: true;
      *
      * @default false
-     * @example
-     * allowAbsent: true
      */
     allowAbsent?: boolean;
 
@@ -455,8 +415,8 @@
     clearOnSearch?: boolean;
 
     /**
-     * Whether to clear the option list after selecting an option.
-     * Primarily useful for async loading.
+     * Whether to clear the option list after selecting an option. Primarily useful for async
+     * loading.
      *
      * @default true
      */
@@ -484,8 +444,8 @@
     clearOnBlur?: boolean;
 
     /**
-     * Delay in milliseconds between the last typed character and the refresh of the async option list.
-     * Use -1 to disable automatic refresh, 0 for no delay.
+     * Delay in milliseconds between the last typed character and the refresh of the async option
+     * list. Use -1 to disable automatic refresh, 0 for no delay.
      *
      * @default -1
      */
@@ -528,36 +488,33 @@
     /**
      * Whether new tags should be automatically appended to the option list when using `tags` mode.
      *
-     * @default true
-     *
      * @deprecated since v2.3.0 - use `appendNewOption` instead.
+     * @default true
      */
     appendNewTag?: boolean;
 
     /**
      * Whether new tags should be creatable based on the search query when using `tags` mode.
      *
-     * @default false
-     *
      * @deprecated since v2.3.0 - use `createOption` instead.
+     * @default false
      */
     createTag?: boolean;
 
     /**
-     *
      * Keys that trigger tag creation in `tags` mode with `createTag` enabled.
      *
-     * @default ['enter']
-     *
-     * @example
-     * addTagOn: ['enter', 'comma']
-     *
      * @deprecated since v2.3.0 - use `addOptionOn` instead.
+     * @example
+     *   addTagOn: ["enter", "comma"];
+     *
+     * @default ["enter"]
      */
     addTagOn?: Array<"enter" | "space" | "tab" | ";" | ",">;
 
     /**
-     * Whether new options should be automatically added to the list when `searchable` and `createOption` are enabled.
+     * Whether new options should be automatically added to the list when `searchable` and
+     * `createOption` are enabled.
      *
      * @default true
      */
@@ -575,7 +532,7 @@
     /**
      * Keys that trigger the creation of a new option when `createOption` is enabled.
      *
-     * @default ['enter']
+     * @default ["enter"]
      */
     addOptionOn?: Array<"enter" | "space" | "tab" | ";" | ",">;
 
@@ -584,19 +541,19 @@
      *
      * Return false to cancel creation and handle it manually.
      *
+     * @example
+     *   onCreate(option, select$) {
+     *   return {
+     *   value: option.label.toLowerCase(),
+     *   label: option.label,
+     *   trackBy: 'value'
+     *   }
+     *   }
+     *
      * @param option - The original object to be added (`{ value, label }`)
-     * @param select$ - The Multiselect component instance
+     * @param select$ - The Multiselect component instance.
      *
      * @returns A transformed object with required keys or `false` to cancel.
-     *
-     * @example
-     * onCreate(option, select$) {
-     *   return {
-     *     value: option.label.toLowerCase(),
-     *     label: option.label,
-     *     trackBy: 'value'
-     *   }
-     * }
      */
     onCreate?: (option: any, select$: MultiselectInstance) => any | false;
 
@@ -621,22 +578,23 @@
     /**
      * Whether to treat `value` as a complex object.
      *
-     * @default false
-     *
      * @example
-     * object: true // Value will be an array of objects: [{ value, label }]
+     *   object: true; // Value will be an array of objects: [{ value, label }]
+     *
+     * @default false
      */
     object?: boolean;
 
     /**
      * Additional HTML attributes to pass to the native search `input` element.
      *
-     * @default {}
      * @example
-     * attrs: {
+     *   attrs: {
      *   'aria-label': 'Search options',
      *   'data-custom': 'value'
-     * }
+     *   }
+     *
+     * @default {}
      */
     attrs?: Record<string, any>;
 
@@ -652,19 +610,26 @@
     /**
      * Determines the selection mode.
      *
-     * @default 'single'
-     * @example 'multiple'
+     * @example
+     *   "multiple";
+     *
+     * @default "single"
      */
     mode?: "single" | "multiple" | "tags";
 
     /**
-     * The list of selectable options.
-     * Can be an array, object, or async function.
+     * The list of selectable options. Can be an array, object, or async function.
      *
-     * @default []
-     * @example ['Apple', 'Banana']
-     * @example { a: 1, b: 2 }
-     * @example (query, instance) => Promise.resolve([{ value: 1, label: 'One' }])
+     * @example
+     *   ["Apple", "Banana"];
+     *
+     * @example
+     *   { a: 1, b: 2 }
+     *
+     * @example
+     *   (query, instance) => Promise.resolve([{ value: 1, label: "One" }]);
+     *
+     * @default [ ]
      */
     options?:
       | OptionItem[]
@@ -674,43 +639,40 @@
     /**
      * Whether the options should be grouped.
      *
-     * @default false
-     * 
      * @example
-     * ```js
-     * const options = [
-        {
-          label: "DC",
-          options: ["Batman", "Robin", "Joker"],
-        },
-        {
-          label: "Marvel",
-          options: ["Spider-man", "Iron Man", "Captain America"],
-        },
-      ];
-      * ```
+     *   ```js
+     *   const options = [
+     *     {
+     *       label: "DC",
+     *       options: ["Batman", "Robin", "Joker"],
+     *     },
+     *     {
+     *       label: "Marvel",
+     *       options: ["Spider-man", "Iron Man", "Captain America"],
+     *     },
+     *   ];
+     *   ```;
+     *
+     * @default false
      */
     groups?: boolean;
 
     /**
-     * Property name for group label.
-     * Used when `groups` is true.
+     * Property name for group label. Used when `groups` is true.
      *
-     * @default 'label'
+     * @default "label"
      */
     groupLabel?: string;
 
     /**
-     * Property name for group options.
-     * Used when `groups` is true.
+     * Property name for group options. Used when `groups` is true.
      *
-     * @default 'options'
+     * @default "options"
      */
     groupOptions?: string;
 
     /**
-     * Whether group headers can be selected.
-     * Only applies to `multiple` or `tags` mode.
+     * Whether group headers can be selected. Only applies to `multiple` or `tags` mode.
      *
      * @default true
      */
@@ -749,7 +711,8 @@
     /**
      * Append dropdown to a custom element using query selector.
      *
-     * @example '#my-container'
+     * @example
+     *   "#my-container";
      */
     appendTo?: string;
 
@@ -770,40 +733,43 @@
     /**
      * Property used for the value in object-based options.
      *
-     * @default 'value'
-     *
-     * @example 'id'
+     * @example
+     *   "id";
      *
      * @example
-     * 
-     * ```js
-     const options = [
-        { id: 1, label: 'Apple' },
-        { id: 2, label: 'Banana' },
-      ];
-      ```
+     *   ```js
+     *   const options = [
+     *     { id: 1, label: "Apple" },
+     *     { id: 2, label: "Banana" },
+     *   ];
+     *   ```;
+     *
+     * @default "value"
      */
     valueProp?: string;
 
     /**
      * Property or list of properties to use for searching.
      *
-     * @example 'name'
-     * @example ['name', 'email']
+     * @example
+     *   "name";
+     *
+     * @example
+     *   ["name", "email"];
      */
     trackBy?: string | string[];
 
     /**
      * Property used for displaying the label.
      *
-     * @default 'label'
+     * @default "label"
      */
     label?: string;
 
     /**
      * Property used to mark options as disabled.
      *
-     * @default 'disabled'
+     * @default "disabled"
      */
     disabledProp?: string;
 
@@ -817,7 +783,8 @@
     /**
      * Custom label renderer for multiple selected options.
      *
-     * @example (value, select$) => `${value.length} selected`
+     * @example
+     *   (value, select$) => `${value.length} selected`;
      */
     multipleLabel?: (value: OptionValue[], select$: MultiselectInstance) => string;
 
@@ -831,13 +798,11 @@
     /**
      * `type` attribute for the search input.
      *
-     * @default 'text'
+     * @default "text"
      */
     inputType?: string;
 
-    /**
-     * `autocomplete` attribute for the search input.
-     */
+    /** `autocomplete` attribute for the search input. */
     autocomplete?: string;
 
     /**
@@ -848,8 +813,7 @@
     rtl?: boolean;
 
     /**
-     * Max number of selections allowed.
-     * Applies to `multiple` and `tags` modes.
+     * Max number of selections allowed. Applies to `multiple` and `tags` modes.
      *
      * @default -1 (no limit)
      */
@@ -872,7 +836,7 @@
     /**
      * ID of the outer container.
      *
-     * @default 'multiselect'
+     * @default "multiselect"
      */
     id?: string;
 
@@ -893,21 +857,21 @@
     /**
      * Text displayed when options list is empty.
      *
-     * @default 'The list is empty'
+     * @default "The list is empty"
      */
     noOptionsText?: string | Record<string, string>;
 
     /**
      * Text displayed when no search results are found.
      *
-     * @default 'No results found'
+     * @default "No results found"
      */
     noResultsText?: string | Record<string, string>;
 
     /**
      * Position of the dropdown relative to the input.
      *
-     * @default 'bottom'
+     * @default "bottom"
      */
     openDirection?: "top" | "bottom";
 
@@ -923,7 +887,8 @@
     /**
      * Regex pattern for validating input.
      *
-     * @example /^[A-Z]/
+     * @example
+     *   /^[A-Z]/;
      */
     regex?: string | RegExp;
 
@@ -941,15 +906,14 @@
      */
     searchStart?: boolean;
 
-    /**
-     * Override default search algorithm.
-     */
+    /** Override default search algorithm. */
     searchFilter?: (option: OptionItem, query: string, select$: MultiselectInstance) => boolean;
 
     /**
      * ARIA attributes for accessibility.
      *
-     * @example { 'aria-label': 'Select fruit' }
+     * @example
+     *   { "aria-label": "Select fruit" }
      */
     aria?: Record<string, string>;
 
@@ -972,17 +936,11 @@
 
   const props = defineProps<
     {
-      /**
-       * Default value for the multiselect.
-       */
+      /** Default value for the multiselect. */
       modelValue?: T | T[];
-      /**
-       * The label to display above the components
-       */
+      /** The label to display above the components. */
       formLabel?: string;
-      /**
-       * The default `id` for the input element.
-       */
+      /** The default `id` for the input element. */
       id?: string;
       /**
        * Hint to display below the input.
@@ -990,18 +948,11 @@
        * Can be used to provide additional information or instructions.
        */
       hint?: string;
-      /**
-       * Any custom rule to pass to `vee-validate` for validation.
-       */
+      /** Any custom rule to pass to `vee-validate` for validation. */
       rules?: any;
-      /**
-       * Whether the field should be validated as soon as the component is mounted.
-       *
-       */
+      /** Whether the field should be validated as soon as the component is mounted. */
       validateOnMount?: boolean;
-      /**
-       * The name of the field. Used for validation.
-       */
+      /** The name of the field. Used for validation. */
       name?: string;
     } & MultiselectProps &
       MultiselectAdvancedProps

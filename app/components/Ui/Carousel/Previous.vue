@@ -26,19 +26,22 @@
   const props = withDefaults(
     defineProps<
       WithClassAsProps & {
-        /** The icon to display in the button
+        /**
+         * The icon to display in the button.
          *
          * @default "lucide:arrow-left"
          */
         icon?: string;
-        /** The screen reader text
+        /**
+         * The screen reader text.
          *
          * @default "Previous Slide"
          */
         srText?: string;
-        /** Custom class(es) to add to the icon */
+        /** Custom class(es) to add to the icon. */
         iconClass?: HTMLAttributes["class"];
-        /** The variant of the button
+        /**
+         * The variant of the button.
          *
          * @default "outline"
          */

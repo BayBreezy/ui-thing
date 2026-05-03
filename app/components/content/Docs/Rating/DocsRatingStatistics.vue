@@ -16,7 +16,7 @@
           <span class="w-2 text-sm font-medium">{{ item.stars }}</span>
           <UiRating :model-value="item.stars" />
         </div>
-        <div class="flex items-center gap-0.5 text-sm text-muted-foreground">
+        <div class="text-muted-foreground flex items-center gap-0.5 text-sm">
           <span>{{ Intl.NumberFormat().format(item.count) }}</span>
           <span>({{ item.percentage }}%)</span>
         </div>

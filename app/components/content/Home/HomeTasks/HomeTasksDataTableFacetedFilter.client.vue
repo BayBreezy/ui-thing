@@ -79,7 +79,7 @@
               <div
                 :class="
                   twMerge(
-                    'mr-2 flex size-4 items-center justify-center rounded-sm border border-primary',
+                    'border-primary mr-2 flex size-4 items-center justify-center rounded-sm border',
                     selectedValues.has(option.value)
                       ? 'bg-primary text-primary-foreground'
                       : 'opacity-50 [&_svg]:invisible'
@@ -91,7 +91,7 @@
               <component
                 :is="option.icon"
                 v-if="option.icon"
-                class="mr-2 size-4 text-muted-foreground"
+                class="text-muted-foreground mr-2 size-4"
               />
               <span>{{ option.label }}</span>
               <span

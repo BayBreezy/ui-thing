@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Life at Our Company</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         A glimpse into our workspace, culture, and the people who make it all happen
       </p>
     </div>
@@ -45,7 +45,7 @@
     </div>
 
     <div class="mx-auto mt-12 max-w-3xl text-center">
-      <p class="text-lg text-muted-foreground">
+      <p class="text-muted-foreground text-lg">
         We've created an environment where innovation thrives and people love to work. Our offices
         are designed to foster collaboration, creativity, and well-being.
       </p>

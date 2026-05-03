@@ -24,7 +24,7 @@
         class="absolute inset-0 bg-[linear-gradient(to_right,--alpha(var(--color-border)/80%)_1px,transparent_1px),linear-gradient(to_bottom,--alpha(var(--color-border)/80%)_1px,transparent_1px)] mask-[radial-gradient(ellipse_closest-side_at_50%_0%,#000_70%,transparent_110%)] bg-size-[60px_60px]"
       />
       <div class="relative z-1 container">
-        <Motion as="p" :variants="childVariant" class="mb-5 font-bold tracking-tight text-primary">
+        <Motion as="p" :variants="childVariant" class="text-primary mb-5 font-bold tracking-tight">
           {{ statusCode }} error
         </Motion>
         <Motion

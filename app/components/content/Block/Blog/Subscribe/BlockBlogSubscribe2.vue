@@ -15,7 +15,7 @@
   >
     <UiCard class="relative rounded-none shadow-xs">
       <Motion
-        class="absolute top-0 h-0.5 w-full bg-primary"
+        class="bg-primary absolute top-0 h-0.5 w-full"
         :variants="{
           initial: { scaleX: 0 },
           animate: { scaleX: 1, transition: { duration: 1, ease: 'easeOut' } },
@@ -31,7 +31,7 @@
               transition: { type: 'spring', stiffness: 200, damping: 20 },
             },
           }"
-          class="inline-flex size-14 items-center justify-center rounded-md bg-linear-to-b from-primary/40 text-primary"
+          class="from-primary/40 text-primary inline-flex size-14 items-center justify-center rounded-md bg-linear-to-b"
         >
           <Icon name="lucide:mail" class="size-6" />
         </Motion>
@@ -39,7 +39,7 @@
         <Motion as="h3" :variants="childVariant" class="mt-8 mb-2 text-2xl font-semibold"
           >Weekly newsletter</Motion
         >
-        <Motion as="p" :variants="childVariant" class="mb-6 text-muted-foreground">
+        <Motion as="p" :variants="childVariant" class="text-muted-foreground mb-6">
           No spam. Just the latest releases and tips, interesting articles, and exclusive interviews
           in your inbox every week.
         </Motion>
@@ -47,7 +47,7 @@
           <Motion :variants="childVariant" class="w-full">
             <UiVeeInput required placeholder="Enter your email" aria-label="Enter your email" />
           </Motion>
-          <Motion as="p" :variants="childVariant" class="my-4 text-sm text-muted-foreground">
+          <Motion as="p" :variants="childVariant" class="text-muted-foreground my-4 text-sm">
             Read about our privacy policy <a href="#" class="text-primary">here</a>.
           </Motion>
           <Motion :variants="childVariant">

@@ -22,7 +22,7 @@
     <UiContainer class="flex flex-col items-center py-16 lg:flex-row lg:py-24">
       <Motion :variants="childVariant" class="grow text-center lg:text-left">
         <h3 class="mb-4 text-3xl font-semibold lg:mb-5 lg:text-4xl">Start your free trial</h3>
-        <p class="text-lg text-muted-foreground lg:text-xl">
+        <p class="text-muted-foreground text-lg lg:text-xl">
           Join over 4,000+ startups already growing with {{ COMPANY_NAME }}.
         </p>
       </Motion>

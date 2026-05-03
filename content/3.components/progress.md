@@ -4,7 +4,7 @@ description: Displays an indicator showing the completion progress of a task, ty
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/progress.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/progress.html#api-reference
     icon: "icon-park-solid:api"
@@ -32,7 +32,7 @@ Click :SourceCodeLink{component="Progress"} to see the source code for this comp
 
 ### Full example
 
-::ShowCase
+::prose-show-case
 
 :DocsProgress
 
@@ -67,7 +67,7 @@ Click :SourceCodeLink{component="Progress"} to see the source code for this comp
 
 ### Loader
 
-::ShowCase
+::prose-show-case
 
 :DocsProgressLoading
 

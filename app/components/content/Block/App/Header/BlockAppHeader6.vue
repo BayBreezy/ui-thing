@@ -11,7 +11,7 @@
               <h1 v-if="props.title" class="text-xl leading-none font-bold" v-html="props.title" />
             </slot>
             <slot name="stats">
-              <div class="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+              <div class="text-muted-foreground flex flex-wrap items-center gap-3 text-xs">
                 <div class="flex items-center gap-1.5">
                   <Icon name="lucide:calendar" class="size-3.5" />
                   <span>{{ props.joined }}</span>
@@ -50,7 +50,7 @@
               v-for="tab in props.tabs"
               :key="tab"
               :value="tab"
-              class="rounded-md rounded-b-none px-2 py-1.5 text-sm font-medium hover:bg-muted/50 data-[state=active]:bg-muted"
+              class="hover:bg-muted/50 data-[state=active]:bg-muted rounded-md rounded-b-none px-2 py-1.5 text-sm font-medium"
               size="sm"
             >
               {{ tab }}

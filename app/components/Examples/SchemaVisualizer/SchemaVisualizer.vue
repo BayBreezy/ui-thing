@@ -19,7 +19,7 @@
         <div class="inline-flex -space-x-px rounded-md shadow-xs rtl:space-x-reverse">
           <UiButton
             v-tippy="'Zoom In'"
-            class="rounded-none bg-card text-muted-foreground/80 shadow-none first:rounded-s-lg last:rounded-e-lg hover:text-muted-foreground focus-visible:z-10"
+            class="bg-card text-muted-foreground/80 hover:text-muted-foreground rounded-none shadow-none first:rounded-s-lg last:rounded-e-lg focus-visible:z-10"
             size="icon"
             variant="outline"
             @click="zoomIn({})"
@@ -28,7 +28,7 @@
           </UiButton>
           <UiButton
             v-tippy="'Zoom Out'"
-            class="rounded-none bg-card text-muted-foreground/80 shadow-none first:rounded-s-lg last:rounded-e-lg hover:text-muted-foreground focus-visible:z-10"
+            class="bg-card text-muted-foreground/80 hover:text-muted-foreground rounded-none shadow-none first:rounded-s-lg last:rounded-e-lg focus-visible:z-10"
             size="icon"
             variant="outline"
             @click="zoomOut({})"
@@ -37,7 +37,7 @@
           </UiButton>
           <UiButton
             v-tippy="'Reset View'"
-            class="rounded-none bg-card text-muted-foreground/80 shadow-none first:rounded-s-lg last:rounded-e-lg hover:text-muted-foreground focus-visible:z-10"
+            class="bg-card text-muted-foreground/80 hover:text-muted-foreground rounded-none shadow-none first:rounded-s-lg last:rounded-e-lg focus-visible:z-10"
             size="icon"
             variant="outline"
             @click="fitView({ padding: 0.2 })"
@@ -51,7 +51,7 @@
           external
           target="_blank"
           href="https://crafted.is/exp7"
-          class="z-10 rounded-md bg-muted p-2 py-1.5 text-center text-xs shadow-md"
+          class="bg-muted z-10 rounded-md p-2 py-1.5 text-center text-xs shadow-md"
         >
           Credits to Crafted ❤️
         </NuxtLink>

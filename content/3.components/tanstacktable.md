@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
 
 ### Regular
 
-::ShowCase
+::prose-show-case
 
 :DocsTanStackTable
 
@@ -101,7 +101,7 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
       >
         <template #empty>
           <div class="flex w-full flex-col items-center justify-center gap-5 py-5">
-            <Icon name="lucide:database" class="h-12 w-12 text-muted-foreground" />
+            <Icon name="lucide:database" class="text-muted-foreground h-12 w-12" />
             <span class="mt-2">No data available.</span>
           </div>
         </template>
@@ -351,7 +351,7 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsTanStackBasic
 
@@ -550,10 +550,10 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
         </UiTableRow>
       </UiTableFooter>
     </UiTable>
-    <p class="mt-4 text-center text-sm text-muted-foreground">
+    <p class="text-muted-foreground mt-4 text-center text-sm">
       Basic data table made with
       <a
-        class="underline hover:text-foreground"
+        class="hover:text-foreground underline"
         href="https://tanstack.com/table"
         target="_blank"
         rel="noopener noreferrer"
@@ -571,7 +571,7 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
 
 ### Filters
 
-::ShowCase
+::prose-show-case
 
 :DocsTanStackFilters
 
@@ -887,17 +887,17 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
               <Icon
                 v-if="header.column.getIsSorted() == 'asc'"
                 name="lucide:chevron-up"
-                class="size-4 shrink-0 text-muted-foreground"
+                class="text-muted-foreground size-4 shrink-0"
               />
               <Icon
                 v-else-if="header.column.getIsSorted() == 'desc'"
                 name="lucide:chevron-down"
-                class="size-4 shrink-0 text-muted-foreground"
+                class="text-muted-foreground size-4 shrink-0"
               />
               <Icon
                 v-else-if="header.column.getCanSort()"
                 name="lucide:chevrons-up-down"
-                class="size-4 shrink-0 text-muted-foreground/30"
+                class="text-muted-foreground/30 size-4 shrink-0"
               />
               <div
                 v-if="
@@ -967,10 +967,10 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
         </template>
       </UiTableBody>
     </UiTable>
-    <p class="mt-4 text-center text-sm text-muted-foreground">
+    <p class="text-muted-foreground mt-4 text-center text-sm">
       Data table with filters made with
       <a
-        class="underline hover:text-foreground"
+        class="hover:text-foreground underline"
         href="https://tanstack.com/table"
         target="_blank"
         rel="noopener noreferrer"
@@ -990,7 +990,7 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
 
 Shows zero-config usage with automatic column generation from data keys.
 
-::ShowCase
+::prose-show-case
 
 :DocsTanStackSimple
 
@@ -1054,7 +1054,7 @@ Shows zero-config usage with automatic column generation from data keys.
 
 Custom column definitions with formatted cells and styled badges.
 
-::ShowCase
+::prose-show-case
 
 :DocsTanStackCustomColumns
 
@@ -1185,7 +1185,7 @@ Custom column definitions with formatted cells and styled badges.
 
 Using slots to customize cell rendering with avatars and dropdowns.
 
-::ShowCase
+::prose-show-case
 
 :DocsTanStackSlots
 
@@ -1206,7 +1206,7 @@ Using slots to customize cell rendering with avatars and dropdowns.
           />
           <div>
             <p class="font-medium">{{ row.original.name }}</p>
-            <p class="text-sm text-muted-foreground">@{{ row.original.username }}</p>
+            <p class="text-muted-foreground text-sm">@{{ row.original.username }}</p>
           </div>
         </div>
       </template>
@@ -1311,7 +1311,7 @@ Using slots to customize cell rendering with avatars and dropdowns.
 
 Table footer with column totals using aggregation functions.
 
-::ShowCase
+::prose-show-case
 
 :DocsTanStackFooter
 
@@ -1422,7 +1422,7 @@ Table footer with column totals using aggregation functions.
 
 Clean table without footer controls for simple layouts.
 
-::ShowCase
+::prose-show-case
 
 :DocsTanStackMinimal
 
@@ -1468,7 +1468,7 @@ Clean table without footer controls for simple layouts.
 
 Table with loading indicator - includes custom loader slot support.
 
-::ShowCase
+::prose-show-case
 
 :DocsTanStackLoading
 
@@ -1494,7 +1494,7 @@ Table with loading indicator - includes custom loader slot support.
       :page-size-options="[5, 10, 50, 100]"
     >
       <template #loading="{ loading }">
-        <div v-if="loading" class="flex items-center gap-2 px-4 py-2 text-sm text-primary">
+        <div v-if="loading" class="text-primary flex items-center gap-2 px-4 py-2 text-sm">
           <Icon name="lucide:loader-2" class="size-4 animate-spin" />
           <span>Fetching data...</span>
         </div>
@@ -1612,7 +1612,7 @@ Table with loading indicator - includes custom loader slot support.
 
 Manual pagination with server-side data fetching and search. Enable `manual-pagination` prop and listen to the `@update:pagination` event.
 
-::ShowCase
+::prose-show-case
 
 :DocsTanStackServerPagination
 
@@ -1870,7 +1870,7 @@ Manual pagination with server-side data fetching and search. Enable `manual-pagi
 
 Expandable rows to display additional details using the expansion feature.
 
-::ShowCase
+::prose-show-case
 
 :DocsTanStackExpansion
 
@@ -2022,7 +2022,7 @@ Expandable rows to display additional details using the expansion feature.
 
 Pin rows to the top or bottom. The table emits `update:rowPinning` and `row-pin` so parents can sync state.
 
-::ShowCase
+::prose-show-case
 
 :DocsTanStackPinning
 
@@ -2033,7 +2033,7 @@ Pin rows to the top or bottom. The table emits `update:rowPinning` and `row-pin`
 ```vue [DocsTanStackPinning.vue]
 <template>
   <div class="space-y-4">
-    <div class="flex items-center gap-2 text-sm text-muted-foreground">
+    <div class="text-muted-foreground flex items-center gap-2 text-sm">
       <Icon name="lucide:info" class="size-4" />
       Use the pin menu to choose top, bottom, or unpin.
     </div>
@@ -2046,9 +2046,9 @@ Pin rows to the top or bottom. The table emits `update:rowPinning` and `row-pin`
       </UiTanStackTable>
     </div>
 
-    <div v-if="pinnedTop.length || pinnedBottom.length" class="rounded-lg border bg-muted/50 p-4">
+    <div v-if="pinnedTop.length || pinnedBottom.length" class="bg-muted/50 rounded-lg border p-4">
       <div class="font-semibold">Pinned rows</div>
-      <div class="mt-2 space-y-1 text-sm text-muted-foreground">
+      <div class="text-muted-foreground mt-2 space-y-1 text-sm">
         <div v-if="pinnedTop.length">Top: {{ pinnedTop.map((r) => r.name).join(", ") }}</div>
         <div v-if="pinnedBottom.length">
           Bottom: {{ pinnedBottom.map((r) => r.name).join(", ") }}
@@ -2169,7 +2169,7 @@ Pin rows to the top or bottom. The table emits `update:rowPinning` and `row-pin`
 
 Opt-in header pin buttons let you pin columns left or right. Pinned columns are sticky to the table edges; override `--ui-table-pinned-bg` in CSS if you need a different background. Use `enable-column-pinning` and `show-column-pin-buttons` to render the controls, and listen to `update:columnPinning` / `column-pin` if you need to sync state.
 
-::ShowCase
+::prose-show-case
 
 :DocsTanStackColumnPinning
 
@@ -2180,7 +2180,7 @@ Opt-in header pin buttons let you pin columns left or right. Pinned columns are 
 ```vue [DocsTanStackColumnPinning.vue]
 <template>
   <div class="space-y-4">
-    <div class="flex items-center gap-2 text-sm text-muted-foreground">
+    <div class="text-muted-foreground flex items-center gap-2 text-sm">
       <Icon name="lucide:info" class="size-4" />
       Pin columns with the header menu: choose left, right, or unpin.
     </div>
@@ -2197,8 +2197,8 @@ Opt-in header pin buttons let you pin columns left or right. Pinned columns are 
       />
     </div>
 
-    <div class="rounded-lg border bg-muted/50 p-4 text-sm text-muted-foreground">
-      <div class="font-semibold text-foreground">Pinned columns</div>
+    <div class="bg-muted/50 text-muted-foreground rounded-lg border p-4 text-sm">
+      <div class="text-foreground font-semibold">Pinned columns</div>
       <div class="mt-2 space-y-1">
         <div v-if="columnPinning.left?.length">Left: {{ columnPinning.left.join(", ") }}</div>
         <div v-if="columnPinning.right?.length">Right: {{ columnPinning.right.join(", ") }}</div>
@@ -2312,7 +2312,7 @@ Opt-in header pin buttons let you pin columns left or right. Pinned columns are 
 
 ### Context Menu
 
-::ShowCase
+::prose-show-case
 
 :DocsTanStackContextMenu
 
@@ -2428,8 +2428,8 @@ Opt-in header pin buttons let you pin columns left or right. Pinned columns are 
       </UiContextMenuContent>
     </UiContextMenu>
 
-    <div v-if="selectedUser" class="mt-4 rounded-lg border bg-muted/50 p-4">
-      <p class="text-sm text-muted-foreground">
+    <div v-if="selectedUser" class="bg-muted/50 mt-4 rounded-lg border p-4">
+      <p class="text-muted-foreground text-sm">
         <span class="font-semibold">Last Selected:</span> {{ selectedUser.name }} ({{
           selectedUser.email
         }})

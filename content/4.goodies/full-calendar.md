@@ -5,9 +5,9 @@ description: Display a full calendar in your nuxt app.
 
 ## Getting Started
 
-:::Steps
+:::prose-steps
 
-::Step
+::prose-step
 
 ### Installation
 
@@ -17,7 +17,7 @@ To get started, you can install the package with the following command:
 
 ::
 
-::Step
+::prose-step
 
 ### Add Plugins
 
@@ -27,7 +27,7 @@ You can also install the plugins for Full Calendar:
 
 ::
 
-::Step
+::prose-step
 
 ### Update CSS
 
@@ -42,7 +42,7 @@ In order to make the calendar match the UI Thing theme, I had to create the `ful
 
 ### Month View
 
-::ShowCase
+::prose-show-case
 
 :DocsFullCalendar
 
@@ -108,7 +108,7 @@ In order to make the calendar match the UI Thing theme, I had to create the `ful
 
 ### List View
 
-::ShowCase
+::prose-show-case
 
 :DocsFullCalendarList
 
@@ -169,7 +169,7 @@ In order to make the calendar match the UI Thing theme, I had to create the `ful
 
 ### TimeGrid View
 
-::ShowCase
+::prose-show-case
 
 :DocsFullCalendarTimeGrid
 
@@ -243,7 +243,7 @@ In order to make the calendar match the UI Thing theme, I had to create the `ful
 
 ### MultiMonth View
 
-::ShowCase
+::prose-show-case
 
 :DocsFullCalendarMultiMonth
 

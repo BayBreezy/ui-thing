@@ -4,7 +4,7 @@
       <template #header-title="{ title }">
         <div class="flex items-center gap-2">
           <p>{{ title }}</p>
-          <Icon class="size-4 text-muted-foreground" name="lucide:chevron-down" />
+          <Icon class="text-muted-foreground size-4" name="lucide:chevron-down" />
         </div>
       </template>
     </UiDatepicker>

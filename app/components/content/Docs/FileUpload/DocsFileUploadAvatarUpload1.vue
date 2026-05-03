@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center">
     <div class="inline-flex items-center gap-2 align-top">
       <div
-        class="relative flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-md border border-input"
+        class="border-input relative flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-md border"
         :aria-label="previewUrl ? 'Preview of uploaded image' : 'Default user avatar'"
       >
         <img
@@ -27,7 +27,7 @@
     </div>
     <div v-if="file" class="mt-2">
       <div class="inline-flex gap-2 text-xs">
-        <p class="truncate text-muted-foreground" aria-live="polite">
+        <p class="text-muted-foreground truncate" aria-live="polite">
           {{ file?.file?.name }}
         </p>
         <button
@@ -50,7 +50,7 @@
         :initial="{ opacity: 0, scale: 0.95 }"
         :animate="{ opacity: 1, scale: 1, transition: { duration: 0.2 } }"
         :exit="{ opacity: 0, y: 20, transition: { duration: 0.15 } }"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-background/50 backdrop-blur-md"
+        class="bg-background/50 fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md"
       >
         <div class="relative">
           <div class="absolute -top-4 -right-4">
@@ -62,7 +62,7 @@
           <img
             v-if="previewUrl"
             ref="imageDialog"
-            class="max-h-full max-w-full rounded-lg border border-input bg-background"
+            class="border-input bg-background max-h-full max-w-full rounded-lg border"
             :src="previewUrl"
             alt="Preview of uploaded image"
             width="300"

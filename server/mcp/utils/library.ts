@@ -2,14 +2,12 @@ import { queryCollection } from "@nuxt/content/server";
 import Fuse from "fuse.js";
 import blockRegistry from "~~/server/utils/block-examples";
 import componentRegistry from "~~/server/utils/comp";
-import proseRegistry from "~~/server/utils/prose";
 
 export type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
-export type LibraryKind = "component" | "block" | "prose";
+export type LibraryKind = "component" | "block";
 
 type ComponentRecord = (typeof componentRegistry)[number];
 type BlockRecord = (typeof blockRegistry)[number];
-type ProseRecord = (typeof proseRegistry)[number];
 
 export type DependencySummary = {
   uiThingComponents: number;
@@ -19,7 +17,6 @@ export type DependencySummary = {
   composables: number;
   plugins: number;
   utils: number;
-  proseDependencies: number;
 };
 
 export type LibrarySummary = {
@@ -100,7 +97,6 @@ const EMPTY_DEPENDENCY_SUMMARY: DependencySummary = {
   composables: 0,
   plugins: 0,
   utils: 0,
-  proseDependencies: 0,
 };
 
 const PACKAGE_MANAGER_COMMANDS: Record<
@@ -335,7 +331,7 @@ const PAGE_PRESETS: Record<
   },
   docs: {
     title: "Documentation",
-    description: "Docs layout with sidebar navigation, prose components, and right-rail TOC.",
+    description: "Docs layout with sidebar navigation and right-rail TOC.",
     sections: [
       {
         id: "shell",
@@ -346,7 +342,7 @@ const PAGE_PRESETS: Record<
       {
         id: "content",
         title: "Content components",
-        query: "prose docs content",
+        query: "docs content",
         componentValues: ["heading", "separator"],
       },
     ],
@@ -482,7 +478,7 @@ export const PAGE_TEMPLATE_INDEX = [
     id: "documentation-page",
     name: "Documentation Page",
     category: "docs",
-    description: "Sidebar docs shell with prose and TOC patterns.",
+    description: "Sidebar docs shell with TOC patterns.",
     blockCount: 0,
     componentCount: 5,
   },
@@ -529,11 +525,6 @@ function toDependencySummary(partial?: Partial<DependencySummary>) {
 function getComponentCategory(value: string) {
   const match = COMPONENT_CATEGORY_GROUPS.find((group) => group.values.includes(value));
   return match?.category ?? "general";
-}
-
-function getProseCategory(entry: ProseRecord) {
-  const [, , , segment = "general"] = entry.filePath.split("/");
-  return slugify(segment);
 }
 
 export function getBlockDocsPath(block: BlockRecord) {
@@ -614,36 +605,12 @@ export function summarizeBlock(block: BlockRecord): LibrarySummary {
   };
 }
 
-export function summarizeProse(entry: ProseRecord): LibrarySummary {
-  return {
-    kind: "prose",
-    name: entry.name,
-    value: entry.value,
-    description: entry.description ?? null,
-    docsPath: normalizePath(entry.docsUrl),
-    category: getProseCategory(entry),
-    dependencySummary: toDependencySummary({
-      uiThingComponents: entry.components?.length ?? 0,
-      npmDependencies: entry.deps?.filter((dep: string) => dep.startsWith("npm:")).length ?? 0,
-      nuxtModules: entry.modules?.length ?? 0,
-      composables: entry.composables?.length ?? 0,
-      plugins: entry.plugins?.length ?? 0,
-      proseDependencies: entry.prose?.length ?? 0,
-    }),
-    sourcePath: entry.filePath ?? null,
-  };
-}
-
 export function listComponentSummaries() {
   return componentRegistry.map(summarizeComponent);
 }
 
 export function listBlockSummaries() {
   return blockRegistry.map(summarizeBlock);
-}
-
-export function listProseSummaries() {
-  return proseRegistry.map(summarizeProse);
 }
 
 export function findComponent(query: string) {
@@ -667,17 +634,6 @@ export function findBlock(query: string) {
       normalizeQuery(block.path.replace(/\.vue$/, "")) === normalized
     );
   });
-}
-
-export function findProse(query: string) {
-  const normalized = normalizeQuery(query);
-
-  return proseRegistry.find(
-    (entry) =>
-      normalizeQuery(entry.name) === normalized ||
-      normalizeQuery(entry.value) === normalized ||
-      normalizeQuery(entry.fileName.replace(/\.vue$/, "")) === normalized
-  );
 }
 
 function findComponentByValue(value: string) {
@@ -749,29 +705,6 @@ function collectBlockDependencies(block: BlockRecord, acc: DependencyAccumulator
   });
 }
 
-function collectProseDependencies(entry: ProseRecord, acc: DependencyAccumulator) {
-  entry.components?.forEach((value: string) => {
-    const component = findComponentByValue(value);
-
-    if (component) {
-      collectComponentDependencies(component, acc);
-      return;
-    }
-
-    acc.uiThingComponents.add(value);
-  });
-
-  entry.deps?.forEach((dep: string) => {
-    if (dep.startsWith("npm:")) {
-      acc.npmDependencies.add(dep.replace(/^npm:/, ""));
-    }
-  });
-
-  addStringDependencies(acc.nuxtModules, entry.modules);
-  entry.composables?.forEach((item: any) => item?.name && acc.composables.add(item.name));
-  entry.plugins?.forEach((item: any) => item?.fileName && acc.plugins.add(item.fileName));
-}
-
 export function buildInstallPlan(
   requestedItems: string[],
   packageManager: PackageManager = "npm"
@@ -804,19 +737,6 @@ export function buildInstallPlan(
         name: block.name,
         value: block.fileName.replace(/\.vue$/, ""),
         docsPath: getBlockDocsPath(block),
-      });
-      return;
-    }
-
-    const prose = findProse(item);
-
-    if (prose) {
-      collectProseDependencies(prose, acc);
-      resolvedItems.push({
-        kind: "prose",
-        name: prose.name,
-        value: prose.value,
-        docsPath: normalizePath(prose.docsUrl),
       });
       return;
     }
@@ -868,7 +788,6 @@ export function searchLibrary(
   const indexes = [
     ...(type === "all" || type === "component" ? listComponentSummaries() : []),
     ...(type === "all" || type === "block" ? listBlockSummaries() : []),
-    ...(type === "all" || type === "prose" ? listProseSummaries() : []),
   ];
 
   const fuse = new Fuse(indexes, {
@@ -889,8 +808,7 @@ export function searchLibrary(
 export function resolveLibraryItem(query: string, type: "all" | LibraryKind = "all") {
   const exact =
     (type === "all" || type === "component" ? findComponent(query) : null) ??
-    (type === "all" || type === "block" ? findBlock(query) : null) ??
-    (type === "all" || type === "prose" ? findProse(query) : null);
+    (type === "all" || type === "block" ? findBlock(query) : null);
 
   if (exact) {
     if ("docsPath" in exact && "value" in exact && "files" in exact) {
@@ -914,8 +832,6 @@ export function resolveLibraryItem(query: string, type: "all" | LibraryKind = "a
     return {
       query,
       exact: true,
-      match: summarizeProse(exact as ProseRecord),
-      candidates: [summarizeProse(exact as ProseRecord)],
     };
   }
 
@@ -930,7 +846,7 @@ export function resolveLibraryItem(query: string, type: "all" | LibraryKind = "a
 }
 
 export async function listDocumentationPages(event: any): Promise<DocumentationPageSummary[]> {
-  const pages = await queryCollection(event, "content")
+  const pages = await queryCollection(event, "docs")
     .where("extension", "=", "md")
     .select("title", "description", "path", "label")
     .all();
@@ -970,7 +886,7 @@ export async function getDocumentationContext(event: any, docsPath?: string | nu
     return null;
   }
 
-  const page = await queryCollection(event, "content")
+  const page = await queryCollection(event, "docs")
     .path(normalizedPath)
     .where("extension", "=", "md")
     .select("title", "description", "path", "label")
@@ -1057,38 +973,6 @@ export async function buildBlockDetail(event: any, block: BlockRecord) {
   };
 }
 
-export async function buildProseDetail(event: any, entry: ProseRecord) {
-  const docsPath = normalizePath(entry.docsUrl);
-  const documentation = await getDocumentationContext(event, docsPath);
-  const installPlan = buildInstallPlan([entry.value]);
-
-  return {
-    kind: "prose" as const,
-    name: entry.name,
-    value: entry.value,
-    docsPath,
-    documentation: documentation?.markdown ?? null,
-    documentationPage: documentation?.page ?? null,
-    documentationUrl: docsPath ? `https://uithing.com${docsPath}` : null,
-    source: {
-      file: entry.file ?? null,
-      composables: entry.composables ?? [],
-      plugins: entry.plugins ?? [],
-    },
-    dependencies: {
-      uiThingComponents: installPlan.uiThingComponents,
-      npmDependencies: installPlan.npmDependencies,
-      devDependencies: installPlan.devDependencies,
-      nuxtModules: installPlan.nuxtModules,
-      composables: installPlan.composables,
-      plugins: installPlan.plugins,
-      utils: installPlan.utils,
-      prose: uniqueSorted(entry.prose ?? []),
-    },
-    installPlan,
-  };
-}
-
 export function parseCommaList(value?: string | null) {
   if (!value) return [];
 
@@ -1165,10 +1049,10 @@ export function buildPagePlan(pageType: string, sections?: string) {
           title: section.replace(/-/g, " "),
           query: section,
         }))
-      : preset.sections;
+      : preset?.sections;
 
-  const sectionPlans = effectiveSections.map((section) => {
-    const categoryCandidates = section.categories?.length
+  const sectionPlans = effectiveSections?.map((section) => {
+    const categoryCandidates = section?.categories?.length
       ? listBlockSummaries().filter((block) =>
           section.categories?.map((category) => slugify(category)).includes(block.category)
         )
@@ -1283,7 +1167,7 @@ export function buildProjectSetup(projectName = "my-app", packageManager: Packag
     notes: [
       "UI Thing is Nuxt-first and the CLI updates your project config for you.",
       "Component, composable, plugin, and utils files are copied into your app so you can edit them.",
-      "Use get-install-plan once you know which components, blocks, or prose elements you want.",
+      "Use get-install-plan once you know which components or blocks you want.",
     ],
   };
 }

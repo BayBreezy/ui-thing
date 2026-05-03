@@ -4,7 +4,7 @@ description: A set of steps that are used to indicate progress through a multi-s
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/stepper.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/stepper.html#api-reference
     icon: "icon-park-solid:api"
@@ -20,7 +20,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
 
 ### Origin UI
 
-::ShowCase
+::prose-show-case
 
 :DocsStepperOrigin
 
@@ -45,7 +45,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           <UiStepperSeparator v-if="step < steps.length" />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with numbers only
       </p>
     </div>
@@ -64,7 +64,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           <UiStepperSeparator v-if="step < steps.length" />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with numbers and checkmarks
       </p>
     </div>
@@ -79,13 +79,13 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
         >
           <UiStepperTrigger>
             <UiStepperIndicator
-              class="size-4 group-data-[state=active]/step:border-2 group-data-[state=active]/step:border-primary group-data-[state=active]/step:bg-transparent [&_span]:sr-only [&_svg]:size-3"
+              class="group-data-[state=active]/step:border-primary size-4 group-data-[state=active]/step:border-2 group-data-[state=active]/step:bg-transparent [&_span]:sr-only [&_svg]:size-3"
             />
           </UiStepperTrigger>
           <UiStepperSeparator v-if="step < steps.length" />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with tiny buttons and checkmarks
       </p>
     </div>
@@ -122,7 +122,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           Next step
         </UiButton>
       </div>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Controlled stepper with checkmarks
       </p>
     </div>
@@ -160,7 +160,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           Next step
         </UiButton>
       </div>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Controlled stepper with checkmarks and loading state
       </p>
     </div>
@@ -198,7 +198,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           </UiStepperTrigger>
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with mixed elements
       </p>
     </div>
@@ -207,7 +207,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
       <UiStepper :default-value="2" class="items-start gap-4">
         <UiStepperItem v-for="{ step, title } in steps2" :key="step" :step="step" class="flex-1">
           <UiStepperTrigger class="w-full flex-col items-start gap-2 rounded">
-            <UiStepperIndicator class="h-1 w-full bg-border">
+            <UiStepperIndicator class="bg-border h-1 w-full">
               <span class="sr-only">{{ step }}</span>
             </UiStepperIndicator>
             <div class="space-y-0.5">
@@ -216,7 +216,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           </UiStepperTrigger>
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with labels
       </p>
     </div>
@@ -236,7 +236,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
         <UiStepper v-model="currentStep" class="gap-1">
           <UiStepperItem v-for="step in steps" :key="step" :step="step" class="flex-1">
             <UiStepperTrigger class="w-full flex-col items-start gap-2" as-child>
-              <UiStepperIndicator class="h-1 w-full bg-border">
+              <UiStepperIndicator class="bg-border h-1 w-full">
                 <span class="sr-only">{{ step }}</span>
               </UiStepperIndicator>
             </UiStepperTrigger>
@@ -253,7 +253,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           <Icon name="lucide:chevron-right" :size="16" aria-hidden="true" />
         </UiButton>
       </div>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Paginated stepper
       </p>
     </div>
@@ -263,13 +263,13 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
         <UiStepper v-model="currentStep">
           <UiStepperItem v-for="step in steps" :key="step" :step="step" class="flex-1">
             <UiStepperTrigger class="w-full flex-col items-start gap-2" as-child>
-              <UiStepperIndicator class="h-2 w-full rounded-none bg-border">
+              <UiStepperIndicator class="bg-border h-2 w-full rounded-none">
                 <span class="sr-only">{{ step }}</span>
               </UiStepperIndicator>
             </UiStepperTrigger>
           </UiStepperItem>
         </UiStepper>
-        <div class="text-sm font-medium text-muted-foreground tabular-nums">
+        <div class="text-muted-foreground text-sm font-medium tabular-nums">
           Step {{ currentStep }} of {{ steps.length }}
         </div>
       </div>
@@ -291,7 +291,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           Next step
         </UiButton>
       </div>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Progress stepper
       </p>
     </div>
@@ -319,7 +319,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with titles and descriptions
       </p>
     </div>
@@ -342,7 +342,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           <UiStepperSeparator v-if="step < steps3.length" class="max-md:mt-3.5 md:mx-4" />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with inline titles
       </p>
     </div>
@@ -368,7 +368,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           <UiStepperSeparator v-if="step < steps3.length" class="max-md:mt-3.5 md:mx-4" />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with inline titles and descriptions
       </p>
     </div>
@@ -394,7 +394,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           <UiStepperSeparator v-if="step < steps3.length" class="max-md:mt-3.5 md:mx-4" />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Stepper with inline titles and descriptions
       </p>
     </div>
@@ -408,7 +408,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           <UiStepperSeparator v-if="step < steps.length" />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Vertical stepper with numbers and checkmarks
       </p>
     </div>
@@ -440,7 +440,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           Next step
         </UiButton>
       </div>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Controlled vertical stepper with checkmarks
       </p>
     </div>
@@ -465,7 +465,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Vertical stepper with inline titles
       </p>
     </div>
@@ -491,7 +491,7 @@ Click :SourceCodeLink{component="Stepper"} to see the source code for this compo
           />
         </UiStepperItem>
       </UiStepper>
-      <p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+      <p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
         Vertical stepper with inline titles and descriptions
       </p>
     </div>

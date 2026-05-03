@@ -30,12 +30,11 @@
   });
 
   export type FieldLegendProps = PrimitiveProps & {
-    /**
-     * Additional classes to apply to the fieldset element.
-     */
+    /** Additional classes to apply to the fieldset element. */
     class?: HTMLAttributes["class"];
     /**
      * The variant of the legend, either "legend" or "label".
+     *
      * @default "legend"
      */
     variant?: VariantProps<typeof fieldLegendStyles>["variant"];

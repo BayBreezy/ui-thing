@@ -33,7 +33,7 @@
                 v-for="(_, index) in Array(totalSteps)"
                 :key="index"
                 :class="[
-                  'h-1.5 w-1.5 rounded-full bg-primary',
+                  'bg-primary h-1.5 w-1.5 rounded-full',
                   index + 1 === step ? 'bg-primary' : 'opacity-20',
                 ]"
               />

@@ -12,9 +12,9 @@ links:
 
 ## Getting Started
 
-<Steps>
+:::prose-steps
 
-<Step>
+::prose-step
 
 ### Installation
 
@@ -22,9 +22,9 @@ Run the command below to install the Vue Tippy package.
 
 :prose-pm-install{name="vue-tippy@v6"}
 
-</Step>
+::
 
-<Step>
+::prose-step
 
 ### Create Plugin
 
@@ -62,9 +62,9 @@ export default defineNuxtPlugin((nuxtApp) => {
 
 <!-- /automd -->
 
-</Step>
+::
 
-<Step>
+::prose-step
 
 ### Add CSS
 
@@ -73,27 +73,39 @@ Create a new CSS file and add the following code to it.
 <!-- automd:file src="../../app/assets/css/tippy.css" code lang="css" -->
 
 ```css [tippy.css]
-@reference "./tailwind.css";
-
 [data-tippy-root] {
   .tippy-box {
-    @apply rounded-md bg-popover px-2 py-1 text-popover-foreground shadow ring-1 ring-border;
+    border-radius: var(--radius-md);
+    background-color: var(--color-popover);
+    padding-inline: calc(var(--spacing) * 2);
+    padding-block: calc(var(--spacing) * 1);
+    color: var(--color-popover-foreground);
+    box-shadow:
+      0 0 0 1px var(--color-border),
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
+
     .tippy-content {
-      @apply text-[13px];
+      font-size: 13px;
     }
   }
 
   .tippy-box[data-theme~="error"] {
-    @apply bg-destructive text-destructive-foreground ring-destructive;
+    background-color: var(--color-destructive);
+    color: var(--color-destructive-foreground);
+    box-shadow:
+      0 0 0 1px var(--color-destructive),
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
 }
 ```
 
 <!-- /automd -->
 
-</Step>
+::
 
-</Steps>
+:::
 
 ## Usage
 
@@ -107,7 +119,7 @@ The directive accepts a string with the content of the tooltip OR an object with
 
 Check out the [Directive Docs](https://vue-tippy.netlify.app/flavor/directive) to learn more.
 
-::ShowCase
+::prose-show-case
 
 :DocsTippyUsageDirective
 
@@ -145,7 +157,7 @@ We can use the `<Tippy/>` component to show a tooltip.
 
 You can visit the [Component Docs](https://vue-tippy.netlify.app/flavor/component) to see some more examples of how this component can be used.
 
-::ShowCase
+::prose-show-case
 
 :DocsTippyUsageComponent
 
@@ -177,7 +189,7 @@ You can visit the [Component Docs](https://vue-tippy.netlify.app/flavor/componen
             Learn how to build a comprehensive design system using Tailwind CSS, including component
             architecture, and theme customization.
           </p>
-          <div class="flex items-center gap-2 pt-1 text-xs text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 pt-1 text-xs">
             8 min read <span>•</span> Updated 2 days ago
           </div>
         </div>
@@ -220,7 +232,7 @@ This is a low-level, flexible composition, ideal for building tooltips with comp
 
 You can visit the [Composition API Docs](https://vue-tippy.netlify.app/flavor/composition-api) to see some more examples of how this composition can be used.
 
-::ShowCase
+::prose-show-case
 
 :DocsTippyUsageComposition
 
@@ -262,7 +274,7 @@ Here are some examples taken from the [Vue Tippy](https://vue-tippy.netlify.app/
 
 This example shows how to create a tooltip that follows the mouse.
 
-::ShowCase
+::prose-show-case
 
 :DocsTippyFollowMouse
 
@@ -323,7 +335,7 @@ This example shows how to create a tooltip that follows the mouse.
 
 This example shows how to create a context menu using Vue Tippy.
 
-::ShowCase
+::prose-show-case
 
 :DocsTippyContextMenu
 
@@ -364,7 +376,7 @@ This example shows how to create a context menu using Vue Tippy.
             h(
               "li",
               {
-                class: tw`flex w-full cursor-pointer items-center gap-2 rounded p-2 text-sm transition hover:bg-muted`,
+                class: tw`hover:bg-muted flex w-full cursor-pointer items-center gap-2 rounded p-2 text-sm transition`,
                 onClick: hide,
               },
               [
@@ -374,7 +386,7 @@ This example shows how to create a context menu using Vue Tippy.
                   class: tw`text-muted-foreground`,
                 }),
                 h("span", item.title),
-                h("span", { class: tw`ml-auto text-xs text-muted-foreground` }, item.shortcut),
+                h("span", { class: tw`text-muted-foreground ml-auto text-xs` }, item.shortcut),
               ]
             )
           )
@@ -426,7 +438,7 @@ This example shows how to create a context menu using Vue Tippy.
 
 This example shows how to create a tooltip that is triggered by another element.
 
-::ShowCase
+::prose-show-case
 
 :DocsTippyTargetEl
 
@@ -470,7 +482,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Title
 
-::ShowCase
+::prose-show-case
 
 :DocsTippyTitle
 
@@ -486,7 +498,7 @@ To use these examples you will have to copy the code and adjust it for your own 
       <template #content>
         <div class="space-y-1 px-2 py-2">
           <p class="text-[13px] font-medium">Tooltip with title</p>
-          <p class="text-xs text-muted-foreground">
+          <p class="text-muted-foreground text-xs">
             Tooltips are made to be highly customizable, with features like dynamic placement, rich
             content, and a robust API. You can even use them as a full-featured dropdown menu by
             setting the <code>trigger</code> prop to <code>click</code>.
@@ -504,7 +516,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Icon
 
-::ShowCase
+::prose-show-case
 
 :DocsTippyIcon
 
@@ -522,7 +534,7 @@ To use these examples you will have to copy the code and adjust it for your own 
           <Icon name="lucide:globe" class="mt-1 size-4 shrink-0 opacity-60" aria-hidden="true" />
           <div class="space-y-1">
             <p class="text-[13px] font-medium">Tooltip with title and icon</p>
-            <p class="text-xs text-muted-foreground">
+            <p class="text-muted-foreground text-xs">
               Tooltips are made to be highly customizable, with features like dynamic placement,
               rich content, and a robust API.
             </p>
@@ -540,7 +552,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Image
 
-::ShowCase
+::prose-show-case
 
 :DocsTippyImage
 
@@ -564,7 +576,7 @@ To use these examples you will have to copy the code and adjust it for your own 
           />
           <div class="space-y-1">
             <p class="text-[13px] font-medium">Tooltip with title and icon</p>
-            <p class="text-xs text-muted-foreground">
+            <p class="text-muted-foreground text-xs">
               Tooltips are made to be highly customizable, with features like dynamic placement,
               rich content, and a robust API.
             </p>
@@ -582,7 +594,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Pan
 
-::ShowCase
+::prose-show-case
 
 :DocsTippyPan
 
@@ -643,7 +655,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Stats
 
-::ShowCase
+::prose-show-case
 
 :DocsTippyStats
 
@@ -689,7 +701,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Chart
 
-::ShowCase
+::prose-show-case
 
 :DocsTippyChart
 

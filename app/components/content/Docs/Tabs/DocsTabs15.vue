@@ -24,7 +24,7 @@
         </UiTabsList>
       </div>
       <UiTabsContent v-for="t in tabs" :key="t.title" :value="t.title">
-        <p class="mx-auto p-4 text-center text-sm text-pretty text-muted-foreground">
+        <p class="text-muted-foreground mx-auto p-4 text-center text-sm text-pretty">
           {{ t.content }}
         </p>
       </UiTabsContent>

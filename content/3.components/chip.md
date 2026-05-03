@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="Chip.vue"} to see the source code for this comp
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsChip
 
@@ -43,7 +43,7 @@ Click :SourceCodeLink{component="Chip.vue"} to see the source code for this comp
 
 Pass a size to the `size` prop to change the size of the chip.
 
-::ShowCase
+::prose-show-case
 
 :DocsChipSize
 
@@ -75,7 +75,7 @@ Pass a size to the `size` prop to change the size of the chip.
 
 You can change the color of the chip by passing any tailwind color `bg` class to the `color` prop.
 
-::ShowCase
+::prose-show-case
 
 :DocsChipColor
 
@@ -103,7 +103,7 @@ You can change the color of the chip by passing any tailwind color `bg` class to
 
 You can display a text inside the chip by passing a `string` to the `text` prop.
 
-::ShowCase
+::prose-show-case
 
 :DocsChipText
 
@@ -136,7 +136,7 @@ You can display a text inside the chip by passing a `string` to the `text` prop.
 
 The `inset` prop can be used to move the indicator closer to the element.
 
-::ShowCase
+::prose-show-case
 
 :DocsChipInset
 

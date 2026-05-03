@@ -3,6 +3,12 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## May 03, 2026
+
+### New Docs
+
+- Integrated with the [Docd](https://docd.uithing.com){target="_blank"} documentation layer.
+
 ## March 20, 2026
 
 ### Component Updates

@@ -24,7 +24,7 @@
         >
           People who care about your growth
         </Motion>
-        <Motion as="p" :variants="childVariant" class="text-lg text-muted-foreground lg:text-xl">
+        <Motion as="p" :variants="childVariant" class="text-muted-foreground text-lg lg:text-xl">
           Powerful, self-serve product and growth analytics to help you convert, engage, and retain
           more.
         </Motion>
@@ -40,7 +40,7 @@
           <Motion
             as="p"
             :variants="childVariant"
-            class="my-2 text-left text-sm text-muted-foreground md:hidden"
+            class="text-muted-foreground my-2 text-left text-sm md:hidden"
           >
             We care about your data in our privacy policy.
           </Motion>
@@ -53,7 +53,7 @@
         <Motion
           as="p"
           :variants="childVariant"
-          class="mt-3 hidden text-sm text-muted-foreground md:block"
+          class="text-muted-foreground mt-3 hidden text-sm md:block"
         >
           We care about your data in our privacy policy.
         </Motion>

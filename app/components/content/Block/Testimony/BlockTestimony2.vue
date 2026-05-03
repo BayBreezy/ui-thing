@@ -11,7 +11,7 @@
           src="https://api.dicebear.com/7.x/lorelei/svg?flip=false"
         />
         <p class="mt-4 text-lg font-semibold">Jane Doe</p>
-        <p class="mt-1 text-muted-foreground">Head of Design, Layers</p>
+        <p class="text-muted-foreground mt-1">Head of Design, Layers</p>
         <div class="mt-2">
           <template v-for="s in 5" :key="s">
             <Icon

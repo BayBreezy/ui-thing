@@ -11,7 +11,7 @@ description: Candlestick charts are used to display the high, low, open, and clo
 
 ### Candlestick Chart
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsCandlestick1
 
@@ -34,7 +34,7 @@ description: Candlestick charts are used to display the high, low, open, and clo
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">
+        <div class="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </UiCardFooter>

@@ -61,7 +61,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsFieldBasic
 
@@ -182,7 +182,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 
 ### Input
 
-::ShowCase
+::prose-show-case
 
 :DocsFieldInput
 
@@ -222,7 +222,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 
 ### Textarea
 
-::ShowCase
+::prose-show-case
 
 :DocsFieldTextarea
 
@@ -256,7 +256,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 
 ### Select
 
-::ShowCase
+::prose-show-case
 
 :DocsFieldSelect
 
@@ -300,7 +300,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 
 ### Slider
 
-::ShowCase
+::prose-show-case
 
 :DocsFieldSlider
 
@@ -342,7 +342,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 
 ### FieldSet
 
-::ShowCase
+::prose-show-case
 
 :DocsFieldFieldSet
 
@@ -389,7 +389,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 
 ### Checkbox
 
-::ShowCase
+::prose-show-case
 
 :DocsFieldCheckbox
 
@@ -455,7 +455,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 
 ### Radio
 
-::ShowCase
+::prose-show-case
 
 :DocsFieldRadio
 
@@ -502,7 +502,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 
 ### Switch
 
-::ShowCase
+::prose-show-case
 
 :DocsFieldSwitch
 
@@ -537,7 +537,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 
 ## Notion Prompt
 
-::ShowCase
+::prose-show-case
 
 :DocsFieldNotionPrompt
 
@@ -615,7 +615,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
                 </UiPopoverContent>
               </UiPopover>
             </UiTooltip>
-            <div v-if="hasMentions" class="-m-1.5 no-scrollbar flex gap-1 overflow-y-auto p-1.5">
+            <div v-if="hasMentions" class="no-scrollbar -m-1.5 flex gap-1 overflow-y-auto p-1.5">
               <AnimatePresence>
                 <template v-for="mention in mentions" :key="mention">
                   <Motion
@@ -667,7 +667,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
                 <UiTooltipContent>Select AI model</UiTooltipContent>
                 <UiDropdownMenuContent side="top" align="start" class="[--radius:1rem]">
                   <UiDropdownMenuGroup class="w-42">
-                    <UiDropdownMenuLabel class="text-xs text-muted-foreground">
+                    <UiDropdownMenuLabel class="text-muted-foreground text-xs">
                       Select Agent Mode
                     </UiDropdownMenuLabel>
                     <UiDropdownMenuCheckboxItem
@@ -769,7 +769,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
                   <UiDropdownMenuItem>
                     <Icon name="lucide:plus" /> Connect Apps
                   </UiDropdownMenuItem>
-                  <UiDropdownMenuLabel class="text-xs text-muted-foreground">
+                  <UiDropdownMenuLabel class="text-muted-foreground text-xs">
                     We'll only search in the sources selected here.
                   </UiDropdownMenuLabel>
                 </UiDropdownMenuGroup>
@@ -927,7 +927,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 
 ### How did you hear about us?
 
-::ShowCase
+::prose-show-case
 
 :DocsFieldHear
 
@@ -994,7 +994,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 
 Wrap `Field` components inside `FieldLabel` to create selectable field groups. This works with `RadioItem`, `Checkbox` and `Switch` components.
 
-::ShowCase
+::prose-show-case
 
 :DocsFieldChoiceCard
 
@@ -1047,7 +1047,7 @@ Wrap `Field` components inside `FieldLabel` to create selectable field groups. T
 
 Stack `Field` components with `FieldGroup`. Add `FieldSeparator` to divide them.
 
-::ShowCase
+::prose-show-case
 
 :DocsFieldFieldGroup
 
@@ -1111,7 +1111,7 @@ Stack `Field` components with `FieldGroup`. Add `FieldSeparator` to divide them.
 - **Horizontal fields:** Set `orientation="horizontal"` on `Field` to align the label and control side-by-side. Pair with `FieldContent` to keep descriptions aligned.
 - **Responsive fields:** Set `orientation="responsive"` for automatic column layouts inside container-aware parents. Apply `@container/field-group` classes on `FieldGroup` to switch orientations at specific breakpoints.
 
-::ShowCase
+::prose-show-case
 
 :DocsFieldResponsiveLayout
 

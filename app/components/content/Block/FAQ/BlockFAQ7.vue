@@ -32,7 +32,7 @@
         <Motion
           as="p"
           :variants="childVariant"
-          class="mx-auto max-w-[800px] text-lg text-muted-foreground lg:text-xl"
+          class="text-muted-foreground mx-auto max-w-[800px] text-lg lg:text-xl"
         >
           We've got answers. Browse our most common questions below.
         </Motion>
@@ -49,7 +49,7 @@
                 <UiCardTitle class="text-lg">{{ faq.question }}</UiCardTitle>
                 <Icon
                   :name="openIndex === idx ? 'lucide:minus' : 'lucide:plus'"
-                  class="h-5 w-5 shrink-0 text-primary transition-transform"
+                  class="text-primary h-5 w-5 shrink-0 transition-transform"
                 />
               </div>
             </UiCardHeader>
@@ -73,7 +73,7 @@
       <Motion as-child :variants="childVariant">
         <div class="mx-auto mt-16 max-w-2xl text-center">
           <p class="mb-4 text-lg font-semibold">Still have a question?</p>
-          <p class="mb-6 text-muted-foreground">
+          <p class="text-muted-foreground mb-6">
             If you can't find the answer you're looking for, please reach out to our support team.
           </p>
           <div class="flex flex-wrap justify-center gap-3">

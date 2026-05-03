@@ -4,3 +4,7 @@
     "g-d": () => useSonner.info("G D", { description: "This is the G D key combination." }),
   });
 </script>
+<!-- eslint-disable-next-line vue/valid-template-root -->
+<template>
+  <!-- Nothing to see here -->
+</template>

@@ -9,7 +9,13 @@
   >
     <!-- Drop area -->
     <AnimatePresence mode="wait">
-      <Motion v-if="files.length > 0" :variants="lvl2Variants" class="flex flex-col gap-2">
+      <Motion
+        v-if="files.length > 0"
+        :variants="lvl2Variants"
+        initial="hidden"
+        animate="visible"
+        class="flex flex-col gap-2"
+      >
         <!-- Table header with actions -->
         <div class="flex items-center justify-between gap-2">
           <h3 class="text-sm font-medium">Files ({{ files.length }})</h3>
@@ -26,7 +32,7 @@
         </div>
 
         <!-- Table -->
-        <div class="overflow-hidden rounded-md border bg-background">
+        <div class="bg-background overflow-hidden rounded-md border">
           <UiTable class="w-full">
             <UiTableHeader class="text-xs">
               <UiTableRow class="bg-muted/50">
@@ -46,17 +52,17 @@
                     <span class="truncate">{{ file.file.name }}</span>
                   </span>
                 </UiTableCell>
-                <UiTableCell class="py-2 text-muted-foreground">
+                <UiTableCell class="text-muted-foreground py-2">
                   {{ file.file.type.split("/")[1]?.toUpperCase() || "UNKNOWN" }}
                 </UiTableCell>
-                <UiTableCell class="py-2 text-muted-foreground">
+                <UiTableCell class="text-muted-foreground py-2">
                   {{ formatBytes(file.file.size) }}
                 </UiTableCell>
                 <UiTableCell class="py-2 text-right whitespace-nowrap">
                   <UiButton
                     size="icon"
                     variant="ghost"
-                    class="size-8 text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
+                    class="text-muted-foreground/80 hover:text-foreground size-8 hover:bg-transparent"
                     aria-label="Download file"
                   >
                     <Icon name="lucide:download" class="size-4" />
@@ -64,7 +70,7 @@
                   <UiButton
                     size="icon"
                     variant="ghost"
-                    class="size-8 text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
+                    class="text-muted-foreground/80 hover:text-foreground size-8 hover:bg-transparent"
                     aria-label="Remove file"
                     @click="removeFile(file.id)"
                   >
@@ -77,16 +83,16 @@
         </div>
       </Motion>
 
-      <Motion v-else :variants="lvl2Variants">
+      <Motion v-else :variants="lvl2Variants" initial="hidden" animate="visible">
         <div
           ref="dropzoneRef"
           :data-files="files.length > 0 || undefined"
-          class="flex min-h-56 flex-col items-center rounded-xl border border-dashed border-input p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 data-[files]:hidden"
+          class="border-input has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 data-[dragging=true]:bg-accent/50 flex min-h-56 flex-col items-center rounded-xl border border-dashed p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:ring-[3px] data-[files]:hidden"
         >
           <div class="flex flex-col items-center justify-center text-center">
             <Motion
               :variants="lvl2EmptyItemVariants"
-              class="mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border bg-background"
+              class="bg-background mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border"
               aria-hidden="true"
             >
               <Icon name="lucide:file" class="size-4 opacity-60" />
@@ -94,7 +100,7 @@
             <Motion as="p" :variants="lvl2EmptyItemVariants" class="mb-1.5 text-sm font-medium"
               >Upload files</Motion
             >
-            <Motion as="p" :variants="lvl2EmptyItemVariants" class="text-xs text-muted-foreground">
+            <Motion as="p" :variants="lvl2EmptyItemVariants" class="text-muted-foreground text-xs">
               Max {{ maxFiles }} files ∙ Up to {{ formatBytes(maxSize) }}
             </Motion>
             <Motion :variants="lvl2EmptyItemVariants">
@@ -111,7 +117,9 @@
     <Motion
       v-if="errors.length > 0"
       :variants="lvl2Variants"
-      class="flex items-center gap-1 text-xs text-destructive"
+      initial="hidden"
+      animate="visible"
+      class="text-destructive flex items-center gap-1 text-xs"
       role="alert"
     >
       <Icon name="lucide:circle-alert" class="size-3 shrink-0" />
@@ -123,7 +131,7 @@
       as="p"
       aria-live="polite"
       role="region"
-      class="mt-2 text-center text-xs text-muted-foreground"
+      class="text-muted-foreground mt-2 text-center text-xs"
     >
       Multiple files uploader w/ table
     </Motion>

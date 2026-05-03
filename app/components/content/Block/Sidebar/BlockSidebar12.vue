@@ -2,7 +2,7 @@
   <UiSidebarProvider v-slot="{ isMobile }" class="[--sidebar-width:280px_!important]">
     <!-- Main Sidebar -->
     <UiSidebar>
-      <UiSidebarHeader class="h-16 border-b border-sidebar-border">
+      <UiSidebarHeader class="border-sidebar-border h-16 border-b">
         <!-- Logged in user -->
         <UiSidebarMenu>
           <UiSidebarMenuItem>
@@ -79,7 +79,7 @@
             <UiCollapsible :default-open="index === 0" class="group/collapsible">
               <UiSidebarGroupLabel
                 as-child
-                class="group/label w-full text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                class="group/label text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground w-full text-sm"
               >
                 <UiCollapsibleTrigger>
                   {{ calendar.name }}
@@ -96,7 +96,7 @@
                       <UiSidebarMenuButton>
                         <div
                           :data-active="idx < 2"
-                          class="group/calendar-item flex aspect-square size-4 shrink-0 items-center justify-center rounded-sm border border-sidebar-border text-sidebar-primary-foreground data-[active=true]:border-sidebar-primary data-[active=true]:bg-sidebar-primary"
+                          class="group/calendar-item border-sidebar-border text-sidebar-primary-foreground data-[active=true]:border-sidebar-primary data-[active=true]:bg-sidebar-primary flex aspect-square size-4 shrink-0 items-center justify-center rounded-sm border"
                         >
                           <Icon
                             mode="svg"
@@ -129,7 +129,7 @@
 
     <UiSidebarInset>
       <header
-        class="sticky top-0 z-20 flex h-16 shrink-0 items-center gap-2 border-b bg-background px-4"
+        class="bg-background sticky top-0 z-20 flex h-16 shrink-0 items-center gap-2 border-b px-4"
       >
         <UiSidebarTrigger class="-ml-1" />
         <Separator orientation="vertical" class="mr-2 h-4" />

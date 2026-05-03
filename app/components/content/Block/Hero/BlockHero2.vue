@@ -24,7 +24,7 @@
         >
           People who care about your growth
         </Motion>
-        <Motion as="p" :variants="childVariant" class="text-lg text-muted-foreground lg:text-xl">
+        <Motion as="p" :variants="childVariant" class="text-muted-foreground text-lg lg:text-xl">
           Powerful, self-serve product and growth analytics to help you convert, engage, and retain
           more.
         </Motion>
@@ -38,7 +38,7 @@
             <UiButton size="lg">Sign up</UiButton>
           </Motion>
         </div>
-        <Motion as="p" :variants="childVariant" class="mt-5 text-sm text-muted-foreground">
+        <Motion as="p" :variants="childVariant" class="text-muted-foreground mt-5 text-sm">
           We care about your data in our privacy policy.
         </Motion>
       </div>

@@ -14,17 +14,13 @@
   import type { HTMLAttributes } from "vue";
 
   export const buttonGroupSeparatorStyles = tv({
-    base: "relative m-0! self-stretch bg-input data-[orientation=vertical]:h-auto",
+    base: "bg-input relative m-0! self-stretch data-[orientation=vertical]:h-auto",
   });
 
   export type ButtonGroupSeparatorProps = {
-    /**
-     * The orientation of the separator.
-     */
+    /** The orientation of the separator. */
     orientation?: "horizontal" | "vertical";
-    /**
-     * Additional classes to apply to the button group text.
-     */
+    /** Additional classes to apply to the button group text. */
     class?: HTMLAttributes["class"];
   };
 </script>

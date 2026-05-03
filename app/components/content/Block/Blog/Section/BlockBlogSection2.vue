@@ -20,7 +20,7 @@
         <Motion as="h3" :variants="childVariant" class="text-3xl font-semibold lg:text-4xl"
           >From the blog</Motion
         >
-        <Motion as="p" :variants="childVariant" class="text-lg text-muted-foreground lg:text-xl">
+        <Motion as="p" :variants="childVariant" class="text-muted-foreground text-lg lg:text-xl">
           Tool and strategies modern teams need to help their companies grow.
         </Motion>
       </div>
@@ -40,7 +40,7 @@
             v-if="headline"
             as="p"
             :variants="childVariant"
-            class="mb-2 text-sm font-semibold text-primary"
+            class="text-primary mb-2 text-sm font-semibold"
           >
             {{ headline }} <span v-if="date">- {{ date }}</span>
           </Motion>
@@ -56,7 +56,7 @@
             v-if="description"
             as="p"
             :variants="childVariant"
-            class="mb-3 line-clamp-2 text-ellipsis text-muted-foreground"
+            class="text-muted-foreground mb-3 line-clamp-2 text-ellipsis"
           >
             {{ description }}
           </Motion>
@@ -79,9 +79,7 @@
 </template>
 
 <script lang="ts" setup>
-  /**
-   * This section is using the cards from BlockBlogPostCard3.vue
-   */
+  /** This section is using the cards from BlockBlogPostCard3.vue. */
   import { stagger } from "motion-v";
   import type { MotionProps } from "motion-v";
 

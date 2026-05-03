@@ -12,7 +12,7 @@
       },
     }"
   >
-    <UiContainer class="relative rounded-lg border bg-background shadow-md">
+    <UiContainer class="bg-background relative rounded-lg border shadow-md">
       <Motion
         as-child
         :variants="{
@@ -26,7 +26,7 @@
           variant="ghost"
           class="absolute top-3 right-4 z-10 lg:hidden"
         >
-          <Icon name="lucide:x" class="size-4 text-muted-foreground" />
+          <Icon name="lucide:x" class="text-muted-foreground size-4" />
         </UiButton>
       </Motion>
       <div class="flex flex-col gap-y-3 py-4 lg:flex-row">
@@ -37,9 +37,9 @@
                 init: { scale: 0, opacity: 0 },
                 animate: { scale: 1, opacity: 1 },
               }"
-              class="flex size-12 items-center justify-center rounded-full bg-radial via-primary/5 to-primary dark:bg-linear-to-b dark:from-primary/50 dark:via-primary/10 dark:to-transparent"
+              class="via-primary/5 to-primary dark:from-primary/50 dark:via-primary/10 flex size-12 items-center justify-center rounded-full bg-radial dark:bg-linear-to-b dark:to-transparent"
             >
-              <Icon :name="icon" class="size-6 text-primary" />
+              <Icon :name="icon" class="text-primary size-6" />
             </Motion>
           </div>
           <div>
@@ -59,7 +59,7 @@
               }"
               as-child
             >
-              <p class="text-sm text-muted-foreground" v-html="description" />
+              <p class="text-muted-foreground text-sm" v-html="description" />
             </Motion>
             <div class="mt-3 grid grid-cols-2 gap-2 md:flex md:items-center">
               <Motion
@@ -92,7 +92,7 @@
           class="flex shrink-0 items-start gap-2 pl-16 lg:flex-col lg:items-end lg:pl-0"
         >
           <div class="lg:text-right">
-            <p class="text-xs text-muted-foreground">{{ timeLabel }}</p>
+            <p class="text-muted-foreground text-xs">{{ timeLabel }}</p>
             <p class="text-sm font-semibold">{{ timeValue }}</p>
           </div>
         </Motion>

@@ -21,9 +21,7 @@
 <script setup lang="ts">
   const props = defineProps<
     AccordionItemProps & {
-      /**
-       * Custom class to apply to the component
-       */
+      /** Custom class to apply to the component. */
       class?: HTMLAttributes["class"];
     }
   >();

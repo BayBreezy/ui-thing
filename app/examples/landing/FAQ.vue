@@ -8,7 +8,7 @@
         <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
           Frequently asked questions
         </h2>
-        <p class="text-lg text-muted-foreground">Everything you need to know about UI Thing</p>
+        <p class="text-muted-foreground text-lg">Everything you need to know about UI Thing</p>
       </div>
 
       <UiAccordion type="single" collapsible class="w-full">

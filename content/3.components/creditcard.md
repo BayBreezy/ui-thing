@@ -6,7 +6,7 @@ label: New
 
 ## Credits
 
-This component was designed by [Untitled UI](https://www.untitledui.com/react/components/credit-cards). I just made it compatible with UI Thing.
+This component was designed by [Untitled UI](https://www.untitledui.com/react/components/credit-cards){target="\_blank"}. I just made it compatible with UI Thing.
 
 ## Source code
 
@@ -30,7 +30,7 @@ const network = getCardType("4111 1111 1111 1111"); // "visa"
 
 ### Normal
 
-::ShowCase
+::prose-show-case
 
 :DocsCreditCardDefault
 
@@ -59,7 +59,7 @@ const network = getCardType("4111 1111 1111 1111"); // "visa"
 
 The bottom half of the card becomes a dark strip — common in designs that separate the number area from the brand area.
 
-::ShowCase
+::prose-show-case
 
 :DocsCreditCardStrip
 
@@ -86,7 +86,7 @@ The bottom half of the card becomes a dark strip — common in designs that sepa
 
 A dark panel occupies the left portion of the card, leaving a coloured accent stripe on the right.
 
-::ShowCase
+::prose-show-case
 
 :DocsCreditCardVerticalStrip
 
@@ -112,7 +112,7 @@ A dark panel occupies the left portion of the card, leaving a coloured accent st
 
 Pass a `width` prop to scale the card proportionally from its native 316 × 190 px dimensions.
 
-::ShowCase
+::prose-show-case
 
 :DocsCreditCardScaled
 

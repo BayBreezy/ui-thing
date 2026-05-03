@@ -18,7 +18,7 @@
     <UiContainer class="relative py-16 lg:py-24">
       <Motion :variants="childVariant" :transition="{ duration: 0.5 }">
         <div class="relative z-10 max-w-[760px]">
-          <Motion as="p" :variants="childVariant" class="font-semibold text-primary"
+          <Motion as="p" :variants="childVariant" class="text-primary font-semibold"
             >Features</Motion
           >
           <Motion
@@ -31,7 +31,7 @@
           <Motion
             as="p"
             :variants="childVariant"
-            class="max-w-[700px] text-lg text-muted-foreground lg:text-xl"
+            class="text-muted-foreground max-w-[700px] text-lg lg:text-xl"
           >
             Powerful, self-serve product and growth analytics to help you convert, engage, and
             retain more users. Trusted by over 4,000 startups.
@@ -52,12 +52,12 @@
             <div class="flex h-12 w-12 items-center justify-center rounded-md border">
               <Icon
                 :name="f.icon"
-                class="h-5 w-5 transition-colors group-hover:text-primary lg:h-6 lg:w-6"
+                class="group-hover:text-primary h-5 w-5 transition-colors lg:h-6 lg:w-6"
               />
             </div>
             <h3 class="mt-4 text-lg font-semibold lg:mt-5 lg:text-xl" v-text="f.title" />
             <p
-              class="mt-1 max-w-[400px] text-muted-foreground lg:mt-2 lg:max-w-none"
+              class="text-muted-foreground mt-1 max-w-[400px] lg:mt-2 lg:max-w-none"
               v-text="f.description"
             />
           </Motion>

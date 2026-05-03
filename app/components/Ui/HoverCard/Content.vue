@@ -26,11 +26,11 @@
   const props = withDefaults(
     defineProps<
       HoverCardContentProps & {
-        /** Custom class(es) to add to the content */
+        /** Custom class(es) to add to the content. */
         class?: HTMLAttributes["class"];
-        /** The element or selector the content should be positioned relative to */
+        /** The element or selector the content should be positioned relative to. */
         to?: string | HTMLElement;
-        /** Whether to render the content with a translucent surface */
+        /** Whether to render the content with a translucent surface. */
         translucent?: boolean;
       }
     >(),
@@ -44,7 +44,7 @@
   );
   const forwarded = reactiveOmit(props, "class", "to", "translucent");
   const styles = tv({
-    base: "z-50 w-64 origin-(--reka-hover-card-content-transform-origin) rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-hidden data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
+    base: "bg-popover text-popover-foreground data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 z-50 w-64 origin-(--reka-hover-card-content-transform-origin) rounded-md border p-4 shadow-md outline-hidden",
     variants: {
       translucent: {
         true: getTranslucentFloatingPanelClasses("popover"),

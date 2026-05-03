@@ -79,7 +79,7 @@
         default: "bg-primary text-primary-foreground",
         secondary: "bg-secondary text-secondary-foreground",
         destructive: "bg-destructive text-destructive-foreground",
-        outline: "border border-input bg-background text-foreground",
+        outline: "border-input bg-background text-foreground border",
         muted: "bg-muted text-muted-foreground",
         red: "bg-red-500 text-white",
         orange: "bg-orange-500 text-white",
@@ -182,13 +182,9 @@
        */
       showDays?: "auto" | "always" | "never";
       class?: HTMLAttributes["class"];
-      /**
-       * Size variant of the flip clock.
-       */
+      /** Size variant of the flip clock. */
       size?: FlipClockVariants["size"];
-      /**
-       * Color variant of the flip clock.
-       */
+      /** Color variant of the flip clock. */
       variant?: FlipClockVariants["variant"];
     }>(),
     {
@@ -273,23 +269,17 @@
         type: [String, Number],
         required: true,
       },
-      /**
-       * Size variant of the flip unit.
-       */
+      /** Size variant of the flip unit. */
       size: {
         type: String as PropType<FlipUnitVariants["size"]>,
         default: undefined,
       },
-      /**
-       * Color variant of the flip unit.
-       */
+      /** Color variant of the flip unit. */
       variant: {
         type: String as PropType<FlipUnitVariants["variant"]>,
         default: undefined,
       },
-      /**
-       * Additional classes to apply to the flip unit.
-       */
+      /** Additional classes to apply to the flip unit. */
       class: {
         type: [String, Array, Object] as PropType<HTMLAttributes["class"]>,
         default: undefined,
@@ -378,9 +368,7 @@
   const ClockSeparator = defineComponent({
     name: "ClockSeparator",
     props: {
-      /**
-       * Size variant of the clock separator.
-       */
+      /** Size variant of the clock separator. */
       size: {
         type: String as PropType<FlipClockVariants["size"]>,
         default: "md",

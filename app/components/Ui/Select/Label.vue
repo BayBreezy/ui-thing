@@ -16,12 +16,12 @@
 
   const props = defineProps<
     SelectLabelProps & {
-      /** Custom class(es) to add to the parent */
+      /** Custom class(es) to add to the parent. */
       class?: HTMLAttributes["class"];
     }
   >();
   const forwarded = reactiveOmit(props, "class");
   const styles = tv({
-    base: "px-2 py-1.5 text-xs text-muted-foreground",
+    base: "text-muted-foreground px-2 py-1.5 text-xs",
   });
 </script>

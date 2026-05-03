@@ -18,7 +18,7 @@ Use `active: true` on any item to show the small running-app dot, similar to the
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsFloatingDock
 
@@ -29,7 +29,7 @@ Use `active: true` on any item to show the small running-app dot, similar to the
 ```vue [DocsFloatingDock.vue]
 <template>
   <div
-    class="relative min-h-[280px] rounded-3xl border bg-linear-to-br from-background to-muted/30"
+    class="from-background to-muted/30 relative min-h-[280px] rounded-3xl border bg-linear-to-br"
   >
     <UiFloatingDock
       :items="items"
@@ -56,7 +56,7 @@ Use `active: true` on any item to show the small running-app dot, similar to the
 
 ### Soft colors
 
-::ShowCase
+::prose-show-case
 
 :DocsFloatingDockSoftColors
 
@@ -67,7 +67,7 @@ Use `active: true` on any item to show the small running-app dot, similar to the
 ```vue [DocsFloatingDockSoftColors.vue]
 <template>
   <div
-    class="relative min-h-[280px] rounded-[2rem] bg-linear-to-br from-sky-100 via-white to-violet-100 p-4 dark:from-sky-950/40 dark:via-background dark:to-violet-950/40"
+    class="dark:via-background relative min-h-[280px] rounded-[2rem] bg-linear-to-br from-sky-100 via-white to-violet-100 p-4 dark:from-sky-950/40 dark:to-violet-950/40"
   >
     <UiFloatingDock
       :items="items"
@@ -96,7 +96,7 @@ Use `active: true` on any item to show the small running-app dot, similar to the
 
 Use the `#item` slot when you want to render something other than the default icon output. This is useful for components like `UiFancyIcon` or any other custom visual treatment.
 
-::ShowCase
+::prose-show-case
 
 :DocsFloatingDockFancyIcon
 
@@ -107,7 +107,7 @@ Use the `#item` slot when you want to render something other than the default ic
 ```vue [DocsFloatingDockFancyIcon.vue]
 <template>
   <div
-    class="relative min-h-[300px] rounded-[2rem] border bg-linear-to-br from-background to-muted/20 p-4"
+    class="from-background to-muted/20 relative min-h-[300px] rounded-[2rem] border bg-linear-to-br p-4"
   >
     <UiFloatingDock
       :items="items"

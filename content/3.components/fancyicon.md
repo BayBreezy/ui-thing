@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="FancyIcon"} to see the source code for this com
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsFancyIcon
 
@@ -45,7 +45,7 @@ Click :SourceCodeLink{component="FancyIcon"} to see the source code for this com
 
 ### Light Theme
 
-::ShowCase
+::prose-show-case
 
 :DocsFancyIconLight
 
@@ -78,7 +78,7 @@ Click :SourceCodeLink{component="FancyIcon"} to see the source code for this com
 
 ### Dark Theme
 
-::ShowCase
+::prose-show-case
 
 :DocsFancyIconDark
 
@@ -111,7 +111,7 @@ Click :SourceCodeLink{component="FancyIcon"} to see the source code for this com
 
 ### Outline Theme
 
-::ShowCase
+::prose-show-case
 
 :DocsFancyIconOutline
 
@@ -144,7 +144,7 @@ Click :SourceCodeLink{component="FancyIcon"} to see the source code for this com
 
 ### Modern Theme
 
-::ShowCase
+::prose-show-case
 
 :DocsFancyIconModern
 
@@ -172,7 +172,7 @@ Click :SourceCodeLink{component="FancyIcon"} to see the source code for this com
 
 ### Modern Neue Theme
 
-::ShowCase
+::prose-show-case
 
 :DocsFancyIconModernNeue
 
@@ -200,7 +200,7 @@ Click :SourceCodeLink{component="FancyIcon"} to see the source code for this com
 
 ### Gradient Theme
 
-::ShowCase
+::prose-show-case
 
 :DocsFancyIconGradient
 

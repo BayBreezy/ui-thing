@@ -15,18 +15,14 @@
   import type { HTMLAttributes } from "vue";
 
   export type DescriptionDetailsProps = PrimitiveProps & {
-    /**
-     * Text to display in the description details
-     */
+    /** Text to display in the description details. */
     text?: string;
-    /**
-     * Custom class(es) to add to the element
-     */
+    /** Custom class(es) to add to the element. */
     class?: HTMLAttributes["class"];
   };
 
   export const descriptionListDetailsStyles = tv({
-    base: "pt-1 pb-3 text-foreground sm:border-t sm:py-3 sm:nth-2:border-none",
+    base: "text-foreground pt-1 pb-3 sm:border-t sm:py-3 sm:nth-2:border-none",
   });
 </script>
 

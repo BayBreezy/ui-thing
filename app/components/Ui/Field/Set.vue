@@ -26,9 +26,7 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
-        /**
-         * Additional classes to apply to the fieldset element.
-         */
+        /** Additional classes to apply to the fieldset element. */
         class?: HTMLAttributes["class"];
       }
     >(),

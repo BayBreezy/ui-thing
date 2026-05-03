@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-4">
     <UiColorPicker v-model="color" :format="format" @update:format="format = $event" />
-    <div class="flex flex-wrap gap-2 text-sm text-muted-foreground">
+    <div class="text-muted-foreground flex flex-wrap gap-2 text-sm">
       <div>
         HEX: <span class="font-mono font-semibold">{{ hexColor }}</span>
       </div>

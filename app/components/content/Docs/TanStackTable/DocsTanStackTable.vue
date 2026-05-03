@@ -68,7 +68,7 @@
       >
         <template #empty>
           <div class="flex w-full flex-col items-center justify-center gap-5 py-5">
-            <Icon name="lucide:database" class="h-12 w-12 text-muted-foreground" />
+            <Icon name="lucide:database" class="text-muted-foreground h-12 w-12" />
             <span class="mt-2">No data available.</span>
           </div>
         </template>

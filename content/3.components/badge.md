@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="Badge.vue"} to see the source code for this com
 
 ### Default
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeDefault
 
@@ -37,7 +37,7 @@ Click :SourceCodeLink{component="Badge.vue"} to see the source code for this com
 
 ### Destructive
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeDestructive
 
@@ -59,7 +59,7 @@ Click :SourceCodeLink{component="Badge.vue"} to see the source code for this com
 
 ### Outline
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeOutline
 
@@ -81,7 +81,7 @@ Click :SourceCodeLink{component="Badge.vue"} to see the source code for this com
 
 ### Secondary
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeSecondary
 
@@ -103,7 +103,7 @@ Click :SourceCodeLink{component="Badge.vue"} to see the source code for this com
 
 ### Shadcn
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeShadcn
 
@@ -145,7 +145,7 @@ Click :SourceCodeLink{component="Badge.vue"} to see the source code for this com
 
 ### Origin UI
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeOriginU-I
 
@@ -163,7 +163,7 @@ Click :SourceCodeLink{component="Badge.vue"} to see the source code for this com
       </UiBadge>
       <UiBadge class="items-baseline gap-1.5">
         Badge
-        <span class="text-[0.625rem] font-medium text-primary-foreground/60"> 73 </span>
+        <span class="text-primary-foreground/60 text-[0.625rem] font-medium"> 73 </span>
       </UiBadge>
       <UiBadge variant="outline" class="gap-1">
         <Icon name="lucide:check" class="size-3 text-emerald-500" aria-hidden="true" />
@@ -182,7 +182,7 @@ Click :SourceCodeLink{component="Badge.vue"} to see the source code for this com
         Badge
       </UiBadge>
       <UiBadge
-        class="relative outline-none has-focus-visible:border-ring has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50 has-data-[state=unchecked]:bg-muted has-data-[state=unchecked]:text-muted-foreground"
+        class="has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-data-[state=unchecked]:bg-muted has-data-[state=unchecked]:text-muted-foreground relative outline-none has-focus-visible:ring-[3px]"
       >
         <UiCheckbox :id class="peer sr-only after:absolute after:inset-0" default-checked />
         <div class="hidden items-center justify-center peer-data-[state=checked]:flex">
@@ -196,7 +196,7 @@ Click :SourceCodeLink{component="Badge.vue"} to see the source code for this com
       <UiBadge v-if="open" class="gap-0 rounded-full">
         Removable
         <button
-          class="-my-px -ms-px -me-1.5 inline-flex size-5 shrink-0 cursor-pointer items-center justify-center rounded-[inherit] p-0 text-primary-foreground/60 transition-[color,box-shadow] outline-none hover:text-primary-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
+          class="text-primary-foreground/60 hover:text-primary-foreground focus-visible:border-ring focus-visible:ring-ring/50 -my-px -ms-px -me-1.5 inline-flex size-5 shrink-0 cursor-pointer items-center justify-center rounded-[inherit] p-0 transition-[color,box-shadow] outline-none focus-visible:ring-[3px]"
           @click="open = false"
         >
           <Icon name="lucide:x" class="size-3" aria-hidden="true" />
@@ -206,7 +206,7 @@ Click :SourceCodeLink{component="Badge.vue"} to see the source code for this com
       <UiBadge v-if="tagActive" variant="outline" class="gap-0 rounded-md px-2">
         Tag
         <button
-          class="-my-[5px] -ms-0.5 -me-2 inline-flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-[inherit] p-0 text-foreground/60 transition-[color,box-shadow] outline-none hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
+          class="text-foreground/60 hover:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 -my-[5px] -ms-0.5 -me-2 inline-flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-[inherit] p-0 transition-[color,box-shadow] outline-none focus-visible:ring-[3px]"
           aria-label="Delete"
           @click="tagActive = false"
         >
@@ -248,7 +248,7 @@ Click :SourceCodeLink{component="Badge.vue"} to see the source code for this com
 
 Three sizes are available for badges: `sm`, `md`, and `lg`.
 
-::ShowCase
+::prose-show-case
 
 :DocsBadgeSizes
 

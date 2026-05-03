@@ -1,6 +1,6 @@
 <template>
   <UiContainer>
-    <div class="rounded-md border bg-background p-4 lg:p-5">
+    <div class="bg-background rounded-md border p-4 lg:p-5">
       <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div class="flex flex-1 items-start gap-4">
           <Motion
@@ -25,14 +25,14 @@
               :while-in-view="{ opacity: 1 }"
               :transition="{ delay: 0.2 }"
             >
-              <p class="mt-1 text-sm text-muted-foreground" v-html="description" />
+              <p class="text-muted-foreground mt-1 text-sm" v-html="description" />
             </Motion>
             <Motion
               :initial="{ opacity: 0, y: 10 }"
               :while-in-view="{ opacity: 1, y: 0 }"
               :transition="{ delay: 0.3 }"
             >
-              <div class="mt-3 flex items-center gap-2 text-xs text-muted-foreground">
+              <div class="text-muted-foreground mt-3 flex items-center gap-2 text-xs">
                 <Icon name="lucide:clock" class="size-3.5" />
                 <span>{{ timeText }}</span>
                 <UiSeparator orientation="vertical" class="h-3" />
@@ -57,7 +57,7 @@
             class="hidden shrink-0 lg:flex"
             aria-label="Close banner"
           >
-            <Icon name="lucide:x" class="size-4 text-muted-foreground" />
+            <Icon name="lucide:x" class="text-muted-foreground size-4" />
           </UiButton>
         </Motion>
       </div>

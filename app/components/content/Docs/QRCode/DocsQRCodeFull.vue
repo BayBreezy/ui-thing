@@ -6,7 +6,7 @@
       <!-- Medium QR Code -->
       <div class="space-y-2">
         <h3 class="text-sm font-medium">Medium Size</h3>
-        <div class="flex justify-center rounded-lg border border-border p-4">
+        <div class="border-border flex justify-center rounded-lg border p-4">
           <UiQRCode :value="url" size="md" />
         </div>
       </div>
@@ -14,7 +14,7 @@
       <!-- Large QR Code with Gradient -->
       <div class="space-y-2">
         <h3 class="text-sm font-medium">Large with Gradient</h3>
-        <div class="relative flex justify-center rounded-lg border border-border p-4">
+        <div class="border-border relative flex justify-center rounded-lg border p-4">
           <UiQRCode :value="url" size="lg"> </UiQRCode>
           <UiQRCodeGradientScan />
         </div>

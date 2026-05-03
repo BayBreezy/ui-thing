@@ -7,7 +7,7 @@
             v-for="t in tabs"
             :key="t.title"
             :value="t.title"
-            class="flex items-center gap-2 rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-none"
+            class="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground flex items-center gap-2 rounded-full data-[state=active]:shadow-none"
           >
             <Icon :name="t.icon" class="-ms-0.5 me-1.5 size-4 shrink-0 opacity-60" />
             {{ t.title }}
@@ -15,7 +15,7 @@
         </UiTabsList>
       </div>
       <UiTabsContent v-for="t in tabs" :key="t.title" :value="t.title">
-        <p class="p-4 text-center text-sm text-muted-foreground">{{ t.content }}</p>
+        <p class="text-muted-foreground p-4 text-center text-sm">{{ t.content }}</p>
       </UiTabsContent>
     </UiTabs>
   </div>

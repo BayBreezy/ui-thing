@@ -16,6 +16,6 @@
   }>();
 
   const styles = tv({
-    base: "mt-4 text-sm text-muted-foreground",
+    base: "text-muted-foreground mt-4 text-sm",
   });
 </script>

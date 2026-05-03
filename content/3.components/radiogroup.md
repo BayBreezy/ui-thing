@@ -4,7 +4,7 @@ description: A set of checkable buttons—known as radio buttons—where no more
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/radio-group.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/radio-group.html#api-reference
     icon: "icon-park-solid:api"
@@ -33,7 +33,7 @@ Click :SourceCodeLink{component="RadioGroup"} to see the source code for this co
 
 ### Default value
 
-::ShowCase
+::prose-show-case
 
 :DocsRadioGroup
 
@@ -68,7 +68,7 @@ Click :SourceCodeLink{component="RadioGroup"} to see the source code for this co
 
 ### Form
 
-::ShowCase
+::prose-show-case
 
 :DocsRadioGroupForm
 

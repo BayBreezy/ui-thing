@@ -2,14 +2,14 @@
   <UiContainer class="py-10 lg:py-20">
     <div class="text-center">
       <h2 class="mb-4 text-3xl font-semibold lg:text-4xl">Don't just take our word for it</h2>
-      <p class="mx-auto max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
         Hear from some of our amazing customers who are building faster.
       </p>
     </div>
 
     <div class="mt-12 columns-1 gap-8 space-y-8 md:columns-2 lg:mt-16 lg:columns-3">
       <template v-for="(item, i) in testimonials" :key="i">
-        <div class="break-inside-avoid rounded-lg border bg-card p-6">
+        <div class="bg-card break-inside-avoid rounded-lg border p-6">
           <div class="mb-4 flex items-center justify-between">
             <div class="flex gap-1">
               <template v-for="s in item.rating" :key="s">
@@ -22,7 +22,7 @@
             <UiAvatar :src="item.avatar" class="size-10" />
             <div>
               <p class="text-sm font-semibold">{{ item.name }}</p>
-              <p class="text-xs text-muted-foreground">{{ item.title }}</p>
+              <p class="text-muted-foreground text-xs">{{ item.title }}</p>
             </div>
           </div>
         </div>

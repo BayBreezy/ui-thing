@@ -8,7 +8,7 @@
     >
       <Motion :variants="gridVariant" class="relative">
         <div
-          class="absolute top-1/2 left-1/2 -z-10 size-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br from-primary/20 to-transparent blur-3xl"
+          class="from-primary/20 absolute top-1/2 left-1/2 -z-10 size-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br to-transparent blur-3xl"
         />
         <div class="grid grid-cols-3 gap-3">
           <Motion
@@ -16,7 +16,7 @@
             :key="i"
             :variants="boxVariant"
             :custom="i"
-            class="size-12 rounded-lg bg-muted"
+            class="bg-muted size-12 rounded-lg"
           />
         </div>
       </Motion>
@@ -36,7 +36,7 @@
             v-if="description"
             as="p"
             :variants="childVariant"
-            class="mx-auto max-w-md text-muted-foreground"
+            class="text-muted-foreground mx-auto max-w-md"
           >
             <span v-html="description" />
           </Motion>
@@ -59,7 +59,7 @@
           v-if="footerText"
           as="p"
           :variants="childVariant"
-          class="text-xs text-muted-foreground"
+          class="text-muted-foreground text-xs"
         >
           <span v-html="footerText" />
         </Motion>

@@ -27,7 +27,7 @@
     {
       branch: "v2",
       folder: "Ui",
-      collection: "content",
+      collection: "docs",
     }
   );
 

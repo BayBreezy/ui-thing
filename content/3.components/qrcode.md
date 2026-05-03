@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="QRCode"} to see the source code for this compon
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsQ_RCodeBasic
 
@@ -37,7 +37,7 @@ Click :SourceCodeLink{component="QRCode"} to see the source code for this compon
 
 ### Large Size
 
-::ShowCase
+::prose-show-case
 
 :DocsQ_RCodeLarge
 
@@ -59,7 +59,7 @@ Click :SourceCodeLink{component="QRCode"} to see the source code for this compon
 
 ### Custom Frame Handles
 
-::ShowCase
+::prose-show-case
 
 :DocsQ_RCodeCustomHandles
 
@@ -94,7 +94,7 @@ Click :SourceCodeLink{component="QRCode"} to see the source code for this compon
 
 ### With Gradient Scan
 
-::ShowCase
+::prose-show-case
 
 :DocsQ_RCodeGradientScan
 
@@ -117,7 +117,7 @@ Click :SourceCodeLink{component="QRCode"} to see the source code for this compon
 
 ### Dynamic Value Update
 
-::ShowCase
+::prose-show-case
 
 :DocsQ_RCodeDynamic
 
@@ -145,7 +145,7 @@ Click :SourceCodeLink{component="QRCode"} to see the source code for this compon
 
 ### With Custom Options
 
-::ShowCase
+::prose-show-case
 
 :DocsQ_RCodeCustomOptions
 
@@ -201,7 +201,7 @@ Click :SourceCodeLink{component="QRCode"} to see the source code for this compon
 
 ### Full Featured
 
-::ShowCase
+::prose-show-case
 
 :DocsQ_RCodeFull
 
@@ -218,7 +218,7 @@ Click :SourceCodeLink{component="QRCode"} to see the source code for this compon
       <!-- Medium QR Code -->
       <div class="space-y-2">
         <h3 class="text-sm font-medium">Medium Size</h3>
-        <div class="flex justify-center rounded-lg border border-border p-4">
+        <div class="border-border flex justify-center rounded-lg border p-4">
           <UiQRCode :value="url" size="md" />
         </div>
       </div>
@@ -226,7 +226,7 @@ Click :SourceCodeLink{component="QRCode"} to see the source code for this compon
       <!-- Large QR Code with Gradient -->
       <div class="space-y-2">
         <h3 class="text-sm font-medium">Large with Gradient</h3>
-        <div class="relative flex justify-center rounded-lg border border-border p-4">
+        <div class="border-border relative flex justify-center rounded-lg border p-4">
           <UiQRCode :value="url" size="lg"> </UiQRCode>
           <UiQRCodeGradientScan />
         </div>

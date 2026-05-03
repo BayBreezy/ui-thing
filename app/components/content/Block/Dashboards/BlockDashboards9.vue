@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-background text-foreground">
+  <div class="bg-background text-foreground min-h-screen">
     <!-- Delete confirmation dialog -->
     <UiAlertDialog v-model:open="deleteOpen">
       <UiAlertDialogContent>
@@ -120,7 +120,7 @@
         </UiCommandGroup>
       </UiCommandList>
       <div
-        class="flex items-center gap-5 border-t border-border/70 bg-muted/20 px-4 py-2.5 text-xs text-muted-foreground"
+        class="border-border/70 bg-muted/20 text-muted-foreground flex items-center gap-5 border-t px-4 py-2.5 text-xs"
       >
         <span class="flex items-center gap-1.5"><UiKbd>↵</UiKbd> to select</span>
         <span class="flex items-center gap-1.5"><UiKbd>↑↓</UiKbd> to navigate</span>
@@ -134,14 +134,14 @@
       :initial="{ opacity: 0, y: -16 }"
       :animate="{ opacity: 1, y: 0 }"
       :transition="{ duration: 0.4, ease: 'easeOut' }"
-      class="sticky top-0 z-10 border-b border-border/70 bg-background/85 backdrop-blur-md"
+      class="border-border/70 bg-background/85 sticky top-0 z-10 border-b backdrop-blur-md"
     >
       <UiContainer class="flex min-h-[4rem] items-center justify-between gap-4">
         <!-- Logo + nav -->
         <div class="flex items-center gap-5">
           <div class="flex items-center gap-2.5">
             <div
-              class="flex size-8 items-center justify-center rounded-lg border border-border/70 bg-muted shadow-xs"
+              class="border-border/70 bg-muted flex size-8 items-center justify-center rounded-lg border shadow-xs"
             >
               <div
                 class="size-4 rounded-full bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,0.95),rgba(255,255,255,0.2)_32%,transparent_34%),linear-gradient(135deg,var(--color-primary),color-mix(in_oklab,var(--color-primary)_40%,white))]"
@@ -166,7 +166,7 @@
                 class="w-full justify-start"
                 :class="
                   item.active
-                    ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                    ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                     : 'text-muted-foreground'
                 "
               >
@@ -184,7 +184,7 @@
               size="sm"
               :class="
                 item.active
-                  ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                  ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                   : 'text-muted-foreground'
               "
             >
@@ -203,7 +203,7 @@
                 class="rounded-full"
                 @click="searchOpen = true"
               >
-                <Icon name="heroicons:magnifying-glass" class="size-5 text-muted-foreground" />
+                <Icon name="heroicons:magnifying-glass" class="text-muted-foreground size-5" />
               </UiButton>
             </UiTooltipTrigger>
             <UiTooltipContent><p>Search</p></UiTooltipContent>
@@ -214,7 +214,7 @@
               <UiTooltipTrigger as-child>
                 <UiDropdownMenuTrigger as-child>
                   <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                    <Icon name="heroicons:cog-6-tooth" class="size-5 text-muted-foreground" />
+                    <Icon name="heroicons:cog-6-tooth" class="text-muted-foreground size-5" />
                   </UiButton>
                 </UiDropdownMenuTrigger>
               </UiTooltipTrigger>
@@ -240,7 +240,7 @@
               <UiTooltipTrigger as-child>
                 <UiDropdownMenuTrigger as-child>
                   <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                    <Icon name="heroicons:bell" class="size-5 text-muted-foreground" />
+                    <Icon name="heroicons:bell" class="text-muted-foreground size-5" />
                   </UiButton>
                 </UiDropdownMenuTrigger>
               </UiTooltipTrigger>
@@ -286,7 +286,7 @@
                 <UiDropdownMenuLabel>
                   <div class="flex flex-col">
                     <p class="text-sm font-medium">Sasha Smith</p>
-                    <p class="text-xs text-muted-foreground">sasha@ui-thing.com</p>
+                    <p class="text-muted-foreground text-xs">sasha@ui-thing.com</p>
                   </div>
                 </UiDropdownMenuLabel>
                 <UiDropdownMenuSeparator />
@@ -328,7 +328,7 @@
                 class="hidden sm:flex"
                 @click="searchOpen = true"
               >
-                <Icon name="heroicons:magnifying-glass" class="size-4 text-muted-foreground" />
+                <Icon name="heroicons:magnifying-glass" class="text-muted-foreground size-4" />
               </UiButton>
             </UiTooltipTrigger>
             <UiTooltipContent><p>Search vendors</p></UiTooltipContent>
@@ -352,18 +352,18 @@
         class="grid gap-4 lg:grid-cols-[3fr_2fr]"
       >
         <!-- Vendor breakdown — line chart -->
-        <div class="overflow-hidden rounded-xl border border-border/70 bg-card shadow-xs">
+        <div class="border-border/70 bg-card overflow-hidden rounded-xl border shadow-xs">
           <!-- Card header -->
-          <div class="flex items-start justify-between border-b border-border/60 px-5 py-4">
+          <div class="border-border/60 flex items-start justify-between border-b px-5 py-4">
             <div class="flex items-center gap-3">
               <div
-                class="flex size-10 shrink-0 items-center justify-center rounded-full bg-foreground"
+                class="bg-foreground flex size-10 shrink-0 items-center justify-center rounded-full"
               >
-                <Icon name="heroicons:arrow-path" class="size-5 text-background" />
+                <Icon name="heroicons:arrow-path" class="text-background size-5" />
               </div>
               <div>
                 <p class="text-sm font-semibold">Vendor breakdown</p>
-                <p class="text-xs text-muted-foreground">
+                <p class="text-muted-foreground text-xs">
                   Keep track of vendors and their security ratings.
                 </p>
               </div>
@@ -375,7 +375,7 @@
                     <UiButton
                       variant="ghost"
                       size="icon-sm"
-                      class="-mr-1 shrink-0 text-muted-foreground"
+                      class="text-muted-foreground -mr-1 shrink-0"
                     >
                       <Icon name="heroicons:ellipsis-vertical" class="size-4" />
                     </UiButton>
@@ -394,20 +394,20 @@
           <UiApexchart type="line" height="300" :series="lineSeries" :options="lineOptions" />
 
           <!-- Footer -->
-          <div class="border-t border-border/60 px-5 py-3">
+          <div class="border-border/60 border-t px-5 py-3">
             <UiButton variant="outline" size="sm" class="w-full">View full report</UiButton>
           </div>
         </div>
 
         <!-- Vendors monitored — donut card -->
         <div
-          class="flex flex-col overflow-hidden rounded-xl border border-border/70 bg-card shadow-xs"
+          class="border-border/70 bg-card flex flex-col overflow-hidden rounded-xl border shadow-xs"
         >
           <!-- Card header -->
-          <div class="flex items-start justify-between border-b border-border/60 px-5 py-4">
+          <div class="border-border/60 flex items-start justify-between border-b px-5 py-4">
             <div>
               <p class="text-sm font-semibold">Vendors monitored</p>
-              <p class="text-xs text-muted-foreground">You're using 80% of available spots.</p>
+              <p class="text-muted-foreground text-xs">You're using 80% of available spots.</p>
             </div>
             <UiTooltip>
               <UiDropdownMenu>
@@ -416,7 +416,7 @@
                     <UiButton
                       variant="ghost"
                       size="icon-sm"
-                      class="-mr-1 shrink-0 text-muted-foreground"
+                      class="text-muted-foreground -mr-1 shrink-0"
                     >
                       <Icon name="heroicons:ellipsis-vertical" class="size-4" />
                     </UiButton>
@@ -446,10 +446,10 @@
           </div>
 
           <!-- Warning message -->
-          <div class="space-y-3 border-t border-border/60 px-5 py-4">
+          <div class="border-border/60 space-y-3 border-t px-5 py-4">
             <div>
               <p class="text-sm font-semibold">You've almost reached your limit</p>
-              <p class="mt-0.5 text-xs text-muted-foreground">
+              <p class="text-muted-foreground mt-0.5 text-xs">
                 You have used 80% of your available spots. Upgrade plan to monitor more vendors.
               </p>
             </div>
@@ -467,10 +467,10 @@
         :animate="{ opacity: 1, y: 0 }"
         :transition="{ duration: 0.4, delay: 0.26, ease: 'easeOut' }"
       >
-        <UiCard class="gap-0 overflow-hidden border-border/70 py-0 shadow-xs">
+        <UiCard class="border-border/70 gap-0 overflow-hidden py-0 shadow-xs">
           <!-- Section header -->
           <div
-            class="flex flex-col gap-3 border-b border-border/60 px-5 py-4 sm:flex-row sm:items-start sm:justify-between"
+            class="border-border/60 flex flex-col gap-3 border-b px-5 py-4 sm:flex-row sm:items-start sm:justify-between"
           >
             <div>
               <div class="flex flex-wrap items-center gap-2">
@@ -479,7 +479,7 @@
                   240 vendors
                 </UiBadge>
               </div>
-              <p class="mt-0.5 text-sm text-muted-foreground">
+              <p class="text-muted-foreground mt-0.5 text-sm">
                 Keep track of vendor and their security ratings.
               </p>
             </div>
@@ -497,7 +497,7 @@
 
           <!-- Filter tabs + search row -->
           <div
-            class="flex flex-col gap-3 border-b border-border/60 px-5 py-3 sm:flex-row sm:items-center sm:justify-between"
+            class="border-border/60 flex flex-col gap-3 border-b px-5 py-3 sm:flex-row sm:items-center sm:justify-between"
           >
             <!-- Tab buttons -->
             <UiButtonGroup>
@@ -518,7 +518,7 @@
               <div class="relative w-full sm:w-52">
                 <Icon
                   name="heroicons:magnifying-glass"
-                  class="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground"
+                  class="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2"
                 />
                 <UiInput v-model="tableSearch" placeholder="Search" class="pr-12 pl-9" />
                 <div class="absolute top-1/2 right-2.5 -translate-y-1/2">
@@ -575,7 +575,7 @@
                 </div>
                 <div class="flex min-w-0 flex-col">
                   <span class="truncate text-sm font-semibold">{{ row.original.name }}</span>
-                  <span class="truncate text-xs text-muted-foreground">{{
+                  <span class="text-muted-foreground truncate text-xs">{{
                     row.original.domain
                   }}</span>
                 </div>
@@ -585,7 +585,7 @@
             <!-- Rating cell: progress bar + number + trend badge -->
             <template #rating-cell="{ row }">
               <div class="flex items-center gap-3">
-                <div class="h-1.5 w-32 overflow-hidden rounded-full bg-muted">
+                <div class="bg-muted h-1.5 w-32 overflow-hidden rounded-full">
                   <div
                     class="h-full rounded-full transition-all"
                     :style="{
@@ -618,7 +618,7 @@
 
             <!-- Last assessed cell -->
             <template #lastAssessed-cell="{ row }">
-              <span class="text-sm text-muted-foreground">{{ row.original.lastAssessed }}</span>
+              <span class="text-muted-foreground text-sm">{{ row.original.lastAssessed }}</span>
             </template>
 
             <!-- Categories cell: status + tags + overflow -->
@@ -643,13 +643,13 @@
                 <span
                   v-for="cat in row.original.categories.slice(0, 2)"
                   :key="cat"
-                  class="rounded-full border border-border/60 bg-card px-2 py-0.5 text-xs font-medium text-foreground"
+                  class="border-border/60 bg-card text-foreground rounded-full border px-2 py-0.5 text-xs font-medium"
                 >
                   {{ cat }}
                 </span>
                 <span
                   v-if="row.original.categories.length > 2"
-                  class="rounded-full border border-border/60 bg-card px-2 py-0.5 text-xs font-medium text-muted-foreground"
+                  class="border-border/60 bg-card text-muted-foreground rounded-full border px-2 py-0.5 text-xs font-medium"
                 >
                   +{{ row.original.categories.length - 2 }}
                 </span>
@@ -698,9 +698,9 @@
             <!-- Footer with pagination -->
             <template #footer="{ table }">
               <div
-                class="flex w-full items-center justify-between border-t border-border/60 px-5 py-4"
+                class="border-border/60 flex w-full items-center justify-between border-t px-5 py-4"
               >
-                <p class="text-sm text-muted-foreground">
+                <p class="text-muted-foreground text-sm">
                   Page {{ table.getState().pagination.pageIndex + 1 }} of
                   {{ table.getPageCount() }}
                 </p>

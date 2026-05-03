@@ -5,7 +5,7 @@
     while-in-view="animate"
     class="relative overflow-hidden"
   >
-    <div class="absolute inset-0 bg-linear-to-br from-primary/5 via-background to-background" />
+    <div class="from-primary/5 via-background to-background absolute inset-0 bg-linear-to-br" />
 
     <div class="relative flex flex-col gap-4 p-4 lg:flex-row lg:items-center lg:p-5">
       <div class="flex flex-1 items-center gap-4">
@@ -13,13 +13,13 @@
           :variants="dotParentVariant"
           initial="initial"
           while-in-view="animate"
-          class="flex size-16 shrink-0 items-center justify-center gap-2 rounded-full border border-primary/50"
+          class="border-primary/50 flex size-16 shrink-0 items-center justify-center gap-2 rounded-full border"
         >
           <Motion
             v-for="dot in 3"
             :key="dot"
             :variants="dotVariant"
-            class="size-2 rounded-full bg-primary"
+            class="bg-primary size-2 rounded-full"
           />
         </Motion>
         <div class="flex-1">
@@ -43,7 +43,7 @@
               animate: { opacity: 1, x: 0 },
             }"
           >
-            <p class="mt-1 text-sm text-muted-foreground" v-html="description" />
+            <p class="text-muted-foreground mt-1 text-sm" v-html="description" />
           </Motion>
         </div>
       </div>
@@ -63,7 +63,7 @@
           />
         </UiButton>
         <UiButton aria-label="Close banner" size="icon-sm" variant="ghost" class="hidden lg:flex">
-          <Icon name="lucide:x" class="size-4 text-muted-foreground" />
+          <Icon name="lucide:x" class="text-muted-foreground size-4" />
         </UiButton>
       </Motion>
     </div>
@@ -73,7 +73,7 @@
         initial: { width: 0 },
         animate: { width: progressWidth, transition: { duration: 1, ease: 'easeOut' } },
       }"
-      class="relative h-1 bg-primary"
+      class="bg-primary relative h-1"
     />
     <Motion
       as-child
@@ -88,7 +88,7 @@
         variant="ghost"
         class="absolute top-4 right-4 lg:hidden"
       >
-        <Icon name="lucide:x" class="size-4 text-muted-foreground" />
+        <Icon name="lucide:x" class="text-muted-foreground size-4" />
       </UiButton>
     </Motion>
   </Motion>

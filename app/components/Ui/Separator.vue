@@ -13,9 +13,7 @@
   import type { HTMLAttributes } from "vue";
 
   export type UiSeparatorProps = SeparatorProps & {
-    /**
-     * Custom class(es) to add to the separator
-     */
+    /** Custom class(es) to add to the separator. */
     class?: HTMLAttributes["class"];
   };
 </script>
@@ -29,7 +27,7 @@
   const forwarded = useForwardProps(reactiveOmit(props, "class"));
 
   const styles = tv({
-    base: "shrink-0 bg-border",
+    base: "bg-border shrink-0",
     variants: {
       orientation: {
         horizontal: "h-px w-full",

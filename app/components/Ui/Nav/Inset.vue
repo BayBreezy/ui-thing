@@ -5,7 +5,7 @@
     v-bind="forwarded"
   >
     <div
-      class="grow bg-background p-6 md:rounded-lg md:p-12 md:shadow-xs md:ring-1 md:ring-foreground/15 md:dark:bg-background md:dark:ring-border"
+      class="bg-background md:ring-foreground/15 md:dark:bg-background md:dark:ring-border grow p-6 md:rounded-lg md:p-12 md:shadow-xs md:ring-1"
     >
       <div class="mx-auto max-w-7xl">
         <slot />
@@ -22,13 +22,13 @@
 
   const props = defineProps<
     PrimitiveProps & {
-      /** Custom class(es) to add to the element */
+      /** Custom class(es) to add to the element. */
       class?: HTMLAttributes["class"];
     }
   >();
   const forwarded = reactiveOmit(props, "class");
 
   const styles = tv({
-    base: ["flex flex-1 flex-col bg-background pb-2 md:px-2"],
+    base: ["bg-background flex flex-1 flex-col pb-2 md:px-2"],
   });
 </script>

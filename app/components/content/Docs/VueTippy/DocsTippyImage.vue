@@ -13,7 +13,7 @@
           />
           <div class="space-y-1">
             <p class="text-[13px] font-medium">Tooltip with title and icon</p>
-            <p class="text-xs text-muted-foreground">
+            <p class="text-muted-foreground text-xs">
               Tooltips are made to be highly customizable, with features like dynamic placement,
               rich content, and a robust API.
             </p>

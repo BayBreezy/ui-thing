@@ -64,7 +64,7 @@
         <UiAvatar :src="cellData.image" :alt="cellData.name" />
         <div>
           <div class="font-medium">{{ cellData.name }}</div>
-          <span class="text-xs text-muted-foreground">@{{ cellData.username }}</span>
+          <span class="text-muted-foreground text-xs">@{{ cellData.username }}</span>
         </div>
       </div>
     </template>

@@ -1,15 +1,13 @@
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
-  "arrowParens": "always",
-  "endOfLine": "lf",
   "trailingComma": "es5",
+  "ignorePatterns": ["**/*.md"],
   "sortTailwindcss": {
-    "stylesheet": "./app/assets/css/tailwind.css",
     "functions": ["tv", "tw"],
     "attributes": [":class"]
   },
+  "jsdoc": { "bracketSpacing": true, "descriptionWithDot": true, "separateReturnsFromParam": true },
   "sortImports": true,
   "vueIndentScriptAndStyle": true,
-  "importOrder": ["<BUILTIN_MODULES>", "<THIRD_PARTY_MODULES>", "<TYPES>", "", "^[.]"],
-  "sortPackageJson": true
+  "sortPackageJson": { "sortScripts": true }
 }

@@ -15,9 +15,9 @@
 
   const props = defineProps<
     AlertDialogTitleProps & {
-      /** Text to display in the title */
+      /** Text to display in the title. */
       title?: string;
-      /** Custom class(es) to add to the title */
+      /** Custom class(es) to add to the title. */
       class?: any;
     }
   >();

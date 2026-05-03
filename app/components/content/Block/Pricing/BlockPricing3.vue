@@ -1,11 +1,11 @@
 <template>
   <UiContainer class="relative py-16 lg:py-24">
     <div class="mx-auto max-w-[760px] text-center">
-      <p class="font-semibold text-primary">Pricing</p>
+      <p class="text-primary font-semibold">Pricing</p>
       <h2 class="mt-3 mb-4 text-3xl font-semibold lg:mb-6 lg:text-4xl">
         Plans that fit your scale
       </h2>
-      <p class="text-lg text-muted-foreground lg:text-xl">
+      <p class="text-muted-foreground text-lg lg:text-xl">
         Simple, transparent pricing that grows with you. Try any plan free for 30 days.
       </p>
     </div>
@@ -32,12 +32,12 @@
                   {{ p.title }} plan
                   <UiBadge
                     v-if="i == prices.length - 1"
-                    class="ml-2 border-primary/50 text-primary"
+                    class="border-primary/50 text-primary ml-2"
                     variant="outline"
                     >Popular</UiBadge
                   >
                 </p>
-                <p class="mt-1 text-muted-foreground">{{ p.description }}</p>
+                <p class="text-muted-foreground mt-1">{{ p.description }}</p>
               </div>
               <div>
                 <p class="text-5xl/snug font-bold lg:text-5xl/snug">
@@ -47,17 +47,17 @@
             </div>
             <div class="px-6 pt-6">
               <p class="font-semibold uppercase">Features</p>
-              <p class="mt-2 text-muted-foreground">Below is the list of features offered</p>
+              <p class="text-muted-foreground mt-2">Below is the list of features offered</p>
             </div>
 
             <ul class="grid w-full grid-cols-1 gap-4 px-5 pt-8 md:grid-cols-2 lg:py-8">
               <li v-for="(perk, k) in p.perks" :key="k" class="flex items-center gap-3">
-                <Icon name="heroicons:check-circle" class="h-6 w-6 shrink-0 text-primary" />
+                <Icon name="heroicons:check-circle" class="text-primary h-6 w-6 shrink-0" />
                 <span class="opacity-80">{{ perk }}</span>
               </li>
             </ul>
           </UiCardContent>
-          <UiCardFooter class="border-t pt-6! dark:border-muted/50">
+          <UiCardFooter class="dark:border-muted/50 border-t pt-6!">
             <UiButton class="w-full"> Get started </UiButton>
           </UiCardFooter>
         </UiCard>

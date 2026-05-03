@@ -21,7 +21,7 @@ Click :SourceCodeLink{component="BorderBeam.vue"} to see the source code for thi
 
 Just place the border beam component inside a div with relative positioning, width, and height. You will notice the beam automatically moves around the perimeter of it's container.
 
-::ShowCase
+::prose-show-case
 
 :DocsBorderBeam
 
@@ -65,7 +65,7 @@ Just place the border beam component inside a div with relative positioning, wid
 
 ### 2 Border Beams
 
-::ShowCase
+::prose-show-case
 
 :DocsBorderBeamTwo
 
@@ -84,7 +84,7 @@ Just place the border beam component inside a div with relative positioning, wid
       <div class="flex flex-col items-center gap-4">
         <div class="size-48 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 shadow-xs" />
         <UiProgress :model-value="26.5" class="h-1" />
-        <div class="flex w-full justify-between text-sm text-muted-foreground">
+        <div class="text-muted-foreground flex w-full justify-between text-sm">
           <span>2:45</span>
           <span>8:02</span>
         </div>
@@ -118,7 +118,7 @@ Just place the border beam component inside a div with relative positioning, wid
 
 ### Reverse
 
-::ShowCase
+::prose-show-case
 
 :DocsBorderBeamReverse
 
@@ -128,7 +128,7 @@ Just place the border beam component inside a div with relative positioning, wid
 
 ```vue [DocsBorderBeamReverse.vue]
 <template>
-  <UiCard class="relative mx-auto w-[350px] overflow-hidden border-border/30">
+  <UiCard class="border-border/30 relative mx-auto w-[350px] overflow-hidden">
     <UiCardHeader>
       <UiCardTitle>Login</UiCardTitle>
       <UiCardDescription> Enter your credentials to access your account. </UiCardDescription>
@@ -172,7 +172,7 @@ Just place the border beam component inside a div with relative positioning, wid
 
 ### Spring Animation
 
-::ShowCase
+::prose-show-case
 
 :DocsBorderBeamSpring
 

@@ -16,7 +16,7 @@
     <div
       class="group relative overflow-hidden rounded-xl bg-linear-to-br from-violet-500 via-pink-500/50 to-orange-500/50 p-0.5"
     >
-      <div class="overflow-hidden rounded-lg bg-background">
+      <div class="bg-background overflow-hidden rounded-lg">
         <Motion
           as-child
           :variants="{
@@ -38,7 +38,7 @@
                 :initial="{ scale: 0 }"
                 :animate="{ scale: 1 }"
                 :transition="{ delay: 0.1, type: 'spring', stiffness: 300, damping: 20 }"
-                class="flex size-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-xl"
+                class="bg-primary text-primary-foreground flex size-12 items-center justify-center rounded-full shadow-xl"
               >
                 <Icon name="lucide:arrow-right" class="size-6" />
               </Motion>
@@ -69,7 +69,7 @@
 
           <Motion as-child :variants="childVariant">
             <NuxtLink :to="link">
-              <h3 class="mb-2 text-xl font-bold transition-colors hover:text-primary lg:text-2xl">
+              <h3 class="hover:text-primary mb-2 text-xl font-bold transition-colors lg:text-2xl">
                 {{ title }}
               </h3>
             </NuxtLink>
@@ -79,7 +79,7 @@
             v-if="description"
             as="p"
             :variants="childVariant"
-            class="mb-4 line-clamp-2 text-sm text-muted-foreground"
+            class="text-muted-foreground mb-4 line-clamp-2 text-sm"
           >
             {{ description }}
           </Motion>
@@ -89,7 +89,7 @@
               <UiAvatar v-if="userImage" :src="userImage" :alt="userName" class="size-8" />
               <div>
                 <p v-if="userName" class="text-sm font-semibold">{{ userName }}</p>
-                <div class="flex items-center gap-1.5 text-xs text-muted-foreground">
+                <div class="text-muted-foreground flex items-center gap-1.5 text-xs">
                   <span>{{ date }}</span>
                   <span v-if="readTime">• {{ readTime }}</span>
                 </div>
@@ -98,7 +98,7 @@
             <UiButton
               size="icon-sm"
               variant="ghost"
-              class="text-muted-foreground transition-colors hover:text-primary"
+              class="text-muted-foreground hover:text-primary transition-colors"
             >
               <Icon name="lucide:bookmark" class="size-5" />
             </UiButton>

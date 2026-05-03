@@ -44,7 +44,7 @@
     slots: {
       rating: "inline-flex items-center",
       star: "",
-      value: "w-5 text-muted-foreground",
+      value: "text-muted-foreground w-5",
     },
     variants: {
       size: {
@@ -59,47 +59,39 @@
   });
 
   export type RatingProps = {
-    /**
-     * Maximum rating value (number of stars to show)
-     */
+    /** Maximum rating value (number of stars to show) */
     maxRating?: number;
-    /**
-     * Additional classes to apply to the wrapper element.
-     */
+    /** Additional classes to apply to the wrapper element. */
     class?: HTMLAttributes["class"];
-    /**
-     * Class name for the value span
-     */
+    /** Class name for the value span. */
     valueClassName?: HTMLAttributes["class"];
-    /**
-     * Class name for the empty star icon
-     */
+    /** Class name for the empty star icon. */
     emptyIconClassName?: HTMLAttributes["class"];
-    /**
-     * Class name for the filled star icon
-     */
+    /** Class name for the filled star icon. */
     filledIconClassName?: HTMLAttributes["class"];
     /**
-     * Size of the rating component
+     * Size of the rating component.
+     *
      * @default "md"
      */
     size?: VariantProps<typeof ratingStyles>["size"];
     /**
-     * Whether to show the numeric rating value
+     * Whether to show the numeric rating value.
+     *
      * @default false
      */
     showValue?: boolean;
     /**
      * Whether the rating is editable (clickable)
+     *
      * @default false
      */
     editable?: boolean;
-    /**
-     * Callback function called when rating changes
-     */
+    /** Callback function called when rating changes. */
     onRatingChange?: (rating: number) => void;
     /**
      * Name of the icon to use for the stars (defaults to a star icon)
+     *
      * @default "lucide:star"
      */
     icon?: string;

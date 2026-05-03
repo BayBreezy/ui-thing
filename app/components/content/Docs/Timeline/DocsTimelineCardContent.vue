@@ -12,17 +12,17 @@
         />
         <UiTimelineTitle class="mt-0.5">
           {{ item.title }}
-          <span class="text-sm font-normal text-muted-foreground">
+          <span class="text-muted-foreground text-sm font-normal">
             {{ item.action }}
           </span>
         </UiTimelineTitle>
         <UiTimelineIndicator
-          class="flex size-6 items-center justify-center border-none bg-primary/10 group-data-completed/timeline-item:bg-primary group-data-completed/timeline-item:text-primary-foreground group-data-[orientation=vertical]/timeline:-left-7"
+          class="bg-primary/10 group-data-completed/timeline-item:bg-primary group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center border-none group-data-[orientation=vertical]/timeline:-left-7"
         >
           <img :src="item.image" :alt="item.title" class="size-6 rounded-full" />
         </UiTimelineIndicator>
       </UiTimelineHeader>
-      <UiTimelineContent class="mt-2 rounded-lg border px-4 py-3 text-foreground">
+      <UiTimelineContent class="text-foreground mt-2 rounded-lg border px-4 py-3">
         {{ item.description }}
         <UiTimelineDate class="mt-1 mb-0">{{ item.date }}</UiTimelineDate>
       </UiTimelineContent>

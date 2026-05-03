@@ -26,18 +26,18 @@
         <slot name="stats">
           <div class="grid grid-cols-3 place-items-center md:flex md:flex-wrap md:gap-5">
             <div class="flex flex-col gap-1">
-              <span class="text-xs font-medium text-muted-foreground">Total items</span>
+              <span class="text-muted-foreground text-xs font-medium">Total items</span>
               <span class="text-2xl font-bold">{{ props.totalItems }}</span>
             </div>
             <UiSeparator orientation="vertical" class="hidden h-12 md:block" />
             <div class="flex flex-col gap-1">
-              <span class="text-xs font-medium text-muted-foreground">Active</span>
-              <span class="text-2xl font-bold text-primary">{{ props.activeItems }}</span>
+              <span class="text-muted-foreground text-xs font-medium">Active</span>
+              <span class="text-primary text-2xl font-bold">{{ props.activeItems }}</span>
             </div>
             <UiSeparator orientation="vertical" class="hidden h-12 md:block" />
             <div class="flex flex-col gap-1">
-              <span class="text-xs font-medium text-muted-foreground">Completed</span>
-              <span class="text-2xl font-bold text-muted-foreground">{{
+              <span class="text-muted-foreground text-xs font-medium">Completed</span>
+              <span class="text-muted-foreground text-2xl font-bold">{{
                 props.completedItems
               }}</span>
             </div>

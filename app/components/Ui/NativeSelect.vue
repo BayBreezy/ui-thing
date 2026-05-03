@@ -18,7 +18,7 @@
     </select>
     <span
       v-if="!multiple"
-      class="pointer-events-none absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center text-muted-foreground/80 peer-disabled:opacity-50 peer-aria-invalid:text-destructive/80"
+      class="text-muted-foreground/80 peer-aria-invalid:text-destructive/80 pointer-events-none absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center peer-disabled:opacity-50"
     >
       <slot name="trailingIcon">
         <Icon :name="trailingIcon || 'lucide:chevron-down'" class="size-4" aria-hidden="true" />
@@ -45,10 +45,10 @@
     trailingIcon?: string;
   }>();
   const styles = tv({
-    base: "peer inline-flex w-full cursor-pointer appearance-none items-center rounded-md border border-input bg-transparent text-sm text-foreground shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 has-[option[disabled]:checked]:text-muted-foreground aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:bg-input/30 dark:aria-invalid:ring-destructive/40",
+    base: "peer border-input text-foreground focus-visible:border-ring focus-visible:ring-ring/50 has-[option[disabled]:checked]:text-muted-foreground aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:bg-input/30 dark:aria-invalid:ring-destructive/40 inline-flex w-full cursor-pointer appearance-none items-center rounded-md border bg-transparent text-sm shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
     variants: {
       multiple: {
-        true: "py-1 *:px-3 *:py-1 [&_option:checked]:bg-accent",
+        true: "[&_option:checked]:bg-accent py-1 *:px-3 *:py-1",
         false: "h-9 ps-3 pe-8",
       },
     },

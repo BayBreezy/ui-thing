@@ -15,13 +15,11 @@
   import type { HTMLAttributes } from "vue";
 
   export const buttonGroupTextStyles = tv({
-    base: "flex items-center gap-2 rounded-md border bg-muted px-4 text-sm font-medium shadow-xs [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
+    base: "bg-muted flex items-center gap-2 rounded-md border px-4 text-sm font-medium shadow-xs [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
   });
 
   export type ButtonGroupTextProps = PrimitiveProps & {
-    /**
-     * Additional classes to apply to the button group text.
-     */
+    /** Additional classes to apply to the button group text. */
     class?: HTMLAttributes["class"];
   };
 </script>

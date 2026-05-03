@@ -10,7 +10,7 @@
       <UiPointerHighlight
         rectangle-class="rounded-2xl border-dashed border-emerald-500/70 shadow-[0_0_0_1px_rgba(16,185,129,0.2)]"
       >
-        <div class="rounded-2xl border bg-card px-6 py-4 text-sm font-medium">Custom rectangle</div>
+        <div class="bg-card rounded-2xl border px-6 py-4 text-sm font-medium">Custom rectangle</div>
       </UiPointerHighlight>
     </div>
 
@@ -18,7 +18,7 @@
       <UiPointerHighlight
         pointer-class="text-rose-500 size-6 drop-shadow-[0_0_12px_rgba(244,63,94,0.45)]"
       >
-        <div class="rounded-2xl bg-primary/10 px-6 py-4 text-sm font-medium text-primary">
+        <div class="bg-primary/10 text-primary rounded-2xl px-6 py-4 text-sm font-medium">
           Custom pointer
         </div>
       </UiPointerHighlight>

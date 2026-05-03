@@ -5,7 +5,7 @@
         <template #nextInstructions>
           <div class="col-span-full">
             <p class="font-semibold">We can do this too</p>
-            <p class="text-sm text-muted-foreground">
+            <p class="text-muted-foreground text-sm">
               Check the box below to conditionally render a field
             </p>
           </div>

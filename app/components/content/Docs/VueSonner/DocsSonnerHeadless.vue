@@ -1,16 +1,16 @@
 <template>
   <div
-    class="relative z-[999] box-border flex w-full gap-4 rounded-md border bg-background p-3 px-5 shadow-lg md:w-[360px]"
+    class="bg-background relative z-[999] box-border flex w-full gap-4 rounded-md border p-3 px-5 shadow-lg md:w-[360px]"
   >
     <UiAvatar
-      class="ring-1 ring-border"
+      class="ring-border ring-1"
       src="https://behonbaker.com/icon.png"
       fallback="BB"
       alt="Behon Baker"
     />
     <div>
       <p class="text-sm font-semibold">Add user</p>
-      <p class="text-sm font-normal text-muted-foreground">
+      <p class="text-muted-foreground text-sm font-normal">
         Would you like to add this user to the list?
       </p>
       <div class="mt-2 flex items-center gap-2">

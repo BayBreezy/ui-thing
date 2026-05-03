@@ -42,7 +42,7 @@
         animate: { opacity: 1, y: 0 },
       }"
       as="p"
-      class="mb-2 text-sm font-semibold text-primary"
+      class="text-primary mb-2 text-sm font-semibold"
       >{{ headline }}</Motion
     >
     <NuxtLink :to="link">
@@ -63,7 +63,7 @@
         initial: { opacity: 0, y: 10 },
         animate: { opacity: 1, y: 0 },
       }"
-      class="mb-5 line-clamp-2 text-ellipsis text-muted-foreground"
+      class="text-muted-foreground mb-5 line-clamp-2 text-ellipsis"
     >
       {{ description }}
     </Motion>
@@ -79,7 +79,7 @@
         <UiAvatar
           :src="userImage"
           :alt="userName"
-          class="mr-3 rounded-full bg-background shadow ring-1 ring-ring/30"
+          class="bg-background ring-ring/30 mr-3 rounded-full shadow ring-1"
         />
       </Motion>
       <div>
@@ -100,7 +100,7 @@
             animate: { opacity: 1, x: 0 },
           }"
           as="p"
-          class="text-sm text-muted-foreground"
+          class="text-muted-foreground text-sm"
           >{{ date }}</Motion
         >
       </div>

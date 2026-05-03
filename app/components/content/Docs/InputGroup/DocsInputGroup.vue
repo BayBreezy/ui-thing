@@ -54,7 +54,7 @@
       <UiInputGroupInput placeholder="@uithing" />
       <UiInputGroupAddon align="inline-end">
         <div
-          class="flex size-4 items-center justify-center rounded-full bg-primary text-primary-foreground"
+          class="bg-primary text-primary-foreground flex size-4 items-center justify-center rounded-full"
         >
           <Icon name="lucide:check" class="size-3" />
         </div>

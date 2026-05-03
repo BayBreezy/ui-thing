@@ -19,7 +19,7 @@ Click :SourceCodeLink{component="Vee/Switch.vue"} to see the source code for thi
 
 ### Basic example
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeSwitch
 
@@ -68,7 +68,7 @@ Click :SourceCodeLink{component="Vee/Switch.vue"} to see the source code for thi
 
 ### Default value
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeSwitchDefault
 
@@ -86,9 +86,9 @@ Click :SourceCodeLink{component="Vee/Switch.vue"} to see the source code for thi
         label="Push notifications"
         hint="Turn on push notifications for mentions and replies."
       />
-      <p class="text-sm text-muted-foreground">
+      <p class="text-muted-foreground text-sm">
         Notifications are currently
-        <span class="font-medium text-foreground">{{ enabled ? "on" : "off" }}</span
+        <span class="text-foreground font-medium">{{ enabled ? "on" : "off" }}</span
         >.
       </p>
     </form>
@@ -106,7 +106,7 @@ Click :SourceCodeLink{component="Vee/Switch.vue"} to see the source code for thi
 
 ### Settings row
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeSwitchSettings
 
@@ -118,7 +118,7 @@ Click :SourceCodeLink{component="Vee/Switch.vue"} to see the source code for thi
 <template>
   <div class="flex justify-center">
     <form class="w-full max-w-lg space-y-4" @submit="onSubmit">
-      <div class="rounded-xl border bg-card p-5 shadow-sm">
+      <div class="bg-card rounded-xl border p-5 shadow-sm">
         <UiVeeSwitch
           name="airplaneMode"
           label="Airplane mode"
@@ -128,7 +128,7 @@ Click :SourceCodeLink{component="Vee/Switch.vue"} to see the source code for thi
           <template #label="{ errorMessage }">
             <div class="grid gap-1 pr-4">
               <UiLabel :class="[errorMessage && 'text-destructive']">Airplane mode</UiLabel>
-              <p class="text-sm text-muted-foreground">
+              <p class="text-muted-foreground text-sm">
                 Disable wireless connections while still allowing access to offline content.
               </p>
             </div>
@@ -169,7 +169,7 @@ Click :SourceCodeLink{component="Vee/Switch.vue"} to see the source code for thi
 
 ### Preferences card
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeSwitchPreferencesCard
 
@@ -197,7 +197,7 @@ Click :SourceCodeLink{component="Vee/Switch.vue"} to see the source code for thi
                   <UiLabel for="securityAlerts" :class="[errorMessage && 'text-destructive']"
                     >Security alerts</UiLabel
                   >
-                  <p class="text-sm text-muted-foreground">
+                  <p class="text-muted-foreground text-sm">
                     Get notified about new sign-ins and unusual activity.
                   </p>
                 </div>
@@ -213,7 +213,7 @@ Click :SourceCodeLink{component="Vee/Switch.vue"} to see the source code for thi
                   <UiLabel for="sproductUpdates" :class="[errorMessage && 'text-destructive']"
                     >Product updates</UiLabel
                   >
-                  <p class="text-sm text-muted-foreground">
+                  <p class="text-muted-foreground text-sm">
                     Receive feature launches, changelogs, and release notes.
                   </p>
                 </div>
@@ -229,7 +229,7 @@ Click :SourceCodeLink{component="Vee/Switch.vue"} to see the source code for thi
                   <UiLabel for="weeklyDigest" :class="[errorMessage && 'text-destructive']"
                     >Weekly digest</UiLabel
                   >
-                  <p class="text-sm text-muted-foreground">
+                  <p class="text-muted-foreground text-sm">
                     Get a weekly summary of mentions, replies, and pending tasks.
                   </p>
                 </div>
@@ -240,7 +240,7 @@ Click :SourceCodeLink{component="Vee/Switch.vue"} to see the source code for thi
         </UiCardContent>
 
         <UiCardFooter class="justify-between border-t py-6">
-          <p class="text-sm text-muted-foreground">You can update these settings any time.</p>
+          <p class="text-muted-foreground text-sm">You can update these settings any time.</p>
           <UiButton type="submit">Save changes</UiButton>
         </UiCardFooter>
       </UiCard>

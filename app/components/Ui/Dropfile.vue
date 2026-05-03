@@ -13,7 +13,7 @@
               v-if="icon"
               data-slot="dropfile-icon-wrapper"
               class="inline-flex items-center justify-center rounded-md border p-2 transition"
-              :class="[isOverDropZone && 'animate-bounce border-primary']"
+              :class="[isOverDropZone && 'border-primary animate-bounce']"
             >
               <Icon
                 data-slot="dropfile-icon"
@@ -35,7 +35,7 @@
             <p
               v-if="subtext"
               data-slot="dropfile-subtext"
-              class="mt-1 text-sm text-muted-foreground/60"
+              class="text-muted-foreground/60 mt-1 text-sm"
               v-html="subtext"
             />
           </slot>
@@ -69,9 +69,7 @@
        * @default "lucide:cloud-upload"
        */
       icon?: string;
-      /**
-       * The function to call when files are dropped.
-       */
+      /** The function to call when files are dropped. */
       // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
       onDrop?: Function;
       /**
@@ -86,9 +84,7 @@
        * @default "*"
        */
       accept?: string;
-      /**
-       * Any additional class that should be added to the dropzone.
-       */
+      /** Any additional class that should be added to the dropzone. */
       class?: HTMLAttributes["class"];
     }>(),
     {
@@ -126,7 +122,7 @@
   const { isOverDropZone } = useDropZone(dropZoneRef, handleDrop);
 
   const styles = tv({
-    base: "flex w-full cursor-pointer items-center justify-center rounded-md border border-dashed transition hover:border-primary",
+    base: "hover:border-primary flex w-full cursor-pointer items-center justify-center rounded-md border border-dashed transition",
     variants: {
       isOverDropZone: { true: "border-primary bg-primary/10" },
     },

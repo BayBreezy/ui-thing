@@ -27,14 +27,14 @@
           <h3 class="text-3xl font-semibold lg:text-5xl">
             Join 4,000+ startups growing with {{ COMPANY_NAME }}
           </h3>
-          <ul class="mt-8 flex flex-col gap-5 text-muted-foreground">
+          <ul class="text-muted-foreground mt-8 flex flex-col gap-5">
             <Motion
               v-for="(feature, idx) in features"
               :key="idx"
               :variants="childVariant"
               class="flex gap-3 lg:text-lg"
             >
-              <Icon name="heroicons:check-circle" class="h-6 w-6 shrink-0 text-primary" />
+              <Icon name="heroicons:check-circle" class="text-primary h-6 w-6 shrink-0" />
               <span>{{ feature }}</span>
             </Motion>
           </ul>

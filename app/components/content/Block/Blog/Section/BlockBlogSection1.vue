@@ -18,13 +18,13 @@
     <UiContainer class="py-16 lg:py-24">
       <div class="flex flex-col md:flex-row md:justify-between">
         <div class="flex flex-col gap-3">
-          <Motion as="p" :variants="textVariant" class="font-semibold text-primary"
+          <Motion as="p" :variants="textVariant" class="text-primary font-semibold"
             >Our blog</Motion
           >
           <Motion as="h3" :variants="textVariant" class="text-3xl font-semibold lg:text-4xl"
             >Our latest blog posts</Motion
           >
-          <Motion as="p" :variants="textVariant" class="text-lg text-muted-foreground lg:text-xl">
+          <Motion as="p" :variants="textVariant" class="text-muted-foreground text-lg lg:text-xl">
             Tool and strategies modern teams need to help their companies grow.
           </Motion>
         </div>
@@ -71,7 +71,7 @@
               animate: { opacity: 1, y: 0 },
             }"
             as="p"
-            class="mb-2 text-sm font-semibold text-primary"
+            class="text-primary mb-2 text-sm font-semibold"
             >{{ headline }}</Motion
           >
           <NuxtLink :to="link">
@@ -92,7 +92,7 @@
               initial: { opacity: 0, y: 10 },
               animate: { opacity: 1, y: 0 },
             }"
-            class="mb-5 line-clamp-2 text-ellipsis text-muted-foreground"
+            class="text-muted-foreground mb-5 line-clamp-2 text-ellipsis"
           >
             {{ description }}
           </Motion>
@@ -108,7 +108,7 @@
               <UiAvatar
                 :src="userImage"
                 :alt="userName"
-                class="mr-3 rounded-full bg-background shadow ring-1 ring-ring/30"
+                class="bg-background ring-ring/30 mr-3 rounded-full shadow ring-1"
               />
             </Motion>
             <div>
@@ -129,7 +129,7 @@
                   animate: { opacity: 1, x: 0 },
                 }"
                 as="p"
-                class="text-sm text-muted-foreground"
+                class="text-muted-foreground text-sm"
                 >{{ date }}</Motion
               >
             </div>
@@ -146,10 +146,7 @@
 </template>
 
 <script lang="ts" setup>
-  /**
-* This blog section is using the cards from BlockBlogPostCard1.vue
-and rendering them in a loop.
-*/
+  /** This blog section is using the cards from BlockBlogPostCard1.vue and rendering them in a loop. */
   import { stagger } from "motion-v";
 
   const textVariant = {

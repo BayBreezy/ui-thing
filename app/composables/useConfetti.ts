@@ -1,5 +1,5 @@
 /**
- * Easily add confetti effects to your Nuxt application
+ * Easily add confetti effects to your Nuxt application.
  *
  * @see https://github.com/catdad/canvas-confetti
  */

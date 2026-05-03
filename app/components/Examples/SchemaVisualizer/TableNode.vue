@@ -1,10 +1,10 @@
 <template>
   <div
-    class="w-64 rounded-lg border bg-card font-mono shadow-[0_1px_1px_rgba(0,0,0,0.02),_0_2px_2px_rgba(0,0,0,0.02),_0_4px_4px_rgba(0,0,0,0.02),_0_8px_8px_rgba(0,0,0,0.02),_0_16px_16px_rgba(0,0,0,0.02),_0_32px_32px_rgba(0,0,0,0.02)]"
-    :class="[selected ? 'ring-2 ring-primary ring-offset-2 ring-offset-background' : '']"
+    class="bg-card w-64 rounded-lg border font-mono shadow-[0_1px_1px_rgba(0,0,0,0.02),_0_2px_2px_rgba(0,0,0,0.02),_0_4px_4px_rgba(0,0,0,0.02),_0_8px_8px_rgba(0,0,0,0.02),_0_16px_16px_rgba(0,0,0,0.02),_0_32px_32px_rgba(0,0,0,0.02)]"
+    :class="[selected ? 'ring-primary ring-offset-background ring-2 ring-offset-2' : '']"
   >
     <div
-      class="flex items-center justify-between border-b border-border/80 bg-gradient-to-t from-background/70 px-4 py-3 dark:from-background/30"
+      class="border-border/80 from-background/70 dark:from-background/30 flex items-center justify-between border-b bg-gradient-to-t px-4 py-3"
     >
       <div class="text-[13px]">
         <span class="text-muted-foreground/80">/</span>
@@ -14,7 +14,7 @@
         v-tippy="'Open edit menu'"
         size="icon"
         variant="ghost"
-        class="-my-2 -me-2 text-muted-foreground/60 shadow-none hover:bg-transparent hover:text-muted-foreground"
+        class="text-muted-foreground/60 hover:text-muted-foreground -my-2 -me-2 shadow-none hover:bg-transparent"
         aria-label="Open edit menu"
         title="Open edit menu"
       >
@@ -35,7 +35,7 @@
               <Icon
                 v-if="field.isPrimary"
                 name="lucide:key-round"
-                class="size-3 text-muted-foreground"
+                class="text-muted-foreground size-3"
               />
               <span v-else-if="field.isForeign" class="text-muted-foreground/70">(FK)</span>
             </div>
@@ -52,7 +52,7 @@
                 :id="field.name"
                 :type="field.isPrimary ? 'source' : 'target'"
                 :position="field.isPrimary ? Position.Left : Position.Right"
-                class="size-2.5 rounded-full border-2 border-background transition"
+                class="border-background size-2.5 rounded-full border-2 transition"
                 :class="[selected ? '!bg-primary' : '!bg-foreground/60']"
                 :connectable="false"
               />

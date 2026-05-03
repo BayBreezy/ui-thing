@@ -9,7 +9,7 @@
         <UiCheckbox id="terms-2" default-value />
         <div class="grid gap-2">
           <UiLabel for="terms-2">Accept terms and conditions</UiLabel>
-          <p class="text-sm text-muted-foreground">
+          <p class="text-muted-foreground text-sm">
             By clicking this checkbox, you agree to the terms and conditions.
           </p>
         </div>
@@ -19,7 +19,7 @@
         <UiLabel for="toggle">Enable notifications</UiLabel>
       </div>
       <UiLabel
-        class="flex items-start justify-start gap-3 rounded-lg border p-3 hover:bg-accent/50 has-[[aria-checked=true]]:border-blue-600 has-[[aria-checked=true]]:bg-blue-50 dark:has-[[aria-checked=true]]:border-blue-900 dark:has-[[aria-checked=true]]:bg-blue-950"
+        class="hover:bg-accent/50 flex items-start justify-start gap-3 rounded-lg border p-3 has-[[aria-checked=true]]:border-blue-600 has-[[aria-checked=true]]:bg-blue-50 dark:has-[[aria-checked=true]]:border-blue-900 dark:has-[[aria-checked=true]]:bg-blue-950"
       >
         <UiCheckbox
           id="toggle-2"
@@ -28,7 +28,7 @@
         />
         <div class="grid gap-1.5 font-normal">
           <p class="text-sm leading-none font-medium">Enable notifications</p>
-          <p class="text-sm text-muted-foreground">
+          <p class="text-muted-foreground text-sm">
             You can enable or disable notifications at any time.
           </p>
         </div>

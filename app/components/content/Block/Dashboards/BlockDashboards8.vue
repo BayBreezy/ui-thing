@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-background text-foreground">
+  <div class="bg-background text-foreground min-h-screen">
     <!-- Delete confirmation dialog -->
     <UiAlertDialog v-model:open="deleteOpen">
       <UiAlertDialogContent>
@@ -81,7 +81,7 @@
         </UiCommandGroup>
       </UiCommandList>
       <div
-        class="flex items-center gap-5 border-t border-border/70 bg-muted/20 px-4 py-2.5 text-xs text-muted-foreground"
+        class="border-border/70 bg-muted/20 text-muted-foreground flex items-center gap-5 border-t px-4 py-2.5 text-xs"
       >
         <span class="flex items-center gap-1.5"><UiKbd>↵</UiKbd> to select</span>
         <span class="flex items-center gap-1.5"><UiKbd>↑↓</UiKbd> to navigate</span>
@@ -95,14 +95,14 @@
       :initial="{ opacity: 0, y: -16 }"
       :animate="{ opacity: 1, y: 0 }"
       :transition="{ duration: 0.4, ease: 'easeOut' }"
-      class="sticky top-0 z-10 border-b border-border/70 bg-background/85 backdrop-blur-md"
+      class="border-border/70 bg-background/85 sticky top-0 z-10 border-b backdrop-blur-md"
     >
       <UiContainer class="flex min-h-[4rem] items-center justify-between gap-4">
         <!-- Logo + nav -->
         <div class="flex items-center gap-5">
           <div class="flex items-center gap-2.5">
             <div
-              class="flex size-8 items-center justify-center rounded-lg border border-border/70 bg-muted shadow-xs"
+              class="border-border/70 bg-muted flex size-8 items-center justify-center rounded-lg border shadow-xs"
             >
               <div
                 class="size-4 rounded-full bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,0.95),rgba(255,255,255,0.2)_32%,transparent_34%),linear-gradient(135deg,var(--color-primary),color-mix(in_oklab,var(--color-primary)_40%,white))]"
@@ -127,7 +127,7 @@
                 class="w-full justify-start"
                 :class="
                   item.active
-                    ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                    ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                     : 'text-muted-foreground'
                 "
               >
@@ -145,7 +145,7 @@
               size="sm"
               :class="
                 item.active
-                  ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                  ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                   : 'text-muted-foreground'
               "
             >
@@ -164,7 +164,7 @@
                 class="rounded-full"
                 @click="searchOpen = true"
               >
-                <Icon name="heroicons:magnifying-glass" class="size-5 text-muted-foreground" />
+                <Icon name="heroicons:magnifying-glass" class="text-muted-foreground size-5" />
               </UiButton>
             </UiTooltipTrigger>
             <UiTooltipContent><p>Search</p></UiTooltipContent>
@@ -175,7 +175,7 @@
               <UiTooltipTrigger as-child>
                 <UiDropdownMenuTrigger as-child>
                   <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                    <Icon name="heroicons:cog-6-tooth" class="size-5 text-muted-foreground" />
+                    <Icon name="heroicons:cog-6-tooth" class="text-muted-foreground size-5" />
                   </UiButton>
                 </UiDropdownMenuTrigger>
               </UiTooltipTrigger>
@@ -201,7 +201,7 @@
               <UiTooltipTrigger as-child>
                 <UiDropdownMenuTrigger as-child>
                   <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                    <Icon name="heroicons:bell" class="size-5 text-muted-foreground" />
+                    <Icon name="heroicons:bell" class="text-muted-foreground size-5" />
                   </UiButton>
                 </UiDropdownMenuTrigger>
               </UiTooltipTrigger>
@@ -247,7 +247,7 @@
                 <UiDropdownMenuLabel>
                   <div class="flex flex-col">
                     <p class="text-sm font-medium">Olivia Rhye</p>
-                    <p class="text-xs text-muted-foreground">olivia@ui-thing.com</p>
+                    <p class="text-muted-foreground text-xs">olivia@ui-thing.com</p>
                   </div>
                 </UiDropdownMenuLabel>
                 <UiDropdownMenuSeparator />
@@ -293,7 +293,7 @@
                 class="hidden sm:flex"
                 @click="searchOpen = true"
               >
-                <Icon name="heroicons:magnifying-glass" class="size-4 text-muted-foreground" />
+                <Icon name="heroicons:magnifying-glass" class="text-muted-foreground size-4" />
               </UiButton>
             </UiTooltipTrigger>
             <UiTooltipContent><p>Search vendors</p></UiTooltipContent>
@@ -325,14 +325,14 @@
         class="grid gap-4 lg:grid-cols-[5fr_7fr]"
       >
         <!-- Vendor breakdown — radar chart -->
-        <div class="overflow-hidden rounded-xl border border-border/70 bg-card shadow-xs">
-          <div class="flex items-center justify-between border-b border-border/60 px-5 py-4">
+        <div class="border-border/70 bg-card overflow-hidden rounded-xl border shadow-xs">
+          <div class="border-border/60 flex items-center justify-between border-b px-5 py-4">
             <h2 class="text-sm font-semibold">Vendor breakdown</h2>
             <UiTooltip>
               <UiDropdownMenu>
                 <UiTooltipTrigger as-child>
                   <UiDropdownMenuTrigger as-child>
-                    <UiButton variant="ghost" size="icon-sm" class="-mr-1 text-muted-foreground">
+                    <UiButton variant="ghost" size="icon-sm" class="text-muted-foreground -mr-1">
                       <Icon name="heroicons:ellipsis-vertical" class="size-4" />
                     </UiButton>
                   </UiDropdownMenuTrigger>
@@ -350,17 +350,17 @@
             <UiApexchart type="radar" height="300" :series="radarSeries" :options="radarOptions" />
           </div>
 
-          <div class="border-t border-border/60 px-5 py-3">
+          <div class="border-border/60 border-t px-5 py-3">
             <UiButton variant="outline" size="sm" class="w-full">View full report</UiButton>
           </div>
         </div>
 
         <!-- Average vendor rating — stacked bar chart -->
-        <div class="overflow-hidden rounded-xl border border-border/70 bg-card shadow-xs">
-          <div class="flex items-start justify-between border-b border-border/60 px-5 py-4">
+        <div class="border-border/70 bg-card overflow-hidden rounded-xl border shadow-xs">
+          <div class="border-border/60 flex items-start justify-between border-b px-5 py-4">
             <div>
               <h2 class="text-sm font-semibold">Average vendor rating</h2>
-              <p class="mt-0.5 text-xs text-muted-foreground">
+              <p class="text-muted-foreground mt-0.5 text-xs">
                 Track how your rating compares to your industry average.
               </p>
             </div>
@@ -368,7 +368,7 @@
               <UiDropdownMenu>
                 <UiTooltipTrigger as-child>
                   <UiDropdownMenuTrigger as-child>
-                    <UiButton variant="ghost" size="icon-sm" class="-mr-1 text-muted-foreground">
+                    <UiButton variant="ghost" size="icon-sm" class="text-muted-foreground -mr-1">
                       <Icon name="heroicons:ellipsis-vertical" class="size-4" />
                     </UiButton>
                   </UiDropdownMenuTrigger>
@@ -395,7 +395,7 @@
       >
         <div>
           <h2 class="text-lg font-bold tracking-tight">Vendor movements</h2>
-          <p class="mt-0.5 text-sm text-muted-foreground">
+          <p class="text-muted-foreground mt-0.5 text-sm">
             Keep track of vendors and their security ratings.
           </p>
         </div>
@@ -404,13 +404,13 @@
         <div class="relative hidden w-64 sm:block">
           <Icon
             name="heroicons:magnifying-glass"
-            class="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground"
+            class="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2"
           />
           <input
             v-model="tableSearch"
             type="text"
             placeholder="Search"
-            class="h-9 w-full rounded-lg border border-border/70 bg-card pr-12 pl-9 text-sm text-foreground shadow-xs transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+            class="border-border/70 bg-card text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary h-9 w-full rounded-lg border pr-12 pl-9 text-sm shadow-xs transition-colors focus:ring-1 focus:outline-none"
           />
           <div class="absolute top-1/2 right-2.5 -translate-y-1/2">
             <UiKbd class="text-[10px]">⌘K</UiKbd>
@@ -428,13 +428,13 @@
         <div class="relative">
           <Icon
             name="heroicons:magnifying-glass"
-            class="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground"
+            class="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2"
           />
           <input
             v-model="tableSearch"
             type="text"
             placeholder="Search"
-            class="h-9 w-full rounded-lg border border-border/70 bg-card pr-12 pl-9 text-sm text-foreground shadow-xs transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+            class="border-border/70 bg-card text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary h-9 w-full rounded-lg border pr-12 pl-9 text-sm shadow-xs transition-colors focus:ring-1 focus:outline-none"
           />
           <div class="absolute top-1/2 right-2.5 -translate-y-1/2">
             <UiKbd class="text-[10px]">⌘K</UiKbd>
@@ -452,7 +452,7 @@
         :animate="{ opacity: 1, y: 0 }"
         :transition="{ duration: 0.4, delay: 0.33, ease: 'easeOut' }"
       >
-        <UiCard class="gap-0 overflow-hidden border-border/70 py-0 shadow-xs">
+        <UiCard class="border-border/70 gap-0 overflow-hidden py-0 shadow-xs">
           <UiTanStackTable
             :data="filteredVendors"
             :columns="vendorColumns"
@@ -495,7 +495,7 @@
                 </div>
                 <div class="flex min-w-0 flex-col">
                   <span class="truncate text-sm font-semibold">{{ row.original.name }}</span>
-                  <span class="truncate text-xs text-muted-foreground">{{
+                  <span class="text-muted-foreground truncate text-xs">{{
                     row.original.domain
                   }}</span>
                 </div>
@@ -505,7 +505,7 @@
             <!-- Rating cell: progress bar + number + trend badge -->
             <template #rating-cell="{ row }">
               <div class="flex items-center gap-3">
-                <div class="h-1.5 w-32 overflow-hidden rounded-full bg-muted">
+                <div class="bg-muted h-1.5 w-32 overflow-hidden rounded-full">
                   <div
                     class="h-full rounded-full transition-all"
                     :style="{
@@ -538,7 +538,7 @@
 
             <!-- Last assessed cell -->
             <template #lastAssessed-cell="{ row }">
-              <span class="text-sm text-muted-foreground">{{ row.original.lastAssessed }}</span>
+              <span class="text-muted-foreground text-sm">{{ row.original.lastAssessed }}</span>
             </template>
 
             <!-- Categories cell: status + tags + overflow -->
@@ -566,7 +566,7 @@
                 <span
                   v-for="cat in row.original.categories.slice(0, 2)"
                   :key="cat"
-                  class="rounded-full border border-border/60 bg-card px-2 py-0.5 text-xs font-medium text-foreground"
+                  class="border-border/60 bg-card text-foreground rounded-full border px-2 py-0.5 text-xs font-medium"
                 >
                   {{ cat }}
                 </span>
@@ -574,7 +574,7 @@
                 <!-- Overflow count -->
                 <span
                   v-if="row.original.categories.length > 2"
-                  class="rounded-full border border-border/60 bg-card px-2 py-0.5 text-xs font-medium text-muted-foreground"
+                  class="border-border/60 bg-card text-muted-foreground rounded-full border px-2 py-0.5 text-xs font-medium"
                 >
                   +{{ row.original.categories.length - 2 }}
                 </span>
@@ -623,9 +623,9 @@
             <!-- Footer with pagination -->
             <template #footer="{ table }">
               <div
-                class="flex w-full flex-col gap-3 border-t border-border/60 px-5 py-4 sm:flex-row sm:items-center sm:justify-between"
+                class="border-border/60 flex w-full flex-col gap-3 border-t px-5 py-4 sm:flex-row sm:items-center sm:justify-between"
               >
-                <p class="shrink-0 text-sm text-muted-foreground">
+                <p class="text-muted-foreground shrink-0 text-sm">
                   <template v-if="table.getFilteredSelectedRowModel().rows.length > 0">
                     {{ table.getFilteredSelectedRowModel().rows.length }} selected
                   </template>
@@ -647,13 +647,13 @@
                         Previous
                       </UiButton>
                     </UiPaginationPrev>
-                    <div class="text-sm text-muted-foreground">
+                    <div class="text-muted-foreground text-sm">
                       Page
-                      <span class="font-medium text-foreground">{{
+                      <span class="text-foreground font-medium">{{
                         table.getState().pagination.pageIndex + 1
                       }}</span>
                       of
-                      <span class="font-medium text-foreground">{{ table.getPageCount() }}</span>
+                      <span class="text-foreground font-medium">{{ table.getPageCount() }}</span>
                     </div>
                     <UiPaginationNext as-child>
                       <UiButton variant="outline" size="sm">
@@ -678,7 +678,7 @@
                         <Icon name="heroicons:arrow-left" class="size-4" />
                       </UiButton>
                     </UiPaginationPrev>
-                    <span class="text-sm text-muted-foreground">
+                    <span class="text-muted-foreground text-sm">
                       Page {{ table.getState().pagination.pageIndex + 1 }} of
                       {{ table.getPageCount() }}
                     </span>

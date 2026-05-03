@@ -16,7 +16,7 @@
 
   const props = defineProps<
     ComboboxTriggerProps & {
-      /** Custom class(es) to add to the trigger */
+      /** Custom class(es) to add to the trigger. */
       class?: HTMLAttributes["class"];
     }
   >();

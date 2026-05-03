@@ -30,7 +30,7 @@
             h(
               "li",
               {
-                class: tw`flex w-full cursor-pointer items-center gap-2 rounded p-2 text-sm transition hover:bg-muted`,
+                class: tw`hover:bg-muted flex w-full cursor-pointer items-center gap-2 rounded p-2 text-sm transition`,
                 onClick: hide,
               },
               [
@@ -40,7 +40,7 @@
                   class: tw`text-muted-foreground`,
                 }),
                 h("span", item.title),
-                h("span", { class: tw`ml-auto text-xs text-muted-foreground` }, item.shortcut),
+                h("span", { class: tw`text-muted-foreground ml-auto text-xs` }, item.shortcut),
               ]
             )
           )

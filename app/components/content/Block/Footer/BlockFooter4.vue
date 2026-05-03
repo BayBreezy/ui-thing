@@ -17,10 +17,10 @@
     <section class="mt-10 grid grid-cols-2 gap-8 lg:mt-16 lg:grid-cols-6">
       <template v-for="n in 6" :key="n">
         <div>
-          <p class="mb-4 text-sm text-muted-foreground">Product</p>
+          <p class="text-muted-foreground mb-4 text-sm">Product</p>
           <ul class="flex flex-col gap-3">
             <li v-for="k in 6" :key="k">
-              <NuxtLink class="font-semibold hover:text-primary" to="#">Link item {{ k }}</NuxtLink>
+              <NuxtLink class="hover:text-primary font-semibold" to="#">Link item {{ k }}</NuxtLink>
             </li>
           </ul>
         </div>

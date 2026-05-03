@@ -2,7 +2,7 @@
   <UiContainer class="py-16 lg:py-24">
     <div class="mx-auto max-w-3xl text-center">
       <h2 class="mb-4 text-3xl font-semibold lg:text-4xl">Flexible pricing to fit your needs</h2>
-      <p class="text-lg text-muted-foreground">
+      <p class="text-muted-foreground text-lg">
         Whether you're a solopreneur or a large enterprise, we have a plan for you.
       </p>
     </div>
@@ -14,11 +14,11 @@
           :class="[p.highlighted ? 'border-primary shadow-lg' : 'bg-card']"
         >
           <div class="mb-6 flex-1">
-            <div class="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
-              <Icon :name="p.icon" class="size-6 text-primary" />
+            <div class="bg-primary/10 mb-4 inline-flex rounded-lg p-3">
+              <Icon :name="p.icon" class="text-primary size-6" />
             </div>
             <h3 class="mb-2 text-xl font-bold">{{ p.title }}</h3>
-            <p class="text-sm text-muted-foreground">{{ p.description }}</p>
+            <p class="text-muted-foreground text-sm">{{ p.description }}</p>
           </div>
 
           <div class="mb-6">
@@ -36,10 +36,10 @@
           </UiButton>
 
           <div class="border-t pt-6">
-            <p class="mb-3 text-xs font-semibold text-muted-foreground uppercase">Key features</p>
+            <p class="text-muted-foreground mb-3 text-xs font-semibold uppercase">Key features</p>
             <ul class="space-y-2">
               <li v-for="(feature, k) in p.features" :key="k" class="flex items-start gap-2">
-                <Icon name="lucide:check" class="mt-0.5 size-4 shrink-0 text-primary" />
+                <Icon name="lucide:check" class="text-primary mt-0.5 size-4 shrink-0" />
                 <span class="text-sm">{{ feature }}</span>
               </li>
             </ul>

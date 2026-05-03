@@ -19,11 +19,11 @@
       },
     }"
   >
-    <div class="min-h-screen bg-background py-16 lg:py-24">
+    <div class="bg-background min-h-screen py-16 lg:py-24">
       <!-- Gradient header section -->
       <Motion
         :variants="childVariant"
-        class="relative overflow-hidden rounded-2xl bg-linear-to-br from-primary/20 via-primary/10 to-transparent p-8 lg:p-16"
+        class="from-primary/20 via-primary/10 relative overflow-hidden rounded-2xl bg-linear-to-br to-transparent p-8 lg:p-16"
       >
         <UiContainer>
           <div class="relative z-10">
@@ -40,7 +40,7 @@
                   },
                 },
               }"
-              class="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-primary/30 blur-3xl"
+              class="bg-primary/30 absolute -top-20 -right-20 h-40 w-40 rounded-full blur-3xl"
             ></Motion>
             <Motion
               as="div"
@@ -55,12 +55,12 @@
                   },
                 },
               }"
-              class="absolute bottom-0 -left-20 h-40 w-40 rounded-full bg-primary/20 blur-3xl"
+              class="bg-primary/20 absolute bottom-0 -left-20 h-40 w-40 rounded-full blur-3xl"
             ></Motion>
 
             <div class="relative text-center">
               <h1 class="mb-4 text-4xl font-bold lg:text-6xl">Insights & Stories</h1>
-              <p class="mx-auto max-w-2xl text-lg text-muted-foreground lg:text-xl">
+              <p class="text-muted-foreground mx-auto max-w-2xl text-lg lg:text-xl">
                 Exploring ideas at the intersection of technology, design, and human experience
               </p>
             </div>
@@ -97,7 +97,7 @@
                 <UiCardContent class="p-6 pt-0 text-center">
                   <UiAvatar :src="userImage" :alt="userName" size="lg" class="mx-auto mb-3" />
                   <p class="mb-1 font-semibold">{{ userName }}</p>
-                  <p class="mb-2 text-xs text-muted-foreground">{{ n * 12 }} articles</p>
+                  <p class="text-muted-foreground mb-2 text-xs">{{ n * 12 }} articles</p>
                   <UiButton size="sm" variant="outline" class="w-full">Follow</UiButton>
                 </UiCardContent>
               </UiCard>
@@ -129,7 +129,7 @@
             }"
           >
             <UiCard
-              class="group h-full overflow-hidden border-0 bg-muted/30 py-0 shadow transition-all hover:scale-[1.02] hover:shadow-xl"
+              class="group bg-muted/30 h-full overflow-hidden border-0 py-0 shadow transition-all hover:scale-[1.02] hover:shadow-xl"
             >
               <div class="relative overflow-hidden">
                 <img
@@ -138,7 +138,7 @@
                   class="h-[220px] w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div
-                  class="absolute inset-0 bg-linear-to-t from-background/90 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  class="from-background/90 absolute inset-0 bg-linear-to-t to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                 ></div>
 
                 <!-- Hover overlay with action button -->
@@ -155,18 +155,18 @@
               <UiCardContent class="p-6 pt-0">
                 <div class="mb-3 flex items-center gap-2">
                   <UiBadge variant="secondary" size="sm">{{ headline }}</UiBadge>
-                  <span class="text-xs text-muted-foreground">· 6 min read</span>
+                  <span class="text-muted-foreground text-xs">· 6 min read</span>
                 </div>
 
                 <NuxtLink :to="link">
                   <h3
-                    class="mb-2 line-clamp-2 text-lg font-semibold transition-colors group-hover:text-primary"
+                    class="group-hover:text-primary mb-2 line-clamp-2 text-lg font-semibold transition-colors"
                   >
                     {{ title }}
                   </h3>
                 </NuxtLink>
 
-                <p class="mb-4 line-clamp-2 text-sm text-muted-foreground">{{ description }}</p>
+                <p class="text-muted-foreground mb-4 line-clamp-2 text-sm">{{ description }}</p>
 
                 <UiDivider class="my-4" />
 
@@ -175,7 +175,7 @@
                     <UiAvatar :src="userImage" :alt="userName" size="xs" />
                     <span class="text-xs font-medium">{{ userName }}</span>
                   </div>
-                  <div class="flex items-center gap-3 text-xs text-muted-foreground">
+                  <div class="text-muted-foreground flex items-center gap-3 text-xs">
                     <span class="flex items-center gap-1">
                       <Icon name="lucide:heart" class="h-3.5 w-3.5" />
                       {{ n * 42 }}

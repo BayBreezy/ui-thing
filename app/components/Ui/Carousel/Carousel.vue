@@ -25,7 +25,7 @@
   import type { CarouselEmits, CarouselProps, WithClassAsProps } from "~/composables/useCarousel";
 
   const styles = tv({
-    base: "relative focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none",
+    base: "focus-visible:ring-border relative focus-visible:ring-1 focus-visible:outline-none",
   });
   const props = withDefaults(defineProps<CarouselProps & WithClassAsProps>(), {
     orientation: "horizontal",

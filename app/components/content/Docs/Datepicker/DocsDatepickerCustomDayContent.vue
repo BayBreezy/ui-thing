@@ -31,7 +31,8 @@
     .vc-day-content,
     .vc-highlight,
     .vc-highlights {
-      @apply size-full;
+      width: 100%;
+      height: 100%;
     }
   }
 </style>

@@ -4,7 +4,7 @@ description: Displays rich content in a portal, triggered by a button.
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/popover.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/popover.html#api-reference
     icon: "icon-park-solid:api"
@@ -35,7 +35,7 @@ Click :SourceCodeLink{component="Popover"} to see the source code for this compo
 
 ### Full example
 
-::ShowCase
+::prose-show-case
 
 :DocsPopover
 
@@ -53,7 +53,7 @@ Click :SourceCodeLink{component="Popover"} to see the source code for this compo
       <UiPopoverContent class="w-80 p-6">
         <div class="flex h-full flex-col gap-1.5">
           <p class="leading-none font-semibold">Dimensions</p>
-          <p class="text-sm text-muted-foreground">Set the dimensions for the layer.</p>
+          <p class="text-muted-foreground text-sm">Set the dimensions for the layer.</p>
           <div class="mt-5 grid gap-3">
             <div class="grid grid-cols-3 items-center gap-4">
               <UiLabel for="width">Width</UiLabel>
@@ -85,7 +85,7 @@ Click :SourceCodeLink{component="Popover"} to see the source code for this compo
 
 ### Origin UI
 
-::ShowCase
+::prose-show-case
 
 :DocsPopoverOrigin
 
@@ -105,7 +105,7 @@ Click :SourceCodeLink{component="Popover"} to see the source code for this compo
         </UiPopoverTrigger>
         <UiPopoverContent class="w-44 p-3">
           <div class="space-y-3">
-            <div class="text-xs font-medium text-muted-foreground">Filters</div>
+            <div class="text-muted-foreground text-xs font-medium">Filters</div>
             <UiGradientDivider />
             <form>
               <UiCheckboxGroup
@@ -176,29 +176,29 @@ Click :SourceCodeLink{component="Popover"} to see the source code for this compo
           <UiGradientDivider
             role="separator"
             aria-orientation="horizontal"
-            class="-mx-1 my-1 h-px bg-border"
+            class="bg-border -mx-1 my-1 h-px"
           />
           <div
             v-for="notification in notifications"
             :key="notification.id"
-            class="rounded-md px-3 py-2 text-sm transition-colors hover:bg-accent"
+            class="hover:bg-accent rounded-md px-3 py-2 text-sm transition-colors"
           >
             <div class="relative flex items-start pe-3">
               <div class="flex-1 space-y-1">
                 <button
-                  class="text-left text-foreground/80 after:absolute after:inset-0"
+                  class="text-foreground/80 text-left after:absolute after:inset-0"
                   @click="() => handleNotificationClick(notification.id)"
                 >
-                  <span class="font-medium text-foreground hover:underline">
+                  <span class="text-foreground font-medium hover:underline">
                     {{ notification.user }}
                   </span>
                   {{ notification.action }}
-                  <span class="font-medium text-foreground hover:underline">
+                  <span class="text-foreground font-medium hover:underline">
                     {{ notification.target }}
                   </span>
                   .
                 </button>
-                <div class="text-xs text-muted-foreground">
+                <div class="text-muted-foreground text-xs">
                   {{ notification.timestamp }}
                 </div>
               </div>
@@ -230,7 +230,7 @@ Click :SourceCodeLink{component="Popover"} to see the source code for this compo
           <div class="space-y-3">
             <div class="space-y-1">
               <p class="text-[13px] font-medium">Popover with button</p>
-              <p class="text-xs text-muted-foreground">
+              <p class="text-muted-foreground text-xs">
                 I am a popover that would like to look like a tooltip. I can't be a tooltip because
                 of the interactive element inside me.
               </p>
@@ -254,12 +254,12 @@ Click :SourceCodeLink{component="Popover"} to see the source code for this compo
               <p class="text-[13px] font-medium">
                 {{ tips[currentTip]?.title }}
               </p>
-              <p class="text-xs text-muted-foreground">
+              <p class="text-muted-foreground text-xs">
                 {{ tips[currentTip]?.description }}
               </p>
             </div>
             <div class="flex items-center justify-between gap-2">
-              <span class="text-xs text-muted-foreground">
+              <span class="text-muted-foreground text-xs">
                 {{ currentTip + 1 }}/{{ tips.length }}
               </span>
               <button class="text-xs font-medium hover:underline" @click="handleNavigation">
@@ -282,12 +282,12 @@ Click :SourceCodeLink{component="Popover"} to see the source code for this compo
               <p class="text-[13px] font-medium">
                 {{ tips2[currentTip2]?.title }}
               </p>
-              <p class="text-xs text-muted-foreground">
+              <p class="text-muted-foreground text-xs">
                 {{ tips2[currentTip2]?.description }}
               </p>
             </div>
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted-foreground">
+              <span class="text-muted-foreground text-xs">
                 {{ currentTip2 + 1 }}/{{ tips2.length }}
               </span>
               <div class="flex gap-0.5">
@@ -354,7 +354,7 @@ Click :SourceCodeLink{component="Popover"} to see the source code for this compo
                     type="button"
                     :disabled="copied"
                     aria-label="Copy code"
-                    class="absolute inset-y-0 end-0 z-10 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent border-l-input text-muted-foreground/80 ring-offset-background transition-shadow hover:bg-muted/50 hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+                    class="border-l-input text-muted-foreground/80 ring-offset-background hover:bg-muted/50 hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-0 end-0 z-10 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
                     @click="copy(code)"
                   >
                     <Icon

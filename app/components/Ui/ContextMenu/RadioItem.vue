@@ -22,11 +22,11 @@
 
   const props = defineProps<
     ContextMenuRadioItemProps & {
-      /**Custom class(es) to add to the element */
+      /** Custom class(es) to add to the element. */
       class?: HTMLAttributes["class"];
-      /**The icon to display */
+      /** The icon to display. */
       icon?: string;
-      /**The title for the item */
+      /** The title for the item. */
       title?: string;
     }
   >();
@@ -35,6 +35,6 @@
   const forwarded = useForwardPropsEmits(reactiveOmit(props, "class", "icon", "title"), emits);
 
   const styles = tv({
-    base: "relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+    base: "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   });
 </script>

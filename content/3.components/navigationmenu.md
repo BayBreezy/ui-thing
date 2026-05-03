@@ -4,7 +4,7 @@ description: A collection of links for navigating websites.
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/navigation-menu.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/navigation-menu.html#api-reference
     icon: "icon-park-solid:api"
@@ -54,7 +54,7 @@ Click :SourceCodeLink{component="NavigationMenu"} to see the source code for thi
 
 The default orientation of the Navigation Menu is horizontal.
 
-::ShowCase
+::prose-show-case
 
 :DocsNavigationMenu
 
@@ -80,10 +80,10 @@ The default orientation of the Navigation Menu is horizontal.
                 <li
                   v-for="(item, i) in beachAmenities"
                   :key="i"
-                  class="rounded-md p-3 text-sm hover:bg-muted"
+                  class="hover:bg-muted rounded-md p-3 text-sm"
                 >
-                  <p class="mb-1 leading-none font-semibold text-foreground">{{ item.title }}</p>
-                  <p class="line-clamp-2 text-muted-foreground">{{ item.description }}</p>
+                  <p class="text-foreground mb-1 leading-none font-semibold">{{ item.title }}</p>
+                  <p class="text-muted-foreground line-clamp-2">{{ item.description }}</p>
                 </li>
               </ul>
             </div>
@@ -114,8 +114,8 @@ The default orientation of the Navigation Menu is horizontal.
                 class="h-full w-full"
               />
               <div>
-                <p class="text-lg font-semibold text-foreground">Radix Vue</p>
-                <p class="mt-2 text-muted-foreground">
+                <p class="text-foreground text-lg font-semibold">Radix Vue</p>
+                <p class="text-muted-foreground mt-2">
                   Unstyled, accessible components for building high-quality design systems and web
                   apps in Vue.
                 </p>
@@ -197,7 +197,7 @@ The default orientation of the Navigation Menu is horizontal.
 
 The default orientation of the Navigation Menu is horizontal.
 
-::ShowCase
+::prose-show-case
 
 :DocsNavigationMenuShadcn
 
@@ -213,7 +213,7 @@ The default orientation of the Navigation Menu is horizontal.
         <UiNavigationMenuLink as-child>
           <NuxtLink :href>
             <div class="text-sm leading-none font-medium">{{ title }}</div>
-            <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            <p class="text-muted-foreground line-clamp-2 text-sm leading-snug">
               <component :is="$slots.default" />
             </p>
           </NuxtLink>
@@ -231,11 +231,11 @@ The default orientation of the Navigation Menu is horizontal.
               <li class="row-span-3">
                 <UiNavigationMenuLink as-child>
                   <a
-                    class="flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-6 no-underline outline-hidden select-none focus:shadow-md"
+                    class="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
                     href="/"
                   >
                     <div class="mt-4 mb-2 text-lg font-medium">shadcn/ui</div>
-                    <p class="text-sm leading-tight text-muted-foreground">
+                    <p class="text-muted-foreground text-sm leading-tight">
                       Beautifully designed components built with Tailwind CSS.
                     </p>
                   </a>

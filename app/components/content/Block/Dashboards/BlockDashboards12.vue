@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-background text-foreground">
+  <div class="bg-background text-foreground min-h-screen">
     <!-- ─── Add card dialog ─────────────────────────────────────────────────── -->
     <UiDialog v-model:open="addCardOpen" @update:open="onAddCardClose">
       <UiDialogContent class="sm:max-w-sm">
@@ -171,7 +171,7 @@
         </UiCommandGroup>
       </UiCommandList>
       <div
-        class="flex items-center gap-5 border-t border-border/70 bg-muted/20 px-4 py-2.5 text-xs text-muted-foreground"
+        class="border-border/70 bg-muted/20 text-muted-foreground flex items-center gap-5 border-t px-4 py-2.5 text-xs"
       >
         <span class="flex items-center gap-1.5"><UiKbd>↵</UiKbd> to select</span>
         <span class="flex items-center gap-1.5"><UiKbd>↑↓</UiKbd> to navigate</span>
@@ -185,14 +185,14 @@
       :initial="{ opacity: 0, y: -16 }"
       :animate="{ opacity: 1, y: 0 }"
       :transition="{ duration: 0.4, ease: 'easeOut' }"
-      class="sticky top-0 z-10 border-b border-border/70 bg-background/85 backdrop-blur-md"
+      class="border-border/70 bg-background/85 sticky top-0 z-10 border-b backdrop-blur-md"
     >
       <UiContainer class="flex min-h-[4rem] items-center justify-between gap-4">
         <!-- Logo + nav -->
         <div class="flex items-center gap-5">
           <div class="flex items-center gap-2.5">
             <div
-              class="flex size-8 items-center justify-center rounded-lg border border-border/70 bg-muted shadow-xs"
+              class="border-border/70 bg-muted flex size-8 items-center justify-center rounded-lg border shadow-xs"
             >
               <div
                 class="size-4 rounded-full bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,0.95),rgba(255,255,255,0.2)_32%,transparent_34%),linear-gradient(135deg,var(--color-primary),color-mix(in_oklab,var(--color-primary)_40%,white))]"
@@ -247,7 +247,7 @@
           <UiTooltip>
             <UiTooltipTrigger as-child>
               <UiButton variant="ghost" size="icon-sm" @click="searchOpen = true">
-                <Icon name="heroicons:magnifying-glass" class="size-5 text-muted-foreground" />
+                <Icon name="heroicons:magnifying-glass" class="text-muted-foreground size-5" />
               </UiButton>
             </UiTooltipTrigger>
             <UiTooltipContent><p>Search (⌘K)</p></UiTooltipContent>
@@ -259,7 +259,7 @@
               <UiTooltipTrigger as-child>
                 <UiDropdownMenuTrigger as-child>
                   <UiButton variant="ghost" size="icon-sm">
-                    <Icon name="heroicons:cog-6-tooth" class="size-5 text-muted-foreground" />
+                    <Icon name="heroicons:cog-6-tooth" class="text-muted-foreground size-5" />
                   </UiButton>
                 </UiDropdownMenuTrigger>
               </UiTooltipTrigger>
@@ -289,9 +289,9 @@
               <UiTooltipTrigger as-child>
                 <UiDropdownMenuTrigger as-child>
                   <UiButton variant="ghost" size="icon-sm" class="relative">
-                    <Icon name="heroicons:bell" class="size-5 text-muted-foreground" />
+                    <Icon name="heroicons:bell" class="text-muted-foreground size-5" />
                     <span
-                      class="absolute top-1.5 right-1.5 size-2 rounded-full border border-background bg-primary"
+                      class="border-background bg-primary absolute top-1.5 right-1.5 size-2 rounded-full border"
                     />
                   </UiButton>
                 </UiDropdownMenuTrigger>
@@ -347,7 +347,7 @@
                 <UiDropdownMenuLabel>
                   <div class="flex flex-col gap-0.5">
                     <p class="text-sm font-medium">Sasha Pryce</p>
-                    <p class="text-xs font-normal text-muted-foreground">sasha@ui-thing.com</p>
+                    <p class="text-muted-foreground text-xs font-normal">sasha@ui-thing.com</p>
                   </div>
                 </UiDropdownMenuLabel>
                 <UiDropdownMenuSeparator />
@@ -377,12 +377,12 @@
           :initial="{ opacity: 0, y: 16 }"
           :animate="{ opacity: 1, y: 0 }"
           :transition="{ duration: 0.4, delay: 0.1, ease: 'easeOut' }"
-          class="rounded-2xl border border-border/70 bg-card shadow-xs"
+          class="border-border/70 bg-card rounded-2xl border shadow-xs"
         >
           <!-- Balance section -->
           <div class="flex flex-col gap-4 p-6 pb-2 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <p class="text-sm text-muted-foreground">Your balance</p>
+              <p class="text-muted-foreground text-sm">Your balance</p>
               <p class="mt-1 flex items-center gap-2 text-3xl font-bold tracking-tight">
                 <span>🇺🇸</span>
                 {{ balanceByTab[activeBalanceTab] }}
@@ -429,7 +429,7 @@
                         <UiButton variant="outline" size="sm" class="gap-2" @click="togglePopover">
                           <Icon
                             name="heroicons:calendar-days"
-                            class="size-4 text-muted-foreground"
+                            class="text-muted-foreground size-4"
                           />
                           <span class="hidden sm:inline">Select dates</span>
                         </UiButton>
@@ -496,7 +496,7 @@
             <!-- Category cell -->
             <template #category-cell="{ row }">
               <span
-                class="inline-flex items-center gap-1.5 rounded-full border border-border/60 px-2.5 py-0.5 text-xs font-medium"
+                class="border-border/60 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium"
               >
                 <span
                   class="size-1.5 shrink-0 rounded-full"
@@ -533,7 +533,7 @@
                     {{ row.original.cardType === "visa" ? "Visa" : "Mastercard" }}
                     {{ row.original.cardLast4 }}
                   </p>
-                  <p class="text-xs text-muted-foreground">Expiry {{ row.original.expiry }}</p>
+                  <p class="text-muted-foreground text-xs">Expiry {{ row.original.expiry }}</p>
                 </div>
               </div>
             </template>
@@ -558,9 +558,9 @@
             <!-- Footer with pagination -->
             <template #footer="{ table }">
               <div
-                class="flex w-full flex-col gap-3 border-t border-border/60 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
+                class="border-border/60 flex w-full flex-col gap-3 border-t px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
               >
-                <p class="shrink-0 text-xs text-muted-foreground">
+                <p class="text-muted-foreground shrink-0 text-xs">
                   {{ allTransactions.length }} transactions
                 </p>
                 <UiPagination
@@ -605,7 +605,7 @@
           :initial="{ opacity: 0, y: 16 }"
           :animate="{ opacity: 1, y: 0 }"
           :transition="{ duration: 0.4, delay: 0.18, ease: 'easeOut' }"
-          class="overflow-hidden rounded-2xl border border-border/70 bg-card shadow-xs"
+          class="border-border/70 bg-card overflow-hidden rounded-2xl border shadow-xs"
         >
           <!-- Profile banner -->
           <div
@@ -620,10 +620,10 @@
                   src="https://i.pravatar.cc/150?img=47"
                   alt="Sasha Pryce"
                   fallback="OR"
-                  class="size-20 ring-4 ring-card"
+                  class="ring-card size-20 ring-4"
                 />
                 <div
-                  class="absolute right-0 bottom-0 flex size-6 items-center justify-center rounded-full bg-blue-500 ring-2 ring-card"
+                  class="ring-card absolute right-0 bottom-0 flex size-6 items-center justify-center rounded-full bg-blue-500 ring-2"
                 >
                   <Icon name="heroicons:check" class="size-3 text-white" />
                 </div>
@@ -633,16 +633,16 @@
             <div class="flex flex-wrap items-center gap-2">
               <h2 class="text-xl font-bold">Sasha Pryce</h2>
               <span
-                class="inline-flex items-center gap-1 rounded-full border border-border/60 bg-muted/40 px-2.5 py-0.5 text-xs font-medium"
+                class="border-border/60 bg-muted/40 inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium"
               >
-                <span class="size-1.5 rounded-full bg-primary" />
+                <span class="bg-primary size-1.5 rounded-full" />
                 Premium
               </span>
             </div>
-            <p class="mt-0.5 text-sm text-muted-foreground">sasha@ui-thing.com</p>
+            <p class="text-muted-foreground mt-0.5 text-sm">sasha@ui-thing.com</p>
           </div>
 
-          <div class="border-t border-border/60" />
+          <div class="border-border/60 border-t" />
 
           <!-- My cards section -->
           <div class="p-5">
@@ -653,7 +653,7 @@
                   <UiButton
                     variant="ghost"
                     size="sm"
-                    class="h-7 gap-1.5 text-xs text-muted-foreground"
+                    class="text-muted-foreground h-7 gap-1.5 text-xs"
                     @click="addCardOpen = true"
                   >
                     <Icon name="heroicons:plus" class="size-3.5" />
@@ -671,14 +671,14 @@
               <div
                 v-for="card in cards"
                 :key="card.id"
-                class="w-60 shrink-0 overflow-hidden rounded-lg border border-border/50 shadow-sm"
+                class="border-border/50 w-60 shrink-0 overflow-hidden rounded-lg border shadow-sm"
               >
                 <!-- Card top -->
                 <div
-                  class="flex items-start justify-between bg-linear-to-br from-muted to-muted/50 px-3.5 py-3.5"
+                  class="from-muted to-muted/50 flex items-start justify-between bg-linear-to-br px-3.5 py-3.5"
                 >
-                  <p class="truncate text-sm font-medium text-muted-foreground">{{ card.label }}</p>
-                  <Icon name="heroicons:signal" class="size-5 rotate-90 text-muted-foreground/60" />
+                  <p class="text-muted-foreground truncate text-sm font-medium">{{ card.label }}</p>
+                  <Icon name="heroicons:signal" class="text-muted-foreground/60 size-5 rotate-90" />
                 </div>
                 <!-- Card bottom -->
                 <div class="bg-zinc-900 px-3.5 py-4 text-zinc-50">
@@ -705,12 +705,12 @@
                 v-for="(card, i) in cards"
                 :key="card.id"
                 class="rounded-full transition-all"
-                :class="i === 0 ? 'size-2 bg-primary' : 'size-1.5 bg-muted-foreground/30'"
+                :class="i === 0 ? 'bg-primary size-2' : 'bg-muted-foreground/30 size-1.5'"
               />
             </div>
           </div>
 
-          <div class="border-t border-border/60" />
+          <div class="border-border/60 border-t" />
 
           <!-- My budgets section -->
           <div class="p-5">
@@ -753,7 +753,7 @@
                     <p class="text-xs font-semibold" :style="{ color: budget.color }">
                       {{ budget.name }}
                     </p>
-                    <p class="text-xs font-medium text-muted-foreground">${{ budget.left }} left</p>
+                    <p class="text-muted-foreground text-xs font-medium">${{ budget.left }} left</p>
                   </div>
                   <div
                     class="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-black/5 dark:bg-white/10"

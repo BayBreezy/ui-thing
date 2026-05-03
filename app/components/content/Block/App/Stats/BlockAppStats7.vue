@@ -13,7 +13,7 @@
     <UiCardContent class="pl-8">
       <div class="flex items-start justify-between">
         <div class="flex-1 space-y-1">
-          <p class="text-sm font-medium text-muted-foreground" v-html="props.label" />
+          <p class="text-muted-foreground text-sm font-medium" v-html="props.label" />
           <div class="flex items-baseline gap-2">
             <h3 class="text-2xl font-bold tracking-tight" v-html="props.value" />
             <span
@@ -28,17 +28,17 @@
               v-html="props.change"
             />
           </div>
-          <p class="text-xs text-muted-foreground" v-html="props.description" />
+          <p class="text-muted-foreground text-xs" v-html="props.description" />
         </div>
-        <Icon :name="props.icon" class="size-8 text-muted-foreground/50" />
+        <Icon :name="props.icon" class="text-muted-foreground/50 size-8" />
       </div>
       <div class="mt-4 flex items-center gap-4 text-xs">
         <div class="flex items-center gap-1">
-          <div class="size-2 rounded-full bg-primary" />
+          <div class="bg-primary size-2 rounded-full" />
           <span class="text-muted-foreground">Current: {{ props.current }}</span>
         </div>
         <div class="flex items-center gap-1">
-          <div class="size-2 rounded-full bg-muted" />
+          <div class="bg-muted size-2 rounded-full" />
           <span class="text-muted-foreground">Previous: {{ props.previous }}</span>
         </div>
       </div>

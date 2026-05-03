@@ -4,7 +4,7 @@
       <template #trailingIcon>
         <select
           aria-label="Protocol"
-          class="absolute inset-y-0 end-0 flex form-select rounded-e-md border border-input bg-background pe-7 text-sm text-muted-foreground peer-disabled:opacity-50 focus:border-input focus:border-primary focus:ring-[3px] focus:ring-ring/50"
+          class="form-select border-input bg-background text-muted-foreground focus:border-input focus:border-primary focus:ring-ring/50 absolute inset-y-0 end-0 flex rounded-e-md border pe-7 text-sm peer-disabled:opacity-50 focus:ring-[3px]"
         >
           <option>.com</option>
           <option>.org</option>

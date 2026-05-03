@@ -30,16 +30,16 @@
             align="start"
             :side-offset="8"
             force-mount
-            class="min-h-[200px] w-64 rounded-md border bg-popover p-4 shadow-sm"
+            class="bg-popover min-h-[200px] w-64 rounded-md border p-4 shadow-sm"
           >
             <div class="grid gap-2">
               <h4 class="leading-none font-medium">{{ peekedModel?.name }}</h4>
-              <div class="text-sm text-muted-foreground">
+              <div class="text-muted-foreground text-sm">
                 {{ peekedModel?.description }}
               </div>
               <div v-if="peekedModel?.strengths" class="mt-4 grid gap-2">
                 <h5 class="text-sm leading-none font-medium">Strengths</h5>
-                <ul class="text-sm text-muted-foreground">
+                <ul class="text-muted-foreground text-sm">
                   {{
                     peekedModel.strengths
                   }}

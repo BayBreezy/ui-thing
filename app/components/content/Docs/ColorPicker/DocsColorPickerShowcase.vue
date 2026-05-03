@@ -3,7 +3,7 @@
     <!-- Color Picker with all features -->
     <div class="space-y-2">
       <h3 class="text-sm font-semibold">Full Featured Color Picker</h3>
-      <div class="rounded-lg border border-border bg-card p-4">
+      <div class="border-border bg-card rounded-lg border p-4">
         <UiColorPicker
           v-model="selectedColor"
           :format="format"
@@ -54,7 +54,7 @@
         <UiCardContent class="space-y-3">
           <UiCardTitle class="text-sm font-semibold">Preview</UiCardTitle>
           <div
-            class="h-28 rounded-lg border-2 border-border shadow-md"
+            class="border-border h-28 rounded-lg border-2 shadow-md"
             :style="{
               backgroundColor: selectedColor,
               backgroundImage: hasAlpha
@@ -79,7 +79,7 @@
             v-for="(preset, index) in presetColors"
             :key="index"
             type="button"
-            class="relative h-10 w-10 rounded-lg border-2 transition-all hover:scale-110 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
+            class="focus-visible:ring-ring focus-visible:ring-offset-background relative h-10 w-10 rounded-lg border-2 transition-all hover:scale-110 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
             :style="{ backgroundColor: preset }"
             :title="preset"
             @click="selectedColor = preset"

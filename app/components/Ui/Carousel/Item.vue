@@ -23,6 +23,7 @@
     WithClassAsProps & {
       /**
        * Whether to show the grab cursor when hovering over the item.
+       *
        * @default false
        */
       grabCursor?: boolean;

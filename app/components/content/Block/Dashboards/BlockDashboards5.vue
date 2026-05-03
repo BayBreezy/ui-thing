@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bg-background text-foreground [--color-primary:#E3A514] [--primary:#E3A514] [--radius:12px] [--ring:#E3A514]"
+    class="bg-background text-foreground min-h-screen [--color-primary:#E3A514] [--primary:#E3A514] [--radius:12px] [--ring:#E3A514]"
   >
     <!-- Edit user sheet -->
     <UiSheet v-model:open="editOpen">
@@ -89,7 +89,7 @@
         </UiCommandGroup>
       </UiCommandList>
       <div
-        class="flex items-center gap-5 border-t border-border/70 bg-muted/20 px-4 py-2.5 text-xs text-muted-foreground"
+        class="border-border/70 bg-muted/20 text-muted-foreground flex items-center gap-5 border-t px-4 py-2.5 text-xs"
       >
         <span class="flex items-center gap-1.5"><UiKbd>↵</UiKbd> to select</span>
         <span class="flex items-center gap-1.5"><UiKbd>↑↓</UiKbd> to navigate</span>
@@ -103,14 +103,14 @@
       :initial="{ opacity: 0, y: -16 }"
       :animate="{ opacity: 1, y: 0 }"
       :transition="{ duration: 0.4, ease: 'easeOut' }"
-      class="sticky top-0 z-10 border-b border-border/70 bg-background/85 backdrop-blur-md"
+      class="border-border/70 bg-background/85 sticky top-0 z-10 border-b backdrop-blur-md"
     >
       <UiContainer class="flex min-h-[4rem] items-center justify-between gap-4">
         <!-- Logo + nav -->
         <div class="flex items-center gap-5">
           <div class="flex items-center gap-2.5">
             <div
-              class="flex size-8 items-center justify-center rounded-lg border border-border/70 bg-muted shadow-xs"
+              class="border-border/70 bg-muted flex size-8 items-center justify-center rounded-lg border shadow-xs"
             >
               <div
                 class="size-4 rounded-full bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,0.95),rgba(255,255,255,0.2)_32%,transparent_34%),linear-gradient(135deg,var(--color-primary),color-mix(in_oklab,var(--color-primary)_40%,white))]"
@@ -135,7 +135,7 @@
                 class="w-full justify-start"
                 :class="
                   item.active
-                    ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                    ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                     : 'text-muted-foreground'
                 "
               >
@@ -153,7 +153,7 @@
               size="sm"
               :class="
                 item.active
-                  ? 'bg-muted text-foreground shadow-xs hover:bg-muted'
+                  ? 'bg-muted text-foreground hover:bg-muted shadow-xs'
                   : 'text-muted-foreground'
               "
             >
@@ -171,14 +171,14 @@
             aria-label="Open search"
             @click="searchOpen = true"
           >
-            <Icon name="heroicons:magnifying-glass" class="size-5 text-muted-foreground" />
+            <Icon name="heroicons:magnifying-glass" class="text-muted-foreground size-5" />
           </UiButton>
 
           <!-- Settings dropdown -->
           <UiDropdownMenu>
             <UiDropdownMenuTrigger as-child>
               <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                <Icon name="heroicons:cog-6-tooth" class="size-5 text-muted-foreground" />
+                <Icon name="heroicons:cog-6-tooth" class="text-muted-foreground size-5" />
               </UiButton>
             </UiDropdownMenuTrigger>
             <UiDropdownMenuContent align="end" class="w-56">
@@ -198,7 +198,7 @@
           <UiDropdownMenu>
             <UiDropdownMenuTrigger as-child>
               <UiButton variant="ghost" size="icon-sm" class="rounded-full">
-                <Icon name="heroicons:bell" class="size-5 text-muted-foreground" />
+                <Icon name="heroicons:bell" class="text-muted-foreground size-5" />
               </UiButton>
             </UiDropdownMenuTrigger>
             <UiDropdownMenuContent align="end" class="w-80">
@@ -243,7 +243,7 @@
               <UiDropdownMenuLabel>
                 <div class="flex flex-col">
                   <p class="text-sm font-medium">{{ currentUser.name }}</p>
-                  <p class="text-xs text-muted-foreground">{{ currentUser.email }}</p>
+                  <p class="text-muted-foreground text-xs">{{ currentUser.email }}</p>
                 </div>
               </UiDropdownMenuLabel>
               <UiDropdownMenuSeparator />
@@ -276,7 +276,7 @@
         <div class="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
           <div class="space-y-1.5">
             <!-- Breadcrumb -->
-            <div class="flex items-center gap-2 text-sm text-muted-foreground">
+            <div class="text-muted-foreground flex items-center gap-2 text-sm">
               <UiAvatar
                 :src="currentUser.avatar"
                 :alt="currentUser.name"
@@ -285,12 +285,12 @@
               />
               <span>{{ currentUser.name }}</span>
               <Icon name="heroicons:chevron-right" class="size-3.5 shrink-0" />
-              <span class="font-medium text-foreground">Dashboard</span>
+              <span class="text-foreground font-medium">Dashboard</span>
             </div>
             <h1 class="text-2xl font-bold tracking-tight">
               Welcome back, {{ currentUser.firstName }}
             </h1>
-            <p class="text-sm text-muted-foreground">
+            <p class="text-muted-foreground text-sm">
               Here's an overview of your site traffic and recently active users.
             </p>
           </div>
@@ -299,7 +299,7 @@
           <UiDropdownMenu>
             <UiDropdownMenuTrigger as-child>
               <button
-                class="flex w-fit cursor-pointer items-center gap-2 rounded-xl border border-border/70 bg-card px-4 py-3 shadow-xs transition-colors hover:bg-muted/40 focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none"
+                class="border-border/70 bg-card hover:bg-muted/40 focus-visible:ring-ring flex w-fit cursor-pointer items-center gap-2 rounded-xl border px-4 py-3 shadow-xs transition-colors focus-visible:ring-1 focus-visible:outline-none"
               >
                 <UiAvatarLabelGroup
                   :src="currentUser.avatar"
@@ -311,7 +311,7 @@
                 />
                 <Icon
                   name="heroicons:chevron-down"
-                  class="ml-1 size-4 shrink-0 text-muted-foreground"
+                  class="text-muted-foreground ml-1 size-4 shrink-0"
                 />
               </button>
             </UiDropdownMenuTrigger>
@@ -360,7 +360,7 @@
           </h2>
           <div class="flex flex-wrap items-center gap-2">
             <UiTabs v-model="activeRange">
-              <UiTabsList class="border border-border/70 bg-muted/30">
+              <UiTabsList class="border-border/70 bg-muted/30 border">
                 <UiTabsTrigger v-for="r in timeRanges" :key="r.value" :value="r.value">
                   <span class="hidden sm:inline">{{ r.label }}</span>
                   <span class="sm:hidden">{{ r.short }}</span>
@@ -375,7 +375,7 @@
         </div>
 
         <!-- Chart -->
-        <div class="overflow-hidden rounded-xl border border-border/70 bg-card shadow-xs">
+        <div class="border-border/70 bg-card overflow-hidden rounded-xl border shadow-xs">
           <UiApexchart type="area" height="380" :series="chartSeries" :options="chartOptions" />
         </div>
       </Motion>
@@ -394,9 +394,9 @@
         :animate="{ opacity: 1, y: 0 }"
         :transition="{ duration: 0.4, ease: 'easeOut', delay: 0.35 }"
       >
-        <UiCard class="gap-0 overflow-hidden border-border/70 py-0 shadow-xs">
+        <UiCard class="border-border/70 gap-0 overflow-hidden py-0 shadow-xs">
           <!-- Card header -->
-          <UiCardHeader class="border-b border-border/60 py-5">
+          <UiCardHeader class="border-border/60 border-b py-5">
             <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <UiCardTitle class="text-lg font-semibold">Recently active</UiCardTitle>
               <!-- Search -->
@@ -452,7 +452,7 @@
                 />
                 <div class="flex min-w-0 flex-col">
                   <span class="truncate text-sm font-medium">{{ row.original.name }}</span>
-                  <span class="truncate text-xs text-muted-foreground">{{
+                  <span class="text-muted-foreground truncate text-xs">{{
                     row.original.email
                   }}</span>
                 </div>
@@ -464,7 +464,7 @@
                 <span
                   v-for="perm in row.original.access"
                   :key="perm"
-                  class="inline-flex items-center gap-1.5 rounded-full border border-border/70 px-2.5 py-0.5 text-xs font-medium"
+                  class="border-border/70 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium"
                 >
                   <span class="size-1.5 shrink-0 rounded-full" :class="accessDotColor(perm)" />
                   {{ perm }}
@@ -504,10 +504,10 @@
 
             <template #footer="{ table }">
               <div
-                class="flex w-full flex-col gap-3 border-t border-border/60 px-6 py-4 text-sm sm:flex-row sm:items-center sm:justify-between"
+                class="border-border/60 flex w-full flex-col gap-3 border-t px-6 py-4 text-sm sm:flex-row sm:items-center sm:justify-between"
               >
                 <!-- Selected count -->
-                <p class="shrink-0 font-medium text-muted-foreground">
+                <p class="text-muted-foreground shrink-0 font-medium">
                   <template v-if="table.getFilteredSelectedRowModel().rows.length > 0">
                     {{ table.getFilteredSelectedRowModel().rows.length }} selected
                   </template>
@@ -561,7 +561,7 @@
                         <Icon name="heroicons:arrow-left" class="size-4" />
                       </UiButton>
                     </UiPaginationPrev>
-                    <span class="text-sm text-muted-foreground">
+                    <span class="text-muted-foreground text-sm">
                       Page {{ table.getState().pagination.pageIndex + 1 }} of
                       {{ table.getPageCount() }}
                     </span>

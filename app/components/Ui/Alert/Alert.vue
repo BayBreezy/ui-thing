@@ -39,24 +39,25 @@
   import type { HTMLAttributes } from "vue";
 
   export type AlertProps = {
-    /** Custom class to add to the `Alert` parent */
+    /** Custom class to add to the `Alert` parent. */
     class?: HTMLAttributes["class"];
-    /** Classes to add to the icon */
+    /** Classes to add to the icon. */
     iconClass?: HTMLAttributes["class"];
-    /** Whether the alert should have a filled/colored background */
+    /** Whether the alert should have a filled/colored background. */
     filled?: boolean;
     /**
      * Whether or not the `Alert` is shown.
+     *
      * @default true
      */
     modelValue?: boolean;
     /** The variant of the `Alert` */
     variant?: VariantProps<typeof alertStyles>["variant"];
-    /** The title that is passed to the `AlertTitle` component */
+    /** The title that is passed to the `AlertTitle` component. */
     title?: string;
-    /** The description that is passed to the `AlertDescription` component */
+    /** The description that is passed to the `AlertDescription` component. */
     description?: string;
-    /** The icon that should be displayed*/
+    /** The icon that should be displayed. */
     icon?: string;
   };
 

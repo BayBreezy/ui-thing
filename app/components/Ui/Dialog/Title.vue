@@ -16,9 +16,9 @@
 
   const props = defineProps<
     DialogTitleProps & {
-      /** Custom class(es) to add to the parent */
+      /** Custom class(es) to add to the parent. */
       class?: HTMLAttributes["class"];
-      /** The title text */
+      /** The title text. */
       title?: string;
     }
   >();

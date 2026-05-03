@@ -16,13 +16,13 @@
 
   const props = defineProps<
     PrimitiveProps & {
-      /** Custom class(es) to add to the element */
+      /** Custom class(es) to add to the element. */
       class?: HTMLAttributes["class"];
-      /** The shortcut text to render */
+      /** The shortcut text to render. */
       shortcut?: any;
     }
   >();
   const styles = tv({
-    base: "ml-auto text-xs tracking-widest text-muted-foreground group-data-selected/command-item:text-foreground",
+    base: "text-muted-foreground group-data-selected/command-item:text-foreground ml-auto text-xs tracking-widest",
   });
 </script>

@@ -1,6 +1,6 @@
 <template>
   <aside class="flex h-screen">
-    <div class="flex w-16 flex-col items-center border-r bg-muted/30 py-4">
+    <div class="bg-muted/30 flex w-16 flex-col items-center border-r py-4">
       <Motion
         :initial="{ opacity: 0, y: -10 }"
         :animate="{ opacity: 1, y: 0 }"
@@ -53,7 +53,7 @@
         <UiDropdownMenuContent side="right">
           <UiDropdownMenuLabel class="flex flex-col">
             <span>{{ user.username }}</span>
-            <span class="text-sm font-normal text-muted-foreground">{{ user.email }}</span>
+            <span class="text-muted-foreground text-sm font-normal">{{ user.email }}</span>
           </UiDropdownMenuLabel>
           <UiDropdownMenuSeparator />
           <UiDropdownMenuItem title="View profile" icon="lucide:user" />
@@ -66,15 +66,15 @@
       </UiDropdownMenu>
     </div>
 
-    <div v-if="activeSection" class="w-[280px] border-r bg-background">
+    <div v-if="activeSection" class="bg-background w-[280px] border-r">
       <UiScrollArea class="h-full">
         <div class="flex h-screen flex-col p-4">
           <div class="mb-6">
             <div class="mb-2 flex items-center gap-2">
-              <Icon :name="activeSection.icon" class="size-5 text-primary" />
+              <Icon :name="activeSection.icon" class="text-primary size-5" />
               <h2 class="font-semibold">{{ activeSection.title }}</h2>
             </div>
-            <p class="text-sm text-muted-foreground">{{ activeSection.description }}</p>
+            <p class="text-muted-foreground text-sm">{{ activeSection.description }}</p>
           </div>
 
           <div class="mb-4">
@@ -95,9 +95,9 @@
                 variant="ghost"
                 class="w-full justify-start gap-3 px-2"
               >
-                <Icon v-if="item.icon" :name="item.icon" class="size-4 text-muted-foreground" />
+                <Icon v-if="item.icon" :name="item.icon" class="text-muted-foreground size-4" />
                 <span>{{ item.title }}</span>
-                <span v-if="item.count" class="ml-auto text-xs text-muted-foreground">
+                <span v-if="item.count" class="text-muted-foreground ml-auto text-xs">
                   {{ item.count }}
                 </span>
               </UiButton>

@@ -14,12 +14,12 @@
 
   const props = defineProps<
     DropdownMenuSeparatorProps & {
-      /** Custom class(es) to add to the parent */
+      /** Custom class(es) to add to the parent. */
       class?: HTMLAttributes["class"];
     }
   >();
   const forwarded = reactiveOmit(props, "class");
   const styles = tv({
-    base: "-mx-1 my-1 h-px bg-border",
+    base: "bg-border -mx-1 my-1 h-px",
   });
 </script>

@@ -14,7 +14,7 @@
         <template #content>
           <UiGradientDivider class="-my-2" />
           <div class="space-y-4 p-4">
-            <p class="text-sm text-muted-foreground">
+            <p class="text-muted-foreground text-sm">
               The floating variant adds visual separation from the viewport edges, creating a more
               modern and less intrusive appearance.
             </p>

@@ -67,7 +67,7 @@
                 </UiPopoverContent>
               </UiPopover>
             </UiTooltip>
-            <div v-if="hasMentions" class="-m-1.5 no-scrollbar flex gap-1 overflow-y-auto p-1.5">
+            <div v-if="hasMentions" class="no-scrollbar -m-1.5 flex gap-1 overflow-y-auto p-1.5">
               <AnimatePresence>
                 <template v-for="mention in mentions" :key="mention">
                   <Motion
@@ -119,7 +119,7 @@
                 <UiTooltipContent>Select AI model</UiTooltipContent>
                 <UiDropdownMenuContent side="top" align="start" class="[--radius:1rem]">
                   <UiDropdownMenuGroup class="w-42">
-                    <UiDropdownMenuLabel class="text-xs text-muted-foreground">
+                    <UiDropdownMenuLabel class="text-muted-foreground text-xs">
                       Select Agent Mode
                     </UiDropdownMenuLabel>
                     <UiDropdownMenuCheckboxItem
@@ -221,7 +221,7 @@
                   <UiDropdownMenuItem>
                     <Icon name="lucide:plus" /> Connect Apps
                   </UiDropdownMenuItem>
-                  <UiDropdownMenuLabel class="text-xs text-muted-foreground">
+                  <UiDropdownMenuLabel class="text-muted-foreground text-xs">
                     We'll only search in the sources selected here.
                   </UiDropdownMenuLabel>
                 </UiDropdownMenuGroup>

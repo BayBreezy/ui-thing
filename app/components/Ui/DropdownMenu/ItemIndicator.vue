@@ -18,9 +18,9 @@
 
   const props = defineProps<
     DropdownMenuItemIndicatorProps & {
-      /** The icon to display */
+      /** The icon to display. */
       icon?: string;
-      /** Custom class(es) to add to the parent */
+      /** Custom class(es) to add to the parent. */
       class?: HTMLAttributes["class"];
     }
   >();

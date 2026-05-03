@@ -9,7 +9,7 @@
             </slot>
             <slot name="status">
               <UiBadge v-if="props.status" :variant="props.statusVariant">
-                <div class="size-2 rounded-full bg-primary-foreground" />
+                <div class="bg-primary-foreground size-2 rounded-full" />
                 {{ props.status }}
               </UiBadge>
             </slot>
@@ -17,7 +17,7 @@
           <slot name="description">
             <p
               v-if="props.description"
-              class="text-sm text-muted-foreground"
+              class="text-muted-foreground text-sm"
               v-html="props.description"
             />
           </slot>
@@ -28,12 +28,12 @@
                 <span class="text-muted-foreground">{{ props.owner }}</span>
               </div>
               <UiSeparator orientation="vertical" class="h-3" />
-              <div class="flex items-center gap-1.5 text-muted-foreground">
+              <div class="text-muted-foreground flex items-center gap-1.5">
                 <Icon name="lucide:users" class="size-3.5" />
                 <span>{{ props.members }} members</span>
               </div>
               <UiSeparator orientation="vertical" class="h-3" />
-              <div class="flex items-center gap-1.5 text-muted-foreground">
+              <div class="text-muted-foreground flex items-center gap-1.5">
                 <Icon name="lucide:calendar" class="size-3.5" />
                 <span>Due {{ props.dueDate }}</span>
               </div>

@@ -15,7 +15,7 @@ Click :SourceCodeLink{component="ColorPicker"} to see the source code for this c
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsColorPickerBasic
 
@@ -27,7 +27,7 @@ Click :SourceCodeLink{component="ColorPicker"} to see the source code for this c
 <template>
   <div class="flex flex-col gap-4">
     <UiColorPicker v-model="color" />
-    <div class="text-sm text-muted-foreground">
+    <div class="text-muted-foreground text-sm">
       Selected color: <span class="font-mono font-semibold">{{ color }}</span>
     </div>
   </div>
@@ -46,7 +46,7 @@ Click :SourceCodeLink{component="ColorPicker"} to see the source code for this c
 
 Enable alpha/opacity control by setting `show-alpha` to `true`.
 
-::ShowCase
+::prose-show-case
 
 :DocsColorPickerAlpha
 
@@ -58,7 +58,7 @@ Enable alpha/opacity control by setting `show-alpha` to `true`.
 <template>
   <div class="flex flex-col gap-4">
     <UiColorPicker v-model="color" show-alpha />
-    <div class="text-sm text-muted-foreground">
+    <div class="text-muted-foreground text-sm">
       Selected color: <span class="font-mono font-semibold">{{ color }}</span>
     </div>
   </div>
@@ -77,7 +77,7 @@ Enable alpha/opacity control by setting `show-alpha` to `true`.
 
 The color picker supports HEX, RGB, HSL, and HSV formats. Users can toggle between formats using the dropdown selector.
 
-::ShowCase
+::prose-show-case
 
 :DocsColorPickerFormats
 
@@ -89,7 +89,7 @@ The color picker supports HEX, RGB, HSL, and HSV formats. Users can toggle betwe
 <template>
   <div class="flex flex-col gap-4">
     <UiColorPicker v-model="color" :format="format" @update:format="format = $event" />
-    <div class="flex flex-wrap gap-2 text-sm text-muted-foreground">
+    <div class="text-muted-foreground flex flex-wrap gap-2 text-sm">
       <div>
         HEX: <span class="font-mono font-semibold">{{ hexColor }}</span>
       </div>
@@ -123,7 +123,7 @@ The color picker supports HEX, RGB, HSL, and HSV formats. Users can toggle betwe
 
 Add preset color swatches for quick selection.
 
-::ShowCase
+::prose-show-case
 
 :DocsColorPickerPresets
 
@@ -135,7 +135,7 @@ Add preset color swatches for quick selection.
 <template>
   <div class="flex flex-col gap-4">
     <UiColorPicker v-model="color" :show-presets="true" :presets="presetColors" />
-    <div class="text-sm text-muted-foreground">
+    <div class="text-muted-foreground text-sm">
       Selected color: <span class="font-mono font-semibold">{{ color }}</span>
     </div>
   </div>
@@ -173,7 +173,7 @@ Add preset color swatches for quick selection.
 
 See all features in action: alpha channel, format toggle, input field, and preset swatches.
 
-::ShowCase
+::prose-show-case
 
 :DocsColorPickerShowcase
 
@@ -187,7 +187,7 @@ See all features in action: alpha channel, format toggle, input field, and prese
     <!-- Color Picker with all features -->
     <div class="space-y-2">
       <h3 class="text-sm font-semibold">Full Featured Color Picker</h3>
-      <div class="rounded-lg border border-border bg-card p-4">
+      <div class="border-border bg-card rounded-lg border p-4">
         <UiColorPicker
           v-model="selectedColor"
           :format="format"
@@ -238,7 +238,7 @@ See all features in action: alpha channel, format toggle, input field, and prese
         <UiCardContent class="space-y-3">
           <UiCardTitle class="text-sm font-semibold">Preview</UiCardTitle>
           <div
-            class="h-28 rounded-lg border-2 border-border shadow-md"
+            class="border-border h-28 rounded-lg border-2 shadow-md"
             :style="{
               backgroundColor: selectedColor,
               backgroundImage: hasAlpha
@@ -263,7 +263,7 @@ See all features in action: alpha channel, format toggle, input field, and prese
             v-for="(preset, index) in presetColors"
             :key="index"
             type="button"
-            class="relative h-10 w-10 rounded-lg border-2 transition-all hover:scale-110 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
+            class="focus-visible:ring-ring focus-visible:ring-offset-background relative h-10 w-10 rounded-lg border-2 transition-all hover:scale-110 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
             :style="{ backgroundColor: preset }"
             :title="preset"
             @click="selectedColor = preset"
@@ -325,7 +325,7 @@ See all features in action: alpha channel, format toggle, input field, and prese
 
 Combine with a Popover for a compact color picker trigger.
 
-::ShowCase
+::prose-show-case
 
 :DocsColorPickerPopover
 
@@ -339,7 +339,7 @@ Combine with a Popover for a compact color picker trigger.
     <UiPopover>
       <UiPopoverTrigger as-child>
         <UiButton variant="outline" class="w-fit justify-start gap-2 px-2">
-          <div class="size-4 rounded border border-input" :style="{ backgroundColor: color }"></div>
+          <div class="border-input size-4 rounded border" :style="{ backgroundColor: color }"></div>
           <span class="font-mono text-xs">{{ color }}</span>
         </UiButton>
       </UiPopoverTrigger>
@@ -411,4 +411,4 @@ Combine with a Popover for a compact color picker trigger.
 
 ## Dependencies
 
-This component uses the [colord](https://www.npmjs.com/package/colord) library for color parsing and conversion between different formats.
+This component uses the [colord](https://www.npmjs.com/package/colord){target="\_blank"} library for color parsing and conversion between different formats.

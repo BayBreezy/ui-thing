@@ -16,14 +16,14 @@
 
   const props = defineProps<
     DialogDescriptionProps & {
-      /** Custom class(es) to add to parent element */
+      /** Custom class(es) to add to parent element. */
       class?: HTMLAttributes["class"];
-      /** Description text */
+      /** Description text. */
       description?: string;
     }
   >();
   const forwarded = reactiveOmit(props, "class", "description");
   const styles = tv({
-    base: "text-sm text-muted-foreground",
+    base: "text-muted-foreground text-sm",
   });
 </script>

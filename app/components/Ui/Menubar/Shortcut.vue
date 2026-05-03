@@ -18,7 +18,7 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
-        /** Custom class(es) to add to the parent */
+        /** Custom class(es) to add to the parent. */
         class?: HTMLAttributes["class"];
         variant?: "default" | "destructive";
       }
@@ -27,6 +27,6 @@
   );
   const forwarded = reactiveOmit(props, "class");
   const styles = tv({
-    base: "ml-auto text-xs tracking-widest text-muted-foreground data-[variant=destructive]:text-destructive",
+    base: "text-muted-foreground data-[variant=destructive]:text-destructive ml-auto text-xs tracking-widest",
   });
 </script>

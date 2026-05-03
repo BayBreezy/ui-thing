@@ -19,5 +19,5 @@
 
   const { formDescriptionId } = useFormField();
   const props = defineProps<{ class?: HTMLAttributes["class"]; description?: string }>();
-  const styles = tv({ base: "text-sm text-muted-foreground" });
+  const styles = tv({ base: "text-muted-foreground text-sm" });
 </script>

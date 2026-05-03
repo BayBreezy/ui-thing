@@ -27,11 +27,11 @@
   import { Primitive, type PrimitiveProps } from "reka-ui";
   import { normalizeClass, type HTMLAttributes } from "vue";
   export type CommandFooterProps = PrimitiveProps & {
-    /** Custom class(es) to add to the element */
+    /** Custom class(es) to add to the element. */
     class?: HTMLAttributes["class"];
   };
   const styles = tv({
-    base: "z-5 flex items-center gap-2 border-t bg-input/30 p-2 px-3 text-sm",
+    base: "bg-input/30 z-5 flex items-center gap-2 border-t p-2 px-3 text-sm",
   });
 </script>
 

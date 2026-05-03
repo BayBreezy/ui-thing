@@ -3,7 +3,7 @@
     <UiHoverCard>
       <UiHoverCardTrigger as-child>
         <div
-          class="flex h-20 w-20 cursor-pointer items-center justify-center rounded-full border bg-background shadow-xs"
+          class="bg-background flex h-20 w-20 cursor-pointer items-center justify-center rounded-full border shadow-xs"
         >
           <Icon name="logos:nuxt-icon" class="h-8 w-8" />
         </div>
@@ -33,7 +33,7 @@
             </p>
 
             <div class="mt-5 hidden transition-all group-hover:block">
-              <UiButton class="w-full dark:bg-primary-foreground dark:text-primary"
+              <UiButton class="dark:bg-primary-foreground dark:text-primary w-full"
                 >View profile</UiButton
               >
             </div>

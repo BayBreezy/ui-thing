@@ -7,7 +7,7 @@
       class="relative z-[1] container flex flex-col items-center justify-center py-20 text-center"
     >
       <h1 class="mb-2 text-4xl font-bold tracking-tight lg:text-6xl">{{ error?.statusCode }}</h1>
-      <p class="font-bold tracking-tight text-primary">{{ error?.message }} error</p>
+      <p class="text-primary font-bold tracking-tight">{{ error?.message }} error</p>
       <UiButton class="mt-5" @click="clearError({ redirect: '/' })">Take me home</UiButton>
 
       <div class="mx-auto mt-16 grid max-w-[890px] grid-cols-1 gap-6 md:grid-cols-2">
@@ -36,7 +36,7 @@
   });
 
   const { data: topComponents } = await useAsyncData("first-six", () =>
-    queryCollection("content").limit(6).skip(15).all()
+    queryCollection("docs").limit(6).skip(15).all()
   );
 
   const title = computed(() => {

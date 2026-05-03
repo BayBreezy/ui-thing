@@ -4,7 +4,7 @@
       <div class="mx-auto max-w-[760px]">
         <Motion :variants="childVariant" class="text-center">
           <UiBadge variant="outline" class="gap-2 px-3 py-1.5 text-sm font-normal"
-            ><Icon name="lucide:circle-dot" class="size-4 text-primary" /> Features</UiBadge
+            ><Icon name="lucide:circle-dot" class="text-primary size-4" /> Features</UiBadge
           >
         </Motion>
         <Motion
@@ -17,7 +17,7 @@
         <Motion
           as="p"
           :variants="childVariant"
-          class="mx-auto max-w-[760px] text-center text-lg text-muted-foreground lg:text-xl"
+          class="text-muted-foreground mx-auto max-w-[760px] text-center text-lg lg:text-xl"
         >
           Powerful, self-serve product and growth analytics to help you convert, engage, and retain
           more users. Trusted by over 4,000 startups.
@@ -50,16 +50,16 @@
           <div class="flex h-12 w-12 items-center justify-center rounded-md border">
             <Icon
               :name="f.icon"
-              class="h-5 w-5 transition-colors group-hover:text-primary lg:h-6 lg:w-6"
+              class="group-hover:text-primary h-5 w-5 transition-colors lg:h-6 lg:w-6"
             />
           </div>
           <h3 class="mt-4 text-center text-lg font-semibold lg:mt-5 lg:text-xl" v-text="f.title" />
           <p
-            class="mt-1 max-w-[500px] text-center text-balance text-muted-foreground lg:mt-2"
+            class="text-muted-foreground mt-1 max-w-[500px] text-center text-balance lg:mt-2"
             v-text="f.description"
           />
           <NuxtLink
-            class="mt-4 inline-flex items-center gap-2 font-semibold text-primary underline-offset-2 hover:underline lg:mt-5"
+            class="text-primary mt-4 inline-flex items-center gap-2 font-semibold underline-offset-2 hover:underline lg:mt-5"
             :to="f.link.url"
             >{{ f.link.text }}
             <Icon

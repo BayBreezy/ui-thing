@@ -21,23 +21,19 @@
   }
 
   export type NavProviderProps = PrimitiveProps & {
-    /** Custom class(es) to add to the element */
+    /** Custom class(es) to add to the element. */
     class?: HTMLAttributes["class"];
-    /**
-     * The controlled open state of the nav component.
-     */
+    /** The controlled open state of the nav component. */
     modelValue?: boolean;
-    /**
-     * A function to call when the nav is opened
-     */
+    /** A function to call when the nav is opened. */
     onOpenChange?: (open: boolean) => void;
   };
 
   /**
    * Injection key for the NavProvider.
    *
-   * This key is used to provide and inject the navigation state
-   * and methods throughout the application.
+   * This key is used to provide and inject the navigation state and methods throughout the
+   * application.
    */
   export const navProviderKey = Symbol() as InjectionKey<{
     open: ModelRef<boolean, string, boolean, boolean>;
@@ -48,7 +44,7 @@
   export const navProviderStyles = tv({
     base: [
       "peer/navbar group/navbar @container/nav-provider relative isolate z-10 flex w-full flex-col",
-      "has-data-navbar-inset:min-h-svh has-data-navbar-inset:bg-background dark:has-data-navbar-inset:bg-background",
+      "has-data-navbar-inset:bg-background dark:has-data-navbar-inset:bg-background has-data-navbar-inset:min-h-svh",
     ],
   });
 </script>
@@ -60,9 +56,9 @@
   });
 
   const forwarded = reactiveOmit(props, "class", "modelValue", "onOpenChange");
-  /** Open state for the navigation */
+  /** Open state for the navigation. */
   const open = defineModel<boolean>({ default: false });
-  /** Mobile state for the navigation */
+  /** Mobile state for the navigation. */
   const isMobile = useMediaQuery("(max-width: 767px)"); /** Toggle the navigation state */
   const toggleNav = () => (open.value = !open.value);
   // Watch for changes in the open state and emit the model change event

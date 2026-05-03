@@ -21,6 +21,6 @@
   const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"));
 
   const styles = tv({
-    base: "size-4 shrink-0 text-primary",
+    base: "text-primary size-4 shrink-0",
   });
 </script>

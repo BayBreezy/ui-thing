@@ -18,11 +18,11 @@
     <UiContainer class="relative py-16 lg:py-24">
       <div class="grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-24">
         <Motion :variants="childVariant" :transition="{ duration: 0.5 }">
-          <p class="font-semibold text-primary">New feature</p>
+          <p class="text-primary font-semibold">New feature</p>
           <h2 class="mt-3 mb-4 text-3xl font-semibold lg:mb-5 lg:text-4xl">
             Introducing team inboxes
           </h2>
-          <p class="text-lg text-muted-foreground lg:text-xl">
+          <p class="text-muted-foreground text-lg lg:text-xl">
             Powerful, self-serve product and growth analytics to help you convert, engage, and
             retain more users. Trusted by over 4,000 startups.
           </p>
@@ -41,12 +41,12 @@
             <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border">
               <Icon
                 :name="f.icon"
-                class="h-5 w-5 transition-colors group-hover:text-primary lg:h-5 lg:w-5"
+                class="group-hover:text-primary h-5 w-5 transition-colors lg:h-5 lg:w-5"
               />
             </div>
             <div class="grow">
               <h3 class="text-lg font-semibold lg:text-xl" v-text="f.title" />
-              <p class="mt-1 text-muted-foreground lg:mt-2" v-text="f.description" />
+              <p class="text-muted-foreground mt-1 lg:mt-2" v-text="f.description" />
             </div>
           </Motion>
         </div>

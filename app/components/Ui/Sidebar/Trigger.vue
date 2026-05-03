@@ -29,15 +29,15 @@
     defineProps<{
       /**
        * The icon to display in the trigger.
+       *
        * @default "lucide:panel-left"
        */
       icon?: string;
-      /**
-       * Additional classes to apply to the parent element.
-       */
+      /** Additional classes to apply to the parent element. */
       class?: HTMLAttributes["class"];
       /**
        * The label for the trigger.
+       *
        * @default "Toggle Sidebar"
        */
       label?: string;

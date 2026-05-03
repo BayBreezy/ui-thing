@@ -4,7 +4,7 @@
       <UiBadge :variant="loaded ? 'default' : 'secondary'">
         {{ loaded ? "Loaded" : "Loading..." }}
       </UiBadge>
-      <p class="text-sm text-muted-foreground">
+      <p class="text-muted-foreground text-sm">
         {{ loaded ? "Content is ready" : "Waiting for content" }}
       </p>
     </div>

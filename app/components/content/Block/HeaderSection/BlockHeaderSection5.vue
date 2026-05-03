@@ -1,13 +1,13 @@
 <template>
   <UiContainer class="py-16 text-center lg:py-24">
     <slot name="headline">
-      <p class="font-semibold text-primary">{{ headline }}</p>
+      <p class="text-primary font-semibold">{{ headline }}</p>
     </slot>
     <slot name="title">
       <h2 class="mt-2 mb-4 text-4xl font-bold lg:mt-3 lg:mb-6 lg:text-5xl">{{ title }}</h2>
     </slot>
     <slot name="description">
-      <p class="mx-auto max-w-[800px] text-lg text-muted-foreground lg:text-xl">
+      <p class="text-muted-foreground mx-auto max-w-[800px] text-lg lg:text-xl">
         {{ description }}
       </p>
     </slot>

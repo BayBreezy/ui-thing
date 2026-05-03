@@ -3,13 +3,13 @@
     <UiTabs default-value="Projects">
       <div class="relative mb-3 flex justify-center">
         <UiTabsList
-          class="h-auto -space-x-px bg-background p-0 shadow-xs shadow-black/5 rtl:space-x-reverse"
+          class="bg-background h-auto -space-x-px p-0 shadow-xs shadow-black/5 rtl:space-x-reverse"
         >
           <UiTabsTrigger
             v-for="t in tabs"
             :key="t.title"
             :value="t.title"
-            class="relative flex items-center gap-2 overflow-hidden rounded-none border border-border py-2 first:rounded-s last:rounded-e data-[state=active]:bg-muted"
+            class="border-border data-[state=active]:bg-muted relative flex items-center gap-2 overflow-hidden rounded-none border py-2 first:rounded-s last:rounded-e"
           >
             <Icon :name="t.icon" class="-ms-0.5 me-1.5 size-4 shrink-0 opacity-60" />
             {{ t.title }}
@@ -18,7 +18,7 @@
         <UiTabsIndicator />
       </div>
       <UiTabsContent v-for="t in tabs" :key="t.title" :value="t.title">
-        <p class="p-4 text-center text-sm text-muted-foreground">{{ t.content }}</p>
+        <p class="text-muted-foreground p-4 text-center text-sm">{{ t.content }}</p>
       </UiTabsContent>
     </UiTabs>
   </div>

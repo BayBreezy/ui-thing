@@ -14,14 +14,12 @@
   import type { HTMLAttributes } from "vue";
 
   export const sideBarInputStyles = tv({
-    base: "h-8 w-full bg-background shadow-none",
+    base: "bg-background h-8 w-full shadow-none",
   });
 </script>
 <script setup lang="ts">
   const props = defineProps<{
-    /**
-     * Additional classes to apply to the parent element.
-     */
+    /** Additional classes to apply to the parent element. */
     class?: HTMLAttributes["class"];
   }>();
 

@@ -3,7 +3,7 @@
     <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end">
       <div class="basis-1/2">
         <slot name="headline">
-          <p class="font-semibold text-primary">{{ headline }}</p>
+          <p class="text-primary font-semibold">{{ headline }}</p>
         </slot>
         <slot name="title">
           <h2 class="mt-2 text-4xl font-bold text-balance md:mt-3 md:text-5xl">
@@ -13,7 +13,7 @@
       </div>
       <slot name="description">
         <p
-          class="max-w-[700px] basis-1/2 text-lg text-balance text-muted-foreground md:text-right lg:text-xl"
+          class="text-muted-foreground max-w-[700px] basis-1/2 text-lg text-balance md:text-right lg:text-xl"
         >
           {{ description }}
         </p>

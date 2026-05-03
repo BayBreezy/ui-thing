@@ -13,7 +13,7 @@
           >
             <span
               :data-selected="isBarInSelectedRange(i, minValue, priceStep, value)"
-              class="h-full w-full bg-primary/20 data-[selected=true]:bg-emerald-500/70"
+              class="bg-primary/20 h-full w-full data-[selected=true]:bg-emerald-500/70"
             />
           </div>
         </div>
@@ -34,7 +34,7 @@
               aria-label="Enter minimum price"
             />
             <span
-              class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm text-muted-foreground peer-disabled:opacity-50"
+              class="text-muted-foreground pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm peer-disabled:opacity-50"
             >
               $
             </span>
@@ -52,7 +52,7 @@
               aria-label="Enter maximum price"
             />
             <span
-              class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm text-muted-foreground peer-disabled:opacity-50"
+              class="text-muted-foreground pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm peer-disabled:opacity-50"
             >
               $
             </span>

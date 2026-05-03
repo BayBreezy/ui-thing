@@ -19,9 +19,7 @@
   });
 
   export type EmptyProps = PrimitiveProps & {
-    /**
-     * Additional classes to apply to the empty state container.
-     */
+    /** Additional classes to apply to the empty state container. */
     class?: HTMLAttributes["class"];
   };
 </script>

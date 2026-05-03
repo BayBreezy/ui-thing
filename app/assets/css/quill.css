@@ -1,41 +1,48 @@
-@reference "./tailwind.css";
-
 @import "@vueup/vue-quill/dist/vue-quill.snow.css";
 @import "@vueup/vue-quill/dist/vue-quill.bubble.css";
 
-@reference "./tailwind.css";
-
 .ql-toolbar {
   &.ql-snow {
-    @apply rounded-t-md border-border font-sans;
+    border-color: var(--color-border);
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+    font-family: var(--font-sans);
   }
   &.ql-snow {
     .ql-stroke {
-      @apply stroke-muted-foreground;
+      stroke: var(--color-muted-foreground);
     }
     .ql-fill {
-      @apply fill-muted-foreground;
+      fill: var(--color-muted-foreground);
     }
     button {
-      @apply mx-0.5 rounded hover:bg-muted hover:text-foreground;
+      margin-inline: calc(var(--spacing) * 0.5);
+      border-radius: var(--radius-sm);
+
+      &:hover {
+        background-color: var(--color-muted);
+        color: var(--color-foreground);
+      }
       &:hover {
         .ql-fill {
-          @apply fill-foreground;
+          fill: var(--color-foreground);
         }
         .ql-stroke {
-          @apply stroke-foreground;
+          stroke: var(--color-foreground);
         }
       }
       .ql-stroke {
-        @apply stroke-muted-foreground;
+        stroke: var(--color-muted-foreground);
       }
       &.ql-active {
-        @apply bg-primary text-primary-foreground;
+        background-color: var(--color-primary);
+        color: var(--color-primary-foreground);
+
         .ql-stroke {
-          @apply stroke-primary-foreground;
+          stroke: var(--color-primary-foreground);
         }
         .ql-fill {
-          @apply fill-primary-foreground;
+          fill: var(--color-primary-foreground);
         }
       }
     }
@@ -43,42 +50,63 @@
       svg,
       .ql-picker-label,
       .ql-picker {
-        @apply text-muted-foreground;
+        color: var(--color-muted-foreground);
       }
       button {
-        @apply mx-0.5 rounded hover:bg-muted hover:text-foreground;
+        margin-inline: calc(var(--spacing) * 0.5);
+        border-radius: var(--radius-sm);
+
+        &:hover {
+          background-color: var(--color-muted);
+          color: var(--color-foreground);
+        }
         &:hover {
           .ql-fill {
-            @apply fill-foreground;
+            fill: var(--color-foreground);
           }
           .ql-stroke {
-            @apply stroke-foreground;
+            stroke: var(--color-foreground);
           }
         }
         .ql-fill {
-          @apply fill-muted-foreground;
+          fill: var(--color-muted-foreground);
         }
         .ql-stroke {
-          @apply stroke-muted-foreground;
+          stroke: var(--color-muted-foreground);
         }
         &.ql-active {
-          @apply bg-primary text-primary-foreground;
+          background-color: var(--color-primary);
+          color: var(--color-primary-foreground);
+
           .ql-fill {
-            @apply fill-primary-foreground;
+            fill: var(--color-primary-foreground);
           }
           .ql-stroke {
-            @apply stroke-primary-foreground;
+            stroke: var(--color-primary-foreground);
           }
         }
       }
       .ql-picker {
-        @apply rounded;
+        border-radius: var(--radius-sm);
+
         .ql-picker-options {
-          @apply mt-1 rounded border-border bg-card p-1;
+          margin-top: calc(var(--spacing) * 1);
+          border-color: var(--color-border);
+          border-radius: var(--radius-sm);
+          background-color: var(--color-card);
+          padding: calc(var(--spacing) * 1);
+
           .ql-picker-item {
-            @apply rounded hover:bg-muted hover:text-foreground;
+            border-radius: var(--radius-sm);
+
+            &:hover {
+              background-color: var(--color-muted);
+              color: var(--color-foreground);
+            }
+
             &.ql-selected {
-              @apply bg-primary text-primary-foreground;
+              background-color: var(--color-primary);
+              color: var(--color-primary-foreground);
             }
           }
         }
@@ -87,39 +115,55 @@
       .ql-color-picker {
         &:hover {
           .ql-fill {
-            @apply fill-foreground;
+            fill: var(--color-foreground);
           }
           .ql-stroke {
-            @apply stroke-foreground;
+            stroke: var(--color-foreground);
           }
         }
         .ql-picker-options {
-          @apply mt-1 rounded border-border bg-card p-1;
+          margin-top: calc(var(--spacing) * 1);
+          border-color: var(--color-border);
+          border-radius: var(--radius-sm);
+          background-color: var(--color-card);
+          padding: calc(var(--spacing) * 1);
+
           .ql-picker-item {
             &.ql-selected {
-              @apply bg-primary text-primary-foreground;
+              background-color: var(--color-primary);
+              color: var(--color-primary-foreground);
+
               .ql-stroke {
-                @apply stroke-primary-foreground;
+                stroke: var(--color-primary-foreground);
               }
             }
           }
         }
       }
       .ql-picker-label {
-        @apply hover:rounded hover:bg-muted hover:text-foreground;
+        &:hover {
+          border-radius: var(--radius-sm);
+          background-color: var(--color-muted);
+          color: var(--color-foreground);
+        }
+
         &.ql-active {
-          @apply rounded bg-primary text-primary-foreground;
+          border-radius: var(--radius-sm);
+          background-color: var(--color-primary);
+          color: var(--color-primary-foreground);
+
           .ql-stroke {
-            @apply stroke-primary-foreground;
+            stroke: var(--color-primary-foreground);
           }
         }
       }
       .ql-stroke {
-        @apply stroke-muted-foreground;
+        stroke: var(--color-muted-foreground);
       }
       .ql-expanded {
         .ql-picker-label {
-          @apply rounded border-border;
+          border-color: var(--color-border);
+          border-radius: var(--radius-sm);
         }
       }
     }
@@ -127,82 +171,188 @@
 }
 
 .ql-container {
-  @apply min-h-[150px] bg-transparent font-sans text-sm focus-within:border-ring! focus-within:ring-[3px] focus-within:ring-ring/50 dark:bg-input/30;
+  min-height: 150px;
+  background-color: transparent;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+
+  &:focus-within {
+    border-color: var(--color-ring) !important;
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-ring) 50%, transparent);
+  }
+
+  &:is(.dark *) {
+    background-color: color-mix(in oklab, var(--color-input) 30%, transparent);
+  }
+
   &.ql-snow {
     a {
-      @apply text-sky-500 hover:text-sky-500;
+      color: var(--color-sky-500);
+
+      &:hover {
+        color: var(--color-sky-500);
+      }
     }
-    @apply rounded-b-md border-border;
+
+    border-color: var(--color-border);
+    border-bottom-right-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
   }
   .ql-editor {
-    @apply min-h-[150px];
+    min-height: 150px;
+
     .ql-font-monospace {
-      @apply font-mono;
+      font-family: var(--font-mono);
     }
     &.ql-blank {
       &:before {
-        @apply text-muted-foreground not-italic;
+        color: var(--color-muted-foreground);
+        font-style: normal;
       }
     }
   }
   .ql-tooltip {
-    @apply z-[9999] rounded border-border bg-card px-4 py-2 text-sm text-card-foreground shadow before:cursor-pointer before:font-medium;
+    z-index: 9999;
+    border-color: var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-card);
+    padding-inline: calc(var(--spacing) * 4);
+    padding-block: calc(var(--spacing) * 2);
+    color: var(--color-card-foreground);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    box-shadow: var(--shadow);
+
+    &::before {
+      cursor: pointer;
+      font-weight: var(--font-weight-medium);
+    }
+
     input[type="text"] {
-      @apply h-8 w-[200px] rounded border-border bg-muted/30 p-2 text-sm text-foreground focus:ring-1 focus:ring-ring focus:outline-none;
+      height: calc(var(--spacing) * 8);
+      width: 200px;
+      border-color: var(--color-border);
+      border-radius: var(--radius-sm);
+      background-color: color-mix(in oklab, var(--color-muted) 30%, transparent);
+      padding: calc(var(--spacing) * 2);
+      color: var(--color-foreground);
+      font-size: var(--text-sm);
+      line-height: var(--text-sm--line-height);
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 1px var(--color-ring);
+      }
     }
     .ql-preview {
-      @apply text-sm leading-[26px] underline underline-offset-2;
+      font-size: var(--text-sm);
+      line-height: 26px;
+      text-decoration-line: underline;
+      text-underline-offset: 2px;
     }
     .ql-remove {
-      @apply text-destructive hover:text-destructive;
+      color: var(--color-destructive);
+
+      &:hover {
+        color: var(--color-destructive);
+      }
     }
   }
 }
 
 .ql-container.ql-bubble {
-  @apply rounded-md border;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: var(--radius-md);
+
   .ql-tooltip {
-    @apply z-[9999] rounded-lg border border-border bg-card px-4 py-2 text-sm text-card-foreground shadow before:cursor-pointer before:font-medium;
+    z-index: 9999;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-card);
+    padding-inline: calc(var(--spacing) * 4);
+    padding-block: calc(var(--spacing) * 2);
+    color: var(--color-card-foreground);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    box-shadow: var(--shadow);
+
+    &::before {
+      cursor: pointer;
+      font-weight: var(--font-weight-medium);
+    }
+
     input[type="text"] {
-      @apply h-8 w-[200px] rounded border-border bg-muted/30 p-2 text-sm text-foreground focus:ring-1 focus:ring-ring focus:outline-none;
+      height: calc(var(--spacing) * 8);
+      width: 200px;
+      border-color: var(--color-border);
+      border-radius: var(--radius-sm);
+      background-color: color-mix(in oklab, var(--color-muted) 30%, transparent);
+      padding: calc(var(--spacing) * 2);
+      color: var(--color-foreground);
+      font-size: var(--text-sm);
+      line-height: var(--text-sm--line-height);
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 1px var(--color-ring);
+      }
     }
     .ql-preview {
-      @apply text-sm leading-[26px] underline underline-offset-2;
+      font-size: var(--text-sm);
+      line-height: 26px;
+      text-decoration-line: underline;
+      text-underline-offset: 2px;
     }
     .ql-remove {
-      @apply text-destructive hover:text-destructive;
+      color: var(--color-destructive);
+
+      &:hover {
+        color: var(--color-destructive);
+      }
     }
     &:not(.ql-flip) .ql-tooltip-arrow {
-      @apply border-b-border;
+      border-bottom-color: var(--color-border);
     }
     .ql-toolbar {
       .ql-stroke {
-        @apply stroke-muted-foreground;
+        stroke: var(--color-muted-foreground);
       }
       .ql-fill {
-        @apply fill-muted-foreground;
+        fill: var(--color-muted-foreground);
       }
 
       button {
-        @apply mx-0.5 rounded hover:bg-muted hover:text-foreground;
+        margin-inline: calc(var(--spacing) * 0.5);
+        border-radius: var(--radius-sm);
+
+        &:hover {
+          background-color: var(--color-muted);
+          color: var(--color-foreground);
+        }
         &:hover {
           .ql-fill {
-            @apply fill-foreground;
+            fill: var(--color-foreground);
           }
           .ql-stroke {
-            @apply stroke-foreground;
+            stroke: var(--color-foreground);
           }
         }
         .ql-stroke {
-          @apply stroke-muted-foreground;
+          stroke: var(--color-muted-foreground);
         }
         &.ql-active {
-          @apply bg-primary text-primary-foreground;
+          background-color: var(--color-primary);
+          color: var(--color-primary-foreground);
+
           .ql-stroke {
-            @apply stroke-primary-foreground;
+            stroke: var(--color-primary-foreground);
           }
           .ql-fill {
-            @apply fill-primary-foreground;
+            fill: var(--color-primary-foreground);
           }
         }
       }
@@ -210,42 +360,66 @@
         svg,
         .ql-picker-label,
         .ql-picker {
-          @apply text-muted-foreground;
+          color: var(--color-muted-foreground);
         }
         button {
-          @apply mx-0.5 rounded hover:bg-muted hover:text-foreground;
+          margin-inline: calc(var(--spacing) * 0.5);
+          border-radius: var(--radius-sm);
+
+          &:hover {
+            background-color: var(--color-muted);
+            color: var(--color-foreground);
+          }
           &:hover {
             .ql-fill {
-              @apply fill-foreground;
+              fill: var(--color-foreground);
             }
             .ql-stroke {
-              @apply stroke-foreground;
+              stroke: var(--color-foreground);
             }
           }
           .ql-fill {
-            @apply fill-muted-foreground;
+            fill: var(--color-muted-foreground);
           }
           .ql-stroke {
-            @apply stroke-muted-foreground;
+            stroke: var(--color-muted-foreground);
           }
           &.ql-active {
-            @apply bg-primary text-primary-foreground;
+            background-color: var(--color-primary);
+            color: var(--color-primary-foreground);
+
             .ql-fill {
-              @apply fill-primary-foreground;
+              fill: var(--color-primary-foreground);
             }
             .ql-stroke {
-              @apply stroke-primary-foreground;
+              stroke: var(--color-primary-foreground);
             }
           }
         }
         .ql-picker {
-          @apply rounded;
+          border-radius: var(--radius-sm);
+
           .ql-picker-options {
-            @apply mt-1 rounded border border-border bg-card p-1;
+            margin-top: calc(var(--spacing) * 1);
+            border-style: solid;
+            border-width: 1px;
+            border-color: var(--color-border);
+            border-radius: var(--radius-sm);
+            background-color: var(--color-card);
+            padding: calc(var(--spacing) * 1);
+
             .ql-picker-item {
-              @apply rounded px-1 hover:bg-muted hover:text-foreground;
+              border-radius: var(--radius-sm);
+              padding-inline: calc(var(--spacing) * 1);
+
+              &:hover {
+                background-color: var(--color-muted);
+                color: var(--color-foreground);
+              }
+
               &.ql-selected {
-                @apply bg-primary text-primary-foreground;
+                background-color: var(--color-primary);
+                color: var(--color-primary-foreground);
               }
             }
           }
@@ -254,39 +428,57 @@
         .ql-color-picker {
           &:hover {
             .ql-fill {
-              @apply fill-foreground;
+              fill: var(--color-foreground);
             }
             .ql-stroke {
-              @apply stroke-foreground;
+              stroke: var(--color-foreground);
             }
           }
           .ql-picker-options {
-            @apply mt-1 rounded border border-border bg-card p-1;
+            margin-top: calc(var(--spacing) * 1);
+            border-style: solid;
+            border-width: 1px;
+            border-color: var(--color-border);
+            border-radius: var(--radius-sm);
+            background-color: var(--color-card);
+            padding: calc(var(--spacing) * 1);
+
             .ql-picker-item {
               &.ql-selected {
-                @apply bg-primary text-primary-foreground;
+                background-color: var(--color-primary);
+                color: var(--color-primary-foreground);
+
                 .ql-stroke {
-                  @apply stroke-primary-foreground;
+                  stroke: var(--color-primary-foreground);
                 }
               }
             }
           }
         }
         .ql-picker-label {
-          @apply hover:rounded hover:bg-muted hover:text-foreground;
+          &:hover {
+            border-radius: var(--radius-sm);
+            background-color: var(--color-muted);
+            color: var(--color-foreground);
+          }
+
           &.ql-active {
-            @apply rounded bg-primary text-primary-foreground;
+            border-radius: var(--radius-sm);
+            background-color: var(--color-primary);
+            color: var(--color-primary-foreground);
+
             .ql-stroke {
-              @apply stroke-primary-foreground;
+              stroke: var(--color-primary-foreground);
             }
           }
         }
         .ql-stroke {
-          @apply stroke-muted-foreground;
+          stroke: var(--color-muted-foreground);
         }
         .ql-expanded {
           .ql-picker-label {
-            @apply rounded border-border;
+            border-color: var(--color-border);
+            border-radius: var(--radius-sm);
           }
         }
       }

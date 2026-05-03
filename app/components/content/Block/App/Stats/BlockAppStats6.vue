@@ -3,7 +3,7 @@
     <UiCardContent>
       <div class="flex items-start justify-between">
         <div class="space-y-1">
-          <p class="text-sm font-medium text-muted-foreground" v-html="props.label" />
+          <p class="text-muted-foreground text-sm font-medium" v-html="props.label" />
           <h3 class="text-3xl font-bold tracking-tight" v-html="props.value" />
         </div>
         <UiFancyIcon :icon="props.icon" :class="props.iconClass" class="bg-transparent" />

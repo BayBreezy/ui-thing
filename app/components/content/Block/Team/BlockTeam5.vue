@@ -11,11 +11,11 @@
         <div class="mb-16 grid gap-8 lg:grid-cols-2 lg:items-center">
           <Motion as-child :variants="contentVariant">
             <div>
-              <p class="mb-3 font-semibold text-primary">Join Our Team</p>
+              <p class="text-primary mb-3 font-semibold">Join Our Team</p>
               <h2 class="mb-4 text-4xl font-bold lg:text-5xl">
                 Work with talented people from around the world
               </h2>
-              <p class="mb-6 text-lg text-muted-foreground">
+              <p class="text-muted-foreground mb-6 text-lg">
                 We're a diverse team of designers, developers, and dreamers building the future
                 together. Remote-first, mission-driven, and always learning.
               </p>
@@ -28,21 +28,21 @@
 
           <Motion as-child :variants="statsVariant">
             <div class="grid grid-cols-2 gap-6">
-              <div class="rounded-lg border bg-card p-6">
+              <div class="bg-card rounded-lg border p-6">
                 <p class="mb-2 text-3xl font-bold">50+</p>
-                <p class="text-sm text-muted-foreground">Team Members</p>
+                <p class="text-muted-foreground text-sm">Team Members</p>
               </div>
-              <div class="rounded-lg border bg-card p-6">
+              <div class="bg-card rounded-lg border p-6">
                 <p class="mb-2 text-3xl font-bold">15+</p>
-                <p class="text-sm text-muted-foreground">Countries</p>
+                <p class="text-muted-foreground text-sm">Countries</p>
               </div>
-              <div class="rounded-lg border bg-card p-6">
+              <div class="bg-card rounded-lg border p-6">
                 <p class="mb-2 text-3xl font-bold">100%</p>
-                <p class="text-sm text-muted-foreground">Remote</p>
+                <p class="text-muted-foreground text-sm">Remote</p>
               </div>
-              <div class="rounded-lg border bg-card p-6">
+              <div class="bg-card rounded-lg border p-6">
                 <p class="mb-2 text-3xl font-bold">4.9★</p>
-                <p class="text-sm text-muted-foreground">Glassdoor Rating</p>
+                <p class="text-muted-foreground text-sm">Glassdoor Rating</p>
               </div>
             </div>
           </Motion>

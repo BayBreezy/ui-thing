@@ -12,16 +12,13 @@ type CarouselPlugin = UseCarouselParameters[1];
 export type CarouselApi = UnwrapRef<CApi>;
 
 export interface CarouselProps {
-  /**
-   * The options to be passed to the EmblaCarousel instance
-   */
+  /** The options to be passed to the EmblaCarousel instance. */
   opts?: CarouselOptions;
-  /**
-   * The plugins to be passed to the EmblaCarousel instance
-   */
+  /** The plugins to be passed to the EmblaCarousel instance. */
   plugins?: CarouselPlugin;
   /**
-   * The orientation of the carousel
+   * The orientation of the carousel.
+   *
    * @default "horizontal"
    */
   orientation?: "horizontal" | "vertical";
@@ -33,7 +30,8 @@ export interface CarouselEmits {
 
 export interface WithClassAsProps {
   /**
-   * The class name to be applied to the root element of the component
+   * The class name to be applied to the root element of the component.
+   *
    * @default undefined
    */
   class?: HTMLAttributes["class"];
@@ -49,29 +47,19 @@ const [useProvideCarousel, useInjectCarousel] = createInjectionState(
       plugins
     );
 
-    /**
-     * Scroll to the previous slide
-     */
+    /** Scroll to the previous slide. */
     function scrollPrev() {
       emblaApi.value?.scrollPrev();
     }
-    /**
-     * Scroll to the next slide
-     */
+    /** Scroll to the next slide. */
     function scrollNext() {
       emblaApi.value?.scrollNext();
     }
-    /**
-     * Whether the carousel can scroll to the next slide
-     */
+    /** Whether the carousel can scroll to the next slide. */
     const canScrollNext = ref(false);
-    /**
-     * Whether the carousel can scroll to the previous slide
-     */
+    /** Whether the carousel can scroll to the previous slide. */
     const canScrollPrev = ref(false);
-    /**
-     * Method used to update the canScrollNext and canScrollPrev values
-     */
+    /** Method used to update the canScrollNext and canScrollPrev values. */
     function onSelect(api: CarouselApi) {
       canScrollNext.value = api?.canScrollNext() || false;
       canScrollPrev.value = api?.canScrollPrev() || false;
@@ -98,9 +86,7 @@ const [useProvideCarousel, useInjectCarousel] = createInjectionState(
   }
 );
 
-/**
- * A composable function to be used within a <UiCarousel /> component
- */
+/** A composable function to be used within a <UiCarousel /> component. */
 function useCarousel() {
   const carouselState = useInjectCarousel();
   if (!carouselState) throw new Error("useCarousel must be used within a <UiCarousel />");

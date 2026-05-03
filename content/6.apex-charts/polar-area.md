@@ -11,7 +11,7 @@ description: Polar area charts are used to display multivariate data in a two-di
 
 ### Polar Area Chart
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsPolarArea1
 
@@ -34,7 +34,7 @@ description: Polar area charts are used to display multivariate data in a two-di
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">January - June 2024</div>
+        <div class="text-muted-foreground leading-none">January - June 2024</div>
       </UiCardFooter>
     </UiCard>
   </div>
@@ -62,7 +62,7 @@ description: Polar area charts are used to display multivariate data in a two-di
 
 ### Polar Area Chart - No Lines
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsPolarArea2
 
@@ -85,7 +85,7 @@ description: Polar area charts are used to display multivariate data in a two-di
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">January - June 2024</div>
+        <div class="text-muted-foreground leading-none">January - June 2024</div>
       </UiCardFooter>
     </UiCard>
   </div>
@@ -121,7 +121,7 @@ description: Polar area charts are used to display multivariate data in a two-di
 
 ### Polar Area Chart - Rings
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsPolarArea3
 
@@ -144,7 +144,7 @@ description: Polar area charts are used to display multivariate data in a two-di
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">January - June 2024</div>
+        <div class="text-muted-foreground leading-none">January - June 2024</div>
       </UiCardFooter>
     </UiCard>
   </div>
@@ -180,7 +180,7 @@ description: Polar area charts are used to display multivariate data in a two-di
 
 ### Polar Area Chart - Legend
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsPolarArea4
 
@@ -203,7 +203,7 @@ description: Polar area charts are used to display multivariate data in a two-di
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">January - June 2024</div>
+        <div class="text-muted-foreground leading-none">January - June 2024</div>
       </UiCardFooter>
     </UiCard>
   </div>
@@ -234,7 +234,7 @@ description: Polar area charts are used to display multivariate data in a two-di
 
 ### Polar Area Chart - Labels
 
-::ShowCase
+::prose-show-case
 
 :DocsApexChartsPolarArea5
 
@@ -257,7 +257,7 @@ description: Polar area charts are used to display multivariate data in a two-di
         <div class="flex items-center gap-2 leading-none font-medium">
           Trending up by 5.2% this month <Icon name="lucide:trending-up" class="size-4" />
         </div>
-        <div class="leading-none text-muted-foreground">January - June 2024</div>
+        <div class="text-muted-foreground leading-none">January - June 2024</div>
       </UiCardFooter>
     </UiCard>
   </div>

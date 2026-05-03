@@ -21,7 +21,7 @@ Click :SourceCodeLink{component="Vee/Input.vue"} to see the source code for this
 
 In the form below, we are using the `useForm` composition function provided by Vee-Validate to handle the form submission and validation. The `useForm` composable accepts a `validationSchema` option that we can use to define our validation rules. We are using the `zod` library to define our validation rules. You can use any validation library you want as long as it is supported by Vee-Validate and can be passed to the `toTypedSchema` function.
 
-::ShowCase
+::prose-show-case
 
 :DocsVeeInput
 
@@ -82,7 +82,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Required Input
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputRequired
 
@@ -104,7 +104,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Helper Text
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputHelperText
 
@@ -131,7 +131,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with label hint
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputLabelHint
 
@@ -158,7 +158,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Colored Ring
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputColoredBorder
 
@@ -182,7 +182,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Gray Background
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputGrayBg
 
@@ -195,7 +195,7 @@ Not all examples are copied but these should give you a good idea of what you ca
   <div class="flex items-center justify-center">
     <UiVeeInput
       label="Input with gray background"
-      class="border-transparent bg-muted shadow-none"
+      class="bg-muted border-transparent shadow-none"
       placeholder="Email"
       type="email"
     />
@@ -209,7 +209,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Disabled Input
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputDisabled
 
@@ -231,7 +231,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Start Icon
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputStartIcon
 
@@ -258,7 +258,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with End Icon
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputEndIcon
 
@@ -285,7 +285,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Start Inline Addon
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputStartInlineAddOn
 
@@ -299,7 +299,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     <UiVeeInput label="Input with start inline add-on" class="peer pl-16" placeholder="google.com">
       <template #icon>
         <span
-          class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm text-muted-foreground peer-disabled:opacity-50"
+          class="text-muted-foreground pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm peer-disabled:opacity-50"
         >
           https://
         </span>
@@ -315,7 +315,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with End Inline Addon
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputEndInlineAddOn
 
@@ -329,7 +329,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     <UiVeeInput label="Input with end inline add-on" class="peer pr-14" placeholder="google.com">
       <template #trailingIcon>
         <span
-          class="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-sm text-muted-foreground peer-disabled:opacity-50"
+          class="text-muted-foreground pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-sm peer-disabled:opacity-50"
         >
           .com
         </span>
@@ -345,7 +345,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Inline Addons
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputInlineAddOns
 
@@ -359,14 +359,14 @@ Not all examples are copied but these should give you a good idea of what you ca
     <UiVeeInput label="Input with inline add-ons" class="peer ps-6 pe-12" placeholder="0.00">
       <template #trailingIcon>
         <span
-          class="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-sm text-muted-foreground peer-disabled:opacity-50"
+          class="text-muted-foreground pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-sm peer-disabled:opacity-50"
         >
           EUR
         </span>
       </template>
       <template #icon>
         <span
-          class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm text-muted-foreground peer-disabled:opacity-50"
+          class="text-muted-foreground pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm peer-disabled:opacity-50"
         >
           €
         </span>
@@ -382,7 +382,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Start Addon
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputStartAddon
 
@@ -401,7 +401,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     >
       <template #icon>
         <span
-          class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center border-r px-3 text-sm text-muted-foreground peer-disabled:opacity-50"
+          class="text-muted-foreground pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center border-r px-3 text-sm peer-disabled:opacity-50"
         >
           https://
         </span>
@@ -417,7 +417,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with End Addon
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputEndAddon
 
@@ -436,7 +436,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     >
       <template #trailingIcon>
         <span
-          class="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center border-l px-3 text-sm text-muted-foreground peer-disabled:opacity-50"
+          class="text-muted-foreground pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center border-l px-3 text-sm peer-disabled:opacity-50"
         >
           .com
         </span>
@@ -452,7 +452,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Inline Start & End Addon
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputInlineStartEndAddon
 
@@ -471,14 +471,14 @@ Not all examples are copied but these should give you a good idea of what you ca
     >
       <template #icon>
         <span
-          class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm text-muted-foreground peer-disabled:opacity-50"
+          class="text-muted-foreground pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm peer-disabled:opacity-50"
         >
           €
         </span>
       </template>
       <template #trailingIcon>
         <span
-          class="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center border-l px-3 text-sm text-muted-foreground peer-disabled:opacity-50"
+          class="text-muted-foreground pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center border-l px-3 text-sm peer-disabled:opacity-50"
         >
           EUR
         </span>
@@ -494,7 +494,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Start Select
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputStartSelect
 
@@ -514,7 +514,7 @@ Not all examples are copied but these should give you a good idea of what you ca
       <template #icon>
         <select
           aria-label="Protocol"
-          class="absolute inset-y-0 start-0 flex form-select items-center justify-center rounded-s-md border border-input bg-background ps-3 text-sm text-muted-foreground ring-offset-background peer-disabled:opacity-50 focus:border-input focus:ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
+          class="form-select border-input bg-background text-muted-foreground ring-offset-background focus:border-input focus:ring-offset-background focus-visible:ring-ring absolute inset-y-0 start-0 flex items-center justify-center rounded-s-md border ps-3 text-sm peer-disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
         >
           <option value="https://">https://</option>
           <option value="http://">http://</option>
@@ -535,7 +535,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with End Select
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputEndSelect
 
@@ -550,7 +550,7 @@ Not all examples are copied but these should give you a good idea of what you ca
       <template #trailingIcon>
         <select
           aria-label="Protocol"
-          class="absolute inset-y-0 end-0 flex form-select rounded-e-md border border-input bg-background pe-7 text-sm text-muted-foreground peer-disabled:opacity-50 focus:border-input focus:border-primary focus:ring-[3px] focus:ring-ring/50"
+          class="form-select border-input bg-background text-muted-foreground focus:border-input focus:border-primary focus:ring-ring/50 absolute inset-y-0 end-0 flex rounded-e-md border pe-7 text-sm peer-disabled:opacity-50 focus:ring-[3px]"
         >
           <option>.com</option>
           <option>.org</option>
@@ -568,7 +568,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with End Inline Button
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputEndInlineButton
 
@@ -589,7 +589,7 @@ Not all examples are copied but these should give you a good idea of what you ca
         <button
           type="button"
           aria-label="Subscribe"
-          class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+          class="text-muted-foreground/80 ring-offset-background hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
         >
           <Icon name="lucide:send" class="size-4" />
         </button>
@@ -605,7 +605,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with End Icon Button
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputEndIconButton
 
@@ -626,7 +626,7 @@ Not all examples are copied but these should give you a good idea of what you ca
         <button
           type="button"
           aria-label="Subscribe"
-          class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent border-l-input text-muted-foreground/80 ring-offset-background transition-shadow hover:bg-muted/50 hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+          class="border-l-input text-muted-foreground/80 ring-offset-background hover:bg-muted/50 hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
         >
           <Icon name="lucide:download" class="size-4" />
         </button>
@@ -642,7 +642,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with End Button
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputEndButton
 
@@ -658,7 +658,7 @@ Not all examples are copied but these should give you a good idea of what you ca
         <button
           type="button"
           aria-label="Send email"
-          class="absolute inset-y-0 end-0 flex h-full items-center justify-center rounded-e-md border border-transparent border-l-input px-3 text-sm ring-offset-background transition-shadow hover:bg-muted/50 hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+          class="border-l-input ring-offset-background hover:bg-muted/50 hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-0 end-0 flex h-full items-center justify-center rounded-e-md border border-transparent px-3 text-sm transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
         >
           Send
         </button>
@@ -674,7 +674,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Button
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputWithButton
 
@@ -697,7 +697,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Show/Hide Password
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputShowHidePassword
 
@@ -719,7 +719,7 @@ Not all examples are copied but these should give you a good idea of what you ca
             <button
               type="button"
               aria-label="Login password"
-              class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+              class="text-muted-foreground/80 ring-offset-background hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
               @click="toggleVisibility"
             >
               <Icon :name="isVisible ? 'lucide:eye-off' : 'lucide:eye'" class="size-4" />
@@ -746,7 +746,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Clear Button
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputClearButton
 
@@ -763,7 +763,7 @@ Not all examples are copied but these should give you a good idea of what you ca
           <AnimatePresence>
             <Motion
               v-if="value"
-              class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center text-muted-foreground hover:text-foreground"
+              class="text-muted-foreground hover:text-foreground absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center"
               :initial="{ opacity: 0, scale: 0.5 }"
               :animate="{ opacity: 1, scale: 1 }"
               :exit="{ opacity: 0, scale: 0 }"
@@ -791,7 +791,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with &lt;kbd&gt;
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputWithK_D_B
 
@@ -810,7 +810,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     >
       <template #trailingIcon>
         <div
-          class="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-2 text-muted-foreground"
+          class="text-muted-foreground pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-2"
         >
           <UiKbd variant="outline"> ⌘K </UiKbd>
         </div>
@@ -826,7 +826,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Search Input with Icon & Button
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputSearchWithIconButton
 
@@ -848,7 +848,7 @@ Not all examples are copied but these should give you a good idea of what you ca
         <button
           type="button"
           aria-label="Subscribe"
-          class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+          class="text-muted-foreground/80 ring-offset-background hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
         >
           <Icon name="lucide:arrow-right" class="size-4" />
         </button>
@@ -864,7 +864,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Search Input with Loader Icon
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputSearchWithLoader
 
@@ -887,7 +887,7 @@ Not all examples are copied but these should give you a good idea of what you ca
         <button
           type="button"
           aria-label="Start/Stop recording"
-          class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+          class="text-muted-foreground/80 ring-offset-background hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
           @click="useSonner.success('Recording started!')"
         >
           <Icon name="lucide:mic" class="size-4" />
@@ -920,7 +920,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Overlapping Label
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputOverlappingLabel
 
@@ -933,7 +933,7 @@ Not all examples are copied but these should give you a good idea of what you ca
   <div class="relative flex items-center justify-center">
     <UiLabel
       for="input-overlapping-label"
-      class="absolute start-1 top-0 z-10 block -translate-y-1/2 bg-background px-2 text-xs font-medium text-foreground group-has-[:disabled]:opacity-50"
+      class="bg-background text-foreground absolute start-1 top-0 z-10 block -translate-y-1/2 px-2 text-xs font-medium group-has-[:disabled]:opacity-50"
     >
       Input with overlapping label
     </UiLabel>
@@ -949,7 +949,7 @@ Not all examples are copied but these should give you a good idea of what you ca
 
 ### Input with Password Strength Indicator
 
-::ShowCase
+::prose-show-case
 
 :DocsOriginInputPasswordStrengthIndicator
 
@@ -974,7 +974,7 @@ Not all examples are copied but these should give you a good idea of what you ca
             <button
               type="button"
               aria-label="Subscribe"
-              class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+              class="text-muted-foreground/80 ring-offset-background hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md border border-transparent transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
               @click="toggleVisibility"
             >
               <Icon :name="isVisible ? 'lucide:eye-off' : 'lucide:eye'" class="size-4" />
@@ -988,7 +988,7 @@ Not all examples are copied but these should give you a good idea of what you ca
     </UiVeeInput>
 
     <div
-      class="mt-3 mb-4 h-1 w-full overflow-hidden rounded-full bg-border"
+      class="bg-border mt-3 mb-4 h-1 w-full overflow-hidden rounded-full"
       role="progressbar"
       :aria-valuenow="strengthScore"
       :aria-valuemin="0"
@@ -1001,7 +1001,7 @@ Not all examples are copied but these should give you a good idea of what you ca
       />
     </div>
 
-    <p id="password-strength" class="mb-2 text-sm font-medium text-foreground">
+    <p id="password-strength" class="text-foreground mb-2 text-sm font-medium">
       {{ getStrengthText(strengthScore) }}. Must contain:
     </p>
 

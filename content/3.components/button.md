@@ -17,7 +17,7 @@ Here we have a few examples of the plain buttons.
 
 ### Default Button
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonDefault
 
@@ -39,7 +39,7 @@ Here we have a few examples of the plain buttons.
 
 ### Secondary Button
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonSecondary
 
@@ -61,7 +61,7 @@ Here we have a few examples of the plain buttons.
 
 ### With Icon
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonWithIcon
 
@@ -83,7 +83,7 @@ Here we have a few examples of the plain buttons.
 
 ### Loading
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonLoading
 
@@ -105,7 +105,7 @@ Here we have a few examples of the plain buttons.
 
 ### Outline
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonOutline
 
@@ -127,7 +127,7 @@ Here we have a few examples of the plain buttons.
 
 ### Destructive
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonDestructive
 
@@ -149,7 +149,7 @@ Here we have a few examples of the plain buttons.
 
 ### Ghost
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGhost
 
@@ -171,7 +171,7 @@ Here we have a few examples of the plain buttons.
 
 ### Link
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonLink
 
@@ -193,7 +193,7 @@ Here we have a few examples of the plain buttons.
 
 ### Icon
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonIconOnly
 
@@ -215,13 +215,73 @@ Here we have a few examples of the plain buttons.
 
 ::
 
+## Skeuomorphic
+
+Add the `skeuomorphic` prop to any solid-background variant to apply an inset shadow that gives the button a tactile, raised appearance.
+
+### Skeuomorphic Button
+
+::prose-show-case
+
+:DocsButtonSkeuomorphic
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonSkeuomorphic.vue" code lang="vue" -->
+
+```vue [DocsButtonSkeuomorphic.vue]
+<template>
+  <div class="flex flex-wrap items-center justify-center gap-3">
+    <UiButton skeuomorphic>Default</UiButton>
+    <UiButton skeuomorphic variant="secondary">Secondary</UiButton>
+    <UiButton skeuomorphic variant="destructive">Destructive</UiButton>
+    <UiButton skeuomorphic variant="gradient">Gradient</UiButton>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+## Gradient
+
+A `gradient` variant that derives a lighter stop from the active primary token using `color-mix`.
+
+### Gradient Button
+
+::prose-show-case
+
+:DocsButtonGradient
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Button/DocsButtonGradient.vue" code lang="vue" -->
+
+```vue [DocsButtonGradient.vue]
+<template>
+  <div class="flex flex-wrap items-center justify-center gap-3">
+    <UiButton variant="gradient">Gradient</UiButton>
+    <UiButton variant="gradient" size="sm">Small</UiButton>
+    <UiButton variant="gradient" size="lg">Large</UiButton>
+    <UiButton variant="gradient" size="icon">
+      <Icon name="lucide:sparkles" class="size-4" />
+    </UiButton>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
 ## Sizes
 
 Here are the different sizes that are available for the buttons.
 
 ### Regular Button Sizes
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonSizes
 
@@ -247,7 +307,7 @@ Here are the different sizes that are available for the buttons.
 
 ### Icon Button Sizes
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonIconSizes
 
@@ -275,11 +335,11 @@ Here are the different sizes that are available for the buttons.
 
 ## Enhanced Buttons
 
-These are some buttons that I found today over here [Enhanced Buttons](https://enhanced-button.vercel.app/). I think they are cool.
+These are some buttons that I found today over here [Enhanced Buttons](https://enhanced-button.vercel.app/){target="\_blank"}. I think they are cool.
 
 ### Expand Icon - Right
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonExpandIconRight
 
@@ -303,7 +363,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Expand Icon - Left
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonExpandIconLeft
 
@@ -327,7 +387,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Gooey - Left
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGooeyLeft
 
@@ -349,7 +409,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Gooey - Right
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGooeyRight
 
@@ -371,7 +431,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Shine
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonShine
 
@@ -393,7 +453,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Shine on Hover
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonShineHover
 
@@ -415,7 +475,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Gradient Slideshow
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGradientFlow
 
@@ -437,7 +497,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Ring Hover
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonRingHover
 
@@ -459,7 +519,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Link Hover 1
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonLinkHover1
 
@@ -481,7 +541,7 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ### Link Hover 2
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonLinkHover2
 
@@ -503,13 +563,13 @@ These are some buttons that I found today over here [Enhanced Buttons](https://e
 
 ## Origin UI Examples
 
-These are some examples that I found today over here [Origin UI](https://originui.com/buttons). I think they are cool.
+These are some examples that I found today over here [Origin UI](https://originui.com/buttons){target="\_blank"}. I think they are cool.
 
 To use these examples you will have to copy the code and adjust it for your own use.
 
 ### Animated Close Button
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonAnimatedMenu
 
@@ -568,7 +628,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Animated Rotate Plus
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonRotatePlus
 
@@ -606,7 +666,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Group Outline Counter
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonGroupOutlineCounter
 
@@ -627,7 +687,7 @@ To use these examples you will have to copy the code and adjust it for your own 
       >
         <Icon name="lucide:chevron-up" class="size-4" :aria-hidden="true" />
       </UiButton>
-      <span class="flex items-center border border-input px-3 text-sm font-medium">{{
+      <span class="border-input flex items-center border px-3 text-sm font-medium">{{
         counter
       }}</span>
       <UiButton
@@ -656,7 +716,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Volume Control
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonVolume
 
@@ -728,7 +788,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Animated Copy
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonAnimatedCopy
 
@@ -777,7 +837,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Upload Button w/ Icon
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonUpload
 
@@ -790,7 +850,7 @@ To use these examples you will have to copy the code and adjust it for your own 
   <div class="mx-auto text-center">
     <div class="inline-flex items-center gap-2 align-top">
       <div
-        class="relative flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-input"
+        class="border-input relative flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border"
         :aria-label="previewUrl ? 'Preview of uploaded image' : 'Default user avatar'"
       >
         <Icon
@@ -817,7 +877,7 @@ To use these examples you will have to copy the code and adjust it for your own 
     <TransitionExpand>
       <div v-if="fileName" class="mt-2">
         <div class="inline-flex gap-2 text-xs">
-          <p class="truncate text-muted-foreground" aria-live="polite">
+          <p class="text-muted-foreground truncate" aria-live="polite">
             {{ fileName }}
           </p>
           <button
@@ -863,7 +923,7 @@ To use these examples you will have to copy the code and adjust it for your own 
 
 ### Arrows
 
-::ShowCase
+::prose-show-case
 
 :DocsButtonArrows
 

@@ -2,7 +2,7 @@
   <UiBreadcrumbs class="w-fit" :items="items">
     <template #template>
       <UiDropdownMenu>
-        <UiDropdownMenuTrigger class="flex items-center gap-1 text-sm font-medium text-foreground">
+        <UiDropdownMenuTrigger class="text-foreground flex items-center gap-1 text-sm font-medium">
           {{ activeTemplate }}
           <Icon name="lucide:chevron-down" class="-me-1 size-4 opacity-60" aria-hidden="true" />
         </UiDropdownMenuTrigger>

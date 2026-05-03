@@ -20,7 +20,7 @@
 
           <ul class="mt-7 flex flex-col gap-6 pl-2">
             <li v-for="(item, i) in items" :key="i" class="flex items-start gap-4">
-              <span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-primary" />
+              <span class="bg-primary mt-1 h-2.5 w-2.5 shrink-0 rounded-full" />
               <div class="flex flex-col gap-px text-sm">
                 <p class="leading-none font-medium">{{ item.text }}</p>
                 <span class="text-muted-foreground">{{ item.time }}</span>

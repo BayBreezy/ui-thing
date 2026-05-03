@@ -32,7 +32,7 @@
         <Motion
           as="p"
           :variants="childVariant"
-          class="mx-auto max-w-[800px] text-lg text-muted-foreground lg:text-xl"
+          class="text-muted-foreground mx-auto max-w-[800px] text-lg lg:text-xl"
         >
           Find answers to common questions about our service.
         </Motion>
@@ -48,14 +48,14 @@
         <Motion v-for="faq in filteredFaqs" :key="faq.id" :variants="childVariant" class="h-full">
           <UiCard
             as-child
-            class="group cursor-pointer transition-all hover:border-primary/50 hover:shadow-lg"
+            class="group hover:border-primary/50 cursor-pointer transition-all hover:shadow-lg"
           >
             <NuxtLink :to="faq.link || '#'" class="block h-full">
               <UiCardHeader>
                 <div class="mb-3 flex items-center gap-2">
                   <UiBadge variant="outline" class="text-xs">{{ faq.category }}</UiBadge>
                 </div>
-                <UiCardTitle class="text-xl group-hover:text-primary">{{
+                <UiCardTitle class="group-hover:text-primary text-xl">{{
                   faq.question
                 }}</UiCardTitle>
               </UiCardHeader>
@@ -69,10 +69,10 @@
 
       <Motion as-child :variants="childVariant">
         <section
-          class="mx-auto mt-16 flex flex-col items-center gap-6 rounded-lg border bg-muted/30 py-12 text-center dark:bg-muted/10"
+          class="bg-muted/30 dark:bg-muted/10 mx-auto mt-16 flex flex-col items-center gap-6 rounded-lg border py-12 text-center"
         >
-          <div class="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-            <Icon name="lucide:message-circle" class="h-7 w-7 text-primary" />
+          <div class="bg-primary/10 flex h-14 w-14 items-center justify-center rounded-full">
+            <Icon name="lucide:message-circle" class="text-primary h-7 w-7" />
           </div>
           <div>
             <p class="mb-2 text-xl font-semibold">Can't find what you're looking for?</p>

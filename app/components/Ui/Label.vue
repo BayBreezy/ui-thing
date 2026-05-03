@@ -6,7 +6,7 @@
   >
     <slot />
     <slot name="hint">
-      <span v-if="hint" data-slot="label-hint" class="text-xs font-normal text-muted-foreground">
+      <span v-if="hint" data-slot="label-hint" class="text-muted-foreground text-xs font-normal">
         {{ hint }}
       </span>
     </slot>
@@ -20,11 +20,9 @@
   import type { HTMLAttributes } from "vue";
 
   export type LabelProps = LP & {
-    /** Custom class(es) to add to the label */
+    /** Custom class(es) to add to the label. */
     class?: HTMLAttributes["class"];
-    /**
-     * Optional hint text to display alongside the label.
-     */
+    /** Optional hint text to display alongside the label. */
     hint?: string;
   };
 </script>

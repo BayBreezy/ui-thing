@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="border-b bg-linear-to-r from-primary/10 via-primary/5 to-background">
+    <div class="from-primary/10 via-primary/5 to-background border-b bg-linear-to-r">
       <UiContainer class="px-4 py-8 md:px-6">
         <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div class="flex items-start gap-4">
@@ -9,7 +9,7 @@
                 v-if="props.icon"
                 class="flex size-16 items-center justify-center rounded-xl border shadow-sm"
               >
-                <Icon :name="props.icon" class="size-8 text-primary" />
+                <Icon :name="props.icon" class="text-primary size-8" />
               </div>
             </slot>
             <div class="flex flex-col gap-0.5">
@@ -19,7 +19,7 @@
               <slot name="description">
                 <p
                   v-if="props.description"
-                  class="text-[15px] text-muted-foreground"
+                  class="text-muted-foreground text-[15px]"
                   v-html="props.description"
                 />
               </slot>

@@ -11,7 +11,7 @@
             class="h-12 object-contain"
           />
         </NuxtLink>
-        <p class="mx-auto mb-8 max-w-md text-muted-foreground">
+        <p class="text-muted-foreground mx-auto mb-8 max-w-md">
           Building the future of digital experiences, one product at a time.
         </p>
 
@@ -20,7 +20,7 @@
           <NuxtLink
             v-for="item in ['Home', 'Products', 'Solutions', 'Developers', 'Company', 'Support']"
             :key="item"
-            class="font-medium transition-colors hover:text-primary"
+            class="hover:text-primary font-medium transition-colors"
             to="#"
           >
             {{ item }}
@@ -40,25 +40,25 @@
             ]"
             :key="social"
             to="#"
-            class="flex h-11 w-11 items-center justify-center rounded-full border-2 transition-all hover:scale-110 hover:border-primary hover:bg-primary/5"
+            class="hover:border-primary hover:bg-primary/5 flex h-11 w-11 items-center justify-center rounded-full border-2 transition-all hover:scale-110"
           >
             <Icon :name="social" class="size-5" />
           </NuxtLink>
         </div>
 
         <!-- Legal Links -->
-        <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
-          <NuxtLink to="#" class="transition-colors hover:text-primary">Privacy Policy</NuxtLink>
+        <div class="text-muted-foreground flex flex-wrap items-center justify-center gap-6 text-sm">
+          <NuxtLink to="#" class="hover:text-primary transition-colors">Privacy Policy</NuxtLink>
           <span>•</span>
-          <NuxtLink to="#" class="transition-colors hover:text-primary">Terms of Service</NuxtLink>
+          <NuxtLink to="#" class="hover:text-primary transition-colors">Terms of Service</NuxtLink>
           <span>•</span>
-          <NuxtLink to="#" class="transition-colors hover:text-primary">Cookie Settings</NuxtLink>
+          <NuxtLink to="#" class="hover:text-primary transition-colors">Cookie Settings</NuxtLink>
         </div>
       </div>
 
       <!-- Copyright -->
       <div class="border-t pt-8 text-center">
-        <p class="text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-sm">
           &copy; {{ new Date().getFullYear() }} {{ COMPANY_NAME }}, Inc. All rights reserved
           worldwide.
         </p>

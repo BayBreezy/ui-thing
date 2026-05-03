@@ -5,7 +5,7 @@
   -->
   <div class="container py-16 md:py-24">
     <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
-      <div class="relative aspect-4/3 overflow-hidden rounded-2xl bg-muted lg:aspect-auto">
+      <div class="bg-muted relative aspect-4/3 overflow-hidden rounded-2xl lg:aspect-auto">
         <img
           src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80"
           alt="Team collaboration"
@@ -15,7 +15,7 @@
 
       <div class="flex flex-col justify-center">
         <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Building the Future Together</h2>
-        <p class="mt-4 text-lg text-muted-foreground">
+        <p class="text-muted-foreground mt-4 text-lg">
           Since 2015, we've been on a mission to transform how businesses operate in the digital
           age. Our team of experts combines creativity with technical excellence to deliver
           solutions that drive real results.
@@ -24,13 +24,13 @@
         <div class="mt-8 space-y-6">
           <div v-for="(item, i) in items" :key="i" class="flex gap-4">
             <div
-              class="flex size-12 shrink-0 items-center justify-center rounded-full bg-linear-to-b from-primary/50 via-transparent"
+              class="from-primary/50 flex size-12 shrink-0 items-center justify-center rounded-full bg-linear-to-b via-transparent"
             >
-              <Icon :name="item.icon" class="size-5 text-primary" />
+              <Icon :name="item.icon" class="text-primary size-5" />
             </div>
             <div>
               <h3 class="font-semibold">{{ item.title }}</h3>
-              <p class="mt-1 text-sm text-muted-foreground">
+              <p class="text-muted-foreground mt-1 text-sm">
                 {{ item.description }}
               </p>
             </div>

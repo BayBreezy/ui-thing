@@ -19,7 +19,7 @@ This port is based on the 8 Star Labs UI flip clock — thanks to [8 Star Labs U
 
 ### Live clock and countdown
 
-::ShowCase
+::prose-show-case
 
 :DocsFlipClockBasic
 
@@ -31,12 +31,12 @@ This port is based on the 8 Star Labs UI flip clock — thanks to [8 Star Labs U
 <template>
   <div class="flex flex-col gap-10">
     <section class="space-y-3">
-      <p class="text-sm text-muted-foreground">Live clock</p>
+      <p class="text-muted-foreground text-sm">Live clock</p>
       <UiFlipClock size="lg" />
     </section>
 
     <section class="space-y-3">
-      <p class="text-sm text-muted-foreground">Countdown (shows days, violet variant)</p>
+      <p class="text-muted-foreground text-sm">Countdown (shows days, violet variant)</p>
       <UiFlipClock countdown show-days="always" :target-date="targetDate" variant="violet" />
     </section>
   </div>
@@ -53,7 +53,7 @@ This port is based on the 8 Star Labs UI flip clock — thanks to [8 Star Labs U
 
 ### Sizes
 
-::ShowCase
+::prose-show-case
 
 :DocsFlipClockSizes
 
@@ -66,19 +66,19 @@ This port is based on the 8 Star Labs UI flip clock — thanks to [8 Star Labs U
   <div class="flex flex-col gap-6">
     <div class="flex flex-wrap items-center gap-6">
       <div class="space-y-2">
-        <p class="text-sm text-muted-foreground">Size: sm</p>
+        <p class="text-muted-foreground text-sm">Size: sm</p>
         <UiFlipClock size="sm" />
       </div>
       <div class="space-y-2">
-        <p class="text-sm text-muted-foreground">Size: md</p>
+        <p class="text-muted-foreground text-sm">Size: md</p>
         <UiFlipClock size="md" />
       </div>
       <div class="space-y-2">
-        <p class="text-sm text-muted-foreground">Size: lg</p>
+        <p class="text-muted-foreground text-sm">Size: lg</p>
         <UiFlipClock size="lg" />
       </div>
       <div class="space-y-2">
-        <p class="text-sm text-muted-foreground">Size: xl</p>
+        <p class="text-muted-foreground text-sm">Size: xl</p>
         <UiFlipClock size="xl" />
       </div>
     </div>
@@ -92,7 +92,7 @@ This port is based on the 8 Star Labs UI flip clock — thanks to [8 Star Labs U
 
 ### Variants
 
-::ShowCase
+::prose-show-case
 
 :DocsFlipClockVariants
 
@@ -105,7 +105,7 @@ This port is based on the 8 Star Labs UI flip clock — thanks to [8 Star Labs U
   <div class="flex flex-col gap-6">
     <div class="grid gap-4 md:grid-cols-2">
       <div v-for="variant in variants" :key="variant" class="space-y-2">
-        <p class="text-sm text-muted-foreground">Variant: {{ variant }}</p>
+        <p class="text-muted-foreground text-sm">Variant: {{ variant }}</p>
         <UiFlipClock size="sm" :variant="variant" />
       </div>
     </div>
@@ -146,7 +146,7 @@ This port is based on the 8 Star Labs UI flip clock — thanks to [8 Star Labs U
 
 ### Day display modes
 
-::ShowCase
+::prose-show-case
 
 :DocsFlipClockShowDays
 
@@ -158,15 +158,15 @@ This port is based on the 8 Star Labs UI flip clock — thanks to [8 Star Labs U
 <template>
   <div class="grid gap-6">
     <div class="space-y-2">
-      <p class="text-sm text-muted-foreground">show-days="auto" (only when days > 0)</p>
+      <p class="text-muted-foreground text-sm">show-days="auto" (only when days > 0)</p>
       <UiFlipClock countdown show-days="auto" :target-date="targetDate" />
     </div>
     <div class="space-y-2">
-      <p class="text-sm text-muted-foreground">show-days="always"</p>
+      <p class="text-muted-foreground text-sm">show-days="always"</p>
       <UiFlipClock countdown show-days="always" :target-date="targetDate" variant="emerald" />
     </div>
     <div class="space-y-2">
-      <p class="text-sm text-muted-foreground">show-days="never"</p>
+      <p class="text-muted-foreground text-sm">show-days="never"</p>
       <UiFlipClock countdown show-days="never" :target-date="targetDate" variant="fuchsia" />
     </div>
   </div>

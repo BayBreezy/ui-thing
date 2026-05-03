@@ -14,7 +14,7 @@
       <div class="grid gap-4">
         <MDC :value="code" class="text-sm" />
         <div>
-          <p class="text-sm text-muted-foreground">
+          <p class="text-muted-foreground text-sm">
             Your API Key can be found here. You should use environment variables or a secret
             management tool to expose your key to your applications.
           </p>

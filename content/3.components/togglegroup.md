@@ -4,7 +4,7 @@ description: A set of two-state buttons that can be toggled on or off.
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/toggle-group.html
-    icon: "simple-icons:radixui"
+    icon: "simple-icons:rekaui"
   - title: API Reference
     href: https://reka-ui.com/docs/components/toggle-group.html#api-reference
     icon: "icon-park-solid:api"
@@ -22,7 +22,7 @@ Click :SourceCodeLink{component="ToggleGroup"} to see the source code for this c
 
 ### Basic
 
-::ShowCase
+::prose-show-case
 
 :DocsToggleGroupBasic
 
@@ -48,7 +48,7 @@ Click :SourceCodeLink{component="ToggleGroup"} to see the source code for this c
 
 ### Outline
 
-::ShowCase
+::prose-show-case
 
 :DocsToggleGroupOutline
 
@@ -74,7 +74,7 @@ Click :SourceCodeLink{component="ToggleGroup"} to see the source code for this c
 
 ### Multiple
 
-::ShowCase
+::prose-show-case
 
 :DocsToggleGroupMultiple
 
@@ -100,7 +100,7 @@ Click :SourceCodeLink{component="ToggleGroup"} to see the source code for this c
 
 ### Sizes
 
-::ShowCase
+::prose-show-case
 
 :DocsToggleGroupSize
 

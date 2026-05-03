@@ -31,7 +31,7 @@
       <div class="inline-flex items-center gap-2">
         <UiSwitch
           :id="id + 'm2-style-switch'"
-          class="h-3 w-9 border-none outline-offset-[6px] [&_span]:border [&_span]:border-input"
+          class="[&_span]:border-input h-3 w-9 border-none outline-offset-[6px] [&_span]:border"
         />
         <UiLabel :for="id + 'm2-style-switch'" class="sr-only">M2-style switch</UiLabel>
       </div>
@@ -39,7 +39,7 @@
       <div class="inline-flex items-center gap-2">
         <UiSwitch
           :id="id + 'm3-style-switch'"
-          class="data-[state=unchecked]:border-input data-[state=unchecked]:bg-transparent [&_span]:transition-all data-[state=unchecked]:[&_span]:size-4 data-[state=unchecked]:[&_span]:translate-x-0.5 data-[state=unchecked]:[&_span]:bg-input data-[state=unchecked]:[&_span]:shadow-none data-[state=unchecked]:[&_span]:rtl:-translate-x-0.5"
+          class="data-[state=unchecked]:border-input data-[state=unchecked]:[&_span]:bg-input data-[state=unchecked]:bg-transparent [&_span]:transition-all data-[state=unchecked]:[&_span]:size-4 data-[state=unchecked]:[&_span]:translate-x-0.5 data-[state=unchecked]:[&_span]:shadow-none data-[state=unchecked]:[&_span]:rtl:-translate-x-0.5"
         />
         <UiLabel :for="id + 'm3-style-switch'" class="sr-only">M3-style switch</UiLabel>
       </div>
@@ -57,7 +57,7 @@
       >
         <span
           :id="`${id}-off`"
-          class="flex-1 cursor-pointer text-right text-sm font-medium group-data-[state=checked]:text-muted-foreground/70"
+          class="group-data-[state=checked]:text-muted-foreground/70 flex-1 cursor-pointer text-right text-sm font-medium"
           :aria-controls="id"
           @click="checked = false"
         >
@@ -66,7 +66,7 @@
         <UiSwitch :id="id" v-model="checked" :aria-labelledby="`${id}-off ${id}-on`" />
         <span
           :id="`${id}-on`"
-          class="flex-1 cursor-pointer text-left text-sm font-medium group-data-[state=unchecked]:text-muted-foreground/70"
+          class="group-data-[state=unchecked]:text-muted-foreground/70 flex-1 cursor-pointer text-left text-sm font-medium"
           :aria-controls="id"
           @click="checked = true"
         >
@@ -89,7 +89,7 @@
       >
         <span
           :id="`${id}-off-2`"
-          class="flex-1 cursor-pointer text-right text-sm font-medium group-data-[state=checked]:text-muted-foreground/70"
+          class="group-data-[state=checked]:text-muted-foreground/70 flex-1 cursor-pointer text-right text-sm font-medium"
           :aria-controls="id"
           @click="checked = false"
         >
@@ -103,7 +103,7 @@
         />
         <span
           :id="`${id}-on-2`"
-          class="flex-1 cursor-pointer text-left text-sm font-medium group-data-[state=unchecked]:text-muted-foreground/70"
+          class="group-data-[state=unchecked]:text-muted-foreground/70 flex-1 cursor-pointer text-left text-sm font-medium"
           :aria-controls="id"
           @click="checked = true"
         >
@@ -116,7 +116,7 @@
           <UiSwitch
             :id="id + 'label-inside-switch'"
             v-model="checked"
-            class="peer absolute inset-0 h-[inherit] w-auto rounded-md data-[state=unchecked]:bg-input/50 [&_span]:z-10 [&_span]:h-full [&_span]:w-1/2 [&_span]:rounded-sm [&_span]:transition-transform [&_span]:duration-300 [&_span]:[transition-timing-function:cubic-bezier(0.16,1,0.3,1)] [&_span]:data-[state=checked]:translate-x-full [&_span]:data-[state=checked]:rtl:-translate-x-full"
+            class="peer data-[state=unchecked]:bg-input/50 absolute inset-0 h-[inherit] w-auto rounded-md [&_span]:z-10 [&_span]:h-full [&_span]:w-1/2 [&_span]:rounded-sm [&_span]:transition-transform [&_span]:duration-300 [&_span]:[transition-timing-function:cubic-bezier(0.16,1,0.3,1)] [&_span]:data-[state=checked]:translate-x-full [&_span]:data-[state=checked]:rtl:-translate-x-full"
           />
           <span
             class="pointer-events-none relative ms-0.5 flex items-center justify-center px-2 text-center transition-transform duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] peer-data-[state=checked]:invisible peer-data-[state=unchecked]:translate-x-full peer-data-[state=unchecked]:rtl:-translate-x-full"
@@ -124,7 +124,7 @@
             <span class="text-[10px] font-medium uppercase">Off</span>
           </span>
           <span
-            class="pointer-events-none relative me-0.5 flex items-center justify-center px-2 text-center transition-transform duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] peer-data-[state=checked]:-translate-x-full peer-data-[state=checked]:text-background peer-data-[state=unchecked]:invisible peer-data-[state=checked]:rtl:translate-x-full"
+            class="peer-data-[state=checked]:text-background pointer-events-none relative me-0.5 flex items-center justify-center px-2 text-center transition-transform duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] peer-data-[state=checked]:-translate-x-full peer-data-[state=unchecked]:invisible peer-data-[state=checked]:rtl:translate-x-full"
           >
             <span class="text-[10px] font-medium uppercase">On</span>
           </span>
@@ -134,7 +134,7 @@
 
       <div>
         <div
-          class="relative flex w-full items-start gap-2 rounded-md border border-input p-4 shadow-xs outline-none has-data-[state=checked]:border-primary/50"
+          class="border-input has-data-[state=checked]:border-primary/50 relative flex w-full items-start gap-2 rounded-md border p-4 shadow-xs outline-none"
         >
           <UiSwitch
             :id="id"
@@ -144,11 +144,11 @@
           <div class="grid grow gap-2">
             <UiLabel :for="id">
               Label
-              <span class="text-xs leading-[inherit] font-normal text-muted-foreground">
+              <span class="text-muted-foreground text-xs leading-[inherit] font-normal">
                 (Sublabel)
               </span>
             </UiLabel>
-            <p :id="`${id}-description`" class="text-xs text-muted-foreground">
+            <p :id="`${id}-description`" class="text-muted-foreground text-xs">
               A short description goes here.
             </p>
           </div>

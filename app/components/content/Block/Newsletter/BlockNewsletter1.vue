@@ -5,7 +5,7 @@
         <h1 class="mt-7 mb-4 text-4xl font-semibold lg:mt-5 lg:mb-6 lg:text-5xl xl:text-6xl">
           Be the first to know when we launch
         </h1>
-        <p class="text-lg text-muted-foreground lg:text-xl">
+        <p class="text-muted-foreground text-lg lg:text-xl">
           We're still building. Subscribe for updates and 20% off when we launch. No spam, we
           promise!
         </p>
@@ -15,14 +15,14 @@
           <div class="w-full lg:w-[60%]">
             <UiVeeInput required placeholder="Enter your email" aria-label="Enter your email" />
           </div>
-          <p class="my-2 text-sm text-muted-foreground lg:hidden">
+          <p class="text-muted-foreground my-2 text-sm lg:hidden">
             We care about your data in our privacy policy.
           </p>
           <div>
             <UiButton class="w-full whitespace-nowrap lg:w-auto" type="submit">Subscribe</UiButton>
           </div>
         </form>
-        <p class="mt-3 hidden text-sm text-muted-foreground lg:block">
+        <p class="text-muted-foreground mt-3 hidden text-sm lg:block">
           We care about your data in our privacy policy.
         </p>
       </div>

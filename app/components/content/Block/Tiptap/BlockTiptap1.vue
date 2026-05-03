@@ -3,14 +3,14 @@
     <div class="mx-auto max-w-3xl space-y-4">
       <div class="space-y-2 text-center">
         <h2 class="text-2xl font-bold tracking-tight">Rich Text Editor</h2>
-        <p class="text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-sm">
           A simple Tiptap editor with grouped icon buttons and tooltips
         </p>
       </div>
 
-      <div v-if="editor" class="rounded-lg border bg-card">
+      <div v-if="editor" class="bg-card rounded-lg border">
         <!-- Toolbar -->
-        <div class="flex flex-wrap items-center gap-2 border-b bg-muted/30 p-2">
+        <div class="bg-muted/30 flex flex-wrap items-center gap-2 border-b p-2">
           <!-- Text Formatting Group -->
           <div class="flex items-center gap-0.5">
             <UiTooltip>

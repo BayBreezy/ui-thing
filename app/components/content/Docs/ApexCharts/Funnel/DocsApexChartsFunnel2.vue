@@ -16,7 +16,7 @@
           <div class="flex items-center gap-2 leading-none font-medium">
             Want to learn more about funnel charts?
           </div>
-          <div class="flex items-center gap-2 leading-none text-muted-foreground">
+          <div class="text-muted-foreground flex items-center gap-2 leading-none">
             <span>Check out</span>
             <NuxtLink
               target="_blank"

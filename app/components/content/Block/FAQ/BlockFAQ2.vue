@@ -32,7 +32,7 @@
         <Motion
           as="p"
           :variants="childVariant"
-          class="mx-auto max-w-[800px] text-lg text-muted-foreground lg:text-xl"
+          class="text-muted-foreground mx-auto max-w-[800px] text-lg lg:text-xl"
         >
           Everything you need to know about the product and billing.
         </Motion>
@@ -40,12 +40,12 @@
       <section class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-y-12">
         <Motion v-for="(faq, n) in faqs" :key="n" :variants="childVariant" class="flex flex-col">
           <div
-            class="flex h-12 w-12 items-center justify-center rounded-lg border bg-primary/5 transition-colors hover:bg-primary/10"
+            class="bg-primary/5 hover:bg-primary/10 flex h-12 w-12 items-center justify-center rounded-lg border transition-colors"
           >
-            <Icon :name="faq.icon" class="h-6 w-6 text-primary" />
+            <Icon :name="faq.icon" class="text-primary h-6 w-6" />
           </div>
           <p class="mt-5 text-lg font-semibold">{{ faq.question }}</p>
-          <p class="mt-2 text-muted-foreground">
+          <p class="text-muted-foreground mt-2">
             {{ faq.answer }}
           </p>
         </Motion>
@@ -53,7 +53,7 @@
 
       <Motion as-child :variants="childVariant">
         <section
-          class="mx-auto mt-16 flex flex-col items-center justify-between gap-6 rounded-lg bg-muted/50 p-8 py-8 text-center lg:flex-row lg:text-left dark:bg-muted/20"
+          class="bg-muted/50 dark:bg-muted/20 mx-auto mt-16 flex flex-col items-center justify-between gap-6 rounded-lg p-8 py-8 text-center lg:flex-row lg:text-left"
         >
           <div>
             <p class="mb-3 text-lg font-semibold">Still have questions?</p>

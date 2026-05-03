@@ -6,7 +6,7 @@
   <div class="container py-16 md:py-24">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Our Journey</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
         From humble beginnings to industry leaders
       </p>
     </div>
@@ -14,7 +14,7 @@
     <div class="relative mt-12">
       <!-- Connecting Line -->
       <div
-        class="absolute top-8 left-4 hidden h-full w-0.5 bg-linear-to-b from-border via-border to-transparent md:left-1/2 md:block"
+        class="from-border via-border absolute top-8 left-4 hidden h-full w-0.5 bg-linear-to-b to-transparent md:left-1/2 md:block"
       />
 
       <div class="space-y-12">
@@ -26,7 +26,7 @@
                 <UiCardContent>
                   <UiBadge class="mb-3">{{ milestone.year }}</UiBadge>
                   <h3 class="text-xl font-bold">{{ milestone.title }}</h3>
-                  <p class="mt-2 text-sm text-muted-foreground">{{ milestone.description }}</p>
+                  <p class="text-muted-foreground mt-2 text-sm">{{ milestone.description }}</p>
                   <div
                     class="mt-4 flex flex-wrap gap-2"
                     :class="index % 2 === 0 ? 'md:justify-end' : ''"
@@ -46,11 +46,11 @@
 
             <!-- Center Dot -->
             <div
-              class="absolute left-4 hidden size-10 -translate-x-1/2 items-center justify-center rounded-full border-4 border-background bg-primary from-primary via-background to-background md:left-1/2 md:flex dark:bg-linear-to-b"
+              class="border-background bg-primary from-primary via-background to-background absolute left-4 hidden size-10 -translate-x-1/2 items-center justify-center rounded-full border-4 md:left-1/2 md:flex dark:bg-linear-to-b"
             >
               <Icon
                 :name="milestone.icon"
-                class="size-4 text-primary-foreground dark:text-primary"
+                class="text-primary-foreground dark:text-primary size-4"
               />
             </div>
           </div>

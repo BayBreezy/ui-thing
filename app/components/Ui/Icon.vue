@@ -40,13 +40,9 @@
   const props = withDefaults(
     defineProps<
       Omit<IconProps, "icon"> & {
-        /**
-         * The name of the icon to display.
-         */
+        /** The name of the icon to display. */
         name: string;
-        /**
-         * Size of the icon in pixels (default: 16)
-         */
+        /** Size of the icon in pixels (default: 16) */
         size?: number | string;
       }
     >(),
@@ -54,9 +50,7 @@
       size: 16,
     }
   );
-  /**
-   * Check if the provided name is a valid Iconify icon name
-   */
+  /** Check if the provided name is a valid Iconify icon name. */
   function checkIcon(name: string): boolean {
     if (name.includes("http") || name.startsWith("data:image/")) return false;
     return validateIconName(stringToIcon(name));

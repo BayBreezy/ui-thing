@@ -10,7 +10,7 @@
           <UiAccordionHeader>
             <UiAccordionTrigger
               :class="[open ? 'bg-muted underline hover:!underline' : 'bg-muted/50 no-underline']"
-              class="mb-2 rounded-md px-3 text-left text-sm underline-offset-2 hover:bg-muted hover:no-underline"
+              class="hover:bg-muted mb-2 rounded-md px-3 text-left text-sm underline-offset-2 hover:no-underline"
               >{{ i.title }}</UiAccordionTrigger
             >
           </UiAccordionHeader>

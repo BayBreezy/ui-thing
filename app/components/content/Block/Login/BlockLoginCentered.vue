@@ -3,7 +3,7 @@
     <div class="w-full max-w-[480px]">
       <div class="text-center">
         <svg
-          class="mx-auto mb-6 h-10 fill-primary"
+          class="fill-primary mx-auto mb-6 h-10"
           viewBox="0 0 53 44"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -14,9 +14,9 @@
           />
         </svg>
         <h1 class="text-2xl font-bold tracking-tight lg:text-3xl">Sign in to your account</h1>
-        <p class="mt-2 text-muted-foreground">
+        <p class="text-muted-foreground mt-2">
           Or
-          <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#"
+          <NuxtLink class="text-primary font-semibold underline-offset-2 hover:underline" to="#"
             >start your free trial</NuxtLink
           >
         </p>
@@ -48,7 +48,7 @@
             <div class="flex items-center justify-between">
               <UiVeeCheckbox label="Remember me" name="remember" />
               <NuxtLink
-                class="text-sm font-medium text-primary underline-offset-2 hover:underline"
+                class="text-primary text-sm font-medium underline-offset-2 hover:underline"
                 to="#"
                 >Forgot password?</NuxtLink
               >

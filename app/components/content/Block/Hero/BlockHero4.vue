@@ -31,7 +31,7 @@
           <Motion
             as="p"
             :variants="textVariants"
-            class="max-w-[560px] text-lg text-muted-foreground lg:text-xl"
+            class="text-muted-foreground max-w-[560px] text-lg lg:text-xl"
           >
             The best customer service software for customer-first teams. Industry-leading email and
             live chat support.
@@ -42,7 +42,7 @@
             </UiButton>
             <UiButton size="lg">Sign up</UiButton>
           </Motion>
-          <Motion as="p" :variants="textVariants" class="mt-5 text-sm text-muted-foreground">
+          <Motion as="p" :variants="textVariants" class="text-muted-foreground mt-5 text-sm">
             We care about your data in our privacy policy.
           </Motion>
         </div>

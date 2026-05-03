@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative min-h-screen overflow-hidden bg-background text-foreground [--color-primary:#7c3aed] [--primary:#7c3aed] [--radius:8px] [--ring:#7c3aed]"
+    class="bg-background text-foreground relative min-h-screen overflow-hidden [--color-primary:#7c3aed] [--primary:#7c3aed] [--radius:8px] [--ring:#7c3aed]"
   >
     <!-- Subtle radial gradient background -->
     <div
@@ -48,7 +48,7 @@
 
         <!-- Supporting paragraph -->
         <Motion as-child :variants="childVariant">
-          <p class="mx-auto max-w-2xl text-lg text-muted-foreground lg:text-xl">
+          <p class="text-muted-foreground mx-auto max-w-2xl text-lg lg:text-xl">
             The all-in-one platform for modern product teams. Design, build, and iterate faster than
             ever — from first idea to production in days, not months.
           </p>
@@ -71,57 +71,57 @@
         <!-- Dashboard mockup placeholder -->
         <Motion as-child :variants="mockupVariant">
           <div
-            class="mx-auto mt-16 w-full max-w-5xl overflow-hidden rounded-2xl border border-border/60 bg-card shadow-2xl ring-1 ring-black/5 dark:ring-white/5"
+            class="border-border/60 bg-card mx-auto mt-16 w-full max-w-5xl overflow-hidden rounded-2xl border shadow-2xl ring-1 ring-black/5 dark:ring-white/5"
           >
             <!-- Browser chrome bar -->
-            <div class="flex items-center gap-2 border-b border-border/60 bg-muted/50 px-4 py-3">
+            <div class="border-border/60 bg-muted/50 flex items-center gap-2 border-b px-4 py-3">
               <span class="size-3 rounded-full bg-red-400/80" />
               <span class="size-3 rounded-full bg-yellow-400/80" />
               <span class="size-3 rounded-full bg-green-400/80" />
-              <div class="ml-4 h-5 max-w-xs flex-1 rounded-md bg-muted" />
+              <div class="bg-muted ml-4 h-5 max-w-xs flex-1 rounded-md" />
             </div>
 
             <!-- Mockup body: sidebar + main -->
-            <div class="grid grid-cols-4 divide-x divide-border/40">
+            <div class="divide-border/40 grid grid-cols-4 divide-x">
               <!-- Sidebar skeleton -->
-              <div class="col-span-1 hidden flex-col gap-2 bg-muted/20 p-4 sm:flex">
+              <div class="bg-muted/20 col-span-1 hidden flex-col gap-2 p-4 sm:flex">
                 <div class="mb-3 h-7 w-24 rounded-md bg-[#7c3aed]/20" />
                 <div class="h-4 w-full rounded bg-[#7c3aed]/25" />
-                <div class="h-4 w-4/5 rounded bg-muted" />
-                <div class="h-4 w-full rounded bg-muted" />
-                <div class="h-4 w-3/5 rounded bg-muted" />
-                <div class="mt-4 h-px w-full bg-border/60" />
-                <div class="mt-2 h-4 w-full rounded bg-muted/60" />
-                <div class="h-4 w-4/5 rounded bg-muted/60" />
-                <div class="h-4 w-full rounded bg-muted/60" />
+                <div class="bg-muted h-4 w-4/5 rounded" />
+                <div class="bg-muted h-4 w-full rounded" />
+                <div class="bg-muted h-4 w-3/5 rounded" />
+                <div class="bg-border/60 mt-4 h-px w-full" />
+                <div class="bg-muted/60 mt-2 h-4 w-full rounded" />
+                <div class="bg-muted/60 h-4 w-4/5 rounded" />
+                <div class="bg-muted/60 h-4 w-full rounded" />
               </div>
 
               <!-- Main content skeleton -->
               <div class="col-span-4 flex flex-col gap-4 p-5 sm:col-span-3">
                 <!-- KPI cards row -->
                 <div class="grid grid-cols-3 gap-3">
-                  <div class="rounded-xl border border-border/60 bg-background p-3 shadow-sm">
-                    <div class="mb-2 h-3 w-14 rounded bg-muted" />
+                  <div class="border-border/60 bg-background rounded-xl border p-3 shadow-sm">
+                    <div class="bg-muted mb-2 h-3 w-14 rounded" />
                     <div class="h-6 w-20 rounded bg-[#7c3aed]/20" />
                     <div class="mt-2 h-2 w-10 rounded bg-green-400/50" />
                   </div>
-                  <div class="rounded-xl border border-border/60 bg-background p-3 shadow-sm">
-                    <div class="mb-2 h-3 w-14 rounded bg-muted" />
+                  <div class="border-border/60 bg-background rounded-xl border p-3 shadow-sm">
+                    <div class="bg-muted mb-2 h-3 w-14 rounded" />
                     <div class="h-6 w-20 rounded bg-violet-400/20" />
                     <div class="mt-2 h-2 w-10 rounded bg-violet-400/50" />
                   </div>
-                  <div class="rounded-xl border border-border/60 bg-background p-3 shadow-sm">
-                    <div class="mb-2 h-3 w-14 rounded bg-muted" />
+                  <div class="border-border/60 bg-background rounded-xl border p-3 shadow-sm">
+                    <div class="bg-muted mb-2 h-3 w-14 rounded" />
                     <div class="h-6 w-20 rounded bg-pink-400/20" />
                     <div class="mt-2 h-2 w-10 rounded bg-pink-400/50" />
                   </div>
                 </div>
 
                 <!-- Bar chart placeholder -->
-                <div class="rounded-xl border border-border/60 bg-background p-4 shadow-sm">
+                <div class="border-border/60 bg-background rounded-xl border p-4 shadow-sm">
                   <div class="mb-4 flex items-center justify-between">
-                    <div class="h-4 w-28 rounded bg-muted" />
-                    <div class="h-4 w-16 rounded bg-muted/60" />
+                    <div class="bg-muted h-4 w-28 rounded" />
+                    <div class="bg-muted/60 h-4 w-16 rounded" />
                   </div>
                   <div class="flex h-28 items-end gap-1.5">
                     <div class="flex-1 rounded-t-sm bg-[#7c3aed]/25" style="height: 45%" />
@@ -140,22 +140,22 @@
                 </div>
 
                 <!-- List rows placeholder -->
-                <div class="rounded-xl border border-border/60 bg-background p-4 shadow-sm">
-                  <div class="mb-3 h-4 w-24 rounded bg-muted" />
+                <div class="border-border/60 bg-background rounded-xl border p-4 shadow-sm">
+                  <div class="bg-muted mb-3 h-4 w-24 rounded" />
                   <div class="flex flex-col gap-2.5">
                     <div class="flex items-center gap-3">
                       <div class="size-6 rounded-full bg-[#7c3aed]/20" />
-                      <div class="h-3 flex-1 rounded bg-muted" />
+                      <div class="bg-muted h-3 flex-1 rounded" />
                       <div class="h-3 w-12 rounded bg-green-400/40" />
                     </div>
                     <div class="flex items-center gap-3">
                       <div class="size-6 rounded-full bg-violet-400/20" />
-                      <div class="h-3 flex-1 rounded bg-muted" />
-                      <div class="h-3 w-12 rounded bg-muted/60" />
+                      <div class="bg-muted h-3 flex-1 rounded" />
+                      <div class="bg-muted/60 h-3 w-12 rounded" />
                     </div>
                     <div class="flex items-center gap-3">
                       <div class="size-6 rounded-full bg-pink-400/20" />
-                      <div class="h-3 flex-1 rounded bg-muted" />
+                      <div class="bg-muted h-3 flex-1 rounded" />
                       <div class="h-3 w-12 rounded bg-yellow-400/40" />
                     </div>
                   </div>

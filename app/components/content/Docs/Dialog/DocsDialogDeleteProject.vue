@@ -6,7 +6,7 @@
       </UiDialogTrigger>
       <UiDialogContent class="max-w-sm">
         <div class="flex flex-col items-center gap-6">
-          <Icon name="lucide:badge-alert" class="size-10 text-muted-foreground opacity-80" />
+          <Icon name="lucide:badge-alert" class="text-muted-foreground size-10 opacity-80" />
           <UiDialogHeader class="gap-3">
             <UiDialogTitle class="sm:text-center">Final confirmation</UiDialogTitle>
             <UiDialogDescription class="sm:text-center">

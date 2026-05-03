@@ -17,9 +17,9 @@
   const props = withDefaults(
     defineProps<
       PrimitiveProps & {
-        /** Custom class(es) to add to the parent */
+        /** Custom class(es) to add to the parent. */
         class?: HTMLAttributes["class"];
-        /** Whether the navbar should be sticky */
+        /** Whether the navbar should be sticky. */
         sticky?: boolean;
       }
     >(),
@@ -31,7 +31,7 @@
   const forwarded = useForwardProps(reactiveOmit(props, "class", "sticky"));
 
   const styles = tv({
-    base: "z-20 border-b bg-background/90 backdrop-blur",
+    base: "bg-background/90 z-20 border-b backdrop-blur",
     variants: {
       sticky: {
         true: "sticky top-0",

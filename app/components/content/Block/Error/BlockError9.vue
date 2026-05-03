@@ -23,10 +23,10 @@
       <div class="container max-w-3xl py-16">
         <Motion as="div" :variants="childVariant" class="mb-10 text-center">
           <div
-            class="mb-4 inline-flex items-center gap-2 rounded-full border bg-primary/5 px-4 py-1.5"
+            class="bg-primary/5 mb-4 inline-flex items-center gap-2 rounded-full border px-4 py-1.5"
           >
-            <Icon name="lucide:alert-circle" class="h-4 w-4 text-primary" />
-            <span class="text-sm font-medium text-primary">Error {{ statusCode }}</span>
+            <Icon name="lucide:alert-circle" class="text-primary h-4 w-4" />
+            <span class="text-primary text-sm font-medium">Error {{ statusCode }}</span>
           </div>
           <h1 class="mb-3 text-4xl font-bold tracking-tight lg:text-5xl">{{ title }}</h1>
           <p class="text-muted-foreground">
@@ -44,7 +44,7 @@
               <div class="relative">
                 <Icon
                   name="lucide:search"
-                  class="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+                  class="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2"
                 />
                 <UiInput
                   v-model="searchQuery"
@@ -57,7 +57,7 @@
         </Motion>
 
         <Motion as="div" :variants="childVariant" class="mb-8">
-          <h2 class="mb-4 text-sm font-semibold tracking-wide text-muted-foreground uppercase">
+          <h2 class="text-muted-foreground mb-4 text-sm font-semibold tracking-wide uppercase">
             Popular Pages
           </h2>
           <div class="grid gap-3 sm:grid-cols-2">
@@ -69,8 +69,8 @@
                 <UiCardHeader>
                   <div class="flex items-start justify-between">
                     <div class="flex items-center gap-3">
-                      <div class="rounded-lg bg-primary/10 p-2">
-                        <Icon :name="page.icon" class="h-4 w-4 text-primary" />
+                      <div class="bg-primary/10 rounded-lg p-2">
+                        <Icon :name="page.icon" class="text-primary h-4 w-4" />
                       </div>
                       <div>
                         <UiCardTitle class="text-base">{{ page.title }}</UiCardTitle>
@@ -81,7 +81,7 @@
                     </div>
                     <Icon
                       name="lucide:arrow-right"
-                      class="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1"
+                      class="text-muted-foreground h-4 w-4 transition-transform group-hover:translate-x-1"
                     />
                   </div>
                 </UiCardHeader>

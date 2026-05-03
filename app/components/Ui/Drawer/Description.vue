@@ -17,17 +17,13 @@
   import type { HTMLAttributes } from "vue";
 
   interface Props extends DrawerDescriptionProps {
-    /**
-     * Custom class(es) to add to the parent.
-     */
+    /** Custom class(es) to add to the parent. */
     class?: HTMLAttributes["class"];
-    /**
-     * The text content of the description.
-     */
+    /** The text content of the description. */
     text?: string;
   }
 
   const props = defineProps<Props>();
 
-  const styles = tv({ base: "text-sm text-muted-foreground" });
+  const styles = tv({ base: "text-muted-foreground text-sm" });
 </script>

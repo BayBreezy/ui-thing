@@ -2,8 +2,8 @@
   <ClientOnly>
     <Motion v-if="dynamicComponent" :animate="{ opacity: 1 }" :initial="{ opacity: 0 }">
       <component :is="dynamicComponent" :class="[route?.query?.containerClass]" class="size-full" />
-      <div class="fixed right-5 bottom-5 z-20 rounded-md border bg-background">
-        <ThemePopover />
+      <div class="bg-background fixed right-5 bottom-5 z-20 rounded-md border">
+        <DocsThemeCustomizer />
       </div>
     </Motion>
     <template #fallback>
@@ -56,7 +56,7 @@
   onMounted(loadComponent);
   watch(() => route.fullPath, loadComponent);
 
-  defineOgImage("UIThing", {
+  defineOgImage("Docs.takumi", {
     title: trim(startCase((route?.query?.component as string) || "Blocks")),
     description: "Copy and paste blocks of code into your project.",
   });

@@ -12,11 +12,11 @@
       class="grid w-full grid-cols-1 gap-2"
       :class="[
         'min-h-5',
-        names1.length === 0 ? 'rounded-md border-2 border-dashed border-muted p-4' : '',
+        names1.length === 0 ? 'border-muted rounded-md border-2 border-dashed p-4' : '',
       ]"
     >
       <template #item="{ element }">
-        <div class="cursor-grab rounded-md border bg-background p-3 shadow-xs">
+        <div class="bg-background cursor-grab rounded-md border p-3 shadow-xs">
           <span class="text-sm font-medium">{{ element.name }}</span>
         </div>
       </template>
@@ -28,11 +28,11 @@
       class="grid w-full grid-cols-1 gap-2"
       :class="[
         'min-h-5',
-        names2.length === 0 ? 'rounded-md border-2 border-dashed border-muted p-4' : '',
+        names2.length === 0 ? 'border-muted rounded-md border-2 border-dashed p-4' : '',
       ]"
     >
       <template #item="{ element }">
-        <div class="cursor-grab rounded-md border bg-background p-3 shadow-xs">
+        <div class="bg-background cursor-grab rounded-md border p-3 shadow-xs">
           <span class="text-sm font-medium">{{ element.name }}</span>
         </div>
       </template>

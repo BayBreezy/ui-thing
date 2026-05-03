@@ -7,7 +7,7 @@
       <UiAlertDialogContent>
         <div class="flex flex-col gap-2 max-sm:items-center sm:flex-row sm:gap-4">
           <div
-            class="flex size-9 shrink-0 items-center justify-center rounded-full border border-border"
+            class="border-border flex size-9 shrink-0 items-center justify-center rounded-full border"
             aria-hidden="true"
           >
             <Icon name="lucide:circle-alert" class="size-4 opacity-80" />

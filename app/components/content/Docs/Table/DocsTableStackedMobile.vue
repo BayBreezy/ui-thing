@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 gap-5 md:flex md:items-center md:justify-between">
       <div class="flex flex-col">
         <h1 class="font-semibold">Users</h1>
-        <p class="text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-sm">
           A list of all the users in your account including their name, title, email and role.
         </p>
       </div>
@@ -16,14 +16,14 @@
       <UiTable>
         <UiTableHeader>
           <UiTableRow>
-            <UiTableHead class="pl-0 font-semibold text-foreground">Name</UiTableHead>
-            <UiTableHead class="hidden pl-0 font-semibold text-foreground lg:table-cell"
+            <UiTableHead class="text-foreground pl-0 font-semibold">Name</UiTableHead>
+            <UiTableHead class="text-foreground hidden pl-0 font-semibold lg:table-cell"
               >Title</UiTableHead
             >
-            <UiTableHead class="hidden pl-0 font-semibold text-foreground md:table-cell"
+            <UiTableHead class="text-foreground hidden pl-0 font-semibold md:table-cell"
               >Email</UiTableHead
             >
-            <UiTableHead class="pl-0 font-semibold text-foreground">Role</UiTableHead>
+            <UiTableHead class="text-foreground pl-0 font-semibold">Role</UiTableHead>
             <UiTableHead class="pl-0">
               <span class="sr-only">Actions</span>
             </UiTableHead>
@@ -39,13 +39,13 @@
                   <p class="text-muted-foreground md:hidden">{{ user.email }}</p>
                 </div>
               </UiTableCell>
-              <UiTableCell class="hidden pl-0 text-muted-foreground lg:table-cell">{{
+              <UiTableCell class="text-muted-foreground hidden pl-0 lg:table-cell">{{
                 user.title
               }}</UiTableCell>
-              <UiTableCell class="hidden pl-0 text-muted-foreground md:table-cell">{{
+              <UiTableCell class="text-muted-foreground hidden pl-0 md:table-cell">{{
                 user.email
               }}</UiTableCell>
-              <UiTableCell class="pl-0 text-muted-foreground">{{ user.role }}</UiTableCell>
+              <UiTableCell class="text-muted-foreground pl-0">{{ user.role }}</UiTableCell>
               <UiTableCell class="pl-0 text-right">
                 <UiButton size="sm" variant="linkHover2">Edit</UiButton>
               </UiTableCell>

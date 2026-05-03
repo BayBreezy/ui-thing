@@ -1,5 +1,5 @@
 <template>
-  <header class="z-20 border-b bg-background/90 backdrop-blur">
+  <header class="bg-background/90 z-20 border-b backdrop-blur">
     <UiContainer class="flex h-16 items-center justify-between lg:h-20">
       <div class="flex items-center gap-10">
         <NuxtLink to="#" class="flex items-center gap-3">
@@ -30,20 +30,20 @@
                           <UiNavigationMenuLink class="data-active:bg-muted/80" as-child>
                             <NuxtLink
                               :to="child.href"
-                              class="flex flex-row gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none dark:hover:bg-muted/20"
+                              class="hover:bg-muted/80 focus-visible:ring-ring/50 dark:hover:bg-muted/20 flex flex-row gap-4 rounded-md p-3 transition focus-visible:ring-2 focus-visible:outline-none"
                             >
                               <div
                                 class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border shadow-xs"
                               >
                                 <Icon
                                   :name="child.icon"
-                                  class="mt-px h-5 w-5 shrink-0 text-muted-foreground"
+                                  class="text-muted-foreground mt-px h-5 w-5 shrink-0"
                                 />
                               </div>
                               <div class="flex flex-col gap-1.5 leading-none">
                                 <p class="text-sm font-semibold">{{ child.name }}</p>
                                 <p
-                                  class="text-sm text-muted-foreground"
+                                  class="text-muted-foreground text-sm"
                                   v-html="child.description"
                                 />
                               </div>
@@ -53,9 +53,9 @@
                       </ul>
                     </template>
                     <div
-                      class="col-span-full flex items-center justify-center bg-muted/20 py-5 dark:bg-muted/5"
+                      class="bg-muted/20 dark:bg-muted/5 col-span-full flex items-center justify-center py-5"
                     >
-                      <NuxtLink class="font-semibold text-primary hover:underline" to="#"
+                      <NuxtLink class="text-primary font-semibold hover:underline" to="#"
                         >Looking for a new career? Get in touch!</NuxtLink
                       >
                     </div>
@@ -109,20 +109,20 @@
                               <li v-for="(child, k) in item" :key="k">
                                 <NuxtLink
                                   :to="child.href"
-                                  class="flex flex-row gap-4 rounded-md py-3 transition hover:bg-muted/80 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none"
+                                  class="hover:bg-muted/80 focus-visible:ring-ring/50 flex flex-row gap-4 rounded-md py-3 transition focus-visible:ring-2 focus-visible:outline-none"
                                 >
                                   <div
                                     class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border shadow-xs"
                                   >
                                     <Icon
                                       :name="child.icon"
-                                      class="mt-px h-5 w-5 shrink-0 text-muted-foreground"
+                                      class="text-muted-foreground mt-px h-5 w-5 shrink-0"
                                     />
                                   </div>
                                   <div class="flex flex-col gap-1.5 leading-none">
                                     <p class="text-sm font-semibold">{{ child.name }}</p>
                                     <p
-                                      class="text-sm text-muted-foreground"
+                                      class="text-muted-foreground text-sm"
                                       v-html="child.description"
                                     />
                                   </div>

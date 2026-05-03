@@ -5,7 +5,7 @@
       <div
         v-for="item in options"
         :key="`${id}-${item.value}`"
-        class="relative flex cursor-pointer flex-col gap-4 rounded-md border border-input p-4 shadow-xs outline-none has-data-[state=checked]:border-primary/50"
+        class="border-input has-data-[state=checked]:border-primary/50 relative flex cursor-pointer flex-col gap-4 rounded-md border p-4 shadow-xs outline-none"
       >
         <div class="flex justify-between gap-2">
           <UiCheckbox
@@ -20,12 +20,12 @@
     </UiCheckboxGroup>
 
     <fieldset class="space-y-4">
-      <legend class="text-sm leading-none font-medium text-foreground">Days of the week</legend>
+      <legend class="text-foreground text-sm leading-none font-medium">Days of the week</legend>
       <UiCheckboxGroup v-model="selectedDays" class="flex gap-1.5">
         <label
           v-for="item in items"
           :key="`${id}-${item.value}`"
-          class="relative flex size-9 cursor-pointer flex-col items-center justify-center gap-3 rounded-full border border-input text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:border-ring has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50 has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-[state=checked]:border-primary has-data-[state=checked]:bg-primary has-data-[state=checked]:text-primary-foreground"
+          class="border-input has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-data-[state=checked]:border-primary has-data-[state=checked]:bg-primary has-data-[state=checked]:text-primary-foreground relative flex size-9 cursor-pointer flex-col items-center justify-center gap-3 rounded-full border text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50"
         >
           <UiCheckbox
             :id="`${id}-${item.value}`"
@@ -40,7 +40,7 @@
     </fieldset>
 
     <div class="space-y-4">
-      <legend class="text-sm leading-none font-medium text-foreground">
+      <legend class="text-foreground text-sm leading-none font-medium">
         Dark mode toggle checkbox
       </legend>
       <div class="flex flex-col justify-center">
@@ -53,7 +53,7 @@
           @change="colorMode.preference = colorMode.value == 'dark' ? 'light' : 'dark'"
         />
         <label
-          class="group relative inline-flex size-9 cursor-pointer items-center justify-center rounded-md border border-input bg-background text-foreground shadow-xs transition-[color,box-shadow] outline-none peer-focus-visible:border-ring peer-focus-visible:ring-[3px] peer-focus-visible:ring-ring/50 hover:bg-accent hover:text-accent-foreground"
+          class="group border-input bg-background text-foreground peer-focus-visible:border-ring peer-focus-visible:ring-ring/50 hover:bg-accent hover:text-accent-foreground relative inline-flex size-9 cursor-pointer items-center justify-center rounded-md border shadow-xs transition-[color,box-shadow] outline-none peer-focus-visible:ring-[3px]"
           :for="darkModeId"
           :aria-label="`Switch to ${colorMode.value === 'dark' ? 'light' : 'dark'} mode`"
         >

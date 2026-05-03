@@ -10,7 +10,7 @@
           />
           <div>
             <p class="font-medium">{{ row.original.name }}</p>
-            <p class="text-sm text-muted-foreground">@{{ row.original.username }}</p>
+            <p class="text-muted-foreground text-sm">@{{ row.original.username }}</p>
           </div>
         </div>
       </template>

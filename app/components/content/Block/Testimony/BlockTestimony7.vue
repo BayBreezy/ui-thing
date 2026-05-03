@@ -1,9 +1,9 @@
 <template>
   <UiContainer class="py-10 lg:py-20">
-    <div class="rounded-lg border bg-card p-8 lg:p-12">
+    <div class="bg-card rounded-lg border p-8 lg:p-12">
       <div class="mb-10 text-center lg:mb-12">
         <h2 class="mb-3 text-3xl font-semibold lg:text-4xl">Trusted by industry leaders</h2>
-        <p class="text-lg text-muted-foreground">Here's what our customers have to say about us</p>
+        <p class="text-muted-foreground text-lg">Here's what our customers have to say about us</p>
       </div>
 
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -19,8 +19,8 @@
               <UiAvatar :src="item.avatar" class="size-14" />
               <div>
                 <p class="font-semibold">{{ item.name }}</p>
-                <p class="text-sm text-muted-foreground">{{ item.title }}</p>
-                <p class="text-sm text-muted-foreground">{{ item.company }}</p>
+                <p class="text-muted-foreground text-sm">{{ item.title }}</p>
+                <p class="text-muted-foreground text-sm">{{ item.company }}</p>
               </div>
             </div>
           </div>

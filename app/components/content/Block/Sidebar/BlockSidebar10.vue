@@ -10,7 +10,7 @@
               <UiDropdownMenuTrigger as-child>
                 <UiSidebarMenuButton class="w-full px-1.5">
                   <div
-                    class="flex aspect-square size-5 items-center justify-center rounded-md bg-sidebar-primary text-sidebar-primary-foreground"
+                    class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-5 items-center justify-center rounded-md"
                   >
                     <Icon v-if="activeTeam" :name="activeTeam?.logo" mode="svg" class="size-3" />
                   </div>
@@ -24,7 +24,7 @@
                 side="bottom"
                 :side-offset="4"
               >
-                <UiDropdownMenuLabel label="Teams" class="text-xs text-muted-foreground" />
+                <UiDropdownMenuLabel label="Teams" class="text-muted-foreground text-xs" />
 
                 <UiDropdownMenuItem
                   v-for="(team, index) in data.teams"
@@ -42,11 +42,11 @@
                 <UiDropdownMenuSeparator />
                 <UiDropdownMenuItem class="gap-2 p-2">
                   <div
-                    class="flex size-6 items-center justify-center rounded-md border bg-background"
+                    class="bg-background flex size-6 items-center justify-center rounded-md border"
                   >
                     <Icon name="lucide:plus" class="size-4" />
                   </div>
-                  <div class="font-medium text-muted-foreground">Add team</div>
+                  <div class="text-muted-foreground font-medium">Add team</div>
                 </UiDropdownMenuItem>
               </UiDropdownMenuContent>
             </UiDropdownMenu>
@@ -134,7 +134,7 @@
                   </UiSidebarMenuButton>
                   <UiCollapsibleTrigger as-child>
                     <UiSidebarMenuAction
-                      class="left-2 bg-sidebar-accent text-sidebar-accent-foreground data-[state=open]:rotate-90"
+                      class="bg-sidebar-accent text-sidebar-accent-foreground left-2 data-[state=open]:rotate-90"
                       show-on-hover
                     >
                       <Icon name="lucide:chevron-right" mode="svg" />
@@ -194,13 +194,13 @@
         <div class="ml-auto px-3">
           <!-- Nav actions -->
           <div class="flex items-center gap-2 text-sm">
-            <div class="hidden font-medium text-muted-foreground md:inline-block">Edit Oct 08</div>
+            <div class="text-muted-foreground hidden font-medium md:inline-block">Edit Oct 08</div>
             <UiButton variant="ghost" size="icon" class="h-7 w-7">
               <Icon name="lucide:star" mode="svg" />
             </UiButton>
             <UiPopover v-model:open="navOpen">
               <UiPopoverTrigger as-child>
-                <UiButton variant="ghost" size="icon" class="h-7 w-7 data-[state=open]:bg-accent">
+                <UiButton variant="ghost" size="icon" class="data-[state=open]:bg-accent h-7 w-7">
                   <Icon name="lucide:ellipsis-vertical" class="rotate-90" />
                 </UiButton>
               </UiPopoverTrigger>

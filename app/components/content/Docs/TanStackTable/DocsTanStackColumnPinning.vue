@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-4">
-    <div class="flex items-center gap-2 text-sm text-muted-foreground">
+    <div class="text-muted-foreground flex items-center gap-2 text-sm">
       <Icon name="lucide:info" class="size-4" />
       Pin columns with the header menu: choose left, right, or unpin.
     </div>
@@ -17,8 +17,8 @@
       />
     </div>
 
-    <div class="rounded-lg border bg-muted/50 p-4 text-sm text-muted-foreground">
-      <div class="font-semibold text-foreground">Pinned columns</div>
+    <div class="bg-muted/50 text-muted-foreground rounded-lg border p-4 text-sm">
+      <div class="text-foreground font-semibold">Pinned columns</div>
       <div class="mt-2 space-y-1">
         <div v-if="columnPinning.left?.length">Left: {{ columnPinning.left.join(", ") }}</div>
         <div v-if="columnPinning.right?.length">Right: {{ columnPinning.right.join(", ") }}</div>

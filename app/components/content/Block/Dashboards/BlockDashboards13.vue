@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-muted/40 text-foreground dark:bg-muted/10">
+  <div class="bg-muted/40 text-foreground dark:bg-muted/10 min-h-screen">
     <!-- ─── Deposit dialog ─────────────────────────────────────────────────────── -->
     <UiDialog v-model:open="depositOpen" @update:open="(o) => !o && resetDepositForm()">
       <UiDialogContent class="sm:max-w-md">
@@ -232,7 +232,7 @@
         </UiCommandGroup>
       </UiCommandList>
       <div
-        class="flex items-center justify-between border-t border-border/60 px-3 py-2 text-xs text-muted-foreground"
+        class="border-border/60 text-muted-foreground flex items-center justify-between border-t px-3 py-2 text-xs"
       >
         <span class="flex items-center gap-1.5"><UiKbd>↵</UiKbd> to select</span>
         <span class="flex items-center gap-1.5"><UiKbd>↑↓</UiKbd> to navigate</span>
@@ -241,13 +241,13 @@
     </UiCommandDialog>
 
     <!-- ─── Header ────────────────────────────────────────────────────────────── -->
-    <header class="sticky top-0 z-40 border-b border-border/60 bg-background/95 backdrop-blur">
+    <header class="border-border/60 bg-background/95 sticky top-0 z-40 border-b backdrop-blur">
       <UiContainer class="flex min-h-[3.5rem] items-center justify-between gap-4">
         <!-- Logo + nav -->
         <div class="flex items-center gap-6">
           <div class="flex items-center gap-2.5">
-            <div class="flex size-7 items-center justify-center rounded-lg bg-primary">
-              <Icon name="heroicons:cube-transparent" class="size-4 text-primary-foreground" />
+            <div class="bg-primary flex size-7 items-center justify-center rounded-lg">
+              <Icon name="heroicons:cube-transparent" class="text-primary-foreground size-4" />
             </div>
             <span class="hidden text-sm font-semibold sm:inline">UI Thing</span>
           </div>
@@ -258,7 +258,7 @@
               variant="ghost"
               size="sm"
               :class="
-                item.active ? 'bg-muted font-medium text-foreground' : 'text-muted-foreground'
+                item.active ? 'bg-muted text-foreground font-medium' : 'text-muted-foreground'
               "
             >
               {{ item.label }}
@@ -315,7 +315,7 @@
                 <UiDropdownMenuTrigger as-child>
                   <UiButton variant="ghost" size="icon-sm" class="relative">
                     <Icon name="heroicons:bell" class="size-4" />
-                    <span class="absolute top-1 right-0 size-1.5 rounded-full bg-primary" />
+                    <span class="bg-primary absolute top-1 right-0 size-1.5 rounded-full" />
                   </UiButton>
                 </UiDropdownMenuTrigger>
               </UiTooltipTrigger>
@@ -363,7 +363,7 @@
               <UiDropdownMenuContent align="end" class="w-52">
                 <UiDropdownMenuLabel>
                   <p class="font-semibold">{{ user.name }}</p>
-                  <p class="text-xs font-normal text-muted-foreground">{{ user.email }}</p>
+                  <p class="text-muted-foreground text-xs font-normal">{{ user.email }}</p>
                 </UiDropdownMenuLabel>
                 <UiDropdownMenuSeparator />
                 <UiDropdownMenuItem icon="heroicons:user" title="Profile" />
@@ -419,7 +419,7 @@
         <div class="flex flex-wrap items-start justify-between gap-4">
           <div>
             <h1 class="text-2xl font-bold tracking-tight">Banking Dashboard</h1>
-            <p class="mt-0.5 text-sm text-muted-foreground">
+            <p class="text-muted-foreground mt-0.5 text-sm">
               Here's your account details and deposits.
             </p>
           </div>
@@ -507,7 +507,7 @@
                 </div>
                 <div class="grow text-center lg:text-left">
                   <p class="font-semibold">{{ user.primaryAccount.name }}</p>
-                  <p class="mt-6 mb-2 text-sm text-muted-foreground">Current balance</p>
+                  <p class="text-muted-foreground mt-6 mb-2 text-sm">Current balance</p>
                   <div class="flex flex-col items-center justify-between lg:flex-row">
                     <p class="text-3xl font-bold tracking-tight">
                       ${{
@@ -532,7 +532,7 @@
                       <UiButton
                         variant="ghost"
                         size="icon-sm"
-                        class="absolute top-5 right-5 shrink-0 text-muted-foreground"
+                        class="text-muted-foreground absolute top-5 right-5 shrink-0"
                       >
                         <Icon name="heroicons:ellipsis-vertical" class="size-4" />
                       </UiButton>
@@ -575,7 +575,7 @@
                 </div>
                 <div class="grow text-center lg:text-left">
                   <p class="font-semibold">{{ user.secondaryAccount.name }}</p>
-                  <p class="mt-6 mb-2 text-sm text-muted-foreground">Current balance</p>
+                  <p class="text-muted-foreground mt-6 mb-2 text-sm">Current balance</p>
                   <div class="flex flex-col items-center justify-between lg:flex-row">
                     <p class="text-3xl font-bold tracking-tight">
                       ${{
@@ -600,7 +600,7 @@
                       <UiButton
                         variant="ghost"
                         size="icon-sm"
-                        class="absolute top-5 right-5 shrink-0 text-muted-foreground"
+                        class="text-muted-foreground absolute top-5 right-5 shrink-0"
                       >
                         <Icon name="heroicons:ellipsis-vertical" class="size-4" />
                       </UiButton>
@@ -783,7 +783,7 @@
               </UiTooltip>
             </UiCardHeader>
 
-            <div class="divide-y divide-border/50">
+            <div class="divide-border/50 divide-y">
               <div
                 v-for="deposit in visibleDeposits"
                 :key="deposit.id"
@@ -791,7 +791,7 @@
               >
                 <!-- Payment method badge -->
                 <div
-                  class="flex h-9 w-12 shrink-0 items-center justify-center rounded-md border border-border/60 bg-muted/30"
+                  class="border-border/60 bg-muted/30 flex h-9 w-12 shrink-0 items-center justify-center rounded-md border"
                 >
                   <template v-if="deposit.method === 'visa'">
                     <Icon name="simple-icons:visa" class="size-6 shrink-0" />
@@ -812,7 +812,7 @@
 
                 <div class="min-w-0 flex-1">
                   <p class="truncate text-sm font-medium">{{ deposit.description }}</p>
-                  <p class="truncate text-xs text-muted-foreground">{{ deposit.sub }}</p>
+                  <p class="text-muted-foreground truncate text-xs">{{ deposit.sub }}</p>
                 </div>
                 <p class="shrink-0 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
                   +${{ deposit.amount.toFixed(2) }}
@@ -820,10 +820,10 @@
               </div>
             </div>
 
-            <div class="border-t border-border/50 px-5 py-3">
+            <div class="border-border/50 border-t px-5 py-3">
               <UiButton
                 variant="link"
-                class="h-auto p-0 text-primary"
+                class="text-primary h-auto p-0"
                 @click="showAllDeposits = !showAllDeposits"
               >
                 {{ showAllDeposits ? "Show less" : "Show more" }}
