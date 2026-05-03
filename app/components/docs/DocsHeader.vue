@@ -43,6 +43,12 @@
       >Colors</NuxtLink
     >
     <NuxtLink
+      to="https://docd.uithing.com/prose/callout"
+      class="group text-foreground/60 hover:text-foreground transition-colors"
+      target="_blank"
+      >Prose
+    </NuxtLink>
+    <NuxtLink
       to="https://inspira-ui.com/"
       class="group text-foreground/60 hover:text-foreground transition-colors"
       target="_blank"
