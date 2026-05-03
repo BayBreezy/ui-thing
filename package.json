@@ -101,7 +101,7 @@
     "mini-svg-data-uri": "^1.4.4",
     "motion-v": "2.2.1",
     "nuxt-llms": "^0.2.0",
-    "nuxt-og-image": "^6.4.9",
+    "nuxt-og-image": "^6.4.10",
     "nuxt-swiper": "^2.0.1",
     "qr-code-styling": "^1.9.2",
     "quill-blot-formatter": "^1.0.5",
