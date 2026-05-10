@@ -104,7 +104,7 @@
     "zod": "^4.4.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.5.3",
+    "@commitlint/cli": "^21.0.0",
     "@commitlint/config-conventional": "^20.5.3",
     "@faker-js/faker": "^10.4.0",
     "@internationalized/date": "^3.12.1",
