@@ -704,7 +704,7 @@
               </UiCardHeader>
               <UiCardContent>
                 <div
-                  class="flex gap-6 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                  class="flex [scrollbar-width:none] gap-6 overflow-x-auto pb-2 [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
                 >
                   <div v-for="card in user.cards" :key="card.id" class="shrink-0">
                     <UiCreditCard

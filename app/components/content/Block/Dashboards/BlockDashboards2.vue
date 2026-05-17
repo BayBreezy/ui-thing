@@ -195,7 +195,7 @@
     >
       <UiContainer>
         <div class="flex items-center justify-between gap-4">
-          <div class="scrollbar-none flex overflow-x-auto">
+          <div class="flex scrollbar-none overflow-x-auto">
             <button
               v-for="tab in subNavTabs"
               :key="tab"
