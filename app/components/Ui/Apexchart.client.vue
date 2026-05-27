@@ -21,6 +21,7 @@
    * It sets the default styles, colors, and other properties for the charts.
    */
   window.Apex = {
+    tooltip: { arrow: false },
     chart: {
       animations: { enabled: true },
       fontFamily: "var(--font-sans)",
@@ -74,7 +75,7 @@
     plotOptions: {
       radialBar: {
         track: { background: "var(--color-muted)" },
-        hollow: { size: "30px" },
+        hollow: { size: "30px", background: "transparent" },
       },
       polarArea: {
         rings: { strokeColor: "var(--color-border)" },
@@ -118,7 +119,8 @@
       | "candlestick"
       | "radar"
       | "polarArea"
-      | "treemap";
+      | "treemap"
+      | "gauge";
     /**
      * The data which you want to display in the chart.
      *
@@ -212,15 +214,31 @@
 
 <style scoped>
   :deep(.apexcharts-tooltip) {
+    --apx-tt-bg: var(--color-popover);
+    --apx-tt-border: var(--color-border);
+    --apx-tt-shadow-y-mid: 8px;
+    --apx-tt-shadow-y-far: 16px;
+    --apx-tt-shadow:
+      0 0 0 1px rgba(15, 23, 42, 0.04),
+      0 var(--apx-tt-shadow-y-mid) 16px -6px rgba(15, 23, 42, 0.12),
+      0 var(--apx-tt-shadow-y-far) 36px -12px rgba(15, 23, 42, 0.18);
+    --apx-tt-arrow-bg: var(--apx-tt-bg);
+    --apx-tt-arrow-drop-y: 2px;
+    --apx-tt-arrow-shadow: drop-shadow(0 0 0.5px rgba(15, 23, 42, 0.2))
+      drop-shadow(0 var(--apx-tt-arrow-drop-y) 4px rgba(15, 23, 42, 0.2));
+    --apx-tt-color: var(--color-popover-foreground);
+    --apx-tt-color-muted: var(--color-muted-foreground);
     border: 1px solid --alpha(var(--color-border) / 50%) !important;
     background: var(--color-background) !important;
     box-shadow: var(--shadow-xl);
     border-radius: var(--radius-lg) !important;
+    padding: 0 !important;
 
     .apexcharts-tooltip-title {
       padding: 8px 12px !important;
       background: var(--color-popover) !important;
       border-bottom: 1px solid --alpha(var(--color-border) / 50%) !important;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
       font-weight: var(--font-weight-semibold);
     }
   }
@@ -251,6 +269,9 @@
     align-items: center;
     max-width: fit-content;
 
+    /* CSS for apple glass like container */
+    background: transparent;
+
     > [class*="icon"] {
       width: auto;
       height: auto;
@@ -258,12 +279,17 @@
       margin: auto;
       transition: all 0.2s ease-in-out;
       color: var(--color-muted-foreground);
+      &:hover:not(.apexcharts-selected) {
+        color: --alpha(var(--color-primary) / 50%) !important;
+        background: transparent !important;
+      }
       &:hover {
-        color: var(--color-blue-400);
+        color: var(--color-primary) !important;
       }
 
       &.apexcharts-selected {
-        color: var(--color-blue-500);
+        color: var(--color-primary);
+        background: transparent;
       }
 
       svg {
