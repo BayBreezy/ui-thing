@@ -15,9 +15,11 @@ description: Discover a collection of stunning UI components for your next Nuxt 
 primaryCta:
   label: Get Started
   href: /getting-started/introduction
+  icon: lucide:rocket
 secondaryCta:
   label: View on GitHub
   href: https://github.com/BayBreezy/ui-thing
+  icon: simple-icons:github
 ---
 ::
 
