@@ -80,6 +80,7 @@ export default defineNuxtModule({
         "datatables.net-select-dt",
         "datatables.net-vue3",
         "jszip", // CJS
+        "vue3-apexcharts",
       ];
     });
   },
