@@ -959,10 +959,28 @@
   >();
 
   const emits = defineEmits<MultiselectEmits<T>>();
-  const forwarded = useForwardPropsEmits(
-    reactiveOmit(props, ["modelValue", "formLabel", "hint", "id", "name"]),
+  const _forwarded = useForwardPropsEmits(
+    reactiveOmit(props, [
+      "modelValue",
+      "formLabel",
+      "hint",
+      "id",
+      "name",
+      "rules",
+      "validateOnMount",
+    ]),
     emits
   );
+
+  const forwarded = computed(() => {
+    const { "onUpdate:modelValue": _omit, ...rest } = _forwarded.value as any;
+    if (props.onCreate !== undefined) {
+      rest.onCreate = props.onCreate;
+    } else {
+      delete rest.onCreate;
+    }
+    return rest;
+  });
 
   const inputId = props.id || useId();
   const { errorMessage, value } = useField(() => props.name || inputId, props.rules, {
