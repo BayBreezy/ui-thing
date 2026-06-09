@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-center">
     <UseTemplate>
-      <UiCommand v-model="selectedStatus" class="rounded-none">
+      <UiCommand v-model="selectedStatus" class="rounded-none! md:rounded-lg!">
         <UiCommandInput placeholder="Filter status..." />
         <UiCommandList>
           <UiCommandEmpty>No results found.</UiCommandEmpty>
