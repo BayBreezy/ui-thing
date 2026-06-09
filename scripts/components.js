@@ -186,6 +186,12 @@ export default [
   },
   { name: "Chip", value: "chip", files: ["Chip.vue"], docsPath: "/components/chip" },
   {
+    name: "Circular Progress",
+    value: "circular-progress",
+    files: ["CircularProgress.vue"],
+    docsPath: "/components/circularprogress",
+  },
+  {
     name: "Credit Card",
     value: "credit-card",
     files: ["CreditCard.vue"],
