@@ -13,7 +13,7 @@ description: Display a full calendar in your nuxt app.
 
 To get started, you can install the package with the following command:
 
-:prose-pm-install{name="@fullcalendar/core @fullcalendar/vue3"}
+:prose-pm-install{name="@fullcalendar/core@6 @fullcalendar/vue3@6"}
 
 ::
 
@@ -23,7 +23,7 @@ To get started, you can install the package with the following command:
 
 You can also install the plugins for Full Calendar:
 
-:prose-pm-install{name="@fullcalendar/daygrid @fullcalendar/interaction @fullcalendar/timegrid @fullcalendar/list @fullcalendar/multimonth @fullcalendar/scrollgrid"}
+:prose-pm-install{name="@fullcalendar/daygrid@6 @fullcalendar/interaction@6 @fullcalendar/timegrid@6 @fullcalendar/list@6 @fullcalendar/multimonth@6 @fullcalendar/scrollgrid@6"}
 
 ::
 
