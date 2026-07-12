@@ -1,7 +1,7 @@
 <template>
   <svg
-    :width="dimensions[size].width"
-    :height="dimensions[size].height"
+    :width.attr="dimensions[size].width"
+    :height.attr="dimensions[size].height"
     :viewBox="`0 0 ${dimensions[size].width} ${dimensions[size].height}`"
     fill="none"
     v-bind="$attrs"
@@ -13,12 +13,12 @@
       maskUnits="userSpaceOnUse"
       x="0"
       y="0"
-      :width="dimensions[size].width"
-      :height="dimensions[size].height"
+      :width.attr="dimensions[size].width"
+      :height.attr="dimensions[size].height"
     >
       <rect
-        :width="dimensions[size].width"
-        :height="dimensions[size].height"
+        :width.attr="dimensions[size].width"
+        :height.attr="dimensions[size].height"
         :fill="`url(#${gradientId})`"
       />
     </mask>

@@ -1,7 +1,7 @@
 <template>
   <svg
-    :width="dim.width"
-    :height="dim.height"
+    :width.attr="dim.width"
+    :height.attr="dim.height"
     :viewBox="`0 0 ${dim.width} ${dim.height}`"
     fill="none"
     v-bind="$attrs"
@@ -13,10 +13,10 @@
       maskUnits="userSpaceOnUse"
       x="0"
       y="0"
-      :width="dim.width"
-      :height="dim.height"
+      :width.attr="dim.width"
+      :height.attr="dim.height"
     >
-      <rect :width="dim.width" :height="dim.height" :fill="`url(#${gradientId})`" />
+      <rect :width.attr="dim.width" :height.attr="dim.height" :fill="`url(#${gradientId})`" />
     </mask>
     <g :mask="`url(#${maskId})`">
       <g :clip-path="`url(#${clipId0})`">
@@ -33,8 +33,8 @@
         <rect
           x="0.5"
           y="0.5"
-          :width="dim.width - 1"
-          :height="dim.height - 1"
+          :width.attr="dim.width - 1"
+          :height.attr="dim.height - 1"
           stroke="currentColor"
         />
         <g :clip-path="`url(#${clipId2})`">
@@ -50,8 +50,8 @@
         <rect
           x="0.5"
           y="0.5"
-          :width="dim.width - 1"
-          :height="dim.height - 1"
+          :width.attr="dim.width - 1"
+          :height.attr="dim.height - 1"
           stroke="currentColor"
         />
       </g>
@@ -69,13 +69,13 @@
         <stop offset="1" stop-opacity="0" />
       </radialGradient>
       <clipPath :id="clipId0">
-        <rect :width="dim.width" :height="dim.height" fill="white" />
+        <rect :width.attr="dim.width" :height.attr="dim.height" fill="white" />
       </clipPath>
       <clipPath :id="clipId1">
-        <rect :width="dim.width" :height="dim.height" fill="white" />
+        <rect :width.attr="dim.width" :height.attr="dim.height" fill="white" />
       </clipPath>
       <clipPath :id="clipId2">
-        <rect :width="dim.width" :height="dim.height" fill="white" />
+        <rect :width.attr="dim.width" :height.attr="dim.height" fill="white" />
       </clipPath>
     </defs>
   </svg>

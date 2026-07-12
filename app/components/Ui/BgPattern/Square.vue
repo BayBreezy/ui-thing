@@ -1,7 +1,7 @@
 <template>
   <svg
-    :width="data.width"
-    :height="data.height"
+    :width.attr="data.width"
+    :height.attr="data.height"
     :viewBox="`0 0 ${data.width} ${data.height}`"
     fill="none"
     v-bind="$attrs"
@@ -13,13 +13,13 @@
       maskUnits="userSpaceOnUse"
       :x="data.maskX"
       :y="data.maskY"
-      :width="data.maskW"
-      :height="data.maskH"
+      :width.attr="data.maskW"
+      :height.attr="data.maskH"
     >
       <rect
         v-if="data.maskShape === 'rect'"
-        :width="data.maskW"
-        :height="data.maskH"
+        :width.attr="data.maskW"
+        :height.attr="data.maskH"
         :fill="`url(#${gradientId})`"
       />
       <path v-else :d="data.maskD" :fill="`url(#${gradientId})`" />
