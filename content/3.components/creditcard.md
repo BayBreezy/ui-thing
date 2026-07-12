@@ -1,7 +1,6 @@
 ---
 title: Credit Card
 description: A visual credit card component with 13 style variants, optional scaling, and a card-network detection utility.
-label: New
 ---
 
 ## Credits

@@ -1,7 +1,6 @@
 ---
 title: Floating Dock
 description: A responsive floating dock with a magnified desktop hover state and an expandable mobile menu.
-label: New
 ---
 
 ## Source code

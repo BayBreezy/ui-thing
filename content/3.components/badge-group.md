@@ -1,7 +1,6 @@
 ---
 title: Badge Group
 description: A pill-style badge group that pairs a labeled addon with a short message, available in light and modern themes with leading or trailing alignment.
-label: New
 ---
 
 ## Source code
