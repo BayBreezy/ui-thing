@@ -2224,6 +2224,34 @@ export default [
     plugins: [],
   },
   {
+    name: "Marker",
+    value: "marker",
+    files: [
+      {
+        fileName: "Marker/Content.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="marker-content"\n    v-bind="forwarded"\n    :class="markerContentStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const markerContentStyles = tv({\n    base: "*:[a]:hover:text-foreground min-w-0 wrap-break-word group-data-[variant=separator]/marker:flex-none group-data-[variant=separator]/marker:text-center *:[a]:underline *:[a]:underline-offset-3",\n  });\n\n  export type MarkerContentProps = PrimitiveProps & {\n    /** Additional classes to apply to the content slot. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<MarkerContentProps>(), {\n    as: "span",\n  });\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+      {
+        fileName: "Marker/Icon.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="marker-icon"\n    aria-hidden="true"\n    v-bind="forwarded"\n    :class="markerIconStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const markerIconStyles = tv({\n    base: "size-4 shrink-0 [&_svg:not([class*=\'size-\'])]:size-4",\n  });\n\n  export type MarkerIconProps = PrimitiveProps & {\n    /** Additional classes to apply to the icon slot. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<MarkerIconProps>(), {\n    as: "span",\n  });\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+      {
+        fileName: "Marker/Marker.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="marker"\n    :data-variant="variant"\n    v-bind="forwarded"\n    :class="markerStyles({ variant, class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import type { VariantProps } from "tailwind-variants";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const markerStyles = tv({\n    base: "group/marker text-muted-foreground [a]:hover:text-foreground relative flex min-h-4 w-full items-center gap-2 text-left text-sm [&_svg:not([class*=\'size-\'])]:size-4 [a]:underline [a]:underline-offset-3",\n    variants: {\n      variant: {\n        default: "",\n        separator:\n          "before:bg-border after:bg-border before:mr-1 before:h-px before:min-w-0 before:flex-1 after:ml-1 after:h-px after:min-w-0 after:flex-1",\n        border: "border-border border-b pb-2",\n      },\n    },\n    defaultVariants: {\n      variant: "default",\n    },\n  });\n\n  export type MarkerVariants = VariantProps<typeof markerStyles>;\n\n  export type MarkerProps = PrimitiveProps & {\n    /**\n     * The marker layout.\n     *\n     * @default "default"\n     */\n    variant?: MarkerVariants["variant"];\n    /** Additional classes to apply to the root element. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<MarkerProps>(), {\n    variant: "default",\n  });\n\n  const forwarded = reactiveOmit(props, ["variant", "class"]);\n</script>\n',
+      },
+    ],
+    docsPath: "/components/marker",
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Menubar",
     value: "menubar",
     utils: [

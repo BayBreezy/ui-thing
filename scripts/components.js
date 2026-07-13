@@ -630,6 +630,12 @@ export default [
     docsPath: "/components/loader",
   },
   {
+    name: "Marker",
+    value: "marker",
+    files: ["Marker/Content.vue", "Marker/Icon.vue", "Marker/Marker.vue"],
+    docsPath: "/components/marker",
+  },
+  {
     name: "Menubar",
     value: "menubar",
     utils: ["translucent.ts"],
