@@ -662,6 +662,20 @@ export default [
     docsPath: "/components/menubar",
   },
   {
+    name: "Message",
+    value: "message",
+    components: ["bubble", "avatar"],
+    files: [
+      "Message/Avatar.vue",
+      "Message/Content.vue",
+      "Message/Footer.vue",
+      "Message/Group.vue",
+      "Message/Header.vue",
+      "Message/Message.vue",
+    ],
+    docsPath: "/components/message",
+  },
+  {
     name: "Nav",
     value: "nav",
     files: [

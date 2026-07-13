@@ -2377,6 +2377,53 @@ export default [
     plugins: [],
   },
   {
+    name: "Message",
+    value: "message",
+    components: ["bubble", "avatar"],
+    files: [
+      {
+        fileName: "Message/Avatar.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="message-avatar"\n    v-bind="forwarded"\n    :class="messageAvatarStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const messageAvatarStyles = tv({\n    base: "bg-muted flex w-fit min-w-8 shrink-0 items-center justify-center self-end overflow-hidden rounded-full group-has-data-[slot=message-footer]/message:-translate-y-8",\n  });\n\n  export type MessageAvatarProps = PrimitiveProps & {\n    /** Additional classes to apply to the avatar wrapper. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<MessageAvatarProps>(), {});\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+      {
+        fileName: "Message/Content.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="message-content"\n    v-bind="forwarded"\n    :class="messageContentStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const messageContentStyles = tv({\n    base: "flex w-full min-w-0 flex-col gap-2.5 wrap-break-word group-data-[align=end]/message:*:data-slot:self-end",\n  });\n\n  export type MessageContentProps = PrimitiveProps & {\n    /** Additional classes to apply to the content wrapper. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<MessageContentProps>(), {});\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+      {
+        fileName: "Message/Footer.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="message-footer"\n    v-bind="forwarded"\n    :class="messageFooterStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const messageFooterStyles = tv({\n    base: "text-muted-foreground flex max-w-full min-w-0 items-center px-3 text-xs font-medium group-has-data-[variant=ghost]/message:px-0 group-data-[align=end]/message:justify-end",\n  });\n\n  export type MessageFooterProps = PrimitiveProps & {\n    /** Additional classes to apply to the footer. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<MessageFooterProps>(), {});\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+      {
+        fileName: "Message/Group.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="message-group"\n    v-bind="forwarded"\n    :class="messageGroupStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const messageGroupStyles = tv({\n    base: "flex min-w-0 flex-col gap-2",\n  });\n\n  export type MessageGroupProps = PrimitiveProps & {\n    /** Additional classes to apply to the group root. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<MessageGroupProps>(), {});\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+      {
+        fileName: "Message/Header.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="message-header"\n    v-bind="forwarded"\n    :class="messageHeaderStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const messageHeaderStyles = tv({\n    base: "text-muted-foreground flex max-w-full min-w-0 items-center px-3 text-xs font-medium group-has-data-[variant=ghost]/message:px-0",\n  });\n\n  export type MessageHeaderProps = PrimitiveProps & {\n    /** Additional classes to apply to the header. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<MessageHeaderProps>(), {});\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+      {
+        fileName: "Message/Message.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="message"\n    :data-align="align"\n    v-bind="forwarded"\n    :class="messageStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const messageStyles = tv({\n    base: "group/message relative flex w-full min-w-0 gap-2 text-sm data-[align=end]:flex-row-reverse",\n  });\n\n  export type MessageProps = PrimitiveProps & {\n    /**\n     * The alignment of the message in the conversation.\n     *\n     * @default "start"\n     */\n    align?: "start" | "end";\n    /** Additional classes to apply to the row. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<MessageProps>(), {\n    align: "start",\n  });\n\n  const forwarded = reactiveOmit(props, ["align", "class"]);\n</script>\n',
+      },
+    ],
+    docsPath: "/components/message",
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Native Select",
     value: "native-select",
     files: [
