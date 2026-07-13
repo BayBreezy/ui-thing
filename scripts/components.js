@@ -676,6 +676,21 @@ export default [
     docsPath: "/components/message",
   },
   {
+    name: "Message Scroller",
+    value: "message-scroller",
+    components: ["button", "bubble", "marker", "message"],
+    utils: ["message-scroller.ts"],
+    files: [
+      "MessageScroller/Button.vue",
+      "MessageScroller/Content.vue",
+      "MessageScroller/Item.vue",
+      "MessageScroller/MessageScroller.vue",
+      "MessageScroller/Provider.vue",
+      "MessageScroller/Viewport.vue",
+    ],
+    docsPath: "/components/message-scroller",
+  },
+  {
     name: "Nav",
     value: "nav",
     files: [
