@@ -146,6 +146,12 @@ export default [
     files: ["Breadcrumbs.vue"],
     docsPath: "/components/breadcrumbs",
   },
+  {
+    name: "Bubble",
+    value: "bubble",
+    files: ["Bubble/Bubble.vue", "Bubble/Content.vue", "Bubble/Group.vue", "Bubble/Reactions.vue"],
+    docsPath: "/components/bubble",
+  },
   { name: "Button", value: "button", files: ["Button.vue"], docsPath: "/components/button" },
   {
     name: "Button Group",

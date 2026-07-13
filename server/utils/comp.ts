@@ -549,6 +549,40 @@ export default [
     plugins: [],
   },
   {
+    name: "Bubble",
+    value: "bubble",
+    files: [
+      {
+        fileName: "Bubble/Bubble.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="bubble"\n    :data-variant="variant"\n    :data-align="align"\n    v-bind="forwarded"\n    :class="bubbleStyles({ variant, class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import type { VariantProps } from "tailwind-variants";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const bubbleStyles = tv({\n    base: "group/bubble relative flex w-fit max-w-[80%] min-w-0 flex-col gap-1 group-data-[align=end]/message:self-end data-[align=end]:self-end data-[variant=ghost]:max-w-full",\n    variants: {\n      variant: {\n        default:\n          "*:data-[slot=bubble-content]:bg-primary *:data-[slot=bubble-content]:text-primary-foreground [&>[data-slot=bubble-content]:is(button,a):hover]:bg-primary/80",\n        secondary:\n          "*:data-[slot=bubble-content]:bg-secondary *:data-[slot=bubble-content]:text-secondary-foreground [&>[data-slot=bubble-content]:is(button,a):hover]:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)]",\n        muted:\n          "*:data-[slot=bubble-content]:bg-muted [&>[data-slot=bubble-content]:is(button,a):hover]:bg-[color-mix(in_oklch,var(--muted),var(--foreground)_5%)]",\n        tinted:\n          "*:data-[slot=bubble-content]:text-foreground *:data-[slot=bubble-content]:bg-[oklch(from_var(--primary)_0.93_calc(c*0.4)_h)] dark:*:data-[slot=bubble-content]:bg-[oklch(from_var(--primary)_0.3_calc(c*0.4)_h)] [&>[data-slot=bubble-content]:is(button,a):hover]:bg-[oklch(from_var(--primary)_0.88_calc(c*0.5)_h)] dark:[&>[data-slot=bubble-content]:is(button,a):hover]:bg-[oklch(from_var(--primary)_0.35_calc(c*0.5)_h)]",\n        outline:\n          "*:data-[slot=bubble-content]:bg-background *:data-[slot=bubble-content]:border-border [&>[data-slot=bubble-content]:is(button,a):hover]:bg-muted [&>[data-slot=bubble-content]:is(button,a):hover]:text-foreground dark:[&>[data-slot=bubble-content]:is(button,a):hover]:bg-input/30",\n        ghost:\n          "[&>[data-slot=bubble-content]:is(button,a):hover]:bg-muted [&>[data-slot=bubble-content]:is(button,a):hover]:text-foreground dark:[&>[data-slot=bubble-content]:is(button,a):hover]:bg-muted/50 border-none *:data-[slot=bubble-content]:rounded-none *:data-[slot=bubble-content]:bg-transparent *:data-[slot=bubble-content]:p-0",\n        destructive:\n          "*:data-[slot=bubble-content]:bg-destructive/10 dark:*:data-[slot=bubble-content]:bg-destructive/20 *:data-[slot=bubble-content]:text-destructive [&>[data-slot=bubble-content]:is(button,a):hover]:bg-destructive/20 dark:[&>[data-slot=bubble-content]:is(button,a):hover]:bg-destructive/30",\n      },\n    },\n    defaultVariants: {\n      variant: "default",\n    },\n  });\n\n  export type BubbleVariants = VariantProps<typeof bubbleStyles>;\n\n  export type BubbleProps = PrimitiveProps & {\n    /**\n     * The bubble visual treatment.\n     *\n     * @default "default"\n     */\n    variant?: BubbleVariants["variant"];\n    /**\n     * The inline alignment of the bubble.\n     *\n     * @default "start"\n     */\n    align?: "start" | "end";\n    /** Additional classes to apply to the root element. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<BubbleProps>(), {\n    variant: "default",\n    align: "start",\n  });\n\n  const forwarded = reactiveOmit(props, ["variant", "align", "class"]);\n</script>\n',
+      },
+      {
+        fileName: "Bubble/Content.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="bubble-content"\n    v-bind="forwarded"\n    :class="bubbleContentStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const bubbleContentStyles = tv({\n    base: "[button,a]:focus-visible:border-ring [button,a]:focus-visible:ring-ring/50 w-fit max-w-full min-w-0 overflow-hidden rounded-xl border border-transparent px-3 py-2 text-sm leading-relaxed wrap-break-word group-data-[align=end]/bubble:self-end [button]:text-left [button,a]:transition-colors [button,a]:outline-none [button,a]:focus-visible:ring-3",\n  });\n\n  export type BubbleContentProps = PrimitiveProps & {\n    /** Additional classes to apply to the content element. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<BubbleContentProps>(), {});\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+      {
+        fileName: "Bubble/Group.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="bubble-group"\n    v-bind="forwarded"\n    :class="bubbleGroupStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const bubbleGroupStyles = tv({\n    base: "flex min-w-0 flex-col gap-2",\n  });\n\n  export type BubbleGroupProps = PrimitiveProps & {\n    /** Additional classes to apply to the group root. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<BubbleGroupProps>(), {});\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+      {
+        fileName: "Bubble/Reactions.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="bubble-reactions"\n    :data-side="side"\n    :data-align="align"\n    v-bind="forwarded"\n    :class="bubbleReactionsStyles({ side, align, class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import type { VariantProps } from "tailwind-variants";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const bubbleReactionsStyles = tv({\n    base: "ring-card bg-muted absolute z-10 flex w-fit shrink-0 items-center justify-center gap-1 rounded-full px-1.5 py-0.5 text-sm ring-3 has-[button]:p-0",\n    variants: {\n      side: {\n        top: "top-0 -translate-y-3/4",\n        bottom: "bottom-0 translate-y-3/4",\n      },\n      align: {\n        start: "left-3",\n        end: "right-3",\n      },\n    },\n    defaultVariants: {\n      side: "bottom",\n      align: "end",\n    },\n  });\n\n  export type BubbleReactionsVariants = VariantProps<typeof bubbleReactionsStyles>;\n\n  export type BubbleReactionsProps = PrimitiveProps & {\n    /**\n     * The side of the bubble to anchor the reactions.\n     *\n     * @default "bottom"\n     */\n    side?: BubbleReactionsVariants["side"];\n    /**\n     * The inline alignment of the reactions.\n     *\n     * @default "end"\n     */\n    align?: BubbleReactionsVariants["align"];\n    /** Additional classes to apply to the reaction row. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<BubbleReactionsProps>(), {\n    side: "bottom",\n    align: "end",\n  });\n\n  const forwarded = reactiveOmit(props, ["side", "align", "class"]);\n</script>\n',
+      },
+    ],
+    docsPath: "/components/bubble",
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Button",
     value: "button",
     files: [
@@ -2259,7 +2293,7 @@ export default [
         fileName: "Menubar/Portal.vue",
         dirPath: "app/components/Ui",
         fileContent:
-          '<template>\n  <MenubarPortal data-slot="menubar-portal" v-bind="props">\n    <slot />\n  </MenubarPortal>\n</template>\n\n<script lang="ts" setup>\n  import type { MenubarPortalProps } from "reka-ui";\n\n  const props = defineProps<MenubarPortalProps>();\n</script>\n',
+          '<template>\n  <MenubarPortal data-slot="menubar-portal" v-bind="props">\n    <slot />\n  </MenubarPortal>\n</template>\n\n<script lang="ts" setup>\n  import type { MenubarPortalProps } from "reka-ui";\n  import { MenubarPortal } from "reka-ui";\n\n  const props = defineProps<MenubarPortalProps>();\n</script>\n',
       },
       {
         fileName: "Menubar/RadioGroup.vue",
