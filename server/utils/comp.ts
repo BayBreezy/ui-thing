@@ -209,6 +209,71 @@ export default [
     plugins: [],
   },
   {
+    name: "Attachment",
+    value: "attachment",
+    components: ["button"],
+    files: [
+      {
+        fileName: "Attachment/Action.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <UiButton\n    data-slot="attachment-action"\n    :variant="variant"\n    :size="size"\n    :class="normalizeClass(props.class) || undefined"\n  >\n    <slot />\n  </UiButton>\n</template>\n\n<script lang="ts" setup>\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  import type { buttonStyles } from "~/components/Ui/Button.vue";\n\n  const props = withDefaults(\n    defineProps<{\n      /**\n       * The button variant.\n       *\n       * @default "ghost"\n       */\n      variant?: VariantProps<typeof buttonStyles>["variant"];\n      /**\n       * The button size.\n       *\n       * @default "icon-xs"\n       */\n      size?: VariantProps<typeof buttonStyles>["size"];\n      /** Additional classes to apply to the action. */\n      class?: HTMLAttributes["class"];\n    }>(),\n    {\n      variant: "ghost",\n      size: "icon-xs",\n    }\n  );\n</script>\n',
+      },
+      {
+        fileName: "Attachment/Actions.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="attachment-actions"\n    v-bind="forwarded"\n    :class="attachmentActionsStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const attachmentActionsStyles = tv({\n    base: "relative z-20 flex shrink-0 items-center group-data-[orientation=vertical]/attachment:absolute group-data-[orientation=vertical]/attachment:top-3 group-data-[orientation=vertical]/attachment:right-3 group-data-[orientation=vertical]/attachment:gap-1",\n  });\n\n  export type AttachmentActionsProps = PrimitiveProps & {\n    /** Additional classes to apply to the actions. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<AttachmentActionsProps>(), {});\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+      {
+        fileName: "Attachment/Attachment.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="attachment"\n    :data-state="state"\n    :data-size="size"\n    :data-orientation="orientation"\n    v-bind="forwarded"\n    :class="\n      attachmentStyles({ size, orientation, class: normalizeClass(props.class) || undefined })\n    "\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import type { VariantProps } from "tailwind-variants";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const attachmentStyles = tv({\n    base: "group/attachment focus-within:ring-ring/50 bg-card text-card-foreground has-[>a,>button]:hover:bg-muted/50 data-[state=error]:border-destructive/30 relative flex w-fit max-w-full min-w-0 shrink-0 flex-wrap rounded-xl border transition-colors focus-within:ring-1 data-[state=idle]:border-dashed",\n    variants: {\n      size: {\n        default:\n          "gap-2 text-sm has-data-[slot=attachment-content]:px-2.5 has-data-[slot=attachment-content]:py-2 has-data-[slot=attachment-media]:p-2",\n        sm: "gap-2.5 text-xs has-data-[slot=attachment-content]:px-2 has-data-[slot=attachment-content]:py-1.5 has-data-[slot=attachment-media]:p-1.5",\n        xs: "gap-1.5 rounded-lg text-xs has-data-[slot=attachment-content]:px-1.5 has-data-[slot=attachment-content]:py-1 has-data-[slot=attachment-media]:p-1",\n      },\n      orientation: {\n        horizontal: "min-w-40 items-center",\n        vertical: "w-24 flex-col has-data-[slot=attachment-content]:w-30",\n      },\n    },\n    defaultVariants: {\n      size: "default",\n      orientation: "horizontal",\n    },\n  });\n\n  export type AttachmentVariants = VariantProps<typeof attachmentStyles>;\n\n  export type AttachmentProps = PrimitiveProps & {\n    /**\n     * The upload state of the attachment. Drives the border, media, title, and description styling.\n     *\n     * @default "done"\n     */\n    state?: "idle" | "uploading" | "processing" | "error" | "done";\n    /**\n     * The size of the attachment.\n     *\n     * @default "default"\n     */\n    size?: AttachmentVariants["size"];\n    /**\n     * Lay the media beside or above the content.\n     *\n     * @default "horizontal"\n     */\n    orientation?: AttachmentVariants["orientation"];\n    /** Additional classes to apply to the root element. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<AttachmentProps>(), {\n    state: "done",\n    size: "default",\n    orientation: "horizontal",\n  });\n\n  const forwarded = reactiveOmit(props, ["state", "size", "orientation", "class"]);\n</script>\n',
+      },
+      {
+        fileName: "Attachment/Content.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="attachment-content"\n    v-bind="forwarded"\n    :class="attachmentContentStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const attachmentContentStyles = tv({\n    base: "max-w-full min-w-0 flex-1 leading-tight group-data-[orientation=vertical]/attachment:px-1",\n  });\n\n  export type AttachmentContentProps = PrimitiveProps & {\n    /** Additional classes to apply to the content slot. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<AttachmentContentProps>(), {});\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+      {
+        fileName: "Attachment/Description.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="attachment-description"\n    v-bind="forwarded"\n    :class="attachmentDescriptionStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const attachmentDescriptionStyles = tv({\n    base: "text-muted-foreground group-data-[state=error]/attachment:text-destructive/80 mt-0.5 block max-w-full min-w-0 truncate text-xs",\n  });\n\n  export type AttachmentDescriptionProps = PrimitiveProps & {\n    /** Additional classes to apply to the description. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<AttachmentDescriptionProps>(), {\n    as: "span",\n  });\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+      {
+        fileName: "Attachment/Group.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="attachment-group"\n    v-bind="forwarded"\n    :class="attachmentGroupStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const attachmentGroupStyles = tv({\n    base: "scroll-fade-x flex min-w-0 snap-x snap-mandatory scroll-px-1 scrollbar-none gap-3 overflow-x-auto overscroll-x-contain py-1 *:data-[slot=attachment]:flex-none *:data-[slot=attachment]:snap-start",\n  });\n\n  export type AttachmentGroupProps = PrimitiveProps & {\n    /** Additional classes to apply to the group. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<AttachmentGroupProps>(), {});\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+      {
+        fileName: "Attachment/Media.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="attachment-media"\n    :data-variant="variant"\n    v-bind="forwarded"\n    :class="attachmentMediaStyles({ variant, class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import type { VariantProps } from "tailwind-variants";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const attachmentMediaStyles = tv({\n    base: "bg-muted text-foreground group-data-[state=error]/attachment:bg-destructive/10 group-data-[state=error]/attachment:text-destructive relative flex aspect-square w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg group-data-[orientation=vertical]/attachment:w-full group-data-[size=sm]/attachment:w-8 group-data-[size=xs]/attachment:w-7 group-data-[size=xs]/attachment:rounded-md group-data-[orientation=vertical]/attachment:*:data-[slot=spinner]:size-6! [&_svg]:pointer-events-none [&_svg:not([class*=\'size-\'])]:size-4 group-data-[orientation=vertical]/attachment:[&_svg:not([class*=\'size-\'])]:size-6 group-data-[size=xs]/attachment:[&_svg:not([class*=\'size-\'])]:size-3.5",\n    variants: {\n      variant: {\n        icon: "",\n        image:\n          "opacity-60 group-data-[state=done]/attachment:opacity-100 group-data-[state=idle]/attachment:opacity-100 *:[img]:aspect-square *:[img]:w-full *:[img]:object-cover",\n      },\n    },\n    defaultVariants: {\n      variant: "icon",\n    },\n  });\n\n  export type AttachmentMediaVariants = VariantProps<typeof attachmentMediaStyles>;\n\n  export type AttachmentMediaProps = PrimitiveProps & {\n    /**\n     * Whether the media holds an icon or an `<img>`.\n     *\n     * @default "icon"\n     */\n    variant?: AttachmentMediaVariants["variant"];\n    /** Additional classes to apply to the media slot. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<AttachmentMediaProps>(), {\n    variant: "icon",\n  });\n\n  const forwarded = reactiveOmit(props, ["variant", "class"]);\n</script>\n',
+      },
+      {
+        fileName: "Attachment/Title.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="attachment-title"\n    v-bind="forwarded"\n    :class="attachmentTitleStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const attachmentTitleStyles = tv({\n    base: "group-data-[state=processing]/attachment:shimmer group-data-[state=uploading]/attachment:shimmer block max-w-full min-w-0 truncate font-medium",\n  });\n\n  export type AttachmentTitleProps = PrimitiveProps & {\n    /** Additional classes to apply to the title. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<AttachmentTitleProps>(), {\n    as: "span",\n  });\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+      {
+        fileName: "Attachment/Trigger.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <Primitive\n    data-slot="attachment-trigger"\n    v-bind="forwarded"\n    :class="attachmentTriggerStyles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<script lang="ts">\n  import { Primitive } from "reka-ui";\n  import type { PrimitiveProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  export const attachmentTriggerStyles = tv({\n    base: "absolute inset-0 z-10 outline-none",\n  });\n\n  export type AttachmentTriggerProps = PrimitiveProps & {\n    /** Additional classes to apply to the trigger. */\n    class?: HTMLAttributes["class"];\n  };\n</script>\n\n<script lang="ts" setup>\n  const props = withDefaults(defineProps<AttachmentTriggerProps>(), {\n    as: "button",\n  });\n\n  const forwarded = reactiveOmit(props, ["class"]);\n</script>\n',
+      },
+    ],
+    docsPath: "/components/attachment",
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Autocomplete",
     value: "autocomplete",
     files: [

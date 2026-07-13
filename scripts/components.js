@@ -51,6 +51,23 @@ export default [
     docsPath: "/components/aspectratio",
   },
   {
+    name: "Attachment",
+    value: "attachment",
+    components: ["button"],
+    files: [
+      "Attachment/Action.vue",
+      "Attachment/Actions.vue",
+      "Attachment/Attachment.vue",
+      "Attachment/Content.vue",
+      "Attachment/Description.vue",
+      "Attachment/Group.vue",
+      "Attachment/Media.vue",
+      "Attachment/Title.vue",
+      "Attachment/Trigger.vue",
+    ],
+    docsPath: "/components/attachment",
+  },
+  {
     name: "Autocomplete",
     value: "autocomplete",
     files: [
