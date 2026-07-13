@@ -3,6 +3,18 @@ title: Changelog
 description: See what has changed recently in UI Thing.
 ---
 
+## July 13, 2026
+
+### New Components
+
+A set of AI chat building blocks, ported over from [shadcn-vue](https://www.shadcn-vue.com/):
+
+- [**Attachment**](/components/attachment): Displays a file or image attachment with media, metadata, upload state, and actions.
+- [**Bubble**](/components/bubble): Displays conversational content in a message bubble, with variants, alignment, grouping, and reactions.
+- [**Marker**](/components/marker): Displays an inline status, system note, bordered row, or labeled separator in a conversation.
+- [**Message**](/components/message): Lays out a single message in a conversation, handling the avatar, alignment, header, and footer around it.
+- [**Message Scroller**](/components/message-scroller): A headless scroll container for chat transcripts. Anchors turns, follows streamed replies, restores your place when older history loads, and exposes composables to jump to any message.
+
 ## May 03, 2026
 
 ### New Docs
