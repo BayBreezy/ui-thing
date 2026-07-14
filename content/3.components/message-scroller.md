@@ -12,6 +12,115 @@ Click :SourceCodeLink{component="MessageScroller"} to see the source code for th
 
 :prose-pm-x{command="ui-thing@latest add message-scroller"}
 
+### Add CSS
+
+Add this to your main CSS file or import it in your project:
+
+```css
+@keyframes ms-anim-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes ms-anim-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes ms-anim-slide-side {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes ms-anim-pop {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes ms-anim-spring-bounce {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes ms-anim-blur-fade {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+@keyframes ms-anim-scale-fade {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.ms-anim-fade {
+  animation: ms-anim-fade 0.26s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.ms-anim-slide-up {
+  animation: ms-anim-slide-up 0.26s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.ms-anim-slide-side {
+  animation: ms-anim-slide-side 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.ms-anim-pop {
+  animation: ms-anim-pop 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.ms-anim-spring-bounce {
+  animation: ms-anim-spring-bounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.ms-anim-blur-fade {
+  animation: ms-anim-blur-fade 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.ms-anim-scale-fade {
+  animation: ms-anim-scale-fade 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="ms-anim-"] {
+    animation: none;
+  }
+}
+```
+
 ## MessageScroller
 
 A great streaming chat scroller has to juggle a lot at once: pin to the live edge while a reply streams, but never fight a reader who scrolls up; anchor each new turn near the top with a peek of the previous exchange; preserve position when older history loads above; and expose commands to jump anywhere in the thread. `MessageScroller` owns those hard parts so your message list doesn't have to.
