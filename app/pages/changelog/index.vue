@@ -15,11 +15,11 @@
         See what's new, updated, and fixed in UI Thing.
       </p>
       <div class="mt-5 flex flex-wrap items-center justify-center gap-2">
-        <UiButton href="/changelog.xml" variant="outline" size="sm">
+        <UiButton href="/changelog.xml" external variant="outline" size="sm">
           <Icon name="lucide:rss" />
           RSS Feed
         </UiButton>
-        <UiButton href="/api/changelog" variant="outline" size="sm">
+        <UiButton href="/api/changelog" external variant="outline" size="sm">
           <Icon name="lucide:braces" />
           API
         </UiButton>
