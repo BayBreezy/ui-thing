@@ -1,0 +1,11 @@
+{
+  "slug": "2025-12-25-prose-api",
+  "date": "2025-12-25",
+  "title": "Prose API",
+  "category": "feature",
+  "tags": ["api", "prose"],
+  "summary": "Added new endpoints to list all prose components and fetch one by name.",
+  "body": "A new API endpoint has been added to get all prose components.\n\n**Endpoints:**\n\n- Get all prose components: [`/api/prose`](/api/prose)\n  - You can also filter with a search query\n- Get a prose component by name: [`/api/prose/{name}`](/api/prose/{name})\n",
+  "breaking": false,
+  "links": []
+}

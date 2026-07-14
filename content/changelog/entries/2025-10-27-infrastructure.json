@@ -1,0 +1,11 @@
+{
+  "slug": "2025-10-27-infrastructure",
+  "date": "2025-10-27",
+  "title": "Infrastructure",
+  "category": "dx",
+  "tags": ["docker", "nuxt"],
+  "summary": "Added a Dockerfile for building and running the app, and updated to Nuxt v4.2.",
+  "body": "- Added Dockerfile for building and running the application\n- Updated to Nuxt v4.2\n",
+  "breaking": false,
+  "links": []
+}

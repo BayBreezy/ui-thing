@@ -69,6 +69,22 @@ export default defineNuxtConfig({
             description:
               "Retrieve a list of UI blocks that belong to a specific category. The name parameter is required and should match the desired block category. To get the list of available categories, use the /api/blocks/categories endpoint.",
           },
+          {
+            title: "Get Changelog Entries",
+            href: "/api/changelog",
+            description:
+              "Retrieve changelog entries sorted by date (newest first). Supports search, category, tag, breaking, limit, and offset query parameters.",
+          },
+          {
+            title: "Get Changelog Entry by Slug",
+            href: "/api/changelog/{slug}",
+            description: "Retrieve a single changelog entry by its slug.",
+          },
+          {
+            title: "Get Changelog Categories",
+            href: "/api/changelog/categories",
+            description: "Retrieve the list of changelog categories with entry counts.",
+          },
         ],
       },
     ],
@@ -109,6 +125,7 @@ export default defineNuxtConfig({
 
   routeRules: {
     "/getting-started": { redirect: "/getting-started/introduction" },
+    "/getting-started/changelog": { redirect: "/changelog" },
     "/magic/**": { redirect: "https://inspira-ui.com" },
     "/prose/**": { redirect: "https://docd.uithing.com/prose/callout" },
     "/goodies": { redirect: "/goodies/border-beam" },

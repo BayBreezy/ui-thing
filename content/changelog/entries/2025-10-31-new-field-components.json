@@ -1,0 +1,11 @@
+{
+  "slug": "2025-10-31-new-field-components",
+  "date": "2025-10-31",
+  "title": "New Field Components",
+  "category": "feature",
+  "tags": ["docsfield"],
+  "summary": "Added new interactive field components: DocsFieldHear and DocsFieldNotionPrompt.",
+  "body": "Added new interactive field components to enhance user input experiences:\n\n- **DocsFieldHear** - A hearing-style interactive field component\n- **DocsFieldNotionPrompt** - Notion-style prompt field with mentions and context\n",
+  "breaking": false,
+  "links": []
+}

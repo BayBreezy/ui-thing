@@ -1,0 +1,11 @@
+{
+  "slug": "2025-02-27-timeline",
+  "date": "2025-02-27",
+  "title": "Timeline",
+  "category": "feature",
+  "tags": ["timeline"],
+  "summary": "Added the Timeline component.",
+  "body": "In this update, the [`Timeline`](/components/timeline) component was added.\n\nYou can add it by running\n\n```bash\nnpx ui-thing@latest add timeline\n```\n",
+  "breaking": false,
+  "links": []
+}

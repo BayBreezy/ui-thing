@@ -1,0 +1,11 @@
+{
+  "slug": "2024-12-23-pagination",
+  "date": "2024-12-23",
+  "title": "Pagination",
+  "category": "update",
+  "tags": ["pagination"],
+  "summary": "Pagination component updated with an additional import from VueUse, plus new examples from Origin UI.",
+  "body": "The [`Pagination`](/components/pagination) component got a little update too. For the core components, only an additional import statement was added from the Vue Use library.\n\nSome nice examples were copied over from the [Origin UI](https://originui.com/) library.\n\nYou can try it out by running\n\n```bash\nnpx ui-thing@latest add pagination\n```\n",
+  "breaking": false,
+  "links": []
+}

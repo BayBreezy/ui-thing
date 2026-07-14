@@ -1,0 +1,11 @@
+{
+  "slug": "2025-10-30-new-block-components",
+  "date": "2025-10-30",
+  "title": "New Block Components",
+  "category": "feature",
+  "tags": ["blocks"],
+  "summary": "Expanded the blocks section with new testimonial, sign up, pricing, login, metric, and newsletter block variations.",
+  "body": "Expanded the blocks section with multiple new component categories:\n\n#### Testimonial Blocks\n\nAdded 8 new testimonial block variations featuring:\n\n- Carousel sliders with auto-rotation\n- Grid layouts with customer avatars\n- Star ratings and company logos\n- Masonry/Pinterest-style layouts\n\n#### Sign Up Blocks\n\nAdded 4 new sign up page designs:\n\n- Two-column layouts with feature showcases\n- Password confirmation fields\n- Social authentication options\n- Compact and minimal card designs\n\n#### Pricing Blocks\n\nAdded 4 new pricing section layouts:\n\n- Interactive annual/monthly toggles\n- Feature comparison grids\n- Popular plan badges\n- Four-tier pricing with custom options\n\n#### Login Blocks\n\nAdded 4 new login page designs:\n\n- Two-column layouts with security messages\n- Minimal card designs with icon headers\n- Social-first authentication layouts\n- Compact designs with terms notices\n\n#### Metric Blocks\n\nAdded 6 new metric display styles:\n\n- Icon-based compact layouts\n- Card-based designs with badges\n- Two-column contextual sections\n- Business metrics with growth indicators\n\n#### Newsletter Blocks\n\nCreated 5 new newsletter signup blocks:\n\n- Centered layouts with badges\n- Card-based split designs\n- Multi-field forms with checkboxes\n- Feature showcase grids\n",
+  "breaking": false,
+  "links": []
+}

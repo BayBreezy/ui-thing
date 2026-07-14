@@ -1,0 +1,11 @@
+{
+  "slug": "2025-02-02-form-builder",
+  "date": "2025-02-02",
+  "title": "Form Builder",
+  "category": "feature",
+  "tags": ["forms", "form-builder"],
+  "summary": "Added the Form Builder component, inspired by an example from the Vee Validate docs.",
+  "body": "In this update, I added the [`Form Builder`](/forms/form-builder) component.\n\nI stumbled across an example in the Vee Validate docs and thought it would be nice to have something like this at hand.\n\nYou can try it out by running\n\n```bash\nnpx ui-thing@latest add vee-form-builder\n```\n",
+  "breaking": false,
+  "links": []
+}

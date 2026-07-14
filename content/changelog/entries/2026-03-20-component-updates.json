@@ -1,0 +1,11 @@
+{
+  "slug": "2026-03-20-component-updates",
+  "date": "2026-03-20",
+  "title": "Component Updates",
+  "category": "update",
+  "tags": ["sidebar", "scrollspy"],
+  "summary": "Fixed Sidebar cookie persistence, normalized class overrides across style builders, and added a shared multiple mode to Scrollspy.",
+  "body": "- [**Sidebar**](/components/sidebar): Fixed an issue where the `SidebarProvider` was not persisting the open or closed state correctly with cookies. The provider now restores the saved state properly and keeps the cookie in sync with controlled updates.\n- **Class Overrides**: Updated component and prose style builders to normalize Vue class bindings with `normalizeClass(...)` before passing them into `tv()`. This removes the TypeScript errors introduced by the recent Vue class type change without narrowing the public `class` prop API.\n- [**Scrollspy**](/components/scrollspy): Added a shared `mode=\"multiple\"` option so docs and app layouts can mark every visible heading as active at once. The docs TOC rail now follows those active headings with a segmented zigzag highlight instead of a single active branch.\n",
+  "breaking": false,
+  "links": []
+}

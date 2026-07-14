@@ -1,0 +1,11 @@
+{
+  "slug": "2023-09-04-v2-launch",
+  "date": "2023-09-04",
+  "title": "UI Thing V2 Launch 🚀",
+  "category": "announcement",
+  "tags": ["v2", "launch"],
+  "summary": "Launched UI Thing V2 — a complete rebuild with a new Reka UI-based component architecture, Tailwind CSS v4, and improved docs/examples.",
+  "body": "Launched version 2 of UI Thing with a complete rebuild featuring:\n\n- Modern component architecture\n- Enhanced documentation\n- Improved developer experience\n- New component library built on Reka UI\n- Update to Tailwind CSS v4\n- Comprehensive examples and blocks\n",
+  "breaking": true,
+  "links": []
+}

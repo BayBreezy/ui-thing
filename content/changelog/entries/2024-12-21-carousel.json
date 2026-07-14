@@ -1,0 +1,11 @@
+{
+  "slug": "2024-12-21-carousel",
+  "date": "2024-12-21",
+  "title": "Carousel",
+  "category": "feature",
+  "tags": ["carousel"],
+  "summary": "Added the Carousel component, based on the Shadcn Vue implementation.",
+  "body": "In this update, the `Carousel` component was added.\n\nThanks to the [Shadcn Vue](https://www.shadcn-vue.com/) team for doing the heavy lifting.\n\nYou can try it out by running\n\n```bash\nnpx ui-thing@latest add carousel\n```\n",
+  "breaking": false,
+  "links": []
+}

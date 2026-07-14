@@ -1,0 +1,11 @@
+{
+  "slug": "2025-01-14-table",
+  "date": "2025-01-14",
+  "title": "Table",
+  "category": "update",
+  "tags": ["table"],
+  "summary": "Added new Table examples, taken from the Origin UI library.",
+  "body": "Im this update, I added some examples for the [`Table`](/components/table) component.\n\nThe examples are taken from the [Origin UI](https://originui.com/) library.\n\nThanks to the team over there for all the great free examples ❤️.\n\nYou can run this command to add the updated table component to your project\n\n```bash\nnpx ui-thing@latest add table\n```\n",
+  "breaking": false,
+  "links": []
+}

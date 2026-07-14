@@ -1,0 +1,11 @@
+{
+  "slug": "2024-12-28-avatar",
+  "date": "2024-12-28",
+  "title": "Avatar",
+  "category": "update",
+  "tags": ["avatar"],
+  "summary": "Added new Avatar examples, taken from the Origin UI library.",
+  "body": "Im this update, I added some examples for the [`Avatar`](/components/avatar) component.\n\nThe examples are taken from the [Origin UI](https://originui.com/) library.\n\nThanks to the team over there for all the great free examples ❤️.\n",
+  "breaking": false,
+  "links": []
+}

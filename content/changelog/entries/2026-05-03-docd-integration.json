@@ -1,0 +1,11 @@
+{
+  "slug": "2026-05-03-docd-integration",
+  "date": "2026-05-03",
+  "title": "Docd Documentation Layer",
+  "category": "dx",
+  "tags": ["docs", "docd"],
+  "summary": "Integrated with the Docd documentation layer.",
+  "body": "- Integrated with the [Docd](https://docd.uithing.com){target=\"_blank\"} documentation layer.\n",
+  "breaking": false,
+  "links": []
+}

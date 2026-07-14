@@ -1,0 +1,11 @@
+{
+  "slug": "2024-11-14-input-examples",
+  "date": "2024-11-14",
+  "title": "Input Examples",
+  "category": "docs",
+  "tags": ["input", "forms"],
+  "summary": "Added a ton of Input examples, including a Password Strength indicator, from Origin UI.",
+  "body": "In this update, a tonne of Input examples were added to the [Vee Input](/forms/veeinput) page.\n\nThanks to the maintainers of the [Origin UI](https://originui.com/) library for providing these examples 🙏.\n\nCheck them out & let me know what you think.\n\nThe [`Password Strength`](/forms/veeinput#input-with-password-strength-indicator) example is really cool 😎.\n",
+  "breaking": false,
+  "links": []
+}

@@ -43,6 +43,18 @@
       >Colors</NuxtLink
     >
     <NuxtLink
+      :class="[route.path.startsWith('/changelog') ? 'text-primary!' : '']"
+      to="/changelog"
+      class="text-foreground/60 hover:text-foreground relative inline-flex items-center transition-colors"
+    >
+      Changelog
+      <span
+        v-if="hasUnread"
+        class="bg-primary absolute -top-0.5 -right-2 size-1.5 rounded-full"
+        aria-hidden="true"
+      />
+    </NuxtLink>
+    <NuxtLink
       to="https://docd.uithing.com/prose/callout"
       class="group text-foreground/60 hover:text-foreground transition-colors"
       target="_blank"
@@ -59,6 +71,7 @@
 
 <script lang="ts" setup>
   const route = useRoute();
+  const { hasUnread } = useChangelogViewed();
   const externalProjects = [
     { name: "Settings Dashboard", link: "https://settings-dash.behonbaker.com/" },
     { name: "ETag Topup UI", link: "https://etag-ui.behonbaker.com/" },

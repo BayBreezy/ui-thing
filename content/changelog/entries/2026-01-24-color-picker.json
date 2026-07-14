@@ -1,0 +1,11 @@
+{
+  "slug": "2026-01-24-color-picker",
+  "date": "2026-01-24",
+  "title": "Color Picker",
+  "category": "feature",
+  "tags": ["color-picker"],
+  "summary": "Added a versatile Color Picker component supporting HEX/RGB/HSL, alpha transparency, and preset swatches.",
+  "body": "- **Color Picker**: A versatile color picker component that supports multiple color formats (HEX, RGB, HSL) and includes features like alpha transparency, preset swatches, and a user-friendly interface. Check out the documentation [here](/components/color-picker).\n",
+  "breaking": false,
+  "links": []
+}

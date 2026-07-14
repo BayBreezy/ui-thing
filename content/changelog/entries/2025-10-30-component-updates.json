@@ -1,0 +1,11 @@
+{
+  "slug": "2025-10-30-component-updates",
+  "date": "2025-10-30",
+  "title": "Component Updates",
+  "category": "update",
+  "tags": ["tiptap", "nav", "tooltip"],
+  "summary": "Added a new Tiptap editor block, removed the Nav component's client-only wrapper, and added an Animated Tooltip component.",
+  "body": "- **Tiptap Editor**: Added new Tiptap editor block with toolbar and formatting options\n- **Nav Component**: Removed client-only wrapper for better performance\n- **Animated Tooltip**: Added new component with mouse tracking and animations\n",
+  "breaking": false,
+  "links": []
+}

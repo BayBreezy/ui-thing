@@ -1,0 +1,11 @@
+{
+  "slug": "2025-12-25-mcp-server",
+  "date": "2025-12-25",
+  "title": "MCP Server",
+  "category": "announcement",
+  "tags": ["mcp"],
+  "summary": "Launched an MCP server powering AI capabilities, giving assistants like Claude Desktop, Cursor, and VS Code access to component source, docs, and installation instructions.",
+  "body": "🎄 Happy Holidays 🎄\n\nUI Thing now has an MCP server that powers its AI capabilities. This allows AI assistants like Claude Desktop, Cursor, and VS Code to access component source code, documentation, installation instructions, and more.\n\nLearn more about it at [Getting Started - MCP Server](/getting-started/mcp).\n",
+  "breaking": false,
+  "links": []
+}

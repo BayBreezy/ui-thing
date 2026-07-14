@@ -1,0 +1,11 @@
+{
+  "slug": "2024-11-20-sidebar-blocks",
+  "date": "2024-11-20",
+  "title": "Sidebar Blocks",
+  "category": "feature",
+  "tags": ["blocks", "sidebar"],
+  "summary": "Added copy-paste Sidebar blocks, taken from the shadcn-ui library.",
+  "body": "If you want to copy and paste some Sidebar blocks, you can check out the [Sidebar Blocks](/blocks/sidebar) page.\n\nThe examples are taken from the shadcn-ui library 🙂.\n",
+  "breaking": false,
+  "links": []
+}

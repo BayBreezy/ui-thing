@@ -1,0 +1,11 @@
+{
+  "slug": "2025-12-29-qrcode-avatar-label-group",
+  "date": "2025-12-29",
+  "title": "QR Code & Avatar Label Group",
+  "category": "feature",
+  "tags": ["qrcode", "avatar"],
+  "summary": "Added a QR Code generator component and an Avatar Label Group for pairing an avatar with a title/subtitle.",
+  "body": "- **QR Code**: A component for generating and displaying QR codes with customizable styling and frame handles. Check out the documentation [here](/components/qrcode).\n- **Avatar Label Group**: A component for displaying an Avatar with associated title and subtitle. Check out the documentation [here](/components/avatar).\n",
+  "breaking": false,
+  "links": []
+}

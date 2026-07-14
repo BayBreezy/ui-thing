@@ -1,0 +1,11 @@
+{
+  "slug": "2025-12-25-blocks-api",
+  "date": "2025-12-25",
+  "title": "Blocks API",
+  "category": "feature",
+  "tags": ["api", "blocks"],
+  "summary": "Added new endpoints to list all blocks, fetch a block by name, and browse block categories.",
+  "body": "A new API endpoint has been added to get all blocks.\n\n**Endpoints:**\n\n- Get all blocks: [`/api/blocks`](/api/blocks)\n  - You can also filter with a search query\n- Get a block by name: [`/api/blocks/{name}`](/api/blocks/{name})\n- Get all block categories: [`/api/blocks/categories`](/api/blocks/categories)\n- Get blocks by category: [`/api/blocks/categories/{name}`](/api/blocks/categories/{name})\n",
+  "breaking": false,
+  "links": []
+}

@@ -1,0 +1,11 @@
+{
+  "slug": "2024-12-15-sliders",
+  "date": "2024-12-15",
+  "title": "Sliders",
+  "category": "update",
+  "tags": ["slider"],
+  "summary": "Updated the Slider component to support vertical orientation, fixing missing classes.",
+  "body": "In this update, the `Slider` component was updated to accommodate `vertical` orientation.\n\nWhile adding some examples from the [Origin UI](https://originui.com/) library, I noticed that the `Slider` component was missing the necessary classes that would make it work in a vertical orientation.\n",
+  "breaking": false,
+  "links": []
+}

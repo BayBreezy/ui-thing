@@ -1,0 +1,11 @@
+{
+  "slug": "2025-02-09-progress",
+  "date": "2025-02-09",
+  "title": "Progress",
+  "category": "update",
+  "tags": ["progress"],
+  "summary": "Fixed an issue with how the Progress component calculated its transform value.",
+  "body": "In this update, the [`Progress`](/components/progress) component was updated.\n\nThere was an issue with how the transform value was being calculated.\n\nYou can update it by running\n\n```bash\nnpx ui-thing@latest add progress\n```\n",
+  "breaking": false,
+  "links": []
+}

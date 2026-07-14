@@ -1,0 +1,11 @@
+{
+  "slug": "2025-02-09-native-checkbox",
+  "date": "2025-02-09",
+  "title": "Native Checkbox",
+  "category": "feature",
+  "tags": ["forms", "checkbox"],
+  "summary": "Added the Native Checkbox form component to resolve array issues with the Radix Vue Checkbox.",
+  "body": "The [`Native Checkbox`](/forms/veecheckbox-native) component was added.\n\nIt was added because of some array issues I had with the Checkbox from Radix Vue.\n\nYou can try it out by running\n\n```bash\nnpx ui-thing@latest add vee-native-checkbox\n```\n",
+  "breaking": false,
+  "links": []
+}

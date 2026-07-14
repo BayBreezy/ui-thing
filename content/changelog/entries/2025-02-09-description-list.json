@@ -1,0 +1,11 @@
+{
+  "slug": "2025-02-09-description-list",
+  "date": "2025-02-09",
+  "title": "Description List",
+  "category": "feature",
+  "tags": ["description-list"],
+  "summary": "Added the Description List component.",
+  "body": "The [`Description List`](/components/description-list) component was added.\n\nYou can try it out by running\n\n```bash\nnpx ui-thing@latest add description-list\n```\n",
+  "breaking": false,
+  "links": []
+}

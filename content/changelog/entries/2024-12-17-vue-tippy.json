@@ -1,0 +1,11 @@
+{
+  "slug": "2024-12-17-vue-tippy",
+  "date": "2024-12-17",
+  "title": "Vue Tippy",
+  "category": "feature",
+  "tags": ["goodies", "tooltip"],
+  "summary": "Added the Vue Tippy package to the Goodies section for creating tooltips.",
+  "body": "The Goodies section was updated with the [Vue Tippy](/goodies/vue-tippy) package.\n\nYou can create cool tooltips with it. The `Tooltip` component still works so now you have two options to choose from 🎉.\n",
+  "breaking": false,
+  "links": []
+}

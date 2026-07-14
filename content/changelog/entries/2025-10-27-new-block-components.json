@@ -1,0 +1,11 @@
+{
+  "slug": "2025-10-27-new-block-components",
+  "date": "2025-10-27",
+  "title": "New Block Components",
+  "category": "feature",
+  "tags": ["blocks"],
+  "summary": "Added password recovery/reset, footer, feature, FAQ, error page, and CTA block components.",
+  "body": "#### Password Recovery & Reset\n\nImplemented password recovery and reset components with enhanced layouts and validation.\n\n#### Footer Components\n\nEnhanced footer components with multiple layouts and styles.\n\n#### Feature Blocks\n\nAdded multiple feature blocks with animations and responsive design.\n\n#### FAQ Components\n\nEnhanced FAQ components with multiple layouts and animations.\n\n#### Error Pages\n\nAdded custom error pages (404, 500, etc.) with animations and helpful suggestions.\n\n#### CTA Components\n\nEnhanced call-to-action components with animations and new styles.\n",
+  "breaking": false,
+  "links": []
+}

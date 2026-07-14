@@ -1,0 +1,11 @@
+{
+  "slug": "2025-12-25-component-api",
+  "date": "2025-12-25",
+  "title": "Component API",
+  "category": "feature",
+  "tags": ["api", "components"],
+  "summary": "The component API now supports fetching a component by name and includes a docsPath property.",
+  "body": "The component API now includes an endpoint to get a component by name.\n\nThe response now includes a `docsPath` property that contains the path to the documentation page for that component.\n\n**Endpoints:**\n\n- Get all components: [`/api/components`](/api/components)\n  - You can also filter with a search query\n- Get a component by name: [`/api/components/{name}`](/api/components/{name})\n",
+  "breaking": false,
+  "links": []
+}

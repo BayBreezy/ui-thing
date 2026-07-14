@@ -1,0 +1,11 @@
+{
+  "slug": "2024-10-31-button-styles",
+  "date": "2024-10-31",
+  "title": "Button Styles",
+  "category": "docs",
+  "tags": ["button"],
+  "summary": "Added a few new Button styles from Enhanced Button.",
+  "body": "In this release, I added a few button styles to the [Button](/components/button) page.\n\nThe examples are taken from [Enhanced Button](https://enhanced-button.vercel.app/) ❤️.\n\nCheck them out & let me know what you think.\n",
+  "breaking": false,
+  "links": []
+}

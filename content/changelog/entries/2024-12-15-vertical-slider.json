@@ -1,0 +1,11 @@
+{
+  "slug": "2024-12-15-vertical-slider",
+  "date": "2024-12-15",
+  "title": "Vertical Slider",
+  "category": "docs",
+  "tags": ["slider"],
+  "summary": "Added vertical slider examples from Origin UI.",
+  "body": "You can check out all the awesome examples here: [Sliders](/components/slider#origin-ui-examples).\n",
+  "breaking": false,
+  "links": []
+}

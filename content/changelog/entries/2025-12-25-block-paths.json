@@ -1,0 +1,11 @@
+{
+  "slug": "2025-12-25-block-paths",
+  "date": "2025-12-25",
+  "title": "Block Paths",
+  "category": "update",
+  "tags": ["blocks"],
+  "summary": "Updated several block URL paths for consistency — breaking if you hardcoded or bookmarked old paths.",
+  "body": "The URL for several block paths have been updated to be more consistent. Some dashes were added here and there. This is only breaking if you were hardcoding the paths somewhere or add them bookmarked 👀...\n",
+  "breaking": true,
+  "links": []
+}

@@ -1,0 +1,11 @@
+{
+  "slug": "2025-10-31-home-page-refactor",
+  "date": "2025-10-31",
+  "title": "Home Page Refactor",
+  "category": "update",
+  "tags": ["home"],
+  "summary": "Refactored the home page layout and added new HomeCards components.",
+  "body": "Refactored the home page layout and added new HomeCards components for improved visual presentation.\n",
+  "breaking": false,
+  "links": []
+}

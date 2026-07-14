@@ -1,0 +1,11 @@
+{
+  "slug": "2024-12-01-vueform-slider",
+  "date": "2024-12-01",
+  "title": "VueForm Slider",
+  "category": "feature",
+  "tags": ["forms", "slider"],
+  "summary": "Added the VeeVueFormSlider form component, a single-value alternative to the array-based Slider v-model.",
+  "body": "Let me start by giving credit to the [VueForm Slider](https://github.com/vueform/slider) creators ❤️.\n\nIn this release, I added the [`VeeVueFormSlider`](/forms/vee-vueformslider) component to the forms section.\n\nYes, there is an existing `Slider` component provided [here](/components/slider). The problem with this component is that the `v-model` directive returns an array. ALWAYS! This is coming from the implementation provided by Reka UI.\n\nBased on the issue raised here [#38](https://github.com/BayBreezy/ui-thing/issues/38), I decided to create a new slider component that returns a single value. This is the [`VeeVueFormSlider`](/forms/vee-vueformslider) component.\n\nThe cool thing is that this one has built in support for `vee-validate` 🙂.\n\nYou can try it out by running\n\n```bash\nnpx ui-thing@latest add vee-vue-form-slider\n```\n",
+  "breaking": false,
+  "links": []
+}

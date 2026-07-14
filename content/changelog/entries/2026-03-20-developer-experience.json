@@ -1,0 +1,11 @@
+{
+  "slug": "2026-03-20-developer-experience",
+  "date": "2026-03-20",
+  "title": "Developer Experience",
+  "category": "dx",
+  "tags": ["agent-skills", "codex"],
+  "summary": "Added a local Codex skill covering UI Thing workflows for components, docs, generators, and MCP authoring.",
+  "body": "- **Agent Skills**: Added a new local `uithing` Codex skill for UI Thing workflows. It covers real CLI usage, component/docs/generator/MCP authoring inside this repo, and React or shadcn-style snippet conversion into native Vue, Nuxt, and UI Thing composition.\n",
+  "breaking": false,
+  "links": []
+}

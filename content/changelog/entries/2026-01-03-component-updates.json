@@ -1,0 +1,11 @@
+{
+  "slug": "2026-01-03-component-updates",
+  "date": "2026-01-03",
+  "title": "Component Updates",
+  "category": "update",
+  "tags": ["alert", "sheet"],
+  "summary": "Alert icon alignment fixed when no title is provided; Sheet gained a new variant prop and a fullscreen option.",
+  "body": "- [**Alert**](/components/alert): The Alert component has been updated to adjust the icon alignment when there is no title provided. Check out the updated documentation [here](/components/alert).\n- [**Sheet**](/components/sheet): The Sheet component has been updated to include a new `variant` prop that allows for different visual styles. A `fullscreen` prop was also introduced that will determine if the sheet takes up the entire screen or not. The default variant has been preserved, and additional variants can be explored in the documentation [here](/components/sheet).\n",
+  "breaking": false,
+  "links": []
+}

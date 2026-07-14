@@ -1,0 +1,11 @@
+{
+  "slug": "2026-01-01-flip-clock",
+  "date": "2026-01-01",
+  "title": "Flip Clock",
+  "category": "feature",
+  "tags": ["flip-clock"],
+  "summary": "Added an animated split-flap Flip Clock component supporting live time and countdown modes.",
+  "body": "- **Flip Clock**: An animated split-flap clock that supports live time and countdown modes. Check out the documentation [here](/components/flip-clock).\n",
+  "breaking": false,
+  "links": []
+}

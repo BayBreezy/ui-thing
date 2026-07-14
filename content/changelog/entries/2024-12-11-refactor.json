@@ -1,0 +1,11 @@
+{
+  "slug": "2024-12-11-refactor",
+  "date": "2024-12-11",
+  "title": "Refactor",
+  "category": "dx",
+  "tags": ["refactor"],
+  "summary": "Fixed components using className instead of class; refreshed several code examples.",
+  "body": "In this update, I made some minor fixes to some components that were using `className` instead of `class`.\n\nSome of the code examples were also updated:\n\n- [Dropdown Menu](/components/dropdownmenu)\n- [Navigation Menu](/components/navigationmenu)\n- [Sidebar](/components/sidebar)\n- [Stepper](/components/stepper)\n",
+  "breaking": false,
+  "links": []
+}

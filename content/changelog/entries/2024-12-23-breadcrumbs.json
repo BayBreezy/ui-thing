@@ -1,0 +1,11 @@
+{
+  "slug": "2024-12-23-breadcrumbs",
+  "date": "2024-12-23",
+  "title": "Breadcrumbs",
+  "category": "update",
+  "tags": ["breadcrumbs"],
+  "summary": "Breadcrumbs component now supports a custom slot in the items array.",
+  "body": "In this update the [`Breadcrumbs`](/components/breadcrumbs) component got a little update. You can now pass a `slot` in the array of items & customize what is displayed in that slot.\n\n```html\n<template>\n  <UiBreadcrumbs :items=\"items\" class=\"justify-center\">\n    <template #select>\n      <UiSelect default-value=\"s1\">\n        <UiSelectTrigger class=\"h-9 w-36\" />\n        <UiSelectContent>\n          <UiSelectItem value=\"s1\">Orion</UiSelectItem>\n          <UiSelectItem value=\"s2\">Sigma</UiSelectItem>\n          <UiSelectItem value=\"s3\">Dorado</UiSelectItem>\n        </UiSelectContent>\n      </UiSelect>\n    </template>\n  </UiBreadcrumbs>\n</template>\n\n<script lang=\"ts\" setup>\n  import type { BreadcrumbItem } from \"~/components/Ui/Breadcrumbs.vue\";\n\n  const items: BreadcrumbItem[] = [{ label: \"Databases\" }, { slot: \"select\" }];\n</script>\n```\n\nYou can try it out by running\n\n```bash\nnpx ui-thing@latest add breadcrumbs\n```\n",
+  "breaking": false,
+  "links": []
+}

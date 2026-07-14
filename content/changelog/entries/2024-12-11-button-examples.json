@@ -1,0 +1,11 @@
+{
+  "slug": "2024-12-11-button-examples",
+  "date": "2024-12-11",
+  "title": "Button Examples",
+  "category": "docs",
+  "tags": ["button"],
+  "summary": "Added more Button examples from Origin UI.",
+  "body": "I added more button examples to the [Button](/components/button) page. Shoutout to the [Origin UI](https://originui.com/) team for providing these examples 🙏.\n",
+  "breaking": false,
+  "links": []
+}

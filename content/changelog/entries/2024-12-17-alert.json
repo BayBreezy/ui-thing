@@ -1,0 +1,11 @@
+{
+  "slug": "2024-12-17-alert",
+  "date": "2024-12-17",
+  "title": "Alert",
+  "category": "update",
+  "tags": ["alert"],
+  "summary": "Updated the Alert component with new examples from Origin UI.",
+  "body": "In this update, the `Alert` component was updated.\n\nSome cool examples were added from the [Origin UI](https://originui.com/) library.\n\nTo update just run this command in your project\n\n```bash\nnpx ui-thing@latest add alert\n```\n",
+  "breaking": false,
+  "links": []
+}

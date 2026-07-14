@@ -1,0 +1,11 @@
+{
+  "slug": "2025-02-07-loader",
+  "date": "2025-02-07",
+  "title": "Loader",
+  "category": "feature",
+  "tags": ["loader"],
+  "summary": "Added the Loader component, requested in issue #77.",
+  "body": "In this update, I added the [`Loader`](/components/loader) component.\n\nIt was recommended in this [issue](https://github.com/BayBreezy/ui-thing/issues/77).\n\nYou can try it out by running\n\n```bash\nnpx ui-thing@latest add loader\n```\n",
+  "breaking": false,
+  "links": []
+}

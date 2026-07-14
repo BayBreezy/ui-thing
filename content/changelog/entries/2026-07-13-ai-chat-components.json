@@ -1,0 +1,11 @@
+{
+  "slug": "2026-07-13-ai-chat-components",
+  "date": "2026-07-13",
+  "title": "New AI Chat Components",
+  "category": "feature",
+  "tags": ["attachment", "bubble", "marker", "message", "message-scroller"],
+  "summary": "Added a set of AI chat building blocks ported from shadcn-vue: Attachment, Bubble, Marker, Message, and Message Scroller.",
+  "body": "A set of AI chat building blocks, ported over from [shadcn-vue](https://www.shadcn-vue.com/):\n\n- [**Attachment**](/components/attachment): Displays a file or image attachment with media, metadata, upload state, and actions.\n- [**Bubble**](/components/bubble): Displays conversational content in a message bubble, with variants, alignment, grouping, and reactions.\n- [**Marker**](/components/marker): Displays an inline status, system note, bordered row, or labeled separator in a conversation.\n- [**Message**](/components/message): Lays out a single message in a conversation, handling the avatar, alignment, header, and footer around it.\n- [**Message Scroller**](/components/message-scroller): A headless scroll container for chat transcripts. Anchors turns, follows streamed replies, restores your place when older history loads, and exposes composables to jump to any message.\n",
+  "breaking": false,
+  "links": []
+}

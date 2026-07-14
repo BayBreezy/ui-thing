@@ -1,0 +1,11 @@
+{
+  "slug": "2024-11-20-sidebar-placeholder",
+  "date": "2024-11-20",
+  "title": "Sidebar & Placeholder",
+  "category": "feature",
+  "tags": ["sidebar", "placeholder"],
+  "summary": "Added the Sidebar component (ported from shadcn-vue) and the Placeholder component (from Nuxt UI).",
+  "body": "In this release, the [`Sidebar`](/components/sidebar) component was added to the components section.\n\nThanks to this issue here [#32](https://github.com/BayBreezy/ui-thing/issues/32), I saw that shadcn-ui added a [`Sidebar`](/components/sidebar) component to their library.\n\nThe guys at shadcn-vue had already created a port of this, so I used most of that code to create the [`Sidebar`](/components/sidebar) component.\n\nThanks to all the great devs that made this component possible ❤️.\n\nAs for the [`Placeholder`](/components/placeholder) component, this one was taken from the guys at [Nuxt UI](https://ui.nuxt.com/) 🙏.\n",
+  "breaking": false,
+  "links": []
+}

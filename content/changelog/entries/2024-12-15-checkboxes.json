@@ -1,0 +1,11 @@
+{
+  "slug": "2024-12-15-checkboxes",
+  "date": "2024-12-15",
+  "title": "Checkboxes",
+  "category": "docs",
+  "tags": ["checkbox"],
+  "summary": "Added checkbox examples from Origin UI.",
+  "body": "I also add some examples of checkboxes from the [Origin UI](https://originui.com/) library. You can check them out here: [Checkboxes](/forms/veecheckbox#origin-ui-examples).\n",
+  "breaking": false,
+  "links": []
+}

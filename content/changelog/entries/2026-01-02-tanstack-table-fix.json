@@ -1,0 +1,11 @@
+{
+  "slug": "2026-01-02-tanstack-table-fix",
+  "date": "2026-01-02",
+  "title": "Tanstack Table Fix",
+  "category": "update",
+  "tags": ["tanstacktable"],
+  "summary": "Fixed an issue with column pinning styles in the Tanstack Table component.",
+  "body": "- [**Tanstack Table**](/components/tanstacktable): The Tanstack Table component has been updated to fix an issue with column pinning styles. Pinned columns now have the correct background color applied. Check out the updated documentation [here](/components/tanstacktable).\n",
+  "breaking": false,
+  "links": []
+}

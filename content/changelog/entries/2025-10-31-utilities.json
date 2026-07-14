@@ -1,0 +1,11 @@
+{
+  "slug": "2025-10-31-utilities",
+  "date": "2025-10-31",
+  "title": "Utilities",
+  "category": "dx",
+  "tags": ["css"],
+  "summary": "Added a no-scrollbar utility class for scrollable elements.",
+  "body": "Added `no-scrollbar` utility class for improved user experience on scrollable elements.\n",
+  "breaking": false,
+  "links": []
+}

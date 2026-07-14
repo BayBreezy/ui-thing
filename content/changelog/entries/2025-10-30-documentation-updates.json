@@ -1,0 +1,11 @@
+{
+  "slug": "2025-10-30-documentation-updates",
+  "date": "2025-10-30",
+  "title": "Documentation Updates",
+  "category": "docs",
+  "tags": ["sidebar", "navigation", "header"],
+  "summary": "Enhanced sidebar, navigation, and header documentation with more detailed descriptions.",
+  "body": "Enhanced documentation across multiple sections:\n\n- Updated sidebar documentation with detailed descriptions\n- Improved navigation documentation\n- Enhanced header section documentation with style descriptions\n",
+  "breaking": false,
+  "links": []
+}

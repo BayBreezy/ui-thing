@@ -1,0 +1,11 @@
+{
+  "slug": "2026-03-20-form-updates",
+  "date": "2026-03-20",
+  "title": "Form Updates",
+  "category": "feature",
+  "tags": ["forms", "veeswitch"],
+  "summary": "Added a VeeSwitch form wrapper with docs, examples, and an aligned value model.",
+  "body": "- [**VeeSwitch**](/forms/veeswitch): Added a dedicated Vee-Validate switch wrapper with docs and examples, including settings and preferences card patterns. The wrapper now also aligns with the current Reka Switch value model so initial values and custom true/false values display correctly in the UI.\n",
+  "breaking": false,
+  "links": []
+}
