@@ -1,5 +1,10 @@
 import { defineCollection, defineContentConfig } from "@nuxt/content";
+import { useNuxt } from "@nuxt/kit";
+import { joinURL } from "ufo";
 import { z } from "zod";
+
+const { options } = useNuxt();
+const changelogCwd = joinURL(options.rootDir, "data/changelog");
 
 const changelogSchema = z.object({
   slug: z.string(),
@@ -17,7 +22,10 @@ export default defineContentConfig({
   collections: {
     changelog: defineCollection({
       type: "data",
-      source: "changelog/entries/**/*.json",
+      // Deliberately sourced from outside `content/` — the docd layer's `docs`
+      // collection globs `content/**` with no extension filter, so files placed
+      // under `content/` get swept up as bogus nav pages too.
+      source: { cwd: changelogCwd, include: "entries/**/*.json" },
       schema: changelogSchema,
     }),
   },
