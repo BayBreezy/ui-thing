@@ -73,7 +73,11 @@
           },
         }"
         title="Blog page on image"
-        class="mt-10 hidden h-60 w-full items-end overflow-hidden rounded-lg bg-[url('https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover drop-shadow lg:mt-24 lg:flex lg:h-[720px]"
+        class="mt-10 hidden h-60 w-full items-end overflow-hidden rounded-lg bg-cover drop-shadow lg:mt-24 lg:flex lg:h-[720px]"
+        :style="{
+          backgroundImage:
+            'url(https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)',
+        }"
       >
         <div
           class="w-full border-t border-white/10 bg-black/40 p-6 text-white backdrop-blur-2xl md:p-10"

@@ -32,7 +32,11 @@
       :breakpoints="{
         640: { slidesPerView: 1.1, spaceBetween: 20, autoplay: { delay: 7000 } },
       }"
-      class="h-[450px] w-full bg-[url('https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-no-repeat p-2 md:w-[700px] lg:h-full lg:w-1/2 lg:p-8"
+      class="h-[450px] w-full bg-cover bg-no-repeat p-2 md:w-[700px] lg:h-full lg:w-1/2 lg:p-8"
+      :style="{
+        backgroundImage:
+          'url(https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)',
+      }"
     >
       <swiper-slide v-for="(item, index) in reviews" :key="index" class="flex items-end">
         <div
