@@ -4,7 +4,6 @@
   >
     <!-- Animated gradient background -->
     <div class="absolute inset-0 -z-10">
-      <div class="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
       <div
         class="absolute top-0 left-0 h-full w-1/2 bg-linear-to-br from-purple-600/20 to-transparent"
       />
