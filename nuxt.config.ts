@@ -93,6 +93,11 @@ export default defineNuxtConfig({
       description: "The complete documentation including all content",
     },
   },
+  content: {
+    experimental: {
+      sqliteConnector: "native",
+    },
+  },
 
   vcalendar: {
     calendarOptions: {
