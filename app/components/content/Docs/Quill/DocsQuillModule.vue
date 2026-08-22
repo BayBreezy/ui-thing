@@ -27,9 +27,7 @@
     modules.value = {
       name: "blotFormatter",
       module: BlotFormatter,
-      options: {
-        /* options */
-      },
+      options: {/* options */},
     };
   });
 </script>
