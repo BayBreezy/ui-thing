@@ -240,8 +240,8 @@ export function useScrollspy(options: UseScrollspyOptions = {}) {
     idOrEl: string | HTMLElement,
     behavior: ScrollBehavior = smooth ? "smooth" : "auto"
   ) {
-    let anchorEl: HTMLElement | null = null;
-    let sectionId: string | null = null;
+    let anchorEl: HTMLElement | null;
+    let sectionId: string | null;
 
     if (typeof idOrEl === "string") {
       sectionId = idOrEl;
