@@ -376,6 +376,9 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
   import type { RowSelectionState } from "@tanstack/vue-table";
   import type { CheckboxRootProps } from "reka-ui";
 
+  //2. Import the components you want to use
+  import { UiBadge, UiCheckbox } from "#components";
+
   // 1a. Register only the features this table actually uses.
   // `columnVisibilityFeature` is required even though this example doesn't
   // toggle columns: `row.getVisibleCells()` (used below) is implemented by
@@ -384,9 +387,6 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
     columnVisibilityFeature,
     rowSelectionFeature,
   });
-
-  //2. Import the components you want to use
-  import { UiBadge, UiCheckbox } from "#components";
 
   //3. Fetch your data
   const { data } = await useAsyncData(
