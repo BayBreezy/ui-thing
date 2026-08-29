@@ -1,0 +1,11 @@
+{
+  "slug": "2026-08-29-tanstack-table-v9",
+  "date": "2026-08-29",
+  "title": "Tanstack Table v9",
+  "category": "update",
+  "tags": ["tanstacktable"],
+  "summary": "Migrated the Tanstack Table component and every example that uses it to Tanstack Table v9's feature-based architecture (breaking).",
+  "body": "- [**Tanstack Table**](/components/tanstacktable): Migrated to Tanstack Table v9. v9 drops the old all-features-bundled table in favor of an opt-in `tableFeatures()` registry, so the component now explicitly registers only what it renders: sorting, filtering, faceting, pagination, expansion, row/column pinning, selection, and visibility. `useVueTable` is gone in favor of `useTable`, row models now live on the features object instead of as table options, and column pinning is now logical (`start` / `end`) instead of physical (`left` / `right`), with sticky offsets computed from `column.getStart()`. This is a breaking change if you're passing your own `ColumnDef`, `Table`, `Row`, or `Column` types into the component — they now need the exported `TanStackTableFeatures` type as their first generic. Every docs example, the `HomeTasks` dashboard example, and the dashboard blocks that use the component were rewritten for v9 too. Check out the updated docs [here](/components/tanstacktable).\n",
+  "breaking": true,
+  "links": []
+}
