@@ -1,0 +1,11 @@
+{
+  "slug": "2026-08-29-drawer-reka-ui",
+  "date": "2026-08-29",
+  "title": "Drawer on Reka UI",
+  "category": "update",
+  "tags": ["drawer"],
+  "summary": "Rebuilt the Drawer component on Reka UI's native Drawer primitive, dropping the vaul-vue dependency (breaking).",
+  "body": "- [**Drawer**](/components/drawer): Rewrote every Drawer component to use Reka UI's built-in `Drawer` primitive instead of `vaul-vue`, which is no longer a dependency. Open/close and swipe-to-dismiss transitions are now driven by Tailwind `animate-in`/`animate-out` and slide utilities on `data-state`/`data-swipe-direction`, since Reka UI's Drawer (unlike vaul) doesn't animate itself. This is a breaking change: the placement/swipe prop is now `swipe-direction` with values `up` / `down` / `left` / `right`, replacing vaul's `direction` prop (`top` / `bottom` / `left` / `right`). The `should-scale-background` prop has also been removed, since Reka UI's Drawer has no background-scaling effect. All other Drawer components, props, and slots (`hideKnob`, `translucent`, the `overlay`/`content`/`knob` slots, etc.) are unchanged. Check out the updated docs [here](/components/drawer).\n",
+  "breaking": true,
+  "links": []
+}
