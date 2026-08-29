@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { DrawerClose } from "vaul-vue";
-  import type { DrawerCloseProps } from "vaul-vue";
+  import { DrawerClose } from "reka-ui";
+  import type { DrawerCloseProps } from "reka-ui";
 
   const props = defineProps<DrawerCloseProps>();
 </script>

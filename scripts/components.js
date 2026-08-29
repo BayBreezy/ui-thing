@@ -383,7 +383,6 @@ export default [
   {
     name: "Drawer",
     value: "drawer",
-    deps: ["vaul-vue"],
     utils: ["translucent.ts"],
     files: [
       "Drawer/Close.vue",

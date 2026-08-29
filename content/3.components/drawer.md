@@ -2,8 +2,8 @@
 title: Drawer
 description: A drawer component that can be used as a Dialog replacement on tablet and mobile devices.
 links:
-  - title: Vaul Vue Docs
-    href: https://github.com/reka-ui/vaul-vue/tree/main?tab=readme-ov-file#vaul-vue
+  - title: Reka UI Drawer Docs
+    href: https://reka-ui.com/docs/components/drawer
 ---
 
 ## Source code
@@ -31,7 +31,7 @@ We can bring the different components together to make a simple drawer.
 ```vue [DocsDrawerBasic.vue]
 <template>
   <div class="text-center">
-    <UiDrawer v-model:open="isOpen" should-scale-background>
+    <UiDrawer v-model:open="isOpen">
       <UiDrawerTrigger as-child>
         <UiButton variant="outline">Open Drawer</UiButton>
       </UiDrawerTrigger>
@@ -218,7 +218,7 @@ You can combine the `Dialog` and `Drawer` components to create a responsive dial
       </UiDialogContent>
     </UiDialog>
 
-    <UiDrawer v-else v-model:open="isOpen" should-scale-background>
+    <UiDrawer v-else v-model:open="isOpen">
       <UiDrawerTrigger as-child>
         <UiButton variant="outline" text="Edit Profile" />
       </UiDrawerTrigger>

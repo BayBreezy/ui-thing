@@ -11,8 +11,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { DrawerDescription } from "vaul-vue";
-  import type { DrawerDescriptionProps } from "vaul-vue";
+  import { DrawerDescription } from "reka-ui";
+  import type { DrawerDescriptionProps } from "reka-ui";
   import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 

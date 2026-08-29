@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { DrawerTrigger } from "vaul-vue";
-  import type { DrawerTriggerProps } from "vaul-vue";
+  import { DrawerTrigger } from "reka-ui";
+  import type { DrawerTriggerProps } from "reka-ui";
 
   const props = defineProps<DrawerTriggerProps>();
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <UiDrawer v-model:open="isOpen" should-scale-background>
+    <UiDrawer v-model:open="isOpen">
       <UiDrawerTrigger as-child>
         <UiButton variant="outline">Open Drawer</UiButton>
       </UiDrawerTrigger>

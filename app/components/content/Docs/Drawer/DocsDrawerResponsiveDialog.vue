@@ -25,7 +25,7 @@
       </UiDialogContent>
     </UiDialog>
 
-    <UiDrawer v-else v-model:open="isOpen" should-scale-background>
+    <UiDrawer v-else v-model:open="isOpen">
       <UiDrawerTrigger as-child>
         <UiButton variant="outline" text="Edit Profile" />
       </UiDrawerTrigger>

@@ -30,7 +30,7 @@
       </UiPopoverContent>
     </UiPopover>
 
-    <UiDrawer v-else v-model:open="isOpen" should-scale-background>
+    <UiDrawer v-else v-model:open="isOpen">
       <UiDrawerTrigger as-child>
         <UiButton variant="outline" class="w-[150px] justify-start">
           {{ selectedStatus ? selectedStatus.label : "+ Set status" }}
