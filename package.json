@@ -39,7 +39,7 @@
     "@fullcalendar/vue3": "6.1.21",
     "@internationalized/number": "^3.6.7",
     "@nuxt/kit": "^4.5.2",
-    "@tanstack/vue-table": "^8.21.3",
+    "@tanstack/vue-table": "^9.2.4",
     "@tiptap/extension-color": "^3.30.5",
     "@tiptap/extension-highlight": "^3.30.5",
     "@tiptap/extension-link": "^3.30.5",

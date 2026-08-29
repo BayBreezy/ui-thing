@@ -2,10 +2,12 @@
   import { faker } from "@faker-js/faker";
   //1. Import the stuff you want from TanStack
   import {
+    columnVisibilityFeature,
     createColumnHelper,
     FlexRender,
-    getCoreRowModel,
-    useVueTable,
+    rowSelectionFeature,
+    tableFeatures,
+    useTable,
   } from "@tanstack/vue-table";
   // Import any type that you may need
   import type { RowSelectionState } from "@tanstack/vue-table";
@@ -13,6 +15,15 @@
 
   //2. Import the components you want to use
   import { UiBadge, UiCheckbox } from "#components";
+
+  // 1a. Register only the features this table actually uses.
+  // `columnVisibilityFeature` is required even though this example doesn't
+  // toggle columns: `row.getVisibleCells()` (used below) is implemented by
+  // that feature, not by core.
+  const features = tableFeatures({
+    columnVisibilityFeature,
+    rowSelectionFeature,
+  });
 
   //3. Fetch your data
   const { data } = await useAsyncData(
@@ -34,7 +45,7 @@
     select: boolean;
   };
   //5. Create a column helper based on the type of the item
-  const columnHelper = createColumnHelper<Item>();
+  const columnHelper = createColumnHelper<typeof features, Item>();
 
   const total = computed(() => {
     return data.value?.reduce((acc: number, item) => acc + item.balance, 0);
@@ -52,10 +63,10 @@
     columnHelper.accessor("select", {
       header({ table }) {
         return h(UiCheckbox, {
-          modelValue: table.getIsSomeRowsSelected()
-            ? "indeterminate"
-            : table.getIsAllRowsSelected()
-              ? true
+          modelValue: table.getIsAllRowsSelected()
+            ? true
+            : table.getIsSomeRowsSelected()
+              ? "indeterminate"
               : false,
           "onUpdate:modelValue": (v: CheckboxRootProps["modelValue"]) =>
             table.getToggleAllRowsSelectedHandler()({ target: { checked: v } }),
@@ -65,7 +76,8 @@
         return h(UiCheckbox, {
           modelValue: row.getIsSelected(),
           disabled: !row.getCanSelect(),
-          "onUpdate:modelValue": row.getToggleSelectedHandler(),
+          "onUpdate:modelValue": (v: CheckboxRootProps["modelValue"]) =>
+            row.getToggleSelectedHandler()({ target: { checked: v } }),
         });
       },
     }),
@@ -103,12 +115,12 @@
   const rowSelection = ref<RowSelectionState>({});
 
   //8. Create the table
-  const table = useVueTable({
+  const table = useTable({
+    features,
     // @ts-expect-error - the types are correct
     data,
     columns,
     enableRowSelection: true,
-    getCoreRowModel: getCoreRowModel<Item>(),
     state: {
       //9. Set the state you want to control
       get rowSelection() {
@@ -146,11 +158,7 @@
             :colspan="header.colSpan"
           >
             <!-- Render the header cell -->
-            <FlexRender
-              v-if="!header.isPlaceholder"
-              :render="header.column.columnDef.header"
-              :props="header.getContext()"
-            />
+            <FlexRender v-if="!header.isPlaceholder" :header="header" />
           </UiTableHead>
         </UiTableRow>
       </UiTableHeader>
@@ -166,7 +174,7 @@
             <!-- For each cell in the row, loop over the visible cells -->
             <UiTableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
               <!-- Render the cell -->
-              <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+              <FlexRender :cell="cell" />
             </UiTableCell>
           </UiTableRow>
         </template>

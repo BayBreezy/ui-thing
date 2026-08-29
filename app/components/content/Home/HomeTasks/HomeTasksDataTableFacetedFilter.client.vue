@@ -4,7 +4,7 @@
   import type { Component } from "vue";
 
   interface DataTableFacetedFilter {
-    column?: Column<HomeTask, any>;
+    column?: Column<HomeTaskTableFeatures, HomeTask, any>;
     title?: string;
     options: {
       label: string;

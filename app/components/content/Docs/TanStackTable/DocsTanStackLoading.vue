@@ -28,6 +28,8 @@
   import { faker } from "@faker-js/faker";
   import type { ColumnDef } from "@tanstack/vue-table";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   interface Product {
     id: number;
     name: string;
@@ -60,7 +62,7 @@
     refreshTrigger.value++;
   };
 
-  const columns: ColumnDef<Product>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, Product>[] = [
     {
       accessorKey: "id",
       header: "ID",

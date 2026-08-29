@@ -568,7 +568,7 @@
                   :total="allTransactions.length"
                   :items-per-page="7"
                   :sibling-count="1"
-                  :page="table.getState().pagination.pageIndex + 1"
+                  :page="table.atoms.pagination.get().pageIndex + 1"
                   @update:page="(p) => table.setPageIndex(p - 1)"
                 >
                   <UiPaginationList v-slot="{ items }" class="gap-1">
@@ -779,6 +779,8 @@
   import { Motion } from "motion-v";
   import { object, string } from "yup";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   // ─── Navigation ──────────────────────────────────────────────────────────────
   const navItems = [
     { label: "Home", active: false },
@@ -971,7 +973,7 @@
     expiry: string;
   };
 
-  const txColumns: ColumnDef<TransactionRow>[] = [
+  const txColumns: ColumnDef<TanStackTableFeatures, TransactionRow>[] = [
     {
       id: "transaction",
       accessorKey: "name",

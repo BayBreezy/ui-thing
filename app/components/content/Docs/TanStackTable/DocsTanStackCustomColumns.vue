@@ -7,6 +7,8 @@
 <script lang="ts" setup>
   import type { ColumnDef } from "@tanstack/vue-table";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   interface Payment {
     id: string;
     date: string;
@@ -53,7 +55,7 @@
     },
   ];
 
-  const columns: ColumnDef<Payment>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, Payment>[] = [
     {
       accessorKey: "id",
       header: "#",

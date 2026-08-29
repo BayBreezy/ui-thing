@@ -170,9 +170,10 @@
   import { promiseTimeout } from "@vueuse/core";
 
   import type { UiTanStackTable } from "#components";
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
 
   const tableRef = useTemplateRef("tableRef");
-  const table = ref<Table<Payment> | null>(null);
+  const table = ref<Table<TanStackTableFeatures, Payment> | null>(null);
   const showDetails = ref(false);
   const selectedPayment = ref<Payment | null>(null);
 
@@ -202,7 +203,7 @@
     { default: () => [] }
   );
 
-  const columns: ColumnDef<Payment>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, Payment>[] = [
     { accessorKey: "id", header: "ID", enableHiding: true },
     {
       accessorKey: "amount",

@@ -2,10 +2,7 @@
   <div>
     <div class="overflow-hidden rounded-lg border">
       <UiTanStackTable ref="tableRef" :data="data" :columns="columns" :loading="pending">
-        <template #expand-cell>
-          <!-- The expand button is automatically rendered by the component -->
-        </template>
-
+        <!-- No #expand-cell slot needed: the expand button is rendered automatically. -->
         <template #expanded-row="{ row }">
           <UiDescriptionList class="p-5 sm:grid-cols-[140px_auto]">
             <UiDescriptionListTerm>User ID</UiDescriptionListTerm>
@@ -43,6 +40,8 @@
   import type { ColumnDef } from "@tanstack/vue-table";
   import { promiseTimeout } from "@vueuse/core";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   interface User {
     id: string;
     name: string;
@@ -73,7 +72,7 @@
     { default: () => [] }
   );
 
-  const columns: ColumnDef<User>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, User>[] = [
     {
       id: "expand",
       header: () => null,

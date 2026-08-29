@@ -1,27 +1,56 @@
 <script lang="ts" setup>
   import {
+    columnFacetingFeature,
+    columnFilteringFeature,
+    columnVisibilityFeature,
     createColumnHelper,
+    createFacetedRowModel,
+    createFacetedUniqueValues,
+    createFilteredRowModel,
+    createSortedRowModel,
+    filterFn_arrIncludes,
+    filterFn_inNumberRange,
     FlexRender,
-    getCoreRowModel,
-    getFacetedRowModel,
-    getFacetedUniqueValues,
-    getFilteredRowModel,
-    getSortedRowModel,
-    useVueTable,
+    globalFilteringFeature,
+    rowSelectionFeature,
+    rowSortingFeature,
+    sortFn_text,
+    tableFeatures,
+    useTable,
   } from "@tanstack/vue-table";
   import type {
     ColumnFiltersState,
     RowData,
     RowSelectionState,
     SortingState,
+    TableFeatures,
   } from "@tanstack/vue-table";
 
   import { Icon, UiCheckbox } from "#components";
 
+  // Register only the features this table actually uses.
+  // `columnVisibilityFeature` is required even though this example doesn't
+  // toggle columns: `row.getVisibleCells()` (used below) is implemented by
+  // that feature, not by core.
+  const features = tableFeatures({
+    columnFilteringFeature,
+    globalFilteringFeature,
+    columnFacetingFeature,
+    columnVisibilityFeature,
+    rowSelectionFeature,
+    rowSortingFeature,
+    filteredRowModel: createFilteredRowModel(),
+    facetedRowModel: createFacetedRowModel(),
+    facetedUniqueValues: createFacetedUniqueValues(),
+    sortedRowModel: createSortedRowModel(),
+    filterFns: { arrIncludes: filterFn_arrIncludes, inNumberRange: filterFn_inNumberRange },
+    sortFns: { text: sortFn_text },
+  });
+
   declare module "@tanstack/vue-table" {
     //allows us to define custom properties for our columns
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    interface ColumnMeta<TData extends RowData, TValue> {
+    interface ColumnMeta<TFeatures extends TableFeatures, TData extends RowData, TValue> {
       filterVariant?: "select";
     }
   }
@@ -111,7 +140,7 @@
     },
   ];
 
-  const columnHelper = createColumnHelper<Item>();
+  const columnHelper = createColumnHelper<typeof features, Item>();
 
   const columns = [
     columnHelper.accessor("id", {
@@ -119,10 +148,10 @@
       enableGlobalFilter: false,
       header({ table }) {
         return h(UiCheckbox, {
-          modelValue: table.getIsSomeRowsSelected()
-            ? "indeterminate"
-            : table.getIsAllRowsSelected()
-              ? true
+          modelValue: table.getIsAllRowsSelected()
+            ? true
+            : table.getIsSomeRowsSelected()
+              ? "indeterminate"
               : false,
           "onUpdate:modelValue": (v: boolean | "indeterminate") =>
             table.getToggleAllRowsSelectedHandler()({ target: { checked: v } }),
@@ -132,13 +161,14 @@
         return h(UiCheckbox, {
           modelValue: row.getIsSelected(),
           disabled: !row.getCanSelect(),
-          "onUpdate:modelValue": row.getToggleSelectedHandler(),
+          "onUpdate:modelValue": (v: boolean | "indeterminate") =>
+            row.getToggleSelectedHandler()({ target: { checked: v } }),
         });
       },
     }),
     columnHelper.accessor("keyword", {
       header: "Keyword",
-      sortingFn: "text",
+      sortFn: "text",
       cell: ({ getValue }) => h("span", { class: tw`font-medium` }, getValue()),
     }),
     columnHelper.accessor("intents", {
@@ -222,15 +252,11 @@
   const sorting = ref<SortingState>([]);
   const search = ref("");
   const globalFilter = refDebounced(search, 300);
-  const table = useVueTable({
+  const table = useTable({
+    features,
     columns,
     data: items,
     enableRowSelection: true,
-    getCoreRowModel: getCoreRowModel<Item>(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getFacetedRowModel: getFacetedRowModel(),
-    getFacetedUniqueValues: getFacetedUniqueValues(),
     state: {
       get rowSelection() {
         return rowSelection.value;
@@ -297,11 +323,7 @@
           >
             <div class="flex w-full items-center gap-3 whitespace-nowrap">
               <!-- Render the header cell -->
-              <FlexRender
-                v-if="!header.isPlaceholder"
-                :render="header.column.columnDef.header"
-                :props="header.getContext()"
-              />
+              <FlexRender v-if="!header.isPlaceholder" :header="header" />
               <Icon
                 v-if="header.column.getIsSorted() == 'asc'"
                 name="lucide:chevron-up"
@@ -332,9 +354,11 @@
                   </UiDropdownMenuTrigger>
                   <UiDropdownMenuContent class="w-48">
                     <UiDropdownMenuRadioGroup
-                      :model-value="(header.column.getFilterValue() as string) ?? 'All'"
+                      :model-value="
+                        (header.column.getFilterValue() as string[] | undefined)?.[0] ?? 'All'
+                      "
                       @update:model-value="
-                        (e) => header.column.setFilterValue(e == 'All' ? undefined : e)
+                        (e) => header.column.setFilterValue(e == 'All' ? undefined : [e])
                       "
                     >
                       <UiDropdownMenuRadioItem
@@ -371,7 +395,7 @@
             <!-- For each cell in the row, loop over the visible cells -->
             <UiTableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
               <!-- Render the cell -->
-              <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+              <FlexRender :cell="cell" />
             </UiTableCell>
           </UiTableRow>
         </template>

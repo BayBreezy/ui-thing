@@ -2,7 +2,7 @@
   <div class="space-y-4">
     <div class="text-muted-foreground flex items-center gap-2 text-sm">
       <Icon name="lucide:info" class="size-4" />
-      Pin columns with the header menu: choose left, right, or unpin.
+      Pin columns with the header menu: choose start, end, or unpin.
     </div>
 
     <div class="overflow-hidden rounded-lg border">
@@ -20,9 +20,9 @@
     <div class="bg-muted/50 text-muted-foreground rounded-lg border p-4 text-sm">
       <div class="text-foreground font-semibold">Pinned columns</div>
       <div class="mt-2 space-y-1">
-        <div v-if="columnPinning.left?.length">Left: {{ columnPinning.left.join(", ") }}</div>
-        <div v-if="columnPinning.right?.length">Right: {{ columnPinning.right.join(", ") }}</div>
-        <div v-if="!columnPinning.left?.length && !columnPinning.right?.length">None</div>
+        <div v-if="columnPinning.start?.length">Start: {{ columnPinning.start.join(", ") }}</div>
+        <div v-if="columnPinning.end?.length">End: {{ columnPinning.end.join(", ") }}</div>
+        <div v-if="!columnPinning.start?.length && !columnPinning.end?.length">None</div>
       </div>
     </div>
   </div>
@@ -31,6 +31,8 @@
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
   import type { ColumnDef, ColumnPinningState, Table } from "@tanstack/vue-table";
+
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
 
   interface User {
     id: string;
@@ -42,7 +44,7 @@
     status: "active" | "inactive";
   }
 
-  const columnPinning = ref<ColumnPinningState>({});
+  const columnPinning = ref<ColumnPinningState>({ start: [], end: [] });
 
   const { data, pending } = await useAsyncData<User[]>(
     async () => {
@@ -64,13 +66,13 @@
     { default: () => [] }
   );
 
-  const onReady = (table: Table<User>) => {
+  const onReady = (table: Table<TanStackTableFeatures, User>) => {
     // Set an initial pin for demonstration
-    table.getColumn("firstName")?.pin("left");
-    columnPinning.value = table.getState().columnPinning;
+    table.getColumn("firstName")?.pin("start");
+    columnPinning.value = table.atoms.columnPinning.get();
   };
 
-  const columns: ColumnDef<User>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, User>[] = [
     {
       accessorKey: "id",
       header: "ID",

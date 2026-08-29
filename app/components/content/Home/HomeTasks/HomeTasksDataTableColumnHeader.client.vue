@@ -4,7 +4,7 @@
   import type { HTMLAttributes } from "vue";
 
   interface DataTableColumnHeaderProps {
-    column: Column<HomeTask, any>;
+    column: Column<HomeTaskTableFeatures, HomeTask, any>;
     title: string;
     class?: HTMLAttributes["class"];
   }

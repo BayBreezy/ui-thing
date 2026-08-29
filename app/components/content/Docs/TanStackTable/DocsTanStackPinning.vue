@@ -30,7 +30,9 @@
   import type { ColumnDef, RowPinningState } from "@tanstack/vue-table";
   import { promiseTimeout } from "@vueuse/core";
 
-  const rowPinning = ref<RowPinningState>({});
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
+  const rowPinning = ref<RowPinningState>({ top: [], bottom: [] });
 
   interface User {
     id: string;
@@ -84,7 +86,7 @@
     return data.value.filter((user) => ids.includes(user.id));
   });
 
-  const columns: ColumnDef<User>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, User>[] = [
     {
       id: "pin",
       header: () => null,

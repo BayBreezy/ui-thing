@@ -568,7 +568,7 @@
                 class="border-border/60 text-muted-foreground flex w-full flex-col gap-4 border-t px-6 py-4 text-sm font-medium sm:flex-row sm:items-center sm:justify-between"
               >
                 <p>
-                  Page {{ table.getState().pagination.pageIndex + 1 }} of
+                  Page {{ table.atoms.pagination.get().pageIndex + 1 }} of
                   {{ table.getPageCount() }}
                 </p>
                 <div class="flex items-center gap-2">
@@ -605,6 +605,8 @@
   import type { ApexOptions } from "apexcharts";
   import { Motion } from "motion-v";
   import type { MotionProps } from "motion-v";
+
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
 
   // Animation variants
   const metricsContainerVariant: MotionProps["variants"] = {
@@ -788,7 +790,7 @@
   const activeFilter = ref("View all");
   const tableSearch = ref("");
 
-  const pageColumns: ColumnDef<PageRow>[] = [
+  const pageColumns: ColumnDef<TanStackTableFeatures, PageRow>[] = [
     {
       id: "select",
       header: "",

@@ -3,10 +3,10 @@ title: Tanstack Table
 description: A powerful datatable for your app built with TanStack Table.
 links:
   - title: TanStack Table
-    href: https://tanstack.com/table/v8
+    href: https://tanstack.com/table/latest/docs/guide/features
     icon: "lucide:table-2"
   - title: API Reference
-    href: https://tanstack.com/table/v8/docs/api/core/column-def
+    href: https://tanstack.com/table/latest/docs/reference/index
     icon: "icon-park-solid:api"
 ---
 
@@ -203,9 +203,10 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
   import { promiseTimeout } from "@vueuse/core";
 
   import type { UiTanStackTable } from "#components";
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
 
   const tableRef = useTemplateRef("tableRef");
-  const table = ref<Table<Payment> | null>(null);
+  const table = ref<Table<TanStackTableFeatures, Payment> | null>(null);
   const showDetails = ref(false);
   const selectedPayment = ref<Payment | null>(null);
 
@@ -235,7 +236,7 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
     { default: () => [] }
   );
 
-  const columns: ColumnDef<Payment>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, Payment>[] = [
     { accessorKey: "id", header: "ID", enableHiding: true },
     {
       accessorKey: "amount",
@@ -364,14 +365,25 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
   import { faker } from "@faker-js/faker";
   //1. Import the stuff you want from TanStack
   import {
+    columnVisibilityFeature,
     createColumnHelper,
     FlexRender,
-    getCoreRowModel,
-    useVueTable,
+    rowSelectionFeature,
+    tableFeatures,
+    useTable,
   } from "@tanstack/vue-table";
   // Import any type that you may need
   import type { RowSelectionState } from "@tanstack/vue-table";
   import type { CheckboxRootProps } from "reka-ui";
+
+  // 1a. Register only the features this table actually uses.
+  // `columnVisibilityFeature` is required even though this example doesn't
+  // toggle columns: `row.getVisibleCells()` (used below) is implemented by
+  // that feature, not by core.
+  const features = tableFeatures({
+    columnVisibilityFeature,
+    rowSelectionFeature,
+  });
 
   //2. Import the components you want to use
   import { UiBadge, UiCheckbox } from "#components";
@@ -396,7 +408,7 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
     select: boolean;
   };
   //5. Create a column helper based on the type of the item
-  const columnHelper = createColumnHelper<Item>();
+  const columnHelper = createColumnHelper<typeof features, Item>();
 
   const total = computed(() => {
     return data.value?.reduce((acc: number, item) => acc + item.balance, 0);
@@ -414,10 +426,10 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
     columnHelper.accessor("select", {
       header({ table }) {
         return h(UiCheckbox, {
-          modelValue: table.getIsSomeRowsSelected()
-            ? "indeterminate"
-            : table.getIsAllRowsSelected()
-              ? true
+          modelValue: table.getIsAllRowsSelected()
+            ? true
+            : table.getIsSomeRowsSelected()
+              ? "indeterminate"
               : false,
           "onUpdate:modelValue": (v: CheckboxRootProps["modelValue"]) =>
             table.getToggleAllRowsSelectedHandler()({ target: { checked: v } }),
@@ -427,7 +439,8 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
         return h(UiCheckbox, {
           modelValue: row.getIsSelected(),
           disabled: !row.getCanSelect(),
-          "onUpdate:modelValue": row.getToggleSelectedHandler(),
+          "onUpdate:modelValue": (v: CheckboxRootProps["modelValue"]) =>
+            row.getToggleSelectedHandler()({ target: { checked: v } }),
         });
       },
     }),
@@ -465,12 +478,12 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
   const rowSelection = ref<RowSelectionState>({});
 
   //8. Create the table
-  const table = useVueTable({
+  const table = useTable({
+    features,
     // @ts-expect-error - the types are correct
     data,
     columns,
     enableRowSelection: true,
-    getCoreRowModel: getCoreRowModel<Item>(),
     state: {
       //9. Set the state you want to control
       get rowSelection() {
@@ -508,11 +521,7 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
             :colspan="header.colSpan"
           >
             <!-- Render the header cell -->
-            <FlexRender
-              v-if="!header.isPlaceholder"
-              :render="header.column.columnDef.header"
-              :props="header.getContext()"
-            />
+            <FlexRender v-if="!header.isPlaceholder" :header="header" />
           </UiTableHead>
         </UiTableRow>
       </UiTableHeader>
@@ -528,7 +537,7 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
             <!-- For each cell in the row, loop over the visible cells -->
             <UiTableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
               <!-- Render the cell -->
-              <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+              <FlexRender :cell="cell" />
             </UiTableCell>
           </UiTableRow>
         </template>
@@ -582,28 +591,57 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
 ```vue [DocsTanStackFilters.vue]
 <script lang="ts" setup>
   import {
+    columnFacetingFeature,
+    columnFilteringFeature,
+    columnVisibilityFeature,
     createColumnHelper,
+    createFacetedRowModel,
+    createFacetedUniqueValues,
+    createFilteredRowModel,
+    createSortedRowModel,
+    filterFn_arrIncludes,
+    filterFn_inNumberRange,
     FlexRender,
-    getCoreRowModel,
-    getFacetedRowModel,
-    getFacetedUniqueValues,
-    getFilteredRowModel,
-    getSortedRowModel,
-    useVueTable,
+    globalFilteringFeature,
+    rowSelectionFeature,
+    rowSortingFeature,
+    sortFn_text,
+    tableFeatures,
+    useTable,
   } from "@tanstack/vue-table";
   import type {
     ColumnFiltersState,
     RowData,
     RowSelectionState,
     SortingState,
+    TableFeatures,
   } from "@tanstack/vue-table";
 
   import { Icon, UiCheckbox } from "#components";
 
+  // Register only the features this table actually uses.
+  // `columnVisibilityFeature` is required even though this example doesn't
+  // toggle columns: `row.getVisibleCells()` (used below) is implemented by
+  // that feature, not by core.
+  const features = tableFeatures({
+    columnFilteringFeature,
+    globalFilteringFeature,
+    columnFacetingFeature,
+    columnVisibilityFeature,
+    rowSelectionFeature,
+    rowSortingFeature,
+    filteredRowModel: createFilteredRowModel(),
+    facetedRowModel: createFacetedRowModel(),
+    facetedUniqueValues: createFacetedUniqueValues(),
+    sortedRowModel: createSortedRowModel(),
+    filterFns: { arrIncludes: filterFn_arrIncludes, inNumberRange: filterFn_inNumberRange },
+    sortFns: { text: sortFn_text },
+  });
+
   declare module "@tanstack/vue-table" {
     //allows us to define custom properties for our columns
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    interface ColumnMeta<TData extends RowData, TValue> {
+    interface ColumnMeta<TFeatures extends TableFeatures, TData extends RowData, TValue> {
       filterVariant?: "select";
     }
   }
@@ -693,7 +731,7 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
     },
   ];
 
-  const columnHelper = createColumnHelper<Item>();
+  const columnHelper = createColumnHelper<typeof features, Item>();
 
   const columns = [
     columnHelper.accessor("id", {
@@ -701,10 +739,10 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
       enableGlobalFilter: false,
       header({ table }) {
         return h(UiCheckbox, {
-          modelValue: table.getIsSomeRowsSelected()
-            ? "indeterminate"
-            : table.getIsAllRowsSelected()
-              ? true
+          modelValue: table.getIsAllRowsSelected()
+            ? true
+            : table.getIsSomeRowsSelected()
+              ? "indeterminate"
               : false,
           "onUpdate:modelValue": (v: boolean | "indeterminate") =>
             table.getToggleAllRowsSelectedHandler()({ target: { checked: v } }),
@@ -714,13 +752,14 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
         return h(UiCheckbox, {
           modelValue: row.getIsSelected(),
           disabled: !row.getCanSelect(),
-          "onUpdate:modelValue": row.getToggleSelectedHandler(),
+          "onUpdate:modelValue": (v: boolean | "indeterminate") =>
+            row.getToggleSelectedHandler()({ target: { checked: v } }),
         });
       },
     }),
     columnHelper.accessor("keyword", {
       header: "Keyword",
-      sortingFn: "text",
+      sortFn: "text",
       cell: ({ getValue }) => h("span", { class: tw`font-medium` }, getValue()),
     }),
     columnHelper.accessor("intents", {
@@ -804,15 +843,11 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
   const sorting = ref<SortingState>([]);
   const search = ref("");
   const globalFilter = refDebounced(search, 300);
-  const table = useVueTable({
+  const table = useTable({
+    features,
     columns,
     data: items,
     enableRowSelection: true,
-    getCoreRowModel: getCoreRowModel<Item>(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getFacetedRowModel: getFacetedRowModel(),
-    getFacetedUniqueValues: getFacetedUniqueValues(),
     state: {
       get rowSelection() {
         return rowSelection.value;
@@ -879,11 +914,7 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
           >
             <div class="flex w-full items-center gap-3 whitespace-nowrap">
               <!-- Render the header cell -->
-              <FlexRender
-                v-if="!header.isPlaceholder"
-                :render="header.column.columnDef.header"
-                :props="header.getContext()"
-              />
+              <FlexRender v-if="!header.isPlaceholder" :header="header" />
               <Icon
                 v-if="header.column.getIsSorted() == 'asc'"
                 name="lucide:chevron-up"
@@ -914,9 +945,11 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
                   </UiDropdownMenuTrigger>
                   <UiDropdownMenuContent class="w-48">
                     <UiDropdownMenuRadioGroup
-                      :model-value="(header.column.getFilterValue() as string) ?? 'All'"
+                      :model-value="
+                        (header.column.getFilterValue() as string[] | undefined)?.[0] ?? 'All'
+                      "
                       @update:model-value="
-                        (e) => header.column.setFilterValue(e == 'All' ? undefined : e)
+                        (e) => header.column.setFilterValue(e == 'All' ? undefined : [e])
                       "
                     >
                       <UiDropdownMenuRadioItem
@@ -953,7 +986,7 @@ Click :SourceCodeLink{component="TanStackTable.vue"} to see the source code for 
             <!-- For each cell in the row, loop over the visible cells -->
             <UiTableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
               <!-- Render the cell -->
-              <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+              <FlexRender :cell="cell" />
             </UiTableCell>
           </UiTableRow>
         </template>
@@ -1072,6 +1105,8 @@ Custom column definitions with formatted cells and styled badges.
 <script lang="ts" setup>
   import type { ColumnDef } from "@tanstack/vue-table";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   interface Payment {
     id: string;
     date: string;
@@ -1118,7 +1153,7 @@ Custom column definitions with formatted cells and styled badges.
     },
   ];
 
-  const columns: ColumnDef<Payment>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, Payment>[] = [
     {
       accessorKey: "id",
       header: "#",
@@ -1242,6 +1277,8 @@ Using slots to customize cell rendering with avatars and dropdowns.
 <script lang="ts" setup>
   import type { ColumnDef } from "@tanstack/vue-table";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   interface User {
     id: number;
     name: string;
@@ -1281,7 +1318,7 @@ Using slots to customize cell rendering with avatars and dropdowns.
     },
   ];
 
-  const columns: ColumnDef<User>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, User>[] = [
     {
       id: "name",
       accessorKey: "name",
@@ -1329,6 +1366,8 @@ Table footer with column totals using aggregation functions.
 <script lang="ts" setup>
   import type { ColumnDef, Row } from "@tanstack/vue-table";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   interface Payment {
     id: string;
     description: string;
@@ -1363,7 +1402,7 @@ Table footer with column totals using aggregation functions.
     },
   ];
 
-  const columns: ColumnDef<Payment>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, Payment>[] = [
     {
       accessorKey: "id",
       header: "#",
@@ -1382,7 +1421,8 @@ Table footer with column totals using aggregation functions.
         const total = column
           .getFacetedRowModel()
           .rows.reduce(
-            (sum: number, row: Row<Payment>) => sum + row.getValue<number>("quantity"),
+            (sum: number, row: Row<TanStackTableFeatures, Payment>) =>
+              sum + row.getValue<number>("quantity"),
             0
           );
         return h("div", { class: "text-center font-semibold" }, total);
@@ -1402,7 +1442,11 @@ Table footer with column totals using aggregation functions.
       footer: ({ column }) => {
         const total = column
           .getFacetedRowModel()
-          .rows.reduce((sum: number, row: Row<Payment>) => sum + row.getValue<number>("amount"), 0);
+          .rows.reduce(
+            (sum: number, row: Row<TanStackTableFeatures, Payment>) =>
+              sum + row.getValue<number>("amount"),
+            0
+          );
         const formatted = new Intl.NumberFormat("en-US", {
           style: "currency",
           currency: "USD",
@@ -1440,6 +1484,8 @@ Clean table without footer controls for simple layouts.
 <script lang="ts" setup>
   import type { ColumnDef } from "@tanstack/vue-table";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   interface User {
     name: string;
     email: string;
@@ -1452,7 +1498,7 @@ Clean table without footer controls for simple layouts.
     { name: "Bob Johnson", email: "bob@example.com", status: "Inactive" },
   ];
 
-  const columns: ColumnDef<User>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, User>[] = [
     { accessorKey: "name", header: "Name" },
     { accessorKey: "email", header: "Email" },
     { accessorKey: "status", header: "Status" },
@@ -1507,6 +1553,8 @@ Table with loading indicator - includes custom loader slot support.
   import { faker } from "@faker-js/faker";
   import type { ColumnDef } from "@tanstack/vue-table";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   interface Product {
     id: number;
     name: string;
@@ -1539,7 +1587,7 @@ Table with loading indicator - includes custom loader slot support.
     refreshTrigger.value++;
   };
 
-  const columns: ColumnDef<Product>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, Product>[] = [
     {
       accessorKey: "id",
       header: "ID",
@@ -1654,6 +1702,8 @@ Manual pagination with server-side data fetching and search. Enable `manual-pagi
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
   import type { ColumnDef, ColumnFiltersState, SortingState } from "@tanstack/vue-table";
+
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
 
   interface User {
     id: string;
@@ -1795,7 +1845,7 @@ Manual pagination with server-side data fetching and search. Enable `manual-pagi
     pageIndex.value = 0;
   };
 
-  const columns: ColumnDef<User>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, User>[] = [
     {
       accessorKey: "id",
       header: "ID",
@@ -1883,10 +1933,7 @@ Expandable rows to display additional details using the expansion feature.
   <div>
     <div class="overflow-hidden rounded-lg border">
       <UiTanStackTable ref="tableRef" :data="data" :columns="columns" :loading="pending">
-        <template #expand-cell>
-          <!-- The expand button is automatically rendered by the component -->
-        </template>
-
+        <!-- No #expand-cell slot needed: the expand button is rendered automatically. -->
         <template #expanded-row="{ row }">
           <UiDescriptionList class="p-5 sm:grid-cols-[140px_auto]">
             <UiDescriptionListTerm>User ID</UiDescriptionListTerm>
@@ -1924,6 +1971,8 @@ Expandable rows to display additional details using the expansion feature.
   import type { ColumnDef } from "@tanstack/vue-table";
   import { promiseTimeout } from "@vueuse/core";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   interface User {
     id: string;
     name: string;
@@ -1954,7 +2003,7 @@ Expandable rows to display additional details using the expansion feature.
     { default: () => [] }
   );
 
-  const columns: ColumnDef<User>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, User>[] = [
     {
       id: "expand",
       header: () => null,
@@ -2063,7 +2112,9 @@ Pin rows to the top or bottom. The table emits `update:rowPinning` and `row-pin`
   import type { ColumnDef, RowPinningState } from "@tanstack/vue-table";
   import { promiseTimeout } from "@vueuse/core";
 
-  const rowPinning = ref<RowPinningState>({});
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
+  const rowPinning = ref<RowPinningState>({ top: [], bottom: [] });
 
   interface User {
     id: string;
@@ -2117,7 +2168,7 @@ Pin rows to the top or bottom. The table emits `update:rowPinning` and `row-pin`
     return data.value.filter((user) => ids.includes(user.id));
   });
 
-  const columns: ColumnDef<User>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, User>[] = [
     {
       id: "pin",
       header: () => null,
@@ -2182,7 +2233,7 @@ Opt-in header pin buttons let you pin columns left or right. Pinned columns are 
   <div class="space-y-4">
     <div class="text-muted-foreground flex items-center gap-2 text-sm">
       <Icon name="lucide:info" class="size-4" />
-      Pin columns with the header menu: choose left, right, or unpin.
+      Pin columns with the header menu: choose start, end, or unpin.
     </div>
 
     <div class="overflow-hidden rounded-lg border">
@@ -2200,9 +2251,9 @@ Opt-in header pin buttons let you pin columns left or right. Pinned columns are 
     <div class="bg-muted/50 text-muted-foreground rounded-lg border p-4 text-sm">
       <div class="text-foreground font-semibold">Pinned columns</div>
       <div class="mt-2 space-y-1">
-        <div v-if="columnPinning.left?.length">Left: {{ columnPinning.left.join(", ") }}</div>
-        <div v-if="columnPinning.right?.length">Right: {{ columnPinning.right.join(", ") }}</div>
-        <div v-if="!columnPinning.left?.length && !columnPinning.right?.length">None</div>
+        <div v-if="columnPinning.start?.length">Start: {{ columnPinning.start.join(", ") }}</div>
+        <div v-if="columnPinning.end?.length">End: {{ columnPinning.end.join(", ") }}</div>
+        <div v-if="!columnPinning.start?.length && !columnPinning.end?.length">None</div>
       </div>
     </div>
   </div>
@@ -2211,6 +2262,8 @@ Opt-in header pin buttons let you pin columns left or right. Pinned columns are 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
   import type { ColumnDef, ColumnPinningState, Table } from "@tanstack/vue-table";
+
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
 
   interface User {
     id: string;
@@ -2222,7 +2275,7 @@ Opt-in header pin buttons let you pin columns left or right. Pinned columns are 
     status: "active" | "inactive";
   }
 
-  const columnPinning = ref<ColumnPinningState>({});
+  const columnPinning = ref<ColumnPinningState>({ start: [], end: [] });
 
   const { data, pending } = await useAsyncData<User[]>(
     async () => {
@@ -2244,13 +2297,13 @@ Opt-in header pin buttons let you pin columns left or right. Pinned columns are 
     { default: () => [] }
   );
 
-  const onReady = (table: Table<User>) => {
+  const onReady = (table: Table<TanStackTableFeatures, User>) => {
     // Set an initial pin for demonstration
-    table.getColumn("firstName")?.pin("left");
-    columnPinning.value = table.getState().columnPinning;
+    table.getColumn("firstName")?.pin("start");
+    columnPinning.value = table.atoms.columnPinning.get();
   };
 
-  const columns: ColumnDef<User>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, User>[] = [
     {
       accessorKey: "id",
       header: "ID",
@@ -2443,6 +2496,8 @@ Opt-in header pin buttons let you pin columns left or right. Pinned columns are 
   import type { ColumnDef } from "@tanstack/vue-table";
   import { promiseTimeout } from "@vueuse/core";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   const selectedUser = ref<User | null>(null);
 
   interface User {
@@ -2475,7 +2530,7 @@ Opt-in header pin buttons let you pin columns left or right. Pinned columns are 
     selectedUser.value = row.original;
   };
 
-  const columns: ColumnDef<User>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, User>[] = [
     {
       accessorKey: "name",
       header: "Name",

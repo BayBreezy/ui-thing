@@ -46,6 +46,8 @@
 <script lang="ts" setup>
   import type { ColumnDef } from "@tanstack/vue-table";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   interface User {
     id: number;
     name: string;
@@ -85,7 +87,7 @@
     },
   ];
 
-  const columns: ColumnDef<User>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, User>[] = [
     {
       id: "name",
       accessorKey: "name",

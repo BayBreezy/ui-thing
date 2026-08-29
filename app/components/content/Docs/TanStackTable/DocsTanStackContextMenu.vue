@@ -120,6 +120,8 @@
   import type { ColumnDef } from "@tanstack/vue-table";
   import { promiseTimeout } from "@vueuse/core";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   const selectedUser = ref<User | null>(null);
 
   interface User {
@@ -152,7 +154,7 @@
     selectedUser.value = row.original;
   };
 
-  const columns: ColumnDef<User>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, User>[] = [
     {
       accessorKey: "name",
       header: "Name",

@@ -1,3 +1,17 @@
+import {
+  columnFacetingFeature,
+  columnFilteringFeature,
+  columnVisibilityFeature,
+  createFacetedRowModel,
+  createFacetedUniqueValues,
+  createFilteredRowModel,
+  createPaginatedRowModel,
+  createSortedRowModel,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  tableFeatures,
+} from "@tanstack/vue-table";
 import type { Updater } from "@tanstack/vue-table";
 
 import { Icon } from "#components";
@@ -6,6 +20,23 @@ import { Icon } from "#components";
 export function tanstackValueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
   ref.value = typeof updaterOrValue === "function" ? updaterOrValue(ref.value) : updaterOrValue;
 }
+
+/** Shared v9 feature registration for the `HomeTasks` data table example. */
+export const homeTaskTableFeatures = tableFeatures({
+  columnFilteringFeature,
+  columnFacetingFeature,
+  columnVisibilityFeature,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  filteredRowModel: createFilteredRowModel(),
+  facetedRowModel: createFacetedRowModel(),
+  facetedUniqueValues: createFacetedUniqueValues(),
+  paginatedRowModel: createPaginatedRowModel(),
+  sortedRowModel: createSortedRowModel(),
+});
+
+export type HomeTaskTableFeatures = typeof homeTaskTableFeatures;
 
 /** Represents a task in the system. */
 export interface HomeTask {

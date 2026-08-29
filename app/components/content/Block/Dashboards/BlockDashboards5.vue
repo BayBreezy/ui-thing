@@ -519,7 +519,7 @@
                   :total="filteredUsers.length"
                   :items-per-page="10"
                   :sibling-count="1"
-                  :page="table.getState().pagination.pageIndex + 1"
+                  :page="table.atoms.pagination.get().pageIndex + 1"
                   @update:page="(p) => table.setPageIndex(p - 1)"
                 >
                   <UiPaginationList v-slot="{ items }" class="gap-1">
@@ -552,7 +552,7 @@
                   class="mx-0! sm:hidden!"
                   :total="filteredUsers.length"
                   :items-per-page="10"
-                  :page="table.getState().pagination.pageIndex + 1"
+                  :page="table.atoms.pagination.get().pageIndex + 1"
                   @update:page="(p) => table.setPageIndex(p - 1)"
                 >
                   <UiPaginationList class="w-full justify-between">
@@ -562,7 +562,7 @@
                       </UiButton>
                     </UiPaginationPrev>
                     <span class="text-muted-foreground text-sm">
-                      Page {{ table.getState().pagination.pageIndex + 1 }} of
+                      Page {{ table.atoms.pagination.get().pageIndex + 1 }} of
                       {{ table.getPageCount() }}
                     </span>
                     <UiPaginationNext as-child>
@@ -586,6 +586,8 @@
   import type { ColumnDef } from "@tanstack/vue-table";
   import type { ApexOptions } from "apexcharts";
   import { Motion } from "motion-v";
+
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
 
   // ─── Current user ────────────────────────────────────────────────────────────
   const currentUser = {
@@ -772,7 +774,7 @@
     return "bg-muted-foreground";
   };
 
-  const userColumns: ColumnDef<UserRow>[] = [
+  const userColumns: ColumnDef<TanStackTableFeatures, UserRow>[] = [
     {
       id: "select",
       header: "",

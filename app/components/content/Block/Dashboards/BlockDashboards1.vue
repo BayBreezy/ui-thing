@@ -460,7 +460,7 @@
                   class="border-border/60 text-muted-foreground flex w-full flex-col gap-4 border-t px-6 py-4 text-sm font-medium sm:flex-row sm:items-center sm:justify-between"
                 >
                   <p>
-                    Page {{ table.getState().pagination.pageIndex + 1 }} of
+                    Page {{ table.atoms.pagination.get().pageIndex + 1 }} of
                     {{ table.getPageCount() }}
                   </p>
                   <div class="flex items-center gap-3">
@@ -619,6 +619,8 @@
   import dayjs from "dayjs";
   import { Motion } from "motion-v";
   import type { MotionProps } from "motion-v";
+
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
 
   const kpiContainerVariant: MotionProps["variants"] = {
     initial: {},
@@ -829,7 +831,7 @@
   const showRefundDialog = ref(false);
   const refundOrder = ref<Order | null>(null);
 
-  const orderColumns: ColumnDef<Order>[] = [
+  const orderColumns: ColumnDef<TanStackTableFeatures, Order>[] = [
     {
       id: "select",
       header: "",

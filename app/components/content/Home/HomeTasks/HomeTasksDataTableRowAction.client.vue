@@ -2,7 +2,7 @@
   import type { Row } from "@tanstack/vue-table";
 
   interface DataTableRowActionsProps {
-    row: Row<HomeTask>;
+    row: Row<HomeTaskTableFeatures, HomeTask>;
   }
   const props = defineProps<DataTableRowActionsProps>();
 

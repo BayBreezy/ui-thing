@@ -1,14 +1,5 @@
 <script setup lang="ts">
-  import {
-    FlexRender,
-    getCoreRowModel,
-    getFacetedRowModel,
-    getFacetedUniqueValues,
-    getFilteredRowModel,
-    getPaginationRowModel,
-    getSortedRowModel,
-    useVueTable,
-  } from "@tanstack/vue-table";
+  import { FlexRender, useTable } from "@tanstack/vue-table";
   import type {
     ColumnDef,
     ColumnFiltersState,
@@ -33,7 +24,7 @@
   const columnVisibility = ref<VisibilityState>({});
   const rowSelection = ref({});
 
-  const columns: ColumnDef<HomeTask>[] = [
+  const columns: ColumnDef<HomeTaskTableFeatures, HomeTask>[] = [
     {
       id: "select",
       header: ({ table }) =>
@@ -118,7 +109,8 @@
     },
   ];
 
-  const table = useVueTable({
+  const table = useTable({
+    features: homeTaskTableFeatures,
     get data() {
       return props.data;
     },
@@ -145,12 +137,6 @@
     onColumnVisibilityChange: (updaterOrValue) =>
       tanstackValueUpdater(updaterOrValue, columnVisibility),
     onRowSelectionChange: (updaterOrValue) => tanstackValueUpdater(updaterOrValue, rowSelection),
-    getCoreRowModel: getCoreRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFacetedRowModel: getFacetedRowModel(),
-    getFacetedUniqueValues: getFacetedUniqueValues(),
   });
 </script>
 
@@ -162,11 +148,7 @@
         <UiTableHeader>
           <UiTableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
             <UiTableHead v-for="header in headerGroup.headers" :key="header.id">
-              <FlexRender
-                v-if="!header.isPlaceholder"
-                :render="header.column.columnDef.header"
-                :props="header.getContext()"
-              />
+              <FlexRender v-if="!header.isPlaceholder" :header="header" />
             </UiTableHead>
           </UiTableRow>
         </UiTableHeader>
@@ -178,7 +160,7 @@
               :data-state="row.getIsSelected() && 'selected'"
             >
               <UiTableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
-                <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+                <FlexRender :cell="cell" />
               </UiTableCell>
             </UiTableRow>
           </template>

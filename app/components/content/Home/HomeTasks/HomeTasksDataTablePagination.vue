@@ -8,11 +8,11 @@
       <div class="flex items-center gap-x-2">
         <p class="text-sm font-medium whitespace-nowrap">Rows per page</p>
         <UiSelect
-          :model-value="`${table.getState().pagination.pageSize}`"
+          :model-value="`${table.atoms.pagination.get().pageSize}`"
           @update:model-value="table.setPageSize as any"
         >
           <UiSelectTrigger class="h-8 w-fit md:w-[70px]">
-            <UiSelectValue :placeholder="`${table.getState().pagination.pageSize}`" />
+            <UiSelectValue :placeholder="`${table.atoms.pagination.get().pageSize}`" />
           </UiSelectTrigger>
           <UiSelectContent side="top">
             <UiSelectItem
@@ -26,7 +26,7 @@
         </UiSelect>
       </div>
       <div class="text-sm font-medium md:flex md:w-[100px] md:items-center md:justify-center">
-        Page {{ table.getState().pagination.pageIndex + 1 }} of
+        Page {{ table.atoms.pagination.get().pageIndex + 1 }} of
         {{ table.getPageCount() }}
       </div>
       <div class="flex items-center gap-x-2">
@@ -75,7 +75,7 @@
   import type { Table } from "@tanstack/vue-table";
 
   interface DataTablePaginationProps {
-    table: Table<HomeTask>;
+    table: Table<HomeTaskTableFeatures, HomeTask>;
   }
   defineProps<DataTablePaginationProps>();
 </script>

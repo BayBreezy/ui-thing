@@ -7,6 +7,8 @@
 <script lang="ts" setup>
   import type { ColumnDef, Row } from "@tanstack/vue-table";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   interface Payment {
     id: string;
     description: string;
@@ -41,7 +43,7 @@
     },
   ];
 
-  const columns: ColumnDef<Payment>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, Payment>[] = [
     {
       accessorKey: "id",
       header: "#",
@@ -60,7 +62,8 @@
         const total = column
           .getFacetedRowModel()
           .rows.reduce(
-            (sum: number, row: Row<Payment>) => sum + row.getValue<number>("quantity"),
+            (sum: number, row: Row<TanStackTableFeatures, Payment>) =>
+              sum + row.getValue<number>("quantity"),
             0
           );
         return h("div", { class: "text-center font-semibold" }, total);
@@ -80,7 +83,11 @@
       footer: ({ column }) => {
         const total = column
           .getFacetedRowModel()
-          .rows.reduce((sum: number, row: Row<Payment>) => sum + row.getValue<number>("amount"), 0);
+          .rows.reduce(
+            (sum: number, row: Row<TanStackTableFeatures, Payment>) =>
+              sum + row.getValue<number>("amount"),
+            0
+          );
         const formatted = new Intl.NumberFormat("en-US", {
           style: "currency",
           currency: "USD",

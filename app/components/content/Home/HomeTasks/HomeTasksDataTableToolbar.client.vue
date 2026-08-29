@@ -4,12 +4,12 @@
   import { Icon } from "#components";
 
   interface DataTableToolbarProps {
-    table: Table<HomeTask>;
+    table: Table<HomeTaskTableFeatures, HomeTask>;
   }
 
   const props = defineProps<DataTableToolbarProps>();
 
-  const isFiltered = computed(() => props.table.getState().columnFilters.length > 0);
+  const isFiltered = computed(() => props.table.atoms.columnFilters.get().length > 0);
 </script>
 
 <template>

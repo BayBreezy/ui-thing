@@ -685,7 +685,7 @@
                   :total="filteredCompanies.length"
                   :items-per-page="10"
                   :sibling-count="1"
-                  :page="table.getState().pagination.pageIndex + 1"
+                  :page="table.atoms.pagination.get().pageIndex + 1"
                   @update:page="(p) => table.setPageIndex(p - 1)"
                 >
                   <UiPaginationList class="w-full justify-between gap-1">
@@ -698,7 +698,7 @@
                     <div class="text-muted-foreground text-sm">
                       Page
                       <span class="text-foreground font-medium">{{
-                        table.getState().pagination.pageIndex + 1
+                        table.atoms.pagination.get().pageIndex + 1
                       }}</span>
                       of
                       <span class="text-foreground font-medium">{{ table.getPageCount() }}</span>
@@ -717,7 +717,7 @@
                   class="mx-0! sm:hidden!"
                   :total="filteredCompanies.length"
                   :items-per-page="10"
-                  :page="table.getState().pagination.pageIndex + 1"
+                  :page="table.atoms.pagination.get().pageIndex + 1"
                   @update:page="(p) => table.setPageIndex(p - 1)"
                 >
                   <UiPaginationList class="w-full justify-between">
@@ -727,7 +727,7 @@
                       </UiButton>
                     </UiPaginationPrev>
                     <span class="text-muted-foreground text-sm">
-                      Page {{ table.getState().pagination.pageIndex + 1 }} of
+                      Page {{ table.atoms.pagination.get().pageIndex + 1 }} of
                       {{ table.getPageCount() }}
                     </span>
                     <UiPaginationNext as-child>
@@ -753,6 +753,8 @@
   import { Motion } from "motion-v";
   import { object, string } from "yup";
   import type { InferType } from "yup";
+
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
 
   // ─── Navigation ────────────────────────────────────────────────────────────────
   const navItems = [
@@ -970,7 +972,7 @@
   });
 
   // ─── Table columns ─────────────────────────────────────────────────────────────
-  const companyColumns: ColumnDef<CompanyRow>[] = [
+  const companyColumns: ColumnDef<TanStackTableFeatures, CompanyRow>[] = [
     {
       id: "select",
       header: "",

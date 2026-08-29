@@ -2,7 +2,7 @@
   import type { Table } from "@tanstack/vue-table";
 
   interface DataTableViewOptionsProps {
-    table: Table<HomeTask>;
+    table: Table<HomeTaskTableFeatures, HomeTask>;
   }
 
   const props = defineProps<DataTableViewOptionsProps>();

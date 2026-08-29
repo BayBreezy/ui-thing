@@ -32,6 +32,8 @@
   import { faker } from "@faker-js/faker";
   import type { ColumnDef, ColumnFiltersState, SortingState } from "@tanstack/vue-table";
 
+  import type { TanStackTableFeatures } from "~/components/Ui/TanStackTable.vue";
+
   interface User {
     id: string;
     name: string;
@@ -172,7 +174,7 @@
     pageIndex.value = 0;
   };
 
-  const columns: ColumnDef<User>[] = [
+  const columns: ColumnDef<TanStackTableFeatures, User>[] = [
     {
       accessorKey: "id",
       header: "ID",
