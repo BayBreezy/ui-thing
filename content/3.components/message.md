@@ -1,7 +1,7 @@
 ---
 title: Message
 description: Displays a message in a conversation, with optional avatar, header, footer, and alignment.
-label: New
+
 ---
 
 ## Source code

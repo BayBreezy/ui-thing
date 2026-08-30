@@ -1,7 +1,7 @@
 ---
 title: Scroll Fade
 description: Utilities for adding a fade effect to the edges of a scroll container.
-label: New
+
 ---
 
 ## Credits

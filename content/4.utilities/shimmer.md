@@ -1,7 +1,7 @@
 ---
 title: Shimmer
 description: Utilities for adding a shimmer effect to text elements.
-label: New
+
 ---
 
 ## Credits

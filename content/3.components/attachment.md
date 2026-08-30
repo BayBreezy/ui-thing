@@ -1,7 +1,7 @@
 ---
 title: Attachment
 description: Displays a file or image attachment with media, metadata, upload state, and actions.
-label: New
+
 ---
 
 ## Source code

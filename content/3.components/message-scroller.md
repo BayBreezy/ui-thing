@@ -1,7 +1,7 @@
 ---
 title: Message Scroller
 description: A scroll container for chat transcripts that anchors turns, follows streamed replies, restores prepended history, and jumps to messages.
-label: New
+
 ---
 
 ## Source code

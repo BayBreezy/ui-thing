@@ -1,7 +1,7 @@
 ---
 title: Marker
 description: Displays an inline status, system note, bordered row, or labeled separator in a conversation.
-label: New
+
 ---
 
 ## Source code
