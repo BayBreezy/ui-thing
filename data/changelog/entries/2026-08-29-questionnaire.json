@@ -1,0 +1,11 @@
+{
+  "slug": "2026-08-29-questionnaire",
+  "date": "2026-08-29",
+  "title": "Questionnaire",
+  "category": "feature",
+  "tags": ["questionnaire"],
+  "summary": "Added a Questionnaire component for building multi-step, one-question-at-a-time forms with single-choice, multiple-choice, freeform, and skippable questions.",
+  "body": "- [**Questionnaire**](/components/questionnaire): A multi-step questionnaire that renders a real `<form>`, showing one question at a time with built-in progress, keyboard navigation, and validation. Supports single-choice and multiple-choice answers, freeform text input alongside fixed choices, intentionally skippable questions, letter/number keyboard shortcuts, and controlled navigation via `v-model:item` for custom validation flows. Check out the documentation [here](/components/questionnaire).\n",
+  "breaking": false,
+  "links": []
+}
