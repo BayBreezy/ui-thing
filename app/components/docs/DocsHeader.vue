@@ -43,6 +43,12 @@
       >Colors</NuxtLink
     >
     <NuxtLink
+      :class="[route.path.startsWith('/typeset') ? 'text-primary!' : '']"
+      to="/typeset"
+      class="text-foreground/60 hover:text-foreground transition-colors"
+      >Typeset</NuxtLink
+    >
+    <NuxtLink
       :class="[route.path.startsWith('/changelog') ? 'text-primary!' : '']"
       to="/changelog"
       class="text-foreground/60 hover:text-foreground relative inline-flex items-center transition-colors"

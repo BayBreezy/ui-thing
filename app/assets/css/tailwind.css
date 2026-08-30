@@ -1,3 +1,24 @@
 @plugin "@tailwindcss/forms" {
   strategy: "class";
 }
+
+/*
+ * Typeset. Imported here (after Tailwind's own layers are established) so its
+ * `@layer components` rules win over preflight. Same file served verbatim at
+ * /typeset.css for people to download into their own project.
+ */
+@import "../../../public/typeset.css";
+
+/*
+ * The docd layer's own `code { font-mono }` rule is unlayered CSS, so it beats
+ * typeset's `@layer components` `:where()` rules outright regardless of
+ * specificity — no cascade layer order or specificity comparison saves it.
+ * These overrides are unlayered too (and use real selectors, not `:where()`),
+ * so they win the same way and restore the mono font picked in typeset.
+ */
+.typeset code {
+  font-family: var(--typeset-font-mono);
+}
+.typeset pre code {
+  font-family: inherit;
+}

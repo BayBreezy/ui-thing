@@ -666,7 +666,7 @@
 
             <!-- Scrollable cards -->
             <div
-              class="flex [scrollbar-width:none] gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+              class="flex scrollbar-none gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             >
               <div
                 v-for="card in cards"

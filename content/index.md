@@ -20,6 +20,10 @@ secondaryCta:
   label: View on GitHub
   href: https://github.com/BayBreezy/ui-thing
   icon: simple-icons:github
+badge:
+  label: New
+  href: /changelog
+  text: Typeset, Questionnaire & More!
 ---
 ::
 

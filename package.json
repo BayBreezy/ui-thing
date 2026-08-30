@@ -67,6 +67,7 @@
     "@vueup/vue-quill": "^1.5.5",
     "@vueuse/integrations": "^14.4.0",
     "@vueuse/math": "^14.4.0",
+    "@vueuse/router": "^14.4.0",
     "@yuta-inoue-ph/nuxt-vcalendar": "^1.1.4",
     "apexcharts": "^7.0.0",
     "canvas-confetti": "^1.9.4",

@@ -1,0 +1,11 @@
+{
+  "slug": "2026-08-29-typeset",
+  "date": "2026-08-29",
+  "title": "Typeset",
+  "category": "feature",
+  "tags": ["typeset"],
+  "summary": "Added Typeset, a one-file CSS styling system for rendered markdown, plus an interactive builder for picking fonts and rhythm and getting the code.",
+  "body": "- [**Typeset**](/goodies/typeset): A single stylesheet that styles everything inside a `typeset` container — headings, lists, tables, code, blockquotes, math — using three controls (size, leading, flow) instead of a dozen. It's container-aware, follows your app's theme and dark mode, and is written to stay stable while content streams in. Copy `typeset.css` into your project and wrap your rendered markdown in `typeset` and a preset class.\n- [**Typeset Builder**](/typeset): An interactive page for designing your typeset. Pick heading/body/mono fonts (loaded live from Google/Bunny), tune size, leading, and flow, preview them against real docs/chat/article/changelog/notes content, then open Get Code for the stylesheet, the Nuxt font setup, your preset, and a ready-to-paste AI agent installation prompt. Supports shuffle, per-field locks, undo/redo, light/dark toggle, and shareable URLs.\n",
+  "breaking": false,
+  "links": []
+}

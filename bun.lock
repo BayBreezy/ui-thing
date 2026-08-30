@@ -44,6 +44,7 @@
         "@vueup/vue-quill": "^1.5.5",
         "@vueuse/integrations": "^14.4.0",
         "@vueuse/math": "^14.4.0",
+        "@vueuse/router": "^14.4.0",
         "@yuta-inoue-ph/nuxt-vcalendar": "^1.1.4",
         "apexcharts": "^7.0.0",
         "canvas-confetti": "^1.9.4",
@@ -1146,6 +1147,8 @@
     "@vueuse/metadata": ["@vueuse/metadata@14.4.0", "", {}, "sha512-swx/255R6JyHZFJhx845iz5CRWDZdCfvkZOpACWc5+c5WHcG24mv8gUT1WIdFQaHt6dq79rvILd9QnCWiyVm9g=="],
 
     "@vueuse/nuxt": ["@vueuse/nuxt@14.4.0", "", { "dependencies": { "@nuxt/kit": "^4.5.1", "@vueuse/core": "14.4.0", "@vueuse/metadata": "14.4.0", "local-pkg": "^1.2.1" }, "peerDependencies": { "nuxt": "^3.0.0 || ^4.0.0-0 || ^5.0.0-0", "vue": "^3.5.0" } }, "sha512-97At9ad6UvEB73vH1/h2yYTRZM7uPchzo7s2jRLwKWWHRZXGdzTn8AtpSwZVIAaXJTDcpiqzo9Inhd8v50mkMg=="],
+
+    "@vueuse/router": ["@vueuse/router@14.4.0", "", { "dependencies": { "@vueuse/shared": "14.4.0" }, "peerDependencies": { "vue": "^3.5.0", "vue-router": "^4.0.0 || ^5.0.0" } }, "sha512-q+dRUKI6xYGT4vNPq2t3fujrXPw2KBFV5Jxhw38liTFzwzGXBYcf8Qdjk7AiQpjEH2xLSin6WVTvj85EEIpo9w=="],
 
     "@vueuse/shared": ["@vueuse/shared@14.4.0", "", { "peerDependencies": { "vue": "^3.5.0" } }, "sha512-JRgY90Sz8DDtPMsaDflvPMp9xYk69JZAmbuDvAquUVXKr2gEjqtzGNTTthLfckH0BzBqvnu31gb4a8TGLRe79g=="],
 

@@ -1,4 +1,5 @@
 import * as SEO from "./app/utils/seo";
+import { TYPESET_FONTS } from "./app/utils/typeset/fonts";
 
 export default defineNuxtConfig({
   extends: ["@baybreezy/docd"],
@@ -97,6 +98,14 @@ export default defineNuxtConfig({
     experimental: {
       sqliteConnector: "native",
     },
+  },
+
+  fonts: {
+    // Typeset applies these through inline `font-family` styles at runtime, so
+    // @nuxt/fonts' static CSS scan never sees them. `global: true` forces each
+    // one into the global stylesheet regardless of detected usage, so every
+    // option in the typeset font picker has @font-face rules available.
+    families: TYPESET_FONTS.map((font) => ({ name: font.family, global: true })),
   },
 
   vcalendar: {
