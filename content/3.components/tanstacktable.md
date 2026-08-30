@@ -1,6 +1,7 @@
 ---
 title: Tanstack Table
 description: A powerful datatable for your app built with TanStack Table.
+label: Updated
 links:
   - title: TanStack Table
     href: https://tanstack.com/table/latest/docs/guide/features

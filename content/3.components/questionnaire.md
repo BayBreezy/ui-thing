@@ -1,6 +1,7 @@
 ---
 title: Questionnaire
 description: A multi-step questionnaire with single-choice, multiple-choice, freeform, and skippable questions.
+label: New
 ---
 
 `Questionnaire` renders a real `<form>` and every item renders a `<fieldset>` with a `<legend>`, so answers submit with `FormData` and no extra state is needed. It handles one question at a time, with progress, keyboard navigation, and validation built in.

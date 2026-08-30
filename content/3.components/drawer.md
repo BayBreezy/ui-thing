@@ -1,6 +1,7 @@
 ---
 title: Drawer
 description: A drawer component that can be used as a Dialog replacement on tablet and mobile devices.
+label: Updated
 links:
   - title: Reka UI Drawer Docs
     href: https://reka-ui.com/docs/components/drawer
