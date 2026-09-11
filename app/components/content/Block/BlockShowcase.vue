@@ -43,6 +43,8 @@
                 default-value="100"
                 @update:model-value="
                   (value: any) => {
+                    deviceWidth =
+                      DEVICE_WIDTHS[value as keyof typeof DEVICE_WIDTHS] ?? DEVICE_WIDTHS['100'];
                     resizableRef?.resize(parseInt(value as string));
                   }
                 "
@@ -102,12 +104,18 @@
                 :min-size="40"
                 @ready="resizableRef = $event"
               >
-                <div v-if="externalViewLink" class="bg-background absolute inset-0">
-                  <UiIframeLazy
-                    class="bg-background z-20 h-(--container-height) w-full"
-                    :src="externalViewLink"
-                    :iframe-class="props.frameClass"
-                  />
+                <div
+                  v-if="externalViewLink"
+                  ref="previewFrameRef"
+                  class="bg-background absolute inset-0 overflow-hidden"
+                >
+                  <div class="origin-top-left" :style="scaledFrameStyle">
+                    <UiIframeLazy
+                      class="bg-background z-20"
+                      :src="externalViewLink"
+                      :iframe-class="props.frameClass"
+                    />
+                  </div>
                 </div>
               </UiSplitterPanel>
               <UiSplitterHandle class="bg-transparent" />
@@ -169,6 +177,29 @@
     });
 
   const selectedTab = ref("preview");
+
+  // Maps the Desktop/Tablet/Mobile toggle values (splitter panel percentages) to the
+  // real viewport width the iframe should render at, so responsive breakpoints inside
+  // the previewed block (e.g. `lg:`/`xl:` dashboard layouts) trigger correctly instead
+  // of being constrained to the docs column width.
+  const DEVICE_WIDTHS = { "100": 1440, "60": 768, "40": 375 } as const;
+  const deviceWidth = ref<number>(DEVICE_WIDTHS["100"]);
+
+  const previewFrameRef = useTemplateRef("previewFrameRef");
+  const { width: previewFrameWidth } = useElementSize(previewFrameRef);
+
+  // Scale the fixed-width iframe down to fit the (possibly narrower) preview frame,
+  // without ever upscaling it past its real size.
+  const previewScale = computed(() => {
+    if (!previewFrameWidth.value || !deviceWidth.value) return 1;
+    return Math.min(1, previewFrameWidth.value / deviceWidth.value);
+  });
+
+  const scaledFrameStyle = computed(() => ({
+    width: `${deviceWidth.value}px`,
+    height: `calc(var(--container-height) / ${previewScale.value})`,
+    transform: `scale(${previewScale.value})`,
+  }));
 
   const _blockImports = import.meta.glob<string>("./**/*.vue", {
     query: "?raw",
