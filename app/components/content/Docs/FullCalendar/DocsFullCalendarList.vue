@@ -3,13 +3,14 @@
 </template>
 
 <script lang="ts" setup>
-  import type { CalendarOptions } from "@fullcalendar/core";
-  import listPlugin from "@fullcalendar/list";
+  import type { CalendarOptions } from "@fullcalendar/vue3";
   import FullCalendar from "@fullcalendar/vue3";
+  import listPlugin from "@fullcalendar/vue3/list";
+  import classicTheme from "@fullcalendar/vue3/themes/classic";
   import dayjs from "dayjs";
 
   const calendarOptions: CalendarOptions = {
-    plugins: [listPlugin],
+    plugins: [classicTheme, listPlugin],
     initialView: "listMonth",
     headerToolbar: {
       left: "prevYear,prev,today,next,nextYear",
@@ -21,12 +22,16 @@
       center: "",
       right: "listWeek,listDay,listMonth",
     },
-    buttonText: { listWeek: "List Week", listDay: "List Day", listMonth: "List Month" },
+    buttons: {
+      listWeek: { text: "List Week" },
+      listDay: { text: "List Day" },
+      listMonth: { text: "List Month" },
+    },
     events: [
       {
         title: "Attend Data Protection Act Webinar",
         date: dayjs().add(1, "day").hour(9).toDate(),
-        url: "https://ui-thing.behonbaker.com/",
+        url: "https://uithing.com/",
       },
       {
         title: "Travel to Kingston for Manager's Meeting",

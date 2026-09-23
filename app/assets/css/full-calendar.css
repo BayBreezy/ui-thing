@@ -1,189 +1,82 @@
 /*
-for css vars only.
-these values are automatically known in all stylesheets.
-the :root statement itself is only included in the common stylesheet.
-this file is not processed by postcss when imported into the postcss-custom-properties plugin,
-so only write standard css!
-
-NOTE: for old browsers, will need to restart watcher after changing a variable
+FullCalendar v7 no longer bundles default styles or uses `.fc-*` class names.
+Instead, we load the skeleton + a theme, and supply our own palette using the UI Thing tokens.
+Light/dark mode follows the tokens automatically, so no `colorScheme` handling is needed.
 */
+@import "@fullcalendar/vue3/skeleton.css";
+@import "@fullcalendar/vue3/themes/classic/theme.css";
 
 :root {
-  --fc-small-font-size: var(--text-sm);
-  --fc-page-bg-color: var(--color-background);
-  --fc-neutral-bg-color: var(--color-muted);
-  --fc-neutral-text-color: var(--color-foreground);
-  --fc-border-color: var(--color-border);
+  /* buttons */
+  --fc-classic-button: var(--color-background);
+  --fc-classic-button-border: var(--color-input);
+  --fc-classic-button-strong: var(--color-accent);
+  --fc-classic-button-strong-border: var(--color-input);
+  --fc-classic-button-outline: color-mix(in oklab, var(--color-ring) 50%, transparent);
+  --fc-classic-button-foreground: var(--color-foreground);
 
-  --fc-button-text-color: var(--color-foreground);
-  --fc-button-bg-color: var(--color-background);
-  --fc-button-border-color: var(--color-input);
-  --fc-button-hover-bg-color: var(--color-accent);
-  --fc-button-hover-border-color: var(--color-input);
-  --fc-button-active-bg-color: var(--color-accent);
-  --fc-button-active-border-color: var(--color-input);
+  /* primary */
+  --fc-classic-primary: var(--color-primary);
+  --fc-classic-primary-foreground: var(--color-primary-foreground);
 
-  --fc-event-bg-color: var(--color-primary);
-  --fc-event-border-color: var(--color-input);
-  --fc-event-text-color: var(--color-primary-foreground);
-  --fc-event-selected-overlay-color: rgba(0, 0, 0, 0.25);
+  /* calendar content */
+  --fc-classic-event: var(--color-primary);
+  --fc-classic-event-contrast: var(--color-primary-foreground);
+  --fc-classic-background-event: var(--color-primary);
+  --fc-classic-highlight: color-mix(in oklab, var(--color-primary) 10%, transparent);
+  --fc-classic-today: color-mix(in oklab, var(--color-primary) 10%, transparent);
+  --fc-classic-now: var(--color-destructive);
 
-  --fc-more-link-bg-color: #d0d0d0;
-  --fc-more-link-text-color: inherit;
+  /* neutral backgrounds */
+  --fc-classic-background: var(--color-background);
+  --fc-classic-faint: color-mix(in oklab, var(--color-muted) 50%, transparent);
+  --fc-classic-muted: var(--color-muted);
+  --fc-classic-strong: var(--color-accent);
 
-  --fc-event-resizer-thickness: 8px;
-  --fc-event-resizer-dot-total-width: 8px;
-  --fc-event-resizer-dot-border-width: 1px;
+  /* neutral foregrounds */
+  --fc-classic-foreground: var(--color-foreground);
+  --fc-classic-faint-foreground: color-mix(
+    in oklab,
+    var(--color-muted-foreground) 60%,
+    transparent
+  );
+  --fc-classic-muted-foreground: var(--color-muted-foreground);
 
-  --fc-non-business-color: rgba(215, 215, 215, 0.3);
-  --fc-bg-event-color: rgb(143, 223, 130);
-  --fc-bg-event-opacity: 0.3;
-  --fc-highlight-color: --alpha(var(--colors-primary) / 10%);
-  --fc-today-bg-color: --alpha(var(--colors-primary) / 10%);
-  --fc-now-indicator-color: red;
-
-  --fc-list-event-hover-bg-color: --alpha(var(--colors-primary) / 10%);
+  /* neutral borders */
+  --fc-classic-border: var(--color-border);
+  --fc-classic-strong-border: var(--color-input);
 }
 
-/* Toolbar buttons */
-.fc {
-  .fc-button {
-    display: inline-flex;
-    min-width: calc(var(--spacing) * 9);
-    height: calc(var(--spacing) * 9);
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-md);
-    padding-inline: calc(var(--spacing) * 3);
-    font-size: var(--text-sm);
-    line-height: var(--text-sm--line-height);
-    font-weight: var(--font-weight-medium);
-    text-transform: capitalize;
+/*
+Toolbar tweaks to match the UI Thing buttons.
+v7 generates hashed class names, so these selectors are tied to the classic theme
+and may need updating if you switch themes or upgrade.
+*/
+button.fc-classic-1Wx {
+  border-block: 1px solid var(--fc-classic-button-border);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  font-weight: var(--font-weight-medium);
+  text-transform: capitalize;
 
-    .fc-icon {
-      font-size: var(--text-sm);
-      line-height: 1;
-    }
+  & + button.fc-classic-1Wx {
+    border-inline-start-width: 0;
   }
-  .fc-button-primary {
-    z-index: 10;
 
-    &:focus {
-      box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-ring) 50%, transparent);
-    }
+  &.fc-classic-uk6:first-child {
+    border-start-start-radius: var(--radius-md);
+    border-end-start-radius: var(--radius-md);
+  }
 
-    &.fc-button-active {
-      z-index: 10;
-
-      &:focus {
-        box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-ring) 50%, transparent);
-      }
-    }
+  &.fc-classic-Tuc:last-child {
+    border-start-end-radius: var(--radius-md);
+    border-end-end-radius: var(--radius-md);
   }
 }
-/* Toolbar */
-.fc .fc-toolbar {
-  display: grid;
-  gap: calc(var(--spacing) * 3);
 
-  @media (width >= 48rem) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .fc-toolbar-chunk + .fc-toolbar-title {
-    order: 1;
-
-    @media (width >= 48rem) {
-      order: 0;
-    }
-  }
-}
-/* Toolbar title */
-.fc .fc-toolbar-title {
+.fc-classic-AVD.fc-classic-DIS {
   font-size: var(--text-xl);
   line-height: var(--text-xl--line-height);
   font-weight: var(--font-weight-bold);
   letter-spacing: -0.025em;
-}
-/* Calendar header cell */
-.fc .fc-col-header-cell-cushion,
-.fc .fc-timegrid-slot-label-cushion,
-.fc .fc-timegrid-axis-cushion {
-  font-size: var(--text-base);
-  line-height: calc(var(--spacing) * 7);
-  font-weight: var(--font-weight-semibold);
-}
-/* Calendar: month day number */
-.fc .fc-daygrid-day-number {
-  cursor: pointer;
-  font-size: var(--text-base);
-  line-height: calc(var(--spacing) * 7);
-  font-weight: var(--font-weight-medium);
-}
-.fc .fc-daygrid-month-start {
-  font-size: var(--text-lg);
-  line-height: calc(var(--spacing) * 7);
-  font-weight: var(--font-weight-semibold);
-}
-/* List text */
-.fc-list-day-text,
-.fc-list-day-side-text {
-  font-size: var(--text-base);
-  line-height: calc(var(--spacing) * 7);
-  font-weight: var(--font-weight-semibold);
-}
-.fc-h-event .fc-event-main-frame {
-  align-items: center;
-}
-.fc .fc-list-event-time,
-.fc .fc-event-time {
-  vertical-align: middle;
-  font-size: var(--text-sm);
-  line-height: 1;
-  font-weight: var(--font-weight-normal);
-}
-.fc .fc-event-time {
-  margin-right: calc(var(--spacing) * 2);
-}
-
-.fc .fc-list-event-title {
-  vertical-align: middle;
-  font-size: var(--text-sm);
-  line-height: 1;
-  font-weight: var(--font-weight-semibold);
-}
-
-/* Event inside month view */
-.fc .fc-daygrid-event {
-  border-radius: var(--radius-md);
-  font-weight: var(--font-weight-medium);
-}
-.fc .fc-h-event .fc-event-main {
-  padding-inline: calc(var(--spacing) * 1);
-}
-/* MultiMonth */
-.fc .fc-multimonth-multicol .fc-daygrid-more-link {
-  border-color: var(--color-primary);
-  background-color: var(--color-primary);
-  font-size: 10px;
-  line-height: calc(var(--spacing) * 4);
-  color: var(--color-primary-foreground);
-}
-
-/* Mulimonth popup */
-.fc-theme-standard .fc-popover {
-  border-radius: var(--radius-md);
-}
-
-.fc-popover-header {
-  padding-inline: calc(var(--spacing) * 3);
-
-  .fc-popover-title {
-    font-size: var(--text-base);
-    line-height: calc(var(--spacing) * 10);
-    font-weight: var(--font-weight-bold);
-    letter-spacing: -0.025em;
-  }
 }

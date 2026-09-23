@@ -3,14 +3,15 @@
 </template>
 
 <script lang="ts" setup>
-  import type { CalendarOptions } from "@fullcalendar/core";
-  import interactionPlugin from "@fullcalendar/interaction";
-  import multiMonthPlugin from "@fullcalendar/multimonth";
+  import type { CalendarOptions } from "@fullcalendar/vue3";
   import FullCalendar from "@fullcalendar/vue3";
+  import interactionPlugin from "@fullcalendar/vue3/interaction";
+  import multiMonthPlugin from "@fullcalendar/vue3/multimonth";
+  import classicTheme from "@fullcalendar/vue3/themes/classic";
   import dayjs from "dayjs";
 
   const calendarOptions: CalendarOptions = {
-    plugins: [multiMonthPlugin, interactionPlugin],
+    plugins: [classicTheme, multiMonthPlugin, interactionPlugin],
     initialView: "multiMonthYear",
     editable: true,
     dateClick(arg) {
@@ -23,7 +24,7 @@
         description: arg.event.title,
       });
     },
-    stickyHeaderDates: true,
+    tableHeaderSticky: true,
 
     headerToolbar: {
       left: "title",
@@ -39,7 +40,7 @@
       {
         title: "Attend Data Protection Act Webinar",
         date: dayjs().add(1, "day").hour(9).toDate(),
-        url: "https://ui-thing.behonbaker.com/",
+        url: "https://uithing.com/",
       },
       {
         title: "Travel to Kingston for Manager's Meeting",

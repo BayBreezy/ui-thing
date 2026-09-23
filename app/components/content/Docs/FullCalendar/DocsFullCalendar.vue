@@ -3,19 +3,20 @@
 </template>
 
 <script lang="ts" setup>
-  import type { CalendarOptions } from "@fullcalendar/core";
-  import dayGridPlugin from "@fullcalendar/daygrid";
-  import interactionPlugin from "@fullcalendar/interaction";
+  import type { CalendarOptions } from "@fullcalendar/vue3";
   import FullCalendar from "@fullcalendar/vue3";
+  import dayGridPlugin from "@fullcalendar/vue3/daygrid";
+  import interactionPlugin from "@fullcalendar/vue3/interaction";
+  import classicTheme from "@fullcalendar/vue3/themes/classic";
   import dayjs from "dayjs";
 
   const calendarOptions: CalendarOptions = {
-    plugins: [dayGridPlugin, interactionPlugin],
+    plugins: [classicTheme, dayGridPlugin, interactionPlugin],
     initialView: "dayGridMonth",
     dateClick: (info) => {
       console.log(info.dateStr);
     },
-    stickyHeaderDates: true,
+    tableHeaderSticky: true,
     editable: true,
     headerToolbar: {
       left: "prevYear,prev,today,next,nextYear",
@@ -31,7 +32,7 @@
       {
         title: "Attend Data Protection Act Webinar",
         date: dayjs().toDate().toISOString(),
-        url: "https://ui-thing.behonbaker.com/",
+        url: "https://uithing.com/",
       },
       {
         title: "Travel to Kingston for Manager's Meeting",
@@ -40,10 +41,3 @@
     ],
   };
 </script>
-
-<style>
-  /* Because the doc's navbar is blocking it 🙄 */
-  .fc .fc-scrollgrid-section-header.fc-scrollgrid-section-sticky > * {
-    top: 55px;
-  }
-</style>

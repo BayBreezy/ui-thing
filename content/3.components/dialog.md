@@ -190,11 +190,7 @@ The `translucent` prop is additive, so you can opt into the glass treatment on d
           <div class="flex items-center space-x-2">
             <div class="grid flex-1 gap-2">
               <UiLabel for="link" class="sr-only"> Link </UiLabel>
-              <UiInput
-                id="link"
-                model-value="https://ui-thing.behonbaker.com/getting-started"
-                readonly
-              />
+              <UiInput id="link" model-value="https://uithing.com/getting-started" readonly />
             </div>
             <UiButton
               :disabled="!isSupported"
@@ -202,7 +198,7 @@ The `translucent` prop is additive, so you can opt into the glass treatment on d
               size="icon"
               class="px-3"
               @click="
-                copy('https://ui-thing.behonbaker.com/getting-started');
+                copy('https://uithing.com/getting-started');
                 useSonner('Copied', {
                   description: 'The link has been copied to your clipboard.',
                 });
@@ -2358,7 +2354,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
 <script lang="ts" setup>
   const stepContent = [
     {
-      img: "https://ui-thing.behonbaker.com/cover.png",
+      img: "https://uithing.com/cover.png",
       title: "Welcome to UI Thing",
       description:
         "Discover a powerful collection of components designed to enhance your development workflow.",

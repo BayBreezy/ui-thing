@@ -73,7 +73,7 @@
 <script lang="ts" setup>
   const stepContent = [
     {
-      img: "https://ui-thing.behonbaker.com/cover.png",
+      img: "https://uithing.com/cover.png",
       title: "Welcome to UI Thing",
       description:
         "Discover a powerful collection of components designed to enhance your development workflow.",

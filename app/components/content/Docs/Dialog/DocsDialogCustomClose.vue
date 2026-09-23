@@ -20,11 +20,7 @@
           <div class="flex items-center space-x-2">
             <div class="grid flex-1 gap-2">
               <UiLabel for="link" class="sr-only"> Link </UiLabel>
-              <UiInput
-                id="link"
-                model-value="https://ui-thing.behonbaker.com/getting-started"
-                readonly
-              />
+              <UiInput id="link" model-value="https://uithing.com/getting-started" readonly />
             </div>
             <UiButton
               :disabled="!isSupported"
@@ -32,7 +28,7 @@
               size="icon"
               class="px-3"
               @click="
-                copy('https://ui-thing.behonbaker.com/getting-started');
+                copy('https://uithing.com/getting-started');
                 useSonner('Copied', {
                   description: 'The link has been copied to your clipboard.',
                 });
