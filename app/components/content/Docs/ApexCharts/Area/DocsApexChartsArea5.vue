@@ -67,7 +67,7 @@
       tooltip: { enabled: false },
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return value?.toString().slice(0, 3);
         },
       },
     },

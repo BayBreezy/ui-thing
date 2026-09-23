@@ -370,7 +370,7 @@
     SortingState,
     TableFeatures,
     TableOptions,
-    VisibilityState,
+    ColumnVisibilityState,
   } from "@tanstack/vue-table";
   import { startCase } from "lodash-es";
   import type { HTMLAttributes } from "vue";
@@ -583,7 +583,7 @@
 
   const sorting = ref<SortingState>([]);
   const columnFilters = ref<ColumnFiltersState>([]);
-  const columnVisibility = ref<VisibilityState>({});
+  const columnVisibility = ref<ColumnVisibilityState>({});
   const rowSelection = ref({});
   const globalFilter = ref("");
   const expanded = ref({});

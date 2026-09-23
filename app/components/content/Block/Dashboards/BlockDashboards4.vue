@@ -773,9 +773,9 @@
     dataLabels: { enabled: false },
   }));
 
-  const chartSeries = computed(() => [
-    { name: "Revenue", type: "bar", data: rangeDataMap?.[activeRange.value]?.revenue },
-    { name: "Target", type: "line", data: rangeDataMap?.[activeRange.value]?.target },
+  const chartSeries = computed<ApexOptions["series"]>(() => [
+    { name: "Revenue", type: "bar", data: rangeDataMap?.[activeRange.value]?.revenue ?? [] },
+    { name: "Target", type: "line", data: rangeDataMap?.[activeRange.value]?.target ?? [] },
   ]);
 
   // Customers table

@@ -1,10 +1,10 @@
 <template>
   <div
-    class="bg-card w-64 rounded-lg border font-mono shadow-[0_1px_1px_rgba(0,0,0,0.02),_0_2px_2px_rgba(0,0,0,0.02),_0_4px_4px_rgba(0,0,0,0.02),_0_8px_8px_rgba(0,0,0,0.02),_0_16px_16px_rgba(0,0,0,0.02),_0_32px_32px_rgba(0,0,0,0.02)]"
+    class="bg-card w-64 rounded-lg border font-mono shadow-[0_1px_1px_rgba(0,0,0,0.02),0_2px_2px_rgba(0,0,0,0.02),0_4px_4px_rgba(0,0,0,0.02),0_8px_8px_rgba(0,0,0,0.02),0_16px_16px_rgba(0,0,0,0.02),0_32px_32px_rgba(0,0,0,0.02)]"
     :class="[selected ? 'ring-primary ring-offset-background ring-2 ring-offset-2' : '']"
   >
     <div
-      class="border-border/80 from-background/70 dark:from-background/30 flex items-center justify-between border-b bg-gradient-to-t px-4 py-3"
+      class="border-border/80 from-background/70 dark:from-background/30 flex items-center justify-between border-b bg-linear-to-t px-4 py-3"
     >
       <div class="text-[13px]">
         <span class="text-muted-foreground/80">/</span>
@@ -53,7 +53,7 @@
                 :type="field.isPrimary ? 'source' : 'target'"
                 :position="field.isPrimary ? Position.Left : Position.Right"
                 class="border-background size-2.5 rounded-full border-2 transition"
-                :class="[selected ? '!bg-primary' : '!bg-foreground/60']"
+                :class="[selected ? 'bg-primary!' : 'bg-foreground/60!']"
                 :connectable="false"
               />
             </template>

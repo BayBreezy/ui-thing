@@ -41,6 +41,7 @@
     title,
     titleTemplate: `%s | ${SITE_NAME}`,
     description,
+    // @ts-expect-error - SITE_KEYWORDS might not be defined at this point
     keywords: SITE_KEYWORDS.join(", "),
     ogTitle: title,
     ogDescription: description,

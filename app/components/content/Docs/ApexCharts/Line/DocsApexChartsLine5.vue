@@ -57,7 +57,7 @@
     stroke: { width: 2, curve: "stepline" },
 
     xaxis: {
-      labels: { formatter: (value) => value?.slice(0, 3) },
+      labels: { formatter: (value) => value?.toString().slice(0, 3) },
       axisBorder: { show: false },
       axisTicks: { show: false },
     },

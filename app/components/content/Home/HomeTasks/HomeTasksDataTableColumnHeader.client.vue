@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import type { Column } from "@tanstack/vue-table";
   import { twMerge } from "tailwind-merge";
-  import type { HTMLAttributes } from "vue";
+  import { normalizeClass, type HTMLAttributes } from "vue";
 
   interface DataTableColumnHeaderProps {
     column: Column<HomeTaskTableFeatures, HomeTask, any>;
@@ -21,7 +21,7 @@
 <template>
   <div
     v-if="column.getCanSort()"
-    :class="twMerge('flex items-center space-x-2', $props.class ?? '')"
+    :class="twMerge('flex items-center space-x-2', normalizeClass($props.class))"
   >
     <UiDropdownMenu>
       <UiDropdownMenuTrigger as-child>

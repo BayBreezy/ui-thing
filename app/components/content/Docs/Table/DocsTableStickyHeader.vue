@@ -49,7 +49,7 @@
               }}</UiTableCell>
               <UiTableCell class="text-muted-foreground pl-0">{{ user.role }}</UiTableCell>
               <UiTableCell class="pl-0 text-right">
-                <UiButton size="sm" variant="linkHover2">Edit</UiButton>
+                <UiButton size="sm" variant="link">Edit</UiButton>
               </UiTableCell>
             </UiTableRow>
           </template>

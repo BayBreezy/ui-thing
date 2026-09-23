@@ -466,7 +466,7 @@ Use the `translucent` prop on the content surface when you want a softer glassmo
     [
       { title: "Group", icon: "lucide:layers-2" },
       { title: "Clone", icon: "lucide:files" },
-      { title: "Delete", icon: "lucide:trash", variant: "destructive" },
+      { title: "Delete", icon: "lucide:trash", variant: "destructive" as const },
     ],
   ];
 

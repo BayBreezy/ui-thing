@@ -304,7 +304,7 @@ description: Area charts are used to represent quantitative data visually, showi
     xaxis: {
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return value?.toString().slice(0, 3);
         },
       },
     },
@@ -376,7 +376,7 @@ description: Area charts are used to represent quantitative data visually, showi
     xaxis: {
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return typeof value === "string" ? value.slice(0, 3) : (value?.toString() ?? "");
         },
       },
     },
@@ -448,7 +448,7 @@ description: Area charts are used to represent quantitative data visually, showi
     xaxis: {
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return value?.toString().slice(0, 3);
         },
       },
     },
@@ -533,7 +533,7 @@ description: Area charts are used to represent quantitative data visually, showi
       tooltip: { enabled: false },
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return String(value).slice(0, 3);
         },
       },
     },
@@ -625,7 +625,7 @@ description: Area charts are used to represent quantitative data visually, showi
       tooltip: { enabled: false },
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return value?.toString().slice(0, 3);
         },
       },
     },
@@ -718,7 +718,7 @@ description: Area charts are used to represent quantitative data visually, showi
       tooltip: { enabled: false },
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return value?.toString().slice(0, 3);
         },
       },
     },
@@ -800,7 +800,7 @@ description: Area charts are used to represent quantitative data visually, showi
       tooltip: { enabled: false },
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return value?.toString().slice(0, 3);
         },
       },
     },
@@ -946,7 +946,7 @@ description: Area charts are used to represent quantitative data visually, showi
       tooltip: { enabled: false },
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return value?.toString().slice(0, 3);
         },
       },
     },
@@ -1026,8 +1026,8 @@ description: Area charts are used to represent quantitative data visually, showi
     tooltip: {
       // Return an array of functions to customize the tooltip
       custom: (value) => {
-        const dataDesktop = value.series[0][value.dataPointIndex];
-        const dataMobile = value.series[1][value.dataPointIndex];
+        const dataDesktop = value.series[0]?.[value.dataPointIndex];
+        const dataMobile = value.series[1]?.[value.dataPointIndex];
         const month = value.w.globals.initialSeries[0].data[value.dataPointIndex].x;
         const desktopColor = value.w.globals.colors[0];
         const mobileColor = value.w.globals.colors[1];
@@ -1056,7 +1056,7 @@ description: Area charts are used to represent quantitative data visually, showi
       tooltip: { enabled: false },
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return value?.toString().slice(0, 3);
         },
       },
     },
@@ -1143,7 +1143,7 @@ description: Area charts are used to represent quantitative data visually, showi
       tooltip: { enabled: false },
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return String(value).slice(0, 3);
         },
       },
     },
@@ -1235,7 +1235,7 @@ description: Area charts are used to represent quantitative data visually, showi
       tooltip: { enabled: false },
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return typeof value === "string" ? value.slice(0, 3) : String(value).slice(0, 3);
         },
       },
     },

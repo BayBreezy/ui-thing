@@ -55,7 +55,7 @@
     yaxis: { labels: { show: false } },
     xaxis: {
       crosshairs: { show: false },
-      labels: { formatter: (value) => value?.slice(0, 3) },
+      labels: { formatter: (value) => value?.toString().slice(0, 3) },
     },
     tooltip: { followCursor: true },
     legend: { show: true },

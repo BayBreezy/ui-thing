@@ -1,11 +1,6 @@
 <script setup lang="ts">
   import { FlexRender, useTable } from "@tanstack/vue-table";
-  import type {
-    ColumnDef,
-    ColumnFiltersState,
-    SortingState,
-    VisibilityState,
-  } from "@tanstack/vue-table";
+  import type { ColumnDef, ColumnFiltersState, SortingState } from "@tanstack/vue-table";
 
   import {
     HomeTasksDataTableColumnHeader,
@@ -21,7 +16,7 @@
 
   const sorting = ref<SortingState>([]);
   const columnFilters = ref<ColumnFiltersState>([]);
-  const columnVisibility = ref<VisibilityState>({});
+  const columnVisibility = ref<Record<string, boolean>>({});
   const rowSelection = ref({});
 
   const columns: ColumnDef<HomeTaskTableFeatures, HomeTask>[] = [

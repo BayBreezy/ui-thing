@@ -139,7 +139,7 @@
         <slot name="components" mdc-unwrap="p">
           <div v-if="components" class="flex flex-col gap-3">
             <span>These are the components used in this example:</span>
-            <ProsePmX class="!mt-0" :command="`ui-thing@latest add ${components}`" />
+            <ProsePmX class="mt-0!" :command="`ui-thing@latest add ${components}`" />
           </div>
           <div v-else class="flex h-[400px] items-center justify-center text-center font-semibold">
             No components used.
@@ -239,7 +239,7 @@
 
   const { copied, copy } = useClipboard({ copiedDuring: 2500, legacy: true });
 
-  const { contentPage } = await useDocPage();
+  const { page } = await useDocPage();
   const route = useRoute();
 
   const onCopy = async () => {
@@ -258,13 +258,13 @@
       file_name: "N/A",
       block_path: props.blockPath,
       component: props.component,
-      page_title: contentPage?.title || "unknown",
+      page_title: page.value?.title || "unknown",
       page_path: route.path,
       page_location: window.location.href,
     });
   };
 
   const externalViewLink = computed(() => {
-    return `/block-renderer?component=${encodeURIComponent(props.component)}&path=${encodeURIComponent(props.blockPath)}&containerClass=${encodeURIComponent(props.containerClass ?? "")}`;
+    return `/block-renderer?component=${encodeURIComponent(props.component)}&path=${encodeURIComponent(props.blockPath)}&containerClass=${encodeURIComponent(String(props.containerClass ?? ""))}`;
   });
 </script>

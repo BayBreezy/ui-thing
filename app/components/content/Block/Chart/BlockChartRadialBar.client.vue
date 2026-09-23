@@ -28,9 +28,11 @@
             fontWeight: 600,
             fontSize: "24px",
             formatter(opts) {
-              const total = opts.config?.series?.reduce((acc: number, cur: number) => acc + cur, 0);
+              const total = opts.config?.series
+                ?.filter((value): value is number => typeof value === "number")
+                .reduce((acc, cur) => acc + cur, 0);
               if (!total) return "0";
-              return Number(total / opts.config?.series?.length).toFixed(2) + "%";
+              return Number(total / (opts.config?.series?.length ?? 1)).toFixed(2) + "%";
             },
           },
           value: {

@@ -271,7 +271,7 @@ description: Bar charts are used to compare different categories of data.
     fill: { opacity: 1 },
     states: { hover: { filter: { type: "none" } } },
     yaxis: { labels: { show: false } },
-    xaxis: { labels: { formatter: (value) => value?.slice(0, 3) } },
+    xaxis: { labels: { formatter: (value) => value?.toString().slice(0, 3) } },
   });
 </script>
 ```
@@ -421,7 +421,7 @@ description: Bar charts are used to compare different categories of data.
     states: { hover: { filter: { type: "none" } } },
     yaxis: { labels: { show: false } },
     xaxis: {
-      labels: { formatter: (value) => value?.slice(0, 3) },
+      labels: { formatter: (value) => value?.toString().slice(0, 3) },
       crosshairs: { show: false },
       axisBorder: { show: false },
       axisTicks: { show: false },
@@ -505,7 +505,7 @@ description: Bar charts are used to compare different categories of data.
     yaxis: { labels: { show: false } },
     legend: { show: true },
     xaxis: {
-      labels: { formatter: (value) => value?.slice(0, 3) },
+      labels: { formatter: (value) => value?.toString().slice(0, 3) },
       axisBorder: { show: false },
       axisTicks: { show: false },
     },
@@ -580,7 +580,7 @@ description: Bar charts are used to compare different categories of data.
     fill: { opacity: 1 },
     states: { hover: { filter: { type: "none" } } },
     yaxis: { labels: { show: false } },
-    xaxis: { labels: { formatter: (value) => value?.slice(0, 3) } },
+    xaxis: { labels: { formatter: (value) => value?.toString().slice(0, 3) } },
   });
 </script>
 ```

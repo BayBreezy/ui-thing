@@ -57,6 +57,6 @@
     },
     colors: ["var(--color-blue-500)"],
     yaxis: { labels: { show: false } },
-    xaxis: { labels: { formatter: (value) => value?.slice(0, 3) } },
+    xaxis: { labels: { formatter: (value) => value?.toString().slice(0, 3) } },
   });
 </script>

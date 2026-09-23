@@ -332,7 +332,7 @@ description: Line charts are used to display data points over a continuous time 
     xaxis: {
       labels: {
         formatter(value) {
-          return value?.slice(0, 3); // Shorten month names to first three letters
+          return value?.toString().slice(0, 3); // Shorten month names to first three letters
         },
       },
     },
@@ -412,7 +412,7 @@ description: Line charts are used to display data points over a continuous time 
     yaxis: { labels: { show: false } },
     xaxis: {
       crosshairs: { show: false },
-      labels: { formatter: (value) => value?.slice(0, 3) },
+      labels: { formatter: (value) => value?.toString().slice(0, 3) },
     },
     tooltip: { followCursor: true },
     legend: { show: true },
@@ -494,7 +494,7 @@ description: Line charts are used to display data points over a continuous time 
     stroke: { width: 2, curve: "stepline" },
 
     xaxis: {
-      labels: { formatter: (value) => value?.slice(0, 3) },
+      labels: { formatter: (value) => value?.toString().slice(0, 3) },
       axisBorder: { show: false },
       axisTicks: { show: false },
     },
@@ -576,7 +576,7 @@ description: Line charts are used to display data points over a continuous time 
     },
     colors: ["var(--color-blue-500)"],
     yaxis: { labels: { show: false } },
-    xaxis: { labels: { formatter: (value) => value?.slice(0, 3) } },
+    xaxis: { labels: { formatter: (value) => value?.toString().slice(0, 3) } },
   });
 </script>
 ```
@@ -654,7 +654,7 @@ description: Line charts are used to display data points over a continuous time 
       },
       style: { fontSize: "12px", fontWeight: 500 },
       formatter(val, opts) {
-        return opts.w.globals.initialSeries?.[0]?.data[opts.dataPointIndex]?.x;
+        return opts?.w.globals.initialSeries?.[0]?.data[opts.dataPointIndex]?.x;
       },
     },
     yaxis: {

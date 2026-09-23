@@ -47,7 +47,7 @@
     xaxis: {
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return typeof value === "string" ? value.slice(0, 3) : (value?.toString() ?? "");
         },
       },
     },

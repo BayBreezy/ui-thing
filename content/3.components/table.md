@@ -37,7 +37,7 @@ Click :SourceCodeLink{component="Table"} to see the source code for this compone
         </UiTableRow>
       </UiTableHeader>
       <UiTableBody class="last:border-b">
-        <template v-for="invoice in invoices" :key="invoice.id">
+        <template v-for="invoice in invoices" :key="invoice.invoice">
           <UiTableRow>
             <UiTableCell class="font-medium">{{ invoice.invoice }} </UiTableCell>
             <UiTableCell>{{ invoice.paymentStatus }}</UiTableCell>
@@ -130,7 +130,7 @@ Click :SourceCodeLink{component="Table"} to see the source code for this compone
               <UiTableCell class="text-muted-foreground pl-0">{{ user.email }}</UiTableCell>
               <UiTableCell class="text-muted-foreground pl-0">{{ user.role }}</UiTableCell>
               <UiTableCell class="pl-0 text-right">
-                <UiButton size="sm" variant="linkHover2">Edit</UiButton>
+                <UiButton size="sm" variant="link">Edit</UiButton>
               </UiTableCell>
             </UiTableRow>
           </template>
@@ -224,7 +224,7 @@ Click :SourceCodeLink{component="Table"} to see the source code for this compone
               }}</UiTableCell>
               <UiTableCell class="text-muted-foreground pl-0">{{ user.role }}</UiTableCell>
               <UiTableCell class="pl-0 text-right">
-                <UiButton size="sm" variant="linkHover2">Edit</UiButton>
+                <UiButton size="sm" variant="link">Edit</UiButton>
               </UiTableCell>
             </UiTableRow>
           </template>
@@ -320,7 +320,7 @@ Click :SourceCodeLink{component="Table"} to see the source code for this compone
               }}</UiTableCell>
               <UiTableCell class="text-muted-foreground pl-0">{{ user.role }}</UiTableCell>
               <UiTableCell class="pl-0 text-right">
-                <UiButton size="sm" variant="linkHover2">Edit</UiButton>
+                <UiButton size="sm" variant="link">Edit</UiButton>
               </UiTableCell>
             </UiTableRow>
           </template>

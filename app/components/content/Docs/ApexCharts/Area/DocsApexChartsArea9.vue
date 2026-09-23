@@ -55,8 +55,8 @@
     tooltip: {
       // Return an array of functions to customize the tooltip
       custom: (value) => {
-        const dataDesktop = value.series[0][value.dataPointIndex];
-        const dataMobile = value.series[1][value.dataPointIndex];
+        const dataDesktop = value.series[0]?.[value.dataPointIndex];
+        const dataMobile = value.series[1]?.[value.dataPointIndex];
         const month = value.w.globals.initialSeries[0].data[value.dataPointIndex].x;
         const desktopColor = value.w.globals.colors[0];
         const mobileColor = value.w.globals.colors[1];
@@ -85,7 +85,7 @@
       tooltip: { enabled: false },
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return value?.toString().slice(0, 3);
         },
       },
     },

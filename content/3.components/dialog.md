@@ -2308,8 +2308,8 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
         <div class="space-y-6 overflow-x-hidden px-6 pt-3 pb-6">
           <TransitionFade mode="out-in">
             <UiDialogHeader v-if="showImage">
-              <UiDialogTitle>{{ stepContent[step - 1].title }}</UiDialogTitle>
-              <UiDialogDescription>{{ stepContent[step - 1].description }}</UiDialogDescription>
+              <UiDialogTitle>{{ stepContent[step - 1]?.title }}</UiDialogTitle>
+              <UiDialogDescription>{{ stepContent[step - 1]?.description }}</UiDialogDescription>
             </UiDialogHeader>
           </TransitionFade>
           <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
@@ -2385,7 +2385,7 @@ This implementation requires the use of [Maska](https://beholdr.github.io/maska/
   const totalSteps = ref(stepContent.length);
   const open = defineModel<boolean>({ default: false });
   const showImage = ref(true);
-  const currentImage = computed(() => stepContent[step.value - 1].img);
+  const currentImage = computed(() => stepContent[step.value - 1]?.img);
 
   watch(step, () => {
     showImage.value = false;

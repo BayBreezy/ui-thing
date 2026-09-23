@@ -156,7 +156,7 @@
               class="grid grid-cols-5 gap-2"
               @update:model-value="
                 (val) => {
-                  if (val) genChartType = val;
+                  if (typeof val === 'string') genChartType = val;
                 }
               "
             >

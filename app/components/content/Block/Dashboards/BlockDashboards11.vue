@@ -828,7 +828,7 @@
     },
   };
 
-  const chartSeries = computed(() => chartDataByTab[activeTimeTab.value].series);
+  const chartSeries = computed(() => chartDataByTab[activeTimeTab.value]?.series ?? []);
 
   const chartOptions = computed<ApexOptions>(() => ({
     chart: {
@@ -856,7 +856,7 @@
       padding: { left: 0, right: 0 },
     },
     xaxis: {
-      categories: chartDataByTab[activeTimeTab.value].categories,
+      categories: chartDataByTab[activeTimeTab.value]?.categories,
       axisBorder: { show: false },
       axisTicks: { show: false },
     },

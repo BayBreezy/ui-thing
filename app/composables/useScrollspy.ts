@@ -57,10 +57,14 @@ export function useScrollspy(options: UseScrollspyOptions = {}) {
   // --- Resolve the scroller (window by default) ---
   const scroller = shallowRef<Window | HTMLElement | null>(null);
 
+  function isWindow(el: Window | HTMLElement | null): el is Window {
+    return el === window;
+  }
+
   function sectionTopWithinScroller(sectionEl: HTMLElement): number {
     const se = scroller.value;
     const rect = sectionEl.getBoundingClientRect();
-    if (!se || se === window) {
+    if (!se || isWindow(se)) {
       return rect.top + (window.scrollY || document.documentElement.scrollTop);
     }
 
@@ -93,7 +97,7 @@ export function useScrollspy(options: UseScrollspyOptions = {}) {
 
   // Helpers for scroll metrics
   function getScrollTop(se: Window | HTMLElement | null) {
-    if (!se || se === window) {
+    if (!se || isWindow(se)) {
       return window.scrollY || document.documentElement.scrollTop;
     }
 
@@ -101,7 +105,7 @@ export function useScrollspy(options: UseScrollspyOptions = {}) {
   }
 
   function getScrollHeight(se: Window | HTMLElement | null) {
-    if (!se || se === window) {
+    if (!se || isWindow(se)) {
       return document.documentElement.scrollHeight;
     }
 
@@ -109,7 +113,7 @@ export function useScrollspy(options: UseScrollspyOptions = {}) {
   }
 
   function getClientHeight(se: Window | HTMLElement | null) {
-    if (!se || se === window) {
+    if (!se || isWindow(se)) {
       return window.innerHeight;
     }
 
@@ -118,7 +122,7 @@ export function useScrollspy(options: UseScrollspyOptions = {}) {
 
   function getViewportBounds(customOffset: number) {
     const se = scroller.value;
-    if (!se || se === window) {
+    if (!se || isWindow(se)) {
       return {
         top: customOffset,
         bottom: window.innerHeight,

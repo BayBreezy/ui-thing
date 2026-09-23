@@ -1,5 +1,5 @@
 <template>
-  <UiDrawer :swipe-direction="isMobile ? 'bottom' : 'right'">
+  <UiDrawer :swipe-direction="isMobile ? 'down' : 'right'">
     <UiDrawerTrigger as-child>
       <UiButton variant="outline" :class="props.class">Get Code</UiButton>
     </UiDrawerTrigger>

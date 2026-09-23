@@ -10,7 +10,7 @@
     useTable,
   } from "@tanstack/vue-table";
   // Import any type that you may need
-  import type { RowSelectionState } from "@tanstack/vue-table";
+  import type { ColumnDef, RowSelectionState } from "@tanstack/vue-table";
   import type { CheckboxRootProps } from "reka-ui";
 
   //2. Import the components you want to use
@@ -119,7 +119,7 @@
     features,
     // @ts-expect-error - the types are correct
     data,
-    columns,
+    columns: columns as unknown as ColumnDef<typeof features, Item, unknown>[],
     enableRowSelection: true,
     state: {
       //9. Set the state you want to control

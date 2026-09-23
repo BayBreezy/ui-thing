@@ -47,7 +47,7 @@
        *
        * @default "default"
        */
-      size?: "default" | "sm" | "lg";
+      size?: "default" | "xs" | "sm" | "lg";
     };
 </script>
 
@@ -58,6 +58,6 @@
 
   const emits = defineEmits<AvatarImageEmits>();
   const styles = tv({
-    base: "group/avatar after:border-border relative flex size-8 shrink-0 rounded-full select-none after:absolute after:inset-0 after:rounded-full after:border after:mix-blend-darken data-[size=lg]:size-10 data-[size=sm]:size-6 dark:after:mix-blend-lighten",
+    base: "group/avatar after:border-border relative flex size-8 shrink-0 rounded-full select-none after:absolute after:inset-0 after:rounded-full after:border after:mix-blend-darken data-[size=lg]:size-10 data-[size=sm]:size-6 data-[size=xs]:size-4 dark:after:mix-blend-lighten",
   });
 </script>

@@ -66,6 +66,7 @@
 <script lang="ts" setup>
   import { Background } from "@vue-flow/background";
   import { Panel, useVueFlow, VueFlow } from "@vue-flow/core";
+  import type { Edge, Node } from "@vue-flow/core";
   import { MiniMap } from "@vue-flow/minimap";
 
   import { initialSchemaEdges, initialSchemaNodes } from "./schema-data";
@@ -73,8 +74,8 @@
   import "@vue-flow/controls/dist/style.css";
   import "@vue-flow/core/dist/style.css";
 
-  const nodes = ref(initialSchemaNodes);
-  const edges = ref(initialSchemaEdges);
+  const nodes = ref<any[]>(initialSchemaNodes as unknown as Node[]);
+  const edges = ref<Edge[]>(initialSchemaEdges as unknown as Edge[]);
 
   const { fitView, zoomIn, zoomOut } = useVueFlow();
 </script>

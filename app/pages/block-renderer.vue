@@ -24,6 +24,7 @@
     title: trim(startCase((route?.query?.component as string) || "Blocks")),
     titleTemplate: `%s | ${SITE_TITLE}`,
     description: "Copy and paste blocks of code into your project.",
+    // @ts-expect-error - SITE_KEYWORDS might not be defined at this point
     keywords: SITE_KEYWORDS.join(", "),
     ogTitle: trim(startCase((route?.query?.component as string) || "Blocks")),
     ogDescription: "Copy and paste blocks of code into your project.",

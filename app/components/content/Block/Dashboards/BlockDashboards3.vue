@@ -866,7 +866,7 @@
   const folders = ["General", "Marketing", "Docs", "Blog", "Resources"];
 
   const createPage = (i: number): PageRow => {
-    const base = basePaths[i % basePaths.length];
+    const base = basePaths[i % basePaths.length]!;
     const page = i < basePaths.length ? base : `${base}?ref=${Math.floor(i / basePaths.length)}`;
     const sessions = Math.max(8, Math.round(4288 / (i * 0.65 + 1)));
     const percentage = Math.round((sessions / 4288) * 62.4 * 10) / 10;
@@ -874,9 +874,9 @@
       id: i + 1,
       page,
       sessions,
-      avgTime: avgTimes[i % avgTimes.length],
+      avgTime: avgTimes[i % avgTimes.length]!,
       percentage,
-      folder: folders[i % folders.length],
+      folder: folders[i % folders.length]!,
       visibility: i % 4 === 0 ? "private" : "public",
     };
   };

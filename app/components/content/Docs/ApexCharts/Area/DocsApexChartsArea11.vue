@@ -67,7 +67,7 @@
       tooltip: { enabled: false },
       labels: {
         formatter(value) {
-          return value?.slice(0, 3);
+          return typeof value === "string" ? value.slice(0, 3) : String(value).slice(0, 3);
         },
       },
     },

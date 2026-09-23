@@ -21,7 +21,7 @@
 
   import type { AvatarProps } from "@/components/Ui/Avatar/Avatar.vue";
 
-  export type AvatarLabelGroupProps = AvatarProps & {
+  export type AvatarLabelGroupProps = Omit<AvatarProps, "size"> & {
     /**
      * Size of the group.
      *

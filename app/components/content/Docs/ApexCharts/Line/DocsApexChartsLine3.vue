@@ -45,7 +45,7 @@
     xaxis: {
       labels: {
         formatter(value) {
-          return value?.slice(0, 3); // Shorten month names to first three letters
+          return value?.toString().slice(0, 3); // Shorten month names to first three letters
         },
       },
     },

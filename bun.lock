@@ -102,6 +102,7 @@
         "typescript": "6.0.3",
         "vue": "^3.5.43",
         "vue-router": "^5.3.1",
+        "vue-tsc": "^3.3.11",
       },
     },
   },
@@ -3033,6 +3034,8 @@
     "vue-sonner": ["vue-sonner@2.0.9", "", { "peerDependencies": { "@nuxt/kit": "^4.0.3", "@nuxt/schema": "^4.0.3", "nuxt": "^4.0.3" }, "optionalPeers": ["@nuxt/kit", "@nuxt/schema", "nuxt"] }, "sha512-i6BokNlNDL93fpzNxN/LZSn6D6MzlO+i3qXt6iVZne3x1k7R46d5HlFB4P8tYydhgqOrRbIZEsnRd3kG7qGXyw=="],
 
     "vue-tippy": ["vue-tippy@6.8.0", "", { "dependencies": { "tippy.js": "^6.3.7" }, "peerDependencies": { "vue": "^3.2.0" } }, "sha512-NiWpwncli2vXpestHyvuFPDgQ51qLbBKpZQj7FeSOm1mFbPhzMeaRxWBQQEhl/FqGRXasfGvETgAUW4md6SAbA=="],
+
+    "vue-tsc": ["vue-tsc@3.3.11", "", { "dependencies": { "@volar/typescript": "2.4.28", "@vue/language-core": "3.3.11" }, "peerDependencies": { "typescript": ">=5.0.0" }, "bin": { "vue-tsc": "bin/vue-tsc.js" } }, "sha512-gOb0B9rtU2+f1dszwPqSH5kAieIF9ReeLhD3kSRNHv5WZZUQz/JdVXW0RTdqhNTMlQkqKzrTTviqKr/4FYZraQ=="],
 
     "vue3-apexcharts": ["vue3-apexcharts@1.11.1", "", { "peerDependencies": { "apexcharts": ">=5.10.0", "vue": ">=3.0.0" } }, "sha512-MbN3vg8bMG19wc0Lm1HkeQvODgLm56DgpIxtNUO0xpf/JCzYWVGE4jzXp2JISzy2s3Kul1yOxNQUYsLvKQ5L9g=="],
 

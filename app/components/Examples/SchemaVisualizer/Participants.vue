@@ -1,5 +1,5 @@
 <template>
-  <div class="flex -space-x-[0.6rem] max-sm:hidden">
+  <div class="flex space-x-[-0.6rem] max-sm:hidden">
     <UiAvatar
       v-for="item in data?.results"
       :key="item.email"

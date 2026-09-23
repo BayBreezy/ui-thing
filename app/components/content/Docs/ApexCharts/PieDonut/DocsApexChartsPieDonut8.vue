@@ -52,8 +52,8 @@
       toolbar: { show: true },
       events: {
         dataPointSelection(e, chart, opts) {
-          const images = opts.w.config.fill.image.src;
-          const selectedImage = images[opts.dataPointIndex];
+          const images = opts?.w.config.fill?.image?.src;
+          const selectedImage = opts ? images?.[opts.dataPointIndex] : undefined;
           useSonner.info("Open Image", {
             description: "Would you like to view the selected image?",
             icon: h(resolveComponent("Icon"), {

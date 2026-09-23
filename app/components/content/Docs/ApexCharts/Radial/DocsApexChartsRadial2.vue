@@ -36,7 +36,7 @@
           fontSize: "10px",
           offsetX: -7,
           formatter: function (seriesName, opts) {
-            return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex] + "%";
+            return seriesName + ":  " + opts?.w.globals.series[opts.seriesIndex] + "%";
           },
         },
       },

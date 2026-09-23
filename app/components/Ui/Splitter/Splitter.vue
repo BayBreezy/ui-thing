@@ -16,7 +16,7 @@
 
   const props = withDefaults(
     defineProps<
-      SplitterGroupProps & {
+      Omit<SplitterGroupProps, "direction"> & {
         direction?: "horizontal" | "vertical";
         /** Custom class(es) to add to parent element. */
         class?: HTMLAttributes["class"];

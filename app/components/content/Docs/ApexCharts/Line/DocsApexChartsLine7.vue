@@ -56,7 +56,7 @@
       },
       style: { fontSize: "12px", fontWeight: 500 },
       formatter(val, opts) {
-        return opts.w.globals.initialSeries?.[0]?.data[opts.dataPointIndex]?.x;
+        return opts?.w.globals.initialSeries?.[0]?.data[opts.dataPointIndex]?.x;
       },
     },
     yaxis: {

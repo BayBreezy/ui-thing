@@ -174,7 +174,7 @@ Click :SourceCodeLink{component="Listbox"} to see the source code for this compo
         <UiListboxGroup>
           <template v-if="filteredPeople?.length > 0">
             <UiListboxGroupLabel>People</UiListboxGroupLabel>
-            <template v-for="p in filteredPeople" :key="p.id">
+            <template v-for="p in filteredPeople" :key="p">
               <UiListboxItem :value="p">
                 <span>{{ p }}</span>
               </UiListboxItem>

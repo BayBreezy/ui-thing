@@ -57,7 +57,7 @@
     states: { hover: { filter: { type: "none" } } },
     yaxis: { labels: { show: false } },
     xaxis: {
-      labels: { formatter: (value) => value?.slice(0, 3) },
+      labels: { formatter: (value) => value?.toString().slice(0, 3) },
       crosshairs: { show: false },
       axisBorder: { show: false },
       axisTicks: { show: false },
