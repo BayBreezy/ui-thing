@@ -1241,6 +1241,16 @@ export default [
     docsPath: "/forms/veenumberfield",
   },
   {
+    name: "Vee Password Input",
+    value: "vee-password-input",
+    deps: ["@vee-validate/nuxt"],
+    askValidator: true,
+    nuxtModules: ["@vee-validate/nuxt"],
+    components: ["input", "label"],
+    files: ["Vee/PasswordInput.vue"],
+    docsPath: "/forms/veepasswordinput",
+  },
+  {
     name: "Vee Pin-Input",
     value: "vee-pin-input",
     deps: ["@vee-validate/nuxt"],
