@@ -1,6 +1,6 @@
 <template>
   <UiContainer class="pb-10">
-    <UiTabs default-value="home">
+    <UiTabs default-value="cards">
       <UiTabsList :pill="false" class="relative mb-5 flex items-center overflow-x-auto">
         <UiTabsTrigger
           v-for="tab in tabs"
@@ -12,6 +12,9 @@
         >
         <UiTabsIndicator />
       </UiTabsList>
+      <UiTabsContent value="cards">
+        <DocsCardsDemo />
+      </UiTabsContent>
       <UiTabsContent value="tasks" class="bg-background rounded-lg border px-4 py-6 lg:p-6">
         <HomeTasks />
       </UiTabsContent>
@@ -27,5 +30,5 @@
 
 <script lang="ts" setup>
   import Playground from "~/examples/playground/Playground.vue";
-  const tabs = ["home", "tasks", "playground"];
+  const tabs = ["cards", "home", "tasks", "playground"];
 </script>
