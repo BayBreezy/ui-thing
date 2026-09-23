@@ -1,5 +1,11 @@
 <template>
-  <TreeItem v-slot="slotProps" data-slot="tree-item" v-bind="forwarded">
+  <TreeItem
+    v-slot="slotProps"
+    data-slot="tree-item"
+    v-bind="forwarded"
+    :value="props.value"
+    :level="props.level"
+  >
     <slot v-bind="slotProps" />
   </TreeItem>
 </template>

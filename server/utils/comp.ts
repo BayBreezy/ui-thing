@@ -4079,7 +4079,7 @@ export default [
         fileName: "Tree/Item.vue",
         dirPath: "app/components/Ui",
         fileContent:
-          '<template>\n  <TreeItem v-slot="slotProps" data-slot="tree-item" v-bind="forwarded">\n    <slot v-bind="slotProps" />\n  </TreeItem>\n</template>\n\n<script lang="ts" setup generic="T extends Record<string, any>">\n  import { TreeItem, useForwardPropsEmits } from "reka-ui";\n  import type { TreeItemEmits, TreeItemProps } from "reka-ui";\n\n  const props = defineProps<TreeItemProps<T>>();\n  const emit = defineEmits<TreeItemEmits<T>>();\n\n  const forwarded = useForwardPropsEmits(props, emit);\n</script>\n',
+          '<template>\n  <TreeItem\n    v-slot="slotProps"\n    data-slot="tree-item"\n    v-bind="forwarded"\n    :value="props.value"\n    :level="props.level"\n  >\n    <slot v-bind="slotProps" />\n  </TreeItem>\n</template>\n\n<script lang="ts" setup generic="T extends Record<string, any>">\n  import { TreeItem, useForwardPropsEmits } from "reka-ui";\n  import type { TreeItemEmits, TreeItemProps } from "reka-ui";\n\n  const props = defineProps<TreeItemProps<T>>();\n  const emit = defineEmits<TreeItemEmits<T>>();\n\n  const forwarded = useForwardPropsEmits(props, emit);\n</script>\n',
       },
       {
         fileName: "Tree/Tree.vue",
