@@ -19,7 +19,7 @@ The important distinction is that this repo does not behave like a typical packa
 
 ## High-Level Stack
 
-- Nuxt `4.4.2`
+- Nuxt `4.5.2`
 - Vue `3.5.x`
 - TypeScript
 - Tailwind CSS `4` via `@tailwindcss/vite`
@@ -29,37 +29,33 @@ The important distinction is that this repo does not behave like a typical packa
 - `motion-v` for animation-heavy docs and blocks
 - `vee-validate` for form wrappers
 - `@nuxtjs/mcp-toolkit` + custom MCP resources/tools
+- `@baybreezy/docd` Nuxt layer (`extends` in `nuxt.config.ts`) for the docs shell, prose components, theme CSS, and the `/raw/<path>.md` markdown route
 
 ## Source Of Truth Vs Generated Files
 
 Treat these as source-of-truth:
 
 - `app/components/Ui/**`
-- `app/components/content/prose/**`
 - `app/components/content/Block/**`
 - `app/components/content/Docs/**`
 - `content/**`
 - `scripts/components.js`
-- `scripts/prose.js`
 - `scripts/create-components.js`
-- `scripts/create-prose.js`
 - `scripts/create-blocks.js`
 
 Treat these as generated or derived and do not hand-edit unless you are intentionally changing the generator output format:
 
 - `server/utils/comp.ts`
-- `server/utils/prose.ts`
 - `server/utils/block-examples.ts`
 - `.nuxt/**`
 - `.data/**`
 - build output like `.output/`, `dist/`
 
-If you change UI components, prose components, or blocks, regenerate metadata:
+If you change UI components or blocks, regenerate metadata:
 
-- `npm run generate:components`
-- `npm run generate:prose`
-- `npm run generate:blocks`
-- or `npm run generate:all`
+- `bun run generate:components`
+- `bun run generate:blocks`
+- or `bun run generate:all`
 
 If you change markdown docs that embed example code, expect `automd` to refresh those blocks. The repo already does this in `lint-staged`.
 
@@ -68,14 +64,13 @@ If you change markdown docs that embed example code, expect `automd` to refresh 
 - `app/components/Ui/`: core reusable UI Thing components
 - `app/components/content/Docs/`: small example/demo components used inside docs pages
 - `app/components/content/Block/`: larger copy-paste page sections and block patterns
-- `app/components/content/prose/`: global MDC/Nuxt Content prose components
-- `app/components/content/ShowCase.global.vue`: preview/code switcher used in docs
-- `content/`: markdown docs, grouped into getting started, components, goodies, forms, charts, blocks, prose, examples
-- `app/pages/` + `app/layouts/`: docs site pages and layouts
-- `server/api/`: local JSON/markdown APIs for components, prose, blocks, docs markdown
+- `app/components/content/Page/`, `Home/`: docs-site page and homepage pieces
+- Prose components (`ProseShowCase`, `ProsePmX`, callouts, etc.) come from the `@baybreezy/docd` layer in `node_modules`, not from this repo. Change them upstream.
+- `content/`: markdown docs, grouped into getting started, examples, components, goodies, utilities, forms, apex-charts, blocks
+- `app/pages/` + `app/layouts/`: site-specific pages and layouts (the docs `[...slug]` page and layout come from the docd layer)
+- `server/api/`: local JSON APIs for components, blocks, and the changelog
 - `server/mcp/`: MCP tools, prompts, and resources backed by the same generated registries
 - `app/examples/`: non-doc example pages
-- `app/emails/`: email renderer templates
 
 ## Component Authoring Rules
 
@@ -110,15 +105,11 @@ If you change markdown docs that embed example code, expect `automd` to refresh 
 ## Styling And Theme Rules
 
 - Styling is shadcn-like and token-driven.
-- The main design tokens live in:
-  - `app/assets/css/tailwind.css`
-  - `app/assets/css/theme.css`
-  - `app/utils/themes.ts`
+- The design tokens live in `app/assets/css/tailwind.css` and in the docd layer's `app/assets/css/theme.css` / `shadcn.css`.
 - Prefer semantic tokens like `bg-background`, `text-foreground`, `border-border`, `bg-muted`, `text-muted-foreground`.
 - Theme selection is done by adding `theme-*` classes to the document root. Radius is controlled via CSS custom properties.
-- `useConfigStore()` persists theme and radius with `useStorage`.
 - Dark mode is handled with `@nuxtjs/color-mode`.
-- Prettier is configured to understand Tailwind classes inside `tv()` and `tw()`.
+- `oxfmt` is configured (`.oxfmtrc.json`) to sort Tailwind classes inside `tv()` and `tw()` and `:class` bindings.
 - If you add scoped styles that need Tailwind tokens/utilities, use the repo pattern with `@reference "~/assets/css/tailwind.css"` where appropriate.
 
 ## Docs And Content Rules
@@ -127,13 +118,12 @@ If you change markdown docs that embed example code, expect `automd` to refresh 
 - Every markdown page should have at least `title` and `description` frontmatter.
 - Section metadata and icons are often declared in `.navigation.yml`.
 - Component docs use MDC custom components such as:
-  - `::prose-show-case`
+  - `::prose-show-case` (docd layer)
   - `:BlockShowcase`
-  - `:prose-pm-x`
+  - `:prose-pm-x` (docd layer)
   - `:SourceCodeLink`
 - Many docs pages embed source code via `automd:file` comments. Do not manually drift embedded code away from the referenced file.
-- `app/pages/[...slug].vue` is the main docs renderer.
-- `/blocks/*` pages intentionally suppress the right-side TOC behavior in the page layout.
+- The docd layer's `[...slug].vue` page is the main docs renderer. Set `hideToc: true` in frontmatter to suppress the right-side TOC.
 
 ## Blocks And Examples Rules
 
@@ -151,47 +141,43 @@ If you change markdown docs that embed example code, expect `automd` to refresh 
 
 ## Server And MCP Rules
 
-- `server/api/**` exposes searchable component, prose, block, and markdown endpoints.
+- `server/api/**` exposes searchable component, block, and changelog endpoints.
 - Search uses `Fuse.js`.
 - `server/mcp/**` is a first-class part of the product, not throwaway tooling.
 - MCP tools and resources depend on the generated registries in `server/utils/**`, so keep those files regenerated after source changes.
-- Raw markdown for docs pages is served at `/raw/<path>.md` (Nuxt Content's llms feature, via the docd layer). The MCP tools in `server/mcp/utils/library.ts` fetch docs from there, so keep that route working when changing content structure.
+- Raw markdown for docs pages is served at `/raw/<path>.md` (Nuxt Content's llms feature). The MCP tools in `server/mcp/utils/library.ts` fetch docs from there, so keep that route working when changing content structure.
+- Registry data uses kebab-case component values (`vee-input`). In `components.js`, `deps` are npm packages (Nuxt modules are listed in `nuxtModules` as well), and `components` lists other UI Thing components. Block metadata stores lowercased `Ui*` tag names, which `library.ts` maps back to registry components.
 
 ## Formatting, Linting, And Commits
 
-- Prettier rules:
-  - 2 spaces
-  - semicolons on
-  - double quotes
-  - trailing commas `es5`
-  - print width `100`
-  - import sorting enabled
-- ESLint is based on Nuxt's generated config with a number of relaxed Vue/TS rules.
+- Formatting is done by `oxfmt` (`bun run fmt` / `bun run fmt:check`), configured in `.oxfmtrc.json`: import sorting, Tailwind class sorting, `trailingComma: "es5"`. Do not run `prettier` on this repo; it formats differently and produces noisy diffs.
+- ESLint is based on Nuxt's generated config with a number of relaxed Vue/TS rules (`bun run lint`).
 - Husky hooks are active:
   - pre-commit: `npx lint-staged`
   - commit-msg: conventional commits via commitlint
 - `lint-staged` runs:
+  - `oxfmt`
   - `automd`
-  - `npm run generate:all`
-  - `prettier --write`
+  - `npm run generate:all` (then stages `server/utils/`)
   - `eslint --fix` for `js/ts/vue`
 
 ## Environment And Runtime Rules
 
 - Node version target is `>=24.13.1`.
-- Package manager is `npm@11.12.0`.
-- `.npmrc` enables `legacy-peer-deps=true`.
+- Package manager is `bun@1.4.0` (see `packageManager` in `package.json`); the lockfile is `bun.lock`. Use `bun install` / `bun add`. `.npmrc` still sets `legacy-peer-deps=true` for npm-based tooling.
+- `package.json` `overrides` pins `mdast-util-to-markdown` to `2.1.2`. Version 2.1.3 makes `remark-mdc`'s `strong` handler recurse forever, which breaks prerendering `/llms-full.txt`. Remove the pin only after `remark-mdc` is fixed and `bun run build` passes.
+- There is no CI workflow that builds the site. Run `bun run build` locally after dependency bumps (a full build also prerenders `llms.txt` and `llms-full.txt`, which dev mode does not catch).
 - Runtime env vars visible in the repo:
   - `PUBLIC_URL`
   - `GA_ID`
-- Docker builds expect native deps for `better-sqlite3`, then ship the Nuxt server output.
+- Deploys build with Nixpacks (`nixpacks.toml` adds python3, gcc, make, and node-gyp for native deps such as `better-sqlite3`), then ship the Nuxt server output.
 
 ## Practical Editing Guidance
 
 - If you are changing a component API, update the source component first, then regenerate registries.
 - If you are changing docs examples, update the demo SFC under `app/components/content/Docs/**` and let `automd` keep markdown code snippets aligned.
 - If you are changing blocks, update the block SFC under `app/components/content/Block/**` and regenerate `server/utils/block-examples.ts`.
-- If you are changing prose components, update the `.global.vue` source and regenerate `server/utils/prose.ts`.
+- If you are changing prose components, make the change in the `@baybreezy/docd` layer; there are no local prose components or generated prose registry.
 - Avoid editing `.nuxt/**` or `.data/**` directly.
 - Avoid treating this repo as a packaged library with a single export surface. The file contents themselves are part of the deliverable.
 
