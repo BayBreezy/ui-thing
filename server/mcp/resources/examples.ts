@@ -7,9 +7,9 @@ export default defineMcpResource({
   description: "Slim discovery index for the example pages shipped in the UI Thing docs site.",
   cache: "1h",
   async handler(uri: URL) {
-    const examples = await queryCollection(useEvent(), "content")
+    const examples = await queryCollection(useEvent(), "docs")
       .where("extension", "=", "md")
-      .where("path", "LIKE", "%/examples/%")
+      .where("path", "LIKE", "/examples/%")
       .select("title", "description", "path")
       .all();
 

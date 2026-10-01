@@ -72,6 +72,7 @@ type DependencyAccumulator = {
   plugins: Set<string>;
   utils: Set<string>;
   processedComponents: Set<string>;
+  unresolvedComponents: Set<string>;
 };
 
 type PageSectionPlan = {
@@ -141,8 +142,8 @@ const COMPONENT_CATEGORY_GROUPS: Array<{ category: string; values: string[] }> =
       "autocomplete",
       "checkbox",
       "combobox",
-      "currencyinput",
-      "datefield",
+      "currency-input",
+      "date-field",
       "datepicker",
       "dropfile",
       "field",
@@ -152,30 +153,30 @@ const COMPONENT_CATEGORY_GROUPS: Array<{ category: string; values: string[] }> =
       "label",
       "listbox",
       "number-field",
-      "pininput",
-      "radiogroup",
+      "pin-input",
+      "radio-group",
       "rating",
       "select",
-      "select-native",
+      "native-select",
       "slider",
       "switch",
-      "tagsinput",
+      "tags-input",
       "textarea",
-      "veecheckbox",
-      "veecheckbox-native",
-      "veecurrencyinput",
-      "veedatefield",
-      "veedatepicker",
-      "veefileinput",
-      "veeinput",
-      "veemultiselect",
-      "veenumberfield",
-      "veepininput",
-      "veeradiogroup",
-      "veeselect",
-      "veetagsinput",
-      "veetextarea",
-      "vee-vueformslider",
+      "vee-checkbox",
+      "vee-native-checkbox",
+      "vee-currency-input",
+      "vee-date-field",
+      "vee-datepicker",
+      "vee-file-input",
+      "vee-input",
+      "vee-multi-select",
+      "vee-number-field",
+      "vee-pin-input",
+      "vee-radio-group",
+      "vee-select",
+      "vee-tags-input",
+      "vee-textarea",
+      "vee-vue-form-slider",
     ],
   },
   {
@@ -183,13 +184,13 @@ const COMPONENT_CATEGORY_GROUPS: Array<{ category: string; values: string[] }> =
     values: [
       "breadcrumbs",
       "command",
-      "contextmenu",
-      "dropdownmenu",
+      "context-menu",
+      "dropdown-menu",
       "item",
       "menubar",
       "nav",
       "navbar",
-      "navigationmenu",
+      "navigation-menu",
       "pagination",
       "scrollspy",
       "sidebar",
@@ -202,10 +203,10 @@ const COMPONENT_CATEGORY_GROUPS: Array<{ category: string; values: string[] }> =
   {
     category: "overlay",
     values: [
-      "alertdialog",
+      "alert-dialog",
       "dialog",
       "drawer",
-      "hovercard",
+      "hover-card",
       "popover",
       "sheet",
       "sonner",
@@ -217,9 +218,9 @@ const COMPONENT_CATEGORY_GROUPS: Array<{ category: string; values: string[] }> =
     values: [
       "accordion",
       "alert",
-      "animatedtooltip",
+      "animated-tooltip",
       "apexcharts",
-      "aspectratio",
+      "aspect-ratio",
       "avatar",
       "badge",
       "calendar",
@@ -233,24 +234,24 @@ const COMPONENT_CATEGORY_GROUPS: Array<{ category: string; values: string[] }> =
       "empty",
       "heading",
       "icon",
-      "keyboardkey",
+      "kbd",
       "list",
       "loader",
       "placeholder",
       "progress",
       "qrcode",
-      "scrollarea",
+      "scroll-area",
       "separator",
       "skeleton",
       "splitter",
       "table",
       "toggle",
-      "togglegroup",
+      "toggle-group",
     ],
   },
   {
     category: "goodies",
-    values: ["color-picker", "draggable", "editable", "fancyicon", "flip-clock", "iframelazy"],
+    values: ["color-picker", "draggable", "editable", "fancy-icon", "flip-clock", "iframe-lazy"],
   },
 ];
 
@@ -376,7 +377,7 @@ const PAGE_PRESETS: Record<
         id: "form",
         title: "Contact form",
         query: "contact form",
-        componentValues: ["form", "veeinput", "veetextarea", "button", "card"],
+        componentValues: ["form", "vee-input", "vee-textarea", "button", "card"],
       },
       { id: "faq", title: "FAQ", query: "faq", categories: ["FAQ"] },
     ],
@@ -393,37 +394,44 @@ const FORM_PRESETS: Record<string, FormPreset> = {
     title: "Login form",
     description: "Simple sign-in flow with strong validation and clear recovery path.",
     fields: ["email", "password"],
-    componentValues: ["form", "veeinput", "button", "card", "alert"],
+    componentValues: ["form", "vee-input", "button", "card", "alert"],
   },
   signup: {
     title: "Sign up form",
     description: "Account creation with identity fields, consent, and password confirmation.",
     fields: ["name", "email", "password", "confirm-password", "checkbox"],
-    componentValues: ["form", "veeinput", "veecheckbox", "button", "card", "alert"],
+    componentValues: ["form", "vee-input", "vee-checkbox", "button", "card", "alert"],
   },
   contact: {
     title: "Contact form",
     description: "Lead capture or support flow with concise inputs and message body.",
     fields: ["name", "email", "message"],
-    componentValues: ["form", "veeinput", "veetextarea", "button", "card", "alert"],
+    componentValues: ["form", "vee-input", "vee-textarea", "button", "card", "alert"],
   },
   settings: {
     title: "Settings form",
     description: "Profile or account settings with mixed field types and save feedback.",
     fields: ["name", "email", "select", "switch"],
-    componentValues: ["form", "veeinput", "veeselect", "switch", "button", "card", "alert"],
+    componentValues: ["form", "vee-input", "vee-select", "switch", "button", "card", "alert"],
   },
   checkout: {
     title: "Checkout form",
     description: "Purchase flow with contact, address, and payment-related fields.",
     fields: ["name", "email", "select", "textarea", "checkbox"],
-    componentValues: ["form", "veeinput", "veeselect", "veetextarea", "button", "card", "alert"],
+    componentValues: ["form", "vee-input", "vee-select", "vee-textarea", "button", "card", "alert"],
   },
   survey: {
     title: "Survey form",
     description: "Response-heavy form with ratings, choice inputs, and freeform answers.",
     fields: ["radio", "checkbox", "textarea", "rating"],
-    componentValues: ["form", "veeradiogroup", "veecheckbox", "veetextarea", "rating", "button"],
+    componentValues: [
+      "form",
+      "vee-radio-group",
+      "vee-checkbox",
+      "vee-textarea",
+      "rating",
+      "button",
+    ],
   },
   custom: {
     title: "Custom form",
@@ -613,14 +621,58 @@ export function listBlockSummaries() {
   return blockRegistry.map(summarizeBlock);
 }
 
-export function findComponent(query: string) {
-  const normalized = normalizeQuery(query).replace(/^u[-_]*i[-_]*/i, "");
+/**
+ * Collapses a component identifier so `vee-input`, `veeinput`, `VeeInput` and `Vee Input` all
+ * compare equal. Block metadata stores lowercased `Ui*` tag names (e.g. `veeinput`), while the
+ * registry uses kebab-case values (e.g. `vee-input`).
+ */
+function collapseIdentifier(value: string) {
+  return value.toLowerCase().replace(/[^a-z0-9]/g, "");
+}
 
-  return componentRegistry.find(
-    (component) =>
-      normalizeQuery(component.name) === normalized ||
-      normalizeQuery(component.value) === normalized
-  );
+/** Tag names that do not collapse to a registry value. */
+const COMPONENT_TAG_ALIASES: Record<string, string> = {
+  apexchart: "apexcharts",
+};
+
+const componentsByIdentifier = new Map<string, ComponentRecord>(
+  componentRegistry.flatMap((component) =>
+    [component.value, component.name].map(
+      (identifier) => [collapseIdentifier(identifier), component] as const
+    )
+  )
+);
+
+export function findComponent(query: string) {
+  const normalized = collapseIdentifier(normalizeQuery(query).replace(/^u[-_]*i[-_]*/i, ""));
+
+  return componentsByIdentifier.get(COMPONENT_TAG_ALIASES[normalized] ?? normalized);
+}
+
+/**
+ * Resolves a `Ui*` tag name found in block source to its registry component. Sub-parts such as
+ * `UiCardContent` or `UiDropdownMenuItem` ship with their parent component, so fall back to the
+ * longest registry value the tag starts with.
+ */
+function findComponentForTag(tag: string) {
+  const exact = findComponent(tag);
+
+  if (exact) {
+    return exact;
+  }
+
+  const normalized = collapseIdentifier(tag);
+  let match: ComponentRecord | undefined;
+  let matchLength = 0;
+
+  for (const [identifier, component] of componentsByIdentifier) {
+    if (identifier.length > matchLength && normalized.startsWith(identifier)) {
+      match = component;
+      matchLength = identifier.length;
+    }
+  }
+
+  return match;
 }
 
 export function findBlock(query: string) {
@@ -636,12 +688,6 @@ export function findBlock(query: string) {
   });
 }
 
-function findComponentByValue(value: string) {
-  return componentRegistry.find(
-    (component) => normalizeQuery(component.value) === normalizeQuery(value)
-  );
-}
-
 function createDependencyAccumulator(): DependencyAccumulator {
   return {
     uiThingComponents: new Set<string>(),
@@ -652,6 +698,7 @@ function createDependencyAccumulator(): DependencyAccumulator {
     plugins: new Set<string>(),
     utils: new Set<string>(),
     processedComponents: new Set<string>(),
+    unresolvedComponents: new Set<string>(),
   };
 }
 
@@ -660,7 +707,7 @@ function addStringDependencies(target: Set<string>, values?: Array<string | null
 }
 
 function collectComponentDependencies(component: ComponentRecord, acc: DependencyAccumulator) {
-  const key = normalizeQuery(component.value);
+  const key = collapseIdentifier(component.value);
 
   if (acc.processedComponents.has(key)) {
     return;
@@ -669,39 +716,45 @@ function collectComponentDependencies(component: ComponentRecord, acc: Dependenc
   acc.processedComponents.add(key);
   acc.uiThingComponents.add(component.value);
 
+  // `deps` holds npm packages. Nuxt modules are listed here too, but they are installed with the
+  // module command, so keep them out of the npm install command.
   component.deps?.forEach((dep: string) => {
-    if (dep.startsWith("npm:")) {
+    if (!component.nuxtModules?.includes(dep)) {
       acc.npmDependencies.add(dep.replace(/^npm:/, ""));
-      return;
     }
+  });
 
-    const dependencyComponent = findComponentByValue(dep);
+  // `components` holds other UI Thing components this one imports.
+  component.components?.forEach((value: string) => {
+    const dependencyComponent = findComponent(value);
 
     if (dependencyComponent) {
       collectComponentDependencies(dependencyComponent, acc);
       return;
     }
 
-    acc.uiThingComponents.add(dep);
+    acc.unresolvedComponents.add(value);
   });
 
   addStringDependencies(acc.devDependencies, component.devDeps);
   addStringDependencies(acc.nuxtModules, component.nuxtModules);
-  component.composables?.forEach((entry: any) => entry?.name && acc.composables.add(entry.name));
+  component.composables?.forEach(
+    (entry: any) => entry?.fileName && acc.composables.add(entry.fileName)
+  );
   component.plugins?.forEach((entry: any) => entry?.fileName && acc.plugins.add(entry.fileName));
   component.utils?.forEach((entry: any) => entry?.fileName && acc.utils.add(entry.fileName));
 }
 
 function collectBlockDependencies(block: BlockRecord, acc: DependencyAccumulator) {
-  block.components?.forEach((value) => {
-    const component = findComponentByValue(value);
+  block.components?.forEach((tag) => {
+    const component = findComponentForTag(tag);
 
     if (component) {
       collectComponentDependencies(component, acc);
       return;
     }
 
-    acc.uiThingComponents.add(value);
+    acc.unresolvedComponents.add(tag);
   });
 }
 
@@ -743,6 +796,10 @@ export function buildInstallPlan(
 
     missingItems.push(item);
   });
+
+  // Dependencies that could not be mapped to a registry component are reported instead of being
+  // emitted into the add command, where the CLI would reject them.
+  missingItems.push(...uniqueSorted(acc.unresolvedComponents));
 
   const npmDependencies = uniqueSorted(acc.npmDependencies);
   const devDependencies = uniqueSorted(acc.devDependencies);
@@ -896,7 +953,8 @@ export async function getDocumentationContext(event: any, docsPath?: string | nu
     return null;
   }
 
-  const documentation = await $fetch<string>(`/api/md${normalizedPath}`);
+  // The raw markdown is served by Nuxt Content's llms feature at `/raw/<path>.md`.
+  const documentation = await $fetch<string>(`/raw${normalizedPath}.md`).catch(() => null);
 
   return {
     page: {
@@ -945,7 +1003,7 @@ export async function buildComponentDetail(event: any, component: ComponentRecor
 export async function buildBlockDetail(event: any, block: BlockRecord) {
   const docsPath = getBlockDocsPath(block);
   const documentation = await getDocumentationContext(event, docsPath);
-  const installPlan = buildInstallPlan(block.components ?? []);
+  const installPlan = buildInstallPlan([block.fileName.replace(/\.vue$/, "")]);
 
   return {
     kind: "block" as const,
@@ -984,30 +1042,30 @@ export function parseCommaList(value?: string | null) {
 
 function getFieldComponent(field: string) {
   const mapping: Record<string, string[]> = {
-    email: ["veeinput"],
-    password: ["veeinput"],
-    "confirm-password": ["veeinput"],
-    name: ["veeinput"],
-    phone: ["veeinput"],
-    message: ["veetextarea"],
-    textarea: ["veetextarea"],
-    select: ["veeselect"],
-    checkbox: ["veecheckbox"],
-    radio: ["veeradiogroup"],
+    email: ["vee-input"],
+    password: ["vee-input"],
+    "confirm-password": ["vee-input"],
+    name: ["vee-input"],
+    phone: ["vee-input"],
+    message: ["vee-textarea"],
+    textarea: ["vee-textarea"],
+    select: ["vee-select"],
+    checkbox: ["vee-checkbox"],
+    radio: ["vee-radio-group"],
     switch: ["switch"],
-    date: ["veedatepicker"],
-    calendar: ["veedatepicker"],
-    number: ["veenumberfield"],
-    amount: ["veecurrencyinput"],
-    currency: ["veecurrencyinput"],
-    file: ["veefileinput"],
-    tags: ["veetagsinput"],
-    otp: ["veepininput"],
-    pin: ["veepininput"],
+    date: ["vee-datepicker"],
+    calendar: ["vee-datepicker"],
+    number: ["vee-number-field"],
+    amount: ["vee-currency-input"],
+    currency: ["vee-currency-input"],
+    file: ["vee-file-input"],
+    tags: ["vee-tags-input"],
+    otp: ["vee-pin-input"],
+    pin: ["vee-pin-input"],
     rating: ["rating"],
   };
 
-  return mapping[field] ?? ["veeinput"];
+  return mapping[field] ?? ["vee-input"];
 }
 
 function getFieldValidation(field: string) {

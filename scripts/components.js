@@ -511,7 +511,7 @@ export default [
     name: "Gradient Divider",
     value: "gradient-divider",
     files: ["GradientDivider.vue"],
-    docsPath: "/goodies/gradient-divider",
+    docsPath: "/components/gradient-divider",
   },
   {
     name: "Heading",
@@ -1113,7 +1113,7 @@ export default [
       "label",
       "vee-checkbox",
       "vee-switch",
-      "Vee-input",
+      "vee-input",
       "divider",
       "vee-currency-input",
       "vee-date-field",

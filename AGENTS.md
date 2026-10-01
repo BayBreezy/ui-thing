@@ -155,7 +155,7 @@ If you change markdown docs that embed example code, expect `automd` to refresh 
 - Search uses `Fuse.js`.
 - `server/mcp/**` is a first-class part of the product, not throwaway tooling.
 - MCP tools and resources depend on the generated registries in `server/utils/**`, so keep those files regenerated after source changes.
-- `server/api/md/[...slug].get.ts` converts content pages back into markdown and appends a GitHub source link. Avoid breaking that assumption when changing content structure.
+- Raw markdown for docs pages is served at `/raw/<path>.md` (Nuxt Content's llms feature, via the docd layer). The MCP tools in `server/mcp/utils/library.ts` fetch docs from there, so keep that route working when changing content structure.
 
 ## Formatting, Linting, And Commits
 

@@ -27,6 +27,10 @@ export default defineMcpTool({
       );
     }
 
+    if (documentation.markdown === null) {
+      return errorResult(`Could not load the markdown for documentation page '${path}'.`);
+    }
+
     return {
       content: [
         {
