@@ -1,6 +1,6 @@
 <template>
   <div class="h-[550px] w-full">
-    <apexchart width="100%" height="100%" type="pie" :options="options" :series="series" />
+    <UiApexchart width="100%" height="100%" type="pie" :options="options" :series="series" />
   </div>
 </template>
 
@@ -42,18 +42,3 @@
     labels: ["Apples", "Oranges", "Bananas"],
   };
 </script>
-
-<style>
-  .apexcharts-menu {
-    border-color: var(--color-border);
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-
-    .apexcharts-menu-item {
-      &:hover {
-        background-color: var(--color-primary) !important;
-        color: var(--color-primary-foreground) !important;
-      }
-    }
-  }
-</style>

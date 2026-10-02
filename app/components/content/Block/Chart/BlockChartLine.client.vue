@@ -1,6 +1,6 @@
 <template>
   <div class="h-[550px] w-full">
-    <apexchart width="100%" height="100%" type="line" :options="options" :series="series" />
+    <UiApexchart width="100%" height="100%" type="line" :options="options" :series="series" />
   </div>
 </template>
 
@@ -100,32 +100,3 @@
     },
   };
 </script>
-
-<style>
-  .apexcharts-menu {
-    border-color: var(--color-border);
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-
-    .apexcharts-menu-item {
-      &:hover {
-        background-color: var(--color-primary) !important;
-        color: var(--color-primary-foreground) !important;
-      }
-    }
-  }
-
-  .apexcharts-tooltip {
-    background: var(--color-background) !important;
-    color: var(--color-foreground) !important;
-    border: 1px solid var(--color-border) !important;
-    box-shadow: var(--shadow) !important;
-
-    .apexcharts-tooltip-title {
-      color: var(--color-foreground) !important;
-      background-color: var(--color-muted) !important;
-      font-family: var(--font-sans) !important;
-      border-bottom: 1px solid var(--color-border) !important;
-    }
-  }
-</style>
