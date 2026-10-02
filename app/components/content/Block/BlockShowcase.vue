@@ -18,7 +18,7 @@
             >Code</UiTabsTrigger
           >
           <UiTabsTrigger
-            v-if="$slots.components || components"
+            v-if="$slots.components || requiredComponents"
             class="relative z-10 h-7 bg-transparent px-2 text-sm data-[state=active]:bg-transparent"
             value="components"
             >Components</UiTabsTrigger
@@ -137,9 +137,9 @@
         class="flex flex-col gap-3 **:data-[slot='prose-pre-wrapper']:mt-0"
       >
         <slot name="components" mdc-unwrap="p">
-          <div v-if="components" class="flex flex-col gap-3">
+          <div v-if="requiredComponents" class="flex flex-col gap-3">
             <span>These are the components used in this example:</span>
-            <ProsePmX class="mt-0!" :command="`ui-thing@latest add ${components}`" />
+            <ProsePmX class="mt-0!" :command="`ui-thing@latest add ${requiredComponents}`" />
           </div>
           <div v-else class="flex h-[400px] items-center justify-center text-center font-semibold">
             No components used.
@@ -153,6 +153,8 @@
 <script lang="ts" setup>
   import type { SplitterPanel } from "reka-ui";
   import type { HtmlHTMLAttributes } from "vue";
+
+  import blockComponents from "~/utils/block-components";
 
   const props = withDefaults(
     defineProps<{
@@ -175,6 +177,12 @@
       statusCode: 400,
       statusMessage: "[BlockShowcase.vue] Block path is required.",
     });
+
+  const requiredComponents = computed(() => {
+    const generated = blockComponents[props.blockPath as keyof typeof blockComponents];
+
+    return generated ?? props.components?.trim() ?? "";
+  });
 
   const selectedTab = ref("preview");
 
