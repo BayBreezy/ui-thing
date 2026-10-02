@@ -623,8 +623,8 @@ export function listBlockSummaries() {
 
 /**
  * Collapses a component identifier so `vee-input`, `veeinput`, `VeeInput` and `Vee Input` all
- * compare equal. Block metadata stores lowercased `Ui*` tag names (e.g. `veeinput`), while the
- * registry uses kebab-case values (e.g. `vee-input`).
+ * compare equal. Current block metadata stores canonical registry values, while this normalization
+ * keeps lookup compatible with older generated metadata and user input.
  */
 function collapseIdentifier(value: string) {
   return value.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -650,9 +650,9 @@ export function findComponent(query: string) {
 }
 
 /**
- * Resolves a `Ui*` tag name found in block source to its registry component. Sub-parts such as
- * `UiCardContent` or `UiDropdownMenuItem` ship with their parent component, so fall back to the
- * longest registry value the tag starts with.
+ * Resolves canonical block metadata and remains compatible with older metadata that stored raw
+ * `Ui*` tag names. Sub-parts such as `UiCardContent` or `UiDropdownMenuItem` ship with their parent
+ * component, so fall back to the longest registry value the tag starts with.
  */
 function findComponentForTag(tag: string) {
   const exact = findComponent(tag);
