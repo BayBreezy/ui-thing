@@ -18,7 +18,7 @@
     "fmt:check": "oxfmt --check",
     "generate": "nuxt generate",
     "generate:all": "npm run generate:blocks && npm run generate:components",
-    "generate:blocks": "node scripts/create-blocks.js && nr fmt ./server/utils/**",
+    "generate:blocks": "node scripts/create-blocks.js && nr fmt ./server/utils/** ./app/utils/block-components.ts",
     "generate:components": "node scripts/create-components && nr fmt ./server/utils/**",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -128,7 +128,7 @@
     "*": [
       "oxfmt --no-error-on-unmatched-pattern",
       "npx -y automd@latest --input '**/*.md'",
-      "bash -c 'npm run generate:all && git add server/utils/'"
+      "bash -c 'npm run generate:all && git add server/utils/ app/utils/block-components.ts'"
     ],
     "*.{js,ts,vue}": [
       "eslint --fix"
