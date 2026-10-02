@@ -1,6 +1,7 @@
 ---
 title: Sonner
 description: Sonner is an opinionated toast component for Vue. It's customizable, but styled by default. Comes with a swipe to dismiss animation.
+label: Updated
 links:
   - title: API Reference
     href: https://github.com/xiaoluoboding/vue-sonner
@@ -25,6 +26,21 @@ Add the `<UiSonner />` component to your `app.vue` file:
   </div>
 </template>
 ```
+
+## Props
+
+`UiSonner` renders inside `<ClientOnly>` and accepts every prop of vue-sonner's [`Toaster`](https://github.com/xiaoluoboding/vue-sonner), so you can override any of the defaults (`visible-toasts="5"`, `close-button`, `duration="7000"`, and the theme tracking the color mode).
+
+```vue
+<UiSonner
+  position="top-center"
+  :duration="4000"
+  rich-colors
+  :toast-options="{ classes: { toast: 'rounded-xl' } }"
+/>
+```
+
+`class` and `style` are merged with the defaults, and `toast-options.classes` is merged per slot, so overriding one slot keeps the others.
 
 ## Usage
 

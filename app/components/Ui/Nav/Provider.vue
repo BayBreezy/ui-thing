@@ -59,7 +59,7 @@
   /** Open state for the navigation. */
   const open = defineModel<boolean>({ default: false });
   /** Mobile state for the navigation. */
-  const isMobile = useMediaQuery("(max-width: 767px)"); /** Toggle the navigation state */
+  const isMobile = useMediaQuery("(max-width: 767px)"); /** Toggle the navigation state. */
   const toggleNav = () => (open.value = !open.value);
   // Watch for changes in the open state and emit the model change event
   // if the onOpenChange prop is provided.
