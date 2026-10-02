@@ -7,4 +7,4 @@ description: Rich text editor blocks built with Tiptap featuring formatting tool
 
 Custom Tiptap instance with grouped icon buttons and tooltips. Features organized button groups for text formatting (bold, italic, strike), headings (H1-H3), lists (bullet, ordered), and block elements (code, blockquote). Includes undo/redo actions with disabled states.
 
-:BlockShowcase{blockPath="Tiptap/BlockTiptap1" component="BlockTiptap1" components="container toggle button separator tooltip"}
+:BlockShowcase{blockPath="Tiptap/BlockTiptap1" component="BlockTiptap1"}

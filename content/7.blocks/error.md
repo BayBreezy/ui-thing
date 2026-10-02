@@ -17,25 +17,25 @@ To add a custom error page, you can create a new file in the root of your nuxt a
 
 Grid pattern background with left-aligned content and staggered entrance animations.
 
-:BlockShowcase{blockPath="Error/BlockError" component="BlockError" iframeHeight="600px" components="button" }
+:BlockShowcase{blockPath="Error/BlockError" component="BlockError" iframeHeight="600px"}
 
 ## Centered
 
 Radial dot pattern background with centered text layout and animated content reveal.
 
-:BlockShowcase{blockPath="Error/BlockErrorCentered" component="BlockErrorCentered" iframeHeight="600px" components="button"}
+:BlockShowcase{blockPath="Error/BlockErrorCentered" component="BlockErrorCentered" iframeHeight="600px"}
 
 ## Image
 
 Two-column split layout featuring decorative image with slide-in animation and responsive stacking.
 
-:BlockShowcase{blockPath="Error/BlockErrorImage" component="BlockErrorImage" iframeHeight="600px" components="button"}
+:BlockShowcase{blockPath="Error/BlockErrorImage" component="BlockErrorImage" iframeHeight="600px"}
 
 ## Links
 
 Grid background with helpful navigation links featuring staggered animations and hover effects.
 
-:BlockShowcase{blockPath="Error/BlockErrorLinks" component="BlockErrorLinks" iframeHeight="600px" components="button"}
+:BlockShowcase{blockPath="Error/BlockErrorLinks" component="BlockErrorLinks" iframeHeight="600px"}
 
 ## Animated
 
@@ -62,22 +62,22 @@ Interactive carousel showcasing helpful resource cards with auto-play functional
 
 **Requires:** Nuxt Swiper module.
 
-:BlockShowcase{blockPath="Error/BlockError6" component="BlockError6" iframeHeight="700px" components="card button"}
+:BlockShowcase{blockPath="Error/BlockError6" component="BlockError6" iframeHeight="700px"}
 
 ## Minimal
 
 Clean, minimal design with custom SVG illustration and spring-based entrance animations.
 
-:BlockShowcase{blockPath="Error/BlockError7" component="BlockError7" iframeHeight="700px" components="button"}
+:BlockShowcase{blockPath="Error/BlockError7" component="BlockError7" iframeHeight="700px"}
 
 ## Dark / Stats
 
 Dark-themed error page with status cards, error details in terminal style, and retry actions.
 
-:BlockShowcase{blockPath="Error/BlockError8" component="BlockError8" iframeHeight="700px" components="card badge button"}
+:BlockShowcase{blockPath="Error/BlockError8" component="BlockError8" iframeHeight="700px"}
 
 ## Interactive Search
 
 Feature-rich error page with inline search input and popular pages grid for easy navigation.
 
-:BlockShowcase{blockPath="Error/BlockError9" component="BlockError9" iframeHeight="700px" components="card input button"}
+:BlockShowcase{blockPath="Error/BlockError9" component="BlockError9" iframeHeight="700px"}
