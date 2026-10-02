@@ -47,6 +47,7 @@ Treat these as generated or derived and do not hand-edit unless you are intentio
 
 - `server/utils/comp.ts`
 - `server/utils/block-examples.ts`
+- `app/utils/block-components.ts`
 - `.nuxt/**`
 - `.data/**`
 - build output like `.output/`, `dist/`
