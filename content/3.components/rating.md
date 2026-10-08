@@ -82,7 +82,7 @@ Click :SourceCodeLink{component="Rating.vue"} to see the source code for this co
 
 ### Editable
 
-Editable ratings are built on Reka UI's [Rating](https://reka-ui.com/docs/components/rating) primitive, so they are keyboard accessible (`Tab`, `arrow keys`, `Space`) and work inside forms via `name` and `required`. The `step` prop controls the granularity (`1` by default, `0.5` for half stars). Read-only ratings (the default) can display any decimal value, such as `4.3`.
+Editable ratings are built on Reka UI's [Rating](https://reka-ui.com/docs/components/rating) primitive, so they are keyboard accessible (`Tab` to focus, arrow keys to move between stars, `Space` to select) and work inside forms via `name` and `required`. The `step` prop controls the granularity (`1` by default, `0.5` for half stars). Read-only ratings (the default) can display any decimal value, such as `4.3`.
 
 ::prose-show-case
 
