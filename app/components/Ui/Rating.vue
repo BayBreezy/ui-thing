@@ -1,14 +1,13 @@
 <template>
   <div data-slot="rating" :class="ratingClasses">
-    <div class="flex items-center">
-      <div
-        v-for="(star, index) in props.maxRating"
-        :key="star"
-        :class="['relative', props.editable ? 'cursor-pointer' : '']"
-        @click="handleStarClick(star)"
-        @mouseenter="handleStarMouseEnter(star)"
-        @mouseleave="handleStarMouseLeave"
-      >
+    <!-- Read-only: supports any decimal value (e.g. 4.3) -->
+    <div
+      v-if="!props.editable"
+      role="img"
+      :aria-label="`${modelValue} out of ${props.maxRating}`"
+      class="flex items-center"
+    >
+      <div v-for="(star, index) in props.maxRating" :key="star" class="relative">
         <!-- Background star (empty) -->
         <Icon
           v-if="props.icon"
@@ -28,6 +27,62 @@
       </div>
     </div>
 
+    <!-- Editable: Reka UI Rating (radio group semantics, keyboard, form support) -->
+    <RatingRoot
+      v-else
+      v-slot="{ items }"
+      data-slot="rating-root"
+      :model-value="modelValue"
+      :length="props.maxRating"
+      :step="props.step"
+      :clearable="props.clearable"
+      :disabled="props.disabled"
+      :name="props.name"
+      :required="props.required"
+      :dir="props.dir"
+      hoverable
+      class="flex items-center data-disabled:cursor-not-allowed data-disabled:opacity-50"
+      @update:model-value="handleChange"
+      @mouseleave="handleMouseLeave"
+    >
+      <RatingItem
+        v-for="item in items"
+        :key="item"
+        v-slot="{ steps }"
+        :item="item"
+        data-slot="rating-item"
+        :class="itemClasses"
+      >
+        <!-- Background star (empty) -->
+        <Icon
+          v-if="props.icon"
+          :name="props.icon"
+          data-slot="rating-star-empty"
+          :class="emptyStarClasses"
+        />
+        <RatingItemIndicator
+          v-for="value in steps"
+          :key="value"
+          :step="value"
+          data-slot="rating-indicator"
+          :aria-label="`${value} out of ${props.maxRating}`"
+          :class="indicatorClasses"
+          @mouseenter="handleMouseEnter(value)"
+        >
+          <!-- Filled star -->
+          <Icon
+            v-if="props.icon"
+            :name="props.icon"
+            data-slot="rating-star-filled"
+            :class="[
+              filledStarClasses,
+              'opacity-0 group-data-[state=active]/indicator:opacity-100',
+            ]"
+          />
+        </RatingItemIndicator>
+      </RatingItem>
+    </RatingRoot>
+
     <template v-if="showValue">
       <span data-slot="rating-value" :class="valueClasses">
         {{ displayRating?.toFixed(1) }}
@@ -37,13 +92,18 @@
 </template>
 
 <script lang="ts">
+  import { RatingItem, RatingItemIndicator, RatingRoot } from "reka-ui";
+  import type { RatingRootProps } from "reka-ui";
   import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   export const ratingStyles = tv({
     slots: {
       rating: "inline-flex items-center",
-      star: "",
+      item: "relative inline-flex",
+      indicator:
+        "group/indicator focus-visible:ring-ring/50 absolute inset-y-0 left-0 z-(--reka-rating-item-step-z-index) w-(--reka-rating-item-step-width) cursor-pointer overflow-hidden rounded-sm opacity-(--reka-rating-item-step-opacity) outline-none focus-visible:ring-2 data-[disabled]:cursor-not-allowed",
+      star: "shrink-0",
       value: "text-muted-foreground w-5",
     },
     variants: {
@@ -82,7 +142,8 @@
      */
     showValue?: boolean;
     /**
-     * Whether the rating is editable (clickable)
+     * Whether the rating is editable (clickable). When `false` the rating is rendered as a
+     * non-interactive image and can display any decimal value.
      *
      * @default false
      */
@@ -95,6 +156,26 @@
      * @default "lucide:star"
      */
     icon?: string;
+    /**
+     * Granularity of the editable rating. Use `0.5` for half stars.
+     *
+     * @default 1
+     */
+    step?: RatingRootProps["step"];
+    /**
+     * Whether clicking the current value again resets the rating to `0` (editable only).
+     *
+     * @default false
+     */
+    clearable?: RatingRootProps["clearable"];
+    /** Prevents interaction while keeping the rating editable-looking (editable only). */
+    disabled?: RatingRootProps["disabled"];
+    /** Name of the field when used inside a form (editable only). */
+    name?: RatingRootProps["name"];
+    /** Whether a value is required when used inside a form (editable only). */
+    required?: RatingRootProps["required"];
+    /** Reading direction of the rating (editable only). */
+    dir?: RatingRootProps["dir"];
   };
 </script>
 
@@ -105,6 +186,7 @@
     showValue: false,
     editable: false,
     icon: "lucide:star",
+    step: 1,
   });
 
   const modelValue = defineModel<number>({ default: 0 });
@@ -130,6 +212,8 @@
   const ratingClasses = computed(() =>
     ratingStyles().rating({ class: normalizeClass(props.class) || undefined, size: props.size })
   );
+  const itemClasses = computed(() => ratingStyles().item({ size: props.size }));
+  const indicatorClasses = computed(() => ratingStyles().indicator({ size: props.size }));
   const emptyStarClasses = computed(() =>
     ratingStyles().star({
       class: normalizeClass(["text-muted-foreground/30", props.emptyIconClassName]) || undefined,
@@ -150,7 +234,7 @@
     })
   );
 
-  // Pre-calculate star widths for better performance
+  // Pre-calculate star widths (read-only path) for better performance
   const starWidths = computed(() => {
     const rating = displayRating.value;
     return Array.from({ length: props.maxRating }, (_, i) => {
@@ -161,26 +245,20 @@
     });
   });
 
-  const handleStarClick = (starRating: number) => {
-    if (props.editable) {
-      props.onRatingChange?.(starRating);
-      emit("ratingChange", starRating);
-      modelValue.value = starRating;
-    }
+  // `emit("ratingChange")` also invokes the `onRatingChange` callback prop.
+  const handleChange = (rating: number) => {
+    modelValue.value = rating;
+    emit("ratingChange", rating);
   };
 
-  const handleStarMouseEnter = (starRating: number) => {
-    if (props.editable) {
-      hoveredRating.value = starRating;
-      emit("starHover", starRating);
-    }
+  const handleMouseEnter = (step: number) => {
+    hoveredRating.value = step;
+    emit("starHover", step);
   };
 
-  const handleStarMouseLeave = () => {
-    if (props.editable) {
-      hoveredRating.value = null;
-      emit("starHover", null);
-    }
+  const handleMouseLeave = () => {
+    hoveredRating.value = null;
+    emit("starHover", null);
   };
 
   defineExpose({ displayRating, starWidths, modelValue });

@@ -1,6 +1,7 @@
 ---
 title: Rating
 description: A component for displaying and selecting star ratings.
+label: Updated
 ---
 
 ## Source code
@@ -81,6 +82,8 @@ Click :SourceCodeLink{component="Rating.vue"} to see the source code for this co
 
 ### Editable
 
+Editable ratings are built on Reka UI's [Rating](https://reka-ui.com/docs/components/rating) primitive, so they are keyboard accessible (`Tab`, `arrow keys`, `Space`) and work inside forms via `name` and `required`. The `step` prop controls the granularity (`1` by default, `0.5` for half stars). Read-only ratings (the default) can display any decimal value, such as `4.3`.
+
 ::prose-show-case
 
 :DocsRatingEditable
@@ -92,12 +95,40 @@ Click :SourceCodeLink{component="Rating.vue"} to see the source code for this co
 ```vue [DocsRatingEditable.vue]
 <template>
   <div class="text-center">
-    <UiRating v-model="rating" show-value editable />
+    <UiRating v-model="rating" show-value editable :step="0.5" />
   </div>
 </template>
 
 <script lang="ts" setup>
   const rating = ref(2.5);
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Clearable
+
+Set `clearable` to let users reset the rating to `0` by clicking the current value again.
+
+::prose-show-case
+
+:DocsRatingClearable
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Rating/DocsRatingClearable.vue" code lang="vue" -->
+
+```vue [DocsRatingClearable.vue]
+<template>
+  <div class="text-center">
+    <UiRating v-model="rating" show-value editable clearable />
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const rating = ref(3);
 </script>
 ```
 

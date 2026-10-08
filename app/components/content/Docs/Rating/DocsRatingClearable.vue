@@ -1,9 +1,9 @@
 <template>
   <div class="text-center">
-    <UiRating v-model="rating" show-value editable :step="0.5" />
+    <UiRating v-model="rating" show-value editable clearable />
   </div>
 </template>
 
 <script lang="ts" setup>
-  const rating = ref(2.5);
+  const rating = ref(3);
 </script>
