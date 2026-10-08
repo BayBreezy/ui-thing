@@ -900,6 +900,106 @@ export default [
     plugins: [],
   },
   {
+    name: "Combobox",
+    value: "combobox",
+    files: [
+      {
+        fileName: "Combobox/Anchor.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxAnchor\n    data-slot="combobox-anchor"\n    v-bind="props"\n    :class="styles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </ComboboxAnchor>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxAnchor } from "reka-ui";\n  import type { ComboboxAnchorProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  const props = defineProps<\n    ComboboxAnchorProps & {\n      class?: HTMLAttributes["class"];\n    }\n  >();\n\n  const styles = tv({\n    base: "border-input bg-background selection:bg-primary selection:text-primary-foreground focus-within:border-ring focus-within:ring-ring/50 dark:bg-input/30 flex h-9 w-full items-center rounded-md border px-3 text-base shadow-xs transition-[color,box-shadow] focus-within:ring-[3px] focus-within:outline-none",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Combobox/Arrow.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxArrow\n    data-slot="combobox-arrow"\n    v-bind="props"\n    :class="styles({ class: normalizeClass(props.class) || undefined })"\n  />\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxArrow } from "reka-ui";\n  import type { ComboboxArrowProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  const props = defineProps<\n    ComboboxArrowProps & {\n      class?: HTMLAttributes["class"];\n    }\n  >();\n\n  const styles = tv({ base: "fill-muted stroke-border" });\n</script>\n',
+      },
+      {
+        fileName: "Combobox/Cancel.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxCancel data-slot="combobox-cancel" v-bind="props">\n    <slot />\n  </ComboboxCancel>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxCancel } from "reka-ui";\n  import type { ComboboxCancelProps } from "reka-ui";\n\n  const props = defineProps<ComboboxCancelProps>();\n</script>\n',
+      },
+      {
+        fileName: "Combobox/Combobox.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxRoot\n    v-slot="slotProps"\n    data-slot="combobox"\n    v-bind="forwarded"\n    :class="styles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot v-bind="slotProps" />\n  </ComboboxRoot>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxRoot, useForwardPropsEmits } from "reka-ui";\n  import type { ComboboxRootEmits, ComboboxRootProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  const props = defineProps<\n    ComboboxRootProps & {\n      class?: HTMLAttributes["class"];\n    }\n  >();\n\n  const emits = defineEmits<ComboboxRootEmits>();\n  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);\n  const styles = tv({ base: "relative" });\n</script>\n',
+      },
+      {
+        fileName: "Combobox/Content.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxContent\n    data-slot="combobox-content"\n    v-bind="forwarded"\n    :class="styles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <UiComboboxViewport>\n      <slot />\n    </UiComboboxViewport>\n  </ComboboxContent>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxContent, useForwardPropsEmits } from "reka-ui";\n  import type { ComboboxContentEmits, ComboboxContentProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  defineOptions({ inheritAttrs: false });\n  const props = withDefaults(\n    defineProps<\n      ComboboxContentProps & {\n        /** Custom class(es) to add to the content. */\n        class?: HTMLAttributes["class"];\n      }\n    >(),\n    {\n      position: "popper",\n      bodyLock: true,\n      side: "bottom",\n      sideOffset: 8,\n      class: undefined,\n    }\n  );\n\n  const emits = defineEmits<ComboboxContentEmits>();\n  const forwarded = useForwardPropsEmits(props, emits);\n\n  const styles = tv({\n    base: "bg-popover text-accent-foreground data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 z-50 max-h-[300px] w-(--reka-combobox-trigger-width) min-w-[8rem] overflow-hidden rounded-md border p-1 shadow-md",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Combobox/Empty.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxEmpty data-slot="combobox-empty" v-bind="props">\n    <slot />\n  </ComboboxEmpty>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxEmpty } from "reka-ui";\n  import type { ComboboxEmptyProps } from "reka-ui";\n\n  const props = defineProps<ComboboxEmptyProps>();\n</script>\n',
+      },
+      {
+        fileName: "Combobox/Group.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxGroup\n    data-slot="combobox-group"\n    v-bind="forwarded"\n    :class="styles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </ComboboxGroup>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxGroup } from "reka-ui";\n  import type { ComboboxGroupProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  const props = defineProps<\n    ComboboxGroupProps & {\n      /** Custom class(es) to add to the group. */\n      class?: HTMLAttributes["class"];\n    }\n  >();\n\n  const forwarded = reactiveOmit(props, "class");\n\n  // Groups that do not match the search are only hidden (`hidden` attribute), not removed. A divider\n  // is drawn above a visible group only when another visible group comes before it, so filtered\n  // groups never leave stray lines behind. Pass `class="border-t-0!"` to remove the divider.\n  const styles = tv({\n    base: "[[data-slot=combobox-group]:not([hidden])~&:not([hidden])]:border-border [[data-slot=combobox-group]:not([hidden])~&:not([hidden])]:mt-1 [[data-slot=combobox-group]:not([hidden])~&:not([hidden])]:border-t [[data-slot=combobox-group]:not([hidden])~&:not([hidden])]:pt-1",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Combobox/Input.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxInput\n    data-slot="combobox-input"\n    v-bind="forwarded"\n    :class="styles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </ComboboxInput>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxInput, useForwardPropsEmits } from "reka-ui";\n  import type { ComboboxInputEmits, ComboboxInputProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  const props = defineProps<\n    ComboboxInputProps & {\n      /** Custom placeholder text for the input. */\n      placeholder?: HTMLAttributes["placeholder"];\n      /** Custom class(es) to add to the input. */\n      class?: HTMLAttributes["class"];\n    }\n  >();\n\n  const emits = defineEmits<ComboboxInputEmits>();\n\n  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);\n\n  const styles = tv({\n    base: "selection:bg-primary selection:text-primary-foreground placeholder:text-muted-foreground size-full min-w-0 grow rounded bg-transparent focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Combobox/Item.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxItem\n    data-slot="combobox-item"\n    v-bind="forwarded"\n    :class="styles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n    <UiComboboxItemIndicator class="ml-auto pl-2" :icon="icon" />\n  </ComboboxItem>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxItem, useForwardPropsEmits } from "reka-ui";\n  import type { ComboboxItemEmits, ComboboxItemProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  const props = defineProps<\n    ComboboxItemProps & {\n      /** Custom class(es) to add to the item. */\n      class?: HTMLAttributes["class"];\n      /** Icon shown when the item is selected. Defaults to a check mark. */\n      icon?: string;\n    }\n  >();\n\n  const emits = defineEmits<{\n    select: ComboboxItemEmits["select"];\n  }>();\n  const forwarded = useForwardPropsEmits(reactiveOmit(props, "class", "icon"), emits);\n\n  const styles = tv({\n    base: "data-highlighted:bg-accent data-highlighted:text-accent-foreground relative flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-50",\n  });\n</script>\n',
+      },
+      {
+        fileName: "Combobox/ItemIndicator.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxItemIndicator data-slot="combobox-item-indicator" v-bind="forwarded">\n    <slot><Icon :name="icon || \'lucide:check\'" class="size-4" /></slot>\n  </ComboboxItemIndicator>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxItemIndicator } from "reka-ui";\n  import type { ComboboxItemIndicatorProps } from "reka-ui";\n\n  const props = defineProps<\n    ComboboxItemIndicatorProps & {\n      icon?: string;\n    }\n  >();\n\n  const forwarded = reactiveOmit(props, "icon");\n</script>\n',
+      },
+      {
+        fileName: "Combobox/Label.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxLabel\n    data-slot="combobox-label"\n    :class="styles({ class: normalizeClass(props.class) || undefined })"\n    v-bind="props"\n  >\n    <slot />\n  </ComboboxLabel>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxLabel } from "reka-ui";\n  import type { ComboboxLabelProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  const props = defineProps<\n    ComboboxLabelProps & {\n      /** Custom class(es) to add to the label. */\n      class?: HTMLAttributes["class"];\n    }\n  >();\n\n  const styles = tv({ base: "text-muted-foreground px-2 py-1.5 text-sm font-medium" });\n</script>\n',
+      },
+      {
+        fileName: "Combobox/Portal.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxPortal data-slot="combobox-portal" position="popper" v-bind="props">\n    <slot />\n  </ComboboxPortal>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxPortal } from "reka-ui";\n  import type { ComboboxPortalProps } from "reka-ui";\n\n  const props = defineProps<ComboboxPortalProps>();\n</script>\n',
+      },
+      {
+        fileName: "Combobox/Separator.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxSeparator\n    data-slot="combobox-separator"\n    v-bind="props"\n    :class="styles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </ComboboxSeparator>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxSeparator } from "reka-ui";\n  import type { ComboboxSeparatorProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  const props = defineProps<\n    ComboboxSeparatorProps & {\n      /** Custom class(es) to add to the separator. */\n      class?: HTMLAttributes["class"];\n    }\n  >();\n\n  const styles = tv({ base: "bg-border my-1 h-px" });\n</script>\n',
+      },
+      {
+        fileName: "Combobox/Trigger.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxTrigger\n    data-slot="combobox-trigger"\n    v-bind="forwarded"\n    :class="styles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </ComboboxTrigger>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxTrigger } from "reka-ui";\n  import type { ComboboxTriggerProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  const props = defineProps<\n    ComboboxTriggerProps & {\n      /** Custom class(es) to add to the trigger. */\n      class?: HTMLAttributes["class"];\n    }\n  >();\n  const forwarded = reactiveOmit(props, "class");\n  const styles = tv({ base: "inline-flex shrink-0 cursor-pointer items-center justify-center" });\n</script>\n',
+      },
+      {
+        fileName: "Combobox/Viewport.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <ComboboxViewport\n    data-slot="combobox-viewport"\n    v-bind="forwarded"\n    :class="styles({ class: normalizeClass(props.class) || undefined })"\n  >\n    <slot />\n  </ComboboxViewport>\n</template>\n\n<script lang="ts" setup>\n  import { ComboboxViewport } from "reka-ui";\n  import type { ComboboxViewportProps } from "reka-ui";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  const props = defineProps<\n    ComboboxViewportProps & {\n      /** Custom class(es) to add to the viewport. */\n      class?: HTMLAttributes["class"];\n    }\n  >();\n\n  const forwarded = reactiveOmit(props, "class");\n\n  // Reka hides the scrollbar of the viewport with an injected stylesheet and sets `overflow: auto`\n  // inline. The viewport is the element that scrolls, so the scrollbar is brought back here and\n  // scrolling is limited to the y axis (important modifiers are needed to win over Reka\'s rules).\n  const styles = tv({\n    base: "[scrollbar-width:thin]! [scrollbar-color:var(--border)_transparent]! overflow-x-hidden! [&::-webkit-scrollbar]:block!",\n  });\n</script>\n',
+      },
+    ],
+    docsPath: "/components/combobox",
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Command",
     value: "command",
     components: ["dialog", "kbd", "input-group"],
@@ -4135,6 +4235,26 @@ export default [
       },
     ],
     docsPath: "/forms/veecheckbox",
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
+    name: "Vee Combobox",
+    value: "vee-combobox",
+    deps: ["@vee-validate/nuxt"],
+    askValidator: true,
+    nuxtModules: ["@vee-validate/nuxt"],
+    components: ["combobox", "label", "tags-input"],
+    files: [
+      {
+        fileName: "Vee/Combobox.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <div :class="styles({ class: normalizeClass(props.class) || undefined })">\n    <slot name="label" :error-message="errorMessage" :value="value">\n      <UiLabel\n        v-if="label"\n        :for="inputId"\n        :hint="labelHint"\n        :class="[disabled && \'text-muted-foreground\', errorMessage && \'text-destructive\', \'mb-2\']"\n        ><span>{{ label }} <span v-if="required" class="text-destructive">*</span></span></UiLabel\n      >\n    </slot>\n    <UiCombobox\n      v-bind="$attrs"\n      :model-value="modelValue"\n      :by="by"\n      :multiple="multiple"\n      :name="name"\n      :disabled="disabled"\n      :reset-model-value-on-clear="clearable"\n      @update:model-value="onUpdate"\n    >\n      <UiComboboxAnchor\n        :as-child="multiple"\n        :aria-invalid="errorMessage ? true : undefined"\n        class="aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 has-disabled:cursor-not-allowed has-disabled:opacity-50"\n      >\n        <!-- Multiple: the selected items are rendered as removable tags next to the input -->\n        <UiTagsInput\n          v-if="multiple"\n          :model-value="selected"\n          :disabled="disabled"\n          delimiter=""\n          class="h-auto! min-h-9 w-full gap-1.5 px-3! py-1.5 pr-2!"\n          @update:model-value="onUpdate"\n        >\n          <slot name="icon">\n            <Icon v-if="icon" :name="icon" class="text-muted-foreground/70 size-4 shrink-0" />\n          </slot>\n          <UiTagsInputItem v-for="item in selected" :key="String(item)" :value="item">\n            <UiTagsInputItemText>{{ labelOf(item) }}</UiTagsInputItemText>\n            <UiTagsInputItemDelete />\n          </UiTagsInputItem>\n          <UiComboboxInput v-model="searchTerm" as-child>\n            <UiTagsInputInput\n              :id="inputId"\n              :placeholder="selected.length ? undefined : placeholder"\n              :aria-describedby="errorMessage ? errorId : hint ? hintId : undefined"\n              :aria-required="required || undefined"\n              :aria-invalid="errorMessage ? true : undefined"\n              class="min-w-24 flex-1 p-0"\n              @keydown.enter.prevent\n              @blur="handleBlur"\n            />\n          </UiComboboxInput>\n          <div\n            v-if="(clearable && selected.length) || showTrigger"\n            class="ml-auto flex items-center gap-1"\n          >\n            <UiComboboxCancel\n              v-if="clearable && selected.length"\n              class="text-muted-foreground hover:text-foreground inline-flex size-6 shrink-0 cursor-pointer items-center justify-center rounded-sm"\n              aria-label="Clear"\n            >\n              <Icon name="lucide:x" class="size-4" />\n            </UiComboboxCancel>\n            <UiComboboxTrigger v-if="showTrigger">\n              <Icon name="lucide:chevron-down" class="text-muted-foreground size-4" />\n            </UiComboboxTrigger>\n          </div>\n        </UiTagsInput>\n        <template v-else>\n          <slot name="icon">\n            <Icon v-if="icon" :name="icon" class="text-muted-foreground/70 mr-2 size-4 shrink-0" />\n          </slot>\n          <UiComboboxInput\n            :id="inputId"\n            :placeholder="placeholder"\n            :display-value="labelOf"\n            :aria-describedby="errorMessage ? errorId : hint ? hintId : undefined"\n            :aria-required="required || undefined"\n            :aria-invalid="errorMessage ? true : undefined"\n            @update:model-value="emit(\'search\', $event)"\n            @blur="handleBlur"\n          />\n          <UiComboboxCancel\n            v-if="clearable && hasValue"\n            class="text-muted-foreground hover:text-foreground mr-1 inline-flex size-6 shrink-0 cursor-pointer items-center justify-center rounded-sm"\n            aria-label="Clear"\n          >\n            <Icon name="lucide:x" class="size-4" />\n          </UiComboboxCancel>\n          <UiComboboxTrigger v-if="showTrigger">\n            <Icon name="lucide:chevron-down" class="text-muted-foreground size-4" />\n          </UiComboboxTrigger>\n        </template>\n      </UiComboboxAnchor>\n\n      <UiComboboxContent :hide-when-empty="!emptyText && !$slots.empty">\n        <slot name="empty">\n          <UiComboboxEmpty\n            v-if="emptyText"\n            class="flex items-center justify-center p-4 text-center text-sm font-medium text-pretty"\n          >\n            {{ emptyText }}\n          </UiComboboxEmpty>\n        </slot>\n        <slot :error-message="errorMessage" :value="value">\n          <UiComboboxGroup v-for="(group, i) in groups" :key="group.label ?? i">\n            <UiComboboxLabel v-if="group.label">{{ group.label }}</UiComboboxLabel>\n            <UiComboboxItem\n              v-for="option in group.items"\n              :key="String(option.value)"\n              :value="option.value"\n              :text-value="option.label"\n              :disabled="option.disabled"\n            >\n              {{ option.label }}\n            </UiComboboxItem>\n          </UiComboboxGroup>\n        </slot>\n      </UiComboboxContent>\n    </UiCombobox>\n    <AnimatePresence multiple as="div" mode="wait">\n      <slot name="hint" :error-message="errorMessage" :value>\n        <motion.p\n          v-if="hint && !errorMessage"\n          :id="hintId"\n          :variants\n          initial="initial"\n          exit="initial"\n          animate="animate"\n          :transition="{ type: \'keyframes\' }"\n          class="text-muted-foreground mt-1.5 text-sm"\n        >\n          {{ hint }}\n        </motion.p>\n      </slot>\n      <slot name="errorMessage" :error-message="errorMessage" :value>\n        <motion.p\n          v-if="errorMessage"\n          :id="errorId"\n          :variants\n          initial="initial"\n          exit="initial"\n          animate="animate"\n          :transition="{ type: \'keyframes\' }"\n          class="text-destructive mt-1.5 text-sm"\n        >\n          {{ errorMessage }}\n        </motion.p>\n      </slot>\n    </AnimatePresence>\n  </div>\n</template>\n\n<script lang="ts" setup>\n  import { AnimatePresence, motion } from "motion-v";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  const variants = {\n    initial: { opacity: 0, y: -2 },\n    animate: { opacity: 1, y: 0 },\n  };\n\n  type Option = {\n    /** The value stored in the form when the option is selected. */\n    value: any;\n    /** The text shown in the list and in the input. Defaults to the value. */\n    label?: string;\n    disabled?: boolean;\n    /** Options with the same group are rendered together under a label. */\n    group?: string;\n  };\n\n  const props = defineProps<{\n    label?: string;\n    labelHint?: string;\n    hint?: string;\n    icon?: string;\n    placeholder?: string;\n    modelValue?: any;\n    name?: string;\n    id?: string;\n    rules?: any;\n    validateOnMount?: boolean;\n    /** Shows the required asterisk and sets `aria-required`. Add a rule to enforce it. */\n    required?: boolean;\n    disabled?: boolean;\n    /** Allow selecting more than one option. The value is an array and shown as tags. */\n    multiple?: boolean;\n    /** Property (or comparator) used to match object values. */\n    by?: string | ((a: any, b: any) => boolean);\n    /** Options to render. Use the default slot for fully custom items. */\n    options?: (string | number | Option)[];\n    /**\n     * Text shown in the input for the selected value. Defaults to the label of the matching option,\n     * or the value itself. Use it with object values.\n     */\n    displayValue?: (value: any) => string;\n    /**\n     * Text shown when nothing matches. The popup stays hidden when there is no match and this is\n     * empty.\n     */\n    emptyText?: string;\n    /** Show a button that clears the selection. */\n    clearable?: boolean;\n    /** Show a chevron button that toggles the list. */\n    showTrigger?: boolean;\n    class?: HTMLAttributes["class"];\n  }>();\n\n  const emit = defineEmits<{\n    /** Emitted when the value changes (used by `v-model`). */\n    "update:modelValue": [value: any];\n    /** Emitted with the text in the input as the user types. Use it to load options from an API. */\n    search: [term: string];\n  }>();\n\n  // Every other attribute (`open-on-focus`, `ignore-filter`, ...) is forwarded to `UiCombobox`.\n  defineOptions({ inheritAttrs: false });\n\n  const inputId = props.id || useId();\n  const hintId = `${inputId}-hint`;\n  const errorId = `${inputId}-error`;\n\n  const styles = tv({\n    base: "w-full",\n  });\n\n  const { errorMessage, value, handleChange, handleBlur } = useField<any>(\n    () => props.name || inputId,\n    props.rules,\n    {\n      initialValue: props.modelValue,\n      label: props.label,\n      validateOnMount: props.validateOnMount,\n      syncVModel: true,\n    }\n  );\n\n  const searchTerm = ref("");\n  watch(searchTerm, (term) => emit("search", term));\n\n  // The combobox needs `null` (not `undefined`) to be controlled while nothing is selected\n  const modelValue = computed(() => value.value ?? (props.multiple ? [] : null));\n  const selected = computed<any[]>(() => (Array.isArray(value.value) ? value.value : []));\n  const hasValue = computed(() => value.value != null && value.value !== "");\n\n  // Clearing resets the combobox to `null`. Store `undefined` so schemas see an empty field.\n  const onUpdate = (v: any) => {\n    // Reka does not reset the text of the tags input when an item is picked\n    if (props.multiple) searchTerm.value = "";\n    handleChange(v ?? undefined);\n  };\n\n  const normalized = computed<Option[]>(() =>\n    (props.options ?? []).map((o) =>\n      typeof o === "object"\n        ? { ...o, label: o.label ?? String(o.value) }\n        : { value: o, label: String(o) }\n    )\n  );\n\n  const labelOf = (v: any): string => {\n    if (props.displayValue) return props.displayValue(v);\n    if (v == null) return "";\n    const match = normalized.value.find((o) =>\n      typeof props.by === "function"\n        ? props.by(o.value, v)\n        : typeof v === "object" && props.by\n          ? o.value?.[props.by] === v[props.by]\n          : o.value === v\n    );\n    return match?.label ?? (typeof v === "object" ? "" : String(v));\n  };\n\n  // Ungrouped options are rendered first, followed by each named group in order of appearance\n  const groups = computed(() => {\n    const map = new Map<string | undefined, Option[]>();\n    for (const option of normalized.value) {\n      map.set(option.group, [...(map.get(option.group) ?? []), option]);\n    }\n    const ungrouped = map.get(undefined);\n    map.delete(undefined);\n    return [\n      ...(ungrouped ? [{ label: undefined, items: ungrouped }] : []),\n      ...[...map].map(([label, items]) => ({ label, items })),\n    ];\n  });\n</script>\n',
+      },
+    ],
+    docsPath: "/forms/veecombobox",
     utils: [],
     composables: [],
     plugins: [],

@@ -1,0 +1,11 @@
+{
+  "slug": "2026-10-08-combobox",
+  "date": "2026-10-08",
+  "title": "Combobox & Vee Combobox",
+  "category": "feature",
+  "tags": ["combobox", "vee-combobox", "forms"],
+  "summary": "A Combobox built on Reka UI's Combobox primitive and a VeeCombobox form wrapper were added.",
+  "body": "- [**Combobox**](/components/combobox): A new `UiCombobox` built on Reka UI's `Combobox` primitive instead of composing `UiPopover` and `UiCommand` by hand. The `v-model` is the selected item (string, number or object) or an array when `multiple`. Supports `by` for object values, `display-value` on the input, groups, `open-on-focus`, `open-on-click`, `ignore-filter` for async data, a clear button and tags for multiple selection. The docs have new examples for objects, groups, multiple, clearable, custom items, async and forms. Install it with `ui-thing@latest add combobox`.\n- [**VeeCombobox**](/forms/veecombobox): A Vee-Validate combobox field with a label, hint, animated error message, `options`/slot items, groups, object values, `multiple` (shown as tags), clearable, trigger and a `search` event for async options. Install it with `ui-thing@latest add vee-combobox`. Check out the documentation [here](/forms/veecombobox).\n",
+  "breaking": false,
+  "links": []
+}
