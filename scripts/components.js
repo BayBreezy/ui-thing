@@ -1046,6 +1046,17 @@ export default [
     docsPath: "/components/tabs",
   },
   {
+    name: "Tag Group",
+    value: "tag-group",
+    files: [
+      "TagGroup/Item.vue",
+      "TagGroup/ItemDelete.vue",
+      "TagGroup/ItemText.vue",
+      "TagGroup/TagGroup.vue",
+    ],
+    docsPath: "/components/tag-group",
+  },
+  {
     name: "Tags Input",
     value: "tags-input",
     files: [
@@ -1331,6 +1342,16 @@ export default [
     components: ["native-select", "label"],
     files: ["Vee/Select.vue"],
     docsPath: "/forms/veeselect",
+  },
+  {
+    name: "Vee Tag Group",
+    value: "vee-tag-group",
+    deps: ["@vee-validate/nuxt"],
+    askValidator: true,
+    nuxtModules: ["@vee-validate/nuxt"],
+    components: ["tag-group", "label"],
+    files: ["Vee/TagGroup.vue"],
+    docsPath: "/forms/veetaggroup",
   },
   {
     name: "Vee Tags-Input",

@@ -1,0 +1,11 @@
+{
+  "slug": "2026-10-08-tag-group",
+  "date": "2026-10-08",
+  "title": "Tag Group & Vee Tag Group",
+  "category": "feature",
+  "tags": ["tag-group", "vee-tag-group", "forms"],
+  "summary": "A colorful Tag Group built on Reka UI's TagGroup primitive and a VeeTagGroup form field were added.",
+  "body": "- [**Tag Group**](/components/tag-group): A new `UiTagGroup` built on Reka UI's `TagGroup` primitive. Tags can be focused with the arrow keys, selected (`selection-mode` single or multiple) and removed with the Delete key or a remove button (listen to `@remove`). 26 colors (`primary`, the Tailwind palette and `error`/`warning`/`success`), four variants (`soft`, `solid`, `outline`, `modern`), three sizes, pill or rounded shapes, and icons, dots and avatars. `color`, `variant`, `size` and `shape` can be set on the group and overridden per tag. Install it with `ui-thing@latest add tag-group`.\n- [**VeeTagGroup**](/forms/veetaggroup): A Vee-Validate choice field that renders `options` as selectable tags with per-option colors, a label, hint, animated error message, `single`/`multiple` selection and an `item` slot. Install it with `ui-thing@latest add vee-tag-group`. Check out the documentation [here](/forms/veetaggroup).\n",
+  "breaking": false,
+  "links": []
+}

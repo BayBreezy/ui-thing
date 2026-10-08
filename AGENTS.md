@@ -77,6 +77,7 @@ If you change markdown docs that embed example code, expect `automd` to refresh 
 
 - Use Vue SFCs with `<script setup lang="ts">`.
 - It is common to also include a plain `<script lang="ts">` block when exporting reusable types or style definitions.
+- When a component has both script blocks, put **every `import` in the plain block** and none in `<script setup>`. ESLint's `import/first` and `import/no-duplicates` treat both blocks as one module, so with imports in `<script setup>` after code in the plain block, `eslint --fix` (run by `lint-staged`) moves the exports into `<script setup>` and breaks the file (`vue/no-export-in-script-setup`). See `Ui/Vee/NativeCheckbox.vue` and `Ui/TagGroup/Item.vue`.
 - Prefer `tv()` from `tailwind-variants` for styling. This repo does not rely on a central `cn()` helper.
 - Keep `data-slot` attributes on component roots and notable subparts. They are used consistently across the library.
 - For Reka wrappers, forward primitive props with:
