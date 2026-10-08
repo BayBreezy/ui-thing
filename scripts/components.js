@@ -121,6 +121,7 @@ export default [
     value: "badge-group",
     files: ["BadgeGroup.vue"],
     docsPath: "/components/badge-group",
+    utils: ["badge-colors.ts"],
   },
   {
     name: "BG Pattern - Circle",
@@ -1229,6 +1230,7 @@ export default [
     components: ["label"],
     files: ["Vee/NativeCheckbox.vue"],
     docsPath: "/forms/veecheckbox-native",
+    utils: ["badge-colors.ts"],
   },
   {
     name: "Vee CurrencyInput",

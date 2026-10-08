@@ -1,0 +1,11 @@
+{
+  "slug": "2026-10-08-shared-colors",
+  "date": "2026-10-08",
+  "title": "Shared Colors for Badge Group & Native Checkbox",
+  "category": "update",
+  "tags": ["badge-group", "vee-native-checkbox", "colors"],
+  "summary": "Badge Group and the native Vee checkbox now use the same 30 colors as the Badge and the Tag Group.",
+  "body": "- [**Badge Group**](/components/badge-group): The `color` prop now accepts all 30 colors, including Tailwind's newer `taupe`, `mauve`, `mist` and `olive`. The ring of the addon is slightly softer in dark mode and hovering now darkens or lightens the badge instead of switching to a different shade.\n- [**VeeNativeCheckbox**](/forms/veecheckbox-native): The `color` prop now accepts all 30 colors (`primary`, `taupe`, `mauve`, `mist`, `olive`, and the `error`, `warning` and `success` aliases were added). The neutral colors (`slate`, `gray`, `zinc`, `neutral` and `stone`) use their 500 shade like every other color instead of 600.\n- Both components now need the `badge-colors` util, which the Badge and the Tag Group already use. Update with `ui-thing@latest add badge-group vee-native-checkbox`.\n",
+  "breaking": false,
+  "links": []
+}

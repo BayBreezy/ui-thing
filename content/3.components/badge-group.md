@@ -37,7 +37,7 @@ Click :SourceCodeLink{component="BadgeGroup.vue"} to see the source code for thi
 
 ## Colors
 
-The `color` prop controls the palette of the badge addon and icon. Applies to the `light` theme only — the `modern` theme uses system-aware tokens.
+The `color` prop controls the palette of the badge addon and icon, and the dot of the `modern` theme. There are 30 colors, shared with the [Badge](/components/badge) and the [Tag Group](/components/tag-group) through `~/utils/badge-colors`: `primary`, the whole Tailwind palette (including the newer `taupe`, `mauve`, `mist` and `olive`) and the `error`, `warning` and `success` aliases. The `modern` theme uses system-aware tokens for everything else.
 
 ### All colors
 
@@ -67,27 +67,10 @@ The `color` prop controls the palette of the badge addon and icon. Applies to th
 </template>
 
 <script lang="ts" setup>
-  const colors = [
-    "primary",
-    "gray",
-    "red",
-    "orange",
-    "amber",
-    "yellow",
-    "lime",
-    "green",
-    "emerald",
-    "teal",
-    "cyan",
-    "sky",
-    "blue",
-    "indigo",
-    "violet",
-    "purple",
-    "fuchsia",
-    "pink",
-    "rose",
-  ] as const;
+  import { badgeColors } from "~/utils/badge-colors";
+
+  // The semantic aliases (`error`, `warning` and `success`) have their own example below
+  const colors = badgeColors.filter((c) => !["error", "warning", "success"].includes(c));
 </script>
 ```
 

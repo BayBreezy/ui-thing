@@ -65,6 +65,8 @@ This has been fixed with the `CheckboxGroup` component in Reka UI but I am keepi
 
 ### Colors
 
+The `color` prop accepts the 30 colors shared with the [Badge](/components/badge) and the [Tag Group](/components/tag-group) through `~/utils/badge-colors`: `primary`, the whole Tailwind palette (including the newer `taupe`, `mauve`, `mist` and `olive`) and the `error`, `warning` and `success` aliases. The default is `blue`.
+
 ::prose-show-case
 
 :DocsVeeNativeCheckboxColors
@@ -76,35 +78,12 @@ This has been fixed with the `CheckboxGroup` component in Reka UI but I am keepi
 ```vue [DocsVeeNativeCheckboxColors.vue]
 <template>
   <div class="flex flex-wrap justify-center gap-3">
-    <UiVeeNativeCheckbox v-for="color in colors" :key="color" :color="color" indeterminate />
+    <UiVeeNativeCheckbox v-for="color in badgeColors" :key="color" :color="color" indeterminate />
   </div>
 </template>
 
 <script lang="ts" setup>
-  const colors = [
-    "red",
-    "orange",
-    "amber",
-    "yellow",
-    "lime",
-    "green",
-    "emerald",
-    "teal",
-    "cyan",
-    "sky",
-    "blue",
-    "indigo",
-    "violet",
-    "purple",
-    "fuchsia",
-    "pink",
-    "rose",
-    "slate",
-    "gray",
-    "zinc",
-    "neutral",
-    "stone",
-  ] as const;
+  import { badgeColors } from "~/utils/badge-colors";
 </script>
 ```
 

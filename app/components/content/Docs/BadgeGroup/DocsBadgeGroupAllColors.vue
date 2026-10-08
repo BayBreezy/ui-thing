@@ -15,25 +15,8 @@
 </template>
 
 <script lang="ts" setup>
-  const colors = [
-    "primary",
-    "gray",
-    "red",
-    "orange",
-    "amber",
-    "yellow",
-    "lime",
-    "green",
-    "emerald",
-    "teal",
-    "cyan",
-    "sky",
-    "blue",
-    "indigo",
-    "violet",
-    "purple",
-    "fuchsia",
-    "pink",
-    "rose",
-  ] as const;
+  import { badgeColors } from "~/utils/badge-colors";
+
+  // The semantic aliases (`error`, `warning` and `success`) have their own example below
+  const colors = badgeColors.filter((c) => !["error", "warning", "success"].includes(c));
 </script>
