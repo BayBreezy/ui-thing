@@ -1,0 +1,11 @@
+{
+  "slug": "2026-10-08-vee-rating",
+  "date": "2026-10-08",
+  "title": "Vee Rating & Rating Updates",
+  "category": "feature",
+  "tags": ["vee-rating", "rating", "forms"],
+  "summary": "Added a VeeRating form wrapper and rebuilt editable Rating on top of Reka UI's Rating primitive.",
+  "body": "- [**VeeRating**](/forms/veerating): A Vee-Validate rating field with a label, hint, animated error message, and accessible labelling. All `UiRating` props (`step`, `clearable`, `icon`, `size`, ...) are forwarded. Install it with `ui-thing@latest add vee-rating`. Check out the documentation [here](/forms/veerating).\n- [**Rating**](/components/rating): Editable ratings now use Reka UI's Rating primitive, adding keyboard navigation, radio-group semantics, and form support (`name`, `required`). New props: `step`, `clearable`, `disabled`, `name`, `required`, and `dir`. Read-only ratings still display any decimal value and now expose an `aria-label`. Editable ratings with a fractional value need `step=\"0.5\"` to show a half star, and `starHover` now emits the hovered step.\n",
+  "breaking": false,
+  "links": []
+}

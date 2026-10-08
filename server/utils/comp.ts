@@ -4377,6 +4377,26 @@ export default [
     plugins: [],
   },
   {
+    name: "Vee Rating",
+    value: "vee-rating",
+    deps: ["@vee-validate/nuxt"],
+    askValidator: true,
+    nuxtModules: ["@vee-validate/nuxt"],
+    components: ["rating", "label"],
+    files: [
+      {
+        fileName: "Vee/Rating.vue",
+        dirPath: "app/components/Ui",
+        fileContent:
+          '<template>\n  <div :class="styles({ class: normalizeClass(props.class) || undefined })">\n    <slot name="label" :error-message="errorMessage" :value="value">\n      <UiLabel\n        v-if="label"\n        :id="labelId"\n        :hint="labelHint"\n        :class="[disabled && \'text-muted-foreground\', errorMessage && \'text-destructive\', \'mb-2\']"\n        ><span>{{ label }} <span v-if="required" class="text-destructive">*</span></span></UiLabel\n      >\n    </slot>\n    <UiRating\n      :id="inputId"\n      v-bind="$attrs"\n      role="group"\n      editable\n      :name="name"\n      :disabled="disabled"\n      :model-value="value"\n      :aria-labelledby="label ? labelId : undefined"\n      :aria-describedby="errorMessage ? errorId : hint ? hintId : undefined"\n      :aria-required="required || undefined"\n      :aria-invalid="errorMessage ? true : undefined"\n      @update:model-value="handleChange"\n      @focusout="onFocusOut"\n    />\n    <AnimatePresence multiple as="div" mode="wait">\n      <slot name="hint" :error-message="errorMessage" :value>\n        <motion.p\n          v-if="hint && !errorMessage"\n          :id="hintId"\n          :variants\n          initial="initial"\n          exit="initial"\n          animate="animate"\n          :transition="{ type: \'keyframes\' }"\n          class="text-muted-foreground mt-1.5 text-sm"\n        >\n          {{ hint }}\n        </motion.p>\n      </slot>\n      <slot name="errorMessage" :error-message="errorMessage" :value>\n        <motion.p\n          v-if="errorMessage"\n          :id="errorId"\n          :variants\n          initial="initial"\n          exit="initial"\n          animate="animate"\n          :transition="{ type: \'keyframes\' }"\n          class="text-destructive mt-1.5 text-sm"\n        >\n          {{ errorMessage }}\n        </motion.p>\n      </slot>\n    </AnimatePresence>\n  </div>\n</template>\n\n<script lang="ts" setup>\n  import { AnimatePresence, motion } from "motion-v";\n  import { normalizeClass } from "vue";\n  import type { HTMLAttributes } from "vue";\n\n  const variants = {\n    initial: { opacity: 0, y: -2 },\n    animate: { opacity: 1, y: 0 },\n  };\n\n  const props = defineProps<{\n    label?: string;\n    labelHint?: string;\n    hint?: string;\n    modelValue?: number;\n    name?: string;\n    id?: string;\n    rules?: any;\n    validateOnMount?: boolean;\n    /** Shows the required asterisk and sets `aria-required`. Add a rule to enforce it. */\n    required?: boolean;\n    disabled?: boolean;\n    class?: HTMLAttributes["class"];\n  }>();\n\n  // Every other attribute (`max-rating`, `step`, `clearable`, `icon`, `size`, `show-value`...) is\n  // forwarded to `UiRating`.\n  defineOptions({ inheritAttrs: false });\n\n  const inputId = props.id || useId();\n  const labelId = `${inputId}-label`;\n  const hintId = `${inputId}-hint`;\n  const errorId = `${inputId}-error`;\n\n  const styles = tv({\n    base: "w-full",\n  });\n\n  const { errorMessage, value, handleChange, handleBlur } = useField(\n    () => props.name || inputId,\n    props.rules,\n    {\n      initialValue: props.modelValue,\n      label: props.label,\n      validateOnMount: props.validateOnMount,\n      syncVModel: true,\n    }\n  );\n\n  // Only mark the field as touched once focus leaves the whole rating, not when moving between stars.\n  const onFocusOut = (event: FocusEvent) => {\n    const target = event.currentTarget as HTMLElement | null;\n    if (!target?.contains(event.relatedTarget as Node | null)) handleBlur(event);\n  };\n</script>\n',
+      },
+    ],
+    docsPath: "/forms/veerating",
+    utils: [],
+    composables: [],
+    plugins: [],
+  },
+  {
     name: "Vee Select",
     value: "vee-select",
     deps: ["@vee-validate/nuxt"],

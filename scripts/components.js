@@ -1271,6 +1271,16 @@ export default [
     docsPath: "/forms/veeradiogroup",
   },
   {
+    name: "Vee Rating",
+    value: "vee-rating",
+    deps: ["@vee-validate/nuxt"],
+    askValidator: true,
+    nuxtModules: ["@vee-validate/nuxt"],
+    components: ["rating", "label"],
+    files: ["Vee/Rating.vue"],
+    docsPath: "/forms/veerating",
+  },
+  {
     name: "Vee Select",
     value: "vee-select",
     deps: ["@vee-validate/nuxt"],
