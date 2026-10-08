@@ -31,7 +31,7 @@ To use the tag group as a field inside a Vee-Validate form, see [VeeTagGroup](/f
 | Purpose | A list of tags the user can focus, select or remove | A static label | An input where the user types new tags |
 | Keyboard | Arrow keys, Home/End, typeahead, Delete | None | Typing, arrow keys, Backspace |
 | Selection | None, single or multiple | No | No |
-| Colors | 26 colors, 4 variants | A few variants | Neutral |
+| Colors | 30 colors, 4 variants | 30 colors, 12 variants | Neutral |
 
 Use a tag group for filters, choice chips and removable lists. Use a badge for a status that does nothing, and a tags input when users create the tags themselves.
 
@@ -106,7 +106,7 @@ A removable list. `removable` shows the remove button of a tag and the group emi
 
 ### Colors
 
-There are 26 colors: `primary`, the full Tailwind palette (`red` to `rose`, plus `slate`, `gray`, `zinc`, `neutral` and `stone`) and the `error`, `warning` and `success` aliases. Every color has light and dark styles.
+There are 30 colors: `primary`, the full Tailwind palette (`red` to `rose`, `slate`, `gray`, `zinc`, `neutral`, `stone` and the newer `taupe`, `mauve`, `mist` and `olive`) and the `error`, `warning` and `success` aliases. Every color has light and dark styles. They are shared with [`UiBadge`](/components/badge) through `~/utils/badge-colors`, which also exports the `badgeColors` array.
 
 ::prose-show-case
 
@@ -119,41 +119,14 @@ There are 26 colors: `primary`, the full Tailwind palette (`red` to `rose`, plus
 ```vue [DocsTagGroupColors.vue]
 <template>
   <UiTagGroup aria-label="Colors" class="mx-auto max-w-2xl justify-center">
-    <UiTagGroupItem v-for="c in colors" :key="c" :value="c" :color="c" dot>
+    <UiTagGroupItem v-for="c in badgeColors" :key="c" :value="c" :color="c" dot>
       {{ c }}
     </UiTagGroupItem>
   </UiTagGroup>
 </template>
 
 <script lang="ts" setup>
-  const colors = [
-    "primary",
-    "red",
-    "orange",
-    "amber",
-    "yellow",
-    "lime",
-    "green",
-    "emerald",
-    "teal",
-    "cyan",
-    "sky",
-    "blue",
-    "indigo",
-    "violet",
-    "purple",
-    "fuchsia",
-    "pink",
-    "rose",
-    "slate",
-    "gray",
-    "zinc",
-    "neutral",
-    "stone",
-    "error",
-    "warning",
-    "success",
-  ] as const;
+  import { badgeColors } from "~/utils/badge-colors";
 </script>
 ```
 

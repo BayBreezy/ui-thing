@@ -15,33 +15,9 @@
   import { normalizeClass } from "vue";
   import type { ComputedRef, HTMLAttributes, InjectionKey } from "vue";
 
-  export type TagGroupColor =
-    | "primary"
-    | "red"
-    | "orange"
-    | "amber"
-    | "yellow"
-    | "lime"
-    | "green"
-    | "emerald"
-    | "teal"
-    | "cyan"
-    | "sky"
-    | "blue"
-    | "indigo"
-    | "violet"
-    | "purple"
-    | "fuchsia"
-    | "pink"
-    | "rose"
-    | "slate"
-    | "gray"
-    | "zinc"
-    | "neutral"
-    | "stone"
-    | "error"
-    | "warning"
-    | "success";
+  import type { BadgeColor } from "~/utils/badge-colors";
+
+  export type TagGroupColor = BadgeColor;
   export type TagGroupVariant = "soft" | "solid" | "outline" | "modern";
   export type TagGroupSize = "sm" | "md" | "lg";
   export type TagGroupShape = "pill" | "rounded";

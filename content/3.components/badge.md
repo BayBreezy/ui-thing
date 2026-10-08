@@ -1,6 +1,7 @@
 ---
 title: Badge
 description: A badge is a component that is used to highlight an item's status for quick recognition.
+label: Updated
 ---
 
 ## Source code
@@ -271,3 +272,295 @@ Three sizes are available for badges: `sm`, `md`, and `lg`.
 <!-- /automd -->
 
 ::
+
+## Colors
+
+Use `color` with the `soft`, `solid` or `outline` variant. There are 30 colors: `primary`, the whole Tailwind palette (`red` to `rose`, `slate`, `gray`, `zinc`, `neutral`, `stone` and the newer `taupe`, `mauve`, `mist` and `olive`) and the `error`, `warning` and `success` aliases. The `badgeColors` array in `~/utils/badge-colors` lists them all, and every color has light and dark styles.
+
+::prose-show-case
+
+:DocsBadgeColors
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Badge/DocsBadgeColors.vue" code lang="vue" -->
+
+```vue [DocsBadgeColors.vue]
+<template>
+  <div class="mx-auto flex max-w-2xl flex-wrap justify-center gap-2">
+    <UiBadge v-for="c in badgeColors" :key="c" variant="soft" :color="c" size="md" dot>
+      {{ c }}
+    </UiBadge>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import { badgeColors } from "~/utils/badge-colors";
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+## Styles
+
+`soft` is a tinted badge, `solid` is filled, `outline` only draws the border and `modern` is a neutral card where the color is used for the dot. `soft`, `solid` and `modern` use `gray` when no `color` is set. An `outline` badge without a color keeps the neutral look it always had, and the other variants (`default`, `secondary`, `destructive`, `success`, `warning`, `info`, `error` and `ghost`) did not change. The same colors and styles are used by the [Tag Group](/components/tag-group).
+
+::prose-show-case
+
+:DocsBadgeStyles
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Badge/DocsBadgeStyles.vue" code lang="vue" -->
+
+```vue [DocsBadgeStyles.vue]
+<template>
+  <div class="mx-auto max-w-2xl space-y-6">
+    <div v-for="v in variants" :key="v" class="space-y-2">
+      <p class="text-muted-foreground text-xs font-medium tracking-wide uppercase">{{ v }}</p>
+      <div class="flex flex-wrap gap-2">
+        <UiBadge v-for="c in colors" :key="c" :variant="v" :color="c" size="md">{{ c }}</UiBadge>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const variants = ["soft", "solid", "outline", "modern"] as const;
+  const colors = [
+    "gray",
+    "primary",
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "teal",
+    "blue",
+    "indigo",
+    "purple",
+    "pink",
+    "mauve",
+    "olive",
+  ] as const;
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+## Shapes
+
+Use `shape="rounded"` (default) or `shape="pill"`.
+
+::prose-show-case
+
+:DocsBadgeShapes
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Badge/DocsBadgeShapes.vue" code lang="vue" -->
+
+```vue [DocsBadgeShapes.vue]
+<template>
+  <div class="mx-auto max-w-md space-y-4">
+    <div class="flex flex-wrap items-center justify-center gap-2">
+      <UiBadge shape="rounded" variant="soft" color="violet" size="md">Rounded</UiBadge>
+      <UiBadge shape="rounded" variant="solid" color="pink" size="md">Rounded</UiBadge>
+      <UiBadge shape="rounded" variant="outline" color="sky" size="md">Rounded</UiBadge>
+    </div>
+    <div class="flex flex-wrap items-center justify-center gap-2">
+      <UiBadge shape="pill" variant="soft" color="violet" size="md">Pill</UiBadge>
+      <UiBadge shape="pill" variant="solid" color="pink" size="md">Pill</UiBadge>
+      <UiBadge shape="pill" variant="outline" color="sky" size="md">Pill</UiBadge>
+    </div>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+## Icons
+
+`icon` renders an icon before the text and `trailing-icon` one after it. The `leading` and `trailing` slots replace them with any content.
+
+::prose-show-case
+
+:DocsBadgeIcons
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Badge/DocsBadgeIcons.vue" code lang="vue" -->
+
+```vue [DocsBadgeIcons.vue]
+<template>
+  <div class="mx-auto max-w-md space-y-4">
+    <div class="flex flex-wrap items-center justify-center gap-2">
+      <UiBadge variant="soft" color="green" size="md" icon="lucide:badge-check">Verified</UiBadge>
+      <UiBadge variant="soft" color="amber" size="md" icon="lucide:clock">Pending</UiBadge>
+      <UiBadge variant="soft" color="red" size="md" icon="lucide:circle-alert">Failed</UiBadge>
+      <UiBadge variant="soft" color="purple" size="md" icon="lucide:sparkles">New</UiBadge>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-2">
+      <UiBadge variant="outline" color="blue" size="md" trailing-icon="lucide:arrow-up-right">
+        Docs
+      </UiBadge>
+      <UiBadge variant="solid" color="amber" size="md" trailing-icon="lucide:crown">Pro</UiBadge>
+      <!-- The `leading` and `trailing` slots replace the icons -->
+      <UiBadge variant="modern" color="pink" size="md">
+        <template #leading><Icon name="lucide:flask-conical" class="size-3" /></template>
+        Beta
+        <template #trailing><Icon name="lucide:chevron-down" class="size-3" /></template>
+      </UiBadge>
+    </div>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+## Dots
+
+The `modern` variant shows a dot colored by `color`. Add `dot` to show one on any other variant.
+
+::prose-show-case
+
+:DocsBadgeDots
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Badge/DocsBadgeDots.vue" code lang="vue" -->
+
+```vue [DocsBadgeDots.vue]
+<template>
+  <div class="mx-auto max-w-md space-y-4">
+    <!-- The `modern` variant is neutral and uses the color for its dot -->
+    <div class="flex flex-wrap items-center justify-center gap-2">
+      <UiBadge variant="modern" color="green" size="md">Online</UiBadge>
+      <UiBadge variant="modern" color="amber" size="md">Away</UiBadge>
+      <UiBadge variant="modern" color="red" size="md">Busy</UiBadge>
+      <UiBadge variant="modern" color="gray" size="md">Offline</UiBadge>
+    </div>
+
+    <!-- Add `dot` to any other variant -->
+    <div class="flex flex-wrap items-center justify-center gap-2">
+      <UiBadge variant="soft" color="emerald" size="lg" dot>Production</UiBadge>
+      <UiBadge variant="soft" color="orange" size="lg" dot>Staging</UiBadge>
+      <UiBadge variant="soft" color="sky" size="lg" dot>Development</UiBadge>
+    </div>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
+## Avatars
+
+Use `avatar` to show an image before the text.
+
+::prose-show-case
+
+:DocsBadgeAvatars
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Badge/DocsBadgeAvatars.vue" code lang="vue" -->
+
+```vue [DocsBadgeAvatars.vue]
+<template>
+  <div class="mx-auto flex max-w-md flex-wrap items-center justify-center gap-2">
+    <UiBadge
+      v-for="p in people"
+      :key="p.name"
+      variant="modern"
+      shape="pill"
+      size="md"
+      :avatar="p.avatar"
+    >
+      {{ p.name }}
+    </UiBadge>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const people = [
+    { name: "Kelly King", avatar: "https://i.pravatar.cc/150?img=1" },
+    { name: "Ryan Author", avatar: "https://i.pravatar.cc/150?img=4" },
+    { name: "Mia Chen", avatar: "https://i.pravatar.cc/150?img=5" },
+  ];
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+## Links and buttons
+
+A badge renders a link when it has `to` or `href`, a button when it has an `@click` handler and a `div` otherwise. Use `tag` to render any other element.
+
+::prose-show-case
+
+:DocsBadgeLink
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Badge/DocsBadgeLink.vue" code lang="vue" -->
+
+```vue [DocsBadgeLink.vue]
+<template>
+  <div class="mx-auto flex max-w-md flex-wrap items-center justify-center gap-2">
+    <!-- Badges with a `to`/`href` render a link and badges with `@click` render a button -->
+    <UiBadge to="/components/tag-group" variant="soft" color="indigo" size="md" icon="lucide:tags">
+      Tag Group
+    </UiBadge>
+    <UiBadge variant="solid" color="emerald" size="md" icon="lucide:copy" @click="copy">
+      {{ copied ? "Copied" : "Copy" }}
+    </UiBadge>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const copied = ref(false);
+
+  const copy = () => {
+    copied.value = true;
+    setTimeout(() => (copied.value = false), 1500);
+  };
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `variant` | `"default" \| "secondary" \| "destructive" \| "outline" \| "success" \| "warning" \| "info" \| "error" \| "ghost" \| "soft" \| "solid" \| "modern"` | `"default"` | The style of the badge. |
+| `color` | `BadgeColor` | | Color of the `soft`, `solid` and `outline` variants, and of the dot of `modern`. `gray` when a color is needed and none is set. |
+| `size` | `"sm" \| "md" \| "lg"` | `"sm"` | The size of the badge. |
+| `shape` | `"rounded" \| "pill"` | `"rounded"` | The shape of the badge. |
+| `icon` | `string` | | Icon shown before the text. |
+| `trailing-icon` | `string` | | Icon shown after the text. |
+| `dot` | `boolean` | `false` | Show a colored dot before the text. The `modern` variant shows one unless an icon or avatar is set. |
+| `avatar` | `string` | | Image shown before the text. |
+| `disabled` | `boolean` | `false` | Dims the badge and shows the not-allowed cursor. |
+| `tag` | `string` | | The element to render the badge as. |
+| `to` / `href` | `string` | | Renders the badge as a link. Accepts the props of `NuxtLink`. |
+
+| Slot | Description |
+| --- | --- |
+| `default` | The text of the badge. |
+| `leading` | Content before the text. Replaces `dot`, `avatar` and `icon`. |
+| `trailing` | Content after the text. Replaces `trailing-icon`. |

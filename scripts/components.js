@@ -109,7 +109,13 @@ export default [
     components: ["avatar"],
     docsPath: "/components/avatar",
   },
-  { name: "Badge", value: "badge", files: ["Badge.vue"], docsPath: "/components/badge" },
+  {
+    name: "Badge",
+    value: "badge",
+    files: ["Badge.vue"],
+    docsPath: "/components/badge",
+    utils: ["badge-colors.ts"],
+  },
   {
     name: "Badge Group",
     value: "badge-group",
@@ -1055,6 +1061,7 @@ export default [
       "TagGroup/TagGroup.vue",
     ],
     docsPath: "/components/tag-group",
+    utils: ["badge-colors.ts"],
   },
   {
     name: "Tags Input",

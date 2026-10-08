@@ -1,0 +1,11 @@
+{
+  "slug": "2026-10-08-badge-colors",
+  "date": "2026-10-08",
+  "title": "Colorful Badges & New Tailwind Colors",
+  "category": "feature",
+  "tags": ["badge", "tag-group", "colors"],
+  "summary": "Badge gets the same colors and styles as the Tag Group, and both support Tailwind's new taupe, mauve, mist and olive colors.",
+  "body": "- [**Badge**](/components/badge): New `soft`, `solid` and `modern` variants and a `color` prop with 30 colors (`primary`, the whole Tailwind palette, the `error`/`warning`/`success` aliases and the new `taupe`, `mauve`, `mist` and `olive`). `outline` can now be colored too. Also new: `shape` (`rounded` or `pill`), `icon`, `trailing-icon`, `dot`, `avatar` and the `leading` and `trailing` slots. Every existing variant and prop looks and works exactly as before. The colors live in `~/utils/badge-colors`, which is installed with the badge.\n- [**Tag Group**](/components/tag-group): Now supports the same 30 colors and shares them with the Badge. The hover and selected states no longer depend on the color of the tag, and `UiTagGroup` and `UiTagGroupItem` need the new `badge-colors` util. Update with `ui-thing@latest add tag-group badge`.\n",
+  "breaking": false,
+  "links": []
+}
