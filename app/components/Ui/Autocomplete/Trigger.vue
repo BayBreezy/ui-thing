@@ -1,15 +1,15 @@
 <template>
-  <ComboboxTrigger
+  <AutocompleteTrigger
     data-slot="autocomplete-trigger"
     v-bind="forwarded"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
-  </ComboboxTrigger>
+  </AutocompleteTrigger>
 </template>
 
 <script lang="ts" setup>
-  import { ComboboxTrigger } from "reka-ui";
+  import { AutocompleteTrigger } from "reka-ui";
   import type { ComboboxTriggerProps } from "reka-ui";
   import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";

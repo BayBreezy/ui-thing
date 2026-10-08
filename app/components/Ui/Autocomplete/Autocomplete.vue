@@ -1,27 +1,27 @@
 <template>
-  <ComboboxRoot
+  <AutocompleteRoot
     v-slot="slotProps"
     data-slot="autocomplete"
     v-bind="forwarded"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot v-bind="slotProps" />
-  </ComboboxRoot>
+  </AutocompleteRoot>
 </template>
 
 <script lang="ts" setup>
-  import { ComboboxRoot, useForwardPropsEmits } from "reka-ui";
-  import type { ComboboxRootEmits, ComboboxRootProps } from "reka-ui";
+  import { AutocompleteRoot, useForwardPropsEmits } from "reka-ui";
+  import type { AutocompleteRootEmits, AutocompleteRootProps } from "reka-ui";
   import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<
-    ComboboxRootProps & {
+    AutocompleteRootProps & {
       class?: HTMLAttributes["class"];
     }
   >();
 
-  const emits = defineEmits<ComboboxRootEmits>();
+  const emits = defineEmits<AutocompleteRootEmits>();
   const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);
   const styles = tv({ base: "relative" });
 </script>

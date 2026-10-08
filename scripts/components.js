@@ -1141,6 +1141,16 @@ export default [
     docsPath: "/forms/vee-vueformslider",
   },
   {
+    name: "Vee Autocomplete",
+    value: "vee-autocomplete",
+    deps: ["@vee-validate/nuxt"],
+    askValidator: true,
+    nuxtModules: ["@vee-validate/nuxt"],
+    components: ["autocomplete", "label"],
+    files: ["Vee/Autocomplete.vue"],
+    docsPath: "/forms/veeautocomplete",
+  },
+  {
     name: "Vee Checkbox",
     value: "vee-checkbox",
     deps: ["@vee-validate/nuxt"],

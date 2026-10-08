@@ -1,11 +1,11 @@
 <template>
-  <ComboboxPortal data-slot="autocomplete-portal" position="popper" v-bind="props">
+  <AutocompletePortal data-slot="autocomplete-portal" position="popper" v-bind="props">
     <slot />
-  </ComboboxPortal>
+  </AutocompletePortal>
 </template>
 
 <script lang="ts" setup>
-  import { ComboboxPortal } from "reka-ui";
+  import { AutocompletePortal } from "reka-ui";
   import type { ComboboxPortalProps } from "reka-ui";
 
   const props = defineProps<ComboboxPortalProps>();

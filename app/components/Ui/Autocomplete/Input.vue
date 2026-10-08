@@ -1,5 +1,5 @@
 <template>
-  <ComboboxInput
+  <AutocompleteInput
     data-slot="autocomplete-input"
     v-bind="forwarded"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
@@ -7,13 +7,13 @@
 </template>
 
 <script lang="ts" setup>
-  import { ComboboxInput, useForwardPropsEmits } from "reka-ui";
-  import type { ComboboxInputEmits, ComboboxInputProps } from "reka-ui";
+  import { AutocompleteInput, useForwardPropsEmits } from "reka-ui";
+  import type { AutocompleteInputEmits, AutocompleteInputProps } from "reka-ui";
   import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
 
   const props = defineProps<
-    ComboboxInputProps & {
+    AutocompleteInputProps & {
       /** Custom placeholder text for the input. */
       placeholder?: HTMLAttributes["placeholder"];
       /** Custom class(es) to add to the input. */
@@ -21,7 +21,7 @@
     }
   >();
 
-  const emits = defineEmits<ComboboxInputEmits>();
+  const emits = defineEmits<AutocompleteInputEmits>();
 
   const forwarded = useForwardPropsEmits(reactiveOmit(props, "class"), emits);
 

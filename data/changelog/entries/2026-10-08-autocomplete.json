@@ -1,0 +1,11 @@
+{
+  "slug": "2026-10-08-autocomplete",
+  "date": "2026-10-08",
+  "title": "Autocomplete Rebuilt & Vee Autocomplete",
+  "category": "feature",
+  "tags": ["autocomplete", "vee-autocomplete", "forms"],
+  "summary": "Autocomplete now uses Reka UI's Autocomplete primitive, and a VeeAutocomplete form wrapper was added.",
+  "body": "- [**Autocomplete**](/components/autocomplete): Rebuilt on Reka UI's `Autocomplete` primitive instead of a custom Combobox setup. The `v-model` is now the text in the input, any text is accepted, and the typed text is kept on blur. New props: `open-on-focus`, `open-on-click`, `reset-search-term-on-blur`, `name` and `required`. `UiAutocompleteSeparator` now has default styling, the list scrollbar is visible again, and `UiAutocompleteItem` no longer renders a check indicator (the `icon` prop and `icon` slot were removed) since only the matching item is listed once a value is selected. Several new examples were added (clearable, groups, search, email suggestions, async, form).\n- **Breaking**: `multiple`, object values and `display-value` are no longer supported because the primitive only works with text. Use [`UiCombobox`](/components/combobox) when you need a selected item or multiple selection.\n- [**VeeAutocomplete**](/forms/veeautocomplete): A Vee-Validate autocomplete field with a label, hint, animated error message, `options`/slot suggestions, groups and accessible labelling. Install it with `ui-thing@latest add vee-autocomplete`. Check out the documentation [here](/forms/veeautocomplete).\n",
+  "breaking": true,
+  "links": []
+}

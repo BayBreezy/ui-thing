@@ -1,15 +1,15 @@
 <template>
-  <ComboboxAnchor
+  <AutocompleteAnchor
     data-slot="autocomplete-anchor"
     v-bind="props"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
     <slot />
-  </ComboboxAnchor>
+  </AutocompleteAnchor>
 </template>
 
 <script lang="ts" setup>
-  import { ComboboxAnchor } from "reka-ui";
+  import { AutocompleteAnchor } from "reka-ui";
   import type { ComboboxAnchorProps } from "reka-ui";
   import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";

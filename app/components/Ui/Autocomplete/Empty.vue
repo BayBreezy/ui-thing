@@ -1,11 +1,11 @@
 <template>
-  <ComboboxEmpty data-slot="autocomplete-empty" v-bind="props">
+  <AutocompleteEmpty data-slot="autocomplete-empty" v-bind="props">
     <slot />
-  </ComboboxEmpty>
+  </AutocompleteEmpty>
 </template>
 
 <script lang="ts" setup>
-  import { ComboboxEmpty } from "reka-ui";
+  import { AutocompleteEmpty } from "reka-ui";
   import type { ComboboxEmptyProps } from "reka-ui";
 
   const props = defineProps<ComboboxEmptyProps>();

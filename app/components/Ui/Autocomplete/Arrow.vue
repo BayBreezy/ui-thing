@@ -1,5 +1,5 @@
 <template>
-  <ComboboxArrow
+  <AutocompleteArrow
     data-slot="autocomplete-arrow"
     v-bind="props"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ComboboxArrow } from "reka-ui";
+  import { AutocompleteArrow } from "reka-ui";
   import type { ComboboxArrowProps } from "reka-ui";
   import { normalizeClass } from "vue";
   import type { HTMLAttributes } from "vue";
