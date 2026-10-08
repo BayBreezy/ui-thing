@@ -1,7 +1,6 @@
 ---
 title: Typeset
 description: A styling system for HTML and rendered markdown, from blog posts to streaming chat. One CSS file you own.
-label: New
 ---
 
 You render markdown and get back plain unstyled HTML: headings, paragraphs, lists, and tables. So you style the elements one by one: font sizes, line heights, spacing.
