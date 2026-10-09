@@ -436,6 +436,7 @@ export default [
       "DropdownMenu/CheckboxItem.vue",
       "DropdownMenu/Content.vue",
       "DropdownMenu/DropdownMenu.vue",
+      "DropdownMenu/Filter.vue",
       "DropdownMenu/Group.vue",
       "DropdownMenu/Item.vue",
       "DropdownMenu/ItemIndicator.vue",

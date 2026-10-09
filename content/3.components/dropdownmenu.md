@@ -282,6 +282,168 @@ Use the `translucent` prop on the content surface when you want a softer glassmo
 
 ::
 
+### Filter
+
+Add `UiDropdownMenuFilter` at the top of the content to let users search the menu. It plugs into the menu's keyboard navigation: arrow keys move the highlight, `Enter` activates it, and `Esc` clears the filter before closing the menu. Filtering the items is up to you.
+
+::prose-show-case
+
+:DocsDropdownMenuFilter
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/DropdownMenu/DocsDropdownMenuFilter.vue" code lang="vue" -->
+
+```vue [DocsDropdownMenuFilter.vue]
+<template>
+  <div class="flex w-full items-center justify-center">
+    <UiDropdownMenu @update:open="(open) => !open && (search = '')">
+      <UiDropdownMenuTrigger as-child>
+        <UiButton variant="outline">Filter actions</UiButton>
+      </UiDropdownMenuTrigger>
+      <UiDropdownMenuContent class="w-56">
+        <UiDropdownMenuFilter
+          v-model="search"
+          auto-focus
+          aria-label="Filter actions"
+          placeholder="Filter actions…"
+        />
+        <UiDropdownMenuItem
+          v-for="action in filteredActions"
+          :key="action.title"
+          :title="action.title"
+          :icon="action.icon"
+          :shortcut="action.shortcut"
+          :text-value="action.title"
+        />
+        <p
+          v-if="!filteredActions.length"
+          class="text-muted-foreground px-2 py-4 text-center text-sm"
+        >
+          No actions found.
+        </p>
+      </UiDropdownMenuContent>
+    </UiDropdownMenu>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import { useFilter } from "reka-ui";
+
+  const actions = [
+    { title: "Copy", icon: "ph:copy", shortcut: "⌘C" },
+    { title: "Cut", icon: "ph:scissors", shortcut: "⌘X" },
+    { title: "Paste", icon: "ph:clipboard", shortcut: "⌘V" },
+    { title: "Duplicate", icon: "ph:files", shortcut: "⌘D" },
+    { title: "Rename", icon: "ph:pencil-simple", shortcut: "F2" },
+    { title: "Move to folder", icon: "ph:folder-simple", shortcut: "⇧⌘M" },
+    { title: "Share", icon: "ph:share-network", shortcut: "⇧⌘S" },
+    { title: "Archive", icon: "ph:archive", shortcut: "⌘E" },
+  ];
+
+  const search = ref("");
+  const { contains } = useFilter({ sensitivity: "base" });
+
+  const filteredActions = computed(() =>
+    search.value ? actions.filter((action) => contains(action.title, search.value)) : actions
+  );
+</script>
+```
+
+<!-- /automd -->
+
+::
+
+### Filter in a Submenu
+
+The filter also works inside `UiDropdownMenuSubContent`, which is handy for long lists such as teammates or projects.
+
+::prose-show-case
+
+:DocsDropdownMenuFilterSub
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/DropdownMenu/DocsDropdownMenuFilterSub.vue" code lang="vue" -->
+
+```vue [DocsDropdownMenuFilterSub.vue]
+<template>
+  <div class="flex w-full items-center justify-center">
+    <UiDropdownMenu>
+      <UiDropdownMenuTrigger as-child>
+        <UiButton variant="outline">Task options</UiButton>
+      </UiDropdownMenuTrigger>
+      <UiDropdownMenuContent class="w-56">
+        <UiDropdownMenuLabel label="Task" />
+        <UiDropdownMenuSeparator />
+        <UiDropdownMenuItem title="Edit" icon="ph:pencil-simple" shortcut="⌘E" />
+        <UiDropdownMenuSub @update:open="(open) => !open && (search = '')">
+          <UiDropdownMenuSubTrigger title="Assign to" icon="ph:user-plus" text-value="Assign to" />
+          <UiDropdownMenuSubContent class="w-52">
+            <UiDropdownMenuFilter
+              v-model="search"
+              auto-focus
+              aria-label="Filter teammates"
+              placeholder="Search teammates…"
+            />
+            <UiDropdownMenuRadioGroup v-model="assignee">
+              <UiDropdownMenuRadioItem
+                v-for="person in filteredPeople"
+                :key="person.name"
+                :value="person.name"
+                :text-value="person.name"
+              >
+                <div class="flex flex-col">
+                  <span>{{ person.name }}</span>
+                  <span class="text-muted-foreground text-xs">{{ person.role }}</span>
+                </div>
+              </UiDropdownMenuRadioItem>
+            </UiDropdownMenuRadioGroup>
+            <p
+              v-if="!filteredPeople.length"
+              class="text-muted-foreground px-2 py-4 text-center text-sm"
+            >
+              No teammates found.
+            </p>
+          </UiDropdownMenuSubContent>
+        </UiDropdownMenuSub>
+        <UiDropdownMenuSeparator />
+        <UiDropdownMenuItem title="Delete" icon="ph:trash" variant="destructive" />
+      </UiDropdownMenuContent>
+    </UiDropdownMenu>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import { useFilter } from "reka-ui";
+
+  const people = [
+    { name: "Ada Lovelace", role: "Engineering" },
+    { name: "Grace Hopper", role: "Engineering" },
+    { name: "Margaret Hamilton", role: "Platform" },
+    { name: "Katherine Johnson", role: "Data" },
+    { name: "Linus Torvalds", role: "Infrastructure" },
+    { name: "Radia Perlman", role: "Networking" },
+  ];
+
+  const search = ref("");
+  const assignee = ref("Ada Lovelace");
+  const { contains } = useFilter({ sensitivity: "base" });
+
+  const filteredPeople = computed(() =>
+    search.value
+      ? people.filter(
+          (person) => contains(person.name, search.value) || contains(person.role, search.value)
+        )
+      : people
+  );
+</script>
+```
+
+<!-- /automd -->
+
+::
+
 ### Origin UI Examples
 
 ::prose-show-case
