@@ -16,6 +16,7 @@
         })
       "
       v-bind="{ ...forwarded, ...$attrs }"
+      @interact-outside="onInteractOutside"
     >
       <slot>
         <slot name="header">
@@ -45,6 +46,12 @@
   import type { HTMLAttributes } from "vue";
 
   defineOptions({ inheritAttrs: false });
+
+  // Toasts live outside the sheet, don't treat interacting with them as an outside click.
+  function onInteractOutside(event: Event) {
+    const target = (event as CustomEvent).detail?.originalEvent?.target as HTMLElement | null;
+    if (target?.closest?.("[data-sonner-toaster]")) event.preventDefault();
+  }
 
   const styles = tv({
     base: "bg-background data-[state=closed]:animate-out data-[state=open]:animate-in fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500",

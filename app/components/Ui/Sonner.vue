@@ -45,7 +45,8 @@
   // without losing the rest of the defaults.
   const mergedToastOptions = computed(() => ({
     ...props.toastOptions,
-    class: normalizeClass(["items-start!", props.toastOptions?.class]),
+    // Reka sets `pointer-events: none` on <body> while a modal is open, toasts must opt back in.
+    class: normalizeClass(["items-start!", "pointer-events-auto!", props.toastOptions?.class]),
     classes: {
       icon: "mt-0.5",
       toast:
