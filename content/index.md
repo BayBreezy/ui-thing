@@ -22,8 +22,8 @@ secondaryCta:
   icon: simple-icons:github
 badge:
   label: New
-  href: /changelog
-  text: Typeset, Questionnaire & More!
+  href: /changelog/2026-10-16-trace-code-block-ai-elements
+  text: Trace, Code Block & AI Elements!
 ---
 ::
 
