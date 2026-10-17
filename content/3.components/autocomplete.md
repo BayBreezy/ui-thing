@@ -1,7 +1,6 @@
 ---
 title: Autocomplete
 description: An input that suggests values as you type while still accepting any text.
-label: Updated
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/autocomplete.html

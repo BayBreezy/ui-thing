@@ -1,7 +1,6 @@
 ---
 title: Sonner
 description: Sonner is an opinionated toast component for Vue. It's customizable, but styled by default. Comes with a swipe to dismiss animation.
-label: Updated
 links:
   - title: API Reference
     href: https://github.com/xiaoluoboding/vue-sonner

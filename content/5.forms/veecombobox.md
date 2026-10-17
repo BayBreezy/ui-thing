@@ -1,7 +1,6 @@
 ---
 title: VeeCombobox
 description: A combobox component that uses the composition API provided by Vee-Validate to perform validation.
-label: New
 links:
   - title: Combobox Source
     href: /components/combobox

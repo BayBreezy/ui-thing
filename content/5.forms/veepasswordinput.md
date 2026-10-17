@@ -1,7 +1,6 @@
 ---
 title: VeePasswordInput
 description: A password input with a show/hide toggle, an optional strength bar and an optional requirements checklist, powered by Vee-Validate.
-label: New
 links:
   - title: Input Source
     href: /components/input

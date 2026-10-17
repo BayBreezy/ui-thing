@@ -1,7 +1,6 @@
 ---
 title: Tag Group
 description: A group of colorful tags that can be selected, removed and navigated with the keyboard.
-label: New
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/tag-group.html

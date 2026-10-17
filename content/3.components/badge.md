@@ -1,7 +1,6 @@
 ---
 title: Badge
 description: A badge is a component that is used to highlight an item's status for quick recognition.
-label: Updated
 ---
 
 ## Source code

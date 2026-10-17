@@ -1,7 +1,6 @@
 ---
 title: Combobox
 description: An input with a list of options where the user picks one or more items from a fixed list.
-label: Updated
 links:
   - title: Reka UI
     href: https://reka-ui.com/docs/components/combobox.html

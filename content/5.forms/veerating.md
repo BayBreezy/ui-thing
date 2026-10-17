@@ -1,7 +1,6 @@
 ---
 title: VeeRating
 description: A rating component that uses the composition API provided by Vee-Validate to perform validation.
-label: New
 links:
   - title: Rating Source
     href: /components/rating
