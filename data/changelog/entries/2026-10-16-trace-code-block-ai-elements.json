@@ -1,0 +1,11 @@
+{
+  "slug": "2026-10-16-trace-code-block-ai-elements",
+  "date": "2026-10-16",
+  "title": "Trace, Code Block & AI Elements",
+  "category": "feature",
+  "tags": ["trace", "code-block", "ai-elements"],
+  "summary": "Two new components, Trace and Code Block, and a new AI Elements section with copy-paste patterns for agentic and chat interfaces.",
+  "body": "- [**Trace**](/components/trace): A new `UiTrace` for reasoning, tool calls, sources and plans. Every step is a line with an icon, a title, a description and a status (`running`, `error`, `pending`, `success`, `warning`), and a line can expand, link out, or open a dialog or sheet. Two sizes, Iconify icons by name, a chevron you can hide or replace, and `as` / `as-child` on every part. Install it with `ui-thing@latest add trace`.\n- [**Code Block**](/components/code-block): A new `UiCodeBlock` for code, terminal output and diffs, highlighted with Shiki. Set `code` and `language` once on the root, then add a header, line numbers, `highlight-lines`, automatic diffs, `max-lines` with an expand button, wrap, download and copy buttons, `success` / `warning` / `destructive` tones, 11 themes and 35+ languages (add your own with `registerCodeLanguage`). Install it with `ui-thing@latest add code-block`.\n- [**AI Elements**](/ai-elements/overview): A new section with 26 copy-paste patterns built on Trace, Code Block, Message and more: Chain of Thought, Chat, Checkpoint, Confirmation, Context, File Tree, Inline Citation, Message, Model Selector, Plan, Prompt Input, Queue, Reasoning, Sources, Stack Trace, Subagent, Suggestion, Task, Terminal, Test Results and Tool, plus Artifact, Branch, Feedback, Snippet and Voice Input.\n- **Typeset**: components with a `data-slot` now keep their own styles inside a `typeset` container. Download the updated [typeset.css](/typeset) to get it.\n",
+  "breaking": false,
+  "links": []
+}
