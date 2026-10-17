@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   ],
   mcp: {
     name: "UI Thing MCP",
-    version: "0.0.1",
+    version: "0.1.0",
   },
   gtag: {
     id: process.env.GA_ID,
