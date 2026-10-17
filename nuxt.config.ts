@@ -143,6 +143,7 @@ export default defineNuxtConfig({
     "/magic/**": { redirect: "https://inspira-ui.com" },
     "/prose/**": { redirect: "https://docd.uithing.com/prose/callout" },
     "/goodies": { redirect: "/goodies/border-beam" },
+    "/ai-elements": { redirect: "/ai-elements/overview" },
     "/examples": { redirect: "/examples/cards" },
     "/blocks": { redirect: "/blocks/app-empty-state" },
     "/block-renderer": { static: true },
