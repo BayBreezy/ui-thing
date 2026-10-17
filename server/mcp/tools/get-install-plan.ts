@@ -20,7 +20,7 @@ export default defineMcpTool({
   },
   cache: {
     maxAge: "10m",
-    getKey: (args) => `install-plan-${args.packageManager}-${args.items.sort().join(",")}`,
+    getKey: (args) => `install-plan-${args.packageManager}-${[...args.items].sort().join(",")}`,
   },
   async handler({ items, packageManager = "npm" }) {
     return jsonResult(buildInstallPlan(items, packageManager), true);

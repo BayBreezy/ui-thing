@@ -34,6 +34,11 @@ export default defineMcpTool({
         query,
         totalFound: results.length,
         results,
+        ...(results.length === 0
+          ? {
+              hint: "No component or block matched. Try a simpler word, or use search-documentation-pages for concepts such as theming, dark mode, forms or setup.",
+            }
+          : {}),
       },
       true
     );

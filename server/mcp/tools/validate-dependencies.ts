@@ -20,7 +20,7 @@ export default defineMcpTool({
   },
   cache: {
     maxAge: "10m",
-    getKey: (args) => `validate-${args.packageManager}-${args.items.sort().join(",")}`,
+    getKey: (args) => `validate-${args.packageManager}-${[...args.items].sort().join(",")}`,
   },
   async handler({ items, packageManager = "npm" }) {
     return jsonResult(

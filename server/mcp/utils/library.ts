@@ -26,6 +26,7 @@ export type LibrarySummary = {
   description: string | null;
   docsPath: string | null;
   category: string;
+  keywords: string[];
   dependencySummary: DependencySummary;
   sourcePath: string | null;
 };
@@ -49,12 +50,18 @@ export type InstallPlan = {
   }>;
   missingItems: string[];
   uiThingComponents: string[];
+  /** Npm packages brought in by UI Thing components. `ui-thing add` installs these itself. */
   npmDependencies: string[];
+  /** Npm packages imported directly by blocks. Blocks are copied by hand, so install these yourself. */
+  blockNpmDependencies: string[];
   devDependencies: string[];
   nuxtModules: string[];
+  /** Modules to list in `nuxt.config` modules by hand because `nuxi module add` cannot install them. */
+  nuxtConfigModules: string[];
   composables: string[];
   plugins: string[];
   utils: string[];
+  notes: string[];
   commands: {
     installDependencies: string | null;
     installDevDependencies: string | null;
@@ -66,21 +73,42 @@ export type InstallPlan = {
 type DependencyAccumulator = {
   uiThingComponents: Set<string>;
   npmDependencies: Set<string>;
+  blockNpmDependencies: Set<string>;
   devDependencies: Set<string>;
   nuxtModules: Set<string>;
+  nuxtConfigModules: Set<string>;
   composables: Set<string>;
   plugins: Set<string>;
   utils: Set<string>;
   processedComponents: Set<string>;
   unresolvedComponents: Set<string>;
+  notes: Set<string>;
 };
 
 type PageSectionPlan = {
   id: string;
   title: string;
   query: string;
+  /**
+   * Block categories in priority order. Earlier entries win before later ones are considered. An
+   * entry containing `/` is a source path prefix (`App/Header/`) for categories whose directory
+   * name is shared by unrelated blocks, such as `Header` (app headers and contact headers).
+   */
   categories?: string[];
   componentValues?: string[];
+  /** Skip block suggestions for sections that are composed from components only. */
+  noBlocks?: boolean;
+};
+
+type PagePreset = {
+  title: string;
+  description: string;
+  category: "marketing" | "application" | "content" | "docs" | "ai";
+  sections: PageSectionPlan[];
+  /** Layout and composition guidance that the section list alone cannot express. */
+  notes: string[];
+  /** Docs pages worth reading before building this page type. */
+  readNext?: string[];
 };
 
 type FormPreset = {
@@ -179,6 +207,12 @@ const COMPONENT_CATEGORY_GROUPS: Array<{ category: string; values: string[] }> =
       "vee-tags-input",
       "vee-textarea",
       "vee-vue-form-slider",
+      "vee-autocomplete",
+      "vee-combobox",
+      "vee-form-builder",
+      "vee-password-input",
+      "vee-rating",
+      "vee-switch",
     ],
   },
   {
@@ -251,6 +285,36 @@ const COMPONENT_CATEGORY_GROUPS: Array<{ category: string; values: string[] }> =
       "toggle",
       "toggle-group",
       "trace",
+      "avatar-label-group",
+      "badge-group",
+      "circular-progress",
+      "credit-card",
+      "marker",
+      "tanstacktable",
+    ],
+  },
+  {
+    category: "actions",
+    values: ["button", "button-group"],
+  },
+  {
+    category: "layout",
+    values: ["container", "gradient-divider", "floating-dock"],
+  },
+  {
+    category: "ai",
+    values: ["attachment", "bubble", "message", "message-scroller", "questionnaire", "terminal"],
+  },
+  {
+    category: "effects",
+    values: [
+      "bg-pattern-circle",
+      "bg-pattern-grid",
+      "bg-pattern-square",
+      "border-beam",
+      "neon-gradient-card",
+      "pointer-highlight",
+      "retro-grid",
     ],
   },
   {
@@ -258,6 +322,82 @@ const COMPONENT_CATEGORY_GROUPS: Array<{ category: string; values: string[] }> =
     values: ["color-picker", "draggable", "editable", "fancy-icon", "flip-clock", "iframe-lazy"],
   },
 ];
+
+/**
+ * Words people search for that never appear in a component name or doc blurb. `sonner` is a toast
+ * library, `dialog` is a modal, and so on. Keys are registry values or block categories.
+ */
+const SEARCH_KEYWORDS: Record<string, string[]> = {
+  accordion: ["faq", "expandable", "collapse"],
+  "alert-dialog": ["confirm", "confirmation", "destructive"],
+  alert: ["banner", "callout", "notice", "message"],
+  apexcharts: ["chart", "graph", "analytics", "plot"],
+  avatar: ["profile picture", "user image"],
+  badge: ["tag", "label", "status", "pill"],
+  breadcrumbs: ["trail", "path"],
+  button: ["cta", "action", "submit"],
+  calendar: ["date", "schedule"],
+  card: ["panel", "tile", "surface"],
+  carousel: ["slider", "slideshow", "gallery"],
+  checkbox: ["tick", "toggle", "consent"],
+  command: ["command palette", "cmdk", "spotlight", "search"],
+  "context-menu": ["right click"],
+  datatable: ["table", "grid", "spreadsheet", "sorting", "filtering", "pagination"],
+  tanstacktable: ["table", "grid", "headless", "sorting", "filtering", "pagination"],
+  table: ["rows", "columns", "simple table"],
+  datepicker: ["date picker", "calendar input", "date range"],
+  dialog: ["modal", "popup", "lightbox"],
+  draggable: ["kanban", "sortable", "reorder", "drag and drop", "board"],
+  drawer: ["bottom sheet", "mobile sheet"],
+  "dropdown-menu": ["dropdown", "menu", "actions menu"],
+  dropfile: ["upload", "drag and drop", "file upload"],
+  empty: ["empty state", "no results", "zero state"],
+  form: ["validation", "vee-validate", "field"],
+  input: ["text field", "textbox"],
+  "input-group": ["addon", "prefix", "suffix"],
+  "navigation-menu": ["mega menu", "navbar", "header nav"],
+  navbar: ["header", "top bar", "navigation"],
+  pagination: ["pages", "paging"],
+  popover: ["popup", "floating panel"],
+  progress: ["progress bar", "loading bar"],
+  select: ["dropdown", "picker", "choose"],
+  separator: ["divider", "hr", "line"],
+  sheet: ["side panel", "slide over", "off canvas"],
+  sidebar: ["app shell", "side navigation", "drawer"],
+  skeleton: ["loading", "placeholder", "shimmer"],
+  slider: ["range", "scrubber"],
+  sonner: ["toast", "notification", "snackbar"],
+  stepper: ["wizard", "steps", "multi step", "onboarding"],
+  switch: ["toggle", "on off"],
+  tabs: ["tabbed", "segmented"],
+  textarea: ["multiline", "message box", "comment"],
+  timeline: ["activity", "history", "roadmap"],
+  tooltip: ["hint", "hover text"],
+  tree: ["file tree", "hierarchy", "nested"],
+  message: ["chat", "ai", "conversation"],
+  "message-scroller": ["chat", "ai", "conversation", "thread"],
+  bubble: ["chat", "ai", "conversation"],
+  trace: ["reasoning", "tool call", "agent steps", "chain of thought"],
+  "code-block": ["syntax highlighting", "snippet", "shiki"],
+  Dashboards: ["admin", "analytics", "overview", "app"],
+  Chart: ["graph", "analytics"],
+  Sidebar: ["app shell", "navigation", "admin"],
+  Header: ["navbar", "top bar", "app header"],
+  Navigation: ["navbar", "header", "menu"],
+  Hero: ["landing", "above the fold", "headline"],
+  HeaderSection: ["page header", "section heading", "title"],
+  Feature: ["benefits", "services", "capabilities"],
+  Pricing: ["plans", "tiers", "subscription"],
+  Testimony: ["testimonials", "reviews", "quotes"],
+  SocialProof: ["logos", "trusted by", "customers"],
+  Login: ["sign in", "auth"],
+  SignUp: ["register", "create account", "auth"],
+  Stats: ["kpi", "numbers", "metrics"],
+  Metric: ["kpi", "numbers", "stats"],
+  CTA: ["call to action", "conversion"],
+  Error: ["404", "500", "not found"],
+  EmptyState: ["no data", "zero state"],
+};
 
 const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string | null }> = [
   { test: (path) => path.startsWith("App/EmptyState/"), docsPath: "/blocks/app-empty-state" },
@@ -284,14 +424,13 @@ const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
   { keyword: "radial", docsPath: "/apex-charts/radial" },
 ];
 
-const PAGE_PRESETS: Record<
-  string,
-  { title: string; description: string; sections: PageSectionPlan[] }
-> = {
+const PAGE_PRESETS: Record<string, PagePreset> = {
   landing: {
     title: "Landing page",
     description: "Marketing page with a strong narrative arc from hero to conversion.",
+    category: "marketing",
     sections: [
+      { id: "navbar", title: "Navigation", query: "navigation", categories: ["Navigation"] },
       { id: "hero", title: "Hero", query: "hero", categories: ["Hero", "HeaderSection"] },
       { id: "features", title: "Features", query: "features", categories: ["Feature"] },
       {
@@ -301,97 +440,298 @@ const PAGE_PRESETS: Record<
         categories: ["SocialProof", "Testimony"],
       },
       { id: "pricing", title: "Pricing", query: "pricing", categories: ["Pricing"] },
+      { id: "faq", title: "FAQ", query: "faq", categories: ["FAQ"] },
       { id: "cta", title: "CTA", query: "call to action", categories: ["CTA"] },
       { id: "footer", title: "Footer", query: "footer", categories: ["Footer"] },
     ],
+    notes: [
+      "Put the page in `app/pages/index.vue`. Each block is a full-width section, so stack them directly without extra wrappers.",
+      "Pick one block per section and keep the same visual tone (all centered, or all split layouts) so the page reads as one design.",
+      "Edit the copy, links and imagery in every block. Block text is placeholder content.",
+    ],
+    readNext: ["/blocks/hero", "/examples/landing"],
   },
   dashboard: {
     title: "Dashboard",
     description: "Application shell with navigation, app chrome, stats, and data-heavy content.",
+    category: "application",
     sections: [
-      { id: "sidebar", title: "Sidebar", query: "app sidebar" },
-      { id: "header", title: "Header", query: "app header" },
-      { id: "stats", title: "Stats", query: "app stats", categories: ["Stats", "Metric"] },
+      { id: "sidebar", title: "Sidebar", query: "app sidebar", categories: ["App/Sidebar/"] },
+      { id: "header", title: "Header", query: "app header", categories: ["App/Header/"] },
+      { id: "stats", title: "Stats", query: "app stats", categories: ["App/Stats/", "Metric"] },
+      {
+        id: "charts",
+        title: "Charts",
+        query: "chart",
+        categories: ["Chart"],
+        componentValues: ["apexcharts", "card"],
+      },
       {
         id: "data",
         title: "Data views",
-        query: "datatable chart",
-        componentValues: ["datatable", "apexcharts", "tabs", "card", "button"],
+        query: "dashboard table",
+        categories: ["Dashboards"],
+        componentValues: ["datatable", "tanstacktable", "tabs", "badge", "button"],
       },
     ],
+    notes: [
+      "Build the shell once in `app/layouts/default.vue` (sidebar + header + `<slot />`) and keep page content in `app/pages/*`.",
+      "Wrap chart blocks in `<ClientOnly>` or use the `.client` variants; ApexCharts does not render on the server.",
+      "Prefer `tanstacktable` for typed, headless tables you style yourself and `datatable` for DataTables.net features such as export and column reorder.",
+    ],
+    readNext: ["/blocks/dashboards", "/blocks/app-sidebar", "/examples/dashboard"],
   },
   auth: {
     title: "Authentication",
     description: "Entry, recovery, and account creation flows for product access.",
+    category: "application",
     sections: [
       { id: "login", title: "Login", query: "login", categories: ["Login"] },
       { id: "signup", title: "Sign up", query: "sign up", categories: ["SignUp"] },
       {
         id: "recovery",
         title: "Recovery",
-        query: "forgot password otp reset password",
-        categories: ["ForgotPassword", "OTP", "ResetPassword"],
+        query: "forgot password reset password",
+        categories: ["ForgotPassword", "ResetPassword"],
       },
+      { id: "otp", title: "Verification code", query: "otp", categories: ["OTP"] },
     ],
+    notes: [
+      "Use a dedicated layout without the app shell (for example `app/layouts/auth.vue`) and `definePageMeta({ layout: 'auth' })`.",
+      "Auth blocks ship UI only. Wire `onSubmit` to your auth provider and surface server errors with `UiAlert` or `setErrors`.",
+    ],
+    readNext: ["/blocks/login", "/blocks/forgot-reset-password", "/forms"],
   },
   docs: {
     title: "Documentation",
     description: "Docs layout with sidebar navigation and right-rail TOC.",
+    category: "docs",
     sections: [
       {
         id: "shell",
         title: "Docs shell",
         query: "sidebar navigation header",
+        noBlocks: true,
         componentValues: ["sidebar", "scrollspy", "breadcrumbs", "container", "card"],
       },
       {
         id: "content",
         title: "Content components",
         query: "docs content",
-        componentValues: ["heading", "separator"],
+        noBlocks: true,
+        componentValues: ["heading", "separator", "code-block", "tabs"],
       },
+    ],
+    notes: [
+      "For markdown-driven docs, pair this with Nuxt Content. The docs shell here is composed from components, not blocks.",
     ],
   },
   pricing: {
     title: "Pricing page",
     description: "Commercial pricing narrative with plans, FAQ, and conversion CTA.",
+    category: "marketing",
     sections: [
       { id: "header", title: "Header", query: "pricing hero", categories: ["HeaderSection"] },
       { id: "plans", title: "Plans", query: "pricing", categories: ["Pricing"] },
       { id: "faq", title: "FAQ", query: "faq", categories: ["FAQ"] },
       { id: "cta", title: "CTA", query: "cta", categories: ["CTA"] },
     ],
+    notes: ["Keep the plan feature lists parallel in wording so tiers are easy to compare."],
+    readNext: ["/blocks/pricing"],
   },
   about: {
     title: "About page",
     description: "Company story, team, values, and supporting proof.",
+    category: "content",
     sections: [
       { id: "story", title: "Story", query: "about story", categories: ["About"] },
       { id: "team", title: "Team", query: "team", categories: ["Team"] },
       { id: "proof", title: "Proof", query: "social proof", categories: ["SocialProof"] },
       { id: "footer", title: "Footer", query: "footer", categories: ["Footer"] },
     ],
+    notes: ["Replace placeholder avatars and names with real content before shipping."],
+    readNext: ["/blocks/about", "/blocks/team"],
   },
   contact: {
     title: "Contact page",
     description: "Contact details, office context, and a clean form path.",
+    category: "content",
     sections: [
-      { id: "header", title: "Contact header", query: "contact header" },
+      {
+        id: "header",
+        title: "Contact header",
+        query: "contact header",
+        categories: ["Contact/Header/"],
+      },
       {
         id: "form",
         title: "Contact form",
         query: "contact form",
+        noBlocks: true,
         componentValues: ["form", "vee-input", "vee-textarea", "button", "card"],
       },
       { id: "faq", title: "FAQ", query: "faq", categories: ["FAQ"] },
     ],
+    notes: [
+      "Compose the form yourself from Vee components. Call `plan-form` with `formType: contact` for the field and validation plan.",
+    ],
+    readNext: ["/blocks/contact-header", "/forms"],
+  },
+  settings: {
+    title: "Settings page",
+    description: "Account or workspace settings with grouped forms and a danger zone.",
+    category: "application",
+    sections: [
+      {
+        id: "navigation",
+        title: "Settings navigation",
+        query: "tabs",
+        noBlocks: true,
+        componentValues: ["tabs", "separator"],
+      },
+      {
+        id: "profile",
+        title: "Profile and preferences",
+        query: "settings form",
+        noBlocks: true,
+        componentValues: ["card", "form", "vee-input", "vee-select", "vee-switch", "button"],
+      },
+      {
+        id: "danger",
+        title: "Danger zone",
+        query: "delete account",
+        noBlocks: true,
+        componentValues: ["alert-dialog", "alert", "button"],
+      },
+    ],
+    notes: [
+      "Group related fields into one `UiCard` per concern, each with its own save button and success toast (`sonner`).",
+      "Confirm destructive actions with `UiAlertDialog`, never a plain button.",
+    ],
+    readNext: ["/forms", "/components/sonner"],
+  },
+  onboarding: {
+    title: "Onboarding flow",
+    description: "Multi-step setup that collects information progressively.",
+    category: "application",
+    sections: [
+      {
+        id: "steps",
+        title: "Step indicator",
+        query: "stepper",
+        noBlocks: true,
+        componentValues: ["stepper", "progress"],
+      },
+      {
+        id: "forms",
+        title: "Step forms",
+        query: "onboarding form",
+        noBlocks: true,
+        componentValues: ["card", "form", "vee-input", "vee-select", "vee-radio-group", "button"],
+      },
+    ],
+    notes: [
+      "Keep one `useForm` per step and merge the values on the final step so back/next never loses data.",
+    ],
+    readNext: ["/components/stepper", "/forms"],
+  },
+  "admin-table": {
+    title: "Admin data table",
+    description: "List-and-manage screen with search, filters, row actions and empty state.",
+    category: "application",
+    sections: [
+      {
+        id: "toolbar",
+        title: "Toolbar",
+        query: "table toolbar",
+        noBlocks: true,
+        componentValues: ["input", "button", "dropdown-menu", "select"],
+      },
+      {
+        id: "table",
+        title: "Table",
+        query: "table",
+        categories: ["Dashboards"],
+        componentValues: [
+          "tanstacktable",
+          "datatable",
+          "badge",
+          "avatar",
+          "pagination",
+          "skeleton",
+        ],
+      },
+      {
+        id: "states",
+        title: "Empty and loading states",
+        query: "empty state",
+        categories: ["App/EmptyState/"],
+        componentValues: ["empty", "skeleton"],
+      },
+      {
+        id: "editing",
+        title: "Create and edit",
+        query: "dialog form",
+        noBlocks: true,
+        componentValues: ["dialog", "sheet", "form", "vee-input", "alert-dialog"],
+      },
+    ],
+    notes: [
+      "Always design the empty, loading and error states. They are where generated UIs usually look unfinished.",
+      "Open create/edit forms in a `UiSheet` or `UiDialog` so the table keeps its scroll position.",
+    ],
+    readNext: ["/components/tanstacktable", "/components/datatable", "/blocks/app-empty-state"],
+  },
+  "ai-chat": {
+    title: "AI chat interface",
+    description: "Conversation thread with streaming messages, agent steps and a prompt composer.",
+    category: "ai",
+    sections: [
+      {
+        id: "thread",
+        title: "Thread",
+        query: "chat message",
+        noBlocks: true,
+        componentValues: ["message-scroller", "message", "bubble", "attachment"],
+      },
+      {
+        id: "steps",
+        title: "Agent steps",
+        query: "reasoning tool",
+        noBlocks: true,
+        componentValues: ["trace", "code-block", "terminal", "collapsible"],
+      },
+      {
+        id: "composer",
+        title: "Prompt composer",
+        query: "prompt input",
+        noBlocks: true,
+        componentValues: ["textarea", "button", "attachment", "dropdown-menu"],
+      },
+      {
+        id: "shell",
+        title: "Conversation list",
+        query: "sidebar",
+        categories: ["App/Sidebar/"],
+        componentValues: ["sidebar", "scroll-area"],
+      },
+    ],
+    notes: [
+      "AI Elements are copy-paste patterns, not CLI components. Read the pattern page, add the components it lists, then copy the example.",
+      "Keep the composer pinned to the bottom and let `UiMessageScroller` own scrolling so streaming replies do not steal the user's scroll position.",
+    ],
+    readNext: ["/ai-elements/overview", "/ai-elements/chat", "/ai-elements/message"],
   },
   custom: {
     title: "Custom page",
     description: "Flexible starting point driven by the requested sections.",
+    category: "content",
     sections: [],
+    notes: [],
   },
 };
+
+export const PAGE_TYPES = Object.keys(PAGE_PRESETS) as [string, ...string[]];
 
 const FORM_PRESETS: Record<string, FormPreset> = {
   login: {
@@ -416,7 +756,7 @@ const FORM_PRESETS: Record<string, FormPreset> = {
     title: "Settings form",
     description: "Profile or account settings with mixed field types and save feedback.",
     fields: ["name", "email", "select", "switch"],
-    componentValues: ["form", "vee-input", "vee-select", "switch", "button", "card", "alert"],
+    componentValues: ["form", "vee-input", "vee-select", "vee-switch", "button", "card", "alert"],
   },
   checkout: {
     title: "Checkout form",
@@ -433,7 +773,7 @@ const FORM_PRESETS: Record<string, FormPreset> = {
       "vee-radio-group",
       "vee-checkbox",
       "vee-textarea",
-      "rating",
+      "vee-rating",
       "button",
     ],
   },
@@ -445,64 +785,16 @@ const FORM_PRESETS: Record<string, FormPreset> = {
   },
 };
 
-export const PAGE_TEMPLATE_INDEX = [
-  {
-    id: "landing-marketing",
-    name: "Landing / Marketing",
-    category: "marketing",
-    description: "Hero-led marketing page with features, proof, pricing, and CTA.",
-    blockCount: 6,
-    componentCount: 4,
-  },
-  {
-    id: "dashboard-app",
-    name: "Dashboard / App Shell",
-    category: "application",
-    description: "Sidebar + header + stats + data views for an authenticated app.",
-    blockCount: 3,
-    componentCount: 5,
-  },
-  {
-    id: "contact-page",
-    name: "Contact Page",
-    category: "content",
-    description: "Contact route with form, support details, and FAQ support.",
-    blockCount: 2,
-    componentCount: 5,
-  },
-  {
-    id: "pricing-page",
-    name: "Pricing Page",
-    category: "marketing",
-    description: "Plan comparison with FAQ and CTA close.",
-    blockCount: 4,
-    componentCount: 4,
-  },
-  {
-    id: "about-page",
-    name: "About Page",
-    category: "content",
-    description: "Company story with team and proof sections.",
-    blockCount: 4,
-    componentCount: 4,
-  },
-  {
-    id: "documentation-page",
-    name: "Documentation Page",
-    category: "docs",
-    description: "Sidebar docs shell with TOC patterns.",
-    blockCount: 0,
-    componentCount: 5,
-  },
-  {
-    id: "auth-flow",
-    name: "Authentication Flow",
-    category: "application",
-    description: "Login, sign-up, and password recovery surfaces.",
-    blockCount: 3,
-    componentCount: 5,
-  },
-];
+export const PAGE_TEMPLATE_INDEX = Object.entries(PAGE_PRESETS)
+  .filter(([id]) => id !== "custom")
+  .map(([id, preset]) => ({
+    id,
+    name: preset.title,
+    category: preset.category,
+    description: preset.description,
+    sections: preset.sections.map((section) => section.title),
+    readNext: preset.readNext ?? [],
+  }));
 
 function slugify(value: string) {
   return value
@@ -534,9 +826,16 @@ function toDependencySummary(partial?: Partial<DependencySummary>) {
   };
 }
 
-function getComponentCategory(value: string) {
+function getComponentCategory(value: string, docsPath?: string | null) {
   const match = COMPONENT_CATEGORY_GROUPS.find((group) => group.values.includes(value));
-  return match?.category ?? "general";
+
+  if (match) {
+    return match.category;
+  }
+
+  // Newly added components fall back to the docs section they live in.
+  const section = docsPath?.split("/")[1];
+  return section === "forms" || section === "goodies" ? section : "general";
 }
 
 export function getBlockDocsPath(block: BlockRecord) {
@@ -551,7 +850,7 @@ export function getBlockDocsPath(block: BlockRecord) {
   if (path.startsWith("Chart/")) {
     const lower = block.fileName.toLowerCase();
     const chartMatch = CHART_DOC_PATHS.find((entry) => lower.includes(entry.keyword));
-    return chartMatch?.docsPath ?? null;
+    return chartMatch?.docsPath ?? "/blocks/chart";
   }
 
   const [segment] = path.split("/");
@@ -560,6 +859,7 @@ export function getBlockDocsPath(block: BlockRecord) {
     Banner: "banner",
     CTA: "cta",
     Career: "career",
+    Dashboards: "dashboards",
     Error: "error",
     FAQ: "faq",
     Feature: "features",
@@ -589,7 +889,8 @@ export function summarizeComponent(component: ComponentRecord): LibrarySummary {
     value: component.value,
     description: component.description ?? null,
     docsPath: normalizePath(component.docsPath),
-    category: getComponentCategory(component.value),
+    category: getComponentCategory(component.value, component.docsPath),
+    keywords: SEARCH_KEYWORDS[component.value] ?? [],
     dependencySummary: toDependencySummary({
       npmDependencies: component.deps?.filter((dep: string) => dep.startsWith("npm:")).length ?? 0,
       devDependencies: component.devDeps?.length ?? 0,
@@ -602,14 +903,30 @@ export function summarizeComponent(component: ComponentRecord): LibrarySummary {
   };
 }
 
+/**
+ * Prefers the summary written in the block's own leading comment. Blocks without one fall back to
+ * the UI Thing components they are built from, which is enough to tell variants apart.
+ */
+function describeBlock(block: BlockRecord) {
+  const written = (block as { description?: string | null }).description;
+
+  if (written) {
+    return written;
+  }
+
+  const used = block.components?.length ? ` Built with: ${block.components.join(", ")}.` : "";
+  return `${block.name} (${block.category} block).${used}`;
+}
+
 export function summarizeBlock(block: BlockRecord): LibrarySummary {
   return {
     kind: "block",
     name: block.name,
     value: block.fileName.replace(/\.vue$/, ""),
-    description: `${block.category} block`,
+    description: describeBlock(block),
     docsPath: getBlockDocsPath(block),
     category: slugify(block.category),
+    keywords: SEARCH_KEYWORDS[block.category] ?? [],
     dependencySummary: toDependencySummary({
       uiThingComponents: block.components?.length ?? 0,
     }),
@@ -696,13 +1013,16 @@ function createDependencyAccumulator(): DependencyAccumulator {
   return {
     uiThingComponents: new Set<string>(),
     npmDependencies: new Set<string>(),
+    blockNpmDependencies: new Set<string>(),
     devDependencies: new Set<string>(),
     nuxtModules: new Set<string>(),
+    nuxtConfigModules: new Set<string>(),
     composables: new Set<string>(),
     plugins: new Set<string>(),
     utils: new Set<string>(),
     processedComponents: new Set<string>(),
     unresolvedComponents: new Set<string>(),
+    notes: new Set<string>(),
   };
 }
 
@@ -749,7 +1069,79 @@ function collectComponentDependencies(component: ComponentRecord, acc: Dependenc
   component.utils?.forEach((entry: any) => entry?.fileName && acc.utils.add(entry.fileName));
 }
 
+/** Specifiers that resolve inside a Nuxt app and never need an npm install. */
+const BUILTIN_IMPORT_PREFIXES = [".", "~", "@/", "#", "nuxt", "vue", "node:"];
+
+/**
+ * Lists the npm packages a block imports itself (`motion-v`, `yup`, `apexcharts`, ...). The
+ * component registry only knows about packages owned by `Ui*` components, so without this scan an
+ * install plan for most blocks would be missing packages the block needs to compile.
+ */
+export function extractBlockPackages(source: string) {
+  const packages = new Set<string>();
+
+  for (const match of source.matchAll(/(?:from|import)\s+["']([^"']+)["']/g)) {
+    const specifier = match[1];
+
+    if (BUILTIN_IMPORT_PREFIXES.some((prefix) => specifier.startsWith(prefix))) {
+      continue;
+    }
+
+    const [scopeOrName, scoped] = specifier.split("/");
+    packages.add(specifier.startsWith("@") ? `${scopeOrName}/${scoped}` : scopeOrName);
+  }
+
+  return [...packages];
+}
+
+/**
+ * `motion-v` ships its Nuxt module as a subpath of the package, so `nuxi module add` cannot install
+ * it. It is installed as an npm package and listed in `nuxt.config` by hand.
+ */
+const MOTION_MODULE = "motion-v/nuxt";
+
+/**
+ * Blocks use auto-imported globals (`<Icon>`, `<Motion>`) that only resolve when the matching Nuxt
+ * module is registered, so infer the modules from the template.
+ */
+export function extractBlockNuxtModules(source: string) {
+  const modules = new Set<string>();
+
+  if (/<Icon[\s>]/.test(source)) modules.add("@nuxt/icon");
+  if (/<(Motion|AnimatePresence|MotionConfig|LayoutGroup)[\s>]/.test(source)) {
+    modules.add(MOTION_MODULE);
+  }
+
+  return [...modules];
+}
+
+/**
+ * Identifiers that blocks reference but that only exist as auto-imports in the docs site, so a
+ * copied block fails to compile until the consuming app defines them.
+ */
+const DOCS_SITE_GLOBALS: Array<{ name: string; note: string }> = [
+  {
+    name: "COMPANY_NAME",
+    note: 'Blocks reference `COMPANY_NAME`. Define it once, for example `export const COMPANY_NAME = "Acme";` in `app/utils/constants.ts` (Nuxt auto-imports it), or replace the placeholder with real copy.',
+  },
+];
+
 function collectBlockDependencies(block: BlockRecord, acc: DependencyAccumulator) {
+  DOCS_SITE_GLOBALS.forEach(({ name, note }) => {
+    const declared = new RegExp(`(?:const|let|var)\\s+${name}\\b`).test(block.file);
+    if (!declared && new RegExp(`\\b${name}\\b`).test(block.file)) acc.notes.add(note);
+  });
+
+  extractBlockPackages(block.file).forEach((pkg) => acc.blockNpmDependencies.add(pkg));
+  extractBlockNuxtModules(block.file).forEach((module) => {
+    if (module === MOTION_MODULE) {
+      acc.nuxtConfigModules.add(module);
+      acc.blockNpmDependencies.add("motion-v");
+    } else {
+      acc.nuxtModules.add(module);
+    }
+  });
+
   block.components?.forEach((tag) => {
     const component = findComponentForTag(tag);
 
@@ -806,6 +1198,10 @@ export function buildInstallPlan(
   missingItems.push(...uniqueSorted(acc.unresolvedComponents));
 
   const npmDependencies = uniqueSorted(acc.npmDependencies);
+  // Packages a component already brings are installed by `ui-thing add`, so only list the rest.
+  const blockNpmDependencies = uniqueSorted(
+    [...acc.blockNpmDependencies].filter((pkg) => !acc.npmDependencies.has(pkg))
+  );
   const devDependencies = uniqueSorted(acc.devDependencies);
   const nuxtModules = uniqueSorted(acc.nuxtModules);
   const uiThingComponents = uniqueSorted(acc.uiThingComponents);
@@ -817,14 +1213,35 @@ export function buildInstallPlan(
     missingItems,
     uiThingComponents,
     npmDependencies,
+    blockNpmDependencies,
     devDependencies,
     nuxtModules,
+    nuxtConfigModules: uniqueSorted(acc.nuxtConfigModules),
     composables: uniqueSorted(acc.composables),
     plugins: uniqueSorted(acc.plugins),
     utils: uniqueSorted(acc.utils),
+    notes: [
+      ...acc.notes,
+      "`addComponents` installs the listed components together with the npm packages they need (npmDependencies).",
+      ...(blockNpmDependencies.length > 0
+        ? [
+            "Blocks are copied from get-block, not installed by the CLI. Run `installDependencies` for the packages the block imports directly.",
+          ]
+        : []),
+      ...(nuxtModules.length > 0
+        ? ["Nuxt modules must be registered; run `addNuxtModules` before first use."]
+        : []),
+      ...(acc.nuxtConfigModules.size > 0
+        ? [
+            `Add ${[...acc.nuxtConfigModules].map((m) => `"${m}"`).join(", ")} to the \`modules\` array in nuxt.config.ts so the block's auto-imported components resolve.`,
+          ]
+        : []),
+    ],
     commands: {
       installDependencies:
-        npmDependencies.length > 0 ? `${commands.install} ${npmDependencies.join(" ")}` : null,
+        blockNpmDependencies.length > 0
+          ? `${commands.install} ${blockNpmDependencies.join(" ")}`
+          : null,
       installDevDependencies:
         devDependencies.length > 0 ? `${commands.installDev} ${devDependencies.join(" ")}` : null,
       addNuxtModules:
@@ -852,7 +1269,14 @@ export function searchLibrary(
   ];
 
   const fuse = new Fuse(indexes, {
-    keys: ["name", "value", "description", "docsPath", "category", "sourcePath"],
+    keys: [
+      { name: "name", weight: 3 },
+      { name: "value", weight: 3 },
+      { name: "keywords", weight: 2 },
+      { name: "description", weight: 1 },
+      { name: "category", weight: 1 },
+      { name: "docsPath", weight: 0.5 },
+    ],
     threshold: 0.35,
     includeScore: true,
   });
@@ -994,8 +1418,10 @@ export async function buildComponentDetail(event: any, component: ComponentRecor
     dependencies: {
       uiThingComponents: installPlan.uiThingComponents,
       npmDependencies: installPlan.npmDependencies,
+      blockNpmDependencies: installPlan.blockNpmDependencies,
       devDependencies: installPlan.devDependencies,
       nuxtModules: installPlan.nuxtModules,
+      nuxtConfigModules: installPlan.nuxtConfigModules,
       composables: installPlan.composables,
       plugins: installPlan.plugins,
       utils: installPlan.utils,
@@ -1025,8 +1451,10 @@ export async function buildBlockDetail(event: any, block: BlockRecord) {
     dependencies: {
       uiThingComponents: installPlan.uiThingComponents,
       npmDependencies: installPlan.npmDependencies,
+      blockNpmDependencies: installPlan.blockNpmDependencies,
       devDependencies: installPlan.devDependencies,
       nuxtModules: installPlan.nuxtModules,
+      nuxtConfigModules: installPlan.nuxtConfigModules,
       composables: installPlan.composables,
       plugins: installPlan.plugins,
       utils: installPlan.utils,
@@ -1047,8 +1475,8 @@ export function parseCommaList(value?: string | null) {
 function getFieldComponent(field: string) {
   const mapping: Record<string, string[]> = {
     email: ["vee-input"],
-    password: ["vee-input"],
-    "confirm-password": ["vee-input"],
+    password: ["vee-password-input"],
+    "confirm-password": ["vee-password-input"],
     name: ["vee-input"],
     phone: ["vee-input"],
     message: ["vee-textarea"],
@@ -1056,7 +1484,7 @@ function getFieldComponent(field: string) {
     select: ["vee-select"],
     checkbox: ["vee-checkbox"],
     radio: ["vee-radio-group"],
-    switch: ["switch"],
+    switch: ["vee-switch"],
     date: ["vee-datepicker"],
     calendar: ["vee-datepicker"],
     number: ["vee-number-field"],
@@ -1066,7 +1494,12 @@ function getFieldComponent(field: string) {
     tags: ["vee-tags-input"],
     otp: ["vee-pin-input"],
     pin: ["vee-pin-input"],
-    rating: ["rating"],
+    rating: ["vee-rating"],
+    combobox: ["vee-combobox"],
+    autocomplete: ["vee-autocomplete"],
+    "multi-select": ["vee-multi-select"],
+    slider: ["vee-vue-form-slider"],
+    "date-field": ["vee-date-field"],
   };
 
   return mapping[field] ?? ["vee-input"];
@@ -1095,6 +1528,11 @@ function getFieldValidation(field: string) {
     otp: "fixed-length code",
     pin: "fixed-length code",
     rating: "numeric range",
+    combobox: "required selection",
+    autocomplete: "required selection",
+    "multi-select": "array length constraints",
+    slider: "numeric range",
+    "date-field": "required date",
   };
 
   return rules[field] ?? "required";
@@ -1103,27 +1541,36 @@ function getFieldValidation(field: string) {
 export function buildPagePlan(pageType: string, sections?: string) {
   const preset = PAGE_PRESETS[pageType] ?? PAGE_PRESETS.custom;
   const requestedSections = parseCommaList(sections);
+  const allBlocks = listBlockSummaries();
+  // A block can only fill one slot, so two sections never recommend the same file.
+  const usedBlocks = new Set<string>();
 
-  const effectiveSections =
-    pageType === "custom"
+  const effectiveSections: PageSectionPlan[] =
+    pageType === "custom" || !(pageType in PAGE_PRESETS)
       ? requestedSections.map((section) => ({
           id: slugify(section),
           title: section.replace(/-/g, " "),
           query: section,
         }))
-      : preset?.sections;
+      : preset.sections;
 
-  const sectionPlans = effectiveSections?.map((section) => {
-    const categoryCandidates = section?.categories?.length
-      ? listBlockSummaries().filter((block) =>
-          section.categories?.map((category) => slugify(category)).includes(block.category)
+  const sectionPlans = effectiveSections.map((section) => {
+    let blockCandidates: LibrarySummary[] = [];
+
+    if (!section.noBlocks) {
+      // Walk categories in priority order so `Hero` wins over the fallback `HeaderSection`.
+      const byCategory = (section.categories ?? []).flatMap((selector) =>
+        allBlocks.filter((block) =>
+          selector.includes("/")
+            ? block.sourcePath?.startsWith(selector)
+            : block.category === slugify(selector)
         )
-      : [];
+      );
+      const pool = byCategory.length > 0 ? byCategory : searchLibrary(section.query, "block", 6);
 
-    const blockCandidates =
-      categoryCandidates.length > 0
-        ? categoryCandidates.slice(0, 3)
-        : searchLibrary(section.query, "block", 3);
+      blockCandidates = pool.filter((block) => !usedBlocks.has(block.value)).slice(0, 3);
+      blockCandidates.forEach((block) => usedBlocks.add(block.value));
+    }
 
     const componentCandidates =
       section.componentValues
@@ -1131,7 +1578,7 @@ export function buildPagePlan(pageType: string, sections?: string) {
           const component = findComponent(value);
           return component ? summarizeComponent(component) : null;
         })
-        .filter(Boolean) ?? [];
+        .filter((component): component is LibrarySummary => component !== null) ?? [];
 
     return {
       id: section.id,
@@ -1140,9 +1587,9 @@ export function buildPagePlan(pageType: string, sections?: string) {
       blocks: blockCandidates,
       components: componentCandidates,
       starterSelection: [
-        blockCandidates[0]?.name,
-        ...componentCandidates.map((component) => component?.value).filter(Boolean),
-      ].filter(Boolean),
+        blockCandidates[0]?.value,
+        ...componentCandidates.map((component) => component.value),
+      ].filter((value): value is string => Boolean(value)),
     };
   });
 
@@ -1156,8 +1603,77 @@ export function buildPagePlan(pageType: string, sections?: string) {
     description: preset.description,
     sectionOrder: sectionPlans.map((section) => section.title),
     sections: sectionPlans,
+    notes: preset.notes,
+    readNext: preset.readNext ?? [],
+    designGuidance: "Read resource://uithing/design-patterns before writing the page.",
     installPlan: buildInstallPlan(starterSelection),
   };
+}
+
+const YUP_RULES: Record<string, string> = {
+  email: 'string().email().required().label("Email")',
+  password: 'string().required().min(8).label("Password")',
+  "confirm-password":
+    'string().required().oneOf([ref("password")], "Passwords must match").label("Confirm password")',
+  name: 'string().required().min(2).label("Name")',
+  phone: 'string().label("Phone")',
+  message: 'string().required().min(10).label("Message")',
+  textarea: 'string().required().min(10).label("Message")',
+  checkbox: 'boolean().oneOf([true], "Required").label("Consent")',
+  switch: "boolean()",
+  number: "number().required().min(0)",
+  rating: "number().required().min(1).max(5)",
+  tags: "array().of(string()).min(1)",
+};
+
+function toFieldKey(field: string) {
+  return field.replace(/-([a-z])/g, (_, letter: string) => letter.toUpperCase());
+}
+
+function buildFormExample(fields: string[]) {
+  const keys = fields.map(toFieldKey);
+  const schema = fields
+    .map((field, index) => `  ${keys[index]}: ${YUP_RULES[field] ?? "string().required()"},`)
+    .join("\n");
+  const template = fields
+    .map((field, index) => {
+      const component = getFieldComponent(field)[0];
+      const tag = `Ui${component
+        .split("-")
+        .map((part) => part[0].toUpperCase() + part.slice(1))
+        .join("")}`;
+      const label = field.replace(/-/g, " ").replace(/^./, (letter) => letter.toUpperCase());
+      return `    <${tag} name="${keys[index]}" label="${label}" />`;
+    })
+    .join("\n");
+
+  const yupImports = ["array", "boolean", "number", "object", "ref", "string"].filter(
+    (name) => name === "object" || new RegExp(`\\b${name}\\(`).test(schema)
+  );
+
+  return `<script setup lang="ts">
+import { ${yupImports.join(", ")} } from "yup";
+import type { InferType } from "yup";
+
+const schema = object({
+${schema}
+});
+
+const { handleSubmit, isSubmitting } = useForm<InferType<typeof schema>>({
+  validationSchema: schema,
+});
+
+const onSubmit = handleSubmit(async (values) => {
+  // send values to your API, then confirm with useSonner("Saved")
+});
+</script>
+
+<template>
+  <form class="space-y-4" @submit="onSubmit">
+${template}
+    <UiButton type="submit" :loading="isSubmitting">Submit</UiButton>
+  </form>
+</template>`;
 }
 
 export function buildFormPlan(formType: string, fields?: string) {
@@ -1186,9 +1702,19 @@ export function buildFormPlan(formType: string, fields?: string) {
     })),
     validationStack: {
       library: "vee-validate",
-      schemaOptions: ["yup", "zod"],
+      schemaOptions: ["yup", "zod", "valibot", "joi"],
       recommended: "yup",
+      note: "Blocks and docs examples use yup. Pass the schema straight to `useForm({ validationSchema })`; `useForm` and the Vee components are auto-imported via the @vee-validate/nuxt module.",
+      installCommand: `${PACKAGE_MANAGER_COMMANDS.npm.install} yup @vee-validate/yup`,
     },
+    wiringExample: buildFormExample(effectiveFields),
+    readNext: [
+      "/forms",
+      ...recommendedComponents
+        .filter((value) => value.startsWith("vee-"))
+        .map((value) => normalizePath(findComponent(value)?.docsPath))
+        .filter((path): path is string => Boolean(path)),
+    ],
     recommendedComponents,
     installPlan: buildInstallPlan(recommendedComponents),
   };
@@ -1196,6 +1722,7 @@ export function buildFormPlan(formType: string, fields?: string) {
 
 export function buildProjectSetup(projectName = "my-app", packageManager: PackageManager = "npm") {
   const commands = PACKAGE_MANAGER_COMMANDS[packageManager];
+  const cd = `cd ${projectName}`;
 
   return {
     packageManager,
@@ -1204,32 +1731,208 @@ export function buildProjectSetup(projectName = "my-app", packageManager: Packag
     steps: [
       {
         title: "Create a Nuxt project",
-        command: `${commands.dlx} nuxi@latest init ${projectName}`,
+        command: `${commands.dlx} nuxi@latest init ${projectName} --packageManager ${packageManager} --no-install`,
+        note: "If nuxi prompts for official modules, accept the defaults; UI Thing adds what it needs.",
       },
       {
         title: "Install project dependencies",
-        command:
-          packageManager === "npm"
-            ? `cd ${projectName} && npm install`
-            : packageManager === "pnpm"
-              ? `cd ${projectName} && pnpm install`
-              : packageManager === "yarn"
-                ? `cd ${projectName} && yarn install`
-                : `cd ${projectName} && bun install`,
+        command: `${cd} && ${packageManager} install`,
       },
       {
         title: "Initialize UI Thing",
-        command: `cd ${projectName} && ${commands.dlx} ui-thing@latest init`,
+        command: `${cd} && ${commands.dlx} ui-thing@latest init --yes`,
+        note: "`--yes` accepts the defaults (theme, paths, package manager). Without it the CLI asks questions and an agent will hang. Run `ui-thing@latest theme` afterwards to pick a different color theme.",
       },
       {
         title: "Add starter components",
-        command: `cd ${projectName} && ${commands.dlx} ui-thing@latest add button card input`,
+        command: `${cd} && ${commands.dlx} ui-thing@latest add button card input`,
+        note: "Always pass component names. With no arguments `add` opens an interactive picker.",
       },
+    ],
+    afterInit: [
+      "`init` registers Tailwind CSS v4 and writes the design tokens to `app/assets/css/tailwind.css`.",
+      "Components are copied into `app/components/Ui`, composables into `app/composables`, utils into `app/utils`. They are your code now; edit them freely.",
+      "Render `<UiSonner />` once in `app.vue` if you use toasts (`ui-thing add sonner`), then call `useSonner('Saved')` anywhere.",
+      "Components read `$colorMode`, so dark mode relies on `@nuxtjs/color-mode`. Check it is in `nuxt.config` modules after init and add it if not.",
+    ],
+    nextSteps: [
+      "Read resource://uithing/design-patterns before writing any UI.",
+      "Call plan-app for a multi-page product, or plan-page / plan-form for a single screen.",
+      "Use get-install-plan once you know which components or blocks you want.",
     ],
     notes: [
       "UI Thing is Nuxt-first and the CLI updates your project config for you.",
       "Component, composable, plugin, and utils files are copied into your app so you can edit them.",
-      "Use get-install-plan once you know which components or blocks you want.",
+    ],
+  };
+}
+
+type AppFeature = {
+  keywords: string[];
+  title: string;
+  pageType: string;
+  route: string;
+  layout: "default" | "auth" | "marketing";
+};
+
+const APP_FEATURES: AppFeature[] = [
+  {
+    keywords: ["landing", "marketing", "homepage", "home page"],
+    title: "Marketing site",
+    pageType: "landing",
+    route: "/",
+    layout: "marketing",
+  },
+  {
+    keywords: ["pricing", "plans", "subscription"],
+    title: "Pricing",
+    pageType: "pricing",
+    route: "/pricing",
+    layout: "marketing",
+  },
+  {
+    keywords: ["about", "team", "company"],
+    title: "About",
+    pageType: "about",
+    route: "/about",
+    layout: "marketing",
+  },
+  {
+    keywords: ["contact", "support"],
+    title: "Contact",
+    pageType: "contact",
+    route: "/contact",
+    layout: "marketing",
+  },
+  {
+    keywords: ["auth", "login", "sign in", "signup", "sign up", "register", "account"],
+    title: "Authentication",
+    pageType: "auth",
+    route: "/login",
+    layout: "auth",
+  },
+  {
+    keywords: ["dashboard", "overview", "analytics", "admin", "saas"],
+    title: "Dashboard",
+    pageType: "dashboard",
+    route: "/app",
+    layout: "default",
+  },
+  {
+    keywords: ["table", "manage", "crud", "users", "customers", "orders", "inventory", "records"],
+    title: "Data management",
+    pageType: "admin-table",
+    route: "/app/records",
+    layout: "default",
+  },
+  {
+    keywords: ["settings", "profile", "preferences", "workspace"],
+    title: "Settings",
+    pageType: "settings",
+    route: "/app/settings",
+    layout: "default",
+  },
+  {
+    keywords: ["onboarding", "wizard", "multi-step", "multi step"],
+    title: "Onboarding",
+    pageType: "onboarding",
+    route: "/onboarding",
+    layout: "auth",
+  },
+  {
+    keywords: ["chat", " ai ", "assistant", "agent", "copilot", "llm"],
+    title: "AI chat",
+    pageType: "ai-chat",
+    route: "/app/chat",
+    layout: "default",
+  },
+  {
+    keywords: ["docs", "documentation", "knowledge base", "help center"],
+    title: "Documentation",
+    pageType: "docs",
+    route: "/docs",
+    layout: "default",
+  },
+];
+
+/**
+ * Turns a product description into a route map. Each matched feature is expanded with
+ * `buildPagePlan`, so the agent gets block and component candidates for every page in one call.
+ */
+export function buildAppPlan(description: string, features?: string) {
+  const requestedFeatures = parseCommaList(features);
+  const haystack = ` ${normalizeQuery(`${description} ${requestedFeatures.join(" ")}`)} `;
+
+  let matched = APP_FEATURES.filter((feature) =>
+    feature.keywords.some((keyword) => haystack.includes(keyword))
+  );
+
+  // Every product needs a way in and somewhere to land.
+  for (const pageType of ["auth", "dashboard"]) {
+    const feature = APP_FEATURES.find((entry) => entry.pageType === pageType);
+    if (feature && !matched.includes(feature)) matched = [...matched, feature];
+  }
+
+  const pages = matched.map((feature) => {
+    const plan = buildPagePlan(feature.pageType);
+    return {
+      route: feature.route,
+      file: `app/pages${feature.route === "/" ? "/index" : feature.route}.vue`,
+      title: feature.title,
+      layout: feature.layout,
+      pageType: feature.pageType,
+      sectionOrder: plan.sectionOrder,
+      starterSelection: plan.sections.flatMap((section) => section.starterSelection),
+      notes: plan.notes,
+      readNext: plan.readNext,
+    };
+  });
+
+  const usesForms = pages.some((page) =>
+    ["auth", "contact", "settings", "onboarding", "admin-table"].includes(page.pageType)
+  );
+  const sharedComponents = uniqueSorted([
+    "button",
+    "card",
+    "sonner",
+    ...(usesForms ? ["form", "vee-input", "alert"] : []),
+  ]);
+
+  return {
+    description,
+    requestedFeatures,
+    layouts: [
+      {
+        name: "default",
+        file: "app/layouts/default.vue",
+        purpose: "Authenticated app shell: sidebar, header and `<slot />`.",
+        build: "Start from the App Sidebar and App Header blocks from the dashboard page plan.",
+      },
+      {
+        name: "marketing",
+        file: "app/layouts/marketing.vue",
+        purpose: "Public pages: Navigation block, `<slot />`, Footer block.",
+        build: "Use one Navigation and one Footer block so every public page shares them.",
+      },
+      {
+        name: "auth",
+        file: "app/layouts/auth.vue",
+        purpose: "Centered, chrome-free layout for login, sign-up and onboarding.",
+        build: "A full-height flex container that centers the page content.",
+      },
+    ],
+    pages,
+    sharedComponents,
+    installPlan: buildInstallPlan(
+      uniqueSorted([...pages.flatMap((page) => page.starterSelection), ...sharedComponents])
+    ),
+    workflow: [
+      "Run get-project-setup and execute the setup commands.",
+      "Read resource://uithing/design-patterns and resource://uithing/conventions.",
+      "Run the installPlan commands once for the whole app instead of per page.",
+      "Build the layouts first, then the pages in route order. Call get-block and get-component for exact source.",
+      "Call plan-form for every form and plan-page for more block alternatives on any page.",
+      "Finish with loading, empty and error states, a dark-mode check and a 375px responsive check.",
     ],
   };
 }

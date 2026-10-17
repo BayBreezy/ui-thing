@@ -1,13 +1,11 @@
 import { z } from "zod";
-import { buildPagePlan } from "~~/server/mcp/utils/library";
+import { PAGE_TYPES, buildPagePlan } from "~~/server/mcp/utils/library";
 
 export default defineMcpTool({
   description:
     "Recommend blocks, components, section order, and an install plan for a page scaffold in a new Nuxt project.",
   inputSchema: {
-    pageType: z
-      .enum(["landing", "dashboard", "auth", "docs", "pricing", "about", "contact", "custom"])
-      .describe("Page type to plan."),
+    pageType: z.enum(PAGE_TYPES).describe("Page type to plan."),
     sections: z
       .string()
       .optional()
