@@ -22,3 +22,23 @@
 .typeset pre code {
   font-family: inherit;
 }
+
+/*
+ * UiCodeBlock. The docd layer styles every `code` with an unlayered `display: block` and gives its
+ * direct `span` children `px-3`. Unlayered CSS beats the utilities on the block's own `code`
+ * element and lines, so numbered lines lost their grid. `revert-layer` hands those properties back
+ * to the utilities. A project without the docd layer does not need this.
+ */
+[data-slot="code-block-code"] {
+  display: revert-layer;
+  border-radius: revert-layer;
+  padding-block: revert-layer;
+
+  > span {
+    padding-inline: revert-layer;
+  }
+}
+/* docd also caps every `pre` at 400px */
+[data-slot="code-block-content"] {
+  max-height: revert-layer;
+}

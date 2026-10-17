@@ -89,6 +89,7 @@
     "qr-code-styling": "^1.9.2",
     "quill-blot-formatter": "^1.0.5",
     "rough-notation": "^0.5.1",
+    "shiki": "^4.5.0",
     "temporal-polyfill": "^1.0.6",
     "three": "^0.186.1",
     "v-wave": "^3.1.1",

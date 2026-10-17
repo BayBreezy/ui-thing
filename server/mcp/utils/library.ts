@@ -229,6 +229,7 @@ const COMPONENT_CATEGORY_GROUPS: Array<{ category: string; values: string[] }> =
       "card",
       "carousel",
       "chip",
+      "code-block",
       "collapsible",
       "datatable",
       "description-list",

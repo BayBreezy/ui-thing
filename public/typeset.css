@@ -34,7 +34,17 @@
     --typeset-rule: var(--color-border, color-mix(in oklab, currentColor 20%, transparent));
   }
 
-  .typeset *:not(:where(.not-typeset, [data-not-typeset], .not-typeset *, [data-not-typeset] *)) {
+  .typeset
+    *:not(
+      :where(
+        .not-typeset,
+        [data-not-typeset],
+        .not-typeset *,
+        [data-not-typeset] *,
+        .typeset [data-slot],
+        .typeset [data-slot] *
+      )
+    ) {
     /* Paragraphs. */
     &:where(p) {
       margin-block-start: var(--typeset-flow);
@@ -425,6 +435,15 @@
         border: 1px solid;
       }
     }
+  }
+
+  /* Components (anything with data-slot) keep their own styles. A component
+     placed directly in the flow gets the same space above as a paragraph. */
+  .typeset
+    > :where([data-slot]):not(
+      :where(.not-typeset, [data-not-typeset], .not-typeset *, [data-not-typeset] *)
+    ) {
+    margin-block-start: var(--typeset-flow);
   }
 
   /* First child adds no space above. Last so it wins ties. */
