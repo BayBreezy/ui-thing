@@ -65,6 +65,9 @@ export default [
       "Attachment/Title.vue",
       "Attachment/Trigger.vue",
     ],
+    instructions: [
+      "Attachment uses the shimmer utility for the uploading state. Add it to your CSS: https://uithing.com/utilities/shimmer",
+    ],
     docsPath: "/components/attachment",
   },
   {
@@ -1125,6 +1128,25 @@ export default [
     components: ["toggle"],
     files: ["ToggleGroup/ToggleGroup.vue", "ToggleGroup/ToggleGroupItem.vue"],
     docsPath: "/components/togglegroup",
+  },
+  {
+    name: "Trace",
+    value: "trace",
+    files: [
+      "Trace/Collapsible.vue",
+      "Trace/CollapsibleContent.vue",
+      "Trace/CollapsibleTrigger.vue",
+      "Trace/Description.vue",
+      "Trace/Icon.vue",
+      "Trace/Line.vue",
+      "Trace/Title.vue",
+      "Trace/Trace.vue",
+    ],
+    components: ["collapsible"],
+    instructions: [
+      "Trace uses the shimmer utility for the running state. Add it to your CSS: https://uithing.com/utilities/shimmer",
+    ],
+    docsPath: "/components/trace",
   },
   {
     name: "Tooltip",

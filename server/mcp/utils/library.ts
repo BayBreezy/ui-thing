@@ -249,6 +249,7 @@ const COMPONENT_CATEGORY_GROUPS: Array<{ category: string; values: string[] }> =
       "table",
       "toggle",
       "toggle-group",
+      "trace",
     ],
   },
   {
