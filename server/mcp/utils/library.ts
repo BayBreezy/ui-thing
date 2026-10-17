@@ -397,6 +397,15 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
   CTA: ["call to action", "conversion"],
   Error: ["404", "500", "not found"],
   EmptyState: ["no data", "zero state"],
+  Layout: ["settings page", "settings shell", "settings navigation", "preferences layout"],
+  Profile: ["account", "avatar", "personal info", "company profile"],
+  Security: ["password", "2fa", "two-factor", "sessions", "delete account", "danger zone"],
+  Appearance: ["theme", "dark mode", "language", "timezone", "preferences"],
+  Notifications: ["alerts", "email preferences", "digest", "push", "quiet hours"],
+  Billing: ["invoices", "subscription", "payment method", "plan", "usage", "credit card"],
+  Members: ["team", "invite", "roles", "permissions", "users", "seats"],
+  Integrations: ["connected apps", "third party", "oauth", "marketplace"],
+  ApiKeys: ["api keys", "tokens", "developer", "secrets"],
 };
 
 const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string | null }> = [
@@ -413,6 +422,24 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   { test: (path) => path.startsWith("OTP/"), docsPath: "/blocks/forgot-reset-password" },
   { test: (path) => path.startsWith("ResetPassword/"), docsPath: "/blocks/forgot-reset-password" },
   { test: (path) => path.startsWith("Sidebar/"), docsPath: "/blocks/sidebar" },
+  { test: (path) => path.startsWith("Settings/Layout/"), docsPath: "/blocks/settings-layouts" },
+  { test: (path) => path.startsWith("Settings/Profile/"), docsPath: "/blocks/settings-account" },
+  { test: (path) => path.startsWith("Settings/Security/"), docsPath: "/blocks/settings-account" },
+  {
+    test: (path) => path.startsWith("Settings/Appearance/"),
+    docsPath: "/blocks/settings-account",
+  },
+  {
+    test: (path) => path.startsWith("Settings/Notifications/"),
+    docsPath: "/blocks/settings-notifications",
+  },
+  { test: (path) => path.startsWith("Settings/Billing/"), docsPath: "/blocks/settings-billing" },
+  { test: (path) => path.startsWith("Settings/Members/"), docsPath: "/blocks/settings-workspace" },
+  {
+    test: (path) => path.startsWith("Settings/Integrations/"),
+    docsPath: "/blocks/settings-workspace",
+  },
+  { test: (path) => path.startsWith("Settings/ApiKeys/"), docsPath: "/blocks/settings-workspace" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
@@ -581,34 +608,175 @@ const PAGE_PRESETS: Record<string, PagePreset> = {
     title: "Settings page",
     description: "Account or workspace settings with grouped forms and a danger zone.",
     category: "application",
+    // Selectors are ordered so the best default for each section is picked first. A file-name
+    // prefix such as `Settings/Security/BlockSettingsSecurityPassword` pins one block.
     sections: [
       {
-        id: "navigation",
-        title: "Settings navigation",
-        query: "tabs",
-        noBlocks: true,
+        id: "layout",
+        title: "Settings layout",
+        query: "settings layout navigation",
+        categories: [
+          "Settings/Layout/BlockSettingsLayoutSidebarNav",
+          "Settings/Layout/BlockSettingsLayoutTopNav",
+          "Settings/Layout/BlockSettingsLayoutSplitSections",
+          "Settings/Layout/BlockSettingsLayoutStackedCards",
+        ],
         componentValues: ["tabs", "separator"],
       },
       {
         id: "profile",
-        title: "Profile and preferences",
-        query: "settings form",
-        noBlocks: true,
-        componentValues: ["card", "form", "vee-input", "vee-select", "vee-switch", "button"],
+        title: "Profile",
+        query: "profile settings form",
+        categories: [
+          "Settings/Profile/BlockSettingsProfileForm",
+          "Settings/Profile/BlockSettingsProfileCompany",
+          "Settings/Profile/BlockSettingsProfileEditable",
+        ],
+        componentValues: ["card", "form", "vee-input", "vee-select", "button"],
+      },
+      {
+        id: "security",
+        title: "Password and security",
+        query: "password security",
+        categories: [
+          "Settings/Security/BlockSettingsSecurityPassword",
+          "Settings/Security/BlockSettingsSecurityTwoFactor",
+          "Settings/Security/BlockSettingsSecuritySessions",
+        ],
+        componentValues: ["vee-password-input", "progress", "switch"],
+      },
+      {
+        id: "appearance",
+        title: "Appearance and language",
+        query: "theme appearance preferences",
+        categories: [
+          "Settings/Appearance/BlockSettingsAppearanceTheme",
+          "Settings/Appearance/BlockSettingsAppearancePreferences",
+        ],
+        componentValues: ["radio-group", "native-select"],
+      },
+      {
+        id: "notifications",
+        title: "Notifications",
+        query: "notification preferences",
+        categories: [
+          "Settings/Notifications/BlockSettingsNotificationsSwitches",
+          "Settings/Notifications/BlockSettingsNotificationsMatrix",
+          "Settings/Notifications/BlockSettingsNotificationsDigest",
+        ],
+        componentValues: ["switch", "checkbox"],
       },
       {
         id: "danger",
         title: "Danger zone",
         query: "delete account",
-        noBlocks: true,
+        categories: ["Settings/Security/BlockSettingsSecurityDangerZone"],
         componentValues: ["alert-dialog", "alert", "button"],
       },
     ],
     notes: [
+      "Pick one layout block as the page shell, then drop the section blocks into its content area. Every block is self-contained, so they also work on their own.",
       "Group related fields into one `UiCard` per concern, each with its own save button and success toast (`sonner`).",
       "Confirm destructive actions with `UiAlertDialog`, never a plain button.",
+      "For billing, team and API key pages call `plan-page` with `billing` or `team-management`.",
     ],
-    readNext: ["/forms", "/components/sonner"],
+    readNext: [
+      "/blocks/settings-layouts",
+      "/blocks/settings-account",
+      "/blocks/settings-notifications",
+      "/forms",
+      "/components/sonner",
+    ],
+  },
+  billing: {
+    title: "Billing settings",
+    description: "Plan, usage, payment methods and invoice history for a subscription product.",
+    category: "application",
+    sections: [
+      {
+        id: "overview",
+        title: "Plan and usage",
+        query: "billing plan usage",
+        categories: ["Settings/Billing/BlockSettingsBillingOverview"],
+        componentValues: ["card", "progress", "badge"],
+      },
+      {
+        id: "plans",
+        title: "Plan picker",
+        query: "plan picker upgrade",
+        categories: ["Settings/Billing/BlockSettingsBillingPlanPicker"],
+        componentValues: ["radio-group", "switch"],
+      },
+      {
+        id: "payment-methods",
+        title: "Payment methods",
+        query: "payment method card",
+        categories: ["Settings/Billing/BlockSettingsBillingPaymentMethods"],
+        componentValues: ["dialog", "input"],
+      },
+      {
+        id: "invoices",
+        title: "Invoice history",
+        query: "invoices table",
+        categories: ["Settings/Billing/BlockSettingsBillingInvoices"],
+        componentValues: ["table", "badge", "checkbox"],
+      },
+    ],
+    notes: [
+      "The blocks use placeholder data and local state. Connect them to your payment provider (for example Stripe) and keep card entry in the provider's hosted fields.",
+      "Show destructive plan changes, such as cancelling, behind `UiAlertDialog`.",
+    ],
+    readNext: ["/blocks/settings-billing", "/blocks/pricing", "/components/table"],
+  },
+  "team-management": {
+    title: "Team management",
+    description: "Members, invitations, role permissions, integrations and API keys.",
+    category: "application",
+    sections: [
+      {
+        id: "members",
+        title: "Members",
+        query: "team members table",
+        categories: ["Settings/Members/BlockSettingsMembersTable"],
+        componentValues: ["table", "avatar", "dropdown-menu", "native-select"],
+      },
+      {
+        id: "invite",
+        title: "Invite teammates",
+        query: "invite team",
+        categories: ["Settings/Members/BlockSettingsMembersInvite"],
+        componentValues: ["dialog", "badge"],
+      },
+      {
+        id: "roles",
+        title: "Roles and permissions",
+        query: "roles permissions",
+        categories: ["Settings/Members/BlockSettingsMembersRoles"],
+        componentValues: ["table", "checkbox"],
+      },
+      {
+        id: "integrations",
+        title: "Integrations",
+        query: "integrations connected apps",
+        categories: [
+          "Settings/Integrations/BlockSettingsIntegrationsGrid",
+          "Settings/Integrations/BlockSettingsIntegrationsList",
+        ],
+        componentValues: ["card", "switch"],
+      },
+      {
+        id: "api-keys",
+        title: "API keys",
+        query: "api keys",
+        categories: ["Settings/ApiKeys/"],
+        componentValues: ["alert-dialog", "dialog", "table"],
+      },
+    ],
+    notes: [
+      "Gate every action by role on the server too. The blocks only demonstrate the UI.",
+      "API key secrets should be shown once at creation and stored hashed. The API keys block follows that flow.",
+    ],
+    readNext: ["/blocks/settings-workspace", "/components/table", "/components/dialog"],
   },
   onboarding: {
     title: "Onboarding flow",
@@ -1791,7 +1959,7 @@ const APP_FEATURES: AppFeature[] = [
     layout: "marketing",
   },
   {
-    keywords: ["about", "team", "company"],
+    keywords: ["about", "our team", "company"],
     title: "About",
     pageType: "about",
     route: "/about",
@@ -1830,6 +1998,20 @@ const APP_FEATURES: AppFeature[] = [
     title: "Settings",
     pageType: "settings",
     route: "/app/settings",
+    layout: "default",
+  },
+  {
+    keywords: ["billing", "invoice", "payment method", "subscription management"],
+    title: "Billing",
+    pageType: "billing",
+    route: "/app/settings/billing",
+    layout: "default",
+  },
+  {
+    keywords: ["team member", "members", "invite", "roles", "permissions", "seats", "api key"],
+    title: "Team management",
+    pageType: "team-management",
+    route: "/app/settings/members",
     layout: "default",
   },
   {

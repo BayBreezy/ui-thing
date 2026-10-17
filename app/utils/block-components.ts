@@ -23,6 +23,11 @@ export default {
   "About/BlockAbout7": "avatar badge card",
   "About/BlockAbout8": "border-beam card",
   "About/BlockAbout9": "",
+  "Settings/ApiKeys/BlockSettingsApiKeysTable":
+    "alert-dialog badge button card dialog input label native-select table",
+  "Settings/Appearance/BlockSettingsAppearancePreferences":
+    "button card label native-select radio-group switch",
+  "Settings/Appearance/BlockSettingsAppearanceTheme": "button card label radio-group",
   "Banner/BlockBanner1": "button container vee-input",
   "Banner/BlockBanner10": "button",
   "Banner/BlockBanner2": "button container",
@@ -33,6 +38,10 @@ export default {
   "Banner/BlockBanner7": "button container separator",
   "Banner/BlockBanner8": "badge button",
   "Banner/BlockBanner9": "button container",
+  "Settings/Billing/BlockSettingsBillingInvoices": "badge button card checkbox input table",
+  "Settings/Billing/BlockSettingsBillingOverview": "badge button card input label progress",
+  "Settings/Billing/BlockSettingsBillingPaymentMethods": "badge button card dialog input label",
+  "Settings/Billing/BlockSettingsBillingPlanPicker": "badge button card radio-group switch",
   "Career/BlockCareer1": "badge button container",
   "Career/BlockCareer2": "badge button container",
   "Career/BlockCareer3": "badge button container",
@@ -192,6 +201,16 @@ export default {
   "Hero/BlockHero7": "badge button container",
   "Hero/BlockHero8": "badge button container",
   "Hero/BlockHero9": "button container",
+  "Settings/Integrations/BlockSettingsIntegrationsGrid": "badge button card input switch",
+  "Settings/Integrations/BlockSettingsIntegrationsList": "alert-dialog button card",
+  "Settings/Layout/BlockSettingsLayoutSidebarNav":
+    "avatar badge button container divider input label textarea",
+  "Settings/Layout/BlockSettingsLayoutSplitSections":
+    "avatar button container input native-select textarea",
+  "Settings/Layout/BlockSettingsLayoutStackedCards":
+    "alert-dialog button card container input label switch",
+  "Settings/Layout/BlockSettingsLayoutTopNav":
+    "button container input label native-select switch tabs",
   "Login/BlockLoginCentered": "button divider vee-checkbox vee-input",
   "Login/BlockLoginCompact": "button vee-input",
   "Login/BlockLoginMinimal": "button vee-input",
@@ -202,6 +221,10 @@ export default {
   "Login/BlockLoginSimpleSocial2": "button divider vee-input",
   "Login/BlockLoginSimpleSocialImage": "button divider vee-input",
   "Login/BlockLoginTwoColumn": "button divider vee-checkbox vee-input",
+  "Settings/Members/BlockSettingsMembersInvite": "badge button dialog label native-select",
+  "Settings/Members/BlockSettingsMembersRoles": "button card checkbox table",
+  "Settings/Members/BlockSettingsMembersTable":
+    "avatar badge button card dropdown-menu input native-select table",
   "Metric/BlockMetric1": "container",
   "Metric/BlockMetric10": "badge container",
   "Metric/BlockMetric2": "container",
@@ -227,6 +250,10 @@ export default {
   "Newsletter/BlockNewsletter5": "button card checkbox container vee-input",
   "Newsletter/BlockNewsletter6": "button container vee-input",
   "Newsletter/BlockNewsletter7": "button card container vee-input",
+  "Settings/Notifications/BlockSettingsNotificationsDigest":
+    "button card checkbox input label radio-group switch",
+  "Settings/Notifications/BlockSettingsNotificationsMatrix": "button card checkbox table",
+  "Settings/Notifications/BlockSettingsNotificationsSwitches": "button card label switch",
   "OTP/BlockOTPVerification": "button vee-pin-input",
   "OTP/BlockOTPVerification2": "button card divider vee-pin-input",
   "Blog/Page/BlockBlogPage1": "avatar badge container tabs",
@@ -253,6 +280,9 @@ export default {
   "Pricing/BlockPricing7": "badge button container switch",
   "Pricing/BlockPricing8": "button container",
   "Pricing/BlockPricing9": "badge button container switch",
+  "Settings/Profile/BlockSettingsProfileCompany": "button card input label native-select textarea",
+  "Settings/Profile/BlockSettingsProfileEditable": "button card input",
+  "Settings/Profile/BlockSettingsProfileForm": "avatar button card vee-input vee-textarea",
   "ResetPassword/BlockResetPassword": "button vee-input",
   "ResetPassword/BlockResetPassword2": "button card vee-input",
   "Blog/Section/BlockBlogSection1": "avatar button container",
@@ -263,6 +293,10 @@ export default {
   "Blog/Section/BlockBlogSection6": "avatar badge button card container divider input separator",
   "Blog/Section/BlockBlogSection7": "avatar badge button card container",
   "Blog/Section/BlockBlogSection8": "avatar badge button card container divider scroll-area",
+  "Settings/Security/BlockSettingsSecurityDangerZone": "alert-dialog button card input",
+  "Settings/Security/BlockSettingsSecurityPassword": "button card progress vee-password-input",
+  "Settings/Security/BlockSettingsSecuritySessions": "badge button card",
+  "Settings/Security/BlockSettingsSecurityTwoFactor": "badge button card switch",
   "App/Sidebar/BlockAppSidebar1":
     "avatar button collapsible divider progress scroll-area tooltip vee-input",
   "App/Sidebar/BlockAppSidebar2": "avatar button divider progress scroll-area tooltip vee-input",

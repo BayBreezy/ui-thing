@@ -1,0 +1,14 @@
+{
+  "slug": "2026-10-17-settings-blocks",
+  "date": "2026-10-17",
+  "title": "Settings Blocks",
+  "category": "feature",
+  "tags": ["blocks", "mcp"],
+  "summary": "26 new settings page blocks covering layouts, profile, security, appearance, notifications, billing, members, integrations and API keys, with matching MCP page plans.",
+  "body": "Added a full set of settings page blocks, available under **Blocks** in five new docs pages: Settings - Layouts, Account, Notifications, Billing and Workspace.\n\n#### Layouts\n\n- Sidebar navigation, header tabs, split label and input rows, and stacked cards\n\n#### Account\n\n- Profile form with avatar upload, company profile and inline editable rows\n- Change password with a live requirements checklist, two-factor methods, active sessions and a danger zone\n- Theme cards wired to color mode and language and region preferences\n\n#### Notifications\n\n- Channel matrix, grouped switches and a delivery schedule with quiet hours\n\n#### Billing\n\n- Plan overview with usage, plan picker, invoice history and saved payment methods\n\n#### Workspace\n\n- Members table, invite dialog, role permission matrix, integrations grid and list, and API key management\n\n#### MCP\n\n- The `settings` page plan now recommends real blocks for each section\n- New `billing` and `team-management` page plans, also picked up by `plan-app`\n- Block docs links, search keywords and install plans cover the new categories\n",
+  "breaking": false,
+  "links": [
+    { "label": "Settings layouts", "href": "/blocks/settings-layouts" },
+    { "label": "Settings billing", "href": "/blocks/settings-billing" }
+  ]
+}
