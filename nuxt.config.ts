@@ -158,4 +158,23 @@ export default defineNuxtConfig({
     twitter: SEO.SITE_TWITTER_CREATOR,
   },
   compatibilityDate: "latest",
+  $development: {
+    vite: {
+      optimizeDeps: {
+        include: [
+          "@baybreezy/file-extension-icon",
+          "@iconify/utils",
+          "@vue/devtools-core",
+          "@vue/devtools-kit",
+          "@vueuse/integrations/useFuse.js",
+          "lodash-es",
+          "mermaid",
+          "nuxt-studio > slugify", // CJS
+          "swiper/element/bundle",
+          "tailwind-variants",
+          "vaul-vue",
+        ],
+      },
+    },
+  },
 });
