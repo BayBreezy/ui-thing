@@ -87,6 +87,26 @@ function extractComponents(content, relativePath) {
   return Array.from(components).sort();
 }
 
+/**
+ * Pulls the human-written summary out of the leading template comment, e.g. `<!-- Simple Centered
+ * About Section Features: Clean centered layout -->`.
+ */
+function extractDescription(content) {
+  const comment = content.match(/^\s*<template>\s*<!--([\s\S]*?)-->/);
+
+  if (!comment) return null;
+
+  const text = comment[1]
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .join(". ")
+    .replace(/:\./g, ":")
+    .replace(/\.\s*\./g, ".");
+
+  return text || null;
+}
+
 // Recursively scan directories
 function scanDirectory(dir, category = "") {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -120,6 +140,7 @@ function scanDirectory(dir, category = "") {
         fileName: entry.name,
         file: content,
         category: category || "Other",
+        description: extractDescription(content),
         path: relativePath,
         components: components,
       });

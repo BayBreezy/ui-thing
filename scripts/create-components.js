@@ -10,10 +10,40 @@ const outputTSPath = path.join(__dirname, "..", "server/utils", "comp.ts");
 const folderName = "app/components/Ui";
 const folderPath = path.join(__dirname, "..", folderName);
 
+const contentDir = path.join(__dirname, "..", "content");
+
+/**
+ * Builds a map of docs route -> frontmatter description by walking `content/`. Numeric ordering
+ * prefixes (`3.components`, `1.index.md`) are stripped to match the routes Nuxt Content serves.
+ */
+function collectDocDescriptions(dir = contentDir, route = "", map = new Map()) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const segment = entry.name.replace(/^\d+\./, "").replace(/\.md$/, "");
+
+    if (entry.isDirectory()) {
+      collectDocDescriptions(path.join(dir, entry.name), `${route}/${segment}`, map);
+    } else if (entry.name.endsWith(".md")) {
+      const frontmatter = readFileContent(path.join(dir, entry.name)).match(
+        /^---\n([\s\S]*?)\n---/
+      );
+      const description = frontmatter?.[1].match(/^description:\s*(.+)$/m)?.[1];
+
+      if (description) {
+        const cleaned = description.trim().replace(/^["']|["']$/g, "");
+        map.set(segment === "index" ? route || "/" : `${route}/${segment}`, cleaned);
+      }
+    }
+  }
+
+  return map;
+}
+
 // Define a function to read the content of a file
 function readFileContent(filePath) {
   return fs.readFileSync(filePath, "utf8");
 }
+
+const docDescriptions = collectDocDescriptions();
 
 // sort the components by value
 componentsData.sort((a, b) => a.value.replace("-", "").localeCompare(b.value.replace("-", "")));
@@ -48,8 +78,11 @@ const newComponentsData = componentsData.map((component) => {
     return { fileName, dirPath, fileContent };
   });
 
+  const description = component.description ?? docDescriptions.get(component.docsPath);
+
   return {
     ...component,
+    ...(description ? { description } : {}),
     files: newFiles,
     utils: utilsFiles || [],
     composables: composablesFiles || [],
