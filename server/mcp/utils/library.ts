@@ -519,6 +519,19 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "refund",
     "order detail",
   ],
+  TableLists: [
+    "data table",
+    "table",
+    "admin table",
+    "users table",
+    "team directory",
+    "customers",
+    "invoices",
+    "transactions",
+    "api logs",
+    "inventory",
+    "list view",
+  ],
   Team: [
     "people",
     "about us",
@@ -679,6 +692,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     docsPath: "/blocks/ecommerce-checkout",
   },
   { test: (path) => path.startsWith("Ecommerce/Orders/"), docsPath: "/blocks/ecommerce-orders" },
+  {
+    test: (path) => path.startsWith("DataTable/TableLists/"),
+    docsPath: "/blocks/data-table-lists",
+  },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
