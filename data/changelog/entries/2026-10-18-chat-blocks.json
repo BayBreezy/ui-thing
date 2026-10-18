@@ -1,0 +1,14 @@
+{
+  "slug": "2026-10-18-chat-blocks",
+  "date": "2026-10-18",
+  "title": "Chat Blocks",
+  "category": "feature",
+  "tags": ["blocks", "mcp"],
+  "summary": "30 new chat blocks covering conversation lists, threads, message composers, AI chat interfaces and full inbox layouts, with an upgraded ai-chat page plan and a new inbox page plan for the MCP server.",
+  "body": "Added a full set of chat blocks, available under **Blocks** in five new docs pages: Chat - Conversation List, Thread, Composer, AI Chat and Inbox Layouts. They are built on the message, bubble, attachment and message scroller components, keep their own state and use fictional sample data, with simulated replies you can swap for your own socket or API.\n\n#### Conversation list\n\n- Simple list, unread badges with tabs, grouping by date with pinning, search with highlighted matches, a channels and direct messages sidebar and an alphabetical contacts list\n\n#### Thread\n\n- One to one and group threads, image and file attachments with an upload that can be cancelled, emoji reactions, replies with quotes, a typing indicator that respects reduced motion, system messages with a new messages divider and a support conversation with internal notes\n\n#### Composer\n\n- Simple input, attachments with drag and drop, emoji and mentions, a slash command menu, voice notes with a waveform and an expanding multi line textarea. The menus follow the combobox pattern\n\n#### AI chat\n\n- A centered chat with copy and feedback actions, a welcome screen with suggestions, a thinking and streaming state with a stop button, tool call steps, a model picker and a history sidebar\n\n#### Inbox layouts\n\n- A two pane chat app, a three pane email style inbox, a support helpdesk with a customer panel and a mobile first stacked messenger\n\n#### MCP\n\n- The `ai-chat` page plan now pulls conversation, thinking, composer and history blocks from the new categories\n- New `inbox` page plan, also picked up by `plan-app`\n- Block docs links and search keywords cover the five new categories\n",
+  "breaking": false,
+  "links": [
+    { "label": "AI chat", "href": "/blocks/chat-ai-chat" },
+    { "label": "Inbox layouts", "href": "/blocks/chat-inbox-layouts" }
+  ]
+}
