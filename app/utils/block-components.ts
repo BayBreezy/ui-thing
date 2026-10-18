@@ -250,13 +250,14 @@ export default {
   "Metric/BlockMetric8": "container fancy-icon",
   "Metric/BlockMetric9": "container",
   "Navigation/BlockNavigation1":
-    "button collapsible container gradient-divider navigation-menu scroll-area sheet",
-  "Navigation/BlockNavigation2":
-    "button collapsible container gradient-divider navigation-menu scroll-area sheet",
-  "Navigation/BlockNavigation3":
-    "button collapsible container gradient-divider navigation-menu scroll-area sheet",
-  "Navigation/BlockNavigation4":
-    "button collapsible container gradient-divider navigation-menu scroll-area sheet",
+    "badge button collapsible container fancy-icon navigation-menu sheet",
+  "Navigation/BlockNavigation2": "button container fancy-icon navigation-menu sheet",
+  "Navigation/BlockNavigation3": "button container navigation-menu sheet",
+  "Navigation/BlockNavigation4": "button container navigation-menu sheet",
+  "Navigation/BlockNavigation5": "button container sheet",
+  "Navigation/BlockNavigation6": "button container input sheet",
+  "Navigation/BlockNavigation7": "button sheet",
+  "Navigation/BlockNavigation8": "avatar button dropdown-menu input kbd popover",
   "Newsletter/BlockNewsletter1": "button container vee-input",
   "Newsletter/BlockNewsletter2": "button container vee-input",
   "Newsletter/BlockNewsletter3": "badge button container vee-input",

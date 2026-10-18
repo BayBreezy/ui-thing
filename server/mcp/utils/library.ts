@@ -402,7 +402,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "toolbar",
     "sticky header",
   ],
-  Navigation: ["navbar", "header", "menu"],
+  Navigation: [
+    "navbar",
+    "header",
+    "menu",
+    "mega menu",
+    "dropdown",
+    "sticky header",
+    "mobile menu",
+    "app navbar",
+    "floating navbar",
+  ],
   Hero: [
     "landing",
     "above the fold",
@@ -546,7 +556,17 @@ const PAGE_PRESETS: Record<string, PagePreset> = {
     description: "Marketing page with a strong narrative arc from hero to conversion.",
     category: "marketing",
     sections: [
-      { id: "navbar", title: "Navigation", query: "navigation", categories: ["Navigation"] },
+      {
+        id: "navbar",
+        title: "Navigation",
+        query: "navigation",
+        categories: [
+          "Navigation/BlockNavigation1",
+          "Navigation/BlockNavigation5",
+          "Navigation/BlockNavigation2",
+          "Navigation",
+        ],
+      },
       {
         id: "hero",
         title: "Hero",
