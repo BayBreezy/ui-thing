@@ -312,6 +312,19 @@ export default {
   "Pricing/BlockPricing7": "badge button container switch",
   "Pricing/BlockPricing8": "button container",
   "Pricing/BlockPricing9": "badge button container switch",
+  "Ecommerce/ProductList/BlockProductList1": "aspect-ratio badge button container rating",
+  "Ecommerce/ProductList/BlockProductList2":
+    "accordion aspect-ratio badge button checkbox container empty fancy-icon label pagination select slider",
+  "Ecommerce/ProductList/BlockProductList3":
+    "aspect-ratio badge container scroll-area select toggle toggle-group",
+  "Ecommerce/ProductList/BlockProductList4":
+    "aspect-ratio badge button container rating toggle-group",
+  "Ecommerce/ProductList/BlockProductList5": "container",
+  "Ecommerce/ProductList/BlockProductList6":
+    "aspect-ratio button container dialog number-field rating toggle-group",
+  "Ecommerce/ProductList/BlockProductList7": "aspect-ratio badge button carousel container",
+  "Ecommerce/ProductList/BlockProductList8":
+    "aspect-ratio badge button container progress skeleton",
   "Settings/Profile/BlockSettingsProfileCompany": "button card input label native-select textarea",
   "Settings/Profile/BlockSettingsProfileEditable": "button card input",
   "Settings/Profile/BlockSettingsProfileForm": "avatar button card vee-input vee-textarea",
