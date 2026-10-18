@@ -624,6 +624,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "mark all as read",
     "activity",
   ],
+  Feed: [
+    "activity feed",
+    "feed",
+    "timeline",
+    "commits",
+    "system events",
+    "event log",
+    "recent activity",
+    "filter chips",
+    "comments",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -1045,6 +1056,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     test: (path) => path.startsWith("Activity/NotificationCenter/"),
     docsPath: "/blocks/activity-notification-center",
   },
+  { test: (path) => path.startsWith("Activity/Feed/"), docsPath: "/blocks/activity-feed" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
