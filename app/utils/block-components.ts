@@ -616,6 +616,12 @@ export default {
   "Chat/Thread/BlockThread8":
     "avatar badge bubble button card container input label message message-scroller",
   "Tiptap/BlockTiptap1": "button container separator toggle tooltip",
+  "Calendar/WeekAgenda/BlockWeekAgenda1": "button container",
+  "Calendar/WeekAgenda/BlockWeekAgenda2": "avatar button container label switch",
+  "Calendar/WeekAgenda/BlockWeekAgenda3": "badge button container toggle-group",
+  "Calendar/WeekAgenda/BlockWeekAgenda4": "badge button container",
+  "Calendar/WeekAgenda/BlockWeekAgenda5": "avatar button card container toggle-group",
+  "Calendar/WeekAgenda/BlockWeekAgenda6": "avatar button container",
   "Onboarding/Welcome/BlockWelcome1": "button container",
   "Onboarding/Welcome/BlockWelcome2": "button card container",
   "Onboarding/Welcome/BlockWelcome3": "button container radio-group",

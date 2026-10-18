@@ -566,6 +566,18 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "schedule",
     "multi day events",
   ],
+  WeekAgenda: [
+    "week view",
+    "week calendar",
+    "day view",
+    "time grid",
+    "agenda",
+    "timeline",
+    "upcoming events",
+    "team schedule",
+    "free time",
+    "calendar",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -969,6 +981,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   {
     test: (path) => path.startsWith("Calendar/MonthViews/"),
     docsPath: "/blocks/calendar-month-views",
+  },
+  {
+    test: (path) => path.startsWith("Calendar/WeekAgenda/"),
+    docsPath: "/blocks/calendar-week-agenda",
   },
 ];
 
