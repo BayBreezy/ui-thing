@@ -34,6 +34,12 @@ export default {
   "Settings/Appearance/BlockSettingsAppearancePreferences":
     "button card label native-select radio-group switch",
   "Settings/Appearance/BlockSettingsAppearanceTheme": "button card label radio-group",
+  "Activity/AuditLog/BlockAuditLog1": "avatar badge button container table",
+  "Activity/AuditLog/BlockAuditLog2": "avatar badge button container input select",
+  "Activity/AuditLog/BlockAuditLog3": "avatar badge button container sheet",
+  "Activity/AuditLog/BlockAuditLog4": "button card container label select table toggle-group",
+  "Activity/AuditLog/BlockAuditLog5": "alert badge button container",
+  "Activity/AuditLog/BlockAuditLog6": "alert-dialog badge button container",
   "Calendar/Availability/BlockAvailability1": "button card container input switch",
   "Calendar/Availability/BlockAvailability2": "badge button card container input label radio-group",
   "Calendar/Availability/BlockAvailability3":

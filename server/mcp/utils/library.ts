@@ -635,6 +635,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "filter chips",
     "comments",
   ],
+  AuditLog: [
+    "audit log",
+    "activity log",
+    "event log",
+    "security events",
+    "login history",
+    "sessions",
+    "export log",
+    "compliance",
+    "who did what",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -1057,6 +1068,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     docsPath: "/blocks/activity-notification-center",
   },
   { test: (path) => path.startsWith("Activity/Feed/"), docsPath: "/blocks/activity-feed" },
+  { test: (path) => path.startsWith("Activity/AuditLog/"), docsPath: "/blocks/activity-audit-log" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
