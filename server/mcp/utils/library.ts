@@ -613,6 +613,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "buffer",
     "scheduling settings",
   ],
+  NotificationCenter: [
+    "notifications",
+    "notification center",
+    "bell",
+    "alerts",
+    "unread",
+    "mentions",
+    "inbox zero",
+    "mark all as read",
+    "activity",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -1029,6 +1040,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   {
     test: (path) => path.startsWith("Calendar/Availability/"),
     docsPath: "/blocks/calendar-availability",
+  },
+  {
+    test: (path) => path.startsWith("Activity/NotificationCenter/"),
+    docsPath: "/blocks/activity-notification-center",
   },
 ];
 

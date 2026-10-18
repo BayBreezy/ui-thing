@@ -365,6 +365,13 @@ export default {
   "Newsletter/BlockNewsletter7": "button container fancy-icon input",
   "Newsletter/BlockNewsletter8": "button",
   "Newsletter/BlockNewsletter9": "button container input",
+  "Activity/NotificationCenter/BlockNotificationCenter1": "avatar button container popover",
+  "Activity/NotificationCenter/BlockNotificationCenter2":
+    "avatar badge button checkbox container label select",
+  "Activity/NotificationCenter/BlockNotificationCenter3": "badge button container",
+  "Activity/NotificationCenter/BlockNotificationCenter4": "avatar badge button container input",
+  "Activity/NotificationCenter/BlockNotificationCenter5": "avatar button card container tabs",
+  "Activity/NotificationCenter/BlockNotificationCenter6": "button container progress",
   "Settings/Notifications/BlockSettingsNotificationsDigest":
     "button card checkbox input label radio-group switch",
   "Settings/Notifications/BlockSettingsNotificationsMatrix": "button card checkbox table",
