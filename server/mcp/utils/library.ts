@@ -555,6 +555,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "delete confirmation",
     "checkbox table",
   ],
+  Welcome: [
+    "onboarding",
+    "welcome",
+    "getting started",
+    "first run",
+    "product tour",
+    "role picker",
+    "use case",
+    "plan picker",
+    "setup progress",
+  ],
   TableExpandable: [
     "data table",
     "expandable rows",
@@ -743,6 +754,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   {
     test: (path) => path.startsWith("DataTable/TableExpandable/"),
     docsPath: "/blocks/data-table-expandable",
+  },
+  {
+    test: (path) => path.startsWith("Onboarding/Welcome/"),
+    docsPath: "/blocks/onboarding-welcome",
   },
 ];
 

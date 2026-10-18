@@ -529,4 +529,10 @@ export default {
   "Testimony/BlockTestimony8": "button container",
   "Testimony/BlockTestimony9": "avatar container",
   "Tiptap/BlockTiptap1": "button container separator toggle tooltip",
+  "Onboarding/Welcome/BlockWelcome1": "button container",
+  "Onboarding/Welcome/BlockWelcome2": "button card container",
+  "Onboarding/Welcome/BlockWelcome3": "button container radio-group",
+  "Onboarding/Welcome/BlockWelcome4": "button checkbox container",
+  "Onboarding/Welcome/BlockWelcome5": "badge button container label radio-group switch",
+  "Onboarding/Welcome/BlockWelcome6": "avatar button circular-progress container",
 } as const;
