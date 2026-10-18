@@ -55,7 +55,7 @@
         { name: "Liam", avatar: "https://i.pravatar.cc/80?img=12" },
         { name: "Priya", avatar: "https://i.pravatar.cc/80?img=45" },
         { name: "Sam", avatar: "https://i.pravatar.cc/80?img=32" },
-        { name: "Noah", avatar: "https://i.pravatar.cc/80?img=15" },
+        { name: "Noah", avatar: "https://i.pravatar.cc/80?img=53" },
       ],
     }
   );

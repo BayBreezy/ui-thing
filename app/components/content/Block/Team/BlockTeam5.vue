@@ -1,129 +1,170 @@
 <template>
-  <div class="bg-muted/30 py-16 lg:py-24">
-    <Motion
-      initial="initial"
-      while-in-view="animate"
-      :in-view-options="{ once: true }"
-      as-child
-      :variants="parentVariant"
-    >
-      <UiContainer>
-        <div class="mb-16 grid gap-8 lg:grid-cols-2 lg:items-center">
-          <Motion as-child :variants="contentVariant">
+  <!--
+    Company stats above a portrait grid
+    Features: Heading and call to action beside four stat tiles with fancy icons, then a grid of portrait cards with name and role on a gradient
+  -->
+  <section class="bg-muted/40 py-16 lg:py-24">
+    <UiContainer>
+      <div class="grid items-end gap-10 lg:grid-cols-2">
+        <div>
+          <p class="text-primary text-sm font-semibold">Join our team</p>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+            {{ props.title }}
+          </h2>
+          <p class="text-muted-foreground mt-4 text-lg">{{ props.description }}</p>
+          <UiButton class="mt-6">
+            View open positions
+            <Icon name="lucide:arrow-right" class="size-4" />
+          </UiButton>
+        </div>
+        <ul class="grid grid-cols-2 gap-4">
+          <li
+            v-for="stat in props.stats"
+            :key="stat.label"
+            class="bg-card flex items-center gap-4 rounded-2xl border p-4"
+          >
+            <UiFancyIcon :icon="stat.icon" theme="light" :color="stat.color" />
             <div>
-              <p class="text-primary mb-3 font-semibold">Join Our Team</p>
-              <h2 class="mb-4 text-4xl font-bold lg:text-5xl">
-                Work with talented people from around the world
-              </h2>
-              <p class="text-muted-foreground mb-6 text-lg">
-                We're a diverse team of designers, developers, and dreamers building the future
-                together. Remote-first, mission-driven, and always learning.
-              </p>
-              <UiButton size="lg">
-                View Open Positions
-                <Icon class="ml-2" name="lucide:arrow-right" />
-              </UiButton>
+              <p class="text-2xl font-bold tracking-tight">{{ stat.value }}</p>
+              <p class="text-muted-foreground text-xs">{{ stat.label }}</p>
             </div>
-          </Motion>
-
-          <Motion as-child :variants="statsVariant">
-            <div class="grid grid-cols-2 gap-6">
-              <div class="bg-card rounded-lg border p-6">
-                <p class="mb-2 text-3xl font-bold">50+</p>
-                <p class="text-muted-foreground text-sm">Team Members</p>
-              </div>
-              <div class="bg-card rounded-lg border p-6">
-                <p class="mb-2 text-3xl font-bold">15+</p>
-                <p class="text-muted-foreground text-sm">Countries</p>
-              </div>
-              <div class="bg-card rounded-lg border p-6">
-                <p class="mb-2 text-3xl font-bold">100%</p>
-                <p class="text-muted-foreground text-sm">Remote</p>
-              </div>
-              <div class="bg-card rounded-lg border p-6">
-                <p class="mb-2 text-3xl font-bold">4.9★</p>
-                <p class="text-muted-foreground text-sm">Glassdoor Rating</p>
-              </div>
-            </div>
-          </Motion>
-        </div>
-
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <Motion v-for="n in 8" :key="n" as-child :variants="memberVariant">
-            <div class="group relative overflow-hidden rounded-lg">
-              <div class="aspect-square overflow-hidden">
-                <img
-                  :src="`https://i.pravatar.cc/300?img=${n + 30}`"
-                  alt="Team member"
-                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-              <div
-                class="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/80 to-transparent p-4 text-white"
-              >
-                <p class="font-semibold">Jane Doe</p>
-                <p class="text-sm opacity-90">Senior Developer</p>
-              </div>
-            </div>
-          </Motion>
-        </div>
-      </UiContainer>
-    </Motion>
-  </div>
+          </li>
+        </ul>
+      </div>
+      <ul class="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4">
+        <li
+          v-for="m in props.members"
+          :key="m.name"
+          class="relative aspect-4/5 overflow-hidden rounded-2xl"
+        >
+          <img :src="m.avatar" :alt="m.name" class="size-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-linear-to-t from-black/75 to-transparent to-60%" />
+          <div class="absolute bottom-0 p-4 text-white">
+            <p class="font-semibold">{{ m.name }}</p>
+            <p class="text-sm text-white/75">{{ m.role }}</p>
+          </div>
+        </li>
+      </ul>
+    </UiContainer>
+  </section>
 </template>
 
 <script lang="ts" setup>
-  import { stagger } from "motion-v";
-  import type { MotionProps } from "motion-v";
-
-  const parentVariant: MotionProps["variants"] = {
-    initial: { opacity: 0 },
-    animate: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        delayChildren: stagger(0.1),
-      },
-    },
+  type Member = {
+    name: string;
+    role: string;
+    department: string;
+    location: string;
+    bio: string;
+    avatar: string;
+    x?: string;
+    linkedin?: string;
+    github?: string;
   };
 
-  const contentVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, x: -50 },
-    animate: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-      },
-    },
-  };
-
-  const statsVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, x: 50 },
-    animate: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-        delay: 0.2,
-      },
-    },
-  };
-
-  const memberVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, scale: 0.9 },
-    animate: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-      },
-    },
-  };
+  const props = withDefaults(
+    defineProps<{
+      title?: string;
+      description?: string;
+      members?: Member[];
+      stats?: {
+        value: string;
+        label: string;
+        icon: string;
+        color: "primary" | "gray" | "error" | "warning" | "success" | "info";
+      }[];
+    }>(),
+    {
+      title: "Work with talented people from around the world",
+      description:
+        "We are a diverse team of designers, engineers and dreamers. Remote first, mission driven and always learning.",
+      stats: () => [
+        { value: "48", label: "Team members", icon: "lucide:users", color: "info" },
+        { value: "19", label: "Countries", icon: "lucide:globe", color: "success" },
+        { value: "100%", label: "Remote", icon: "lucide:house", color: "warning" },
+        { value: "4.9", label: "Glassdoor rating", icon: "lucide:star", color: "primary" },
+      ],
+      members: () => [
+        {
+          name: "Maya Chen",
+          role: "Co-founder & CEO",
+          department: "Leadership",
+          location: "San Francisco, US",
+          bio: "Former product lead who has launched three companies. Obsessed with calm software.",
+          avatar: "https://i.pravatar.cc/400?img=47",
+          x: "#",
+          linkedin: "#",
+        },
+        {
+          name: "Liam O'Connor",
+          role: "Co-founder & CTO",
+          department: "Leadership",
+          location: "Dublin, IE",
+          bio: "Spent a decade building distributed systems before deciding they should be friendlier.",
+          avatar: "https://i.pravatar.cc/400?img=12",
+          github: "#",
+          linkedin: "#",
+        },
+        {
+          name: "Priya Nair",
+          role: "Head of Design",
+          department: "Design",
+          location: "Bengaluru, IN",
+          bio: "Leads a small team that sweats the details, from icons to onboarding.",
+          avatar: "https://i.pravatar.cc/400?img=45",
+          x: "#",
+          linkedin: "#",
+        },
+        {
+          name: "Noah Fischer",
+          role: "Staff Engineer",
+          department: "Engineering",
+          location: "Berlin, DE",
+          bio: "Performance nerd. If it takes more than 100ms, he has already opened a pull request.",
+          avatar: "https://i.pravatar.cc/400?img=53",
+          github: "#",
+          x: "#",
+        },
+        {
+          name: "Ana Souza",
+          role: "Engineering Manager",
+          department: "Engineering",
+          location: "São Paulo, BR",
+          bio: "Coaches engineers, unblocks teams and keeps releases boring in the best way.",
+          avatar: "https://i.pravatar.cc/400?img=44",
+          linkedin: "#",
+          github: "#",
+        },
+        {
+          name: "Sam Okafor",
+          role: "Product Designer",
+          department: "Design",
+          location: "Lagos, NG",
+          bio: "Turns messy ideas into clear flows. Collects keyboards and board games.",
+          avatar: "https://i.pravatar.cc/400?img=32",
+          x: "#",
+          linkedin: "#",
+        },
+        {
+          name: "Hannah Lee",
+          role: "Head of Growth",
+          department: "Growth",
+          location: "Seoul, KR",
+          bio: "Builds the playbooks that bring the right customers through the door.",
+          avatar: "https://i.pravatar.cc/400?img=49",
+          linkedin: "#",
+          x: "#",
+        },
+        {
+          name: "Diego Alvarez",
+          role: "Customer Success Lead",
+          department: "Growth",
+          location: "Mexico City, MX",
+          bio: "First to answer, last to give up. Our customers have his number on speed dial.",
+          avatar: "https://i.pravatar.cc/400?img=33",
+          linkedin: "#",
+        },
+      ],
+    }
+  );
 </script>

@@ -84,7 +84,7 @@
           name: "Noah",
           city: "Lisbon",
           action: "started a free trial",
-          avatar: "https://i.pravatar.cc/80?img=15",
+          avatar: "https://i.pravatar.cc/80?img=53",
         },
         {
           name: "Sam",

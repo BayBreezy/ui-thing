@@ -436,6 +436,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "preferences",
     "two step",
   ],
+  Team: [
+    "people",
+    "about us",
+    "staff",
+    "employees",
+    "leadership",
+    "founders",
+    "hiring",
+    "careers",
+    "directory",
+  ],
   Testimony: ["testimonials", "reviews", "quotes"],
   SocialProof: [
     "logos",

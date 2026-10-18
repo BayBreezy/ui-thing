@@ -1,166 +1,158 @@
 <template>
-  <Motion
-    initial="initial"
-    while-in-view="animate"
-    :in-view-options="{ once: true }"
-    as-child
-    :variants="parentVariant"
-  >
-    <UiContainer class="py-16 lg:py-24">
-      <Motion as-child :variants="childVariant">
-        <div class="mb-12">
-          <p class="text-primary mb-3 text-center font-semibold">The Team</p>
-          <h2 class="mb-4 text-center text-4xl font-bold lg:text-5xl">
-            Meet the people making it happen
-          </h2>
-        </div>
-      </Motion>
-
-      <div class="space-y-16">
-        <Motion
-          v-for="department in departments"
-          :key="department.name"
-          as-child
-          :variants="sectionVariant"
-        >
-          <div>
-            <h3 class="mb-6 text-2xl font-bold">{{ department.name }}</h3>
-            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              <div
-                v-for="member in department.members"
-                :key="member.name"
-                class="group flex flex-col items-center text-center"
-              >
-                <div class="relative mb-4">
-                  <UiAvatar
-                    class="ring-ring/20 group-hover:ring-primary/50 h-32 w-32 ring-2 transition-all group-hover:ring-4"
-                    :src="member.avatar"
-                  />
-                  <div
-                    class="bg-primary text-primary-foreground absolute -right-2 -bottom-2 rounded-full px-3 py-1 text-xs font-semibold"
-                  >
-                    {{ member.badge }}
-                  </div>
-                </div>
-                <p class="mb-1 font-semibold">{{ member.name }}</p>
-                <p class="text-primary mb-2 text-sm">{{ member.role }}</p>
-                <p class="text-muted-foreground text-xs">{{ member.location }}</p>
-              </div>
-            </div>
-          </div>
-        </Motion>
+  <!--
+    Team directory with department tabs
+    Features: Tabs that filter the team by department with an animated grid, a member count per tab and compact cards with role and location
+  -->
+  <UiContainer class="py-16 lg:py-24">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-balance sm:text-4xl">{{ props.title }}</h2>
+      <p class="text-muted-foreground mt-3 text-lg text-balance">{{ props.description }}</p>
+    </div>
+    <UiTabs v-model="active" class="mt-10">
+      <div class="flex justify-center overflow-x-auto">
+        <UiTabsList>
+          <UiTabsTrigger v-for="d in departments" :key="d" :value="d" class="gap-2">
+            {{ d }}
+            <UiBadge variant="secondary" class="h-5 px-1.5 text-xs">{{ count(d) }}</UiBadge>
+          </UiTabsTrigger>
+        </UiTabsList>
       </div>
-    </UiContainer>
-  </Motion>
+    </UiTabs>
+    <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <AnimatePresence mode="popLayout">
+        <Motion
+          v-for="m in filtered"
+          :key="m.name"
+          as="li"
+          layout
+          :initial="{ opacity: 0, scale: 0.95 }"
+          :animate="{ opacity: 1, scale: 1 }"
+          :exit="{ opacity: 0, scale: 0.95 }"
+          :transition="{ duration: 0.25 }"
+          class="bg-card rounded-2xl border p-5 text-center"
+        >
+          <UiAvatar :src="m.avatar" :fallback="m.name[0]" class="mx-auto size-20" />
+          <p class="mt-4 font-semibold">{{ m.name }}</p>
+          <p class="text-muted-foreground text-sm">{{ m.role }}</p>
+          <p class="text-muted-foreground mt-2 flex items-center justify-center gap-1 text-xs">
+            <Icon name="lucide:map-pin" class="size-3" />
+            {{ m.location }}
+          </p>
+        </Motion>
+      </AnimatePresence>
+    </ul>
+  </UiContainer>
 </template>
 
 <script lang="ts" setup>
-  import { stagger } from "motion-v";
-  import type { MotionProps } from "motion-v";
+  type Member = {
+    name: string;
+    role: string;
+    department: string;
+    location: string;
+    bio: string;
+    avatar: string;
+    x?: string;
+    linkedin?: string;
+    github?: string;
+  };
 
-  const departments = [
+  const props = withDefaults(
+    defineProps<{ title?: string; description?: string; members?: Member[] }>(),
     {
-      name: "Leadership",
-      members: [
+      title: "Find your people",
+      description: "Browse the team by department.",
+      members: () => [
         {
-          name: "Sarah Johnson",
-          role: "CEO",
+          name: "Maya Chen",
+          role: "Co-founder & CEO",
+          department: "Leadership",
           location: "San Francisco, US",
-          badge: "Founder",
-          avatar: "https://i.pravatar.cc/150?img=1",
+          bio: "Former product lead who has launched three companies. Obsessed with calm software.",
+          avatar: "https://i.pravatar.cc/400?img=47",
+          x: "#",
+          linkedin: "#",
         },
         {
-          name: "Michael Chen",
-          role: "CTO",
-          location: "Singapore, SG",
-          badge: "Founder",
-          avatar: "https://i.pravatar.cc/150?img=2",
+          name: "Liam O'Connor",
+          role: "Co-founder & CTO",
+          department: "Leadership",
+          location: "Dublin, IE",
+          bio: "Spent a decade building distributed systems before deciding they should be friendlier.",
+          avatar: "https://i.pravatar.cc/400?img=12",
+          github: "#",
+          linkedin: "#",
         },
         {
-          name: "Emily Davis",
-          role: "COO",
-          location: "London, UK",
-          badge: "New",
-          avatar: "https://i.pravatar.cc/150?img=3",
+          name: "Priya Nair",
+          role: "Head of Design",
+          department: "Design",
+          location: "Bengaluru, IN",
+          bio: "Leads a small team that sweats the details, from icons to onboarding.",
+          avatar: "https://i.pravatar.cc/400?img=45",
+          x: "#",
+          linkedin: "#",
         },
         {
-          name: "David Kim",
-          role: "CFO",
-          location: "Seoul, KR",
-          badge: "New",
-          avatar: "https://i.pravatar.cc/150?img=4",
-        },
-      ],
-    },
-    {
-      name: "Engineering",
-      members: [
-        {
-          name: "Alex Martinez",
-          role: "Lead Engineer",
-          location: "Barcelona, ES",
-          badge: "Team Lead",
-          avatar: "https://i.pravatar.cc/150?img=5",
-        },
-        {
-          name: "Lisa Wang",
-          role: "Senior Developer",
-          location: "Toronto, CA",
-          badge: "Core",
-          avatar: "https://i.pravatar.cc/150?img=6",
-        },
-        {
-          name: "James Brown",
-          role: "DevOps Engineer",
+          name: "Noah Fischer",
+          role: "Staff Engineer",
+          department: "Engineering",
           location: "Berlin, DE",
-          badge: "Core",
-          avatar: "https://i.pravatar.cc/150?img=7",
+          bio: "Performance nerd. If it takes more than 100ms, he has already opened a pull request.",
+          avatar: "https://i.pravatar.cc/400?img=53",
+          github: "#",
+          x: "#",
         },
         {
-          name: "Maria Garcia",
-          role: "QA Engineer",
+          name: "Ana Souza",
+          role: "Engineering Manager",
+          department: "Engineering",
+          location: "São Paulo, BR",
+          bio: "Coaches engineers, unblocks teams and keeps releases boring in the best way.",
+          avatar: "https://i.pravatar.cc/400?img=44",
+          linkedin: "#",
+          github: "#",
+        },
+        {
+          name: "Sam Okafor",
+          role: "Product Designer",
+          department: "Design",
+          location: "Lagos, NG",
+          bio: "Turns messy ideas into clear flows. Collects keyboards and board games.",
+          avatar: "https://i.pravatar.cc/400?img=32",
+          x: "#",
+          linkedin: "#",
+        },
+        {
+          name: "Hannah Lee",
+          role: "Head of Growth",
+          department: "Growth",
+          location: "Seoul, KR",
+          bio: "Builds the playbooks that bring the right customers through the door.",
+          avatar: "https://i.pravatar.cc/400?img=49",
+          linkedin: "#",
+          x: "#",
+        },
+        {
+          name: "Diego Alvarez",
+          role: "Customer Success Lead",
+          department: "Growth",
           location: "Mexico City, MX",
-          badge: "New",
-          avatar: "https://i.pravatar.cc/150?img=8",
+          bio: "First to answer, last to give up. Our customers have his number on speed dial.",
+          avatar: "https://i.pravatar.cc/400?img=33",
+          linkedin: "#",
         },
       ],
-    },
-  ];
+    }
+  );
 
-  const parentVariant: MotionProps["variants"] = {
-    initial: { opacity: 0 },
-    animate: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        delayChildren: stagger(0.15),
-      },
-    },
-  };
-
-  const childVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, y: 20 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-      },
-    },
-  };
-
-  const sectionVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, y: 30 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-      },
-    },
-  };
+  const active = ref("All");
+  const departments = computed(() => ["All", ...new Set(props.members.map((m) => m.department))]);
+  const filtered = computed(() =>
+    active.value === "All"
+      ? props.members
+      : props.members.filter((m) => m.department === active.value)
+  );
+  const count = (d: string) =>
+    d === "All" ? props.members.length : props.members.filter((m) => m.department === d).length;
 </script>

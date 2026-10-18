@@ -1,40 +1,66 @@
 ---
 title: Team
-description: Team member showcase components featuring avatars, bios, roles, and social links. Includes grid layouts, card designs, department sections, and statistics with Motion-v animations.
+description: "Team blocks with portrait grids, hover reveal cards, leadership profiles, department tabs, a directory list, profile dialogs and a hiring call to action. Every block takes a typed members array with name, role, department, location, bio, avatar and social links."
 ---
+
+Every block takes a `members` prop with `name`, `role`, `department`, `location`, `bio`, `avatar` and optional `x`, `linkedin` and `github` links, so you can swap in your own people without touching the markup. Portraits use placeholder avatars, replace them with your own photos.
 
 ## Style One
 
-Centered header with avatar grid layout. Features 6 team members with circular avatars, names, and roles. Simple centered design with scale animations on member cards.
+Heading and six round portraits with names and roles that scale in one after another.
 
-:BlockShowcase{blockPath="Team/BlockTeam1" component="BlockTeam1"}
+:BlockShowcase{blockPath="Team/BlockTeam1" component="BlockTeam1" iframeHeight="520px"}
 
 ## Style Two
 
-Team grid with social links and experience. Displays 9 members with circular avatars, bio bullets, and social media icons (Twitter, LinkedIn, Dribbble). Slide-in animations on cards.
+Four column grid of portraits with name, role, short bio and X, LinkedIn or GitHub links.
 
-:BlockShowcase{blockPath="Team/BlockTeam2" component="BlockTeam2"}
+:BlockShowcase{blockPath="Team/BlockTeam2" component="BlockTeam2" iframeHeight="700px"}
 
 ## Style Three
 
-Full-width photo cards with action buttons. Features 8 members with large rectangular photos, roles, bios, and CTA buttons (About us, Open positions). Card fade-in animations.
+Square photos with a gradient overlay. Name and role are always visible, and a bio with social links slides up on hover or focus.
 
-:BlockShowcase{blockPath="Team/BlockTeam3" component="BlockTeam3"}
+:BlockShowcase{blockPath="Team/BlockTeam3" component="BlockTeam3" iframeHeight="760px"}
 
 ## Style Four
 
-Leadership cards with hover effects. Displays 6 team members in card format with square photos, detailed bios, and social links. Image zoom on hover with staggered entrance animations.
+Horizontal leadership cards with a large portrait beside name, role, location, bio and social links.
 
-:BlockShowcase{blockPath="Team/BlockTeam4" component="BlockTeam4"}
+:BlockShowcase{blockPath="Team/BlockTeam4" component="BlockTeam4" iframeHeight="640px"}
 
 ## Style Five
 
-Split layout with statistics and team grid. Top section features company stats (team size, countries, remote status, rating), bottom shows 8 members with overlay gradient and names.
+Company stats with fancy icons and a call to action above a grid of portrait cards with name and role on a gradient.
 
-:BlockShowcase{blockPath="Team/BlockTeam5" component="BlockTeam5"}
+:BlockShowcase{blockPath="Team/BlockTeam5" component="BlockTeam5" iframeHeight="900px"}
 
 ## Style Six
 
-Department-organized team sections. Groups members by department (Leadership, Engineering) with large avatars, badges (Founder, New, Core), roles, and locations. Sectioned layout with animations.
+Directory with department tabs that filter the team through an animated grid and show a count per tab.
 
-:BlockShowcase{blockPath="Team/BlockTeam6" component="BlockTeam6"}
+:BlockShowcase{blockPath="Team/BlockTeam6" component="BlockTeam6" iframeHeight="640px"}
+
+## Style Seven
+
+Divided list of members with avatar, role, department badge, location and a hover revealed email button.
+
+:BlockShowcase{blockPath="Team/BlockTeam7" component="BlockTeam7" iframeHeight="780px"}
+
+## Style Eight
+
+Two founder portraits with a short note each, plus an avatar strip of the rest of the team and a hiring link.
+
+:BlockShowcase{blockPath="Team/BlockTeam8" component="BlockTeam8" iframeHeight="900px"}
+
+## Style Nine
+
+Portrait cards that open a dialog with the full bio, location, department and social links.
+
+:BlockShowcase{blockPath="Team/BlockTeam9" component="BlockTeam9" iframeHeight="900px"}
+
+## Style Ten
+
+Always dark hiring panel with a team avatar strip, call to action and a list of open positions.
+
+:BlockShowcase{blockPath="Team/BlockTeam10" component="BlockTeam10" iframeHeight="520px"}
