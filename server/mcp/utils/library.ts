@@ -555,6 +555,18 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "delete confirmation",
     "checkbox table",
   ],
+  Thread: [
+    "chat",
+    "message thread",
+    "chat thread",
+    "conversation",
+    "messages",
+    "attachments",
+    "reactions",
+    "typing indicator",
+    "support chat",
+    "group chat",
+  ],
   ConversationList: [
     "chat",
     "inbox",
@@ -832,6 +844,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     test: (path) => path.startsWith("Chat/ConversationList/"),
     docsPath: "/blocks/chat-conversation-list",
   },
+  { test: (path) => path.startsWith("Chat/Thread/"), docsPath: "/blocks/chat-thread" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [

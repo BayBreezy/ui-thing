@@ -544,6 +544,20 @@ export default {
   "Testimony/BlockTestimony7": "avatar container",
   "Testimony/BlockTestimony8": "button container",
   "Testimony/BlockTestimony9": "avatar container",
+  "Chat/Thread/BlockThread1":
+    "avatar bubble button card container input label message message-scroller",
+  "Chat/Thread/BlockThread2":
+    "avatar bubble button card container input label message message-scroller",
+  "Chat/Thread/BlockThread3":
+    "attachment avatar bubble button card container input label message message-scroller",
+  "Chat/Thread/BlockThread4":
+    "avatar bubble button card container message message-scroller popover",
+  "Chat/Thread/BlockThread5": "bubble button card container input label message message-scroller",
+  "Chat/Thread/BlockThread6":
+    "avatar bubble button card container input label message message-scroller",
+  "Chat/Thread/BlockThread7": "avatar bubble card container message message-scroller",
+  "Chat/Thread/BlockThread8":
+    "avatar badge bubble button card container input label message message-scroller",
   "Tiptap/BlockTiptap1": "button container separator toggle tooltip",
   "Onboarding/Welcome/BlockWelcome1": "button container",
   "Onboarding/Welcome/BlockWelcome2": "button card container",
