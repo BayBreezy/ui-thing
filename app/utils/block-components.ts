@@ -23,6 +23,12 @@ export default {
   "About/BlockAbout7": "avatar badge card",
   "About/BlockAbout8": "border-beam card",
   "About/BlockAbout9": "",
+  "Chat/AiChat/BlockAiChat1": "bubble button label message message-scroller textarea",
+  "Chat/AiChat/BlockAiChat2": "bubble button label message message-scroller",
+  "Chat/AiChat/BlockAiChat3": "bubble button collapsible message message-scroller skeleton",
+  "Chat/AiChat/BlockAiChat4": "bubble button message message-scroller trace",
+  "Chat/AiChat/BlockAiChat5": "badge bubble button dropdown-menu label message message-scroller",
+  "Chat/AiChat/BlockAiChat6": "bubble button dropdown-menu input label message scroll-area",
   "Settings/ApiKeys/BlockSettingsApiKeysTable":
     "alert-dialog badge button card dialog input label native-select table",
   "Settings/Appearance/BlockSettingsAppearancePreferences":
