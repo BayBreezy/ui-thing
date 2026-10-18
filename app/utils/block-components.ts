@@ -487,6 +487,13 @@ export default {
   "DataTable/TableLists/BlockTableLists6": "badge container table toggle-group",
   "DataTable/TableLists/BlockTableLists7": "alert badge button container progress table",
   "DataTable/TableLists/BlockTableLists8": "container table",
+  "DataTable/TableToolbars/BlockTableToolbars1": "badge button container input label table",
+  "DataTable/TableToolbars/BlockTableToolbars2":
+    "avatar badge button checkbox container label popover table",
+  "DataTable/TableToolbars/BlockTableToolbars3": "badge button container dropdown-menu table",
+  "DataTable/TableToolbars/BlockTableToolbars4": "card container input label select table",
+  "DataTable/TableToolbars/BlockTableToolbars5": "badge button container input label table tabs",
+  "DataTable/TableToolbars/BlockTableToolbars6": "button container select table toggle-group",
   "Team/BlockTeam1": "avatar container",
   "Team/BlockTeam10": "avatar button container",
   "Team/BlockTeam2": "avatar container",

@@ -532,6 +532,18 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "inventory",
     "list view",
   ],
+  TableToolbars: [
+    "data table",
+    "table toolbar",
+    "filter",
+    "faceted filter",
+    "search",
+    "column visibility",
+    "date range",
+    "saved views",
+    "density",
+    "export",
+  ],
   Team: [
     "people",
     "about us",
@@ -695,6 +707,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   {
     test: (path) => path.startsWith("DataTable/TableLists/"),
     docsPath: "/blocks/data-table-lists",
+  },
+  {
+    test: (path) => path.startsWith("DataTable/TableToolbars/"),
+    docsPath: "/blocks/data-table-toolbars",
   },
 ];
 
