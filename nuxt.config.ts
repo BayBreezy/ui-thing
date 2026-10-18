@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   extends: ["@baybreezy/docd"],
   devtools: { enabled: true },
   nitro: { experimental: { asyncContext: true } },
+  sourcemap: { server: false, client: false },
   modules: [
     "@yuta-inoue-ph/nuxt-vcalendar",
     "@vee-validate/nuxt",
