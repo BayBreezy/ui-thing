@@ -107,13 +107,18 @@
                 <legend class="mb-2 text-sm font-medium">Size</legend>
                 <UiToggleGroup
                   type="single"
-                  variant="outline"
-                  size="sm"
                   class="justify-start"
                   :model-value="size"
                   @update:model-value="(v) => (size = (v as string) || size)"
                 >
-                  <UiToggleGroupItem v-for="s in sizes" :key="s" :value="s" class="w-10">
+                  <UiToggleGroupItem
+                    v-for="s in sizes"
+                    :key="s"
+                    variant="outline"
+                    size="sm"
+                    :value="s"
+                    class="w-10"
+                  >
                     {{ s }}
                   </UiToggleGroupItem>
                 </UiToggleGroup>

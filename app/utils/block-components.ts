@@ -312,6 +312,21 @@ export default {
   "Pricing/BlockPricing7": "badge button container switch",
   "Pricing/BlockPricing8": "button container",
   "Pricing/BlockPricing9": "badge button container switch",
+  "Ecommerce/ProductDetail/BlockProductDetail1":
+    "aspect-ratio badge breadcrumbs button carousel container rating toggle-group",
+  "Ecommerce/ProductDetail/BlockProductDetail2":
+    "accordion aspect-ratio badge button container number-field rating",
+  "Ecommerce/ProductDetail/BlockProductDetail3":
+    "avatar button card container label rating select tabs",
+  "Ecommerce/ProductDetail/BlockProductDetail4":
+    "aspect-ratio badge breadcrumbs button container label number-field rating select",
+  "Ecommerce/ProductDetail/BlockProductDetail5":
+    "avatar badge button container dialog progress rating select vee-input vee-rating vee-textarea",
+  "Ecommerce/ProductDetail/BlockProductDetail6": "aspect-ratio badge button container",
+  "Ecommerce/ProductDetail/BlockProductDetail7":
+    "aspect-ratio button card checkbox container label select",
+  "Ecommerce/ProductDetail/BlockProductDetail8":
+    "aspect-ratio button container dialog rating table toggle-group",
   "Ecommerce/ProductList/BlockProductList1": "aspect-ratio badge button container rating",
   "Ecommerce/ProductList/BlockProductList2":
     "accordion aspect-ratio badge button checkbox container empty fancy-icon label pagination select slider",

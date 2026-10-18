@@ -11,14 +11,24 @@
       </div>
       <UiToggleGroup
         type="single"
-        variant="outline"
-        size="sm"
         :model-value="view"
         aria-label="Layout"
         @update:model-value="(v) => (view = (v as 'grid' | 'list') || view)"
       >
-        <UiToggleGroupItem value="grid" aria-label="Grid view" icon="lucide:layout-grid" />
-        <UiToggleGroupItem value="list" aria-label="List view" icon="lucide:list" />
+        <UiToggleGroupItem
+          variant="outline"
+          size="sm"
+          value="grid"
+          aria-label="Grid view"
+          icon="lucide:layout-grid"
+        />
+        <UiToggleGroupItem
+          variant="outline"
+          size="sm"
+          value="list"
+          aria-label="List view"
+          icon="lucide:list"
+        />
       </UiToggleGroup>
     </div>
 

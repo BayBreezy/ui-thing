@@ -15,8 +15,6 @@
       <UiScrollArea orientation="horizontal" class="w-full lg:w-auto">
         <UiToggleGroup
           type="single"
-          variant="outline"
-          size="sm"
           class="justify-start gap-2 pb-3 lg:pb-0"
           :model-value="category"
           aria-label="Filter by category"
@@ -25,6 +23,8 @@
           <UiToggleGroupItem
             v-for="c in categories"
             :key="c"
+            variant="outline"
+            size="sm"
             :value="c"
             class="data-[state=on]:bg-primary data-[state=on]:text-primary-foreground rounded-full px-4"
           >
