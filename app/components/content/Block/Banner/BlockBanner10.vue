@@ -1,123 +1,128 @@
 <template>
-  <Motion
-    while-in-view="animate"
-    initial="initial"
-    :variants="{
-      initial: { opacity: 0, y: 5 },
-      animate: {
-        opacity: 1,
-        y: 0,
-        transition: { when: 'beforeChildren', delayChildren: stagger(0.1) },
-      },
-    }"
-    class="w-full overflow-hidden border-b p-4"
-  >
-    <div class="relative flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-      <div class="flex flex-1 items-start gap-4">
-        <Motion
-          :variants="{
-            initial: { scale: 0, rotate: -180 },
-            animate: { scale: 1, rotate: 0 },
-          }"
-          class="via-primary/5 to-primary/40 flex size-16 items-center justify-center rounded-full bg-radial"
+  <!--
+    Cookie consent banner with preferences
+    Features: Floating card, accept all and reject all actions, customize panel with category switches, necessary cookies locked on, saves a choice and slides away
+  -->
+  <div class="relative min-h-72">
+    <AnimatePresence>
+      <Motion
+        v-if="!choice"
+        class="fixed inset-x-4 bottom-4 z-50 sm:right-auto sm:max-w-md"
+        :initial="{ opacity: 0, y: 24 }"
+        :animate="{ opacity: 1, y: 0 }"
+        :exit="{ opacity: 0, y: 24 }"
+        :transition="{ type: 'spring', stiffness: 260, damping: 26 }"
+      >
+        <div
+          class="bg-card rounded-2xl border p-5 shadow-xl"
+          role="dialog"
+          aria-label="Cookie preferences"
         >
-          <Icon :name="icon" class="text-primary size-6" />
-        </Motion>
+          <div class="flex items-start gap-3">
+            <UiFancyIcon icon="lucide:cookie" theme="light" color="warning" size="md" />
+            <div>
+              <slot name="title">
+                <h3 class="font-semibold">{{ props.title }}</h3>
+              </slot>
+              <p class="text-muted-foreground mt-1 text-sm">
+                {{ props.description }}
+                <NuxtLink to="#" class="text-foreground font-medium underline underline-offset-4">
+                  Cookie policy
+                </NuxtLink>
+              </p>
+            </div>
+          </div>
 
-        <div class="flex-1">
-          <Motion
-            :variants="{
-              initial: { opacity: 0, y: 10 },
-              animate: { opacity: 1, y: 0 },
-            }"
-            as-child
-          >
-            <h3 class="text-lg font-bold" v-html="title" />
-          </Motion>
-
-          <Motion
-            as-child
-            :variants="{
-              initial: { opacity: 0, y: 10 },
-              animate: { opacity: 1, y: 0 },
-            }"
-          >
-            <p class="text-muted-foreground text-sm" v-html="description" />
-          </Motion>
-
-          <div class="mt-2 flex items-center gap-3">
-            <Motion
-              v-for="(stat, i) in stats"
-              :key="i"
-              :variants="{
-                initial: { opacity: 0, y: 10 },
-                animate: { opacity: 1, y: 0 },
-              }"
-              class="flex items-center gap-1.5"
+          <div v-if="customizing" class="mt-4 space-y-3 border-t pt-4">
+            <div
+              v-for="item in categories"
+              :key="item.id"
+              class="flex items-start justify-between gap-4"
             >
-              <Icon :name="stat.icon" class="text-muted-foreground size-4" />
-              <span class="text-sm font-semibold">{{ stat.value }}</span>
-              <span class="text-muted-foreground text-sm">{{ stat.label }}</span>
-            </Motion>
+              <div>
+                <UiLabel :for="item.id" class="text-sm font-medium">{{ item.label }}</UiLabel>
+                <p class="text-muted-foreground text-xs">{{ item.hint }}</p>
+              </div>
+              <UiSwitch
+                :id="item.id"
+                :model-value="item.locked ? true : prefs[item.id]"
+                :disabled="item.locked"
+                @update:model-value="prefs[item.id] = $event === true"
+              />
+            </div>
+          </div>
+
+          <div class="mt-5 flex flex-wrap items-center gap-2">
+            <UiButton v-if="!customizing" variant="ghost" size="sm" @click="customizing = true">
+              Customize
+            </UiButton>
+            <UiButton v-else variant="ghost" size="sm" @click="save">Save choices</UiButton>
+            <div class="ml-auto flex gap-2">
+              <UiButton variant="outline" size="sm" @click="reject">Reject all</UiButton>
+              <UiButton size="sm" @click="acceptAll">Accept all</UiButton>
+            </div>
           </div>
         </div>
-      </div>
-
-      <Motion
-        :variants="{
-          initial: { opacity: 0, y: 10 },
-          animate: { opacity: 1, y: 0 },
-        }"
-        as-child
-      >
-        <div class="grid grid-cols-2 gap-2 pl-20 lg:flex lg:items-center lg:pl-0">
-          <UiButton size="sm" variant="outline">
-            {{ secondaryButtonText }}
-          </UiButton>
-          <UiButton size="sm">
-            {{ primaryButtonText }}
-            <Icon name="lucide:external-link" class="size-4" />
-          </UiButton>
-          <UiButton class="hidden lg:flex" size="icon-sm" variant="ghost">
-            <Icon name="lucide:x" class="text-muted-foreground size-3.5" />
-          </UiButton>
-        </div>
       </Motion>
+    </AnimatePresence>
 
-      <UiButton class="absolute top-0 right-2 z-10 lg:hidden" size="icon-sm" variant="ghost">
-        <Icon name="lucide:x" class="text-muted-foreground size-3.5" />
-      </UiButton>
+    <div v-if="choice" class="flex flex-col items-center gap-3 p-8 text-center">
+      <p class="text-muted-foreground text-sm">
+        Choice saved: <span class="text-foreground font-medium">{{ choice }}</span>
+      </p>
+      <UiButton variant="outline" size="sm" @click="reset">Show banner again</UiButton>
     </div>
-  </Motion>
+  </div>
 </template>
 
 <script lang="ts" setup>
-  import { stagger } from "motion-v";
-
-  withDefaults(
+  const props = withDefaults(
     defineProps<{
       title?: string;
       description?: string;
-      icon?: string;
-      badgeText?: string;
-      primaryButtonText?: string;
-      secondaryButtonText?: string;
-      linkText?: string;
-      stats?: Array<{ icon: string; value: string; label: string }>;
     }>(),
     {
-      title: "Summer Sale Event",
-      description:
-        "Don't miss out on our biggest sale of the year. Exclusive deals on all products.",
-      icon: "lucide:gift",
-      badgeText: "Limited Time",
-      primaryButtonText: "Shop Now",
-      secondaryButtonText: "Browse",
-      linkText: "Terms apply",
-      stats: () => [
-        { icon: "lucide:clock", value: "3", label: "days left" },
-        { icon: "lucide:tag", value: "50%", label: "off" },
-      ],
+      title: "We value your privacy",
+      description: "We use cookies to keep the site working and to understand how it's used.",
     }
   );
+
+  const categories = [
+    {
+      id: "necessary",
+      label: "Strictly necessary",
+      hint: "Needed for the site to work.",
+      locked: true,
+    },
+    { id: "analytics", label: "Analytics", hint: "Helps us improve with anonymous usage data." },
+    { id: "marketing", label: "Marketing", hint: "Lets us show you relevant offers." },
+  ] as {
+    id: "necessary" | "analytics" | "marketing";
+    label: string;
+    hint: string;
+    locked?: boolean;
+  }[];
+
+  const prefs = reactive({ necessary: true, analytics: false, marketing: false });
+  const customizing = ref(false);
+  const choice = ref("");
+
+  function acceptAll() {
+    prefs.analytics = true;
+    prefs.marketing = true;
+    choice.value = "Accepted all";
+  }
+  function reject() {
+    prefs.analytics = false;
+    prefs.marketing = false;
+    choice.value = "Rejected non-essential";
+  }
+  function save() {
+    const on = [prefs.analytics && "analytics", prefs.marketing && "marketing"].filter(Boolean);
+    choice.value = on.length ? `Allowed ${on.join(" and ")}` : "Necessary only";
+  }
+  function reset() {
+    choice.value = "";
+    customizing.value = false;
+  }
 </script>

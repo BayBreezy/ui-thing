@@ -1,85 +1,112 @@
 <template>
-  <Motion
-    :initial="{ opacity: 0, y: -20 }"
-    :animate="{ opacity: 1, y: 0 }"
-    :transition="{ type: 'spring', stiffness: 300, damping: 25 }"
-  >
-    <UiContainer
-      class="from-primary/10 via-primary/5 to-background relative overflow-hidden rounded-lg border bg-linear-to-r p-4 shadow-lg lg:p-5"
-    >
-      <div class="bg-primary/10 absolute -top-8 -right-8 size-32 rounded-full blur-3xl" />
-      <div class="bg-primary/10 absolute -bottom-8 -left-8 size-32 rounded-full blur-3xl" />
-
-      <div class="relative flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-        <div class="flex flex-col gap-4 lg:flex-row lg:items-start">
-          <Motion
-            :initial="{ scale: 0, rotate: -180 }"
-            :animate="{ scale: 1, rotate: 0 }"
-            :transition="{ type: 'spring', stiffness: 300, damping: 20, delay: 0.1 }"
-            class="bg-primary text-primary-foreground flex size-12 shrink-0 items-center justify-center rounded-full shadow-lg"
-          >
-            <Icon :name="icon" class="size-6" />
-          </Motion>
-          <div class="flex-1">
-            <Motion
-              :initial="{ opacity: 0, x: -10 }"
-              :animate="{ opacity: 1, x: 0 }"
-              :transition="{ delay: 0.2 }"
-            >
-              <h3 class="text-lg font-bold" v-html="title" />
-            </Motion>
-            <Motion
-              :initial="{ opacity: 0, x: -10 }"
-              :animate="{ opacity: 1, x: 0 }"
-              :transition="{ delay: 0.3 }"
-            >
-              <p class="text-muted-foreground mt-1 text-sm" v-html="description" />
-            </Motion>
-          </div>
-        </div>
-        <Motion
-          :initial="{ opacity: 0, scale: 0.8 }"
-          :animate="{ opacity: 1, scale: 1 }"
-          :transition="{ delay: 0.4, type: 'spring', stiffness: 300, damping: 25 }"
-          class="grid grid-cols-2 gap-2 lg:flex lg:flex-wrap"
-        >
-          <UiButton size="sm" class="shadow-sm">
-            <Icon name="lucide:arrow-right" class="size-4" />
-            Get Started
-          </UiButton>
-          <UiButton size="sm" variant="outline" class="bg-transparent shadow-sm">
-            Learn More
-          </UiButton>
-          <UiButton class="hidden lg:flex" size="icon-sm" variant="ghost" aria-label="Close banner">
-            <Icon name="lucide:x" class="text-muted-foreground size-4" />
-          </UiButton>
-        </Motion>
-      </div>
-
-      <UiButton
-        class="absolute top-2 right-2 lg:hidden"
-        size="icon-sm"
-        variant="ghost"
-        aria-label="Close banner"
+  <!--
+    Newsletter banner with a validated email form
+    Features: Icon, copy and an inline form with validation, loading state, success message that replaces the form, dismiss with a collapse animation
+  -->
+  <div class="px-4 py-6">
+    <AnimatePresence>
+      <Motion
+        v-if="visible"
+        class="overflow-hidden"
+        :initial="{ height: 0, opacity: 0 }"
+        :animate="{ height: 'auto', opacity: 1 }"
+        :exit="{ height: 0, opacity: 0 }"
+        :transition="{ duration: 0.3, ease: 'easeInOut' }"
       >
-        <Icon name="lucide:x" class="text-muted-foreground size-4" />
-      </UiButton>
-    </UiContainer>
-  </Motion>
+        <div
+          class="bg-card relative mx-auto flex max-w-4xl flex-col gap-5 rounded-xl border p-5 shadow-sm lg:flex-row lg:items-center lg:gap-8 lg:p-6"
+        >
+          <div class="flex items-start gap-4 lg:flex-1">
+            <slot name="icon">
+              <UiFancyIcon :icon="props.icon" theme="modern" color="gray" />
+            </slot>
+            <div class="pr-8 lg:pr-0">
+              <slot name="title">
+                <h3 class="font-semibold">{{ props.title }}</h3>
+              </slot>
+              <slot name="description">
+                <p class="text-muted-foreground mt-0.5 text-sm">{{ props.description }}</p>
+              </slot>
+            </div>
+          </div>
+
+          <div class="lg:w-96 lg:pr-8">
+            <form v-if="!done" class="flex gap-2" novalidate @submit="submit">
+              <fieldset :disabled="isSubmitting" class="flex flex-1 gap-2">
+                <div class="flex-1">
+                  <UiVeeInput
+                    name="email"
+                    type="email"
+                    placeholder="you@example.com"
+                    aria-label="Email address"
+                  />
+                </div>
+                <UiButton type="submit" class="shrink-0">
+                  <Icon
+                    v-if="isSubmitting"
+                    name="lucide:loader-circle"
+                    class="size-4 animate-spin"
+                  />
+                  Subscribe
+                </UiButton>
+              </fieldset>
+            </form>
+            <p
+              v-else
+              class="flex items-center gap-2 text-sm font-medium text-green-600 dark:text-green-400"
+            >
+              <Icon name="lucide:circle-check" class="size-5" />
+              You're subscribed. Check your inbox to confirm.
+            </p>
+            <p v-if="!done" class="text-muted-foreground mt-2 text-xs">
+              No spam. Unsubscribe at any time.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            class="text-muted-foreground hover:bg-muted hover:text-foreground absolute top-3 right-3 flex size-7 items-center justify-center rounded-md transition-colors"
+            aria-label="Dismiss newsletter banner"
+            @click="visible = false"
+          >
+            <Icon name="lucide:x" class="size-4" />
+          </button>
+        </div>
+      </Motion>
+    </AnimatePresence>
+    <div v-if="!visible" class="text-center">
+      <UiButton variant="ghost" size="sm" @click="visible = true">Show banner again</UiButton>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
-  withDefaults(
+  import { object, string } from "yup";
+  import type { InferType } from "yup";
+
+  const props = withDefaults(
     defineProps<{
       title?: string;
       description?: string;
       icon?: string;
     }>(),
     {
-      title: "🎉 New Feature Available!",
-      description:
-        "We've just launched our most requested feature. Try it now and boost your productivity.",
-      icon: "lucide:rocket",
+      title: "Stay up to date",
+      description: "Product news and tips, once a month.",
+      icon: "lucide:mail",
     }
   );
+
+  const visible = ref(true);
+  const done = ref(false);
+
+  const schema = object({ email: string().email().required().label("Email") });
+  const { handleSubmit, isSubmitting } = useForm<InferType<typeof schema>>({
+    validationSchema: schema,
+  });
+
+  const submit = handleSubmit(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 700));
+    done.value = true;
+  });
 </script>

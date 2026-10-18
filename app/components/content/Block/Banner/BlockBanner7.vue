@@ -1,86 +1,108 @@
 <template>
-  <UiContainer>
-    <div class="bg-background rounded-md border p-4 lg:p-5">
-      <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-        <div class="flex flex-1 items-start gap-4">
-          <Motion
-            :initial="{ opacity: 0, rotate: -90 }"
-            :while-in-view="{ opacity: 1, rotate: 0 }"
-            :transition="{ type: 'spring', stiffness: 200, damping: 20 }"
-            class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-yellow-500/10 text-yellow-600 dark:text-yellow-500"
-          >
-            <Icon :name="icon" class="size-5" />
-            <span class="sr-only">{{ title }}</span>
-          </Motion>
-          <div class="flex-1">
-            <Motion
-              :initial="{ opacity: 0, y: -10 }"
-              :while-in-view="{ opacity: 1, y: 0 }"
-              :transition="{ delay: 0.1 }"
-            >
-              <h3 class="font-semibold" v-html="title" />
-            </Motion>
-            <Motion
-              :initial="{ opacity: 0 }"
-              :while-in-view="{ opacity: 1 }"
-              :transition="{ delay: 0.2 }"
-            >
-              <p class="text-muted-foreground mt-1 text-sm" v-html="description" />
-            </Motion>
-            <Motion
-              :initial="{ opacity: 0, y: 10 }"
-              :while-in-view="{ opacity: 1, y: 0 }"
-              :transition="{ delay: 0.3 }"
-            >
-              <div class="text-muted-foreground mt-3 flex items-center gap-2 text-xs">
-                <Icon name="lucide:clock" class="size-3.5" />
-                <span>{{ timeText }}</span>
-                <UiSeparator orientation="vertical" class="h-3" />
-                <Icon name="lucide:users" class="size-3.5" />
-                <span>{{ usersText }}</span>
-              </div>
-            </Motion>
-          </div>
-        </div>
-
-        <Motion
-          :initial="{ opacity: 0, scale: 0.9 }"
-          :while-in-view="{ opacity: 1, scale: 1 }"
-          :transition="{ delay: 0.4 }"
-          class="grid shrink-0 grid-cols-2 gap-2 lg:flex lg:items-center"
+  <!--
+    Upgrade banner driven by plan usage
+    Features: Usage meter that turns amber near the limit, list of what Pro unlocks, primary and secondary actions, left accent edge, dismiss
+  -->
+  <div class="px-4 py-6">
+    <AnimatePresence>
+      <Motion
+        v-if="visible"
+        class="overflow-hidden"
+        :initial="{ height: 0, opacity: 0 }"
+        :animate="{ height: 'auto', opacity: 1 }"
+        :exit="{ height: 0, opacity: 0 }"
+        :transition="{ duration: 0.3, ease: 'easeInOut' }"
+      >
+        <div
+          class="bg-card relative mx-auto flex max-w-4xl overflow-hidden rounded-xl border shadow-sm"
         >
-          <UiButton size="sm" variant="outline"> Remind me later </UiButton>
-          <UiButton size="sm"> View details </UiButton>
-          <UiButton
-            size="icon-sm"
-            variant="ghost"
-            class="hidden shrink-0 lg:flex"
-            aria-label="Close banner"
+          <div class="w-1.5 shrink-0" :class="nearLimit ? 'bg-amber-500' : 'bg-primary'" />
+          <div class="flex flex-1 flex-col gap-5 p-5 pr-12 lg:flex-row lg:items-center lg:gap-8">
+            <div class="flex-1 space-y-3">
+              <div class="flex items-center gap-2">
+                <UiFancyIcon
+                  icon="lucide:crown"
+                  theme="light"
+                  :color="nearLimit ? 'warning' : 'primary'"
+                  size="sm"
+                />
+                <h3 class="font-semibold">
+                  {{
+                    nearLimit ? "You're close to your project limit" : "Get more out of your plan"
+                  }}
+                </h3>
+                <UiBadge v-if="props.discount" variant="secondary">{{ props.discount }}</UiBadge>
+              </div>
+              <div>
+                <div class="mb-1.5 flex justify-between text-xs">
+                  <span class="text-muted-foreground">Projects used</span>
+                  <span class="font-medium tabular-nums"
+                    >{{ props.used }} of {{ props.limit }}</span
+                  >
+                </div>
+                <div class="bg-muted h-2 overflow-hidden rounded-full">
+                  <div
+                    class="h-full rounded-full transition-[width] duration-700"
+                    :class="nearLimit ? 'bg-amber-500' : 'bg-primary'"
+                    :style="{ width: `${percent}%` }"
+                  />
+                </div>
+              </div>
+              <ul class="flex flex-wrap gap-x-4 gap-y-1.5">
+                <li
+                  v-for="perk in props.perks"
+                  :key="perk"
+                  class="text-muted-foreground flex items-center gap-1.5 text-xs"
+                >
+                  <Icon name="lucide:check" class="text-primary size-3.5" />
+                  {{ perk }}
+                </li>
+              </ul>
+            </div>
+            <div class="flex shrink-0 flex-wrap gap-2">
+              <slot>
+                <UiButton>
+                  Upgrade to Pro
+                  <Icon name="lucide:arrow-right" class="size-4" />
+                </UiButton>
+                <UiButton variant="outline">Compare plans</UiButton>
+              </slot>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="text-muted-foreground hover:bg-muted hover:text-foreground absolute top-3 right-3 flex size-7 items-center justify-center rounded-md transition-colors"
+            aria-label="Dismiss upgrade banner"
+            @click="visible = false"
           >
-            <Icon name="lucide:x" class="text-muted-foreground size-4" />
-          </UiButton>
-        </Motion>
-      </div>
+            <Icon name="lucide:x" class="size-4" />
+          </button>
+        </div>
+      </Motion>
+    </AnimatePresence>
+    <div v-if="!visible" class="text-center">
+      <UiButton variant="ghost" size="sm" @click="visible = true">Show banner again</UiButton>
     </div>
-  </UiContainer>
+  </div>
 </template>
 
 <script lang="ts" setup>
-  withDefaults(
+  const props = withDefaults(
     defineProps<{
-      title?: string;
-      description?: string;
-      icon?: string;
-      timeText?: string;
-      usersText?: string;
+      used?: number;
+      limit?: number;
+      discount?: string;
+      perks?: string[];
     }>(),
     {
-      title: "System Maintenance Scheduled",
-      description:
-        "We'll be performing scheduled maintenance on our systems. Expect brief interruptions.",
-      icon: "lucide:alert-triangle",
-      timeText: "Tomorrow at 2:00 AM",
-      usersText: "Affects all users",
+      used: 9,
+      limit: 10,
+      discount: "20% off annual",
+      perks: () => ["Unlimited projects", "Priority support", "Advanced analytics"],
     }
   );
+
+  const percent = computed(() => Math.min(100, (props.used / props.limit) * 100));
+  const nearLimit = computed(() => percent.value >= 80);
+  const visible = ref(true);
 </script>

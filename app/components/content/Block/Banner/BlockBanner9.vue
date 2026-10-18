@@ -1,130 +1,122 @@
 <template>
-  <Motion
-    as-child
-    initial="init"
-    while-in-view="animate"
-    :variants="{
-      init: { opacity: 0, y: 10 },
-      animate: {
-        opacity: 1,
-        y: 0,
-        transition: { when: 'beforeChildren', delayChildren: stagger(0.1) },
-      },
-    }"
-  >
-    <UiContainer class="bg-background relative rounded-lg border shadow-md">
+  <!--
+    Scheduled maintenance banner with a live countdown
+    Features: Warning tone, time until the window starts, affected area and duration metadata, remind me toggle with a bell, view status action, dismiss
+  -->
+  <div class="px-4 py-6">
+    <AnimatePresence>
       <Motion
-        as-child
-        :variants="{
-          init: { opacity: 0, scale: 0.8 },
-          animate: { opacity: 1, scale: 1 },
-        }"
+        v-if="visible"
+        class="overflow-hidden"
+        :initial="{ height: 0, opacity: 0 }"
+        :animate="{ height: 'auto', opacity: 1 }"
+        :exit="{ height: 0, opacity: 0 }"
+        :transition="{ duration: 0.3, ease: 'easeInOut' }"
       >
-        <UiButton
-          aria-label="Close banner"
-          size="icon-sm"
-          variant="ghost"
-          class="absolute top-3 right-4 z-10 lg:hidden"
+        <div
+          class="relative mx-auto flex max-w-4xl flex-col gap-4 rounded-xl border border-amber-500/40 bg-amber-500/5 p-4 pr-12 lg:flex-row lg:items-center lg:gap-6"
+          role="status"
         >
-          <Icon name="lucide:x" class="text-muted-foreground size-4" />
-        </UiButton>
-      </Motion>
-      <div class="flex flex-col gap-y-3 py-4 lg:flex-row">
-        <div class="flex flex-1 items-start gap-4">
-          <div class="relative shrink-0">
-            <Motion
-              :variants="{
-                init: { scale: 0, opacity: 0 },
-                animate: { scale: 1, opacity: 1 },
-              }"
-              class="via-primary/5 to-primary dark:from-primary/50 dark:via-primary/10 flex size-12 items-center justify-center rounded-full bg-radial dark:bg-linear-to-b dark:to-transparent"
-            >
-              <Icon :name="icon" class="text-primary size-6" />
-            </Motion>
-          </div>
-          <div>
-            <Motion
-              :variants="{
-                init: { opacity: 0, y: 10 },
-                animate: { opacity: 1, y: 0 },
-              }"
-              as-child
-            >
-              <h3 class="text-sm font-semibold" v-html="title" />
-            </Motion>
-            <Motion
-              :variants="{
-                init: { opacity: 0, y: 10 },
-                animate: { opacity: 1, y: 0 },
-              }"
-              as-child
-            >
-              <p class="text-muted-foreground text-sm" v-html="description" />
-            </Motion>
-            <div class="mt-3 grid grid-cols-2 gap-2 md:flex md:items-center">
-              <Motion
-                v-for="(action, i) in actions"
-                :key="i"
-                :variants="{
-                  init: { opacity: 0, y: 10 },
-                  animate: { opacity: 1, y: 0 },
-                }"
-                as-child
-              >
-                <UiButton
-                  size="sm"
-                  :variant="i === 0 ? 'default' : 'outline'"
-                  class="h-8 px-3 text-xs"
-                >
-                  <Icon :name="action.icon" class="size-3.5" />
-                  {{ action.label }}
-                </UiButton>
-              </Motion>
-            </div>
-          </div>
-        </div>
+          <span
+            class="flex size-10 shrink-0 items-center justify-center rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-400"
+          >
+            <Icon name="lucide:wrench" class="size-5" />
+          </span>
 
-        <Motion
-          :variants="{
-            init: { opacity: 0, y: 10 },
-            animate: { opacity: 1, y: 0 },
-          }"
-          class="flex shrink-0 items-start gap-2 pl-16 lg:flex-col lg:items-end lg:pl-0"
-        >
-          <div class="lg:text-right">
-            <p class="text-muted-foreground text-xs">{{ timeLabel }}</p>
-            <p class="text-sm font-semibold">{{ timeValue }}</p>
+          <div class="min-w-0 flex-1">
+            <p class="font-semibold">{{ props.title }}</p>
+            <p class="text-muted-foreground mt-0.5 text-sm">{{ props.description }}</p>
+            <ul class="text-muted-foreground mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs">
+              <li class="flex items-center gap-1.5">
+                <Icon name="lucide:clock" class="size-3.5" />
+                Starts in
+                <span class="text-foreground font-semibold tabular-nums">{{ startsIn }}</span>
+              </li>
+              <li class="flex items-center gap-1.5">
+                <Icon name="lucide:hourglass" class="size-3.5" />
+                About {{ props.duration }}
+              </li>
+              <li class="flex items-center gap-1.5">
+                <Icon name="lucide:users" class="size-3.5" />
+                {{ props.affects }}
+              </li>
+            </ul>
           </div>
-        </Motion>
-      </div>
-    </UiContainer>
-  </Motion>
+
+          <div class="flex shrink-0 flex-wrap gap-2">
+            <slot>
+              <UiButton
+                variant="outline"
+                size="sm"
+                :aria-pressed="reminder"
+                @click="toggleReminder"
+              >
+                <Icon :name="reminder ? 'lucide:bell-ring' : 'lucide:bell'" class="size-4" />
+                {{ reminder ? "Reminder set" : "Remind me" }}
+              </UiButton>
+              <UiButton size="sm">View status page</UiButton>
+            </slot>
+          </div>
+
+          <button
+            type="button"
+            class="text-muted-foreground hover:bg-foreground/10 hover:text-foreground absolute top-3 right-3 flex size-7 items-center justify-center rounded-md transition-colors"
+            aria-label="Dismiss maintenance notice"
+            @click="visible = false"
+          >
+            <Icon name="lucide:x" class="size-4" />
+          </button>
+        </div>
+      </Motion>
+    </AnimatePresence>
+    <div v-if="!visible" class="text-center">
+      <UiButton variant="ghost" size="sm" @click="visible = true">Show banner again</UiButton>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
-  import { stagger } from "motion-v";
-
-  withDefaults(
+  const props = withDefaults(
     defineProps<{
       title?: string;
       description?: string;
-      icon?: string;
-      count?: number;
-      timeLabel?: string;
-      timeValue?: string;
-      actions?: Array<{ label: string; icon: string }>;
+      duration?: string;
+      affects?: string;
+      /** Minutes from now until the maintenance window starts. */
+      minutes?: number;
     }>(),
     {
-      title: "You have new notifications",
-      description: "Check your inbox for important updates and messages from your team.",
-      icon: "lucide:bell",
-      count: 5,
-      timeLabel: "Last updated",
-      timeValue: "2 min ago",
-      actions: () => [
-        { label: "View all", icon: "lucide:eye" },
-        { label: "Mark as read", icon: "lucide:check" },
-      ],
+      title: "Scheduled maintenance",
+      description: "We're upgrading our database. Expect brief interruptions while it runs.",
+      duration: "30 minutes",
+      affects: "All users",
+      minutes: 312,
     }
   );
+
+  const visible = ref(true);
+  const reminder = ref(false);
+  const start = Date.now() + props.minutes * 60 * 1000;
+  const remaining = ref(Math.max(0, start - Date.now()));
+
+  let timer: ReturnType<typeof setInterval> | undefined;
+  onMounted(() => {
+    timer = setInterval(() => {
+      remaining.value = Math.max(0, start - Date.now());
+    }, 1000);
+  });
+  onBeforeUnmount(() => clearInterval(timer));
+
+  const startsIn = computed(() => {
+    const total = Math.floor(remaining.value / 1000);
+    const h = Math.floor(total / 3600);
+    const m = Math.floor((total % 3600) / 60);
+    const s = total % 60;
+    return `${h}h ${String(m).padStart(2, "0")}m ${String(s).padStart(2, "0")}s`;
+  });
+
+  function toggleReminder() {
+    reminder.value = !reminder.value;
+    useSonner(reminder.value ? "We'll remind you 15 minutes before" : "Reminder removed");
+  }
 </script>
