@@ -1,0 +1,11 @@
+{
+  "slug": "2026-10-17-login-blocks-refresh",
+  "date": "2026-10-17",
+  "title": "Login Blocks Refresh",
+  "category": "update",
+  "tags": ["blocks"],
+  "summary": "Six new login layouts, cleaner versions of the existing ones, and three weaker designs removed.",
+  "body": "Reworked the login blocks.\n\n#### New\n\n- **Split w/ Quote**, **Split w/ Mockup** and **Split w/ Carousel** layouts with a brand panel next to the form\n- **Header Navigation** login with a top bar\n- **Magic Link** passwordless login with a passkey option and a confirmation state\n- **Card w/ Social Row** with icon-only provider buttons\n\n#### Improved\n\n- Password fields now use the show and hide toggle\n- The forgot password link sits beside the password field instead of floating under the button\n- Card headers center correctly and the split image layout has a logo, caption and footer\n\n#### Fixed\n\n- Remember me no longer has to be checked to submit the form\n- GitHub icons are visible in dark mode\n\n#### Removed\n\n- Compact, Social 2 and Two Column. Use Card, Centered Social and Split w/ Quote instead.\n",
+  "breaking": true,
+  "links": [{ "label": "Login blocks", "href": "/blocks/login" }]
+}

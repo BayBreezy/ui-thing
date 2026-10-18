@@ -80,7 +80,7 @@
     {
       id: "github",
       name: "GitHub",
-      icon: "logos:github-icon",
+      icon: "mdi:github",
       connected: true,
       lastSync: "1 hour ago",
     },

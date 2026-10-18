@@ -390,7 +390,7 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
   Pricing: ["plans", "tiers", "subscription"],
   Testimony: ["testimonials", "reviews", "quotes"],
   SocialProof: ["logos", "trusted by", "customers"],
-  Login: ["sign in", "auth"],
+  Login: ["sign in", "auth", "magic link", "passwordless", "passkey", "split screen"],
   SignUp: ["register", "create account", "auth"],
   Stats: ["kpi", "numbers", "metrics"],
   Metric: ["kpi", "numbers", "stats"],
@@ -513,7 +513,17 @@ const PAGE_PRESETS: Record<string, PagePreset> = {
     description: "Entry, recovery, and account creation flows for product access.",
     category: "application",
     sections: [
-      { id: "login", title: "Login", query: "login", categories: ["Login"] },
+      {
+        id: "login",
+        title: "Login",
+        query: "login",
+        categories: [
+          "Login/BlockLoginSimpleCard",
+          "Login/BlockLoginSplitQuote",
+          "Login/BlockLoginSimpleSocial",
+          "Login/",
+        ],
+      },
       { id: "signup", title: "Sign up", query: "sign up", categories: ["SignUp"] },
       {
         id: "recovery",

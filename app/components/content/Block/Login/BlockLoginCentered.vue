@@ -1,5 +1,9 @@
 <template>
-  <div class="flex h-screen items-center justify-center px-5">
+  <!--
+    Centered login with the social buttons first
+    Features: Logo header with trial link, Google and GitHub buttons above the form, remember me and forgot password row
+  -->
+  <div class="flex min-h-screen items-center justify-center px-5 py-12">
     <div class="w-full max-w-[480px]">
       <div class="text-center">
         <svg
@@ -44,7 +48,11 @@
               name="email"
               placeholder="you@example.com"
             />
-            <UiVeeInput label="Password" type="password" name="password" />
+            <UiVeePasswordInput
+              label="Password"
+              name="password"
+              placeholder="Enter your password"
+            />
             <div class="flex items-center justify-between">
               <UiVeeCheckbox label="Remember me" name="remember" />
               <NuxtLink

@@ -1,5 +1,9 @@
 <template>
-  <div class="flex h-screen items-center justify-center">
+  <!--
+    Login form with remember me
+    Features: Logo header, password toggle, remember me checkbox with forgot password link on the same row
+  -->
+  <div class="flex min-h-screen items-center justify-center px-5 py-12">
     <div class="w-full max-w-[360px] px-5">
       <svg
         class="fill-primary my-6 h-8"
@@ -19,7 +23,7 @@
       <form class="mt-10" @submit="submit">
         <fieldset :disabled="isSubmitting" class="grid gap-5">
           <UiVeeInput label="Email" type="email" name="email" placeholder="john@example.com" />
-          <UiVeeInput label="Password" type="password" name="password" />
+          <UiVeePasswordInput label="Password" name="password" placeholder="Enter your password" />
           <div class="flex items-start justify-between">
             <UiVeeCheckbox label="Remember me" name="remember" />
             <NuxtLink class="text-primary text-sm font-medium underline underline-offset-2" to="#"
@@ -30,7 +34,7 @@
         </fieldset>
       </form>
 
-      <p class="text-muted-foreground mt-6 text-sm">
+      <p class="text-muted-foreground mt-6 text-center text-sm">
         Don't have an account?
         <NuxtLink class="text-primary font-semibold underline-offset-2 hover:underline" to="#"
           >Create account</NuxtLink
@@ -52,9 +56,7 @@
   const LoginSchema = object({
     email: string().email().required().label("Email"),
     password: string().required().label("Password").min(8),
-    remember: boolean()
-      .label("Remember me")
-      .test("remember", "Must be checked", (value) => value === true),
+    remember: boolean().label("Remember me"),
   });
 
   const { handleSubmit, isSubmitting } = useForm<InferType<typeof LoginSchema>>({

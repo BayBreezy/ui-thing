@@ -94,7 +94,7 @@
       id: "github",
       name: "GitHub",
       description: "Link commits and pull requests to your projects.",
-      icon: "logos:github-icon",
+      icon: "mdi:github",
       category: "Developer",
       connected: true,
     },

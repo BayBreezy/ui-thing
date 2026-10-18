@@ -1,5 +1,9 @@
 <template>
-  <div class="bg-muted/50 flex h-screen items-center justify-center px-5">
+  <!--
+    Minimal login card with an icon header
+    Features: Centered card, circular icon, password toggle, forgot password link, create account footer
+  -->
+  <div class="bg-muted/50 flex min-h-screen items-center justify-center px-5 py-12">
     <div class="bg-card w-full max-w-[420px] rounded-lg border p-8 shadow-sm">
       <div class="mb-8 text-center">
         <div
@@ -19,7 +23,7 @@
             name="email"
             placeholder="you@example.com"
           />
-          <UiVeeInput label="Password" type="password" name="password" placeholder="••••••••" />
+          <UiVeePasswordInput label="Password" name="password" placeholder="Enter your password" />
           <div class="text-right">
             <NuxtLink
               class="text-primary text-sm font-medium underline-offset-2 hover:underline"
