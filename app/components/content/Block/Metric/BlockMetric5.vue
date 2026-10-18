@@ -1,32 +1,61 @@
 <template>
-  <UiContainer class="py-10 lg:py-20">
-    <div class="grid grid-cols-1 place-items-center gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
-      <template v-for="(s, i) in stats" :key="i">
-        <div class="flex items-start gap-3">
-          <div
-            class="from-primary/50 inline-flex size-12 items-center justify-center rounded-full bg-linear-to-b via-transparent"
-          >
-            <Icon :name="s.icon" class="text-primary size-5" />
-          </div>
-          <div class="flex flex-col">
-            <h4 class="text-4xl font-bold lg:text-5xl">
-              {{ s.value }}
-            </h4>
-            <p class="text-muted-foreground text-sm font-medium">
-              {{ s.text }}
-            </p>
-          </div>
+  <!--
+    Compact icon metrics in a single row
+    Features: Fancy icon beside each value, short labels, numbers that count up on view, wraps to two columns on small screens
+  -->
+  <UiContainer ref="root" class="py-10 lg:py-14">
+    <dl class="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4">
+      <div v-for="(stat, i) in props.stats" :key="stat.label" class="flex items-center gap-4">
+        <UiFancyIcon :icon="stat.icon" theme="modern" color="gray" />
+        <div>
+          <dd class="text-3xl font-bold tracking-tight tabular-nums">{{ fmt(i) }}</dd>
+          <dt class="text-muted-foreground text-sm">{{ stat.label }}</dt>
         </div>
-      </template>
-    </div>
+      </div>
+    </dl>
   </UiContainer>
 </template>
 
 <script lang="ts" setup>
-  const stats = [
-    { text: "Active users", value: "50K+", icon: "lucide:users" },
-    { text: "Uptime", value: "99.9%", icon: "lucide:activity" },
-    { text: "Countries", value: "150+", icon: "lucide:globe" },
-    { text: "Support rating", value: "4.9", icon: "lucide:star" },
-  ];
+  type Stat = {
+    label: string;
+    value: number;
+    prefix?: string;
+    suffix?: string;
+    decimals?: number;
+    icon: string;
+  };
+
+  const props = withDefaults(defineProps<{ stats?: Stat[] }>(), {
+    stats: () => [
+      { label: "Active users", value: 50, suffix: "K+", icon: "lucide:users" },
+      { label: "Uptime", value: 99.9, suffix: "%", decimals: 1, icon: "lucide:activity" },
+      { label: "Countries", value: 150, suffix: "+", icon: "lucide:globe" },
+      { label: "Support rating", value: 4.9, decimals: 1, icon: "lucide:star" },
+    ],
+  });
+
+  // Numbers start at zero and count up the first time the section is visible.
+  const root = ref<{ $el?: HTMLElement } | null>(null);
+  const target = ref(props.stats.map(() => 0));
+  const animated = useTransition(target, { duration: 1600 });
+  useIntersectionObserver(
+    computed(() => root.value?.$el),
+    ([entry], observer) => {
+      if (entry?.isIntersecting) {
+        target.value = props.stats.map((s) => s.value);
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.3 }
+  );
+
+  const fmt = (i: number) => {
+    const stat = props.stats[i]!;
+    const value = animated.value[i] ?? 0;
+    const number = stat.decimals
+      ? value.toFixed(stat.decimals)
+      : Math.round(value).toLocaleString("en-US");
+    return `${stat.prefix ?? ""}${number}${stat.suffix ?? ""}`;
+  };
 </script>

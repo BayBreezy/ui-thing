@@ -465,7 +465,16 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "language picker",
     "theme switcher",
   ],
-  Metric: ["kpi", "numbers", "stats"],
+  Metric: [
+    "kpi",
+    "numbers",
+    "stats",
+    "count up",
+    "by the numbers",
+    "social proof numbers",
+    "reliability",
+    "growth",
+  ],
   CTA: ["call to action", "conversion"],
   Error: ["404", "500", "not found"],
   EmptyState: [
