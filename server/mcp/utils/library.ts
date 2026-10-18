@@ -646,6 +646,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "compliance",
     "who did what",
   ],
+  FileManager: [
+    "file manager",
+    "files",
+    "folders",
+    "file browser",
+    "drive",
+    "breadcrumbs",
+    "folder tree",
+    "trash",
+    "recent files",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -1069,6 +1080,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   },
   { test: (path) => path.startsWith("Activity/Feed/"), docsPath: "/blocks/activity-feed" },
   { test: (path) => path.startsWith("Activity/AuditLog/"), docsPath: "/blocks/activity-audit-log" },
+  { test: (path) => path.startsWith("Files/FileManager/"), docsPath: "/blocks/files-file-manager" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
