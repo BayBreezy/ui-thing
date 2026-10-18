@@ -1,0 +1,20 @@
+{
+  "slug": "2026-10-18-calendar-blocks",
+  "date": "2026-10-18",
+  "title": "Calendar and Scheduling Blocks",
+  "category": "feature",
+  "tags": ["blocks", "mcp"],
+  "summary": "27 new calendar and scheduling blocks covering month views, week and day views, agendas, booking flows, event details and availability settings, with new calendar and booking page plans for the MCP server.",
+  "body": "Added a set of calendar and scheduling blocks, available under **Blocks** in five new docs pages: Calendar - Month Views, Week and Agenda, Booking, Event Detail and Availability. Every block keeps its own state, takes typed props with fictional sample data and a `today` or `now` prop so the demos stay stable. Dates are ISO strings handled in UTC.\n\n#### Month views\n\n- A full month grid with event chips and a details list, a mini calendar with an agenda built on the Calendar component, a compact grid with arrow key navigation, multi day events drawn as bars, a year overview and a small upcoming events widget\n\n#### Week and agenda\n\n- A week time grid with overlapping events, a day view with a working hours switch, an agenda list grouped by day, a day timeline with free time, an upcoming events card and a team schedule that finds the best time to meet\n\n#### Booking\n\n- A date and time slot picker, service selection with staff and add ons, an appointment form with validation, a confirmation with calendar links and a downloadable calendar file, reschedule and cancel screens and a time zone aware slot picker\n\n#### Event detail\n\n- An event popover with actions, a full event page with a ticket card, an RSVP card with live counts, an attendee list with search and tabs and a create event dialog\n\n#### Availability\n\n- A weekly hours editor, date overrides with holiday shortcuts, calendar connections with conflict checks and a booking page settings form with a live preview\n\n#### MCP\n\n- New `calendar` and `booking` page plans, also picked up by `plan-app`\n- Block docs links and search keywords cover the five new categories\n",
+  "breaking": false,
+  "links": [
+    {
+      "label": "Month Views",
+      "href": "/blocks/calendar-month-views"
+    },
+    {
+      "label": "Booking",
+      "href": "/blocks/calendar-booking"
+    }
+  ]
+}
