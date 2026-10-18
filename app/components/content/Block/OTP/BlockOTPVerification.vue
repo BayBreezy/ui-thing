@@ -1,5 +1,9 @@
 <template>
-  <div class="relative flex h-screen items-center justify-center">
+  <!--
+    One time code verification on a grid background
+    Features: Six digit PIN input, resend link, back to log in link, validation
+  -->
+  <div class="relative flex min-h-screen items-center justify-center">
     <div
       class="absolute inset-0 z-1 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] mask-[radial-gradient(circle,transparent_25%,var(--color-border)_100%)] bg-size-[100px_100px]"
     />
@@ -50,9 +54,13 @@
       </div>
 
       <p class="mt-8 text-center text-sm">
-        <NuxtLink class="text-primary font-semibold underline-offset-2 hover:underline" to="#"
-          >Back to Log in</NuxtLink
+        <NuxtLink
+          class="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 font-medium underline-offset-4 hover:underline"
+          to="#"
         >
+          <Icon name="lucide:arrow-left" class="size-4" />
+          Back to log in
+        </NuxtLink>
       </p>
     </div>
   </div>

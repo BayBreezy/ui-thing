@@ -1,64 +1,88 @@
 ---
 title: Sign Up
-description: Professional sign up page examples with various layouts and features. Includes password strength meters, social authentication, split layouts, and background patterns.
+description: Sign up page layouts from a simple form to multi-step flows with progress, split screens with a quote, mockup or carousel, and social sign in with a live password strength meter.
 ---
+
+Every sign up block uses `vee-validate` with `yup` and the `UiVeePasswordInput` show and hide toggle. Replace the submit handler with your auth provider and surface server errors with `setErrors`.
 
 ## Background patterns
 
-Here is one source for background patterns. https://bg.ibelick.com/
-
-You can copy them and modify them as you see fit.
+Some blocks use a CSS background pattern. [bg.ibelick.com](https://bg.ibelick.com/) is a good source for more. Copy them and change them to fit your brand.
 
 ## Simple
 
-Clean sign up form with radial gradient background pattern. Features name, email, and password fields with a centered layout and subtle masked background effect.
+A minimal form with name, email and password on a soft dotted background.
 
-:BlockShowcase{blockPath="SignUp/BlockSignUp" containerClass="h-screen" component="BlockSignUp" iframeHeight="600px"}
+:BlockShowcase{blockPath="SignUp/BlockSignUp" containerClass="h-screen" component="BlockSignUp" iframeHeight="650px"}
 
 ## Card
 
-Simple sign up form presented in a card with border. Features radial dot pattern background and rounded card container with shadow for a polished appearance.
+The same form inside a card, with a logo header, a log in footer and a terms notice below.
 
-:BlockShowcase{blockPath="SignUp/BlockSignUpCard" containerClass="h-screen" component="BlockSignUpCard" iframeHeight="600px"}
+:BlockShowcase{blockPath="SignUp/BlockSignUpCard" containerClass="h-screen" component="BlockSignUpCard" iframeHeight="750px"}
 
 ## Password Meter
 
-Sign up form with real-time password strength validation. Displays checkmark indicators for password requirements, showing users when their password meets security criteria.
+A strength bar and requirements checklist that update as the user types. The yup schema mirrors the checklist so the two never disagree.
 
-:BlockShowcase{blockPath="SignUp/BlockSignUpPasswordMeter" containerClass="h-screen" component="BlockSignUpPasswordMeter" iframeHeight="700px"}
-
-## Social
-
-Email-only signup with multiple social authentication options. Features Google, Facebook, and Github sign-in buttons separated by divider, with grid background pattern.
-
-:BlockShowcase{blockPath="SignUp/BlockSignUpSocial" containerClass="h-screen" component="BlockSignUpSocial" iframeHeight="700px"}
-
-## Image
-
-Split-screen layout with form and decorative image. Features social login option, form on left side, full-height image on right. Responsive layout hides image on mobile.
-
-:BlockShowcase{blockPath="SignUp/BlockSignUpImage" containerClass="h-screen" component="BlockSignUpImage" iframeHeight="700px"}
-
-## Two Column
-
-Modern two-column layout with feature showcase. Left side includes first/last name fields, terms checkbox, and social options. Right side displays branded message on muted background.
-
-:BlockShowcase{blockPath="SignUp/BlockSignUpTwoColumn" containerClass="h-screen" component="BlockSignUpTwoColumn" iframeHeight="700px"}
+:BlockShowcase{blockPath="SignUp/BlockSignUpPasswordMeter" containerClass="h-screen" component="BlockSignUpPasswordMeter" iframeHeight="800px"}
 
 ## Minimal Card
 
-Centered card with icon header and password confirmation. Features circular user icon badge, confirm password field for validation, and clean card design with muted background.
+A centered card with a circular icon header and a confirm password field.
 
-:BlockShowcase{blockPath="SignUp/BlockSignUpMinimal" containerClass="h-screen" component="BlockSignUpMinimal" iframeHeight="650px"}
+:BlockShowcase{blockPath="SignUp/BlockSignUpMinimal" containerClass="h-screen" component="BlockSignUpMinimal" iframeHeight="800px"}
+
+## Social
+
+Name, email and password first, then Google and GitHub side by side below a divider, on a faded grid.
+
+:BlockShowcase{blockPath="SignUp/BlockSignUpSocial" containerClass="h-screen" component="BlockSignUpSocial" iframeHeight="800px"}
 
 ## Centered Social
 
-Social-first authentication with centered layout. Company logo, prominent social buttons above traditional form, and optional marketing checkbox for user preferences.
+Social first. Google and GitHub buttons sit above the form, with a logo header and an optional product updates checkbox.
 
-:BlockShowcase{blockPath="SignUp/BlockSignUpCentered" containerClass="h-screen" component="BlockSignUpCentered" iframeHeight="750px"}
+:BlockShowcase{blockPath="SignUp/BlockSignUpCentered" containerClass="h-screen" component="BlockSignUpCentered" iframeHeight="850px"}
 
-## Compact
+## Header Navigation
 
-Ultra-compact signup with minimal fields. Features borderless inputs, simple card design, and terms/privacy policy notice below form. Perfect for quick account creation flows.
+A top bar with logo, links and a log in button above a centered form. Use it when sign up is part of your marketing site.
 
-:BlockShowcase{blockPath="SignUp/BlockSignUpCompact" containerClass="h-screen" component="BlockSignUpCompact" iframeHeight="600px"}
+:BlockShowcase{blockPath="SignUp/BlockSignUpHeaderNav" containerClass="h-screen" component="BlockSignUpHeaderNav" iframeHeight="800px"}
+
+## Multi-step with Progress
+
+Three steps with a numbered progress indicator: account, about you, done. Each step validates only its own fields, and values are kept when the user goes back.
+
+:BlockShowcase{blockPath="SignUp/BlockSignUpProgress" containerClass="h-screen" component="BlockSignUpProgress" iframeHeight="800px"}
+
+## Multi-step with Sidebar
+
+A brand sidebar lists every step with its completed state. On small screens it collapses to a progress bar. The steps cover details, workspace and inviting teammates, and the last one can be skipped.
+
+:BlockShowcase{blockPath="SignUp/BlockSignUpSidebarProgress" containerClass="h-screen" component="BlockSignUpSidebarProgress" iframeHeight="800px"}
+
+## Split w/ Image
+
+Form on the left and a full height image with a caption on the right. The image hides on small screens.
+
+:BlockShowcase{blockPath="SignUp/BlockSignUpImage" containerClass="h-screen" component="BlockSignUpImage" iframeHeight="800px"}
+
+## Split w/ Quote
+
+Form on the left and a brand colored panel on the right with a customer quote, rating and avatar. Includes a terms checkbox that must be accepted.
+
+:BlockShowcase{blockPath="SignUp/BlockSignUpSplitQuote" containerClass="h-screen" component="BlockSignUpSplitQuote" iframeHeight="800px"}
+
+## Split w/ Mockup
+
+Form on the left and a partial app preview on the right, built from plain cards and bars so it follows your theme. A benefit list sits above the preview.
+
+:BlockShowcase{blockPath="SignUp/BlockSignUpSplitMockup" containerClass="h-screen" component="BlockSignUpSplitMockup" iframeHeight="850px"}
+
+## Split w/ Carousel
+
+Form on the left and a panel that cycles through customer quotes every few seconds. It pauses on hover and has clickable dots.
+
+:BlockShowcase{blockPath="SignUp/BlockSignUpSplitCarousel" containerClass="h-screen" component="BlockSignUpSplitCarousel" iframeHeight="800px"}

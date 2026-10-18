@@ -1,5 +1,9 @@
 <template>
-  <div class="flex h-screen items-center justify-center px-5">
+  <!--
+    Centered sign up with the social buttons first
+    Features: Logo header with log in link, Google and GitHub buttons above the form, password toggle, optional product updates checkbox
+  -->
+  <div class="flex min-h-screen items-center justify-center px-5 py-12">
     <div class="w-full max-w-[380px]">
       <div class="text-center">
         <svg
@@ -43,10 +47,15 @@
               name="email"
               placeholder="you@company.com"
             />
-            <UiVeeInput required label="Password" type="password" name="password" />
+            <UiVeePasswordInput
+              required
+              label="Password"
+              name="password"
+              placeholder="Create a password"
+              hint="Must be at least 8 characters."
+            />
             <div class="flex items-start gap-3">
               <UiVeeCheckbox
-                required
                 name="marketing"
                 label="Send me occasional product updates and announcements"
               />
@@ -58,7 +67,7 @@
         <p class="text-muted-foreground mt-6 text-center text-sm">
           Already have an account?
           <NuxtLink class="text-primary font-semibold underline-offset-2 hover:underline" to="#"
-            >Sign in</NuxtLink
+            >Log in</NuxtLink
           >
         </p>
       </div>

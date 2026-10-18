@@ -1,4 +1,8 @@
 <template>
+  <!--
+    Forgot password form inside a card
+    Features: Icon badge, email field with hint, divider, sign in link
+  -->
   <div class="bg-muted/30 relative flex min-h-screen items-center justify-center p-4">
     <UiCard class="w-full max-w-md shadow-none">
       <div class="p-6 lg:p-8">

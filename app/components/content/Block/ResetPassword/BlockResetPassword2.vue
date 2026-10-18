@@ -1,51 +1,51 @@
 <template>
+  <!--
+    Reset password form inside a card
+    Features: New and confirm password with show and hide toggle, requirements checklist, match validation, back to log in link
+  -->
   <div class="bg-muted/30 relative flex min-h-screen items-center justify-center p-4">
-    <UiCard class="w-full max-w-md">
+    <UiCard class="w-full max-w-md shadow-sm">
       <div class="p-6 lg:p-8">
+        <div class="mb-6 flex justify-center">
+          <div class="bg-primary/10 flex size-14 items-center justify-center rounded-full">
+            <Icon class="text-primary size-7" name="lucide:shield-check" />
+          </div>
+        </div>
+
         <div class="mb-8 text-center">
-          <h1 class="mb-2 text-2xl font-bold tracking-tight">{{ title }}</h1>
-          <p class="text-muted-foreground text-sm">{{ description }}</p>
+          <h1 class="mb-2 text-2xl font-bold tracking-tight">Create new password</h1>
+          <p class="text-muted-foreground text-sm">
+            Choose a strong password you haven't used before.
+          </p>
         </div>
 
         <form @submit="submit">
           <fieldset :disabled="isSubmitting" class="grid gap-5">
-            <UiVeeInput
+            <UiVeePasswordInput
+              show-requirements
               label="New password"
-              type="password"
               name="password"
-              placeholder="••••••••"
+              placeholder="Enter a new password"
+              :requirements="['length', 'number', 'special']"
             />
-
-            <UiVeeInput
+            <UiVeePasswordInput
               label="Confirm password"
-              type="password"
               name="confirmPassword"
-              placeholder="••••••••"
+              placeholder="Repeat your new password"
             />
-
-            <div class="bg-muted/50 rounded-lg p-4">
-              <p class="text-muted-foreground mb-2 text-xs font-medium">Password must contain:</p>
-              <ul class="text-muted-foreground space-y-1 text-xs">
-                <li class="flex items-center gap-2">
-                  <Icon
-                    :class="['size-4', meta.valid ? 'text-green-600' : 'text-muted-foreground/40']"
-                    name="lucide:check-circle"
-                  />
-                  At least 8 characters
-                </li>
-                <li class="flex items-center gap-2">
-                  <Icon
-                    :class="['size-4', meta.valid ? 'text-green-600' : 'text-muted-foreground/40']"
-                    name="lucide:check-circle"
-                  />
-                  One number and one special character
-                </li>
-              </ul>
-            </div>
-
-            <UiButton class="w-full" size="lg" type="submit"> Reset Password </UiButton>
+            <UiButton class="w-full" size="lg" type="submit">Reset password</UiButton>
           </fieldset>
         </form>
+
+        <p class="mt-6 text-center text-sm">
+          <NuxtLink
+            class="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 font-medium underline-offset-4 hover:underline"
+            to="#"
+          >
+            <Icon name="lucide:arrow-left" class="size-4" />
+            Back to log in
+          </NuxtLink>
+        </p>
       </div>
     </UiCard>
   </div>
@@ -55,34 +55,27 @@
   import { object, string, ref as yupRef } from "yup";
   import type { InferType } from "yup";
 
-  const title = "Create new password";
-  const description = "Enter a new password for your account.";
-
-  useSeoMeta({ title, description });
-
-  const ResetPasswordSchema = object({
+  // Keep the schema in step with the `requirements` shown in the checklist.
+  const ResetSchema = object({
     password: string()
       .required()
+      .label("Password")
       .min(8)
-      .matches(
-        /^(?=.*\d)(?=.*[!@#$%^&*])/,
-        "Password must contain at least one number and one special character"
-      )
-      .label("Password"),
+      .matches(/[0-9]/, "Password needs a number")
+      .matches(/[^A-Za-z0-9]/, "Password needs a special character"),
     confirmPassword: string()
       .required()
-      .oneOf([yupRef("password")], "Passwords must match")
-      .label("Confirm password"),
+      .label("Confirmation")
+      .oneOf([yupRef("password")], "Passwords must match"),
   });
 
-  const { handleSubmit, isSubmitting, meta } = useForm<InferType<typeof ResetPasswordSchema>>({
-    validationSchema: ResetPasswordSchema,
+  const { handleSubmit, isSubmitting } = useForm<InferType<typeof ResetSchema>>({
+    validationSchema: ResetSchema,
   });
 
-  const submit = handleSubmit(async (values) => {
-    console.log(values);
-    useSonner.success("Password reset", {
-      description: "Your password has been successfully reset.",
+  const submit = handleSubmit(async (_) => {
+    useSonner("Password updated", {
+      description: "Your password has been updated successfully.",
     });
   });
 </script>

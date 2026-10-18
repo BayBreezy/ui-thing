@@ -1,58 +1,72 @@
 ---
 title: Forgot & Reset Password
-description: Password recovery and reset components including email input, success confirmation, password reset, OTP verification, and two-step authentication. Features centered layouts, card designs, split-screen layouts, and clear user feedback.
+description: Password recovery blocks including forgot password forms, an interactive email flow, success confirmations, reset forms with a live requirements checklist, one time code verification and two-step verification.
 ---
 
-## Style One
+Recovery blocks use `vee-validate` with `yup`. The reset forms use the `UiVeePasswordInput` strength meter and requirements checklist, and the schema mirrors the checklist so the two never disagree.
 
-Email input form for password recovery with grid background. Simple centered layout with email field and instructions to send reset link.
+## Forgot Password
 
-:BlockShowcase{blockPath="ForgotPassword/BlockForgotPassword" containerClass="h-screen" component="BlockForgotPassword" iframeHeight="550px"}
+Email form for password recovery on a grid background, with a key icon and a back to log in link.
 
-## Style Two
+:BlockShowcase{blockPath="ForgotPassword/BlockForgotPassword" containerClass="h-screen" component="BlockForgotPassword" iframeHeight="650px"}
 
-Card-based forgot password form with muted background. Clean centered design with email input, divider, and sign-in link. Features icon badge and helpful hint text.
+## Forgot Password in a Card
 
-:BlockShowcase{blockPath="ForgotPassword/BlockForgotPassword2" containerClass="h-screen" component="BlockForgotPassword2" iframeHeight="600px"}
+A card with an icon badge, an email field with a hint, a divider and a sign in link.
 
-## Style Three
+:BlockShowcase{blockPath="ForgotPassword/BlockForgotPassword2" containerClass="h-screen" component="BlockForgotPassword2" iframeHeight="700px"}
 
-Split-screen forgot password layout. Left side features the form while right side displays security information with feature highlights and icons. Modern design for larger screens.
+## Forgot Password Split
 
-:BlockShowcase{blockPath="ForgotPassword/BlockForgotPassword3" containerClass="h-screen" component="BlockForgotPassword3" iframeHeight="700px"}
+Email form on the left and a panel on the right that explains the three recovery steps. The panel hides on small screens.
 
-## Success Confirmation
+:BlockShowcase{blockPath="ForgotPassword/BlockForgotPassword3" containerClass="h-screen" component="BlockForgotPassword3" iframeHeight="750px"}
 
-Success confirmation page. Displays after email submission with mail icon, success message, and option to resend instructions.
+## Forgot Password Flow
 
-:BlockShowcase{blockPath="ForgotPassword/BlockForgotPasswordSuccess" containerClass="h-screen" component="BlockForgotPasswordSuccess" iframeHeight="550px"}
+One interactive card. Submitting the email swaps the card to a check your inbox state in place, with a resend cooldown and a use a different email action.
+
+:BlockShowcase{blockPath="ForgotPassword/BlockForgotPasswordFlow" containerClass="h-screen" component="BlockForgotPasswordFlow" iframeHeight="650px"}
+
+## Check Your Inbox
+
+The confirmation page shown after the email is sent. It shows the address, an open email app button, and a resend link with a cooldown.
+
+:BlockShowcase{blockPath="ForgotPassword/BlockForgotPasswordSuccess" containerClass="h-screen" component="BlockForgotPasswordSuccess" iframeHeight="650px"}
+
+## Reset Password
+
+New and confirm password fields with a strength meter and requirements checklist, on a grid background.
+
+:BlockShowcase{blockPath="ResetPassword/BlockResetPassword" containerClass="h-screen" component="BlockResetPassword" iframeHeight="850px"}
+
+## Reset Password in a Card
+
+A card version with a shorter checklist and a back to log in link.
+
+:BlockShowcase{blockPath="ResetPassword/BlockResetPassword2" containerClass="h-screen" component="BlockResetPassword2" iframeHeight="800px"}
+
+## Password Reset Confirmation
+
+Shown after the password is changed. A success icon, a continue to log in button and a contact support link.
+
+:BlockShowcase{blockPath="ResetPassword/BlockResetPasswordSuccess" containerClass="h-screen" component="BlockResetPasswordSuccess" iframeHeight="600px"}
+
+## OTP Verification
+
+Six digit code verification with `UiVeePinInput` on a grid background, with a resend link.
+
+:BlockShowcase{blockPath="OTP/BlockOTPVerification" containerClass="h-screen" component="BlockOTPVerification" iframeHeight="700px"}
+
+## OTP Verification in a Card
+
+A card version with a lock icon, instructions and a resend option below a divider.
+
+:BlockShowcase{blockPath="OTP/BlockOTPVerification2" containerClass="h-screen" component="BlockOTPVerification2" iframeHeight="700px"}
 
 ## Two-Step Verification
 
-Multi-method verification selector. Users choose between email or SMS verification with dynamic form fields. Features card-based selection with icons and check indicators.
+Let users choose between email and SMS for their verification code. Selectable cards with check indicators reveal the matching field.
 
-:BlockShowcase{blockPath="ForgotPassword/BlockTwoStepVerification" containerClass="h-screen" component="BlockTwoStepVerification" iframeHeight="750px"}
-
-## OTP Verification - Style One
-
-OTP verification with grid background. Features 6-digit PIN input using UiVeePinInput, email confirmation display, and resend functionality.
-
-:BlockShowcase{blockPath="OTP/BlockOTPVerification" containerClass="h-screen" component="BlockOTPVerification" iframeHeight="600px"}
-
-## OTP Verification - Style Two
-
-Card-based OTP verification. Clean centered design with lock icon, 6-digit PIN input, verification instructions, and resend option with divider.
-
-:BlockShowcase{blockPath="OTP/BlockOTPVerification2" containerClass="h-screen" component="BlockOTPVerification2" iframeHeight="650px"}
-
-## Reset Password - Style One
-
-Password reset form with validation and grid background. Features password strength indicators, confirmation field matching, and real-time validation feedback with check icons.
-
-:BlockShowcase{blockPath="ResetPassword/BlockResetPassword" containerClass="h-screen" component="BlockResetPassword" iframeHeight="680px"}
-
-## Reset Password - Style Two
-
-Card-based password reset form. Minimal design with password inputs, validation requirements list in muted background, and clear visual feedback.
-
-:BlockShowcase{blockPath="ResetPassword/BlockResetPassword2" containerClass="h-screen" component="BlockResetPassword2" iframeHeight="650px"}
+:BlockShowcase{blockPath="ForgotPassword/BlockTwoStepVerification" containerClass="h-screen" component="BlockTwoStepVerification" iframeHeight="800px"}

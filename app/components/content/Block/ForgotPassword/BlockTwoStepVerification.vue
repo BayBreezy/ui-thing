@@ -1,4 +1,8 @@
 <template>
+  <!--
+    Choose how to receive a verification code
+    Features: Selectable email or SMS cards with check indicators, conditional email or phone field, continue button
+  -->
   <div class="relative flex min-h-screen items-center justify-center p-4">
     <!-- Grid Background -->
     <div

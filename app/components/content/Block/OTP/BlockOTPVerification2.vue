@@ -1,4 +1,8 @@
 <template>
+  <!--
+    One time code verification inside a card
+    Features: Lock icon, six digit PIN input, resend code option, back to log in link
+  -->
   <div class="bg-muted/30 relative flex min-h-screen items-center justify-center p-4">
     <UiCard class="w-full max-w-lg">
       <div class="p-6 lg:p-8">
@@ -23,7 +27,7 @@
               <UiVeePinInput
                 class="justify-center **:data-[slot=pin-input-input]:size-12"
                 name="code"
-                :length="6"
+                :input-count="6"
                 type="text"
                 placeholder="0"
               />

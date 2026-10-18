@@ -1,5 +1,9 @@
 <template>
-  <div class="bg-muted/50 flex h-screen items-center justify-center px-5">
+  <!--
+    Minimal sign up card with an icon header
+    Features: Centered card, circular icon, password and confirm password with show and hide toggle, log in footer
+  -->
+  <div class="bg-muted/50 flex min-h-screen items-center justify-center px-5 py-12">
     <div class="bg-card w-full max-w-[420px] rounded-lg border p-8 shadow-sm">
       <div class="mb-8 text-center">
         <div
@@ -21,19 +25,18 @@
             name="email"
             placeholder="you@example.com"
           />
-          <UiVeeInput
+          <UiVeePasswordInput
             required
             label="Password"
-            type="password"
             name="password"
-            placeholder="••••••••"
+            placeholder="Create a password"
+            hint="Must be at least 8 characters."
           />
-          <UiVeeInput
+          <UiVeePasswordInput
             required
             label="Confirm password"
-            type="password"
             name="confirmPassword"
-            placeholder="••••••••"
+            placeholder="Repeat your password"
           />
           <UiButton class="w-full" type="submit" text="Create account" />
         </fieldset>
