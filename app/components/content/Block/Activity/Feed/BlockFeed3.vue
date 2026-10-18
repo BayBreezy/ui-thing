@@ -29,7 +29,7 @@
               ><Icon
                 name="lucide:heart"
                 class="size-4"
-                :class="post.liked ? 'fill-current text-rose-500' : ''"
+                :class="post.liked ? 'text-rose-500 [&_path]:fill-current' : ''"
               />{{ post.likes }}</UiButton
             >
             <UiButton variant="ghost" size="sm" @click="post.open = !post.open"

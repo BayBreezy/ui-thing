@@ -76,7 +76,7 @@
                 ><Icon
                   name="lucide:star"
                   class="size-4"
-                  :class="file.starred ? 'fill-amber-400 text-amber-400' : ''"
+                  :class="file.starred ? 'text-amber-400 [&_path]:fill-amber-400' : ''"
               /></UiButton>
               <UiButton
                 variant="ghost"

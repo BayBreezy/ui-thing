@@ -743,6 +743,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "request an integration",
     "marketplace",
   ],
+  IntegrationDetail: [
+    "integration detail",
+    "integration page",
+    "setup steps",
+    "connect account",
+    "permissions",
+    "scopes",
+    "oauth",
+    "related integrations",
+    "app listing",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -1183,6 +1194,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   {
     test: (path) => path.startsWith("IntegrationsMarketing/IntegrationsGrid/"),
     docsPath: "/blocks/integrations-grid",
+  },
+  {
+    test: (path) => path.startsWith("IntegrationsMarketing/IntegrationDetail/"),
+    docsPath: "/blocks/integrations-detail",
   },
 ];
 

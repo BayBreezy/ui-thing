@@ -109,7 +109,7 @@
                   <Icon
                     name="lucide:arrow-big-up"
                     class="size-4"
-                    :class="request.voted ? 'fill-current' : ''"
+                    :class="request.voted ? '[&_path]:fill-current' : ''"
                   />{{ request.votes }}
                 </button>
                 <span class="flex items-center gap-1"

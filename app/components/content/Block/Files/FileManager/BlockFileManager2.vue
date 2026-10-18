@@ -98,7 +98,9 @@
                     name="lucide:star"
                     class="size-4"
                     :class="
-                      file.starred ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground'
+                      file.starred
+                        ? 'text-amber-400 [&_path]:fill-amber-400'
+                        : 'text-muted-foreground'
                     "
                 /></UiButton>
               </div>

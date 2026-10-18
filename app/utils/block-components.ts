@@ -312,6 +312,14 @@ export default {
   "Chat/InboxLayouts/BlockInboxLayouts3":
     "avatar badge bubble button input label message native-select toggle-group",
   "Chat/InboxLayouts/BlockInboxLayouts4": "avatar badge bubble button input label message",
+  "IntegrationsMarketing/IntegrationDetail/BlockIntegrationDetail1":
+    "avatar badge button container tabs",
+  "IntegrationsMarketing/IntegrationDetail/BlockIntegrationDetail2":
+    "button container label progress select",
+  "IntegrationsMarketing/IntegrationDetail/BlockIntegrationDetail3":
+    "badge button card container label switch",
+  "IntegrationsMarketing/IntegrationDetail/BlockIntegrationDetail4":
+    "badge button card container toggle-group",
   "Settings/Integrations/BlockSettingsIntegrationsGrid": "badge button card input switch",
   "Settings/Integrations/BlockSettingsIntegrationsList": "alert-dialog button card",
   "IntegrationsMarketing/IntegrationsGrid/BlockIntegrationsGrid1": "button container",
