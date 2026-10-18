@@ -699,6 +699,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "subscribe to updates",
     "rss",
   ],
+  Roadmap: [
+    "roadmap",
+    "product roadmap",
+    "feature requests",
+    "voting",
+    "now next later",
+    "upvote",
+    "planned",
+    "quarterly plan",
+    "gantt",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -1130,6 +1141,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     test: (path) => path.startsWith("Changelog/Releases/"),
     docsPath: "/blocks/changelog-releases",
   },
+  { test: (path) => path.startsWith("Changelog/Roadmap/"), docsPath: "/blocks/changelog-roadmap" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [

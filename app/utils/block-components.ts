@@ -477,6 +477,13 @@ export default {
   "ResetPassword/BlockResetPassword": "button vee-password-input",
   "ResetPassword/BlockResetPassword2": "button card vee-password-input",
   "ResetPassword/BlockResetPasswordSuccess": "button card",
+  "Changelog/Roadmap/BlockRoadmap1": "badge container progress select",
+  "Changelog/Roadmap/BlockRoadmap2": "container",
+  "Changelog/Roadmap/BlockRoadmap3": "badge button container toggle-group",
+  "Changelog/Roadmap/BlockRoadmap4": "badge button container input select",
+  "Changelog/Roadmap/BlockRoadmap5": "button container",
+  "Changelog/Roadmap/BlockRoadmap6":
+    "avatar badge button card container dialog input label select textarea",
   "Blog/Section/BlockBlogSection1": "avatar button container",
   "Blog/Section/BlockBlogSection2": "badge button container",
   "Blog/Section/BlockBlogSection3": "avatar container",
