@@ -555,6 +555,18 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "delete confirmation",
     "checkbox table",
   ],
+  TaskList: [
+    "tasks",
+    "todo",
+    "to do list",
+    "checklist",
+    "subtasks",
+    "backlog",
+    "due dates",
+    "reorder",
+    "task table",
+    "project management",
+  ],
   Board: [
     "kanban",
     "board",
@@ -899,6 +911,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     docsPath: "/blocks/chat-inbox-layouts",
   },
   { test: (path) => path.startsWith("Tasks/Board/"), docsPath: "/blocks/tasks-board" },
+  { test: (path) => path.startsWith("Tasks/TaskList/"), docsPath: "/blocks/tasks-task-list" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
