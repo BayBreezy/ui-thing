@@ -29,8 +29,14 @@ export default {
   "Chat/AiChat/BlockAiChat4": "bubble button message message-scroller trace",
   "Chat/AiChat/BlockAiChat5": "badge bubble button dropdown-menu label message message-scroller",
   "Chat/AiChat/BlockAiChat6": "bubble button dropdown-menu input label message scroll-area",
+  "Settings/ApiKeys/BlockSettingsApiKeysCreate":
+    "badge button card checkbox dialog input label select textarea toggle-group",
+  "Settings/ApiKeys/BlockSettingsApiKeysScopes": "alert button card select toggle-group",
   "Settings/ApiKeys/BlockSettingsApiKeysTable":
     "alert-dialog badge button card dialog input label native-select table",
+  "Settings/ApiKeys/BlockSettingsApiKeysUsage": "card select",
+  "Settings/ApiKeys/BlockSettingsApiKeysWebhooks":
+    "alert-dialog badge button card checkbox dialog input label switch",
   "Settings/Appearance/BlockSettingsAppearancePreferences":
     "button card label native-select radio-group switch",
   "Settings/Appearance/BlockSettingsAppearanceTheme": "button card label radio-group",
