@@ -1,57 +1,156 @@
 <template>
-  <UiContainer class="py-10 lg:py-20">
-    <div class="mx-auto max-w-3xl text-center">
-      <h2 class="mb-4 text-3xl font-semibold lg:text-4xl">What our customers say</h2>
-      <p class="text-muted-foreground text-lg">
-        Join thousands of satisfied customers who trust our platform.
-      </p>
+  <!--
+    Featured quote with supporting quotes
+    Features: Large brand colored featured quote beside two smaller quote cards stacked on the right, with a star rating and avatars
+  -->
+  <UiContainer class="py-16 lg:py-24">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-balance sm:text-4xl">{{ props.title }}</h2>
+      <p class="text-muted-foreground mt-3 text-lg text-balance">{{ props.description }}</p>
     </div>
-
-    <div class="mt-12 grid grid-cols-1 gap-8 lg:mt-16 lg:grid-cols-3">
-      <template v-for="(item, i) in testimonials" :key="i">
-        <div class="bg-card rounded-lg border p-6">
-          <div class="mb-4 flex items-center gap-1">
-            <template v-for="s in item.rating" :key="s">
-              <Icon name="lucide:star" class="size-4 fill-yellow-400 text-yellow-400" />
-            </template>
+    <div class="mt-12 grid gap-6 lg:grid-cols-5">
+      <Motion
+        :initial="{ opacity: 0, y: 20 }"
+        :while-in-view="{ opacity: 1, y: 0 }"
+        :in-view-options="{ once: true }"
+        :transition="{ duration: 0.5 }"
+        class="bg-primary text-primary-foreground relative flex flex-col justify-between gap-10 overflow-hidden rounded-3xl p-8 sm:p-10 lg:col-span-3"
+      >
+        <div
+          class="bg-primary-foreground/10 pointer-events-none absolute -top-20 -right-20 size-72 rounded-full blur-3xl"
+          aria-hidden="true"
+        />
+        <Icon name="lucide:quote" class="relative size-10 opacity-60" />
+        <blockquote class="relative text-2xl leading-snug font-medium text-balance sm:text-3xl">
+          {{ props.items[0]!.quote }}
+        </blockquote>
+        <figcaption class="relative flex items-center gap-3">
+          <UiAvatar
+            :src="props.items[0]!.avatar"
+            :fallback="props.items[0]!.name[0]"
+            class="size-12"
+          />
+          <div>
+            <p class="font-semibold">{{ props.items[0]!.name }}</p>
+            <p class="text-primary-foreground/75 text-sm">
+              {{ props.items[0]!.role }}, {{ props.items[0]!.company }}
+            </p>
           </div>
-          <p class="mb-6 text-lg">{{ item.quote }}</p>
-          <div class="flex items-center gap-3">
-            <UiAvatar :src="item.avatar" class="size-12" />
+        </figcaption>
+      </Motion>
+      <div class="grid gap-6 lg:col-span-2">
+        <Motion
+          v-for="(t, i) in props.items.slice(1, 3)"
+          :key="t.name"
+          :initial="{ opacity: 0, y: 20 }"
+          :while-in-view="{ opacity: 1, y: 0 }"
+          :in-view-options="{ once: true }"
+          :transition="{ duration: 0.5, delay: 0.1 + i * 0.1 }"
+          class="bg-card flex flex-col justify-between gap-6 rounded-3xl border p-6"
+        >
+          <blockquote class="leading-relaxed">“{{ t.quote }}”</blockquote>
+          <figcaption class="flex items-center gap-3">
+            <UiAvatar :src="t.avatar" :fallback="t.name[0]" />
             <div>
-              <p class="font-semibold">{{ item.name }}</p>
-              <p class="text-muted-foreground text-sm">{{ item.title }}</p>
+              <p class="text-sm font-semibold">{{ t.name }}</p>
+              <p class="text-muted-foreground text-xs">{{ t.role }}, {{ t.company }}</p>
             </div>
-          </div>
-        </div>
-      </template>
+          </figcaption>
+        </Motion>
+      </div>
     </div>
   </UiContainer>
 </template>
 
 <script lang="ts" setup>
-  const testimonials = [
+  type Testimonial = {
+    quote: string;
+    name: string;
+    role: string;
+    company: string;
+    handle: string;
+    avatar: string;
+  };
+
+  const props = withDefaults(
+    defineProps<{ title?: string; description?: string; items?: Testimonial[] }>(),
     {
-      quote:
-        "The best decision we made was switching to this platform. Our productivity has doubled.",
-      rating: 5,
-      name: "Alex Johnson",
-      title: "CEO, TechStart",
-      avatar: "https://api.dicebear.com/7.x/lorelei/svg?seed=alex",
-    },
-    {
-      quote: "Amazing support team and great features. Couldn't ask for more!",
-      rating: 5,
-      name: "Maria Garcia",
-      title: "Product Manager, InnovateCo",
-      avatar: "https://api.dicebear.com/7.x/lorelei/svg?seed=maria",
-    },
-    {
-      quote: "Simple, powerful, and reliable. Exactly what we needed for our team.",
-      rating: 5,
-      name: "David Chen",
-      title: "CTO, DevSolutions",
-      avatar: "https://api.dicebear.com/7.x/lorelei/svg?seed=david",
-    },
-  ];
+      title: "Customers who never looked back",
+      description: "Real words from real teams.",
+      items: () => [
+        {
+          quote:
+            "We replaced three tools with one and our planning meetings got shorter overnight. The team actually enjoys opening it.",
+          name: "Sarah Johnson",
+          role: "CEO",
+          company: "Northwind",
+          handle: "@sarahj",
+          avatar: "https://i.pravatar.cc/120?img=47",
+        },
+        {
+          quote:
+            "Onboarding a new engineer used to take two weeks. With the shared workspace it takes an afternoon.",
+          name: "Michael Chen",
+          role: "CTO",
+          company: "Vertex",
+          handle: "@mchen",
+          avatar: "https://i.pravatar.cc/120?img=12",
+        },
+        {
+          quote:
+            "Support volume dropped by a third in the first quarter because customers finally find answers on their own.",
+          name: "Emily Rodriguez",
+          role: "Head of Support",
+          company: "Lumen",
+          handle: "@emilyrod",
+          avatar: "https://i.pravatar.cc/120?img=32",
+        },
+        {
+          quote:
+            "The best investment we made this year. Our releases are calmer and nobody dreads Mondays anymore.",
+          name: "Priya Nair",
+          role: "VP of Engineering",
+          company: "Orbit",
+          handle: "@priya_n",
+          avatar: "https://i.pravatar.cc/120?img=45",
+        },
+        {
+          quote:
+            "Simple, powerful and reliable. Exactly what we needed for a team that grew from five to fifty.",
+          name: "Noah Fischer",
+          role: "Founder",
+          company: "Pulse",
+          handle: "@noahf",
+          avatar: "https://i.pravatar.cc/120?img=53",
+        },
+        {
+          quote:
+            "Outstanding support. I asked for a small change on Tuesday and it shipped on Wednesday.",
+          name: "Ana Souza",
+          role: "Operations Lead",
+          company: "Nimbus",
+          handle: "@anasouza",
+          avatar: "https://i.pravatar.cc/120?img=44",
+        },
+        {
+          quote:
+            "Every detail feels considered. It is rare to find software that is this fast and this friendly.",
+          name: "Hannah Lee",
+          role: "Product Manager",
+          company: "Quanta",
+          handle: "@hannahlee",
+          avatar: "https://i.pravatar.cc/120?img=49",
+        },
+        {
+          quote:
+            "We evaluated six alternatives. Nothing else came close on price, polish or the people behind it.",
+          name: "Diego Alvarez",
+          role: "Director of IT",
+          company: "Summit",
+          handle: "@diegoa",
+          avatar: "https://i.pravatar.cc/120?img=33",
+        },
+      ],
+    }
+  );
 </script>

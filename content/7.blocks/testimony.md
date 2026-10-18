@@ -1,69 +1,78 @@
 ---
 title: Testimony
-description: Customer testimonial section examples with various layouts. Features carousel sliders, grid layouts, company logos, ratings, and customer quotes to build trust and credibility.
+description: "Testimonial blocks with single quotes, a slider, card grids, a masonry wall of love, rating summaries, vertical marquees, a customer story, social post cards, an avatar switcher and a scroll snap carousel. Built with theme tokens and a typed items array."
 ---
+
+Every block takes an `items` prop with `quote`, `name`, `role`, `company`, `handle` and `avatar`, so you can swap in your own customers without touching the markup. Avatars are placeholders, replace them with real photos. Star ratings use `UiRating` with a solid icon so the fill follows your theme.
 
 ## Style One
 
-Carousel testimonial slider with auto-rotation. Features centered quotes, customer avatars, star ratings, and company information. Uses Nuxt Swiper Module for smooth transitions between testimonials.
+Large centered quote with a star rating, avatar, name and role that fades in on scroll.
 
-This one requires the [Nuxt Swiper Module](https://github.com/cpreston321/nuxt-swiper?tab=readme-ov-file#features).
-
-:prose-pm-x{command="nuxi@latest module add swiper"}
-
-Then add it to your `nuxt.config` file.
-
-```ts
-export default defineNuxtConfig({
-  modules: ["nuxt-swiper"],
-  swiper: {
-    /* module options */
-  },
-});
-```
-
-:BlockShowcase{blockPath="Testimony/BlockTestimony1" component="BlockTestimony1"}
+:BlockShowcase{blockPath="Testimony/BlockTestimony1" component="BlockTestimony1" iframeHeight="460px"}
 
 ## Style Two
 
-Single centered testimonial with company logos. Features large quote display, customer details with avatar, star rating, and brand logos below for social proof.
+Slider that shows one quote at a time with previous and next buttons, dot pagination and an animated slide.
 
-:BlockShowcase{blockPath="Testimony/BlockTestimony2" component="BlockTestimony2"}
+:BlockShowcase{blockPath="Testimony/BlockTestimony2" component="BlockTestimony2" iframeHeight="520px"}
 
 ## Style Three
 
-Side-by-side testimonial with customer image. Features large customer photo on the left, star rating at top, quote, and customer details. Responsive layout stacks vertically on mobile.
+Heading and three quote cards with star ratings, avatars and roles.
 
-:BlockShowcase{blockPath="Testimony/BlockTestimony3" component="BlockTestimony3"}
+:BlockShowcase{blockPath="Testimony/BlockTestimony3" component="BlockTestimony3" iframeHeight="520px"}
 
 ## Style Four
 
-Split layout with testimonial carousel. Combines static quote section with background image carousel slider. Features decorative SVG element and glass-morphism cards. Requires Nuxt Swiper Module.
+Masonry wall of eight quote cards with handles on a muted background. A single column on mobile.
 
-This one requires the [Nuxt Swiper Module](https://github.com/cpreston321/nuxt-swiper?tab=readme-ov-file#features).
-
-:BlockShowcase{blockPath="Testimony/BlockTestimony4" component="BlockTestimony4" iframeHeight="750px"}
+:BlockShowcase{blockPath="Testimony/BlockTestimony4" component="BlockTestimony4" iframeHeight="820px"}
 
 ## Style Five
 
-Three-column testimonial grid with cards. Features equal-height cards with star ratings, quotes, and customer avatars. Clean grid layout perfect for showcasing multiple testimonials.
+Brand colored featured quote beside two smaller quote cards.
 
-:BlockShowcase{blockPath="Testimony/BlockTestimony5" component="BlockTestimony5" iframeHeight="600px"}
+:BlockShowcase{blockPath="Testimony/BlockTestimony5" component="BlockTestimony5" iframeHeight="700px"}
 
 ## Style Six
 
-Two-column layout with stats and testimonials. Left side shows overall rating (4.9/5) and customer count with visual divider. Right side displays stacked testimonial cards with compact layout.
+Overall rating with an animated star breakdown beside a list of written reviews.
 
-:BlockShowcase{blockPath="Testimony/BlockTestimony6" component="BlockTestimony6" iframeHeight="550px"}
+:BlockShowcase{blockPath="Testimony/BlockTestimony6" component="BlockTestimony6" iframeHeight="700px"}
 
 ## Style Seven
 
-Large card container with four testimonials. Features bordered card wrapper with centered heading and 2x2 grid layout of detailed testimonials including company names.
+Three columns of quote cards that scroll vertically in alternating directions with edge fades. Pauses on hover and stops for reduced motion.
 
-:BlockShowcase{blockPath="Testimony/BlockTestimony7" component="BlockTestimony7" iframeHeight="700px"}
+:BlockShowcase{blockPath="Testimony/BlockTestimony7" component="BlockTestimony7" iframeHeight="760px"}
 
 ## Style Eight
 
-Masonry grid layout with compact testimonial cards. Uses CSS columns for Pinterest-style staggered layout. Features multiple short testimonials with avatars and ratings in card format.
+Customer story with a portrait, company wordmark, large quote, three outcome stats and a link to the full story.
 
-:BlockShowcase{blockPath="Testimony/BlockTestimony8" component="BlockTestimony8" iframeHeight="650px"}
+:BlockShowcase{blockPath="Testimony/BlockTestimony8" component="BlockTestimony8" iframeHeight="560px"}
+
+## Style Nine
+
+Cards styled like social posts with an X logo, handle, timestamp and like count.
+
+:BlockShowcase{blockPath="Testimony/BlockTestimony9" component="BlockTestimony9" iframeHeight="620px"}
+
+## Style Ten
+
+Always dark panel with a large quote that crossfades when you pick a customer avatar.
+
+:BlockShowcase{blockPath="Testimony/BlockTestimony10" component="BlockTestimony10" iframeHeight="560px"}
+
+## Style Eleven
+
+Scroll snap row of quote cards with arrow buttons that scroll one card at a time and disable at the ends.
+
+:BlockShowcase{blockPath="Testimony/BlockTestimony11" component="BlockTestimony11" iframeHeight="520px"}
+
+## Style Twelve
+
+Slim banner with a short quote, avatar, name and a story link. Sits well between sections.
+
+:BlockShowcase{blockPath="Testimony/BlockTestimony12" component="BlockTestimony12" iframeHeight="260px"}

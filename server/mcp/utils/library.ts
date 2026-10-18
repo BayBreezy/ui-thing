@@ -447,7 +447,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "careers",
     "directory",
   ],
-  Testimony: ["testimonials", "reviews", "quotes"],
+  Testimony: [
+    "testimonials",
+    "reviews",
+    "quotes",
+    "wall of love",
+    "customer story",
+    "carousel",
+    "slider",
+    "ratings",
+    "case study",
+  ],
   SocialProof: [
     "logos",
     "trusted by",
