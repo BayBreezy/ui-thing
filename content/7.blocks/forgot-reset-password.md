@@ -53,6 +53,24 @@ Shown after the password is changed. A success icon, a continue to log in button
 
 :BlockShowcase{blockPath="ResetPassword/BlockResetPasswordSuccess" containerClass="h-screen" component="BlockResetPasswordSuccess" iframeHeight="600px"}
 
+## Reset Password with Strength Meter
+
+A split screen version with a live strength bar, a requirements checklist, a password tips panel on large screens and a success state after saving.
+
+:BlockShowcase{blockPath="ResetPassword/BlockResetPassword3" containerClass="h-screen" component="BlockResetPassword3" iframeHeight="800px"}
+
+## Reset Link Expired
+
+Shown when a reset link has expired or was already used. It asks for an email, sends a new link and makes you wait before you can ask again.
+
+:BlockShowcase{blockPath="ResetPassword/BlockResetPasswordExpired" containerClass="h-screen" component="BlockResetPasswordExpired" iframeHeight="700px"}
+
+## Change Password
+
+For signed in users: the current password, a new password with a strength meter and a match check, and an option to sign out of other devices.
+
+:BlockShowcase{blockPath="ResetPassword/BlockResetPasswordChange" containerClass="h-screen" component="BlockResetPasswordChange" iframeHeight="900px"}
+
 ## OTP Verification
 
 Six digit code verification with `UiVeePinInput` on a grid background, with a resend link.
