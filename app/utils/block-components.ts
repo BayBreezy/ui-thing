@@ -535,4 +535,13 @@ export default {
   "Onboarding/Welcome/BlockWelcome4": "button checkbox container",
   "Onboarding/Welcome/BlockWelcome5": "badge button container label radio-group switch",
   "Onboarding/Welcome/BlockWelcome6": "avatar button circular-progress container",
+  "Onboarding/Wizard/BlockWizard1":
+    "button card container input label native-select stepper switch",
+  "Onboarding/Wizard/BlockWizard2":
+    "button card container input label native-select stepper textarea",
+  "Onboarding/Wizard/BlockWizard3": "button input label progress radio-group textarea",
+  "Onboarding/Wizard/BlockWizard4": "button container loader progress vee-input vee-textarea",
+  "Onboarding/Wizard/BlockWizard5": "button card checkbox container label loader",
+  "Onboarding/Wizard/BlockWizard6":
+    "button checkbox container dialog input label native-select progress",
 } as const;

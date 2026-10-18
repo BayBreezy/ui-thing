@@ -555,6 +555,16 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "delete confirmation",
     "checkbox table",
   ],
+  Wizard: [
+    "onboarding",
+    "wizard",
+    "multi step",
+    "stepper",
+    "setup flow",
+    "review and confirm",
+    "modal wizard",
+    "step form",
+  ],
   Welcome: [
     "onboarding",
     "welcome",
@@ -758,6 +768,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   {
     test: (path) => path.startsWith("Onboarding/Welcome/"),
     docsPath: "/blocks/onboarding-welcome",
+  },
+  {
+    test: (path) => path.startsWith("Onboarding/Wizard/"),
+    docsPath: "/blocks/onboarding-wizard",
   },
 ];
 
