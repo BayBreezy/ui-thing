@@ -678,6 +678,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "space left",
     "breakdown",
   ],
+  Sharing: [
+    "share",
+    "sharing",
+    "share dialog",
+    "permissions",
+    "public link",
+    "access list",
+    "invite people",
+    "file details",
+    "password protected link",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -1104,6 +1115,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   { test: (path) => path.startsWith("Files/FileManager/"), docsPath: "/blocks/files-file-manager" },
   { test: (path) => path.startsWith("Files/Uploads/"), docsPath: "/blocks/files-uploads" },
   { test: (path) => path.startsWith("Files/Storage/"), docsPath: "/blocks/files-storage" },
+  { test: (path) => path.startsWith("Files/Sharing/"), docsPath: "/blocks/files-sharing" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
