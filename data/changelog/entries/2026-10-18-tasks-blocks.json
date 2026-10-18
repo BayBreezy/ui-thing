@@ -1,0 +1,14 @@
+{
+  "slug": "2026-10-18-tasks-blocks",
+  "date": "2026-10-18",
+  "title": "Tasks and Project Management Blocks",
+  "category": "feature",
+  "tags": ["blocks", "mcp"],
+  "summary": "28 new project management blocks covering kanban boards, task lists, task detail views, project overviews and sprint ceremonies, with a new project-management page plan for the MCP server.",
+  "body": "Added a set of project management blocks, available under **Blocks** in five new docs pages: Tasks - Board, Task List, Task Detail, Project Overview and Sprint. The boards use the Draggable component with a shared group, everything keeps its own state and uses fictional sample data, and drag and drop always has a keyboard alternative.\n\n#### Board\n\n- A classic kanban board with an inline add and a move menu, swimlanes, a compact scrolling board, collapsible columns, work in progress limits that refuse drops and a board with search and filters\n\n#### Task list\n\n- Tasks grouped by project, a simple checklist with filters and inline editing, a sortable task table, due date sections with snooze, a reorderable backlog and tasks with expandable subtasks\n\n#### Task detail\n\n- A side sheet, a full page with click to edit, comments and activity tabs, subtasks with attachments, a properties sidebar with popover pickers and a quick add dialog\n\n#### Project overview\n\n- A header with key stats, progress cards, team workload bars, a milestone timeline, a searchable project grid with favorites and a sortable portfolio table\n\n#### Sprint\n\n- Sprint planning with a capacity meter, a burndown chart drawn in plain SVG with a text alternative, a sprint review with velocity and a retrospective board with limited votes\n\n#### MCP\n\n- New `project-management` page plan, also picked up by `plan-app`\n- Block docs links and search keywords cover the five new categories\n",
+  "breaking": false,
+  "links": [
+    { "label": "Board", "href": "/blocks/tasks-board" },
+    { "label": "Sprint", "href": "/blocks/tasks-sprint" }
+  ]
+}
