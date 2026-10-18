@@ -1,153 +1,78 @@
 <template>
-  <footer>
-    <UiContainer class="py-16 lg:py-24">
-      <!-- Main Content -->
-      <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
-        <!-- Left Section - About -->
-        <div class="lg:col-span-5">
-          <NuxtLink to="#" class="mb-5 inline-flex items-center gap-3">
-            <img
-              src="/icon.png"
-              fit="contain"
-              alt="Company Logo"
-              title="Company Logo"
-              class="h-10 object-contain"
+  <!--
+    Two column footer with follow buttons
+    Features: Brand and pitch on the left, labeled follow buttons in pills on the right, inline navigation and a legal row with a back to top link
+  -->
+  <UiContainer as="footer" class="py-12 lg:py-16">
+    <div class="grid gap-10 md:grid-cols-2">
+      <div class="max-w-md space-y-4">
+        <NuxtLink to="#" class="flex items-center gap-2.5 text-lg font-semibold">
+          <svg
+            class="fill-primary h-7"
+            viewBox="0 0 53 44"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M23.2997 0L52.0461 28.6301V44H38.6311V34.1553L17.7522 13.3607L13.415 13.3607L13.415 44H0L0 0L23.2997 0ZM38.6311 15.2694V0L52.0461 0V15.2694L38.6311 15.2694Z"
             />
-            <span class="text-2xl font-bold">{{ COMPANY_NAME }}</span>
+          </svg>
+          {{ props.name }}
+        </NuxtLink>
+        <p class="text-muted-foreground text-sm leading-relaxed">{{ props.description }}</p>
+        <nav class="flex flex-wrap gap-x-5 gap-y-2 pt-1" aria-label="Footer">
+          <NuxtLink
+            v-for="link in links"
+            :key="link"
+            to="#"
+            class="text-sm font-medium transition-colors hover:underline hover:underline-offset-4"
+          >
+            {{ link }}
           </NuxtLink>
-          <p class="text-muted-foreground mb-6">
-            We're on a mission to transform the way teams collaborate and build products together.
-            Join us in shaping the future of work.
-          </p>
-
-          <!-- App Download Buttons -->
-          <div class="mb-6 flex flex-col gap-3 sm:flex-row">
-            <NuxtLink
-              to="#"
-              class="hover:border-primary hover:bg-primary/5 flex items-center gap-3 rounded-lg border px-4 py-2.5 transition-colors"
-            >
-              <Icon name="logos:apple-app-store" class="size-6" />
-              <div class="text-left">
-                <p class="text-muted-foreground text-xs">Download on the</p>
-                <p class="text-sm font-semibold">App Store</p>
-              </div>
-            </NuxtLink>
-            <NuxtLink
-              to="#"
-              class="hover:border-primary hover:bg-primary/5 flex items-center gap-3 rounded-lg border px-4 py-2.5 transition-colors"
-            >
-              <Icon name="logos:google-play-icon" class="size-6" />
-              <div class="text-left">
-                <p class="text-muted-foreground text-xs">Get it on</p>
-                <p class="text-sm font-semibold">Google Play</p>
-              </div>
-            </NuxtLink>
-          </div>
-
-          <!-- Social Links -->
-          <div>
-            <p class="mb-3 text-sm font-semibold">Follow us</p>
-            <div class="flex gap-3">
-              <NuxtLink
-                v-for="social in [
-                  'logos:facebook',
-                  'logos:twitter',
-                  'ri:instagram-fill',
-                  'logos:linkedin-icon',
-                  'logos:youtube-icon',
-                ]"
-                :key="social"
-                to="#"
-                class="hover:border-primary hover:bg-primary/5 flex h-10 w-10 items-center justify-center rounded-full border transition-all hover:scale-110"
-              >
-                <Icon :name="social" class="h-5 w-5" />
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Section - Links -->
-        <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:col-span-7 lg:grid-cols-3">
-          <div>
-            <h3 class="mb-4 text-sm font-semibold tracking-wider uppercase">Platform</h3>
-            <ul class="space-y-3">
-              <li
-                v-for="item in [
-                  'Overview',
-                  'Features',
-                  'Integrations',
-                  'Pricing',
-                  'Changelog',
-                  'Status',
-                ]"
-                :key="item"
-              >
-                <NuxtLink
-                  class="text-muted-foreground hover:text-primary text-sm transition-colors"
-                  to="#"
-                >
-                  {{ item }}
-                </NuxtLink>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="mb-4 text-sm font-semibold tracking-wider uppercase">Resources</h3>
-            <ul class="space-y-3">
-              <li
-                v-for="item in [
-                  'Documentation',
-                  'API Reference',
-                  'Guides',
-                  'Blog',
-                  'Community',
-                  'Support',
-                ]"
-                :key="item"
-              >
-                <NuxtLink
-                  class="text-muted-foreground hover:text-primary text-sm transition-colors"
-                  to="#"
-                >
-                  {{ item }}
-                </NuxtLink>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="mb-4 text-sm font-semibold tracking-wider uppercase">Company</h3>
-            <ul class="space-y-3">
-              <li
-                v-for="item in ['About Us', 'Careers', 'Press Kit', 'Partners', 'Contact', 'Legal']"
-                :key="item"
-              >
-                <NuxtLink
-                  class="text-muted-foreground hover:text-primary text-sm transition-colors"
-                  to="#"
-                >
-                  {{ item }}
-                </NuxtLink>
-              </li>
-            </ul>
-          </div>
-        </div>
+        </nav>
       </div>
 
-      <!-- Bottom Bar -->
-      <div
-        class="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 lg:mt-16 lg:flex-row"
-      >
-        <p class="text-muted-foreground text-sm">
-          &copy; {{ new Date().getFullYear() }} {{ COMPANY_NAME }}, Inc. All rights reserved.
-        </p>
-        <div class="text-muted-foreground flex flex-wrap gap-6 text-sm">
-          <NuxtLink to="#" class="hover:text-primary transition-colors">Privacy Policy</NuxtLink>
-          <NuxtLink to="#" class="hover:text-primary transition-colors">Terms of Service</NuxtLink>
-          <NuxtLink to="#" class="hover:text-primary transition-colors">Cookie Policy</NuxtLink>
-        </div>
+      <div class="md:justify-self-end">
+        <p class="text-sm font-semibold">Follow us</p>
+        <ul class="mt-4 flex flex-wrap gap-2">
+          <li v-for="social in socials" :key="social.name">
+            <NuxtLink
+              to="#"
+              class="hover:bg-muted inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-medium transition-colors"
+            >
+              <Icon :name="social.icon" class="size-4" />
+              {{ social.name }}
+            </NuxtLink>
+          </li>
+        </ul>
       </div>
-    </UiContainer>
-  </footer>
+    </div>
+
+    <div
+      class="text-muted-foreground mt-12 flex flex-col gap-3 border-t pt-8 text-sm md:flex-row md:items-center md:justify-between"
+    >
+      <p>&copy; {{ new Date().getFullYear() }} {{ props.name }}. All rights reserved.</p>
+      <ul class="flex flex-wrap items-center gap-x-5 gap-y-2">
+        <li v-for="item in legal" :key="item">
+          <NuxtLink to="#" class="hover:text-foreground transition-colors">{{ item }}</NuxtLink>
+        </li>
+      </ul>
+    </div>
+  </UiContainer>
 </template>
+
+<script lang="ts" setup>
+  const props = withDefaults(defineProps<{ name?: string; description?: string }>(), {
+    name: "UI Thing",
+    description: "Building exceptional digital products that help businesses grow and succeed.",
+  });
+
+  const links = ["About", "Features", "Pricing", "Blog", "Contact", "Careers"];
+  const legal = ["Privacy policy", "Terms of service", "Cookies"];
+  const socials = [
+    { name: "X", icon: "simple-icons:x" },
+    { name: "GitHub", icon: "mdi:github" },
+    { name: "LinkedIn", icon: "mdi:linkedin" },
+    { name: "YouTube", icon: "mdi:youtube" },
+  ];
+</script>

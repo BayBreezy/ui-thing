@@ -1,59 +1,75 @@
 <template>
-  <UiContainer as="footer" class="py-16 lg:py-24">
-    <section class="grid grid-cols-2 gap-8 lg:grid-cols-6">
-      <div class="col-span-full pb-10 lg:col-span-2">
-        <NuxtLink to="#" class="flex items-center gap-3">
-          <img
-            src="/icon.png"
-            fit="contain"
-            alt="Company Logo"
-            title="Company Logo"
-            class="h-7 object-contain lg:h-10"
-          />
-          <span class="text-xl font-semibold">{{ COMPANY_NAME }}</span>
-        </NuxtLink>
-        <p class="text-muted-foreground mt-5">
-          Design amazing digital experiences that create more happy in the world.
-        </p>
-      </div>
-      <template v-for="n in 2" :key="n">
-        <div>
-          <p class="text-muted-foreground mb-4 text-sm">Product</p>
-          <ul class="flex flex-col gap-3">
-            <li v-for="k in 6" :key="k">
-              <NuxtLink class="hover:text-primary font-semibold" to="#">Link item {{ k }}</NuxtLink>
-            </li>
-          </ul>
-        </div>
-      </template>
-      <div class="col-span-full lg:col-span-2">
-        <form class="flex flex-col gap-3 lg:flex-row lg:items-end">
-          <div class="w-full lg:w-[70%]">
-            <UiVeeInput
-              label="Stay up to date"
-              required
-              placeholder="Enter your email"
-              aria-label="Enter your email"
-            />
-          </div>
-          <div>
-            <UiButton class="w-full whitespace-nowrap lg:w-auto" type="submit">Subscribe</UiButton>
-          </div>
-        </form>
-      </div>
-    </section>
+  <!--
+    Centered footer with navigation and social icons
+    Features: Centered logo and tagline, inline navigation, social icon buttons, legal links and copyright, stacks cleanly on mobile
+  -->
+  <UiContainer as="footer" class="py-14 text-center lg:py-20">
+    <NuxtLink to="#" class="inline-flex items-center gap-2.5 text-lg font-semibold">
+      <svg
+        class="fill-primary h-7"
+        viewBox="0 0 53 44"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M23.2997 0L52.0461 28.6301V44H38.6311V34.1553L17.7522 13.3607L13.415 13.3607L13.415 44H0L0 0L23.2997 0ZM38.6311 15.2694V0L52.0461 0V15.2694L38.6311 15.2694Z"
+        />
+      </svg>
+      {{ props.name }}
+    </NuxtLink>
+    <p class="text-muted-foreground mx-auto mt-3 max-w-md text-sm text-balance">
+      {{ props.tagline }}
+    </p>
 
-    <section class="mt-12 flex flex-col justify-between gap-5 border-t pt-8 lg:mt-16 lg:flex-row">
-      <p class="text-muted-foreground">
-        &copy; {{ new Date().getFullYear() }} {{ COMPANY_NAME }}. All rights reserved.
-      </p>
-      <div class="flex items-center gap-2">
-        <Icon name="logos:facebook" class="h-7 w-7" />
-        <Icon name="logos:twitter" class="h-7 w-7" />
-        <Icon name="lucide:instagram" class="h-7 w-7" />
-      </div>
-    </section>
+    <nav class="mt-8 flex flex-wrap justify-center gap-x-7 gap-y-3" aria-label="Footer">
+      <NuxtLink
+        v-for="link in links"
+        :key="link"
+        to="#"
+        class="text-sm font-medium transition-colors hover:underline hover:underline-offset-4"
+      >
+        {{ link }}
+      </NuxtLink>
+    </nav>
+
+    <ul class="mt-8 flex justify-center gap-2">
+      <li v-for="social in socials" :key="social.name">
+        <NuxtLink
+          to="#"
+          :aria-label="social.name"
+          class="hover:bg-muted flex size-10 items-center justify-center rounded-full border transition-colors"
+        >
+          <Icon :name="social.icon" class="size-[18px]" />
+        </NuxtLink>
+      </li>
+    </ul>
+
+    <div
+      class="text-muted-foreground mt-10 flex flex-col items-center justify-center gap-3 border-t pt-8 text-sm sm:flex-row sm:gap-6"
+    >
+      <p>&copy; {{ new Date().getFullYear() }} {{ props.name }}, Inc.</p>
+      <ul class="flex gap-5">
+        <li v-for="item in legal" :key="item">
+          <NuxtLink to="#" class="hover:text-foreground transition-colors">{{ item }}</NuxtLink>
+        </li>
+      </ul>
+    </div>
   </UiContainer>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  const props = withDefaults(defineProps<{ name?: string; tagline?: string }>(), {
+    name: "UI Thing",
+    tagline: "Building the interface layer for modern products, one component at a time.",
+  });
+
+  const links = ["Home", "Products", "Solutions", "Developers", "Company", "Support"];
+  const legal = ["Privacy", "Terms", "Cookies"];
+  const socials = [
+    { name: "X", icon: "simple-icons:x" },
+    { name: "GitHub", icon: "mdi:github" },
+    { name: "LinkedIn", icon: "mdi:linkedin" },
+    { name: "YouTube", icon: "mdi:youtube" },
+    { name: "Instagram", icon: "mdi:instagram" },
+  ];
+</script>
