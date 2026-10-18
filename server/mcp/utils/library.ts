@@ -668,6 +668,16 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "retry",
     "attachments",
   ],
+  Storage: [
+    "storage",
+    "storage usage",
+    "quota",
+    "disk space",
+    "upgrade plan",
+    "usage meter",
+    "space left",
+    "breakdown",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -1093,6 +1103,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   { test: (path) => path.startsWith("Activity/AuditLog/"), docsPath: "/blocks/activity-audit-log" },
   { test: (path) => path.startsWith("Files/FileManager/"), docsPath: "/blocks/files-file-manager" },
   { test: (path) => path.startsWith("Files/Uploads/"), docsPath: "/blocks/files-uploads" },
+  { test: (path) => path.startsWith("Files/Storage/"), docsPath: "/blocks/files-storage" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
