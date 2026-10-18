@@ -545,6 +545,16 @@ export default {
   "DataTable/TableToolbars/BlockTableToolbars4": "card container input label select table",
   "DataTable/TableToolbars/BlockTableToolbars5": "badge button container input label table tabs",
   "DataTable/TableToolbars/BlockTableToolbars6": "button container select table toggle-group",
+  "Tasks/TaskDetail/BlockTaskDetail1":
+    "badge button container input label native-select sheet textarea",
+  "Tasks/TaskDetail/BlockTaskDetail2":
+    "avatar badge breadcrumbs button card checkbox container editable input label native-select progress textarea",
+  "Tasks/TaskDetail/BlockTaskDetail3": "avatar badge button container label tabs textarea",
+  "Tasks/TaskDetail/BlockTaskDetail4": "button checkbox container label",
+  "Tasks/TaskDetail/BlockTaskDetail5":
+    "avatar badge button container input label popover toggle-group",
+  "Tasks/TaskDetail/BlockTaskDetail6":
+    "button container dialog input kbd label native-select textarea",
   "Tasks/TaskList/BlockTaskList1": "checkbox collapsible container label progress",
   "Tasks/TaskList/BlockTaskList2": "button checkbox container input label tabs",
   "Tasks/TaskList/BlockTaskList3": "avatar badge checkbox container native-select table",

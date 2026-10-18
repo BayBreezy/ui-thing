@@ -555,6 +555,18 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "delete confirmation",
     "checkbox table",
   ],
+  TaskDetail: [
+    "task detail",
+    "task sheet",
+    "issue",
+    "comments",
+    "activity",
+    "subtasks",
+    "attachments",
+    "properties",
+    "quick add",
+    "project management",
+  ],
   TaskList: [
     "tasks",
     "todo",
@@ -912,6 +924,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   },
   { test: (path) => path.startsWith("Tasks/Board/"), docsPath: "/blocks/tasks-board" },
   { test: (path) => path.startsWith("Tasks/TaskList/"), docsPath: "/blocks/tasks-task-list" },
+  {
+    test: (path) => path.startsWith("Tasks/TaskDetail/"),
+    docsPath: "/blocks/tasks-task-detail",
+  },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
