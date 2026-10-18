@@ -710,6 +710,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "quarterly plan",
     "gantt",
   ],
+  StatusPage: [
+    "status page",
+    "uptime",
+    "incidents",
+    "incident history",
+    "system status",
+    "outage",
+    "service status",
+    "subscribe to status",
+    "maintenance",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -1142,6 +1153,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     docsPath: "/blocks/changelog-releases",
   },
   { test: (path) => path.startsWith("Changelog/Roadmap/"), docsPath: "/blocks/changelog-roadmap" },
+  {
+    test: (path) => path.startsWith("Changelog/StatusPage/"),
+    docsPath: "/blocks/changelog-status-page",
+  },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
