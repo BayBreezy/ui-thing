@@ -1,39 +1,44 @@
 <template>
-  <UiCard>
-    <UiCardContent class="flex items-center justify-between">
-      <div class="flex-1">
-        <p class="text-muted-foreground text-sm font-medium" v-html="props.label" />
-        <h3 class="mt-2 text-2xl font-bold tracking-tight" v-html="props.value" />
-        <div class="mt-2 flex items-center gap-1.5 text-sm">
-          <Icon
-            :name="props.trend === 'up' ? 'lucide:trending-up' : 'lucide:trending-down'"
-            :class="[
-              'size-4',
-              props.trend === 'up'
-                ? 'text-green-600 dark:text-green-500'
-                : 'text-red-600 dark:text-red-500',
-            ]"
-          />
+  <!--
+    Stat card with a gradient icon on the right
+    Features: Gradient fancy icon, big value, trend with an arrow, supporting text, hover lift and ring
+  -->
+  <UiCard class="group transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
+    <UiCardContent class="flex items-start justify-between gap-4">
+      <div class="min-w-0">
+        <slot name="label">
+          <p class="text-muted-foreground text-sm font-medium">{{ props.label }}</p>
+        </slot>
+        <slot name="value">
+          <p class="mt-2 text-3xl font-bold tracking-tight tabular-nums">{{ props.value }}</p>
+        </slot>
+        <p class="mt-3 flex items-center gap-1.5 text-sm">
           <span
-            :class="[
-              'font-medium',
+            class="flex items-center gap-0.5 font-medium"
+            :class="
               props.trend === 'up'
-                ? 'text-green-600 dark:text-green-500'
-                : 'text-red-600 dark:text-red-500',
-            ]"
-            v-html="props.change"
-          />
-          <span class="text-muted-foreground" v-html="props.timeframe" />
-        </div>
+                ? 'text-green-600 dark:text-green-400'
+                : 'text-red-600 dark:text-red-400'
+            "
+          >
+            <Icon
+              :name="props.trend === 'up' ? 'lucide:trending-up' : 'lucide:trending-down'"
+              class="size-4"
+            />
+            {{ props.change }}
+          </span>
+          <span class="text-muted-foreground">{{ props.comparison }}</span>
+        </p>
       </div>
-      <div
-        :class="[
-          'flex size-12 items-center justify-center rounded-lg',
-          props.iconBg || 'bg-primary/10',
-        ]"
-      >
-        <Icon :name="props.icon" :class="['size-6', props.iconColor || 'text-primary']" />
-      </div>
+      <slot name="icon">
+        <UiFancyIcon
+          :icon="props.icon"
+          theme="gradient"
+          :color="props.color"
+          size="xl"
+          class="transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-3"
+        />
+      </slot>
     </UiCardContent>
   </UiCard>
 </template>
@@ -44,19 +49,19 @@
       label?: string;
       value?: string;
       change?: string;
-      timeframe?: string;
-      trend?: "up" | "down";
+      comparison?: string;
       icon?: string;
-      iconBg?: string;
-      iconColor?: string;
+      trend?: "up" | "down";
+      color?: "primary" | "gray" | "error" | "warning" | "success" | "info";
     }>(),
     {
-      label: "Total Revenue",
-      value: "$45,231.89",
-      change: "+20.1%",
-      timeframe: "from last month",
+      label: "Active users",
+      value: "24,830",
+      change: "+8.2%",
+      comparison: "vs last week",
+      icon: "lucide:users",
       trend: "up",
-      icon: "lucide:dollar-sign",
+      color: "info",
     }
   );
 </script>

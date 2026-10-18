@@ -1,67 +1,68 @@
 <template>
+  <!--
+    Stat card with a mini bar chart and an actions menu
+    Features: Light fancy icon, overflow menu with refresh that simulates a reload, trend pill, bar chart that highlights the latest bar on hover
+  -->
   <UiCard>
-    <UiCardHeader>
-      <div class="flex items-center justify-between">
+    <UiCardContent class="space-y-5">
+      <div class="flex items-start justify-between">
         <div class="flex items-center gap-3">
-          <div
-            :class="[
-              'flex size-10 items-center justify-center rounded-full',
-              props.iconBg || 'bg-primary/10',
-            ]"
-          >
-            <Icon :name="props.icon" :class="['size-5', props.iconColor || 'text-primary']" />
-          </div>
-          <div>
-            <p class="text-muted-foreground text-sm font-medium" v-html="props.label" />
-            <h3 class="text-xl font-bold tracking-tight" v-html="props.value" />
-          </div>
+          <slot name="icon">
+            <UiFancyIcon :icon="props.icon" theme="light" :color="props.color" />
+          </slot>
+          <slot name="label">
+            <p class="text-muted-foreground text-sm font-medium">{{ props.label }}</p>
+          </slot>
         </div>
         <UiDropdownMenu>
           <UiDropdownMenuTrigger as-child>
-            <UiButton variant="ghost" size="icon-sm">
-              <Icon name="lucide:more-horizontal" class="size-4" />
+            <UiButton variant="ghost" size="icon-sm" aria-label="More options">
+              <Icon name="lucide:ellipsis" class="size-4" />
             </UiButton>
           </UiDropdownMenuTrigger>
           <UiDropdownMenuContent align="end">
-            <UiDropdownMenuItem>
-              <Icon name="lucide:eye" class="mr-2 size-4" />
-              View Details
-            </UiDropdownMenuItem>
-            <UiDropdownMenuItem>
-              <Icon name="lucide:download" class="mr-2 size-4" />
-              Export
-            </UiDropdownMenuItem>
+            <UiDropdownMenuItem icon="lucide:eye" title="View details" />
+            <UiDropdownMenuItem icon="lucide:download" title="Export" />
             <UiDropdownMenuSeparator />
-            <UiDropdownMenuItem>
-              <Icon name="lucide:refresh-cw" class="mr-2 size-4" />
-              Refresh
-            </UiDropdownMenuItem>
+            <UiDropdownMenuItem icon="lucide:refresh-cw" title="Refresh" @select="refresh" />
           </UiDropdownMenuContent>
         </UiDropdownMenu>
       </div>
-    </UiCardHeader>
-    <UiCardContent>
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <Icon
-            :name="props.trend === 'up' ? 'lucide:trending-up' : 'lucide:trending-down'"
-            :class="[
-              'size-4',
+
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <p
+            class="text-3xl font-bold tracking-tight tabular-nums transition-opacity"
+            :class="loading && 'opacity-40'"
+          >
+            {{ props.value }}
+          </p>
+          <p
+            class="mt-1 flex items-center gap-1 text-sm font-medium"
+            :class="
               props.trend === 'up'
-                ? 'text-green-600 dark:text-green-500'
-                : 'text-red-600 dark:text-red-500',
-            ]"
+                ? 'text-green-600 dark:text-green-400'
+                : 'text-red-600 dark:text-red-400'
+            "
+          >
+            <Icon
+              :name="props.trend === 'up' ? 'lucide:trending-up' : 'lucide:trending-down'"
+              class="size-4"
+            />
+            {{ props.change }}
+            <span class="text-muted-foreground font-normal">vs last week</span>
+          </p>
+        </div>
+        <div class="flex h-14 items-end gap-1.5" aria-hidden="true">
+          <div
+            v-for="(bar, i) in props.data"
+            :key="i"
+            class="w-2.5 rounded-sm transition-all duration-300"
+            :class="
+              i === props.data.length - 1 ? 'bg-primary' : 'bg-primary/20 hover:bg-primary/50'
+            "
+            :style="{ height: loading ? '20%' : `${(bar / max) * 100}%` }"
           />
-          <span
-            :class="[
-              'text-sm font-medium',
-              props.trend === 'up'
-                ? 'text-green-600 dark:text-green-500'
-                : 'text-red-600 dark:text-red-500',
-            ]"
-            v-html="props.change"
-          />
-          <span class="text-muted-foreground text-sm" v-html="props.timeframe" />
         </div>
       </div>
     </UiCardContent>
@@ -74,19 +75,28 @@
       label?: string;
       value?: string;
       change?: string;
-      timeframe?: string;
-      trend?: "up" | "down";
       icon?: string;
-      iconBg?: string;
-      iconColor?: string;
+      trend?: "up" | "down";
+      color?: "primary" | "gray" | "error" | "warning" | "success" | "info";
+      data?: number[];
     }>(),
     {
       label: "Sales",
       value: "$24,500",
-      change: "+8.2%",
-      timeframe: "vs last week",
-      trend: "up",
+      change: "8.2%",
       icon: "lucide:shopping-cart",
+      trend: "up",
+      color: "primary",
+      data: () => [40, 65, 48, 80, 58, 72, 95],
     }
   );
+
+  const max = computed(() => Math.max(...props.data));
+  const loading = ref(false);
+
+  async function refresh() {
+    loading.value = true;
+    await new Promise((resolve) => setTimeout(resolve, 700));
+    loading.value = false;
+  }
 </script>

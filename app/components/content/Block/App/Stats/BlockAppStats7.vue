@@ -1,47 +1,48 @@
 <template>
-  <UiCard class="relative overflow-hidden">
-    <div
-      :class="[
-        'absolute inset-y-0 left-0 w-1',
-        props.trend === 'up'
-          ? 'bg-green-500'
-          : props.trend === 'down'
-            ? 'bg-red-500'
-            : 'bg-primary',
-      ]"
-    />
-    <UiCardContent class="pl-8">
-      <div class="flex items-start justify-between">
-        <div class="flex-1 space-y-1">
-          <p class="text-muted-foreground text-sm font-medium" v-html="props.label" />
-          <div class="flex items-baseline gap-2">
-            <h3 class="text-2xl font-bold tracking-tight" v-html="props.value" />
-            <span
-              :class="[
-                'text-sm font-medium',
-                props.trend === 'up'
-                  ? 'text-green-600 dark:text-green-500'
-                  : props.trend === 'down'
-                    ? 'text-red-600 dark:text-red-500'
-                    : 'text-muted-foreground',
-              ]"
-              v-html="props.change"
+  <!--
+    Comparison stat showing the current period against the previous one
+    Features: Warning colored fancy icon, large value with a delta pill, paired bars for current and previous, plain language footnote
+  -->
+  <UiCard>
+    <UiCardContent class="space-y-5">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <slot name="icon">
+            <UiFancyIcon :icon="props.icon" theme="light" color="warning" />
+          </slot>
+          <slot name="label">
+            <p class="text-muted-foreground text-sm font-medium">{{ props.label }}</p>
+          </slot>
+        </div>
+        <UiBadge :variant="improved ? 'success' : 'error'" class="gap-1">
+          <Icon :name="improved ? 'lucide:arrow-up' : 'lucide:arrow-down'" class="size-3" />
+          {{ delta }}%
+        </UiBadge>
+      </div>
+
+      <p class="text-4xl font-bold tracking-tight tabular-nums">{{ props.current }}%</p>
+
+      <div class="space-y-3">
+        <div v-for="row in rows" :key="row.label" class="space-y-1.5">
+          <div class="flex justify-between text-xs">
+            <span class="text-muted-foreground">{{ row.label }}</span>
+            <span class="font-medium tabular-nums">{{ row.value }}%</span>
+          </div>
+          <div class="bg-muted h-2 rounded-full">
+            <div
+              class="h-full rounded-full transition-[width] duration-700 ease-out"
+              :class="row.bar"
+              :style="{ width: `${(row.value / scale) * 100}%` }"
             />
           </div>
-          <p class="text-muted-foreground text-xs" v-html="props.description" />
-        </div>
-        <Icon :name="props.icon" class="text-muted-foreground/50 size-8" />
-      </div>
-      <div class="mt-4 flex items-center gap-4 text-xs">
-        <div class="flex items-center gap-1">
-          <div class="bg-primary size-2 rounded-full" />
-          <span class="text-muted-foreground">Current: {{ props.current }}</span>
-        </div>
-        <div class="flex items-center gap-1">
-          <div class="bg-muted size-2 rounded-full" />
-          <span class="text-muted-foreground">Previous: {{ props.previous }}</span>
         </div>
       </div>
+
+      <p class="text-muted-foreground text-xs">
+        {{ improved ? "Up" : "Down" }}
+        {{ Math.abs(props.current - props.previous).toFixed(2) }} points compared to the previous
+        {{ props.period }}.
+      </p>
     </UiCardContent>
   </UiCard>
 </template>
@@ -50,23 +51,27 @@
   const props = withDefaults(
     defineProps<{
       label?: string;
-      value?: string;
-      change?: string;
-      trend?: "up" | "down" | "neutral";
-      description?: string;
       icon?: string;
-      current?: string;
-      previous?: string;
+      current?: number;
+      previous?: number;
+      period?: string;
     }>(),
     {
-      label: "Conversion Rate",
-      value: "3.24%",
-      change: "+0.4%",
-      trend: "up",
-      description: "Based on last 1,245 visitors",
+      label: "Conversion rate",
       icon: "lucide:activity",
-      current: "3.24%",
-      previous: "2.84%",
+      current: 3.24,
+      previous: 2.84,
+      period: "30 days",
     }
   );
+
+  const improved = computed(() => props.current >= props.previous);
+  const delta = computed(() =>
+    Math.abs(((props.current - props.previous) / (props.previous || 1)) * 100).toFixed(1)
+  );
+  const scale = computed(() => Math.max(props.current, props.previous) * 1.1);
+  const rows = computed(() => [
+    { label: `This ${props.period}`, value: props.current, bar: "bg-primary" },
+    { label: `Previous ${props.period}`, value: props.previous, bar: "bg-muted-foreground/40" },
+  ]);
 </script>

@@ -1,23 +1,41 @@
 <template>
-  <UiCard class="overflow-hidden p-0">
-    <UiCardContent class="p-0">
-      <div class="flex">
-        <div :class="['flex w-16 items-center justify-center', props.accentColor || 'bg-primary']">
-          <Icon :name="props.icon" class="text-primary-foreground size-8" />
-        </div>
-        <div class="flex-1 p-6">
-          <p class="text-muted-foreground text-sm font-medium" v-html="props.label" />
-          <h3 class="mt-1 text-2xl font-bold tracking-tight" v-html="props.value" />
-          <div class="flex items-center gap-4">
-            <div class="flex items-center gap-1 text-sm">
-              <Icon name="lucide:calendar" class="text-muted-foreground size-3.5" />
-              <span class="text-muted-foreground" v-html="props.period" />
-            </div>
-            <UiBadge variant="outline">{{ props.status }}</UiBadge>
-          </div>
-        </div>
+  <!--
+    Live stat card with a dark icon block and a pulsing live badge
+    Features: Dark fancy icon on a colored accent column, live indicator that pulses, value that counts up on load, period label
+  -->
+  <UiCard class="overflow-hidden py-0">
+    <div class="flex">
+      <div class="bg-primary/5 flex items-center border-r px-5">
+        <slot name="icon">
+          <UiFancyIcon :icon="props.icon" theme="dark" color="primary" size="lg" />
+        </slot>
       </div>
-    </UiCardContent>
+      <div class="min-w-0 flex-1 p-5">
+        <div class="flex items-center justify-between gap-2">
+          <slot name="label">
+            <p class="text-muted-foreground text-sm font-medium">{{ props.label }}</p>
+          </slot>
+          <span
+            class="flex items-center gap-1.5 rounded-full border border-green-500/30 bg-green-500/10 px-2 py-0.5 text-xs font-medium text-green-600 dark:text-green-400"
+          >
+            <span class="relative flex size-2">
+              <span
+                class="absolute inline-flex size-full animate-ping rounded-full bg-green-500 opacity-75"
+              />
+              <span class="relative inline-flex size-2 rounded-full bg-green-500" />
+            </span>
+            Live
+          </span>
+        </div>
+        <slot name="value">
+          <p class="mt-1 text-3xl font-bold tracking-tight tabular-nums">{{ display }}</p>
+        </slot>
+        <p class="text-muted-foreground mt-1 flex items-center gap-1.5 text-xs">
+          <Icon name="lucide:calendar" class="size-3.5" />
+          {{ props.period }}
+        </p>
+      </div>
+    </div>
   </UiCard>
 </template>
 
@@ -25,18 +43,23 @@
   const props = withDefaults(
     defineProps<{
       label?: string;
-      value?: string;
+      value?: number;
       period?: string;
-      status?: string;
       icon?: string;
-      accentColor?: string;
     }>(),
     {
-      label: "Active Users",
-      value: "2,845",
-      period: "Last 30 days",
-      status: "Live",
+      label: "Active users",
+      value: 2845,
+      period: "Last 30 minutes",
       icon: "lucide:users",
     }
   );
+
+  // Counts up from zero when the card appears, then keeps the final value.
+  const source = ref(0);
+  const animated = useTransition(source, { duration: 1200 });
+  const display = computed(() => Math.round(animated.value).toLocaleString("en-US"));
+  onMounted(() => {
+    source.value = props.value;
+  });
 </script>

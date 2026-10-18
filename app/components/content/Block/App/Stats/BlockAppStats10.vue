@@ -1,50 +1,63 @@
 <template>
+  <!--
+    Stat card with a period switcher
+    Features: Segmented 7D, 30D and 90D control that swaps the value, delta and chart, modern fancy icon, bars animate between periods
+  -->
   <UiCard>
-    <UiCardContent class="space-y-4">
-      <div class="flex items-start justify-between">
+    <UiCardContent class="space-y-5">
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <slot name="icon">
+            <UiFancyIcon :icon="props.icon" theme="modern-neue" color="gray" />
+          </slot>
+          <slot name="label">
+            <p class="text-sm font-medium">{{ props.label }}</p>
+          </slot>
+        </div>
+        <UiToggleGroup
+          :model-value="period"
+          type="single"
+          variant="outline"
+          size="sm"
+          aria-label="Period"
+          @update:model-value="(value) => value && (period = value as string)"
+        >
+          <UiToggleGroupItem
+            v-for="item in periods"
+            :key="item.value"
+            :value="item.value"
+            class="px-2.5 text-xs"
+          >
+            {{ item.label }}
+          </UiToggleGroupItem>
+        </UiToggleGroup>
+      </div>
+
+      <div class="flex items-end justify-between gap-4">
         <div>
-          <p class="text-muted-foreground text-sm font-medium" v-html="props.label" />
-          <h3 class="mt-1 text-2xl font-bold tracking-tight" v-html="props.value" />
+          <p class="text-3xl font-bold tracking-tight tabular-nums">{{ current.value }}</p>
+          <p
+            class="mt-1 flex items-center gap-1 text-sm font-medium"
+            :class="
+              current.up ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
+            "
+          >
+            <Icon
+              :name="current.up ? 'lucide:trending-up' : 'lucide:trending-down'"
+              class="size-4"
+            />
+            {{ current.delta }}
+            <span class="text-muted-foreground font-normal">vs previous period</span>
+          </p>
         </div>
-        <div :class="['rounded-lg p-2', props.iconBg || 'bg-primary/10']">
-          <Icon :name="props.icon" :class="['size-5', props.iconColor || 'text-primary']" />
-        </div>
-      </div>
-
-      <div class="space-y-2">
-        <div class="flex items-center justify-between text-sm">
-          <span class="text-muted-foreground">Goal</span>
-          <span class="font-medium">{{ props.goal }}</span>
-        </div>
-        <UiProgress :model-value="props.progressPercent" class="h-2" />
-        <div class="flex items-center justify-between text-xs">
-          <span class="text-muted-foreground">{{ props.remaining }} remaining</span>
-          <span class="text-muted-foreground font-medium">{{ props.progressPercent }}%</span>
-        </div>
-      </div>
-
-      <div class="bg-muted/50 flex items-center gap-2 rounded-lg p-3">
-        <Icon
-          :name="props.trend === 'up' ? 'lucide:trending-up' : 'lucide:trending-down'"
-          :class="[
-            'size-4',
-            props.trend === 'up'
-              ? 'text-green-600 dark:text-green-500'
-              : 'text-red-600 dark:text-red-500',
-          ]"
-        />
-        <span class="flex-1 text-sm">
-          <span
-            :class="[
-              'font-semibold',
-              props.trend === 'up'
-                ? 'text-green-600 dark:text-green-500'
-                : 'text-red-600 dark:text-red-500',
-            ]"
-            v-html="props.change"
+        <div class="flex h-16 items-end gap-1" aria-hidden="true">
+          <div
+            v-for="(bar, i) in current.bars"
+            :key="i"
+            class="bg-primary/70 w-2 rounded-sm transition-all duration-500"
+            :style="{ height: `${bar}%` }"
           />
-          <span class="text-muted-foreground"> {{ props.timeframe }}</span>
-        </span>
+        </div>
       </div>
     </UiCardContent>
   </UiCard>
@@ -54,27 +67,36 @@
   const props = withDefaults(
     defineProps<{
       label?: string;
-      value?: string;
-      goal?: string;
-      remaining?: string;
-      progressPercent?: number;
-      change?: string;
-      timeframe?: string;
-      trend?: "up" | "down";
       icon?: string;
-      iconBg?: string;
-      iconColor?: string;
     }>(),
     {
-      label: "Revenue Goal",
-      value: "$84,250",
-      goal: "$100,000",
-      remaining: "$15,750",
-      progressPercent: 84.25,
-      change: "+18.5%",
-      timeframe: "from last quarter",
-      trend: "up",
-      icon: "lucide:target",
+      label: "Page views",
+      icon: "lucide:eye",
     }
   );
+
+  const periods = [
+    { label: "7D", value: "7d" },
+    { label: "30D", value: "30d" },
+    { label: "90D", value: "90d" },
+  ];
+
+  const data: Record<string, { value: string; delta: string; up: boolean; bars: number[] }> = {
+    "7d": { value: "84,210", delta: "+6.4%", up: true, bars: [45, 60, 52, 75, 68, 88, 80] },
+    "30d": {
+      value: "362,904",
+      delta: "+12.8%",
+      up: true,
+      bars: [30, 42, 38, 55, 48, 62, 58, 70, 66, 78, 74, 90],
+    },
+    "90d": {
+      value: "1.04M",
+      delta: "-2.1%",
+      up: false,
+      bars: [80, 74, 78, 66, 70, 62, 64, 56, 60, 52, 55, 48, 50, 44, 46, 40],
+    },
+  };
+
+  const period = ref("30d");
+  const current = computed(() => data[period.value] ?? data["30d"]!);
 </script>

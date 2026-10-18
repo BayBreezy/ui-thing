@@ -24,11 +24,12 @@
 
       <div class="flex flex-wrap items-center gap-3">
         <UiToggleGroup
-          v-model="range"
+          :model-value="range"
           type="single"
           variant="outline"
           class="bg-background shadow-xs"
           aria-label="Date range"
+          @update:model-value="(value) => value && (range = value as string)"
         >
           <UiToggleGroupItem
             v-for="option in props.ranges"
