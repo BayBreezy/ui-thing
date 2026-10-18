@@ -1,84 +1,53 @@
 <template>
-  <Motion
-    initial="initial"
-    while-in-view="animate"
-    :in-view-options="{ once: true }"
-    as-child
-    :variants="parentVariant"
-  >
-    <UiContainer class="py-16 lg:py-24">
-      <Motion as-child :variants="childVariant">
-        <div class="mb-12 text-center">
-          <h2 class="mb-3 text-3xl font-bold lg:text-4xl">Trusted by industry leaders</h2>
-          <p class="text-muted-foreground text-lg">
-            Over 10,000+ companies use our platform to grow their business
-          </p>
-        </div>
+  <!--
+    Bordered logo grid with a heading
+    Features: Heading and supporting copy above a grid of hairline bordered logo cells that stagger in and lift their logo on hover, two columns on mobile and four on desktop
+  -->
+  <UiContainer class="py-16 lg:py-24">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-balance sm:text-4xl">{{ props.title }}</h2>
+      <p class="text-muted-foreground mt-3 text-lg text-balance">{{ props.description }}</p>
+    </div>
+    <ul class="mt-12 grid grid-cols-2 overflow-hidden rounded-2xl border md:grid-cols-4">
+      <Motion
+        v-for="(logo, i) in props.logos"
+        :key="logo.name"
+        as="li"
+        :initial="{ opacity: 0 }"
+        :while-in-view="{ opacity: 1 }"
+        :in-view-options="{ once: true }"
+        :transition="{ duration: 0.4, delay: i * 0.05 }"
+        class="group bg-card relative flex h-28 items-center justify-center border-r border-b p-6 [&:nth-child(2n)]:max-md:border-r-0 md:[&:nth-child(4n)]:border-r-0 max-md:[&:nth-last-child(-n+2)]:border-b-0 md:[&:nth-last-child(-n+4)]:border-b-0"
+      >
+        <span
+          class="text-muted-foreground group-hover:text-foreground flex items-center gap-2 text-xl font-semibold transition-all duration-300 group-hover:-translate-y-0.5"
+        >
+          <Icon :name="logo.icon" class="size-6" />
+          {{ logo.name }}
+        </span>
       </Motion>
-
-      <div class="grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12">
-        <Motion v-for="company in companies" :key="company.text" as-child :variants="cardVariant">
-          <div
-            class="bg-card hover:border-primary/50 flex items-center justify-center rounded-lg border p-6 hover:shadow-md"
-          >
-            <span class="sr-only">{{ company.text }}</span>
-            <Icon :name="company.icon" class="h-16 w-16 lg:h-20 lg:w-20" />
-          </div>
-        </Motion>
-      </div>
-    </UiContainer>
-  </Motion>
+    </ul>
+  </UiContainer>
 </template>
 
 <script lang="ts" setup>
-  import { stagger } from "motion-v";
-  import type { MotionProps } from "motion-v";
+  type Logo = { name: string; icon: string };
 
-  const companies = [
-    { text: "Company One", icon: "logos:100tb" },
-    { text: "Company Two", icon: "logos:aha" },
-    { text: "Company Three", icon: "logos:airbnb-icon" },
-    { text: "Company Four", icon: "logos:akamai" },
-    { text: "Company Five", icon: "logos:asana-icon" },
-    { text: "Company Six", icon: "logos:atlassian" },
-    { text: "Company Seven", icon: "logos:figma" },
-    { text: "Company Eight", icon: "logos:discord-icon" },
-  ];
-
-  const parentVariant: MotionProps["variants"] = {
-    initial: { opacity: 0 },
-    animate: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        delayChildren: stagger(0.1),
-      },
-    },
-  };
-
-  const childVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, y: 20 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-      },
-    },
-  };
-
-  const cardVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, y: 30 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-      },
-    },
-  };
+  const props = withDefaults(
+    defineProps<{ title?: string; description?: string; logos?: Logo[] }>(),
+    {
+      title: "Trusted by industry leaders",
+      description: "Over 4,000 teams use us to plan, ship and grow.",
+      logos: () => [
+        { name: "Acme", icon: "lucide:hexagon" },
+        { name: "Northwind", icon: "lucide:compass" },
+        { name: "Vertex", icon: "lucide:triangle" },
+        { name: "Lumen", icon: "lucide:sun" },
+        { name: "Orbit", icon: "lucide:orbit" },
+        { name: "Pulse", icon: "lucide:activity" },
+        { name: "Nimbus", icon: "lucide:cloud" },
+        { name: "Quanta", icon: "lucide:atom" },
+      ],
+    }
+  );
 </script>
