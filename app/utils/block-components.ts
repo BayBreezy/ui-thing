@@ -478,6 +478,12 @@ export default {
   "Blog/Subscribe/BlockBlogSubscribe5": "button card vee-input",
   "Blog/Subscribe/BlockBlogSubscribe6": "button card separator vee-input",
   "Blog/Subscribe/BlockBlogSubscribe7": "badge button card vee-input",
+  "DataTable/TableExpandable/BlockTableExpandable1": "badge button container table",
+  "DataTable/TableExpandable/BlockTableExpandable2": "badge container table",
+  "DataTable/TableExpandable/BlockTableExpandable3": "avatar badge card container separator table",
+  "DataTable/TableExpandable/BlockTableExpandable4": "container",
+  "DataTable/TableExpandable/BlockTableExpandable5":
+    "badge button container skeleton table toggle-group",
   "DataTable/TableLists/BlockTableLists1": "avatar badge container input label table",
   "DataTable/TableLists/BlockTableLists2":
     "avatar badge button card container dropdown-menu select table",

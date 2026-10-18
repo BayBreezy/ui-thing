@@ -555,6 +555,19 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "delete confirmation",
     "checkbox table",
   ],
+  TableExpandable: [
+    "data table",
+    "expandable rows",
+    "nested rows",
+    "grouped rows",
+    "master detail",
+    "sticky header",
+    "sticky column",
+    "loading state",
+    "empty state",
+    "error state",
+    "skeleton",
+  ],
   Team: [
     "people",
     "about us",
@@ -726,6 +739,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   {
     test: (path) => path.startsWith("DataTable/TableSelection/"),
     docsPath: "/blocks/data-table-selection",
+  },
+  {
+    test: (path) => path.startsWith("DataTable/TableExpandable/"),
+    docsPath: "/blocks/data-table-expandable",
   },
 ];
 
