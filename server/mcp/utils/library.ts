@@ -555,6 +555,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "delete confirmation",
     "checkbox table",
   ],
+  ConversationList: [
+    "chat",
+    "inbox",
+    "messages",
+    "conversation list",
+    "channels",
+    "direct messages",
+    "contacts",
+    "unread",
+    "messenger",
+  ],
   Completion: [
     "onboarding",
     "success",
@@ -816,6 +827,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   {
     test: (path) => path.startsWith("Onboarding/Completion/"),
     docsPath: "/blocks/onboarding-completion",
+  },
+  {
+    test: (path) => path.startsWith("Chat/ConversationList/"),
+    docsPath: "/blocks/chat-conversation-list",
   },
 ];
 
