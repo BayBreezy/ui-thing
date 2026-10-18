@@ -1,70 +1,96 @@
 <template>
-  <UiContainer class="px-4 py-5 md:px-6">
-    <div class="flex flex-col gap-5">
-      <div class="flex flex-wrap items-start justify-between gap-3">
-        <div class="flex items-start gap-3">
-          <slot name="icon">
-            <div
-              v-if="props.icon"
-              class="bg-primary/10 text-primary flex size-14 items-center justify-center rounded-lg"
-            >
-              <Icon :name="props.icon" class="size-6" />
-            </div>
-          </slot>
-          <div class="flex flex-col gap-1">
-            <slot name="title">
-              <h1 v-if="props.title" class="text-lg font-bold" v-html="props.title" />
-            </slot>
-            <slot name="badge">
-              <UiBadge v-if="props.badge" variant="outline" class="w-fit">
-                {{ props.badge }}
-              </UiBadge>
-            </slot>
-          </div>
-        </div>
-        <div class="flex flex-wrap items-center gap-2">
-          <slot>
-            <UiButton variant="outline" size="sm">
-              <Icon name="lucide:share-2" class="size-4" />
-              Share
-            </UiButton>
-            <UiButton variant="outline" size="sm">
-              <Icon name="lucide:settings" class="size-4" />
-              Settings
-            </UiButton>
-            <UiButton size="sm">
-              <Icon name="lucide:plus" class="size-4" />
-              Create
-            </UiButton>
-          </slot>
-        </div>
+  <!--
+    Dashboard header with a greeting and a date range switcher
+    Features: Time of day greeting, formatted date, segmented range control, refresh button that spins and updates its timestamp, export action
+  -->
+  <UiContainer class="px-4 py-6 md:px-8">
+    <Motion
+      class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between"
+      :initial="{ opacity: 0, y: 8 }"
+      :animate="{ opacity: 1, y: 0 }"
+      :transition="{ type: 'spring', stiffness: 180, damping: 22 }"
+    >
+      <div>
+        <slot name="title">
+          <h1 class="text-2xl font-bold tracking-tight">{{ greeting }}, {{ props.name }}</h1>
+        </slot>
+        <slot name="description">
+          <p class="text-muted-foreground mt-1 flex items-center gap-2 text-sm">
+            <Icon name="lucide:calendar" class="size-4" />
+            {{ today }}
+          </p>
+        </slot>
       </div>
-      <slot name="description">
-        <p
-          v-if="props.description"
-          class="text-muted-foreground text-sm"
-          v-html="props.description"
-        />
-      </slot>
-    </div>
-    <UiDivider class="my-5" />
+
+      <div class="flex flex-wrap items-center gap-3">
+        <UiToggleGroup
+          v-model="range"
+          type="single"
+          variant="outline"
+          class="bg-background shadow-xs"
+          aria-label="Date range"
+        >
+          <UiToggleGroupItem
+            v-for="option in props.ranges"
+            :key="option.value"
+            :value="option.value"
+            class="px-3 text-sm"
+          >
+            {{ option.label }}
+          </UiToggleGroupItem>
+        </UiToggleGroup>
+
+        <UiButton variant="outline" :disabled="refreshing" @click="refresh">
+          <Icon name="lucide:refresh-cw" class="size-4" :class="refreshing && 'animate-spin'" />
+          <span class="text-muted-foreground hidden sm:inline">{{ updated }}</span>
+          <span class="sm:hidden">Refresh</span>
+        </UiButton>
+        <slot>
+          <UiButton>
+            <Icon name="lucide:download" class="size-4" />
+            Export
+          </UiButton>
+        </slot>
+      </div>
+    </Motion>
   </UiContainer>
 </template>
 
 <script lang="ts" setup>
   const props = withDefaults(
     defineProps<{
-      title?: string;
-      description?: string;
-      icon?: string;
-      badge?: string;
+      name?: string;
+      ranges?: { label: string; value: string }[];
     }>(),
     {
-      title: "Projects Dashboard",
-      description:
-        "Monitor and manage all your projects from one central location. Track progress, assign tasks, and collaborate with your team.",
-      icon: "lucide:layout-dashboard",
-      badge: "12 Active",
+      name: "Maya",
+      ranges: () => [
+        { label: "7D", value: "7d" },
+        { label: "30D", value: "30d" },
+        { label: "90D", value: "90d" },
+        { label: "1Y", value: "1y" },
+      ],
     }
   );
+
+  const range = ref("30d");
+  const refreshing = ref(false);
+  const updated = ref("Updated just now");
+
+  const now = new Date();
+  const hour = now.getHours();
+  const greeting = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+  const today = new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  }).format(now);
+
+  async function refresh() {
+    refreshing.value = true;
+    await new Promise((resolve) => setTimeout(resolve, 900));
+    refreshing.value = false;
+    updated.value = "Updated just now";
+    useSonner.success("Dashboard refreshed");
+  }
 </script>

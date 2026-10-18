@@ -382,7 +382,16 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
   Dashboards: ["admin", "analytics", "overview", "app"],
   Chart: ["graph", "analytics"],
   Sidebar: ["app shell", "navigation", "admin"],
-  Header: ["navbar", "top bar", "app header"],
+  Header: [
+    "navbar",
+    "top bar",
+    "app header",
+    "page header",
+    "breadcrumbs",
+    "profile header",
+    "toolbar",
+    "sticky header",
+  ],
   Navigation: ["navbar", "header", "menu"],
   Hero: ["landing", "above the fold", "headline"],
   HeaderSection: ["page header", "section heading", "title"],
@@ -503,7 +512,17 @@ const PAGE_PRESETS: Record<string, PagePreset> = {
     category: "application",
     sections: [
       { id: "sidebar", title: "Sidebar", query: "app sidebar", categories: ["App/Sidebar/"] },
-      { id: "header", title: "Header", query: "app header", categories: ["App/Header/"] },
+      {
+        id: "header",
+        title: "Header",
+        query: "app header",
+        categories: [
+          "App/Header/BlockAppHeader4",
+          "App/Header/BlockAppHeader5",
+          "App/Header/BlockAppHeader3",
+          "App/Header/",
+        ],
+      },
       { id: "stats", title: "Stats", query: "app stats", categories: ["App/Stats/", "Metric"] },
       {
         id: "charts",
