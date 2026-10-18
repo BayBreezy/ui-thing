@@ -64,6 +64,17 @@ export default {
   "Chart/BlockChartPie.client": "apexcharts",
   "Chart/BlockChartRadar.client": "apexcharts",
   "Chart/BlockChartRadialBar.client": "apexcharts",
+  "Ecommerce/Checkout/BlockCheckout1":
+    "button card container radio-group vee-checkbox vee-input vee-select",
+  "Ecommerce/Checkout/BlockCheckout2": "button card container radio-group stepper vee-input",
+  "Ecommerce/Checkout/BlockCheckout3": "button container credit-card vee-checkbox vee-input",
+  "Ecommerce/Checkout/BlockCheckout4": "button card container label radio-group switch",
+  "Ecommerce/Checkout/BlockCheckout5":
+    "button container separator tabs vee-checkbox vee-input vee-password-input",
+  "Ecommerce/Checkout/BlockCheckout6":
+    "button container vee-checkbox vee-input vee-select vee-textarea",
+  "Ecommerce/Checkout/BlockCheckout7": "button card container vee-checkbox",
+  "Ecommerce/Checkout/BlockCheckout8": "button collapsible container separator vee-input",
   "CTA/BlockCTA1": "button container",
   "CTA/BlockCTA2": "button container",
   "CTA/BlockCTA3": "button container",
