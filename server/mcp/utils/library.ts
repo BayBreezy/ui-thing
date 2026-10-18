@@ -1407,11 +1407,26 @@ const PAGE_PRESETS: Record<string, PagePreset> = {
     sections: [
       { id: "header", title: "Header", query: "pricing hero", categories: ["HeaderSection"] },
       { id: "plans", title: "Plans", query: "pricing", categories: ["Pricing"] },
+      {
+        id: "compare",
+        title: "Compare plans",
+        query: "compare plans feature matrix",
+        categories: [
+          "Comparison/BlockComparison1",
+          "Comparison/BlockComparison4",
+          "Comparison/BlockComparison6",
+          "Comparison",
+        ],
+        componentValues: ["table", "switch", "badge", "radio-group"],
+      },
       { id: "faq", title: "FAQ", query: "faq", categories: ["FAQ"] },
       { id: "cta", title: "CTA", query: "cta", categories: ["CTA"] },
     ],
-    notes: ["Keep the plan feature lists parallel in wording so tiers are easy to compare."],
-    readNext: ["/blocks/pricing"],
+    notes: [
+      "Keep the plan feature lists parallel in wording so tiers are easy to compare.",
+      "Add a comparison table under the plan cards when you have more than a handful of features. Checks and dashes in the comparison blocks come with text for screen readers.",
+    ],
+    readNext: ["/blocks/pricing", "/blocks/comparison"],
   },
   about: {
     title: "About page",
@@ -2760,6 +2775,78 @@ const PAGE_PRESETS: Record<string, PagePreset> = {
       "/components/progress",
     ],
   },
+  integrations: {
+    title: "Integrations",
+    description:
+      "A public integrations directory with search, a detail page for each tool, a setup flow, permissions and a way to request new ones.",
+    category: "marketing",
+    sections: [
+      {
+        id: "directory",
+        title: "Directory",
+        query: "integrations directory search categories",
+        categories: [
+          "IntegrationsMarketing/IntegrationsGrid/BlockIntegrationsGrid2",
+          "IntegrationsMarketing/IntegrationsGrid/BlockIntegrationsGrid3",
+          "IntegrationsMarketing/IntegrationsGrid/BlockIntegrationsGrid1",
+        ],
+        componentValues: ["input", "button", "badge", "card"],
+      },
+      {
+        id: "marketing",
+        title: "Logo cloud",
+        query: "integrations logo cloud",
+        categories: ["IntegrationsMarketing/IntegrationsGrid/BlockIntegrationsGrid5"],
+        componentValues: ["badge", "button"],
+      },
+      {
+        id: "detail",
+        title: "Integration page",
+        query: "integration detail page",
+        categories: [
+          "IntegrationsMarketing/IntegrationDetail/BlockIntegrationDetail1",
+          "IntegrationsMarketing/IntegrationDetail/BlockIntegrationDetail4",
+        ],
+        componentValues: ["tabs", "avatar", "badge", "toggle-group"],
+      },
+      {
+        id: "setup",
+        title: "Setup and permissions",
+        query: "connect setup steps permissions",
+        categories: [
+          "IntegrationsMarketing/IntegrationDetail/BlockIntegrationDetail2",
+          "IntegrationsMarketing/IntegrationDetail/BlockIntegrationDetail3",
+        ],
+        componentValues: ["progress", "select", "switch", "card"],
+      },
+      {
+        id: "manage",
+        title: "Connected apps",
+        query: "connected apps connect disconnect",
+        categories: ["IntegrationsMarketing/IntegrationsGrid/BlockIntegrationsGrid4"],
+        componentValues: ["tabs", "alert-dialog", "card"],
+      },
+      {
+        id: "request",
+        title: "Request an integration",
+        query: "request an integration form",
+        categories: ["IntegrationsMarketing/IntegrationsGrid/BlockIntegrationsGrid6"],
+        componentValues: ["input", "textarea", "card"],
+      },
+    ],
+    notes: [
+      "Keep one list of integrations on the server and render it as the directory, the logo cloud and the related section, so the three never disagree.",
+      "Use OAuth with the smallest set of scopes, and show those scopes before the user allows them. `BlockIntegrationDetail3` lists required and optional permissions with a risk label.",
+      "Logos from the Iconify `logos` set are single color for some brands. The blocks put them on a light chip in dark mode so they stay visible.",
+      "If you need the signed in screen where people manage the tools they connected, use the integrations blocks in the settings category.",
+    ],
+    readNext: [
+      "/blocks/integrations-grid",
+      "/blocks/integrations-detail",
+      "/blocks/settings-workspace",
+      "/components/tabs",
+    ],
+  },
   custom: {
     title: "Custom page",
     description: "Flexible starting point driven by the requested sections.",
@@ -4053,6 +4140,20 @@ const APP_FEATURES: AppFeature[] = [
     title: "Roadmap",
     pageType: "roadmap",
     route: "/roadmap",
+    layout: "marketing",
+  },
+  {
+    keywords: [
+      "integrations",
+      "integration",
+      "connected apps",
+      "app directory",
+      "marketplace",
+      "plugins",
+    ],
+    title: "Integrations",
+    pageType: "integrations",
+    route: "/integrations",
     layout: "marketing",
   },
   {

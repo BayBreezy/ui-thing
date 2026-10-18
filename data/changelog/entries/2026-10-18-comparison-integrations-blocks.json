@@ -1,0 +1,20 @@
+{
+  "slug": "2026-10-18-comparison-integrations-blocks",
+  "date": "2026-10-18",
+  "title": "Comparison and Integrations Marketing Blocks",
+  "category": "feature",
+  "tags": ["blocks", "mcp"],
+  "summary": "16 new blocks for comparing plans and showing integrations, with a new integrations page plan and a comparison section in the pricing plan for the MCP server.",
+  "body": "Added blocks for choosing a plan and for showing the tools your product works with, available under **Blocks** in three new docs pages: Comparison, Integrations - Grid and Integrations - Detail. Every block keeps its own state and takes typed props with fictional sample data.\n\n#### Comparison\n\n- A plan feature matrix, plan cards with a show only differences switch, an us versus them table, a matrix with a monthly and yearly switch, checklist columns and a long table with a sticky header and a jump menu\n\n#### Integrations grid\n\n- A logo grid, a searchable directory with category chips, a featured integration, connected and available cards with a disconnect confirmation, a logo cloud and a request an integration form with voting\n\n#### Integration detail\n\n- A detail page with tabs and reviews, a step by step setup flow, a permissions list with required and optional access and a related integrations section\n\n#### MCP\n\n- New `integrations` page plan, also picked up by `plan-app`\n- The `pricing` page plan gets a compare plans section and a link to the comparison docs\n- Block docs links and search keywords cover the new categories\n",
+  "breaking": false,
+  "links": [
+    {
+      "label": "Comparison",
+      "href": "/blocks/comparison"
+    },
+    {
+      "label": "Integrations Grid",
+      "href": "/blocks/integrations-grid"
+    }
+  ]
+}
