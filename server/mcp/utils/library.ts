@@ -689,6 +689,16 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "file details",
     "password protected link",
   ],
+  Releases: [
+    "changelog",
+    "release notes",
+    "releases",
+    "what is new",
+    "product updates",
+    "version history",
+    "subscribe to updates",
+    "rss",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -1116,6 +1126,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   { test: (path) => path.startsWith("Files/Uploads/"), docsPath: "/blocks/files-uploads" },
   { test: (path) => path.startsWith("Files/Storage/"), docsPath: "/blocks/files-storage" },
   { test: (path) => path.startsWith("Files/Sharing/"), docsPath: "/blocks/files-sharing" },
+  {
+    test: (path) => path.startsWith("Changelog/Releases/"),
+    docsPath: "/blocks/changelog-releases",
+  },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [

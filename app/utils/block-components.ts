@@ -468,6 +468,12 @@ export default {
   "Tasks/ProjectOverview/BlockProjectOverview5":
     "avatar badge button container input label progress tabs",
   "Tasks/ProjectOverview/BlockProjectOverview6": "avatar badge container progress select table",
+  "Changelog/Releases/BlockReleases1": "badge button container",
+  "Changelog/Releases/BlockReleases2": "badge button card container",
+  "Changelog/Releases/BlockReleases3": "button container select",
+  "Changelog/Releases/BlockReleases4": "badge button container input",
+  "Changelog/Releases/BlockReleases5": "badge button container",
+  "Changelog/Releases/BlockReleases6": "button card container input label select",
   "ResetPassword/BlockResetPassword": "button vee-password-input",
   "ResetPassword/BlockResetPassword2": "button card vee-password-input",
   "ResetPassword/BlockResetPasswordSuccess": "button card",
