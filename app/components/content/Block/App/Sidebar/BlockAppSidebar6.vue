@@ -1,201 +1,194 @@
 <template>
-  <aside class="flex h-screen">
-    <div class="bg-muted/30 flex w-16 flex-col items-center border-r py-4">
-      <Motion
-        :initial="{ opacity: 0, y: -10 }"
-        :animate="{ opacity: 1, y: 0 }"
-        :transition="{ type: 'spring', stiffness: 300, damping: 25 }"
-        class="mb-10"
-      >
-        <NuxtLink to="#">
-          <UiAvatar src="/icon.png" alt="Company Logo" class="size-8 rounded object-contain" />
-        </NuxtLink>
-      </Motion>
-
-      <nav class="flex flex-1 flex-col gap-2">
-        <Motion
-          v-for="(item, i) in mainNav"
-          :key="i"
-          :initial="{ opacity: 0, scale: 0.8 }"
-          :animate="{ opacity: 1, scale: 1 }"
-          :transition="{ delay: i * 0.05, type: 'spring', stiffness: 300, damping: 25 }"
-        >
-          <UiTooltip>
-            <UiTooltipTrigger as-child>
-              <UiButton
-                :variant="item.active == activeSection?.active ? 'secondary' : 'ghost'"
-                size="icon"
-                @click="setActiveSection(item)"
-              >
-                <Icon :name="item.icon" class="size-[18px]" />
-              </UiButton>
-            </UiTooltipTrigger>
-            <UiTooltipContent side="right">{{ item.title }}</UiTooltipContent>
-          </UiTooltip>
-        </Motion>
-      </nav>
-
-      <UiDivider class="my-2" />
-
-      <UiTooltip>
-        <UiTooltipTrigger as-child>
-          <UiButton variant="ghost" size="icon">
-            <Icon name="lucide:settings" class="size-[18px]" />
-          </UiButton>
-        </UiTooltipTrigger>
-        <UiTooltipContent side="right">Settings</UiTooltipContent>
-      </UiTooltip>
-
-      <UiDropdownMenu>
-        <UiDropdownMenuTrigger>
-          <UiAvatar :src="user.avatar" class="mt-4" />
-        </UiDropdownMenuTrigger>
-        <UiDropdownMenuContent side="right">
-          <UiDropdownMenuLabel class="flex flex-col">
-            <span>{{ user.username }}</span>
-            <span class="text-muted-foreground text-sm font-normal">{{ user.email }}</span>
-          </UiDropdownMenuLabel>
-          <UiDropdownMenuSeparator />
-          <UiDropdownMenuItem title="View profile" icon="lucide:user" />
-          <UiDropdownMenuItem title="Edit profile" icon="lucide:pen" />
-          <UiDropdownMenuItem title="Change password" icon="lucide:lock" />
-          <UiDropdownMenuItem title="Delete account" icon="lucide:trash" />
-          <UiDropdownMenuSeparator />
-          <UiDropdownMenuItem variant="destructive" title="Logout" icon="lucide:log-out" />
-        </UiDropdownMenuContent>
-      </UiDropdownMenu>
-    </div>
-
-    <div v-if="activeSection" class="bg-background w-[280px] border-r">
-      <UiScrollArea class="h-full">
-        <div class="flex h-screen flex-col p-4">
-          <div class="mb-6">
-            <div class="mb-2 flex items-center gap-2">
-              <Icon :name="activeSection.icon" class="text-primary size-5" />
-              <h2 class="font-semibold">{{ activeSection.title }}</h2>
-            </div>
-            <p class="text-muted-foreground text-sm">{{ activeSection.description }}</p>
-          </div>
-
-          <div class="mb-4">
-            <UiVeeInput v-model="search" placeholder="Search..." icon="lucide:search" />
-          </div>
-
-          <nav class="flex flex-1 flex-col gap-1">
-            <Motion
-              v-for="(item, i) in activeSection.items"
-              :key="`${item.title}-${i}-${item.icon}`"
-              :initial="{ opacity: 0, x: -10 }"
-              :animate="{ opacity: 1, x: 0 }"
-              :transition="{ delay: i * 0.05 }"
+  <!--
+    Projects sidebar with recent, starred and all tabs
+    Features: Tabs that filter the list, live search, star toggles that move projects between tabs, color-coded projects, empty states, quick links and a new project button
+  -->
+  <UiSidebarProvider v-slot="{ isMobile }">
+    <UiSidebar class="*:data-[sidebar=sidebar]:bg-(--sidebar)">
+      <UiSidebarHeader class="gap-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2 font-semibold">
+            <div
+              class="bg-sidebar-primary text-sidebar-primary-foreground flex size-8 items-center justify-center rounded-lg"
             >
-              <UiButton
-                :to="item.link"
-                size="sm"
-                variant="ghost"
-                class="w-full justify-start gap-3 px-2"
-              >
-                <Icon v-if="item.icon" :name="item.icon" class="text-muted-foreground size-4" />
-                <span>{{ item.title }}</span>
-                <span v-if="item.count" class="text-muted-foreground ml-auto text-xs">
-                  {{ item.count }}
-                </span>
-              </UiButton>
-            </Motion>
-          </nav>
-
-          <UiButton class="mt-auto w-full" size="sm">
+              <Icon name="lucide:folder-kanban" class="size-4" />
+            </div>
+            Projects
+          </div>
+          <UiButton variant="ghost" size="icon-sm" aria-label="New project">
             <Icon name="lucide:plus" class="size-4" />
-            New {{ activeSection.title }}
           </UiButton>
         </div>
-      </UiScrollArea>
-    </div>
-  </aside>
+        <div class="relative">
+          <Icon
+            name="lucide:search"
+            class="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 opacity-50"
+          />
+          <UiSidebarInput v-model="query" placeholder="Search projects" class="pl-8" />
+        </div>
+        <UiTabs v-model="tab">
+          <UiTabsList class="grid w-full grid-cols-3">
+            <UiTabsTrigger value="recent">Recent</UiTabsTrigger>
+            <UiTabsTrigger value="starred">
+              Starred
+              <span class="text-muted-foreground ml-1 text-xs tabular-nums">{{
+                starredCount
+              }}</span>
+            </UiTabsTrigger>
+            <UiTabsTrigger value="all">All</UiTabsTrigger>
+          </UiTabsList>
+        </UiTabs>
+      </UiSidebarHeader>
+
+      <UiSidebarContent>
+        <UiSidebarGroup>
+          <UiSidebarMenu>
+            <UiSidebarMenuItem v-for="project in visible" :key="project.id">
+              <UiSidebarMenuButton as-child class="h-auto py-2">
+                <NuxtLink to="#">
+                  <span class="size-2.5 shrink-0 rounded-full" :class="project.color" />
+                  <div class="grid min-w-0 flex-1 leading-tight">
+                    <span class="truncate text-sm font-medium">{{ project.name }}</span>
+                    <span class="text-muted-foreground truncate text-xs">{{
+                      project.updated
+                    }}</span>
+                  </div>
+                </NuxtLink>
+              </UiSidebarMenuButton>
+              <UiSidebarMenuAction
+                :aria-label="project.starred ? 'Unstar project' : 'Star project'"
+                :aria-pressed="project.starred"
+                @click="project.starred = !project.starred"
+              >
+                <Icon
+                  name="lucide:star"
+                  :class="project.starred && 'fill-amber-400 text-amber-400'"
+                />
+              </UiSidebarMenuAction>
+            </UiSidebarMenuItem>
+          </UiSidebarMenu>
+          <p v-if="!visible.length" class="text-muted-foreground px-3 py-8 text-center text-sm">
+            {{ emptyText }}
+          </p>
+        </UiSidebarGroup>
+
+        <UiSidebarSeparator />
+
+        <UiSidebarGroup>
+          <UiSidebarGroupLabel label="Quick links" />
+          <UiSidebarMenu>
+            <UiSidebarMenuItem v-for="link in links" :key="link.title">
+              <UiSidebarMenuButton as-child>
+                <NuxtLink to="#">
+                  <Icon :name="link.icon" />
+                  <span>{{ link.title }}</span>
+                </NuxtLink>
+              </UiSidebarMenuButton>
+            </UiSidebarMenuItem>
+          </UiSidebarMenu>
+        </UiSidebarGroup>
+      </UiSidebarContent>
+
+      <UiSidebarFooter>
+        <UiSidebarMenu>
+          <UiSidebarMenuItem>
+            <UiDropdownMenu>
+              <UiDropdownMenuTrigger as-child>
+                <UiSidebarMenuButton size="lg">
+                  <UiAvatar
+                    src="https://i.pravatar.cc/80?img=45"
+                    fallback="PN"
+                    class="size-8 rounded-lg"
+                  />
+                  <div class="grid flex-1 text-left text-sm leading-tight">
+                    <span class="truncate font-semibold">Priya Nair</span>
+                    <span class="truncate text-xs">Design team</span>
+                  </div>
+                  <Icon name="lucide:chevrons-up-down" class="ml-auto size-4" />
+                </UiSidebarMenuButton>
+              </UiDropdownMenuTrigger>
+              <UiDropdownMenuContent
+                class="min-w-52"
+                :side="isMobile ? 'bottom' : 'right'"
+                align="end"
+              >
+                <UiDropdownMenuItem icon="lucide:user" title="Profile" />
+                <UiDropdownMenuItem icon="lucide:log-out" title="Log out" />
+              </UiDropdownMenuContent>
+            </UiDropdownMenu>
+          </UiSidebarMenuItem>
+        </UiSidebarMenu>
+      </UiSidebarFooter>
+    </UiSidebar>
+
+    <UiSidebarInset>
+      <header class="flex h-14 shrink-0 items-center gap-2 border-b px-4">
+        <UiSidebarTrigger class="-ml-1" />
+        <UiSeparator orientation="vertical" class="mr-2 h-4" />
+        <h1 class="text-sm font-medium">Select a project</h1>
+      </header>
+      <div class="flex flex-1 flex-col gap-4 p-4">
+        <div class="bg-muted/50 min-h-64 flex-1 rounded-xl" />
+      </div>
+    </UiSidebarInset>
+  </UiSidebarProvider>
 </template>
 
 <script lang="ts" setup>
-  type NavItem = {
-    title: string;
-    icon: string;
-    active: boolean;
-    description: string;
-    items: Array<{
-      title: string;
-      link: string;
-      icon?: string;
-      count?: number;
-    }>;
-  };
+  const projects = reactive([
+    {
+      id: 1,
+      name: "Website redesign",
+      updated: "2 hours ago",
+      color: "bg-violet-500",
+      starred: true,
+    },
+    { id: 2, name: "Mobile app", updated: "5 hours ago", color: "bg-pink-500", starred: false },
+    { id: 3, name: "Brand identity", updated: "Yesterday", color: "bg-sky-500", starred: true },
+    {
+      id: 4,
+      name: "Marketing campaign",
+      updated: "2 days ago",
+      color: "bg-amber-500",
+      starred: false,
+    },
+    {
+      id: 5,
+      name: "Customer research",
+      updated: "Last week",
+      color: "bg-emerald-500",
+      starred: false,
+    },
+    { id: 6, name: "Design system", updated: "Last week", color: "bg-rose-500", starred: false },
+  ]);
 
-  const search = ref<string>("");
-  const activeSection = ref<NavItem | null>(null);
-
-  const user = {
-    avatar: "https://randomuser.me/api/portraits/med/women/67.jpg",
-    username: "Sarah Smith",
-    email: "sarah.smith@example.com",
-  };
-
-  const mainNav: Array<NavItem> = [
-    {
-      title: "Projects",
-      icon: "lucide:folder",
-      active: false,
-      description: "Manage your projects and workspaces",
-      items: [
-        { title: "All Projects", link: "#", icon: "lucide:grid-3x3", count: 24 },
-        { title: "Active", link: "#", icon: "lucide:play", count: 8 },
-        { title: "Archived", link: "#", icon: "lucide:archive", count: 16 },
-        { title: "Templates", link: "#", icon: "lucide:layout-template" },
-      ],
-    },
-    {
-      title: "Tasks",
-      icon: "lucide:check-square",
-      active: false,
-      description: "View and manage your tasks",
-      items: [
-        { title: "My Tasks", link: "#", icon: "lucide:user", count: 12 },
-        { title: "Assigned to me", link: "#", icon: "lucide:user-check", count: 8 },
-        { title: "Completed", link: "#", icon: "lucide:check-circle-2", count: 45 },
-        { title: "Overdue", link: "#", icon: "lucide:alert-circle", count: 3 },
-      ],
-    },
-    {
-      title: "Team",
-      icon: "lucide:users",
-      active: false,
-      description: "Collaborate with your team members",
-      items: [
-        { title: "All Members", link: "#", icon: "lucide:users", count: 32 },
-        { title: "Departments", link: "#", icon: "lucide:building-2" },
-        { title: "Invitations", link: "#", icon: "lucide:mail", count: 2 },
-        { title: "Activity", link: "#", icon: "lucide:activity" },
-      ],
-    },
-    {
-      title: "Messages",
-      icon: "lucide:message-square",
-      active: false,
-      description: "Team communication and messages",
-      items: [
-        { title: "Inbox", link: "#", icon: "lucide:inbox", count: 5 },
-        { title: "Sent", link: "#", icon: "lucide:send" },
-        { title: "Drafts", link: "#", icon: "lucide:file-edit", count: 2 },
-        { title: "Archived", link: "#", icon: "lucide:archive" },
-      ],
-    },
+  const links = [
+    { title: "Team", icon: "lucide:users" },
+    { title: "Settings", icon: "lucide:settings" },
+    { title: "Help", icon: "lucide:circle-help" },
   ];
 
-  const setActiveSection = (item: any) => {
-    mainNav.forEach((nav) => (nav.active = false));
-    item.active = true;
-    activeSection.value = item;
-  };
+  const tab = ref("recent");
+  const query = ref("");
 
-  // Set first item as active by default
-  onMounted(() => {
-    setActiveSection(mainNav[0]);
+  const starredCount = computed(() => projects.filter((project) => project.starred).length);
+
+  const visible = computed(() => {
+    const q = query.value.toLowerCase();
+    const base =
+      tab.value === "starred"
+        ? projects.filter((project) => project.starred)
+        : tab.value === "recent"
+          ? projects.slice(0, 4)
+          : projects;
+    return base.filter((project) => project.name.toLowerCase().includes(q));
   });
+
+  const emptyText = computed(() =>
+    query.value
+      ? "No projects match your search."
+      : tab.value === "starred"
+        ? "Star a project to pin it here."
+        : "No projects yet."
+  );
 </script>

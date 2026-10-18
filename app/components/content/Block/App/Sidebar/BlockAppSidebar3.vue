@@ -1,97 +1,128 @@
 <template>
-  <DefineNavItem v-slot="{ item: n }">
-    <UiButton
-      :to="n.link"
-      :size="isExpanded ? 'default' : 'icon'"
-      variant="ghost"
-      class="relative w-full shrink-0 justify-start gap-3 overflow-hidden p-3"
-    >
-      <Icon v-if="n.icon" :name="n.icon" class="text-muted-foreground size-5 shrink-0" />
-      <span
-        class="whitespace-nowrap opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-      >
-        {{ n.title }}
-      </span>
-    </UiButton>
-  </DefineNavItem>
+  <!--
+    Compact icon sidebar with tooltips that expands on demand
+    Features: Starts collapsed to icons with tooltips, expands with the trigger, the rail or the keyboard shortcut, active route state, notification dot, user menu at the bottom
+  -->
+  <UiSidebarProvider v-slot="{ isMobile }" :default-open="false">
+    <UiSidebar collapsible="icon" class="*:data-[sidebar=sidebar]:bg-(--sidebar)">
+      <UiSidebarHeader>
+        <UiSidebarMenu>
+          <UiSidebarMenuItem>
+            <UiSidebarMenuButton size="lg" as-child>
+              <NuxtLink to="#">
+                <div
+                  class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg"
+                >
+                  <Icon name="lucide:command" class="size-4" />
+                </div>
+                <div class="grid flex-1 text-left text-sm leading-tight">
+                  <span class="truncate font-semibold">UI Thing</span>
+                  <span class="truncate text-xs">Admin console</span>
+                </div>
+              </NuxtLink>
+            </UiSidebarMenuButton>
+          </UiSidebarMenuItem>
+        </UiSidebarMenu>
+      </UiSidebarHeader>
 
-  <aside
-    class="group flex h-screen w-16 flex-col border-r py-4 transition-all duration-300 ease-in-out hover:w-[240px]"
-    @mouseenter="isExpanded = true"
-    @mouseleave="isExpanded = false"
-  >
-    <div class="mb-8 flex items-center overflow-hidden px-3">
-      <NuxtLink to="#" class="flex items-center gap-3">
-        <UiAvatar
-          src="/icon.png"
-          alt="Company Logo"
-          class="size-8 shrink-0 rounded object-contain"
-        />
-        <span
-          class="text-lg font-bold whitespace-nowrap opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-        >
-          {{ COMPANY_NAME }}
-        </span>
-      </NuxtLink>
-    </div>
+      <UiSidebarContent>
+        <UiSidebarGroup>
+          <UiSidebarMenu>
+            <UiSidebarMenuItem v-for="item in nav" :key="item.title">
+              <UiSidebarMenuButton
+                as-child
+                :tooltip="item.title"
+                :is-active="item.title === active"
+              >
+                <NuxtLink to="#" @click.prevent="active = item.title">
+                  <Icon :name="item.icon" />
+                  <span>{{ item.title }}</span>
+                </NuxtLink>
+              </UiSidebarMenuButton>
+              <UiSidebarMenuBadge v-if="item.badge">{{ item.badge }}</UiSidebarMenuBadge>
+              <span
+                v-else-if="item.dot"
+                class="bg-primary absolute top-2 right-2 size-1.5 rounded-full group-data-[collapsible=icon]:top-1.5 group-data-[collapsible=icon]:right-1.5"
+                aria-label="New activity"
+              />
+            </UiSidebarMenuItem>
+          </UiSidebarMenu>
+        </UiSidebarGroup>
+      </UiSidebarContent>
 
-    <UiScrollArea class="size-full">
-      <nav class="flex flex-col gap-2 px-2">
-        <template v-for="(n, i) in navigation" :key="i">
-          <NavItem :item="n" />
-        </template>
-      </nav>
+      <UiSidebarFooter>
+        <UiSidebarMenu>
+          <UiSidebarMenuItem>
+            <UiSidebarMenuButton tooltip="Help" as-child>
+              <NuxtLink to="#">
+                <Icon name="lucide:circle-help" />
+                <span>Help center</span>
+              </NuxtLink>
+            </UiSidebarMenuButton>
+          </UiSidebarMenuItem>
+          <UiSidebarMenuItem>
+            <UiDropdownMenu>
+              <UiDropdownMenuTrigger as-child>
+                <UiSidebarMenuButton size="lg" tooltip="Account">
+                  <UiAvatar
+                    src="https://i.pravatar.cc/80?img=47"
+                    fallback="MC"
+                    class="size-8 rounded-lg"
+                  />
+                  <div class="grid flex-1 text-left text-sm leading-tight">
+                    <span class="truncate font-semibold">Maya Chen</span>
+                    <span class="truncate text-xs">maya@uithing.com</span>
+                  </div>
+                  <Icon name="lucide:chevrons-up-down" class="ml-auto size-4" />
+                </UiSidebarMenuButton>
+              </UiDropdownMenuTrigger>
+              <UiDropdownMenuContent
+                class="min-w-52"
+                :side="isMobile ? 'bottom' : 'right'"
+                align="end"
+              >
+                <UiDropdownMenuItem icon="lucide:user" title="Profile" />
+                <UiDropdownMenuItem icon="lucide:settings" title="Settings" />
+                <UiDropdownMenuSeparator />
+                <UiDropdownMenuItem icon="lucide:log-out" title="Log out" />
+              </UiDropdownMenuContent>
+            </UiDropdownMenu>
+          </UiSidebarMenuItem>
+        </UiSidebarMenu>
+      </UiSidebarFooter>
+      <UiSidebarRail />
+    </UiSidebar>
 
-      <UiDivider class="my-4" />
-
-      <nav class="flex flex-col gap-2 px-2">
-        <template v-for="(n, i) in bottomNavigation" :key="i">
-          <NavItem :item="n" />
-        </template>
-      </nav>
-    </UiScrollArea>
-
-    <div class="mt-auto px-2">
-      <UiButton variant="ghost" class="relative w-full justify-start gap-3 overflow-hidden pl-2">
-        <UiAvatar :src="user.avatar" class="size-8 shrink-0" />
-        <span
-          class="text-sm font-semibold whitespace-nowrap opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-        >
-          {{ user.username }}
-        </span>
-      </UiButton>
-    </div>
-  </aside>
+    <UiSidebarInset>
+      <header class="flex h-14 shrink-0 items-center gap-2 border-b px-4">
+        <UiSidebarTrigger class="-ml-1" />
+        <UiSeparator orientation="vertical" class="mr-2 h-4" />
+        <h1 class="text-sm font-medium">{{ active }}</h1>
+        <p class="text-muted-foreground ml-auto hidden text-xs sm:block">
+          Toggle with <UiKbd>⌘</UiKbd> <UiKbd>B</UiKbd>
+        </p>
+      </header>
+      <div class="flex flex-1 flex-col gap-4 p-4">
+        <div class="grid gap-4 md:grid-cols-3">
+          <div v-for="n in 3" :key="n" class="bg-muted/50 aspect-video rounded-xl" />
+        </div>
+        <div class="bg-muted/50 min-h-48 flex-1 rounded-xl" />
+      </div>
+    </UiSidebarInset>
+  </UiSidebarProvider>
 </template>
 
 <script lang="ts" setup>
-  const isExpanded = ref(false);
-
-  const [DefineNavItem, NavItem] = createReusableTemplate<{
-    item: {
-      title: string;
-      icon?: string;
-      link: string;
-    };
-  }>();
-
-  const user = {
-    avatar: "https://randomuser.me/api/portraits/med/men/2.jpg",
-    username: "Jane Doe",
-  };
-
-  const navigation = [
-    { title: "Home", icon: "lucide:home", link: "#" },
-    { title: "Dashboard", icon: "lucide:bar-chart-3", link: "#" },
-    { title: "Projects", icon: "lucide:folder-dot", link: "#" },
-    { title: "Tasks", icon: "lucide:list-checks", link: "#" },
-    { title: "Calendar", icon: "lucide:calendar", link: "#" },
-    { title: "Messages", icon: "lucide:mail", link: "#" },
-    { title: "Team", icon: "lucide:users", link: "#" },
+  const nav = [
+    { title: "Overview", icon: "lucide:house" },
+    { title: "Analytics", icon: "lucide:chart-column", dot: true },
+    { title: "Projects", icon: "lucide:folder-kanban" },
+    { title: "Tasks", icon: "lucide:list-checks", badge: "5" },
+    { title: "Calendar", icon: "lucide:calendar" },
+    { title: "Messages", icon: "lucide:mail", badge: "12" },
+    { title: "Team", icon: "lucide:users" },
+    { title: "Settings", icon: "lucide:settings" },
   ];
 
-  const bottomNavigation = [
-    { title: "Settings", icon: "lucide:settings", link: "#" },
-    { title: "Help", icon: "lucide:help-circle", link: "#" },
-  ];
+  const active = ref("Overview");
 </script>

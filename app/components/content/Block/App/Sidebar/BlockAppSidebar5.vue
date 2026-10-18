@@ -1,195 +1,168 @@
 <template>
-  <aside class="h-screen w-[300px] border-r">
-    <UiScrollArea class="size-full">
-      <div class="flex h-screen flex-col">
-        <div class="border-b p-4">
-          <NuxtLink to="#" class="flex items-center gap-3">
-            <UiAvatar src="/icon.png" alt="Company Logo" class="size-8 rounded object-contain" />
-            <div>
-              <p class="font-bold">{{ COMPANY_NAME }}</p>
-              <p class="text-muted-foreground text-xs">Admin Dashboard</p>
-            </div>
-          </NuxtLink>
+  <!--
+    Inset sidebar with quick actions and an account footer
+    Features: Inset variant where the page sits in a rounded card, quick action buttons, grouped nav with a New badge, nested items, storage meter and user row in the footer
+  -->
+  <UiSidebarProvider v-slot="{ isMobile }">
+    <UiSidebar variant="inset">
+      <UiSidebarHeader>
+        <UiSidebarMenu>
+          <UiSidebarMenuItem>
+            <UiSidebarMenuButton size="lg" as-child>
+              <NuxtLink to="#">
+                <div
+                  class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg"
+                >
+                  <Icon name="lucide:zap" class="size-4" />
+                </div>
+                <div class="grid flex-1 text-left text-sm leading-tight">
+                  <span class="truncate font-semibold">UI Thing</span>
+                  <span class="truncate text-xs">Admin dashboard</span>
+                </div>
+              </NuxtLink>
+            </UiSidebarMenuButton>
+          </UiSidebarMenuItem>
+        </UiSidebarMenu>
+        <div class="grid grid-cols-2 gap-2">
+          <UiButton size="sm" class="gap-1.5">
+            <Icon name="lucide:plus" class="size-4" />
+            New
+          </UiButton>
+          <UiButton size="sm" variant="outline" class="gap-1.5">
+            <Icon name="lucide:upload" class="size-4" />
+            Upload
+          </UiButton>
         </div>
+      </UiSidebarHeader>
 
-        <div class="flex-1 p-4">
-          <div class="dark:bg-primary/5 relative mb-4 flex flex-col gap-2 rounded-lg border p-3">
-            <div class="mb-2 flex items-center gap-2">
-              <Icon name="lucide:zap" class="text-primary size-3.5" />
-              <span class="text-sm font-medium">Quick Actions</span>
-            </div>
-            <div class="grid grid-cols-2 gap-2">
-              <UiButton size="sm" variant="outline" class="h-auto py-2">
-                <Icon name="lucide:plus" class="size-4" />
-                <span class="text-xs">New</span>
-              </UiButton>
-              <UiButton size="sm" variant="outline" class="h-auto py-2">
-                <Icon name="lucide:upload" class="size-4" />
-                <span class="text-xs">Upload</span>
-              </UiButton>
-            </div>
-            <UiBorderBeam :duration="15" />
-          </div>
-
-          <nav class="flex flex-col gap-6">
-            <div v-for="(section, index) in sections" :key="index">
-              <div class="mb-2 px-2">
-                <span class="text-muted-foreground/70 text-xs tracking-wider uppercase">{{
-                  section.title
-                }}</span>
-              </div>
-              <div class="flex flex-col gap-0.5">
-                <template v-for="(item, i) in section.items" :key="i">
-                  <UiButton
-                    v-if="!('children' in item)"
-                    :to="item.link"
-                    size="sm"
-                    variant="ghost"
-                    class="justify-start gap-3 px-2"
-                  >
-                    <Icon v-if="item.icon" :name="item.icon" class="text-muted-foreground size-4" />
+      <UiSidebarContent>
+        <UiSidebarGroup v-for="group in groups" :key="group.label">
+          <UiSidebarGroupLabel :label="group.label" />
+          <UiSidebarMenu>
+            <template v-for="item in group.items" :key="item.title">
+              <UiCollapsible v-if="item.children" v-slot="{ open }" as-child>
+                <UiSidebarMenuItem>
+                  <UiCollapsibleTrigger as-child>
+                    <UiSidebarMenuButton>
+                      <Icon :name="item.icon" />
+                      <span>{{ item.title }}</span>
+                      <Icon
+                        name="lucide:chevron-right"
+                        class="ml-auto transition-transform duration-200"
+                        :class="open && 'rotate-90'"
+                      />
+                    </UiSidebarMenuButton>
+                  </UiCollapsibleTrigger>
+                  <UiCollapsibleContent>
+                    <UiSidebarMenuSub>
+                      <UiSidebarMenuSubItem v-for="child in item.children" :key="child">
+                        <UiSidebarMenuSubButton as-child>
+                          <NuxtLink to="#">{{ child }}</NuxtLink>
+                        </UiSidebarMenuSubButton>
+                      </UiSidebarMenuSubItem>
+                    </UiSidebarMenuSub>
+                  </UiCollapsibleContent>
+                </UiSidebarMenuItem>
+              </UiCollapsible>
+              <UiSidebarMenuItem v-else>
+                <UiSidebarMenuButton as-child :is-active="item.title === active">
+                  <NuxtLink to="#" @click.prevent="active = item.title">
+                    <Icon :name="item.icon" />
                     <span>{{ item.title }}</span>
-                    <UiBadge
-                      v-if="item.badge"
-                      :variant="(item.badgeVariant as any) || 'secondary'"
-                      class="ml-auto h-5 px-1.5 text-xs"
-                    >
-                      {{ item.badge }}
-                    </UiBadge>
-                  </UiButton>
-                  <UiCollapsible v-else>
-                    <UiCollapsibleTrigger as-child>
-                      <UiButton
-                        size="sm"
-                        variant="ghost"
-                        class="group w-full justify-start gap-3 px-2"
-                      >
-                        <Icon
-                          v-if="item.icon"
-                          :name="item.icon"
-                          class="text-muted-foreground size-4"
-                        />
-                        <span>{{ item.title }}</span>
-                        <Icon
-                          name="lucide:chevron-down"
-                          class="text-muted-foreground ml-auto size-4 transition group-data-[state=open]:rotate-180"
-                        />
-                      </UiButton>
-                    </UiCollapsibleTrigger>
-                    <UiCollapsibleContent class="flex flex-col gap-0.5 pr-2 pl-6">
-                      <UiButton
-                        v-for="(child, ci) in item.children"
-                        :key="ci"
-                        :to="child.link"
-                        size="sm"
-                        variant="ghost"
-                        class="justify-start gap-3 px-2"
-                      >
-                        <span>{{ child.title }}</span>
-                      </UiButton>
-                    </UiCollapsibleContent>
-                  </UiCollapsible>
-                </template>
-              </div>
-            </div>
-          </nav>
-        </div>
+                  </NuxtLink>
+                </UiSidebarMenuButton>
+                <UiSidebarMenuBadge v-if="item.badge">{{ item.badge }}</UiSidebarMenuBadge>
+              </UiSidebarMenuItem>
+            </template>
+          </UiSidebarMenu>
+        </UiSidebarGroup>
+      </UiSidebarContent>
 
-        <div class="border-t p-4">
-          <div class="mb-3 flex items-center gap-3">
-            <UiAvatar :src="user.avatar" class="size-10" />
-            <div class="flex-1">
-              <p class="text-sm font-semibold">{{ user.username }}</p>
-              <p class="text-muted-foreground text-xs">{{ user.email }}</p>
-            </div>
+      <UiSidebarFooter>
+        <div class="rounded-lg border p-3">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-medium">Storage</span>
+            <span class="text-muted-foreground">68% used</span>
+          </div>
+          <UiProgress :model-value="68" class="mt-2 h-1.5" />
+        </div>
+        <UiSidebarMenu>
+          <UiSidebarMenuItem>
             <UiDropdownMenu>
               <UiDropdownMenuTrigger as-child>
-                <UiButton size="icon-sm" variant="ghost">
-                  <Icon name="lucide:more-vertical" class="text-muted-foreground size-4" />
-                </UiButton>
+                <UiSidebarMenuButton size="lg">
+                  <UiAvatar
+                    src="https://i.pravatar.cc/80?img=32"
+                    fallback="SO"
+                    class="size-8 rounded-lg"
+                  />
+                  <div class="grid flex-1 text-left text-sm leading-tight">
+                    <span class="truncate font-semibold">Sam Okafor</span>
+                    <span class="truncate text-xs">sam@uithing.com</span>
+                  </div>
+                  <Icon name="lucide:chevrons-up-down" class="ml-auto size-4" />
+                </UiSidebarMenuButton>
               </UiDropdownMenuTrigger>
-              <UiDropdownMenuContent align="end">
-                <UiDropdownMenuItem>
-                  <Icon name="lucide:user" class="size-4" />
-                  Profile
-                </UiDropdownMenuItem>
-                <UiDropdownMenuItem>
-                  <Icon name="lucide:settings" class="size-4" />
-                  Settings
-                </UiDropdownMenuItem>
+              <UiDropdownMenuContent
+                class="min-w-52"
+                :side="isMobile ? 'bottom' : 'right'"
+                align="end"
+              >
+                <UiDropdownMenuItem icon="lucide:user" title="Account" />
+                <UiDropdownMenuItem icon="lucide:credit-card" title="Billing" />
                 <UiDropdownMenuSeparator />
-                <UiDropdownMenuItem variant="destructive">
-                  <Icon name="lucide:log-out" class="size-4" />
-                  Sign out
-                </UiDropdownMenuItem>
+                <UiDropdownMenuItem icon="lucide:log-out" title="Log out" />
               </UiDropdownMenuContent>
             </UiDropdownMenu>
-          </div>
-          <UiProgress :model-value="storageUsed" class="h-1.5" />
-          <p class="text-muted-foreground mt-2 text-xs">{{ storageUsed }}% storage used</p>
+          </UiSidebarMenuItem>
+        </UiSidebarMenu>
+      </UiSidebarFooter>
+    </UiSidebar>
+
+    <UiSidebarInset>
+      <header class="flex h-14 shrink-0 items-center gap-2 px-4">
+        <UiSidebarTrigger class="-ml-1" />
+        <UiSeparator orientation="vertical" class="mr-2 h-4" />
+        <h1 class="text-sm font-medium">{{ active }}</h1>
+      </header>
+      <div class="flex flex-1 flex-col gap-4 p-4 pt-0">
+        <div class="grid gap-4 md:grid-cols-3">
+          <div v-for="n in 3" :key="n" class="bg-muted/50 aspect-video rounded-xl" />
         </div>
+        <div class="bg-muted/50 min-h-48 flex-1 rounded-xl" />
       </div>
-    </UiScrollArea>
-  </aside>
+    </UiSidebarInset>
+  </UiSidebarProvider>
 </template>
 
 <script lang="ts" setup>
-  type Child = { title: string; link: string };
-  type Item = {
-    title: string;
-    icon?: string;
-    link?: string;
-    badge?: string;
-    badgeVariant?: string;
-    children?: Child[];
-  };
-  type Section = { title: string; items: Item[] };
+  type Item = { title: string; icon: string; badge?: string; children?: string[] };
 
-  const storageUsed = 68;
-
-  const user = {
-    avatar: "https://randomuser.me/api/portraits/med/men/75.jpg",
-    username: "Alex Morgan",
-    email: "alex@company.com",
-  };
-
-  const sections: Section[] = [
+  const groups: { label: string; items: Item[] }[] = [
     {
-      title: "Main",
+      label: "Main",
       items: [
-        { title: "Dashboard", icon: "lucide:home", link: "#" },
-        {
-          title: "Analytics",
-          icon: "lucide:bar-chart-2",
-          link: "#",
-          badge: "New",
-          badgeVariant: "default",
-        },
-        { title: "Reports", icon: "lucide:file-text", link: "#" },
+        { title: "Dashboard", icon: "lucide:house" },
+        { title: "Analytics", icon: "lucide:chart-line", badge: "New" },
+        { title: "Reports", icon: "lucide:file-bar-chart" },
       ],
     },
     {
-      title: "Management",
+      label: "Management",
       items: [
-        {
-          title: "Users",
-          icon: "lucide:users",
-          children: [
-            { title: "All Users", link: "#" },
-            { title: "Roles", link: "#" },
-            { title: "Permissions", link: "#" },
-          ],
-        },
-        { title: "Projects", icon: "lucide:folder", link: "#", badge: "12" },
-        { title: "Tasks", icon: "lucide:check-circle", link: "#", badge: "5" },
+        { title: "Users", icon: "lucide:users", children: ["All users", "Roles", "Invitations"] },
+        { title: "Projects", icon: "lucide:folder", badge: "12" },
+        { title: "Tasks", icon: "lucide:circle-check", badge: "5" },
       ],
     },
     {
-      title: "Support",
+      label: "Support",
       items: [
-        { title: "Documentation", icon: "lucide:book-open", link: "#" },
-        { title: "Help Center", icon: "lucide:help-circle", link: "#" },
+        { title: "Documentation", icon: "lucide:book-open" },
+        { title: "Help center", icon: "lucide:life-buoy" },
       ],
     },
   ];
+
+  const active = ref("Dashboard");
 </script>

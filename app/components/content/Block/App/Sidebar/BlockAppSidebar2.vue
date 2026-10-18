@@ -1,160 +1,204 @@
 <template>
-  <aside class="flex h-screen">
-    <UiScrollArea class="z-10 h-full w-[300px] border-r">
-      <div class="flex h-screen flex-col pt-7">
-        <NuxtLink to="#" class="flex w-full items-center gap-3 px-5">
-          <UiAvatar src="/icon.png" alt="Company Logo" class="size-7 rounded object-contain" />
-          <span class="text-xl font-bold">{{ COMPANY_NAME }}</span>
-        </NuxtLink>
-        <div class="my-6 px-5">
-          <UiVeeInput v-model="search" placeholder="Search..." icon="lucide:search" />
-        </div>
-        <div class="flex h-full grow flex-col px-5 pb-8">
-          <div class="mb-10 flex flex-col gap-10">
-            <nav class="flex flex-col gap-1">
-              <template v-for="(n, i) in topNav" :key="i">
-                <UiButton
-                  size="default"
-                  :to="n.link"
-                  variant="ghost"
-                  class="justify-start gap-4 px-3"
-                  @click="setMiniBarItems(n.items)"
-                >
-                  <Icon v-if="n.icon" :name="n.icon" class="text-muted-foreground size-4" />
-                  <span>{{ n.title }}</span>
-                  <Icon
-                    v-if="n.items"
-                    name="lucide:chevron-right"
-                    class="text-muted-foreground/80 ml-auto size-4"
-                  />
-                </UiButton>
-              </template>
-            </nav>
-            <nav class="mt-auto flex flex-col gap-1">
-              <template v-for="(n, i) in bottomNav" :key="i">
-                <UiButton
-                  :to="n.link"
-                  size="default"
-                  variant="ghost"
-                  class="justify-start gap-4 px-3"
-                  @click="setMiniBarItems(n.items)"
-                >
-                  <Icon v-if="n.icon" :name="n.icon" class="text-muted-foreground size-4" />
-                  <span>{{ n.title }}</span>
-                  <Icon
-                    v-if="n.items"
-                    name="lucide:chevron-right"
-                    class="text-muted-foreground/80 ml-auto size-4"
-                  />
-                </UiButton>
-              </template>
-            </nav>
-          </div>
-          <div class="bg-muted/50 mt-auto rounded-lg p-4 text-sm">
-            <div class="flex items-center justify-between">
-              <p class="font-semibold">Used space</p>
-              <UiButton class="size-6" size="icon-sm" variant="ghost">
-                <Icon name="lucide:x" class="text-muted-foreground size-4" />
-              </UiButton>
-            </div>
-            <p class="text-muted-foreground mt-3">
-              Your team has used 80% of your available space. Need more?
-            </p>
-            <UiProgress class="my-4 h-2" :model-value="80" />
+  <!--
+    Two tier mail style sidebar with an icon rail and a list panel
+    Features: Icon rail that switches the section, second panel with a searchable conversation list, unread filter switch, selected state, collapses on mobile
+  -->
+  <UiSidebarProvider class="min-h-[34rem] [--sidebar-width:22rem]!">
+    <UiSidebar
+      collapsible="icon"
+      class="overflow-hidden *:data-[sidebar=sidebar]:flex-row *:data-[sidebar=sidebar]:bg-(--sidebar)"
+    >
+      <!-- Icon rail -->
+      <UiSidebar collapsible="none" class="w-[calc(var(--sidebar-width-icon)+1px)]! border-r">
+        <UiSidebarHeader>
+          <UiSidebarMenu>
+            <UiSidebarMenuItem>
+              <UiSidebarMenuButton size="lg" as-child class="md:h-8 md:p-0">
+                <NuxtLink to="#">
+                  <div
+                    class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg"
+                  >
+                    <Icon name="lucide:send" class="size-4" />
+                  </div>
+                </NuxtLink>
+              </UiSidebarMenuButton>
+            </UiSidebarMenuItem>
+          </UiSidebarMenu>
+        </UiSidebarHeader>
+        <UiSidebarContent>
+          <UiSidebarGroup>
+            <UiSidebarGroupContent class="px-1.5 md:px-0">
+              <UiSidebarMenu>
+                <UiSidebarMenuItem v-for="item in folders" :key="item.title">
+                  <UiSidebarMenuButton
+                    :tooltip="item.title"
+                    class="px-2.5 md:px-2"
+                    :is-active="active.title === item.title"
+                    @click="active = item"
+                  >
+                    <Icon :name="item.icon" />
+                    <span>{{ item.title }}</span>
+                  </UiSidebarMenuButton>
+                  <UiSidebarMenuBadge v-if="item.unread" class="md:hidden">
+                    {{ item.unread }}
+                  </UiSidebarMenuBadge>
+                </UiSidebarMenuItem>
+              </UiSidebarMenu>
+            </UiSidebarGroupContent>
+          </UiSidebarGroup>
+        </UiSidebarContent>
+        <UiSidebarFooter>
+          <UiAvatar src="https://i.pravatar.cc/80?img=47" fallback="MC" class="size-8 rounded-lg" />
+        </UiSidebarFooter>
+      </UiSidebar>
 
-            <div class="flex items-center gap-1">
-              <UiButton class="px-2" variant="ghost" size="sm">Dismiss</UiButton>
-              <UiButton class="px-2 text-sky-500 hover:text-sky-600" variant="ghost" size="sm"
-                >Upgrade plan</UiButton
-              >
-            </div>
+      <!-- Conversation list -->
+      <UiSidebar collapsible="none" class="hidden flex-1 md:flex">
+        <UiSidebarHeader class="gap-3.5 border-b p-4">
+          <div class="flex w-full items-center justify-between">
+            <div class="text-foreground text-base font-semibold">{{ active.title }}</div>
+            <label class="flex items-center gap-2 text-sm">
+              <span>Unread</span>
+              <UiSwitch v-model="unreadOnly" class="shadow-none" />
+            </label>
           </div>
-          <UiDivider class="my-6" />
-          <div class="flex items-center gap-3 pb-8">
-            <div class="flex items-center gap-3">
-              <UiAvatar :src="user.avatar" class="size-10" />
-              <div>
-                <p class="text-sm font-semibold" v-html="user.username" />
-                <p class="text-muted-foreground text-sm" v-html="user.email" />
-              </div>
-            </div>
-            <UiTooltip>
-              <UiTooltipTrigger as-child>
-                <UiButton class="ml-auto shrink-0" size="icon-sm" variant="ghost">
-                  <Icon name="lucide:log-out" class="text-muted-foreground size-4" />
-                </UiButton>
-              </UiTooltipTrigger>
-              <UiTooltipContent side="right" align="center">Logout</UiTooltipContent>
-            </UiTooltip>
+          <div class="relative">
+            <Icon
+              name="lucide:search"
+              class="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 opacity-50"
+            />
+            <UiSidebarInput v-model="query" placeholder="Type to search…" class="pl-8" />
+          </div>
+        </UiSidebarHeader>
+        <UiSidebarContent>
+          <UiSidebarGroup class="px-0">
+            <UiSidebarGroupContent>
+              <button
+                v-for="mail in filtered"
+                :key="mail.id"
+                type="button"
+                class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground flex w-full flex-col items-start gap-2 border-b p-4 text-left text-sm leading-tight whitespace-nowrap last:border-b-0"
+                :class="selected === mail.id && 'bg-sidebar-accent'"
+                @click="selected = mail.id"
+              >
+                <div class="flex w-full items-center gap-2">
+                  <span
+                    v-if="mail.unread"
+                    class="bg-primary size-2 shrink-0 rounded-full"
+                    aria-label="Unread"
+                  />
+                  <span class="font-medium" :class="!mail.unread && 'text-muted-foreground'">
+                    {{ mail.name }}
+                  </span>
+                  <span class="text-muted-foreground ml-auto text-xs">{{ mail.date }}</span>
+                </div>
+                <span class="font-medium">{{ mail.subject }}</span>
+                <span
+                  class="text-muted-foreground line-clamp-2 w-[260px] text-xs whitespace-break-spaces"
+                >
+                  {{ mail.teaser }}
+                </span>
+              </button>
+              <p v-if="!filtered.length" class="text-muted-foreground p-6 text-center text-sm">
+                No messages match.
+              </p>
+            </UiSidebarGroupContent>
+          </UiSidebarGroup>
+        </UiSidebarContent>
+      </UiSidebar>
+    </UiSidebar>
+
+    <UiSidebarInset>
+      <header
+        class="bg-background sticky top-0 flex h-14 shrink-0 items-center gap-2 border-b px-4"
+      >
+        <UiSidebarTrigger class="-ml-1" />
+        <UiSeparator orientation="vertical" class="mr-2 h-4" />
+        <span class="text-muted-foreground text-sm">{{ active.title }}</span>
+        <Icon name="lucide:chevron-right" class="text-muted-foreground size-3.5" />
+        <span class="text-sm font-medium">
+          {{ current?.subject ?? "Select a message" }}
+        </span>
+      </header>
+      <div v-if="current" class="flex flex-1 flex-col gap-4 p-6">
+        <div class="flex items-center gap-3">
+          <UiAvatar :fallback="current.name[0]" class="size-10" />
+          <div>
+            <p class="text-sm font-semibold">{{ current.name }}</p>
+            <p class="text-muted-foreground text-xs">{{ current.date }}</p>
           </div>
         </div>
+        <h2 class="text-xl font-bold tracking-tight">{{ current.subject }}</h2>
+        <p class="text-muted-foreground max-w-xl text-sm">{{ current.teaser }}</p>
       </div>
-    </UiScrollArea>
-    <TransitionSlide ref="sideBarRef" :offset="[-30, 0]">
-      <UiScrollArea v-if="showMiniSidebar" class="h-full w-[250px] border-r px-5 py-4">
-        <nav class="flex flex-col gap-1">
-          <template v-for="(n, i) in miniSidebarItems" :key="i">
-            <UiButton :to="n.link" size="default" variant="ghost" class="justify-start gap-4 px-3">
-              <Icon v-if="n.icon" :name="n.icon" class="text-muted-foreground size-4" />
-              <span>{{ n.title }}</span>
-            </UiButton>
-          </template>
-        </nav>
-      </UiScrollArea>
-    </TransitionSlide>
-  </aside>
+      <div v-else class="text-muted-foreground flex flex-1 items-center justify-center text-sm">
+        Choose a message from the list.
+      </div>
+    </UiSidebarInset>
+  </UiSidebarProvider>
 </template>
 
 <script lang="ts" setup>
-  const search = ref<string>("");
-  const showMiniSidebar = ref<boolean>(false);
-  const miniSidebarItems = ref<Array<any>>();
-  const sideBarRef = ref<any>();
-
-  onClickOutside(sideBarRef, () => {
-    showMiniSidebar.value = false;
-    miniSidebarItems.value = [];
-  });
-
-  const user = {
-    avatar: "https://randomuser.me/api/portraits/med/men/2.jpg",
-    username: "Jane Doe",
-    email: "muzcad@he.tg",
-  };
-
-  const topNav = [
-    { title: "Home", icon: "lucide:home", link: "#" },
-    {
-      title: "Dashboard",
-      icon: "lucide:bar-chart-3",
-      items: [
-        { title: "Overview", link: "#", icon: "lucide:activity" },
-        { title: "Notifications", link: "#", icon: "lucide:bell" },
-        { title: "Analytics", link: "#", icon: "lucide:pie-chart" },
-        { title: "Reports", link: "#", icon: "lucide:file-text" },
-      ],
-    },
-    { title: "Projects", icon: "lucide:folder-dot", link: "#" },
-    { title: "Tasks", icon: "lucide:list-checks", link: "#" },
-    { title: "Users", icon: "lucide:users", link: "#" },
+  const folders = [
+    { title: "Inbox", icon: "lucide:inbox", unread: 3 },
+    { title: "Drafts", icon: "lucide:file", unread: 0 },
+    { title: "Sent", icon: "lucide:send", unread: 0 },
+    { title: "Junk", icon: "lucide:archive-x", unread: 1 },
+    { title: "Trash", icon: "lucide:trash-2", unread: 0 },
   ];
-  const bottomNav = [
-    { title: "Support", icon: "lucide:life-buoy", link: "#" },
+  const active = ref(folders[0]!);
+
+  const mails = [
     {
-      title: "Settings",
-      icon: "lucide:settings-2",
-      items: [
-        { title: "Profile", link: "#", icon: "lucide:user" },
-        { title: "Account", link: "#", icon: "lucide:settings" },
-        { title: "Security", link: "#", icon: "lucide:shield" },
-        { title: "Billing", link: "#", icon: "lucide:credit-card" },
-      ],
+      id: 1,
+      name: "Priya Nair",
+      subject: "Design review on Friday",
+      date: "09:34 AM",
+      unread: true,
+      teaser:
+        "Can we move the review to the afternoon? I'd like to include the latest prototype so everyone can click through it.",
+    },
+    {
+      id: 2,
+      name: "Liam Carter",
+      subject: "Weekly sync notes",
+      date: "Yesterday",
+      unread: true,
+      teaser:
+        "Here is a short summary of what we agreed on, along with the open questions we still need to close.",
+    },
+    {
+      id: 3,
+      name: "Sam Okafor",
+      subject: "Invoice for October",
+      date: "Tuesday",
+      unread: false,
+      teaser:
+        "Attached is the invoice for last month. Let me know if the PO number needs to change before it goes out.",
+    },
+    {
+      id: 4,
+      name: "Jordan Lee",
+      subject: "Welcome to the team",
+      date: "Last week",
+      unread: false,
+      teaser:
+        "We're so glad you're joining. Your onboarding plan for the first two weeks is linked below.",
     },
   ];
 
-  const setMiniBarItems = (items?: any) => {
-    if (!items) return (showMiniSidebar.value = false);
-    miniSidebarItems.value = items;
-    showMiniSidebar.value = true;
-  };
+  const query = ref("");
+  const unreadOnly = ref(false);
+  const selected = ref<number>();
+
+  const filtered = computed(() =>
+    mails.filter(
+      (mail) =>
+        (!unreadOnly.value || mail.unread) &&
+        `${mail.name} ${mail.subject} ${mail.teaser}`
+          .toLowerCase()
+          .includes(query.value.toLowerCase())
+    )
+  );
+  const current = computed(() => mails.find((mail) => mail.id === selected.value));
 </script>

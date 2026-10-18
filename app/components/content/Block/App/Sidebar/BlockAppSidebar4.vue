@@ -1,182 +1,168 @@
 <template>
-  <div class="relative min-h-screen">
-    <Motion
-      v-if="!isExpanded"
-      :initial="{ opacity: 0, scale: 0 }"
-      :animate="{ opacity: 1, scale: 1, transition: { delay: 0.2 } }"
-      class="absolute top-4 left-3"
-    >
-      <!-- absolute button that is displayed when sidebar is collapsed -->
-      <UiButton size="icon-sm" variant="outline" @click="isExpanded = !isExpanded">
-        <Icon name="lucide:panel-left-close" class="text-muted-foreground size-4" />
-      </UiButton>
-    </Motion>
-
-    <aside
-      class="bg-muted/30 relative flex h-screen w-[280px] flex-col overflow-y-auto border-r transition-transform duration-300 ease-in-out"
-      :class="[isExpanded ? 'translate-x-0' : '-translate-x-full']"
-    >
-      <div class="flex items-center justify-between border-b p-4">
-        <NuxtLink to="#" class="flex items-center gap-2">
-          <UiAvatar src="/icon.png" alt="Company Logo" class="size-7 rounded object-contain" />
-          <span class="font-bold">{{ COMPANY_NAME }}</span>
-        </NuxtLink>
-        <UiButton size="icon-sm" variant="ghost" @click="isExpanded = !isExpanded">
-          <Icon name="lucide:panel-left-close" class="text-muted-foreground size-4" />
-        </UiButton>
-      </div>
-
-      <UiScrollArea>
-        <div class="p-4">
-          <div class="mb-4">
-            <UiVeeInput v-model="search" placeholder="Search..." icon="lucide:search" size="sm" />
-          </div>
-
-          <div class="mb-6">
-            <div class="mb-2 flex items-center justify-between px-2">
-              <span class="text-muted-foreground text-xs font-semibold tracking-wider uppercase"
-                >Main Menu</span
-              >
-              <UiBadge variant="secondary" class="h-5 px-1.5 text-xs">{{
-                navigation.length
-              }}</UiBadge>
-            </div>
-            <nav class="flex flex-col gap-0.5">
-              <Motion
-                v-for="(n, i) in navigation"
-                :key="i"
-                :initial="{ opacity: 0, x: -10 }"
-                :animate="{ opacity: 1, x: 0 }"
-                :transition="{ delay: i * 0.05, type: 'spring', stiffness: 200, damping: 25 }"
-              >
-                <UiButton
-                  :to="n.link"
-                  size="sm"
-                  variant="ghost"
-                  class="w-full justify-start gap-3 px-2"
+  <!--
+    Floating sidebar with categorized sections
+    Features: Floating variant with rounded corners, notification badges, colored workspace indicators that toggle, settings section, collapses fully off canvas
+  -->
+  <UiSidebarProvider v-slot="{ isMobile }">
+    <UiSidebar variant="floating" class="*:data-[sidebar=sidebar]:bg-(--sidebar)">
+      <UiSidebarHeader>
+        <UiSidebarMenu>
+          <UiSidebarMenuItem>
+            <UiSidebarMenuButton size="lg" as-child>
+              <NuxtLink to="#">
+                <div
+                  class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg"
                 >
-                  <Icon v-if="n.icon" :name="n.icon" class="text-muted-foreground size-4" />
-                  <span>{{ n.title }}</span>
-                  <UiBadge v-if="n.badge" variant="secondary" class="ml-auto h-5 px-1.5 text-xs">
-                    {{ n.badge }}
-                  </UiBadge>
-                </UiButton>
-              </Motion>
-            </nav>
-          </div>
-
-          <div class="mb-6">
-            <div class="mb-2 flex items-center justify-between px-2">
-              <span class="text-muted-foreground text-xs font-semibold tracking-wider uppercase"
-                >Workspaces</span
-              >
-              <UiButton size="icon-sm" variant="ghost">
-                <Icon name="lucide:plus" class="text-muted-foreground size-3" />
-              </UiButton>
-            </div>
-            <nav class="flex flex-col gap-0.5">
-              <Motion
-                v-for="(w, i) in workspaces"
-                :key="i"
-                :initial="{ opacity: 0, x: -10 }"
-                :animate="{ opacity: 1, x: 0 }"
-                :transition="{ delay: i * 0.1, type: 'spring', stiffness: 200, damping: 25 }"
-              >
-                <UiButton
-                  :to="w.link"
-                  size="sm"
-                  variant="ghost"
-                  class="w-full justify-start gap-3 px-2"
-                >
-                  <div class="size-5 shrink-0 rounded" :style="{ backgroundColor: w.color }" />
-                  <span>{{ w.title }}</span>
-                </UiButton>
-              </Motion>
-            </nav>
-          </div>
-
-          <div>
-            <div class="mb-2 px-2">
-              <span class="text-muted-foreground text-xs font-semibold tracking-wider uppercase"
-                >Settings</span
-              >
-            </div>
-            <nav class="flex flex-col gap-0.5">
-              <Motion
-                v-for="(s, i) in settings"
-                :key="i"
-                :initial="{ opacity: 0, x: -10 }"
-                :animate="{ opacity: 1, x: 0 }"
-                :transition="{ delay: i * 0.1, type: 'spring', stiffness: 200, damping: 25 }"
-              >
-                <UiButton
-                  :to="s.link"
-                  size="sm"
-                  variant="ghost"
-                  class="w-full justify-start gap-3 px-2"
-                >
-                  <Icon v-if="s.icon" :name="s.icon" class="text-muted-foreground size-4" />
-                  <span>{{ s.title }}</span>
-                </UiButton>
-              </Motion>
-            </nav>
-          </div>
+                  <Icon name="lucide:layers" class="size-4" />
+                </div>
+                <div class="grid flex-1 text-left text-sm leading-tight">
+                  <span class="truncate font-semibold">UI Thing</span>
+                  <span class="truncate text-xs">Team plan</span>
+                </div>
+              </NuxtLink>
+            </UiSidebarMenuButton>
+          </UiSidebarMenuItem>
+        </UiSidebarMenu>
+        <div class="relative">
+          <Icon
+            name="lucide:search"
+            class="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 opacity-50"
+          />
+          <UiSidebarInput v-model="query" placeholder="Search menu" class="pl-8" />
         </div>
-      </UiScrollArea>
+      </UiSidebarHeader>
 
-      <div class="mt-auto shrink-0 border-t p-4">
-        <div class="flex items-center gap-3">
-          <UiAvatar :src="user.avatar" class="size-9" />
-          <div class="flex-1 overflow-hidden">
-            <p class="truncate text-sm font-semibold">{{ user.username }}</p>
-            <p class="text-muted-foreground truncate text-xs">{{ user.role }}</p>
-          </div>
-          <UiDropdownMenu>
-            <UiDropdownMenuTrigger as-child>
-              <UiButton size="icon-sm" variant="ghost">
-                <Icon name="lucide:more-horizontal" class="text-muted-foreground size-4" />
-              </UiButton>
-            </UiDropdownMenuTrigger>
-            <UiDropdownMenuContent align="end" side="right">
-              <UiDropdownMenuItem title="Profile" icon="lucide:user" />
-              <UiDropdownMenuItem title="Settings" icon="lucide:settings" />
-              <UiDropdownMenuSeparator />
-              <UiDropdownMenuItem title="Logout" icon="lucide:log-out" variant="destructive" />
-            </UiDropdownMenuContent>
-          </UiDropdownMenu>
+      <UiSidebarContent>
+        <UiSidebarGroup v-for="group in filteredGroups" :key="group.label">
+          <UiSidebarGroupLabel :label="group.label" />
+          <UiSidebarMenu>
+            <UiSidebarMenuItem v-for="item in group.items" :key="item.title">
+              <UiSidebarMenuButton as-child :is-active="item.title === active">
+                <NuxtLink to="#" @click.prevent="active = item.title">
+                  <Icon :name="item.icon" />
+                  <span>{{ item.title }}</span>
+                </NuxtLink>
+              </UiSidebarMenuButton>
+              <UiSidebarMenuBadge v-if="item.badge">{{ item.badge }}</UiSidebarMenuBadge>
+            </UiSidebarMenuItem>
+          </UiSidebarMenu>
+        </UiSidebarGroup>
+
+        <UiSidebarGroup v-if="!query">
+          <UiSidebarGroupLabel label="Workspaces" />
+          <UiSidebarGroupAction title="Add workspace">
+            <Icon name="lucide:plus" />
+            <span class="sr-only">Add workspace</span>
+          </UiSidebarGroupAction>
+          <UiSidebarMenu>
+            <UiSidebarMenuItem v-for="space in spaces" :key="space.name">
+              <UiSidebarMenuButton
+                :is-active="space.name === currentSpace"
+                @click="currentSpace = space.name"
+              >
+                <span class="size-2.5 rounded-sm" :class="space.color" />
+                <span>{{ space.name }}</span>
+              </UiSidebarMenuButton>
+            </UiSidebarMenuItem>
+          </UiSidebarMenu>
+        </UiSidebarGroup>
+
+        <p v-if="query && !filteredGroups.length" class="text-muted-foreground p-4 text-sm">
+          No menu items match.
+        </p>
+      </UiSidebarContent>
+
+      <UiSidebarFooter>
+        <UiSidebarMenu>
+          <UiSidebarMenuItem>
+            <UiDropdownMenu>
+              <UiDropdownMenuTrigger as-child>
+                <UiSidebarMenuButton size="lg">
+                  <UiAvatar
+                    src="https://i.pravatar.cc/80?img=12"
+                    fallback="LC"
+                    class="size-8 rounded-lg"
+                  />
+                  <div class="grid flex-1 text-left text-sm leading-tight">
+                    <span class="truncate font-semibold">Liam Carter</span>
+                    <span class="truncate text-xs">Product manager</span>
+                  </div>
+                  <Icon name="lucide:ellipsis" class="ml-auto size-4" />
+                </UiSidebarMenuButton>
+              </UiDropdownMenuTrigger>
+              <UiDropdownMenuContent
+                class="min-w-52"
+                :side="isMobile ? 'bottom' : 'right'"
+                align="end"
+              >
+                <UiDropdownMenuItem icon="lucide:user" title="Profile" />
+                <UiDropdownMenuItem icon="lucide:settings" title="Preferences" />
+                <UiDropdownMenuSeparator />
+                <UiDropdownMenuItem icon="lucide:log-out" title="Log out" />
+              </UiDropdownMenuContent>
+            </UiDropdownMenu>
+          </UiSidebarMenuItem>
+        </UiSidebarMenu>
+      </UiSidebarFooter>
+    </UiSidebar>
+
+    <UiSidebarInset>
+      <header class="flex h-14 shrink-0 items-center gap-2 px-4">
+        <UiSidebarTrigger class="-ml-1" />
+        <UiSeparator orientation="vertical" class="mr-2 h-4" />
+        <h1 class="text-sm font-medium">{{ active }}</h1>
+        <UiBadge variant="secondary" class="ml-1">{{ currentSpace }}</UiBadge>
+      </header>
+      <div class="flex flex-1 flex-col gap-4 p-4 pt-0">
+        <div class="grid gap-4 md:grid-cols-3">
+          <div v-for="n in 3" :key="n" class="bg-muted/50 aspect-video rounded-xl" />
         </div>
+        <div class="bg-muted/50 min-h-48 flex-1 rounded-xl" />
       </div>
-    </aside>
-  </div>
+    </UiSidebarInset>
+  </UiSidebarProvider>
 </template>
 
 <script lang="ts" setup>
-  const search = ref<string>("");
-  const isExpanded = ref<boolean>(true);
-
-  const user = {
-    avatar: "https://randomuser.me/api/portraits/med/women/44.jpg",
-    username: "Emily Davis",
-    role: "Product Manager",
-  };
-
-  const navigation = [
-    { title: "Overview", icon: "lucide:layout-dashboard", link: "#", badge: "3" },
-    { title: "Inbox", icon: "lucide:inbox", link: "#", badge: "12" },
-    { title: "Projects", icon: "lucide:folder", link: "#" },
-    { title: "Tasks", icon: "lucide:check-square", link: "#", badge: "5" },
-    { title: "Calendar", icon: "lucide:calendar", link: "#" },
-    { title: "Documents", icon: "lucide:file-text", link: "#" },
+  const groups = [
+    {
+      label: "Main menu",
+      items: [
+        { title: "Overview", icon: "lucide:layout-grid", badge: "3" },
+        { title: "Inbox", icon: "lucide:inbox", badge: "12" },
+        { title: "Projects", icon: "lucide:folder" },
+        { title: "Tasks", icon: "lucide:square-check-big", badge: "5" },
+        { title: "Calendar", icon: "lucide:calendar" },
+        { title: "Documents", icon: "lucide:file-text" },
+      ],
+    },
+    {
+      label: "Settings",
+      items: [
+        { title: "Preferences", icon: "lucide:settings" },
+        { title: "Help & support", icon: "lucide:life-buoy" },
+      ],
+    },
   ];
 
-  const workspaces = [
-    { title: "Design Team", link: "#", color: "#8b5cf6" },
-    { title: "Marketing", link: "#", color: "#ec4899" },
-    { title: "Development", link: "#", color: "#3b82f6" },
+  const spaces = [
+    { name: "Design team", color: "bg-violet-500" },
+    { name: "Marketing", color: "bg-pink-500" },
+    { name: "Development", color: "bg-blue-500" },
   ];
 
-  const settings = [
-    { title: "Preferences", icon: "lucide:settings", link: "#" },
-    { title: "Help & Support", icon: "lucide:help-circle", link: "#" },
-  ];
+  const query = ref("");
+  const active = ref("Overview");
+  const currentSpace = ref("Design team");
+
+  const filteredGroups = computed(() =>
+    groups
+      .map((group) => ({
+        ...group,
+        items: group.items.filter((item) =>
+          item.title.toLowerCase().includes(query.value.toLowerCase())
+        ),
+      }))
+      .filter((group) => group.items.length)
+  );
 </script>

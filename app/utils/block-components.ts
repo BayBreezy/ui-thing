@@ -307,15 +307,16 @@ export default {
   "Settings/Security/BlockSettingsSecuritySessions": "badge button card",
   "Settings/Security/BlockSettingsSecurityTwoFactor": "badge button card switch",
   "App/Sidebar/BlockAppSidebar1":
-    "avatar button collapsible divider progress scroll-area tooltip vee-input",
-  "App/Sidebar/BlockAppSidebar2": "avatar button divider progress scroll-area tooltip vee-input",
-  "App/Sidebar/BlockAppSidebar3": "avatar button divider scroll-area",
-  "App/Sidebar/BlockAppSidebar4": "avatar badge button dropdown-menu scroll-area vee-input",
+    "avatar button collapsible dropdown-menu kbd progress separator sidebar",
+  "App/Sidebar/BlockAppSidebar2": "avatar separator sidebar switch",
+  "App/Sidebar/BlockAppSidebar3": "avatar dropdown-menu kbd separator sidebar",
+  "App/Sidebar/BlockAppSidebar4": "avatar badge dropdown-menu separator sidebar",
   "App/Sidebar/BlockAppSidebar5":
-    "avatar badge border-beam button collapsible dropdown-menu progress scroll-area",
-  "App/Sidebar/BlockAppSidebar6":
-    "avatar button divider dropdown-menu scroll-area tooltip vee-input",
-  "App/Sidebar/BlockAppSidebar7": "avatar button divider dropdown-menu scroll-area tabs vee-input",
+    "avatar button collapsible dropdown-menu progress separator sidebar",
+  "App/Sidebar/BlockAppSidebar6": "avatar button dropdown-menu separator sidebar tabs",
+  "App/Sidebar/BlockAppSidebar7": "breadcrumbs button separator sidebar",
+  "App/Sidebar/BlockAppSidebar8": "avatar button sidebar",
+  "App/Sidebar/BlockAppSidebar9": "avatar badge dropdown-menu separator sidebar",
   "Sidebar/BlockSidebar01": "breadcrumbs divider dropdown-menu label navbar placeholder sidebar",
   "Sidebar/BlockSidebar02":
     "breadcrumbs collapsible divider dropdown-menu label navbar placeholder sidebar",

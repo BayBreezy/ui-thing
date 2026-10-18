@@ -381,7 +381,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
   "code-block": ["syntax highlighting", "snippet", "shiki"],
   Dashboards: ["admin", "analytics", "overview", "app"],
   Chart: ["graph", "analytics"],
-  Sidebar: ["app shell", "navigation", "admin"],
+  Sidebar: [
+    "app shell",
+    "navigation",
+    "admin",
+    "icon sidebar",
+    "inset sidebar",
+    "floating sidebar",
+    "settings navigation",
+    "workspace switcher",
+    "chat list",
+  ],
   Header: [
     "navbar",
     "top bar",
@@ -511,7 +521,17 @@ const PAGE_PRESETS: Record<string, PagePreset> = {
     description: "Application shell with navigation, app chrome, stats, and data-heavy content.",
     category: "application",
     sections: [
-      { id: "sidebar", title: "Sidebar", query: "app sidebar", categories: ["App/Sidebar/"] },
+      {
+        id: "sidebar",
+        title: "Sidebar",
+        query: "app sidebar",
+        categories: [
+          "App/Sidebar/BlockAppSidebar1",
+          "App/Sidebar/BlockAppSidebar5",
+          "App/Sidebar/BlockAppSidebar4",
+          "App/Sidebar/",
+        ],
+      },
       {
         id: "header",
         title: "Header",
@@ -950,7 +970,11 @@ const PAGE_PRESETS: Record<string, PagePreset> = {
         id: "shell",
         title: "Conversation list",
         query: "sidebar",
-        categories: ["App/Sidebar/"],
+        categories: [
+          "App/Sidebar/BlockAppSidebar8",
+          "App/Sidebar/BlockAppSidebar1",
+          "App/Sidebar/",
+        ],
         componentValues: ["sidebar", "scroll-area"],
       },
     ],
