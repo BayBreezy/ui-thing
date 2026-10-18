@@ -64,6 +64,12 @@ export default {
   "Chart/BlockChartPie.client": "apexcharts",
   "Chart/BlockChartRadar.client": "apexcharts",
   "Chart/BlockChartRadialBar.client": "apexcharts",
+  "Onboarding/Checklist/BlockChecklist1": "button card checkbox container label progress",
+  "Onboarding/Checklist/BlockChecklist2": "button circular-progress container",
+  "Onboarding/Checklist/BlockChecklist3": "button circular-progress collapsible container progress",
+  "Onboarding/Checklist/BlockChecklist4": "badge button container",
+  "Onboarding/Checklist/BlockChecklist5": "button card container kbd",
+  "Onboarding/Checklist/BlockChecklist6": "button circular-progress container",
   "Ecommerce/Checkout/BlockCheckout1":
     "button card container radio-group vee-checkbox vee-input vee-select",
   "Ecommerce/Checkout/BlockCheckout2": "button card container radio-group stepper vee-input",
