@@ -717,6 +717,10 @@ export default {
   "Chat/Thread/BlockThread8":
     "avatar badge bubble button card container input label message message-scroller",
   "Tiptap/BlockTiptap1": "button container separator toggle tooltip",
+  "Tiptap/BlockTiptap2": "button container toggle",
+  "Tiptap/BlockTiptap3": "button container input separator toggle",
+  "Tiptap/BlockTiptap4": "avatar button container toggle",
+  "Tiptap/BlockTiptap5": "button container input select separator tabs toggle",
   "Files/Uploads/BlockUploads1": "alert button container dropfile",
   "Files/Uploads/BlockUploads2": "button card container progress",
   "Files/Uploads/BlockUploads3": "avatar button card container",
