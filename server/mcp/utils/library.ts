@@ -590,6 +590,18 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "reservation",
     "services",
   ],
+  EventDetail: [
+    "event",
+    "event page",
+    "rsvp",
+    "attendees",
+    "guest list",
+    "event popover",
+    "create event",
+    "event dialog",
+    "tickets",
+    "invite",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -999,6 +1011,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     docsPath: "/blocks/calendar-week-agenda",
   },
   { test: (path) => path.startsWith("Calendar/Booking/"), docsPath: "/blocks/calendar-booking" },
+  {
+    test: (path) => path.startsWith("Calendar/EventDetail/"),
+    docsPath: "/blocks/calendar-event-detail",
+  },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [

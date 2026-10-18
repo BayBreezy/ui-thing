@@ -171,6 +171,13 @@ export default {
   "Error/BlockErrorCentered": "button",
   "Error/BlockErrorImage": "button",
   "Error/BlockErrorLinks": "button",
+  "Calendar/EventDetail/BlockEventDetail1": "avatar button container popover",
+  "Calendar/EventDetail/BlockEventDetail2": "avatar badge button card container",
+  "Calendar/EventDetail/BlockEventDetail3": "avatar button card container input label toggle-group",
+  "Calendar/EventDetail/BlockEventDetail4":
+    "avatar badge button container dropdown-menu input tabs",
+  "Calendar/EventDetail/BlockEventDetail5":
+    "badge button container dialog input label radio-group select switch",
   "FAQ/BlockFAQ1": "button container",
   "FAQ/BlockFAQ2": "button container",
   "FAQ/BlockFAQ3": "accordion button container",
