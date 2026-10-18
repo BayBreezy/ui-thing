@@ -1,134 +1,117 @@
 <template>
-  <div class="flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-    <Motion
-      :variants="parentVariant"
-      initial="initial"
-      animate="animate"
-      class="flex w-full max-w-md flex-col items-center gap-6 text-center"
-    >
-      <Motion :variants="iconVariant" class="relative">
-        <div
-          class="group border-border bg-muted/30 hover:border-primary rounded-2xl border-2 border-dashed p-12 transition-all"
-        >
-          <Icon
-            :name="icon"
-            class="text-muted-foreground/50 size-8 transition-all duration-300 group-hover:-translate-y-1"
-          />
+  <!--
+    Upload empty state with a working drop zone
+    Features: Drag and drop with a highlighted drag state, browse button, accepted file type chips, selected file list with remove buttons
+  -->
+  <div class="flex items-center justify-center px-4 py-12 sm:px-6">
+    <div class="w-full max-w-lg">
+      <div
+        class="flex flex-col items-center rounded-2xl border-2 border-dashed px-6 py-10 text-center transition-colors"
+        :class="dragging ? 'border-primary bg-primary/5' : 'border-border hover:bg-muted/40'"
+        @dragenter.prevent="dragging = true"
+        @dragover.prevent="dragging = true"
+        @dragleave.prevent="dragging = false"
+        @drop.prevent="onDrop"
+      >
+        <div class="relative mb-5 h-20 w-24" aria-hidden="true">
+          <div class="bg-muted absolute top-2 left-1 h-16 w-14 -rotate-12 rounded-lg border" />
+          <div class="bg-muted/70 absolute top-2 right-1 h-16 w-14 rotate-12 rounded-lg border" />
+          <div
+            class="bg-card absolute inset-x-5 top-0 flex h-[4.5rem] items-center justify-center rounded-lg border shadow-md transition-transform"
+            :class="dragging && '-translate-y-1 scale-105'"
+          >
+            <Icon
+              :name="dragging ? 'lucide:arrow-down-to-line' : 'lucide:cloud-upload'"
+              class="text-primary size-8"
+            />
+          </div>
         </div>
-        <Motion
-          :variants="badgeVariant"
-          class="bg-primary ring-background absolute -top-2 -right-2 rounded-full p-2 shadow-lg ring-4"
-        >
-          <Icon :name="badgeIcon" class="text-primary-foreground size-4" />
-        </Motion>
-      </Motion>
-      <div class="flex flex-col gap-2">
+
         <slot name="title">
-          <Motion v-if="title" as="h1" :variants="childVariant" class="text-lg font-bold">
-            <span v-html="title" />
-          </Motion>
+          <h2 class="text-lg font-bold tracking-tight">
+            {{ dragging ? "Drop to upload" : props.title }}
+          </h2>
         </slot>
         <slot name="description">
-          <Motion
-            v-if="description"
-            as="p"
-            :variants="childVariant"
-            class="text-muted-foreground text-sm"
-          >
-            <span v-html="description" />
-          </Motion>
+          <p class="text-muted-foreground mt-1.5 text-sm text-balance">{{ props.description }}</p>
         </slot>
+
+        <div class="mt-4 flex flex-wrap justify-center gap-1.5">
+          <UiBadge v-for="type in props.types" :key="type" variant="secondary">{{ type }}</UiBadge>
+        </div>
+
+        <UiButton class="mt-6" @click="input?.click()">
+          <Icon name="lucide:upload" class="size-4" />
+          Browse files
+        </UiButton>
+        <input ref="input" type="file" multiple class="sr-only" @change="onPick" />
       </div>
-      <slot name="features">
-        <Motion
-          v-if="features.length"
-          :variants="featureListVariant"
-          class="flex w-full flex-col gap-2 text-left"
+
+      <ul v-if="files.length" class="mt-4 space-y-2">
+        <li
+          v-for="file in files"
+          :key="file.name"
+          class="bg-card flex items-center gap-3 rounded-lg border p-3 text-left"
         >
-          <Motion
-            v-for="(feature, index) in features"
-            :key="index"
-            :variants="featureVariant"
-            class="flex items-center gap-2 text-sm"
+          <span class="bg-muted flex size-9 items-center justify-center rounded-md">
+            <Icon name="lucide:file" class="size-4" />
+          </span>
+          <div class="min-w-0 flex-1">
+            <p class="truncate text-sm font-medium">{{ file.name }}</p>
+            <p class="text-muted-foreground text-xs">{{ formatSize(file.size) }}</p>
+          </div>
+          <UiButton
+            variant="ghost"
+            size="icon-sm"
+            :aria-label="`Remove ${file.name}`"
+            @click="files = files.filter((item) => item !== file)"
           >
-            <Icon name="lucide:check" class="text-primary size-4 shrink-0" />
-            <span class="text-muted-foreground" v-html="feature" />
-          </Motion>
-        </Motion>
-      </slot>
-      <slot name="button">
-        <Motion :variants="childVariant" class="relative w-full rounded-md">
-          <UiButton class="w-full" size="lg">
-            <Icon :name="buttonIcon" class="size-4" />
-            <span v-html="buttonText" />
+            <Icon name="lucide:x" class="size-4" />
           </UiButton>
-          <UiBorderBeam :duration="15" />
-        </Motion>
-      </slot>
-    </Motion>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import { stagger } from "motion-v";
-  import type { MotionProps } from "motion-v";
-
-  const parentVariant: MotionProps["variants"] = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1, transition: { delayChildren: stagger(0.15) } },
-  };
-
-  const iconVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } },
-  };
-
-  const badgeVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, scale: 0, rotate: -45 },
-    animate: {
-      opacity: 1,
-      scale: 1,
-      rotate: 0,
-      transition: { type: "spring", stiffness: 400, damping: 15, delay: 0.3 },
-    },
-  };
-
-  const childVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, y: 10 },
-    animate: { opacity: 1, y: 0, transition: { type: "keyframes", duration: 0.3 } },
-  };
-
-  const featureListVariant: MotionProps["variants"] = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1, transition: { delayChildren: stagger(0.1) } },
-  };
-
-  const featureVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, x: -10 },
-    animate: { opacity: 1, x: 0, transition: { type: "keyframes", duration: 0.3 } },
-  };
-  withDefaults(
+  const props = withDefaults(
     defineProps<{
       title?: string;
       description?: string;
-      icon?: string;
-      badgeIcon?: string;
-      buttonText?: string;
-      buttonIcon?: string;
-      features?: string[];
+      types?: string[];
     }>(),
     {
-      title: "Start your journey",
-      description: "Upload your first file to get started with your workspace.",
-      icon: "lucide:cloud-upload",
-      badgeIcon: "lucide:sparkles",
-      buttonText: "Upload file",
-      buttonIcon: "lucide:upload",
-      features: () => [
-        "Support for multiple file formats",
-        "Automatic processing and optimization",
-        "Secure cloud storage",
-      ],
+      title: "Drag and drop your files",
+      description: "Upload your first file to get started. You can add more at any time.",
+      types: () => ["PDF", "PNG", "JPG", "CSV", "Up to 10 MB"],
     }
   );
+
+  const dragging = ref(false);
+  const files = ref<File[]>([]);
+  const input = ref<HTMLInputElement>();
+
+  function add(list: FileList | null | undefined) {
+    if (!list?.length) return;
+    files.value = [...files.value, ...Array.from(list)];
+    useSonner.success(`${list.length} ${list.length === 1 ? "file" : "files"} added`);
+  }
+
+  function onDrop(event: DragEvent) {
+    dragging.value = false;
+    add(event.dataTransfer?.files);
+  }
+
+  function onPick(event: Event) {
+    const target = event.target as HTMLInputElement;
+    add(target.files);
+    target.value = "";
+  }
+
+  function formatSize(bytes: number) {
+    if (bytes < 1024) return `${bytes} B`;
+    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+    return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
+  }
 </script>

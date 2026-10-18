@@ -1,67 +1,106 @@
 ---
 title: App - Empty State
-description: On this page you will ways to style the empty state in your application.
+description: Empty state designs for search results, missing data, uploads, onboarding checklists and team invites. Built from theme tokens so they work in light and dark mode, and several are interactive.
 ---
+
+Every empty state accepts `title` and `description` props and exposes slots for the title, description and actions, so you can reuse them for your own content.
 
 ## Style One
 
-:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState1" component="BlockAppEmptyState1" iframeHeight="400px" containerClass="max-w-2xl mx-auto"}
+Search with no matches. Skeleton rows fade out behind a search badge, with suggested searches as chips and clear search and create actions.
 
-:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState1.vue" language="vue" title="Style One"}
+:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState1" component="BlockAppEmptyState1" iframeHeight="550px" containerClass="max-w-xl mx-auto"}
+
+:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState1.vue" language="vue" title="No results with ghost list"}
+
 :::
 
 ## Style Two
 
-:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState2" component="BlockAppEmptyState2" iframeHeight="400px" containerClass="max-w-md mx-auto"}
+Payment methods empty state. A stack of cards drawn with theme tokens, so it works in dark mode, with a plus badge and primary and secondary actions.
 
-:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState2.vue" language="vue" title="Style Two"}
+:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState2" component="BlockAppEmptyState2" iframeHeight="500px" containerClass="max-w-xl mx-auto"}
+
+:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState2.vue" language="vue" title="Fanned cards illustration"}
 
 :::
 
 ## Style Three
 
-:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState3" component="BlockAppEmptyState3" iframeHeight="400px" containerClass="max-w-md mx-auto"}
+A generic no data state. Dashed concentric rings with floating icon tiles and a softly pulsing outer ring.
 
-:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState3.vue" language="vue" title="Style Three"}
+:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState3" component="BlockAppEmptyState3" iframeHeight="550px" containerClass="max-w-xl mx-auto"}
+
+:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState3.vue" language="vue" title="Pulsing orbit illustration"}
 
 :::
 
 ## Style Four
 
-:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState4" component="BlockAppEmptyState4" iframeHeight="500px" containerClass="max-w-lg mx-auto"}
+First project state. A dashed new project card leads a grid of faded skeleton cards, with a secondary import action.
 
-:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState4.vue" language="vue" title="Card with Animation"}
+:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState4" component="BlockAppEmptyState4" iframeHeight="600px" containerClass="max-w-3xl mx-auto"}
+
+:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState4.vue" language="vue" title="Ghost project grid"}
 
 :::
 
 ## Style Five
 
-:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState5" component="BlockAppEmptyState5" iframeHeight="600px" containerClass="max-w-2xl mx-auto"}
+Empty dashboard. A faded preview of stat tiles, a chart and a table shows what the page will look like, with a call to action card on top.
 
-:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState5.vue" language="vue" title="Animated Grid Layout"}
+:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState5" component="BlockAppEmptyState5" iframeHeight="550px" containerClass="max-w-4xl mx-auto"}
+
+:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState5.vue" language="vue" title="Dashboard preview overlay"}
 
 :::
 
 ## Style Six
 
-:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState6" component="BlockAppEmptyState6" iframeHeight="600px" containerClass="max-w-md mx-auto"}
+Upload state. Drag and drop with a highlighted drag state, accepted file type chips, a browse button and a removable list of the files that were added.
 
-:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState6.vue" language="vue" title="Upload State with Features"}
+:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState6" component="BlockAppEmptyState6" iframeHeight="600px" containerClass="max-w-xl mx-auto"}
+
+:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState6.vue" language="vue" title="Working drop zone"}
 
 :::
 
 ## Style Seven
 
-:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState7" component="BlockAppEmptyState7" iframeHeight="500px" containerClass="max-w-xl mx-auto"}
+Choose how to get started. Two large cards with feature lists and a recommended badge. Continue is enabled once an option is picked.
 
-:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState7.vue" language="vue" title="Two-Card Choice Layout"}
+:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState7" component="BlockAppEmptyState7" iframeHeight="650px" containerClass="max-w-3xl mx-auto"}
+
+:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState7.vue" language="vue" title="Selectable option cards"}
 
 :::
 
 ## Style Eight
 
-:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState8" component="BlockAppEmptyState8" iframeHeight="500px" containerClass="max-w-md mx-auto"}
+Onboarding checklist. The ring fills as each step completes, the current step has an action button, and finishing shows a completed state.
 
-:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState8.vue" language="vue" title="Setup Steps with Spinner"}
+:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState8" component="BlockAppEmptyState8" iframeHeight="600px" containerClass="max-w-xl mx-auto"}
+
+:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState8.vue" language="vue" title="Setup checklist with progress ring"}
+
+:::
+
+## Style Nine
+
+Inbox zero for notification lists. An animated check badge with confetti dots over faded read items.
+
+:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState9" component="BlockAppEmptyState9" iframeHeight="550px" containerClass="max-w-xl mx-auto"}
+
+:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState9.vue" language="vue" title="All caught up"}
+
+:::
+
+## Style Ten
+
+Empty workspace state. Overlapping avatar placeholders, an email field with validation, pending invites and a copyable invite link.
+
+:::BlockShowcase{blockPath="App/EmptyState/BlockAppEmptyState10" component="BlockAppEmptyState10" iframeHeight="650px" containerClass="max-w-xl mx-auto"}
+
+:prose-code-snippet{file="/components/content/Block/App/EmptyState/BlockAppEmptyState10.vue" language="vue" title="Invite your team"}
 
 :::

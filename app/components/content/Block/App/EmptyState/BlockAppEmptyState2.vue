@@ -1,101 +1,76 @@
 <template>
-  <div class="flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-    <div class="flex w-full max-w-md flex-col items-center gap-6 text-center">
+  <!--
+    No payment methods with a fanned card illustration
+    Features: Three stacked cards built from theme tokens so it works in dark mode, add button badge, primary and secondary actions
+  -->
+  <div class="flex items-center justify-center px-4 py-12 sm:px-6">
+    <div class="flex w-full max-w-md flex-col items-center gap-8 text-center">
       <slot name="image">
-        <svg
-          class="w-full max-w-[12rem]"
-          viewBox="0 0 238 190"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        <Motion
+          class="relative h-40 w-56"
+          :initial="{ opacity: 0, y: 12 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ type: 'spring', stiffness: 120, damping: 18 }"
+          aria-hidden="true"
         >
-          <rect
-            y="61.8035"
-            width="200"
-            height="120"
-            rx="16"
-            transform="rotate(-18 0 61.8035)"
-            fill="#EDEDEF"
-          />
-          <g filter="url(#filter0_d_10_153)">
-            <rect x="34" y="62" width="200" height="120" rx="16" fill="white" />
-          </g>
-          <rect x="51" y="85" width="28" height="20" rx="4" fill="#D4D4D8" />
-          <rect x="51" y="149" width="28" height="10" rx="4" fill="#D4D4D8" />
-          <rect x="97" y="149" width="28" height="10" rx="4" fill="#D4D4D8" />
-          <rect x="143" y="149" width="28" height="10" rx="4" fill="#D4D4D8" />
-          <rect x="189" y="149" width="28" height="10" rx="4" fill="#D4D4D8" />
-          <defs>
-            <filter
-              id="filter0_d_10_153"
-              x="30"
-              y="62"
-              width="208"
-              height="128"
-              filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
-            >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feColorMatrix
-                in="SourceAlpha"
-                type="matrix"
-                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                result="hardAlpha"
-              />
-              <feOffset dy="4" />
-              <feGaussianBlur stdDeviation="2" />
-              <feComposite in2="hardAlpha" operator="out" />
-              <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 0.262745 0 0 0 0 0.262745 0 0 0 0 0.286275 0 0 0 0.05 0"
-              />
-              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_10_153" />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="effect1_dropShadow_10_153"
-                result="shape"
-              />
-            </filter>
-          </defs>
-        </svg>
+          <div class="bg-muted/60 absolute inset-x-2 top-3 h-32 -rotate-12 rounded-2xl border" />
+          <div class="bg-muted absolute inset-x-2 top-3 h-32 rotate-6 rounded-2xl border" />
+          <div
+            class="bg-card absolute inset-x-0 top-6 h-32 rounded-2xl border p-4 text-left shadow-lg"
+          >
+            <div class="bg-muted/80 h-5 w-7 rounded" />
+            <div class="mt-8 flex gap-3">
+              <div v-for="n in 4" :key="n" class="bg-muted h-2.5 w-8 rounded-full" />
+            </div>
+            <div class="mt-3 flex justify-between">
+              <div class="bg-muted/70 h-2 w-14 rounded-full" />
+              <div class="bg-muted/70 h-2 w-8 rounded-full" />
+            </div>
+          </div>
+          <div
+            class="bg-primary text-primary-foreground absolute -right-1 bottom-0 flex size-10 items-center justify-center rounded-full border-4 shadow-md"
+            :style="{ borderColor: 'var(--background)' }"
+          >
+            <Icon name="lucide:plus" class="size-5" />
+          </div>
+        </Motion>
       </slot>
+
       <div class="flex flex-col gap-2">
         <slot name="title">
-          <h1 v-if="title" class="text-lg font-bold" v-html="title" />
+          <h2 class="text-xl font-bold tracking-tight">{{ props.title }}</h2>
         </slot>
         <slot name="description">
-          <p v-if="description" class="text-muted-foreground text-sm" v-html="description" />
+          <p class="text-muted-foreground text-sm text-balance">{{ props.description }}</p>
         </slot>
       </div>
-      <div class="flex items-center gap-2">
-        <slot name="button">
-          <UiButton v-if="buttonText || icon">
-            <slot name="icon">
-              <Icon v-if="icon" :name="icon" class="size-4" />
-            </slot>
-            <slot name="buttonText">
-              <span v-if="buttonText" v-html="buttonText" />
-            </slot>
+
+      <slot>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <UiButton>
+            <Icon name="lucide:credit-card" class="size-4" />
+            Add payment method
           </UiButton>
-        </slot>
-      </div>
+          <UiButton variant="ghost">
+            <Icon name="lucide:shield-check" class="size-4" />
+            How we protect it
+          </UiButton>
+        </div>
+      </slot>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-  withDefaults(
+  const props = withDefaults(
     defineProps<{
       title?: string;
       description?: string;
-      icon?: string;
-      buttonText?: string;
     }>(),
     {
-      title: "You don't have any cards",
-      description: "Please add a new card to your account to get started.",
-      icon: "lucide:plus",
-      buttonText: "Add card",
+      title: "No payment methods yet",
+      description:
+        "Add a card to start your subscription. We never store full card numbers on our servers.",
     }
   );
 </script>

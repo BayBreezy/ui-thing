@@ -1,75 +1,85 @@
 <template>
-  <div class="flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-    <div class="flex w-full max-w-md flex-col items-center gap-6 text-center">
-      <div class="flex items-center gap-3">
-        <div class="-rotate-8 rounded-md border p-3 shadow">
-          <Icon :name="icon1" class="text-muted-foreground size-5" />
+  <!--
+    No data with a pulsing orbit illustration
+    Features: Dashed concentric rings with icon tiles, softly pulsing outer ring, create and refresh actions
+  -->
+  <div class="flex items-center justify-center px-4 py-12 sm:px-6">
+    <div class="flex w-full max-w-md flex-col items-center text-center">
+      <div class="relative flex size-56 items-center justify-center" aria-hidden="true">
+        <Motion
+          class="border-border absolute inset-0 rounded-full border border-dashed"
+          :animate="{ scale: [1, 1.05, 1], opacity: [0.6, 1, 0.6] }"
+          :transition="{ duration: 4, repeat: Infinity, ease: 'easeInOut' }"
+        />
+        <div class="border-border absolute inset-9 rounded-full border border-dashed" />
+        <div
+          class="from-primary/10 absolute inset-[4.5rem] rounded-full bg-radial to-transparent"
+        />
+
+        <div
+          v-for="(tile, i) in tiles"
+          :key="tile.icon"
+          class="bg-background absolute flex size-11 items-center justify-center rounded-xl border shadow-sm"
+          :class="tile.position"
+        >
+          <Motion
+            :animate="{ y: [0, -4, 0] }"
+            :transition="{ duration: 3, delay: i * 0.5, repeat: Infinity, ease: 'easeInOut' }"
+          >
+            <Icon :name="tile.icon" class="text-muted-foreground size-5" />
+          </Motion>
         </div>
-        <div class="-translate-y-2 rounded-md border p-3 shadow">
-          <Icon :name="icon2" class="text-muted-foreground size-5" />
-        </div>
-        <div class="rotate-8 rounded-md border p-3 shadow">
-          <Icon :name="icon3" class="text-muted-foreground size-5" />
+
+        <div
+          class="bg-primary text-primary-foreground relative flex size-16 items-center justify-center rounded-2xl shadow-lg"
+        >
+          <Icon :name="props.icon" class="size-8" />
         </div>
       </div>
-      <div class="flex flex-col gap-2">
+
+      <div class="mt-6 flex flex-col gap-2">
         <slot name="title">
-          <h1 v-if="title" class="text-lg font-bold" v-html="title" />
+          <h2 class="text-xl font-bold tracking-tight">{{ props.title }}</h2>
         </slot>
         <slot name="description">
-          <p v-if="description" class="text-muted-foreground text-sm" v-html="description" />
+          <p class="text-muted-foreground text-sm text-balance">{{ props.description }}</p>
         </slot>
       </div>
-      <div class="flex items-center gap-2">
-        <slot name="button1">
+
+      <slot>
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
           <UiButton>
-            <slot name="buttonIcon1">
-              <Icon :name="buttonIcon1" class="size-4" />
-            </slot>
-            <slot name="buttonText1">
-              <span v-if="buttonText1" v-html="buttonText1" />
-            </slot>
+            <Icon name="lucide:plus" class="size-4" />
+            Create new
           </UiButton>
-        </slot>
-        <slot name="button2">
           <UiButton variant="outline">
-            <slot name="buttonIcon2">
-              <Icon :name="buttonIcon2" class="size-4" />
-            </slot>
-            <slot name="buttonText2">
-              <span v-if="buttonText2" v-html="buttonText2" />
-            </slot>
+            <Icon name="lucide:refresh-ccw" class="size-4" />
+            Refresh
           </UiButton>
-        </slot>
-      </div>
+        </div>
+      </slot>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-  withDefaults(
+  const props = withDefaults(
     defineProps<{
       title?: string;
       description?: string;
-      buttonText1?: string;
-      buttonText2?: string;
-      buttonIcon1?: string;
-      buttonIcon2?: string;
-      icon1?: string;
-      icon2?: string;
-      icon3?: string;
+      icon?: string;
     }>(),
     {
-      title: "No data found",
+      title: "No data yet",
       description:
-        "It looks like there's no data in this page. You can create a new one or refresh the page.",
-      buttonText1: "Create new",
-      buttonText2: "Refresh",
-      buttonIcon1: "lucide:plus",
-      buttonIcon2: "lucide:refresh-ccw",
-      icon1: "lucide:file",
-      icon2: "lucide:calendar",
-      icon3: "lucide:user",
+        "Once something is created or imported it will show up here. You can also refresh to check for new activity.",
+      icon: "lucide:database",
     }
   );
+
+  const tiles = [
+    { icon: "lucide:file-text", position: "top-3 left-10" },
+    { icon: "lucide:calendar", position: "top-8 right-5" },
+    { icon: "lucide:users", position: "bottom-5 left-6" },
+  ];
 </script>

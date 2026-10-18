@@ -1,131 +1,119 @@
 <template>
-  <div class="flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-    <Motion
-      :variants="parentVariant"
-      initial="initial"
-      animate="animate"
-      class="flex w-full max-w-xl flex-col gap-8"
-    >
-      <Motion :variants="headerVariant" class="flex items-start gap-4">
-        <div
-          class="bg-primary/10 text-primary flex size-12 shrink-0 items-center justify-center rounded-lg"
+  <!--
+    Choose how to get started with selectable option cards
+    Features: Two large cards with icons and feature lists, recommended badge, selected state with check, continue button enabled after a choice
+  -->
+  <div class="flex items-center justify-center px-4 py-12 sm:px-6">
+    <div class="w-full max-w-2xl">
+      <div class="text-center">
+        <slot name="title">
+          <h2 class="text-xl font-bold tracking-tight">{{ props.title }}</h2>
+        </slot>
+        <slot name="description">
+          <p class="text-muted-foreground mt-1.5 text-sm text-balance">{{ props.description }}</p>
+        </slot>
+      </div>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-2" role="radiogroup" :aria-label="props.title">
+        <button
+          v-for="option in props.options"
+          :key="option.id"
+          type="button"
+          role="radio"
+          :aria-checked="selected === option.id"
+          class="focus-visible:ring-ring/50 relative flex flex-col rounded-2xl border-2 p-5 text-left transition-all outline-none focus-visible:ring-[3px]"
+          :class="
+            selected === option.id
+              ? 'border-primary bg-primary/5 shadow-sm'
+              : 'border-border hover:border-ring hover:shadow-sm'
+          "
+          @click="selected = option.id"
         >
-          <Icon :name="icon" class="size-6" />
-        </div>
-        <div class="flex flex-1 flex-col gap-0.5">
-          <slot name="title">
-            <h1 v-if="title" class="text-xl font-bold tracking-tight">
-              <span v-html="title" />
-            </h1>
-          </slot>
-          <slot name="description">
-            <p v-if="description" class="text-muted-foreground text-[15px]">
-              <span v-html="description" />
-            </p>
-          </slot>
-        </div>
-      </Motion>
+          <UiBadge v-if="option.recommended" class="absolute -top-2.5 left-5">Recommended</UiBadge>
+          <span
+            class="absolute top-4 right-4 flex size-5 items-center justify-center rounded-full border transition-colors"
+            :class="
+              selected === option.id ? 'bg-primary text-primary-foreground border-primary' : ''
+            "
+          >
+            <Icon v-if="selected === option.id" name="lucide:check" class="size-3" />
+          </span>
+          <span
+            class="flex size-12 items-center justify-center rounded-xl transition-colors"
+            :class="selected === option.id ? 'bg-primary text-primary-foreground' : 'bg-muted'"
+          >
+            <Icon :name="option.icon" class="size-6" />
+          </span>
+          <span class="mt-4 text-base font-semibold">{{ option.title }}</span>
+          <span class="text-muted-foreground mt-1 text-sm">{{ option.description }}</span>
+          <ul class="text-muted-foreground mt-4 space-y-1.5 text-sm">
+            <li v-for="point in option.points" :key="point" class="flex items-center gap-2">
+              <Icon name="lucide:check" class="text-primary size-4 shrink-0" />
+              {{ point }}
+            </li>
+          </ul>
+        </button>
+      </div>
 
-      <Motion :variants="cardsVariant" class="grid gap-3 sm:grid-cols-2">
-        <slot name="card1">
-          <Motion :variants="cardVariant">
-            <UiCard class="hover:bg-muted/50 cursor-pointer transition-colors">
-              <UiCardContent class="flex items-start gap-3">
-                <div class="bg-primary/10 rounded-md p-2">
-                  <Icon :name="card1Icon" class="text-primary size-5" />
-                </div>
-                <div class="flex-1">
-                  <h3 class="font-semibold" v-html="card1Title" />
-                  <p class="text-muted-foreground mt-1 text-sm" v-html="card1Description" />
-                </div>
-              </UiCardContent>
-            </UiCard>
-          </Motion>
+      <div class="mt-6 flex flex-col items-center gap-3">
+        <slot>
+          <UiButton :disabled="!selected" size="lg" class="min-w-48" @click="confirm">
+            Continue
+            <Icon name="lucide:arrow-right" class="size-4" />
+          </UiButton>
         </slot>
-        <slot name="card2">
-          <Motion :variants="cardVariant">
-            <UiCard class="hover:bg-muted/50 cursor-pointer transition-colors">
-              <UiCardContent class="flex items-start gap-3">
-                <div class="bg-primary/10 rounded-md p-2">
-                  <Icon :name="card2Icon" class="text-primary size-5" />
-                </div>
-                <div class="flex-1">
-                  <h3 class="font-semibold" v-html="card2Title" />
-                  <p class="text-muted-foreground mt-1 text-sm" v-html="card2Description" />
-                </div>
-              </UiCardContent>
-            </UiCard>
-          </Motion>
-        </slot>
-      </Motion>
-
-      <Motion :variants="footerVariant" class="flex items-center gap-2">
-        <slot name="helpText">
-          <Icon name="lucide:info" class="text-muted-foreground size-4" />
-          <p v-if="helpText" class="text-muted-foreground text-sm" v-html="helpText" />
-        </slot>
-      </Motion>
-    </Motion>
+        <p class="text-muted-foreground flex items-center gap-1.5 text-xs">
+          <Icon name="lucide:info" class="size-3.5" />
+          You can change this later in your settings.
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import { stagger } from "motion-v";
-  import type { MotionProps } from "motion-v";
-
-  const parentVariant: MotionProps["variants"] = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1, transition: { delayChildren: stagger(0.2) } },
+  type Option = {
+    id: string;
+    title: string;
+    description: string;
+    icon: string;
+    points: string[];
+    recommended?: boolean;
   };
 
-  const headerVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, y: -20 },
-    animate: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 150, damping: 25 } },
-  };
-
-  const cardsVariant: MotionProps["variants"] = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1, transition: { delayChildren: stagger(0.2) } },
-  };
-
-  const cardVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, y: 20, scale: 0.95 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { type: "spring" },
-    },
-  };
-
-  const footerVariant: MotionProps["variants"] = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1, transition: { duration: 0.3, delay: 0.1 } },
-  };
-  withDefaults(
+  const props = withDefaults(
     defineProps<{
       title?: string;
       description?: string;
-      icon?: string;
-      card1Title?: string;
-      card1Description?: string;
-      card1Icon?: string;
-      card2Title?: string;
-      card2Description?: string;
-      card2Icon?: string;
-      helpText?: string;
+      options?: Option[];
     }>(),
     {
       title: "Choose how to get started",
-      description: "Select an option below to begin working on your project.",
-      icon: "lucide:rocket",
-      card1Title: "Start from scratch",
-      card1Description: "Create a new project with custom settings",
-      card1Icon: "lucide:file-plus",
-      card2Title: "Use a template",
-      card2Description: "Choose from pre-built templates",
-      card2Icon: "lucide:layout-template",
-      helpText: "You can always change these settings later",
+      description: "Pick a starting point. Both options lead to the same workspace.",
+      options: () => [
+        {
+          id: "scratch",
+          title: "Start from scratch",
+          description: "A blank project you shape yourself.",
+          icon: "lucide:file-plus-2",
+          points: ["Full control over structure", "Add only what you need"],
+        },
+        {
+          id: "template",
+          title: "Use a template",
+          description: "A ready-made setup you can tweak.",
+          icon: "lucide:layout-template",
+          points: ["Sample data included", "Live in under a minute"],
+          recommended: true,
+        },
+      ],
     }
   );
+
+  const selected = ref<string>();
+
+  function confirm() {
+    const option = props.options.find((item) => item.id === selected.value);
+    useSonner.success(`${option?.title} selected`);
+  }
 </script>
