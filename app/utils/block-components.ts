@@ -219,6 +219,18 @@ export default {
     "alert-dialog button card container input label switch",
   "Settings/Layout/BlockSettingsLayoutTopNav":
     "button container input label native-select switch tabs",
+  "Legal/BlockLegal1": "badge container",
+  "Legal/BlockLegal10": "container fancy-icon",
+  "Legal/BlockLegal11": "button dialog switch",
+  "Legal/BlockLegal12": "badge container",
+  "Legal/BlockLegal2": "badge container",
+  "Legal/BlockLegal3": "accordion badge button container fancy-icon",
+  "Legal/BlockLegal4": "badge container tabs",
+  "Legal/BlockLegal5": "badge button container switch table",
+  "Legal/BlockLegal6": "badge container",
+  "Legal/BlockLegal7": "button card checkbox container",
+  "Legal/BlockLegal8": "badge button container dropdown-menu",
+  "Legal/BlockLegal9": "button card container fancy-icon input label radio-group textarea",
   "Login/BlockLoginCardSocial":
     "bg-pattern-grid button card divider vee-checkbox vee-input vee-password-input",
   "Login/BlockLoginCentered": "button divider vee-checkbox vee-input vee-password-input",
