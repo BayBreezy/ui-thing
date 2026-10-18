@@ -555,6 +555,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "delete confirmation",
     "checkbox table",
   ],
+  Sprint: [
+    "sprint",
+    "agile",
+    "scrum",
+    "backlog",
+    "sprint planning",
+    "burndown",
+    "velocity",
+    "retrospective",
+    "sprint review",
+  ],
   ProjectOverview: [
     "project overview",
     "projects",
@@ -943,6 +954,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     test: (path) => path.startsWith("Tasks/ProjectOverview/"),
     docsPath: "/blocks/tasks-project-overview",
   },
+  { test: (path) => path.startsWith("Tasks/Sprint/"), docsPath: "/blocks/tasks-sprint" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
