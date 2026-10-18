@@ -57,6 +57,14 @@ export default {
   "Tasks/Board/BlockBoard4": "badge button container draggable",
   "Tasks/Board/BlockBoard5": "alert badge button container draggable",
   "Tasks/Board/BlockBoard6": "avatar badge button container draggable input label select",
+  "Calendar/Booking/BlockBooking1": "avatar button card container",
+  "Calendar/Booking/BlockBooking2":
+    "avatar button card checkbox container label radio-group separator",
+  "Calendar/Booking/BlockBooking3": "button card checkbox container input label select textarea",
+  "Calendar/Booking/BlockBooking4": "button card container",
+  "Calendar/Booking/BlockBooking5":
+    "alert alert-dialog badge button card container label select tabs textarea",
+  "Calendar/Booking/BlockBooking6": "button container label select toggle-group",
   "Career/BlockCareer1": "badge button container",
   "Career/BlockCareer2": "badge button container",
   "Career/BlockCareer3": "badge button container",

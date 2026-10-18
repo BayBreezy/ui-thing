@@ -578,6 +578,18 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "free time",
     "calendar",
   ],
+  Booking: [
+    "booking",
+    "appointment",
+    "schedule a meeting",
+    "time slots",
+    "slot picker",
+    "reschedule",
+    "cancel booking",
+    "time zone",
+    "reservation",
+    "services",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -986,6 +998,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     test: (path) => path.startsWith("Calendar/WeekAgenda/"),
     docsPath: "/blocks/calendar-week-agenda",
   },
+  { test: (path) => path.startsWith("Calendar/Booking/"), docsPath: "/blocks/calendar-booking" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
