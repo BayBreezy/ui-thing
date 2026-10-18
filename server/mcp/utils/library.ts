@@ -721,6 +721,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "subscribe to status",
     "maintenance",
   ],
+  Comparison: [
+    "comparison",
+    "compare plans",
+    "feature matrix",
+    "plan comparison",
+    "us vs them",
+    "competitor comparison",
+    "pricing table",
+    "sticky header table",
+    "checklist",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -1157,6 +1168,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     test: (path) => path.startsWith("Changelog/StatusPage/"),
     docsPath: "/blocks/changelog-status-page",
   },
+  { test: (path) => path.startsWith("Comparison/"), docsPath: "/blocks/comparison" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
