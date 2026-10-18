@@ -1,0 +1,24 @@
+{
+  "slug": "2026-10-18-changelog-blocks",
+  "date": "2026-10-18",
+  "title": "Changelog, Roadmap and Status Page Blocks",
+  "category": "feature",
+  "tags": ["blocks", "mcp"],
+  "summary": "16 new blocks for public product communication: changelogs, roadmaps and status pages, with new changelog and roadmap page plans for the MCP server.",
+  "body": "Added a set of blocks for telling people what is happening with your product, available under **Blocks** in three new docs pages: Changelog - Releases, Roadmap and Status Page. Every block keeps its own state and takes typed props with fictional sample data.\n\n#### Releases\n\n- A release timeline, version cards with expandable notes, release notes grouped by new, improved and fixed, a changelog with tag filters and search, a compact list and a changelog with an email subscribe card\n\n#### Roadmap\n\n- Quarterly columns, a month timeline with team rows and a hidden table for screen readers, a planned, in progress and shipped board, a voting list, a now, next and later layout and feature request cards with a request dialog\n\n#### Status page\n\n- An uptime overview with 90 day bars, an incident history with update timelines, a component status list with an issues only switch and a subscribe card for email, webhook and RSS\n\n#### MCP\n\n- New `changelog` and `roadmap` page plans, also picked up by `plan-app`\n- Block docs links and search keywords cover the new categories\n",
+  "breaking": false,
+  "links": [
+    {
+      "label": "Releases",
+      "href": "/blocks/changelog-releases"
+    },
+    {
+      "label": "Roadmap",
+      "href": "/blocks/changelog-roadmap"
+    },
+    {
+      "label": "Status Page",
+      "href": "/blocks/changelog-status-page"
+    }
+  ]
+}
