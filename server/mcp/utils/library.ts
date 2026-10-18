@@ -602,6 +602,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "tickets",
     "invite",
   ],
+  Availability: [
+    "availability",
+    "working hours",
+    "weekly hours",
+    "date overrides",
+    "calendar sync",
+    "calendar connections",
+    "booking page settings",
+    "buffer",
+    "scheduling settings",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -1014,6 +1025,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   {
     test: (path) => path.startsWith("Calendar/EventDetail/"),
     docsPath: "/blocks/calendar-event-detail",
+  },
+  {
+    test: (path) => path.startsWith("Calendar/Availability/"),
+    docsPath: "/blocks/calendar-availability",
   },
 ];
 

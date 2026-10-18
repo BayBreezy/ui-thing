@@ -95,11 +95,14 @@
                   class="flex gap-2"
                   aria-labelledby="event-color-label"
                 >
-                  <label v-for="item in colorNames" :key="item" class="cursor-pointer">
+                  <label v-for="item in colorNames" :key="item" class="relative cursor-pointer">
                     <UiRadioGroupItem
                       :value="item"
                       :aria-label="item"
-                      class="size-6 border-transparent"
+                      class="peer absolute inset-0 size-full cursor-pointer opacity-0"
+                    />
+                    <span
+                      class="ring-offset-background peer-data-[state=checked]:ring-foreground peer-focus-visible:ring-ring block size-6 rounded-full ring-2 ring-transparent ring-offset-2"
                       :class="swatches[item]"
                     />
                   </label>

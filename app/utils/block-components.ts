@@ -34,6 +34,12 @@ export default {
   "Settings/Appearance/BlockSettingsAppearancePreferences":
     "button card label native-select radio-group switch",
   "Settings/Appearance/BlockSettingsAppearanceTheme": "button card label radio-group",
+  "Calendar/Availability/BlockAvailability1": "button card container input switch",
+  "Calendar/Availability/BlockAvailability2": "badge button card container input label radio-group",
+  "Calendar/Availability/BlockAvailability3":
+    "alert-dialog badge button card container label select switch",
+  "Calendar/Availability/BlockAvailability4":
+    "button card container input label radio-group select switch textarea",
   "Banner/BlockBanner1": "button",
   "Banner/BlockBanner10": "button fancy-icon label switch",
   "Banner/BlockBanner11": "button",
