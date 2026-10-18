@@ -406,6 +406,14 @@ export default {
   "Settings/Profile/BlockSettingsProfileCompany": "button card input label native-select textarea",
   "Settings/Profile/BlockSettingsProfileEditable": "button card input",
   "Settings/Profile/BlockSettingsProfileForm": "avatar button card vee-input vee-textarea",
+  "Tasks/ProjectOverview/BlockProjectOverview1": "avatar badge button container progress",
+  "Tasks/ProjectOverview/BlockProjectOverview2":
+    "avatar badge button card circular-progress container dropdown-menu select",
+  "Tasks/ProjectOverview/BlockProjectOverview3": "avatar badge container toggle-group",
+  "Tasks/ProjectOverview/BlockProjectOverview4": "avatar container progress",
+  "Tasks/ProjectOverview/BlockProjectOverview5":
+    "avatar badge button container input label progress tabs",
+  "Tasks/ProjectOverview/BlockProjectOverview6": "avatar badge container progress select table",
   "ResetPassword/BlockResetPassword": "button vee-password-input",
   "ResetPassword/BlockResetPassword2": "button card vee-password-input",
   "ResetPassword/BlockResetPasswordSuccess": "button card",

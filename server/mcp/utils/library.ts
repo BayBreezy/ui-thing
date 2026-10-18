@@ -555,6 +555,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "delete confirmation",
     "checkbox table",
   ],
+  ProjectOverview: [
+    "project overview",
+    "projects",
+    "portfolio",
+    "milestones",
+    "workload",
+    "capacity",
+    "progress",
+    "project grid",
+    "project management",
+  ],
   TaskDetail: [
     "task detail",
     "task sheet",
@@ -927,6 +938,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   {
     test: (path) => path.startsWith("Tasks/TaskDetail/"),
     docsPath: "/blocks/tasks-task-detail",
+  },
+  {
+    test: (path) => path.startsWith("Tasks/ProjectOverview/"),
+    docsPath: "/blocks/tasks-project-overview",
   },
 ];
 
