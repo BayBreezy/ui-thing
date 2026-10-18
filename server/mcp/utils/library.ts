@@ -2356,6 +2356,85 @@ const PAGE_PRESETS: Record<string, PagePreset> = {
       "/components/calendar",
     ],
   },
+  activity: {
+    title: "Activity and notifications",
+    description:
+      "Notification center, activity feeds and an audit log with filters, export and security events.",
+    category: "application",
+    sections: [
+      {
+        id: "bell",
+        title: "Notification bell",
+        query: "notification bell popover unread",
+        categories: [
+          "Activity/NotificationCenter/BlockNotificationCenter1",
+          "Activity/NotificationCenter/BlockNotificationCenter5",
+        ],
+        componentValues: ["popover", "tabs", "avatar", "badge"],
+      },
+      {
+        id: "notifications",
+        title: "Notifications page",
+        query: "notifications page grouped bulk actions",
+        categories: [
+          "Activity/NotificationCenter/BlockNotificationCenter2",
+          "Activity/NotificationCenter/BlockNotificationCenter3",
+          "Activity/NotificationCenter/BlockNotificationCenter4",
+          "Activity/NotificationCenter/",
+        ],
+        componentValues: ["checkbox", "select", "button", "badge"],
+      },
+      {
+        id: "feed",
+        title: "Activity feed",
+        query: "activity feed timeline",
+        categories: [
+          "Activity/Feed/BlockFeed1",
+          "Activity/Feed/BlockFeed2",
+          "Activity/Feed/BlockFeed7",
+          "Activity/Feed/",
+        ],
+        componentValues: ["avatar", "badge", "toggle-group", "item"],
+      },
+      {
+        id: "audit",
+        title: "Audit log",
+        query: "audit log table filters",
+        categories: [
+          "Activity/AuditLog/BlockAuditLog1",
+          "Activity/AuditLog/BlockAuditLog2",
+          "Activity/AuditLog/BlockAuditLog3",
+          "Activity/AuditLog/",
+        ],
+        componentValues: ["table", "select", "sheet", "badge"],
+      },
+      {
+        id: "security",
+        title: "Security and sessions",
+        query: "security events login history export",
+        categories: [
+          "Activity/AuditLog/BlockAuditLog5",
+          "Activity/AuditLog/BlockAuditLog6",
+          "Activity/AuditLog/BlockAuditLog4",
+        ],
+        componentValues: ["alert", "alert-dialog", "toggle-group", "card"],
+      },
+    ],
+    notes: [
+      "Keep one event shape on the server and render it as a notification, a feed row or an audit row. Store timestamps in UTC and format them for the viewer.",
+      "Unread state needs a text or icon alternative, not only color. The blocks use a dot with an accessible label.",
+      "Never rely on the client for audit data. Write events on the server, make them append only and include the actor, the target, the IP address and the result.",
+      "For large logs, page and filter on the server and build exports there. `BlockAuditLog4` creates the file in the browser, which only suits small logs.",
+      "`UiTimeline` marks its items `aria-hidden`, so the feed blocks use plain lists. Do the same if the content must be read by a screen reader.",
+    ],
+    readNext: [
+      "/blocks/activity-notification-center",
+      "/blocks/activity-feed",
+      "/blocks/activity-audit-log",
+      "/components/popover",
+      "/components/sheet",
+    ],
+  },
   custom: {
     title: "Custom page",
     description: "Flexible starting point driven by the requested sections.",
@@ -3597,6 +3676,21 @@ const APP_FEATURES: AppFeature[] = [
     pageType: "booking",
     route: "/book",
     layout: "marketing",
+  },
+  {
+    keywords: [
+      "activity",
+      "notifications",
+      "notification center",
+      "audit",
+      "audit log",
+      "activity feed",
+      "security log",
+    ],
+    title: "Activity and notifications",
+    pageType: "activity",
+    route: "/app/activity",
+    layout: "default",
   },
   {
     keywords: ["docs", "documentation", "knowledge base", "help center"],

@@ -1,0 +1,20 @@
+{
+  "slug": "2026-10-18-activity-blocks",
+  "date": "2026-10-18",
+  "title": "Activity and Notification Blocks",
+  "category": "feature",
+  "tags": ["blocks", "mcp"],
+  "summary": "20 new activity blocks covering notification centers, activity feeds and audit logs, with a new activity page plan for the MCP server.",
+  "body": "Added a set of activity blocks, available under **Blocks** in three new docs pages: Activity - Notification Center, Feed and Audit Log. Every block keeps its own state, takes typed props with fictional sample data and a `now` prop where it shows relative times, so the demos stay stable.\n\n#### Notification center\n\n- A bell with an unread badge and a popover list, a full page with bulk actions, notifications grouped by day, inline accept, approve and reply actions, a tabbed list with counts and an inbox zero queue with an empty state\n\n#### Feed\n\n- A simple event list, a feed with avatars and attachments, posts with likes and comments, a timeline grouped by date, a commit style feed with copy buttons, system events with expandable details, filter chips and a compact sidebar widget built from the Item components\n\n#### Audit log\n\n- A sortable table with paging, a filterable log with chips, a detail drawer with before and after values, an export bar that downloads CSV or JSON, security events with review actions and a login history with session controls\n\n#### MCP\n\n- New `activity` page plan, also picked up by `plan-app`\n- Block docs links and search keywords cover the three new categories\n",
+  "breaking": false,
+  "links": [
+    {
+      "label": "Notification Center",
+      "href": "/blocks/activity-notification-center"
+    },
+    {
+      "label": "Audit Log",
+      "href": "/blocks/activity-audit-log"
+    }
+  ]
+}
