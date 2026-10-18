@@ -1,0 +1,14 @@
+{
+  "slug": "2026-10-18-onboarding-blocks",
+  "date": "2026-10-18",
+  "title": "Onboarding Blocks",
+  "category": "feature",
+  "tags": ["blocks", "mcp"],
+  "summary": "28 new onboarding blocks covering welcome screens, multi step wizards, workspace setup, activation checklists and finish screens, with an upgraded onboarding page plan for the MCP server.",
+  "body": "Added a full set of onboarding blocks, available under **Blocks** in five new docs pages: Onboarding - Welcome, Wizard, Workspace Setup, Checklist and Completion. Every block takes typed props, keeps its own state and uses fictional sample content, and each one has a skip or dismiss action so you never trap a new user.\n\n#### Welcome\n\n- Quick start actions, a product tour with progress dots, role and use case pickers built from radio groups and checkboxes, a plan picker with a yearly switch and a personalised welcome banner with a setup ring\n\n#### Wizard\n\n- Horizontal and vertical steppers, a full height sidebar wizard with a progress bar, a vee-validate multi step form with a schema per step, a review and confirm step and a wizard in a dialog\n\n#### Workspace setup\n\n- Create a workspace with an auto filled URL, upload a logo and pick a brand color with a live preview, invite teammates with email chips, connect integrations, import a CSV with column mapping and choose notification preferences\n\n#### Checklist\n\n- Getting started card, progress ring with tasks, a collapsible setup widget, a milestone trail with rewards, a tip carousel and a dismissible setup banner\n\n#### Completion\n\n- An all set screen, a celebration with a recap, a next steps grid and an invite and finish form. No confetti, and the one animated check respects reduced motion\n\n#### MCP\n\n- The `onboarding` page plan now pulls welcome, wizard, workspace setup, checklist and finish blocks from the new categories\n- Block docs links and search keywords cover the five new categories\n",
+  "breaking": false,
+  "links": [
+    { "label": "Wizard", "href": "/blocks/onboarding-wizard" },
+    { "label": "Checklist", "href": "/blocks/onboarding-checklist" }
+  ]
+}
