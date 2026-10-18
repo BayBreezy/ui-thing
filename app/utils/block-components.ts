@@ -664,6 +664,12 @@ export default {
   "Chat/Thread/BlockThread8":
     "avatar badge bubble button card container input label message message-scroller",
   "Tiptap/BlockTiptap1": "button container separator toggle tooltip",
+  "Files/Uploads/BlockUploads1": "alert button container dropfile",
+  "Files/Uploads/BlockUploads2": "button card container progress",
+  "Files/Uploads/BlockUploads3": "avatar button card container",
+  "Files/Uploads/BlockUploads4": "badge button container dropfile",
+  "Files/Uploads/BlockUploads5": "button container dialog dropfile input label progress tabs",
+  "Files/Uploads/BlockUploads6": "alert button container",
   "Calendar/WeekAgenda/BlockWeekAgenda1": "button container",
   "Calendar/WeekAgenda/BlockWeekAgenda2": "avatar button container label switch",
   "Calendar/WeekAgenda/BlockWeekAgenda3": "badge button container toggle-group",
