@@ -39,7 +39,10 @@
     const { component, path } = route.query;
     if (!component || !path) return;
     try {
-      const components = import.meta.glob("../components/content/Block/**/*.vue");
+      // Client-only: the ternary lets the SSR build drop the glob (and every block with it).
+      const components: Record<string, () => Promise<unknown>> = import.meta.client
+        ? import.meta.glob("../components/content/Block/**/*.vue")
+        : {};
       const match =
         components[`../components/content/Block/${decodeURIComponent(path as string)}.vue`];
       if (!match)

@@ -209,11 +209,14 @@
     transform: `scale(${previewScale.value})`,
   }));
 
-  const _blockImports = import.meta.glob<string>("./**/*.vue", {
-    query: "?raw",
-    import: "default",
-    eager: false, // Lazy load to improve initial performance
-  });
+  // Only read on the client (Code tab), so keep the glob out of the SSR bundle.
+  const _blockImports: Record<string, () => Promise<string>> = import.meta.client
+    ? import.meta.glob<string>("./**/*.vue", {
+        query: "?raw",
+        import: "default",
+        eager: false, // Lazy load to improve initial performance
+      })
+    : {};
 
   const resizableRef = ref<InstanceType<typeof SplitterPanel>>();
 
