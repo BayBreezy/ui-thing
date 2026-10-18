@@ -343,6 +343,12 @@ export default {
   "Settings/Security/BlockSettingsSecurityPassword": "button card progress vee-password-input",
   "Settings/Security/BlockSettingsSecuritySessions": "badge button card",
   "Settings/Security/BlockSettingsSecurityTwoFactor": "badge button card switch",
+  "Ecommerce/ShopHero/BlockShopHero1": "badge button container rating",
+  "Ecommerce/ShopHero/BlockShopHero2": "aspect-ratio button container",
+  "Ecommerce/ShopHero/BlockShopHero3": "button container",
+  "Ecommerce/ShopHero/BlockShopHero4": "aspect-ratio badge button container rating",
+  "Ecommerce/ShopHero/BlockShopHero5": "button container",
+  "Ecommerce/ShopHero/BlockShopHero6": "button carousel container",
   "App/Sidebar/BlockAppSidebar1":
     "avatar button collapsible dropdown-menu kbd progress separator sidebar",
   "App/Sidebar/BlockAppSidebar2": "avatar separator sidebar switch",
