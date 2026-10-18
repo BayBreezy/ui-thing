@@ -555,6 +555,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "delete confirmation",
     "checkbox table",
   ],
+  InboxLayouts: [
+    "inbox",
+    "messaging app",
+    "email client",
+    "helpdesk",
+    "support desk",
+    "ticketing",
+    "chat app layout",
+    "three pane",
+    "mobile messenger",
+  ],
   AiChat: [
     "ai chat",
     "chatbot",
@@ -872,6 +883,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   { test: (path) => path.startsWith("Chat/Thread/"), docsPath: "/blocks/chat-thread" },
   { test: (path) => path.startsWith("Chat/Composer/"), docsPath: "/blocks/chat-composer" },
   { test: (path) => path.startsWith("Chat/AiChat/"), docsPath: "/blocks/chat-ai-chat" },
+  {
+    test: (path) => path.startsWith("Chat/InboxLayouts/"),
+    docsPath: "/blocks/chat-inbox-layouts",
+  },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [

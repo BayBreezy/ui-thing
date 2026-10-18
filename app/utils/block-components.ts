@@ -254,6 +254,11 @@ export default {
   "Hero/BlockHero7": "button container",
   "Hero/BlockHero8": "badge button container",
   "Hero/BlockHero9": "button container",
+  "Chat/InboxLayouts/BlockInboxLayouts1": "avatar bubble button input label message",
+  "Chat/InboxLayouts/BlockInboxLayouts2": "avatar button select",
+  "Chat/InboxLayouts/BlockInboxLayouts3":
+    "avatar badge bubble button input label message native-select toggle-group",
+  "Chat/InboxLayouts/BlockInboxLayouts4": "avatar badge bubble button input label message",
   "Settings/Integrations/BlockSettingsIntegrationsGrid": "badge button card input switch",
   "Settings/Integrations/BlockSettingsIntegrationsList": "alert-dialog button card",
   "Settings/Layout/BlockSettingsLayoutSidebarNav":
