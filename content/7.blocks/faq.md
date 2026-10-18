@@ -44,3 +44,27 @@ Two-column minimal layout. Features sticky sidebar with description, clean quest
 Interactive collapsible cards. Features manual toggle controls, plus/minus icons, card hover states, and dual support contact options.
 
 :BlockShowcase{blockPath="FAQ/BlockFAQ7" component="BlockFAQ7"}
+
+## Style Eight
+
+Search-first help center. Features a search field with clear button, popular topic chips, highlighted matches in questions and answers, a live result count, and a no results state with a support link.
+
+:BlockShowcase{blockPath="FAQ/BlockFAQ8" component="BlockFAQ8"}
+
+## Style Nine
+
+Accordion with helpful votes. Features thumbs up and down on every answer, a thank you message, a follow up link after a negative vote, an undo action, and a live helpfulness percentage.
+
+:BlockShowcase{blockPath="FAQ/BlockFAQ9" component="BlockFAQ9"}
+
+## Style Ten
+
+Grouped FAQ with a support card. Features grouped accordions, expand all and collapse all controls, and a sticky card with team avatars, response time, chat and call actions.
+
+:BlockShowcase{blockPath="FAQ/BlockFAQ10" component="BlockFAQ10"}
+
+## Style Eleven
+
+Ask a question form with suggestions. Features a question field that suggests matching answers as you type, expandable suggestions, email and details fields with validation, and a confirmation state.
+
+:BlockShowcase{blockPath="FAQ/BlockFAQ11" component="BlockFAQ11"}
