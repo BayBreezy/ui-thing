@@ -303,6 +303,13 @@ export default {
     "button card checkbox input label radio-group switch",
   "Settings/Notifications/BlockSettingsNotificationsMatrix": "button card checkbox table",
   "Settings/Notifications/BlockSettingsNotificationsSwitches": "button card label switch",
+  "Ecommerce/Orders/BlockOrders1": "button card container",
+  "Ecommerce/Orders/BlockOrders2": "button container timeline",
+  "Ecommerce/Orders/BlockOrders3": "badge button container input label pagination select table",
+  "Ecommerce/Orders/BlockOrders4": "badge button container tabs",
+  "Ecommerce/Orders/BlockOrders5": "badge breadcrumbs button card container progress",
+  "Ecommerce/Orders/BlockOrders6":
+    "button checkbox container number-field radio-group vee-select vee-textarea",
   "OTP/BlockOTPVerification": "button vee-pin-input",
   "OTP/BlockOTPVerification2": "button card divider vee-pin-input",
   "Blog/Page/BlockBlogPage1": "avatar badge container tabs",
