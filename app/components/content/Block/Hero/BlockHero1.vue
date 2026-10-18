@@ -1,127 +1,149 @@
 <template>
-  <Motion
-    initial="initial"
-    while-in-view="animate"
-    :variants="parentVariant"
-    class="@container relative mx-auto flex w-full max-w-[1536px] flex-col gap-y-5 overflow-x-hidden px-5 py-10 sm:px-10 md:flex-row md:gap-10 md:px-0 md:py-0 lg:h-dvh"
-  >
-    <div
-      class="flex h-full items-center justify-center md:w-2/3 @3xl:pl-10 @5xl:pl-16 @7xl:w-1/2 @7xl:pl-20"
-    >
-      <div class="text-center md:text-left">
-        <Motion as-child :variants="childVariant">
-          <UiBadge
-            to="#"
-            variant="outline"
-            class="px-3 py-1.5 text-xs font-normal md:py-2 md:text-sm"
-            >We're hiring! Join our remote team <Icon class="ml-3 size-4" name="lucide:arrow-right"
-          /></UiBadge>
-        </Motion>
-        <Motion
-          as="h1"
-          :variants="childVariant"
-          class="mt-7 mb-4 text-4xl font-bold md:text-5xl lg:mt-5 lg:mb-6 xl:text-6xl"
+  <!--
+    Split hero with an email form and a product card visual
+    Features: Badge, headline, validated email form with success state, trust line, layered interface cards on the right that float gently, staggered entrance
+  -->
+  <section class="relative overflow-hidden">
+    <UiContainer class="grid items-center gap-12 py-16 lg:grid-cols-2 lg:gap-16 lg:py-24">
+      <Motion
+        class="max-w-xl"
+        :initial="{ opacity: 0, y: 16 }"
+        :animate="{ opacity: 1, y: 0 }"
+        :transition="{ type: 'spring', stiffness: 140, damping: 22 }"
+      >
+        <NuxtLink
+          to="#"
+          class="hover:bg-muted group inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm transition-colors"
         >
-          People who care about your growth
-        </Motion>
-        <Motion as="p" :variants="childVariant" class="text-muted-foreground text-lg lg:text-xl">
-          Powerful, self-serve product and growth analytics to help you convert, engage, and retain
-          more.
-        </Motion>
-        <form class="mt-8 flex flex-col gap-3 lg:mt-12 lg:flex-row lg:items-center">
-          <Motion :variants="childVariant" class="w-full lg:w-[50%]">
-            <UiVeeInput
-              icon="lucide:mail"
-              required
-              placeholder="Enter your email"
-              aria-label="Enter your email"
-            />
-          </Motion>
-          <Motion
-            as="p"
-            :variants="childVariant"
-            class="text-muted-foreground my-2 text-left text-sm md:hidden"
-          >
-            We care about your data in our privacy policy.
-          </Motion>
-          <Motion :variants="childVariant">
-            <UiButton class="w-full whitespace-nowrap lg:w-auto" type="submit"
-              >Get started</UiButton
-            >
-          </Motion>
+          <span class="bg-primary size-1.5 rounded-full" />
+          {{ props.badge }}
+          <Icon
+            name="lucide:arrow-right"
+            class="size-3.5 transition-transform group-hover:translate-x-0.5"
+          />
+        </NuxtLink>
+        <h1 class="mt-6 text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
+          {{ props.title }}
+        </h1>
+        <p class="text-muted-foreground mt-5 text-lg text-balance">{{ props.description }}</p>
+
+        <form
+          v-if="!done"
+          class="mt-8 flex max-w-md flex-col gap-2 sm:flex-row"
+          novalidate
+          @submit.prevent="submit"
+        >
+          <UiInput
+            v-model="email"
+            type="email"
+            placeholder="Enter your work email"
+            aria-label="Work email"
+            class="h-11"
+          />
+          <UiButton type="submit" size="lg" class="shrink-0">
+            Get early access
+            <Icon name="lucide:arrow-right" class="size-4" />
+          </UiButton>
         </form>
-        <Motion
-          as="p"
-          :variants="childVariant"
-          class="text-muted-foreground mt-3 hidden text-sm md:block"
+        <p
+          v-else
+          class="mt-8 flex items-center gap-2 font-medium text-green-600 dark:text-green-400"
         >
-          We care about your data in our privacy policy.
+          <Icon name="lucide:circle-check" class="size-5" />
+          You're on the list. We'll be in touch soon.
+        </p>
+        <p v-if="error" class="text-destructive mt-2 text-sm">{{ error }}</p>
+        <p v-else class="text-muted-foreground mt-3 text-sm">
+          Free for 14 days. No credit card required.
+        </p>
+      </Motion>
+
+      <div class="relative mx-auto h-[26rem] w-full max-w-lg" aria-hidden="true">
+        <div class="bg-primary/10 absolute inset-8 rounded-full blur-3xl" />
+        <Motion
+          class="bg-card absolute top-4 left-0 w-64 rounded-2xl border p-4 shadow-xl"
+          :animate="{ y: [0, -8, 0] }"
+          :transition="{ duration: 6, repeat: Infinity, ease: 'easeInOut' }"
+        >
+          <div class="flex items-center justify-between">
+            <p class="text-muted-foreground text-xs font-medium">Monthly revenue</p>
+            <span
+              class="rounded-full bg-green-500/10 px-2 py-0.5 text-xs font-medium text-green-600 dark:text-green-400"
+              >+18%</span
+            >
+          </div>
+          <p class="mt-1 text-2xl font-bold tabular-nums">$48,260</p>
+          <div class="mt-4 flex h-16 items-end gap-1.5">
+            <div
+              v-for="(bar, i) in bars"
+              :key="i"
+              class="bg-primary/20 flex-1 rounded-sm"
+              :class="i === bars.length - 1 && 'bg-primary'"
+              :style="{ height: `${bar}%` }"
+            />
+          </div>
+        </Motion>
+
+        <Motion
+          class="bg-card absolute top-28 right-0 w-60 rounded-2xl border p-4 shadow-xl"
+          :animate="{ y: [0, 8, 0] }"
+          :transition="{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }"
+        >
+          <p class="text-sm font-semibold">Team activity</p>
+          <ul class="mt-3 space-y-3">
+            <li v-for="item in activity" :key="item.name" class="flex items-center gap-2.5 text-sm">
+              <UiAvatar :src="item.avatar" :fallback="item.name[0]" class="size-7" />
+              <span class="min-w-0 flex-1 truncate"
+                ><span class="font-medium">{{ item.name }}</span> {{ item.action }}</span
+              >
+            </li>
+          </ul>
+        </Motion>
+
+        <Motion
+          class="bg-card absolute bottom-2 left-10 flex items-center gap-3 rounded-2xl border p-3 pr-5 shadow-xl"
+          :animate="{ y: [0, -6, 0] }"
+          :transition="{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }"
+        >
+          <UiFancyIcon icon="lucide:rocket" theme="gradient" color="success" size="md" />
+          <div>
+            <p class="text-sm font-semibold">Deployed to production</p>
+            <p class="text-muted-foreground text-xs">2 minutes ago</p>
+          </div>
         </Motion>
       </div>
-    </div>
-    <Motion
-      :variants="{
-        initial: { opacity: 0, x: isDesktop ? 50 : 0, y: isTablet || isMobile ? 30 : 0 },
-        animate: {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          transition: {
-            type: 'keyframes',
-            duration: 0.6,
-            delay: isDesktop ? -0.1 : 0,
-          },
-        },
-      }"
-      class="h-[350px] md:h-full md:w-1/3 xl:w-1/2"
-    >
-      <img
-        class="h-full w-full object-cover"
-        src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="Hero section one styles"
-        loading="eager"
-        width="700"
-        height="800"
-        :title="`${COMPANY_NAME} hero section one header`"
-      />
-    </Motion>
-  </Motion>
+    </UiContainer>
+  </section>
 </template>
 
 <script lang="ts" setup>
-  import { breakpointsTailwind } from "@vueuse/core";
-  import { stagger } from "motion-v";
-  import type { MotionProps } from "motion-v";
+  const props = withDefaults(
+    defineProps<{ badge?: string; title?: string; description?: string }>(),
+    {
+      badge: "We're hiring. Join our remote team",
+      title: "People who care about your growth",
+      description:
+        "Powerful, self-serve product and growth analytics to help you convert, engage and retain more users.",
+    }
+  );
 
-  const bp = useBreakpoints(breakpointsTailwind);
+  const bars = [30, 46, 38, 58, 50, 72, 64, 90];
+  const activity = [
+    { name: "Priya", action: "shipped v2.4", avatar: "https://i.pravatar.cc/60?img=45" },
+    { name: "Liam", action: "closed 6 issues", avatar: "https://i.pravatar.cc/60?img=12" },
+    { name: "Sam", action: "invited 3 people", avatar: "https://i.pravatar.cc/60?img=32" },
+  ];
 
-  const isTablet = bp.between("md", "lg");
-  const isDesktop = bp.greater("lg");
-  const isMobile = bp.smallerOrEqual("md");
+  const email = ref("");
+  const error = ref("");
+  const done = ref(false);
 
-  const parentVariant: MotionProps["variants"] = {
-    initial: { opacity: 0 },
-    animate: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        delayChildren: stagger(0.1),
-      },
-    },
-  };
-
-  const childVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, y: 20 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        when: "beforeChildren",
-        delayChildren: stagger(0.1),
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-      },
-    },
-  };
+  function submit() {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+      error.value = "Enter a valid email address.";
+      return;
+    }
+    error.value = "";
+    done.value = true;
+  }
 </script>

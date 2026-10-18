@@ -1,70 +1,78 @@
 ---
 title: Hero
-description: Hero section components for landing pages featuring headlines, CTAs, images, videos, and form inputs. Includes split layouts, centered designs, background patterns, and smooth animations using Motion-v.
+description: Hero sections for landing pages. Split layouts, centered statements, dashboard mockups, a video player, an install command, animated statistics, an aurora, a bento grid and a tabbed product tour, all built from CSS with no external images.
 ---
+
+None of these heroes depend on remote images or videos. The visuals are built from interface pieces, so they follow your theme and work in dark mode. Email forms validate and show a success state, so wire them to your provider.
 
 ## Style One
 
-Split layout hero with email signup form and side image. Features badge, headline, description, and email input with animated slide-in effects from left and right.
+Badge, headline and a validated email form on the left, floating interface cards on the right that drift gently.
 
-:BlockShowcase{blockPath="Hero/BlockHero1" containerClass="h-screen" component="BlockHero1" iframeHeight="600px"}
+:BlockShowcase{blockPath="Hero/BlockHero1" containerClass="h-screen" component="BlockHero1" iframeHeight="700px"}
 
 ## Style Two
 
-Split layout with dual action buttons and clipped image. Features secondary badge variant, demo and signup buttons, with scale animation on the image.
+An announcement pill, a gradient accent in the headline, two buttons and a row of customer names styled as logos.
 
-:BlockShowcase{blockPath="Hero/BlockHero2" containerClass="h-screen" component="BlockHero2" iframeHeight="600px"}
+:BlockShowcase{blockPath="Hero/BlockHero2" containerClass="h-screen" component="BlockHero2" iframeHeight="700px"}
 
 ## Style Three
 
-Split layout with customer social proof. Includes email signup form, avatar stack, star ratings, and customer count display.
+Email capture, an avatar stack with star rating and a product window with a live notification.
 
-:BlockShowcase{blockPath="Hero/BlockHero3" containerClass="h-screen" component="BlockHero3" iframeHeight="600px"}
+:BlockShowcase{blockPath="Hero/BlockHero3" containerClass="h-screen" component="BlockHero3" iframeHeight="700px"}
 
 ## Style Four
 
-Hero with background grid pattern and rounded image. Features overlay image with custom border radius and grid background with radial mask.
+A masked grid behind a headline and a browser style window showing a kanban board. Nothing overlaps at any width.
 
-:BlockShowcase{blockPath="Hero/BlockHero4" containerClass="h-screen" component="BlockHero4" iframeHeight="600px"}
+:BlockShowcase{blockPath="Hero/BlockHero4" containerClass="h-screen" component="BlockHero4" iframeHeight="700px"}
 
 ## Style Five
 
-Hero with dotted background pattern and social proof. Includes email form, avatar stack, star ratings, and radial dot background pattern.
+A centered headline on a dotted pattern, a pill email form with a success state and social proof.
 
-:BlockShowcase{blockPath="Hero/BlockHero5" containerClass="h-screen" component="BlockHero5" iframeHeight="600px"}
+:BlockShowcase{blockPath="Hero/BlockHero5" containerClass="h-screen" component="BlockHero5" iframeHeight="700px"}
 
 ## Style Six
 
-Hero with decorative SVG arrow and signup form. Features centered or left-aligned content with custom SVG decoration and card-based form layout.
+A pulsing beta badge, gradient accent word and a detailed dashboard built from cards that rises into view.
 
-:BlockShowcase{blockPath="Hero/BlockHero6" containerClass="h-screen" component="BlockHero6" iframeHeight="600px"}
+:BlockShowcase{blockPath="Hero/BlockHero6" containerClass="h-screen" component="BlockHero6" iframeHeight="700px"}
 
 ## Style Seven
 
-Centered hero with embedded video. Features badge, headline, buttons, and YouTube video embed with staggered fade-in animations.
+A self-contained player with a play button, moving progress bar and time. Swap it for your own video.
 
-:BlockShowcase{blockPath="Hero/BlockHero7" containerClass="h-screen" component="BlockHero7" iframeHeight="600px"}
+:BlockShowcase{blockPath="Hero/BlockHero7" containerClass="h-screen" component="BlockHero7" iframeHeight="700px"}
 
 ## Style Eight
 
-Centered hero with dashboard preview. Features feature badges with icons, dual CTAs, trust indicators, and large dashboard screenshot with shadow.
+Feature badge, headline, actions and a tabbed install command for bun, npm, pnpm and yarn that copies on click.
 
 :BlockShowcase{blockPath="Hero/BlockHero8" containerClass="h-screen" component="BlockHero8" iframeHeight="700px"}
 
 ## Style Nine
 
-Centered hero with animated background and stats. Features gradient background, grid pattern, animated status badge, and key statistics display.
+A masked grid, status badge and three statistics that count up when they scroll into view.
 
 :BlockShowcase{blockPath="Hero/BlockHero9" containerClass="h-screen" component="BlockHero9" iframeHeight="700px"}
 
 ## Style Ten
 
-Split layout with email form and glowing image. Features security badges, email signup, and product showcase image with gradient glow effect.
+Always dark, with drifting aurora blobs, a gradient headline and a command palette preview.
 
 :BlockShowcase{blockPath="Hero/BlockHero10" containerClass="h-screen" component="BlockHero10" iframeHeight="700px"}
 
 ## Style Eleven
 
-Centered hero with radial gradient background and dashboard mockup. Features animated beta badge with pulsing dot, gradient-colored headline word, dual CTA buttons, and a detailed dashboard placeholder with KPI cards, bar chart, and data rows — all animated in on load with staggered spring transitions.
+A left aligned headline above a bento of interface tiles including a working toggle and a progress ring.
 
-:BlockShowcase{blockPath="Hero/BlockHero11" containerClass="h-screen" component="BlockHero11" iframeHeight="750px"}
+:BlockShowcase{blockPath="Hero/BlockHero11" containerClass="h-screen" component="BlockHero11" iframeHeight="700px"}
+
+## Style Twelve
+
+Three tabs that swap a preview panel with the plan, build and measure story of your product.
+
+:BlockShowcase{blockPath="Hero/BlockHero12" containerClass="h-screen" component="BlockHero12" iframeHeight="700px"}

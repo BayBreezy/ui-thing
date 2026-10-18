@@ -1,122 +1,122 @@
 <template>
-  <Motion
-    initial="initial"
-    while-in-view="animate"
-    :in-view-options="{ once: true }"
-    as-child
-    :variants="parentVariant"
-  >
-    <UiContainer class="relative py-16 text-center lg:py-24">
-      <Motion as-child :variants="childVariant">
-        <UiBadge variant="secondary" class="px-3 py-1.5 text-sm font-normal lg:py-2">
-          <Icon class="mr-2 size-4" name="lucide:sparkles" />
-          Introducing our new AI features
+  <!--
+    Developer hero with an install command card
+    Features: Feature badges, headline with two actions, tabbed install command for different package managers that copies on click, trust indicators
+  -->
+  <section class="relative overflow-hidden">
+    <UiContainer class="py-16 text-center lg:py-28">
+      <Motion
+        class="mx-auto max-w-3xl"
+        :initial="{ opacity: 0, y: 16 }"
+        :animate="{ opacity: 1, y: 0 }"
+        :transition="{ type: 'spring', stiffness: 140, damping: 22 }"
+      >
+        <UiBadge variant="secondary" class="gap-1.5 rounded-full py-1">
+          <Icon name="lucide:sparkles" class="size-3.5" />
+          {{ props.badge }}
         </UiBadge>
-      </Motion>
-
-      <Motion as-child :variants="childVariant">
-        <h1
-          class="mx-auto mt-7 mb-4 max-w-4xl text-4xl font-bold lg:mt-5 lg:mb-6 lg:text-5xl xl:text-6xl"
-        >
-          Build your dream product with our amazing tools
+        <h1 class="mt-6 text-4xl font-bold tracking-tight text-balance sm:text-6xl">
+          {{ props.title }}
         </h1>
-      </Motion>
-
-      <Motion as-child :variants="childVariant">
-        <p class="text-muted-foreground mx-auto max-w-2xl text-lg lg:text-xl">
-          The most powerful platform for teams to build, ship, and scale their products. Join
-          thousands of companies already using our tools.
+        <p class="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg text-balance">
+          {{ props.description }}
         </p>
-      </Motion>
-
-      <Motion as-child :variants="childVariant">
-        <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:mt-10">
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
           <UiButton size="lg">
-            <Icon name="lucide:rocket" />
-            Get Started Free
+            Get started
+            <Icon name="lucide:arrow-right" class="size-4" />
           </UiButton>
           <UiButton size="lg" variant="outline">
-            <Icon name="lucide:book-open" />
-            View Documentation
+            <Icon name="mdi:github" class="size-5" />
+            Star on GitHub
           </UiButton>
         </div>
       </Motion>
 
-      <Motion as-child :variants="childVariant">
-        <div class="mt-10 flex flex-wrap items-center justify-center gap-8 lg:mt-16">
-          <div class="text-muted-foreground flex items-center gap-2 text-sm">
-            <Icon class="size-5 text-green-600" name="lucide:check-circle-2" />
-            <span>No credit card required</span>
+      <Motion
+        class="mx-auto mt-12 max-w-xl text-left"
+        :initial="{ opacity: 0, y: 24 }"
+        :animate="{ opacity: 1, y: 0 }"
+        :transition="{ type: 'spring', stiffness: 100, damping: 22, delay: 0.2 }"
+      >
+        <div class="bg-card overflow-hidden rounded-xl border shadow-lg">
+          <div class="flex items-center justify-between border-b px-2 pt-2">
+            <div class="flex gap-1" role="tablist">
+              <button
+                v-for="manager in managers"
+                :key="manager.name"
+                type="button"
+                role="tab"
+                :aria-selected="active === manager.name"
+                class="rounded-t-md px-3 py-1.5 text-sm font-medium transition-colors"
+                :class="
+                  active === manager.name
+                    ? 'bg-muted text-foreground'
+                    : 'text-muted-foreground hover:text-foreground'
+                "
+                @click="active = manager.name"
+              >
+                {{ manager.name }}
+              </button>
+            </div>
+            <span class="text-muted-foreground mr-2 text-xs">Terminal</span>
           </div>
-          <div class="text-muted-foreground flex items-center gap-2 text-sm">
-            <Icon class="size-5 text-green-600" name="lucide:check-circle-2" />
-            <span>14-day free trial</span>
-          </div>
-          <div class="text-muted-foreground flex items-center gap-2 text-sm">
-            <Icon class="size-5 text-green-600" name="lucide:check-circle-2" />
-            <span>Cancel anytime</span>
+          <div class="flex items-center justify-between gap-3 p-4 font-mono text-sm">
+            <code class="min-w-0 truncate"
+              ><span class="text-muted-foreground select-none">$ </span>{{ command }}</code
+            >
+            <UiButton
+              variant="ghost"
+              size="icon-sm"
+              :aria-label="copied ? 'Copied' : 'Copy command'"
+              @click="copy"
+            >
+              <Icon :name="copied ? 'lucide:check' : 'lucide:copy'" class="size-4" />
+            </UiButton>
           </div>
         </div>
       </Motion>
 
-      <Motion as-child :variants="imageVariant">
-        <div
-          class="bg-muted/30 mx-auto mt-12 max-w-5xl overflow-hidden rounded-xl border shadow-2xl lg:mt-16"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
-            alt="Dashboard preview"
-            class="h-full w-full object-cover"
-            loading="eager"
-            width="1200"
-            height="675"
-            :title="`${COMPANY_NAME} dashboard preview`"
-          />
-        </div>
-      </Motion>
+      <ul class="text-muted-foreground mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm">
+        <li v-for="item in trust" :key="item" class="flex items-center gap-2">
+          <Icon name="lucide:circle-check" class="size-4 text-green-500" />
+          {{ item }}
+        </li>
+      </ul>
     </UiContainer>
-  </Motion>
+  </section>
 </template>
 
 <script lang="ts" setup>
-  import { stagger } from "motion-v";
-  import type { MotionProps } from "motion-v";
+  const props = withDefaults(
+    defineProps<{ badge?: string; title?: string; description?: string }>(),
+    {
+      badge: "Open source and free forever",
+      title: "Build your dream product with our amazing tools",
+      description:
+        "Components you copy into your project and own completely. No runtime dependency, no lock-in.",
+    }
+  );
 
-  const parentVariant: MotionProps["variants"] = {
-    initial: { opacity: 0 },
-    animate: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        delayChildren: stagger(0.1),
-      },
-    },
-  };
+  const managers = [
+    { name: "bun", command: "bunx ui-thing@latest add button card" },
+    { name: "npm", command: "npx ui-thing@latest add button card" },
+    { name: "pnpm", command: "pnpm dlx ui-thing@latest add button card" },
+    { name: "yarn", command: "yarn dlx ui-thing@latest add button card" },
+  ];
+  const trust = ["No credit card required", "MIT licensed", "Works with Nuxt 4"];
 
-  const childVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, y: 20 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-      },
-    },
-  };
+  const active = ref("bun");
+  const copied = ref(false);
+  const command = computed(() => managers.find((m) => m.name === active.value)?.command ?? "");
 
-  const imageVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, y: 40 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-        delay: 0.2,
-      },
-    },
-  };
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(command.value);
+    } catch {
+      // Clipboard access can be blocked inside an iframe; the UI still confirms.
+    }
+    copied.value = true;
+    setTimeout(() => (copied.value = false), 1500);
+  }
 </script>

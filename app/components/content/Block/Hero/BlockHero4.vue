@@ -1,101 +1,146 @@
 <template>
-  <Motion
-    as-child
-    initial="initial"
-    while-in-view="animate"
-    :in-view-options="{ once: true }"
-    :variants="{
-      initial: { opacity: 0 },
-      animate: {
-        opacity: 1,
-        transition: { when: 'beforeChildren', delayChildren: stagger(0.1) },
-      },
-    }"
-  >
-    <UiContainer
-      class="relative flex flex-col gap-y-5 py-10 lg:h-screen lg:flex-row lg:gap-10 lg:py-0"
-    >
-      <div
-        class="absolute inset-0 h-full w-full bg-transparent bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] mask-[radial-gradient(#000,transparent_80%)] bg-size-[80px_80px]"
-      />
-
-      <div class="relative z-10 flex h-full items-center justify-center lg:w-[768px]">
-        <div>
-          <Motion
-            as="h1"
-            :variants="textVariants"
-            class="mb-4 text-4xl font-bold md:text-5xl lg:mt-5 lg:mb-6 xl:text-6xl"
-          >
-            Customer service software for customer-first teams
-          </Motion>
-          <Motion
-            as="p"
-            :variants="textVariants"
-            class="text-muted-foreground max-w-[560px] text-lg lg:text-xl"
-          >
-            The best customer service software for customer-first teams. Industry-leading email and
-            live chat support.
-          </Motion>
-          <Motion :variants="textVariants" class="mt-8 grid grid-cols-1 gap-3 md:flex lg:mt-10">
-            <UiButton size="lg" variant="outline">
-              <Icon name="lucide:play-circle" /> Demo
-            </UiButton>
-            <UiButton size="lg">Sign up</UiButton>
-          </Motion>
-          <Motion as="p" :variants="textVariants" class="text-muted-foreground mt-5 text-sm">
-            We care about your data in our privacy policy.
-          </Motion>
-        </div>
-      </div>
+  <!--
+    Hero on a masked grid with an interface window
+    Features: Faded grid background, headline with two actions on the left, a browser style window with a kanban board on the right, no overlap on any screen size
+  -->
+  <section class="relative overflow-hidden">
+    <div
+      class="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] mask-[radial-gradient(ellipse_at_top,black_30%,transparent_75%)] bg-size-[56px_56px]"
+      aria-hidden="true"
+    />
+    <UiContainer class="relative grid items-center gap-14 py-16 lg:grid-cols-[1fr_1.1fr] lg:py-28">
       <Motion
-        :variants="imageVariant"
-        class="absolute inset-y-0 right-5 hidden h-full lg:block lg:w-[500px] xl:-right-20 xl:w-[800px]"
+        class="max-w-xl"
+        :initial="{ opacity: 0, y: 16 }"
+        :animate="{ opacity: 1, y: 0 }"
+        :transition="{ type: 'spring', stiffness: 140, damping: 22 }"
       >
-        <img
-          class="h-full w-full object-cover shadow xl:rounded-tr-[150px] xl:rounded-bl-[150px]"
-          src="https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Hero section one styles"
-          loading="eager"
-          width="700"
-          height="800"
-          :title="`${COMPANY_NAME} hero section one header`"
-        />
+        <UiBadge variant="outline" class="gap-1.5 rounded-full py-1">
+          <Icon name="lucide:sparkles" class="size-3.5" />
+          {{ props.badge }}
+        </UiBadge>
+        <h1 class="mt-5 text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
+          {{ props.title }}
+        </h1>
+        <p class="text-muted-foreground mt-5 text-lg text-balance">{{ props.description }}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <UiButton size="lg">
+            Start a free trial
+            <Icon name="lucide:arrow-right" class="size-4" />
+          </UiButton>
+          <UiButton size="lg" variant="outline">Book a demo</UiButton>
+        </div>
+        <ul class="text-muted-foreground mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <li v-for="item in perks" :key="item" class="flex items-center gap-1.5">
+            <Icon name="lucide:check" class="text-primary size-4" />
+            {{ item }}
+          </li>
+        </ul>
       </Motion>
 
-      <Motion :variants="imageVariant" class="z-10 h-[300px] lg:hidden">
-        <img
-          class="h-full w-full rounded-tr-[40px] rounded-bl-[40px] object-cover"
-          src="https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Hero section four styles"
-          loading="eager"
-          width="700"
-          height="300"
-          :title="`${COMPANY_NAME} hero section four header`"
-        />
+      <Motion
+        :initial="{ opacity: 0, y: 24 }"
+        :animate="{ opacity: 1, y: 0 }"
+        :transition="{ type: 'spring', stiffness: 120, damping: 22, delay: 0.15 }"
+      >
+        <div class="bg-card overflow-hidden rounded-2xl border shadow-2xl" aria-hidden="true">
+          <div class="flex items-center gap-1.5 border-b px-4 py-3">
+            <span class="bg-muted-foreground/30 size-2.5 rounded-full" />
+            <span class="bg-muted-foreground/30 size-2.5 rounded-full" />
+            <span class="bg-muted-foreground/30 size-2.5 rounded-full" />
+            <span class="bg-muted text-muted-foreground mx-auto rounded-md px-12 py-0.5 text-xs"
+              >app.uithing.com/board</span
+            >
+          </div>
+          <div class="bg-muted/30 grid grid-cols-3 gap-3 p-4">
+            <div v-for="column in board" :key="column.title" class="space-y-2.5">
+              <p
+                class="text-muted-foreground flex items-center justify-between text-xs font-semibold"
+              >
+                {{ column.title }}
+                <span class="bg-muted rounded-full px-1.5 tabular-nums">{{
+                  column.cards.length
+                }}</span>
+              </p>
+              <div
+                v-for="card in column.cards"
+                :key="card.title"
+                class="bg-card space-y-2 rounded-lg border p-2.5 shadow-xs"
+              >
+                <p class="text-xs leading-snug font-medium">{{ card.title }}</p>
+                <div class="flex items-center justify-between">
+                  <span class="rounded px-1.5 py-0.5 text-[10px] font-medium" :class="card.tag">{{
+                    card.label
+                  }}</span>
+                  <UiAvatar :src="card.avatar" class="size-5" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </Motion>
     </UiContainer>
-  </Motion>
+  </section>
 </template>
 
 <script lang="ts" setup>
-  import { stagger } from "motion-v";
-  import type { MotionProps } from "motion-v";
+  const props = withDefaults(
+    defineProps<{ badge?: string; title?: string; description?: string }>(),
+    {
+      badge: "Now with AI planning",
+      title: "Plan, track and ship work in one place",
+      description:
+        "Boards, docs and roadmaps that stay in sync, so your team always knows what matters next.",
+    }
+  );
 
-  const textVariants: MotionProps["variants"] = {
-    initial: { opacity: 0, y: 15 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", damping: 20 },
-    },
-  };
+  const perks = ["Free for 14 days", "No credit card", "Cancel anytime"];
 
-  const imageVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, filter: "blur(20px)" },
-    animate: {
-      opacity: 1,
-      filter: "blur(0px)",
-      transition: { type: "spring", stiffness: 50, damping: 20, delay: 0.2 },
+  const board = [
+    {
+      title: "To do",
+      cards: [
+        {
+          title: "Design onboarding flow",
+          label: "Design",
+          tag: "bg-violet-500/15 text-violet-600 dark:text-violet-400",
+          avatar: "https://i.pravatar.cc/40?img=45",
+        },
+        {
+          title: "Write launch email",
+          label: "Marketing",
+          tag: "bg-pink-500/15 text-pink-600 dark:text-pink-400",
+          avatar: "https://i.pravatar.cc/40?img=32",
+        },
+      ],
     },
-  };
+    {
+      title: "In progress",
+      cards: [
+        {
+          title: "Build billing page",
+          label: "Engineering",
+          tag: "bg-blue-500/15 text-blue-600 dark:text-blue-400",
+          avatar: "https://i.pravatar.cc/40?img=12",
+        },
+        {
+          title: "Review analytics",
+          label: "Data",
+          tag: "bg-amber-500/15 text-amber-600 dark:text-amber-400",
+          avatar: "https://i.pravatar.cc/40?img=47",
+        },
+      ],
+    },
+    {
+      title: "Done",
+      cards: [
+        {
+          title: "Set up CI pipeline",
+          label: "Engineering",
+          tag: "bg-blue-500/15 text-blue-600 dark:text-blue-400",
+          avatar: "https://i.pravatar.cc/40?img=15",
+        },
+      ],
+    },
+  ];
 </script>

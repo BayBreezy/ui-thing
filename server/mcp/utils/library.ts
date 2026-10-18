@@ -403,7 +403,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "sticky header",
   ],
   Navigation: ["navbar", "header", "menu"],
-  Hero: ["landing", "above the fold", "headline"],
+  Hero: [
+    "landing",
+    "above the fold",
+    "headline",
+    "landing page hero",
+    "product tour",
+    "email capture",
+    "social proof",
+    "aurora",
+    "bento",
+  ],
   HeaderSection: ["page header", "section heading", "title"],
   Feature: ["benefits", "services", "capabilities"],
   Pricing: ["plans", "tiers", "subscription"],
@@ -528,7 +538,18 @@ const PAGE_PRESETS: Record<string, PagePreset> = {
     category: "marketing",
     sections: [
       { id: "navbar", title: "Navigation", query: "navigation", categories: ["Navigation"] },
-      { id: "hero", title: "Hero", query: "hero", categories: ["Hero", "HeaderSection"] },
+      {
+        id: "hero",
+        title: "Hero",
+        query: "hero",
+        categories: [
+          "Hero/BlockHero2",
+          "Hero/BlockHero1",
+          "Hero/BlockHero6",
+          "Hero",
+          "HeaderSection",
+        ],
+      },
       { id: "features", title: "Features", query: "features", categories: ["Feature"] },
       {
         id: "social-proof",

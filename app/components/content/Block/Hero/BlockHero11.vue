@@ -1,214 +1,148 @@
 <template>
-  <div
-    class="bg-background text-foreground relative min-h-screen overflow-hidden [--color-primary:#7c3aed] [--primary:#7c3aed] [--radius:8px] [--ring:#7c3aed]"
-  >
-    <!-- Subtle radial gradient background -->
-    <div
-      class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_55%_at_50%_-5%,color-mix(in_srgb,#7c3aed_14%,transparent),transparent_72%)]"
-    />
-
-    <Motion
-      initial="initial"
-      while-in-view="animate"
-      :in-view-options="{ once: true }"
-      as-child
-      :variants="parentVariant"
-    >
-      <UiContainer
-        class="relative z-10 flex min-h-screen flex-col items-center justify-center py-20 text-center"
+  <!--
+    Hero with a bento grid of interface tiles
+    Features: Left aligned headline with actions, bento of five tiles including a stat, a chart, an avatar stack, a toggle that works and a progress ring, hover lift
+  -->
+  <section class="relative overflow-hidden">
+    <UiContainer class="py-16 lg:py-24">
+      <Motion
+        class="max-w-2xl"
+        :initial="{ opacity: 0, y: 16 }"
+        :animate="{ opacity: 1, y: 0 }"
+        :transition="{ type: 'spring', stiffness: 140, damping: 22 }"
       >
-        <!-- Badge / pill label -->
-        <Motion as-child :variants="childVariant">
-          <UiBadge
-            variant="outline"
-            class="mb-6 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium"
-          >
-            <span class="relative flex size-2">
-              <span
-                class="absolute inline-flex size-full animate-ping rounded-full bg-[#7c3aed] opacity-75"
+        <h1 class="text-4xl font-bold tracking-tight text-balance sm:text-6xl">
+          {{ props.title }}
+        </h1>
+        <p class="text-muted-foreground mt-6 text-lg text-balance">{{ props.description }}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <UiButton size="lg">
+            Start for free
+            <Icon name="lucide:arrow-right" class="size-4" />
+          </UiButton>
+          <UiButton size="lg" variant="ghost">
+            Talk to us
+            <Icon name="lucide:arrow-up-right" class="size-4" />
+          </UiButton>
+        </div>
+      </Motion>
+
+      <div class="mt-14 grid auto-rows-[10rem] gap-4 md:grid-cols-4">
+        <Motion
+          v-for="(tile, i) in tiles"
+          :key="tile.id"
+          class="bg-card hover:border-ring/50 flex flex-col justify-between overflow-hidden rounded-2xl border p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+          :class="tile.span"
+          :initial="{ opacity: 0, y: 24 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ type: 'spring', stiffness: 120, damping: 20, delay: 0.1 + i * 0.07 }"
+        >
+          <template v-if="tile.id === 'stat'">
+            <UiFancyIcon icon="lucide:wallet" theme="light" color="success" size="md" />
+            <div>
+              <p class="text-muted-foreground text-sm">Monthly revenue</p>
+              <p class="text-3xl font-bold tracking-tight tabular-nums">$128,450</p>
+            </div>
+          </template>
+
+          <template v-else-if="tile.id === 'chart'">
+            <div class="flex items-center justify-between">
+              <p class="font-semibold">Growth</p>
+              <span class="text-xs font-medium text-green-600 dark:text-green-400"
+                >+24% this quarter</span
+              >
+            </div>
+            <div class="flex h-24 items-end gap-2">
+              <div
+                v-for="(bar, n) in bars"
+                :key="n"
+                class="bg-primary/20 hover:bg-primary flex-1 rounded-t-md transition-colors"
+                :style="{ height: `${bar}%` }"
               />
-              <span class="relative inline-flex size-2 rounded-full bg-[#7c3aed]" />
-            </span>
-            Now in public beta
-          </UiBadge>
-        </Motion>
-
-        <!-- Headline -->
-        <Motion as-child :variants="childVariant">
-          <h1
-            class="mx-auto mb-5 max-w-4xl text-4xl leading-tight font-bold tracking-tight lg:text-5xl xl:text-6xl xl:leading-[1.1]"
-          >
-            Ship products your users will
-            <span
-              class="bg-gradient-to-r from-[#7c3aed] via-[#a855f7] to-[#ec4899] bg-clip-text text-transparent"
-              >absolutely love</span
-            >
-          </h1>
-        </Motion>
-
-        <!-- Supporting paragraph -->
-        <Motion as-child :variants="childVariant">
-          <p class="text-muted-foreground mx-auto max-w-2xl text-lg lg:text-xl">
-            The all-in-one platform for modern product teams. Design, build, and iterate faster than
-            ever — from first idea to production in days, not months.
-          </p>
-        </Motion>
-
-        <!-- CTA buttons -->
-        <Motion as-child :variants="childVariant">
-          <div class="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <UiButton size="lg" class="min-w-36">
-              <Icon name="heroicons:rocket-launch" />
-              Get Started Free
-            </UiButton>
-            <UiButton size="lg" variant="outline" class="min-w-36">
-              <Icon name="heroicons:play-circle" />
-              See a Demo
-            </UiButton>
-          </div>
-        </Motion>
-
-        <!-- Dashboard mockup placeholder -->
-        <Motion as-child :variants="mockupVariant">
-          <div
-            class="border-border/60 bg-card mx-auto mt-16 w-full max-w-5xl overflow-hidden rounded-2xl border shadow-2xl ring-1 ring-black/5 dark:ring-white/5"
-          >
-            <!-- Browser chrome bar -->
-            <div class="border-border/60 bg-muted/50 flex items-center gap-2 border-b px-4 py-3">
-              <span class="size-3 rounded-full bg-red-400/80" />
-              <span class="size-3 rounded-full bg-yellow-400/80" />
-              <span class="size-3 rounded-full bg-green-400/80" />
-              <div class="bg-muted ml-4 h-5 max-w-xs flex-1 rounded-md" />
             </div>
+          </template>
 
-            <!-- Mockup body: sidebar + main -->
-            <div class="divide-border/40 grid grid-cols-4 divide-x">
-              <!-- Sidebar skeleton -->
-              <div class="bg-muted/20 col-span-1 hidden flex-col gap-2 p-4 sm:flex">
-                <div class="mb-3 h-7 w-24 rounded-md bg-[#7c3aed]/20" />
-                <div class="h-4 w-full rounded bg-[#7c3aed]/25" />
-                <div class="bg-muted h-4 w-4/5 rounded" />
-                <div class="bg-muted h-4 w-full rounded" />
-                <div class="bg-muted h-4 w-3/5 rounded" />
-                <div class="bg-border/60 mt-4 h-px w-full" />
-                <div class="bg-muted/60 mt-2 h-4 w-full rounded" />
-                <div class="bg-muted/60 h-4 w-4/5 rounded" />
-                <div class="bg-muted/60 h-4 w-full rounded" />
-              </div>
-
-              <!-- Main content skeleton -->
-              <div class="col-span-4 flex flex-col gap-4 p-5 sm:col-span-3">
-                <!-- KPI cards row -->
-                <div class="grid grid-cols-3 gap-3">
-                  <div class="border-border/60 bg-background rounded-xl border p-3 shadow-sm">
-                    <div class="bg-muted mb-2 h-3 w-14 rounded" />
-                    <div class="h-6 w-20 rounded bg-[#7c3aed]/20" />
-                    <div class="mt-2 h-2 w-10 rounded bg-green-400/50" />
-                  </div>
-                  <div class="border-border/60 bg-background rounded-xl border p-3 shadow-sm">
-                    <div class="bg-muted mb-2 h-3 w-14 rounded" />
-                    <div class="h-6 w-20 rounded bg-violet-400/20" />
-                    <div class="mt-2 h-2 w-10 rounded bg-violet-400/50" />
-                  </div>
-                  <div class="border-border/60 bg-background rounded-xl border p-3 shadow-sm">
-                    <div class="bg-muted mb-2 h-3 w-14 rounded" />
-                    <div class="h-6 w-20 rounded bg-pink-400/20" />
-                    <div class="mt-2 h-2 w-10 rounded bg-pink-400/50" />
-                  </div>
-                </div>
-
-                <!-- Bar chart placeholder -->
-                <div class="border-border/60 bg-background rounded-xl border p-4 shadow-sm">
-                  <div class="mb-4 flex items-center justify-between">
-                    <div class="bg-muted h-4 w-28 rounded" />
-                    <div class="bg-muted/60 h-4 w-16 rounded" />
-                  </div>
-                  <div class="flex h-28 items-end gap-1.5">
-                    <div class="flex-1 rounded-t-sm bg-[#7c3aed]/25" style="height: 45%" />
-                    <div class="flex-1 rounded-t-sm bg-[#7c3aed]/35" style="height: 65%" />
-                    <div class="flex-1 rounded-t-sm bg-[#7c3aed]/40" style="height: 50%" />
-                    <div class="flex-1 rounded-t-sm bg-[#7c3aed]/50" style="height: 80%" />
-                    <div class="flex-1 rounded-t-sm bg-[#7c3aed]/60" style="height: 60%" />
-                    <div class="flex-1 rounded-t-sm bg-[#7c3aed]/70" style="height: 90%" />
-                    <div class="flex-1 rounded-t-sm bg-[#7c3aed]" style="height: 75%" />
-                    <div class="flex-1 rounded-t-sm bg-[#7c3aed]/80" style="height: 85%" />
-                    <div class="flex-1 rounded-t-sm bg-[#7c3aed]/60" style="height: 55%" />
-                    <div class="flex-1 rounded-t-sm bg-[#7c3aed]/45" style="height: 70%" />
-                    <div class="flex-1 rounded-t-sm bg-[#7c3aed]/55" style="height: 95%" />
-                    <div class="flex-1 rounded-t-sm bg-[#7c3aed]/35" style="height: 65%" />
-                  </div>
-                </div>
-
-                <!-- List rows placeholder -->
-                <div class="border-border/60 bg-background rounded-xl border p-4 shadow-sm">
-                  <div class="bg-muted mb-3 h-4 w-24 rounded" />
-                  <div class="flex flex-col gap-2.5">
-                    <div class="flex items-center gap-3">
-                      <div class="size-6 rounded-full bg-[#7c3aed]/20" />
-                      <div class="bg-muted h-3 flex-1 rounded" />
-                      <div class="h-3 w-12 rounded bg-green-400/40" />
-                    </div>
-                    <div class="flex items-center gap-3">
-                      <div class="size-6 rounded-full bg-violet-400/20" />
-                      <div class="bg-muted h-3 flex-1 rounded" />
-                      <div class="bg-muted/60 h-3 w-12 rounded" />
-                    </div>
-                    <div class="flex items-center gap-3">
-                      <div class="size-6 rounded-full bg-pink-400/20" />
-                      <div class="bg-muted h-3 flex-1 rounded" />
-                      <div class="h-3 w-12 rounded bg-yellow-400/40" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <template v-else-if="tile.id === 'team'">
+            <div class="flex -space-x-2.5">
+              <UiAvatar
+                v-for="avatar in avatars"
+                :key="avatar"
+                :src="avatar"
+                class="ring-card size-10 ring-2"
+              />
             </div>
-          </div>
+            <div>
+              <p class="font-semibold">Work together</p>
+              <p class="text-muted-foreground text-sm">Invite your whole team.</p>
+            </div>
+          </template>
+
+          <template v-else-if="tile.id === 'toggle'">
+            <p class="font-semibold">Dark mode</p>
+            <div class="flex items-center justify-between">
+              <p class="text-muted-foreground text-sm">{{ dark ? "On" : "Off" }}</p>
+              <UiSwitch v-model="dark" aria-label="Dark mode" />
+            </div>
+          </template>
+
+          <template v-else>
+            <p class="font-semibold">Sprint progress</p>
+            <div class="flex items-center gap-4">
+              <div class="relative size-16">
+                <svg class="size-16 -rotate-90" viewBox="0 0 64 64">
+                  <circle
+                    cx="32"
+                    cy="32"
+                    r="26"
+                    fill="none"
+                    stroke-width="8"
+                    class="stroke-muted"
+                  />
+                  <circle
+                    cx="32"
+                    cy="32"
+                    r="26"
+                    fill="none"
+                    stroke-width="8"
+                    stroke-linecap="round"
+                    class="stroke-primary"
+                    :stroke-dasharray="163"
+                    :stroke-dashoffset="163 * 0.28"
+                  />
+                </svg>
+                <span class="absolute inset-0 flex items-center justify-center text-sm font-bold"
+                  >72%</span
+                >
+              </div>
+              <p class="text-muted-foreground text-sm">18 of 25 tasks done</p>
+            </div>
+          </template>
         </Motion>
-      </UiContainer>
-    </Motion>
-  </div>
+      </div>
+    </UiContainer>
+  </section>
 </template>
 
 <script lang="ts" setup>
-  import { stagger } from "motion-v";
-  import type { MotionProps } from "motion-v";
+  const props = withDefaults(defineProps<{ title?: string; description?: string }>(), {
+    title: "Everything your team needs, nothing it doesn't",
+    description: "A calm, focused workspace that brings planning, tracking and reporting together.",
+  });
 
-  const parentVariant: MotionProps["variants"] = {
-    initial: { opacity: 0 },
-    animate: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        delayChildren: stagger(0.12),
-      },
-    },
-  };
+  const tiles = [
+    { id: "stat", span: "md:col-span-1" },
+    { id: "chart", span: "md:col-span-2 md:row-span-2" },
+    { id: "team", span: "md:col-span-1" },
+    { id: "toggle", span: "md:col-span-1" },
+    { id: "ring", span: "md:col-span-1" },
+  ];
 
-  const childVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, y: 24 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 22,
-      },
-    },
-  };
-
-  const mockupVariant: MotionProps["variants"] = {
-    initial: { opacity: 0, y: 48, scale: 0.97 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 180,
-        damping: 24,
-        delay: 0.55,
-      },
-    },
-  };
+  const bars = [30, 44, 38, 56, 48, 68, 60, 82, 74, 96];
+  const avatars = [
+    "https://i.pravatar.cc/80?img=47",
+    "https://i.pravatar.cc/80?img=12",
+    "https://i.pravatar.cc/80?img=45",
+    "https://i.pravatar.cc/80?img=32",
+  ];
+  const dark = ref(true);
 </script>

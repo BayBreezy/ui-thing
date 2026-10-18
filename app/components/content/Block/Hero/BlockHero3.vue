@@ -1,140 +1,163 @@
 <template>
-  <Motion
-    while-in-view="animate"
-    initial="initial"
-    :in-view-options="{ once: true }"
-    :variants="{
-      initial: { opacity: 0 },
-      animate: {
-        opacity: 1,
-        transition: { when: 'beforeChildren', delayChildren: stagger(0.1) },
-      },
-    }"
-    class="mx-auto flex max-w-[1536px] flex-col gap-y-5 overflow-hidden px-5 py-10 md:flex-row md:gap-10 md:px-0 md:py-0 lg:h-screen"
-  >
-    <div class="flex h-full items-center justify-center md:w-2/3 md:pl-10 lg:pl-16 xl:w-1/2">
-      <div>
-        <Motion
-          as="h1"
-          :variants="textVariants"
-          class="mb-4 text-4xl font-bold md:text-5xl lg:mt-5 lg:mb-6 xl:text-6xl"
-        >
-          People who care about your growth
-        </Motion>
-        <Motion as="p" :variants="textVariants" class="text-muted-foreground text-lg lg:text-xl">
-          Powerful, self-serve product and growth analytics to help you convert, engage, and retain
-          more.
-        </Motion>
-        <form class="mt-8 flex flex-col gap-3 lg:mt-12 lg:flex-row lg:items-center">
-          <Motion :variants="textVariants" class="w-full lg:w-[50%]">
-            <UiVeeInput required placeholder="Enter your email" aria-label="Enter your email" />
-          </Motion>
-          <Motion
-            as="p"
-            :variants="textVariants"
-            class="text-muted-foreground my-2 text-sm lg:hidden"
-          >
-            We care about your data in our privacy policy.
-          </Motion>
-          <Motion :variants="textVariants" class="w-full lg:w-auto">
-            <UiButton class="w-full whitespace-nowrap lg:w-auto" type="submit"
-              >Get started</UiButton
-            >
-          </Motion>
+  <!--
+    Split hero with customer social proof
+    Features: Headline and description, validated email capture, avatar stack with star rating and customer count, product window preview with a live notification
+  -->
+  <section class="relative overflow-hidden">
+    <UiContainer
+      class="grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:py-24"
+    >
+      <Motion
+        class="max-w-xl"
+        :initial="{ opacity: 0, x: -20 }"
+        :animate="{ opacity: 1, x: 0 }"
+        :transition="{ type: 'spring', stiffness: 130, damping: 22 }"
+      >
+        <h1 class="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
+          {{ props.title }}
+        </h1>
+        <p class="text-muted-foreground mt-5 text-lg text-balance">{{ props.description }}</p>
+
+        <form v-if="!done" class="mt-8 flex max-w-md gap-2" novalidate @submit.prevent="submit">
+          <UiInput
+            v-model="email"
+            type="email"
+            placeholder="you@company.com"
+            aria-label="Email address"
+            class="h-11"
+          />
+          <UiButton type="submit" size="lg" class="shrink-0">Get started</UiButton>
         </form>
-        <Motion
-          as="p"
-          :variants="textVariants"
-          class="text-muted-foreground mt-3 hidden text-sm lg:block"
+        <p
+          v-else
+          class="mt-8 flex items-center gap-2 font-medium text-green-600 dark:text-green-400"
         >
-          We care about your data in our privacy policy.
-        </Motion>
+          <Icon name="lucide:circle-check" class="size-5" />
+          Check your inbox to finish signing up.
+        </p>
+        <p v-if="error" class="text-destructive mt-2 text-sm">{{ error }}</p>
 
-        <div class="mt-10 flex items-center gap-7">
-          <Motion :variants="textVariants" class="flex items-center *:-mr-2 [&_img]:size-10">
-            <UiAnimatedTooltip :items="people" />
-          </Motion>
-
-          <div class="flex flex-col gap-1">
-            <div>
-              <template v-for="s in 5" :key="s">
-                <Motion :variants="textVariants" as-child>
-                  <Icon
-                    name="material-symbols:kid-star"
-                    class="inline size-5 fill-yellow-400 text-yellow-400"
-                  />
-                </Motion>
-              </template>
+        <div class="mt-8 flex items-center gap-4">
+          <div class="flex -space-x-2.5">
+            <UiAvatar
+              v-for="avatar in avatars"
+              :key="avatar"
+              :src="avatar"
+              class="ring-background size-10 ring-2"
+            />
+          </div>
+          <div>
+            <div class="flex gap-0.5" aria-label="Rated 4.9 out of 5">
+              <Icon
+                v-for="n in 5"
+                :key="n"
+                name="lucide:star"
+                class="size-4 fill-amber-400 text-amber-400"
+              />
             </div>
-            <Motion as="p" :variants="textVariants" class="text-muted-foreground text-sm"
-              >from 1,000+ customers</Motion
-            >
+            <p class="text-muted-foreground mt-0.5 text-sm">
+              <span class="text-foreground font-semibold">4.9/5</span> from 1,000+ customers
+            </p>
           </div>
         </div>
-      </div>
-    </div>
-    <Motion
-      :variants="{
-        initial: { opacity: 0, x: 10 },
-        animate: {
-          opacity: 1,
-          x: 0,
-          transition: { type: 'keyframes', duration: 0.6, delay: 0.3 },
-        },
-      }"
-      class="h-[350px] md:h-full md:w-1/3 xl:w-1/2"
-    >
-      <img
-        class="h-full w-full rounded-tl-[60px] object-cover lg:rounded-tl-[160px]"
-        src="https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="Hero section three styles"
-        loading="eager"
-        width="700"
-        height="800"
-        :title="`${COMPANY_NAME} hero section three header`"
-      />
-    </Motion>
-  </Motion>
+      </Motion>
+
+      <Motion
+        class="relative"
+        :initial="{ opacity: 0, x: 20 }"
+        :animate="{ opacity: 1, x: 0 }"
+        :transition="{ type: 'spring', stiffness: 130, damping: 22, delay: 0.1 }"
+      >
+        <div class="bg-card overflow-hidden rounded-2xl border shadow-2xl" aria-hidden="true">
+          <div class="flex items-center gap-1.5 border-b px-4 py-3">
+            <span class="bg-muted-foreground/30 size-2.5 rounded-full" />
+            <span class="bg-muted-foreground/30 size-2.5 rounded-full" />
+            <span class="bg-muted-foreground/30 size-2.5 rounded-full" />
+            <span class="text-muted-foreground ml-3 text-xs">Customers</span>
+          </div>
+          <div class="space-y-1 p-3">
+            <div
+              v-for="row in rows"
+              :key="row.name"
+              class="hover:bg-muted/60 flex items-center gap-3 rounded-lg p-2.5 transition-colors"
+            >
+              <UiAvatar :src="row.avatar" :fallback="row.name[0]" class="size-9" />
+              <div class="min-w-0 flex-1">
+                <p class="text-sm font-medium">{{ row.name }}</p>
+                <p class="text-muted-foreground text-xs">{{ row.plan }}</p>
+              </div>
+              <span class="text-sm font-semibold tabular-nums">{{ row.mrr }}</span>
+            </div>
+          </div>
+        </div>
+        <Motion
+          class="bg-card absolute -bottom-5 -left-4 flex items-center gap-3 rounded-2xl border p-3 pr-5 shadow-xl sm:-left-8"
+          :initial="{ opacity: 0, y: 10, scale: 0.95 }"
+          :animate="{ opacity: 1, y: 0, scale: 1 }"
+          :transition="{ delay: 0.8, type: 'spring', stiffness: 200, damping: 18 }"
+        >
+          <UiFancyIcon icon="lucide:trending-up" theme="light" color="success" size="md" />
+          <div>
+            <p class="text-sm font-semibold">New subscription</p>
+            <p class="text-muted-foreground text-xs">+$299 MRR just now</p>
+          </div>
+        </Motion>
+      </Motion>
+    </UiContainer>
+  </section>
 </template>
 
 <script lang="ts" setup>
-  import { stagger } from "motion-v";
-  import type { MotionProps } from "motion-v";
+  const props = withDefaults(defineProps<{ title?: string; description?: string }>(), {
+    title: "Know your customers, grow your revenue",
+    description:
+      "One place to see who's paying, who's at risk and what to do next. No spreadsheets required.",
+  });
 
-  const people = [
+  const avatars = [
+    "https://i.pravatar.cc/80?img=47",
+    "https://i.pravatar.cc/80?img=12",
+    "https://i.pravatar.cc/80?img=45",
+    "https://i.pravatar.cc/80?img=32",
+    "https://i.pravatar.cc/80?img=15",
+  ];
+  const rows = [
     {
-      title: "Alice Johnson",
-      description: "Product Manager at TechCorp",
-      image: "https://i.pravatar.cc/150?img=11",
+      name: "Northwind",
+      plan: "Business · Annual",
+      mrr: "$1,240",
+      avatar: "https://i.pravatar.cc/60?img=47",
     },
     {
-      title: "Bob Smith",
-      description: "Lead Developer at DevSolutions",
-      image: "https://i.pravatar.cc/150?img=12",
+      name: "Lumen Labs",
+      plan: "Pro · Monthly",
+      mrr: "$299",
+      avatar: "https://i.pravatar.cc/60?img=12",
     },
     {
-      title: "Catherine Lee",
-      description: "UX Designer at CreativeStudio",
-      image: "https://i.pravatar.cc/150?img=13",
+      name: "Fieldwork",
+      plan: "Pro · Annual",
+      mrr: "$249",
+      avatar: "https://i.pravatar.cc/60?img=45",
     },
     {
-      title: "David Brown",
-      description: "Marketing Head at MarketMinds",
-      image: "https://i.pravatar.cc/150?img=14",
-    },
-    {
-      title: "Eva Green",
-      description: "Data Scientist at DataWorks",
-      image: "https://i.pravatar.cc/150?img=15",
+      name: "Hexa Cloud",
+      plan: "Starter · Monthly",
+      mrr: "$49",
+      avatar: "https://i.pravatar.cc/60?img=32",
     },
   ];
 
-  const textVariants: MotionProps["variants"] = {
-    initial: { opacity: 0, y: 10 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", damping: 20 },
-    },
-  };
+  const email = ref("");
+  const error = ref("");
+  const done = ref(false);
+
+  function submit() {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+      error.value = "Enter a valid email address.";
+      return;
+    }
+    error.value = "";
+    done.value = true;
+  }
 </script>
