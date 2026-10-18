@@ -1,0 +1,32 @@
+{
+  "slug": "2026-10-18-block-fills",
+  "date": "2026-10-18",
+  "title": "22 New Blocks for Existing Categories",
+  "category": "feature",
+  "tags": ["blocks", "mcp"],
+  "summary": "22 new blocks fill gaps in six existing block pages: OTP, Reset Password, Tiptap editor, API keys, Career and FAQ, with search keywords so the MCP server finds them.",
+  "body": "Six existing block pages now cover more of what real products need. Every block keeps its own state, validates its own input and takes typed props with fictional sample data.\n\n#### Verification and passwords (6)\n\n- 3 more OTP verification blocks under **Forgot and Reset Password**\n- 3 more reset password blocks: a second full page form, an expired link screen and a change password form\n\n#### Tiptap editor (4)\n\n- A minimal editor, a bubble menu editor, a comment or notes editor and a blog post editor\n\n#### API keys (4)\n\n- A create key dialog, a scopes picker, a usage table and a webhooks manager, added to **Settings - Workspace**\n\n#### Career (4)\n\n- A filterable job board, a job detail page, an application form with resume upload and a hiring process with perks\n\n#### FAQ (4)\n\n- A search with highlighted matches, an accordion with helpful votes, a grouped FAQ with a support card and an ask a question form with suggestions\n\n#### MCP\n\n- Search keywords added for Career, FAQ and Tiptap, and extended for OTP, Reset Password and API keys\n- Block docs links already resolve to the existing pages, so no new routes were needed\n",
+  "breaking": false,
+  "links": [
+    {
+      "label": "Forgot and Reset Password",
+      "href": "/blocks/forgot-reset-password"
+    },
+    {
+      "label": "Tiptap",
+      "href": "/blocks/tip-tap"
+    },
+    {
+      "label": "Settings - Workspace",
+      "href": "/blocks/settings-workspace"
+    },
+    {
+      "label": "Career",
+      "href": "/blocks/career"
+    },
+    {
+      "label": "FAQs",
+      "href": "/blocks/faq"
+    }
+  ]
+}
