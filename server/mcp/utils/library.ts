@@ -555,6 +555,18 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "delete confirmation",
     "checkbox table",
   ],
+  Composer: [
+    "chat",
+    "composer",
+    "message input",
+    "prompt input",
+    "emoji picker",
+    "mentions",
+    "slash commands",
+    "voice note",
+    "file attachments",
+    "textarea",
+  ],
   Thread: [
     "chat",
     "message thread",
@@ -845,6 +857,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     docsPath: "/blocks/chat-conversation-list",
   },
   { test: (path) => path.startsWith("Chat/Thread/"), docsPath: "/blocks/chat-thread" },
+  { test: (path) => path.startsWith("Chat/Composer/"), docsPath: "/blocks/chat-composer" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
