@@ -1,0 +1,20 @@
+{
+  "slug": "2026-10-18-files-blocks",
+  "date": "2026-10-18",
+  "title": "File Manager and Upload Blocks",
+  "category": "feature",
+  "tags": ["blocks", "mcp"],
+  "summary": "20 new file blocks covering file managers, uploads, storage usage and sharing, with a new file-manager page plan for the MCP server.",
+  "body": "Added a set of file blocks, available under **Blocks** in four new docs pages: Files - File Manager, Uploads, Storage and Sharing. Every block keeps its own state, takes typed props with fictional sample data and checks input in the browser. Nothing is sent anywhere, so connect the handlers to your own storage API.\n\n#### File manager\n\n- A file grid with previews and selection, a sortable file table, a folder browser with breadcrumbs and a new folder dialog, a sidebar folder tree built with the Tree component, recent files grouped by day and a trash with restore and delete forever\n\n#### Uploads\n\n- A dropzone with type, size and duplicate checks, multi file progress with pause and cancel, an avatar upload with preview, an image grid with a cover image, an upload dialog with an import from link tab and a failed uploads list with retry\n\n#### Storage\n\n- A usage meter with a segmented bar and a text alternative, a breakdown by file type, a plan upgrade prompt with a monthly and yearly switch and quota warning banners for 80, 90 and 100 percent\n\n#### Sharing\n\n- A share dialog with roles, an access list with pending invitations and undo, public link settings with a password and an expiry and a file detail panel with tabs and tags\n\n#### MCP\n\n- New `file-manager` page plan, also picked up by `plan-app`\n- Block docs links and search keywords cover the four new categories\n",
+  "breaking": false,
+  "links": [
+    {
+      "label": "File Manager",
+      "href": "/blocks/files-file-manager"
+    },
+    {
+      "label": "Uploads",
+      "href": "/blocks/files-uploads"
+    }
+  ]
+}
