@@ -1,0 +1,14 @@
+{
+  "slug": "2026-10-18-data-table-blocks",
+  "date": "2026-10-18",
+  "title": "Data Table Blocks",
+  "category": "feature",
+  "tags": ["blocks", "mcp"],
+  "summary": "25 new data table blocks covering lists, toolbars, selection and row actions, and expandable rows, with an upgraded admin table page plan for the MCP server.",
+  "body": "Added a set of data table blocks, available under **Blocks** in four new docs pages: Data Table - Lists, Toolbars, Selection and Expandable. They are built on `UiTable` with plain Vue state and typed props, so there is no table library to learn. Search, sorting, filters and selection run on the client and every block uses fictional data you can swap for your own.\n\n#### Lists\n\n- Users, team directory, customers, invoices, transactions grouped by day, API request logs, inventory with stock levels and a compact striped report\n\n#### Toolbars\n\n- Search with removable filter chips, faceted filter popovers, a column visibility menu, a date range filter, saved view tabs and a density, page size and export toolbar\n\n#### Selection\n\n- Bulk action bar with an indeterminate select all, row action menus, click to edit cells built on Editable, inline status selects, select all across pages with a running total and a shared delete confirmation dialog\n\n#### Expandable\n\n- Expandable detail rows, grouped rows with subtotals, a master detail split, a sticky header and column table and loading, empty and error states\n\n#### MCP\n\n- The `admin-table` page plan now pulls toolbar, list, selection, detail and state blocks from the new categories\n- Block docs links and search keywords cover the four new categories\n",
+  "breaking": false,
+  "links": [
+    { "label": "Lists", "href": "/blocks/data-table-lists" },
+    { "label": "Selection", "href": "/blocks/data-table-selection" }
+  ]
+}

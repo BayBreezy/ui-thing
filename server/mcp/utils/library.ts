@@ -1521,35 +1521,63 @@ const PAGE_PRESETS: Record<string, PagePreset> = {
   },
   "admin-table": {
     title: "Admin data table",
-    description: "List-and-manage screen with search, filters, row actions and empty state.",
+    description:
+      "List-and-manage screen with search, filters, bulk actions, row actions, detail rows and empty states.",
     category: "application",
     sections: [
       {
         id: "toolbar",
         title: "Toolbar",
-        query: "table toolbar",
-        noBlocks: true,
-        componentValues: ["input", "button", "dropdown-menu", "select"],
+        query: "table toolbar filters",
+        categories: [
+          "DataTable/TableToolbars/BlockTableToolbars1",
+          "DataTable/TableToolbars/BlockTableToolbars2",
+          "DataTable/TableToolbars/BlockTableToolbars5",
+          "DataTable/TableToolbars/",
+        ],
+        componentValues: ["input", "button", "dropdown-menu", "select", "popover", "tabs"],
       },
       {
         id: "table",
         title: "Table",
         query: "table",
-        categories: ["Dashboards"],
-        componentValues: [
-          "tanstacktable",
-          "datatable",
-          "badge",
-          "avatar",
-          "pagination",
-          "skeleton",
+        categories: [
+          "DataTable/TableLists/BlockTableLists1",
+          "DataTable/TableLists/BlockTableLists3",
+          "DataTable/TableLists/BlockTableLists4",
+          "DataTable/TableLists/",
         ],
+        componentValues: ["table", "badge", "avatar", "pagination", "tanstacktable"],
+      },
+      {
+        id: "selection",
+        title: "Selection and row actions",
+        query: "bulk actions row actions",
+        categories: [
+          "DataTable/TableSelection/BlockTableSelection1",
+          "DataTable/TableSelection/BlockTableSelection2",
+          "DataTable/TableSelection/BlockTableSelection6",
+          "DataTable/TableSelection/",
+        ],
+        componentValues: ["checkbox", "dropdown-menu", "alert-dialog", "editable"],
+      },
+      {
+        id: "details",
+        title: "Expandable and detail rows",
+        query: "expandable rows master detail",
+        categories: [
+          "DataTable/TableExpandable/BlockTableExpandable1",
+          "DataTable/TableExpandable/BlockTableExpandable3",
+          "DataTable/TableExpandable/",
+        ],
+        componentValues: ["table", "card", "separator"],
       },
       {
         id: "states",
         title: "Empty and loading states",
         query: "empty state",
         categories: [
+          "DataTable/TableExpandable/BlockTableExpandable5",
           "App/EmptyState/BlockAppEmptyState1",
           "App/EmptyState/BlockAppEmptyState3",
           "App/EmptyState/BlockAppEmptyState4",
@@ -1568,8 +1596,16 @@ const PAGE_PRESETS: Record<string, PagePreset> = {
     notes: [
       "Always design the empty, loading and error states. They are where generated UIs usually look unfinished.",
       "Open create/edit forms in a `UiSheet` or `UiDialog` so the table keeps its scroll position.",
+      "The data table blocks are built on `UiTable` with plain Vue state and typed props such as `users`, `invoices` or `orders`. Search, sort and filters run on the client, so move to `UiTanStackTable` or server side queries once the data outgrows one page.",
+      "Pair one toolbar block with one list block. Keep selection state in the page, not in the toolbar, so the bulk action bar and the table share it.",
     ],
-    readNext: ["/components/tanstacktable", "/components/datatable", "/blocks/app-empty-state"],
+    readNext: [
+      "/blocks/data-table-lists",
+      "/blocks/data-table-toolbars",
+      "/blocks/data-table-selection",
+      "/blocks/data-table-expandable",
+      "/components/tanstacktable",
+    ],
   },
   "ai-chat": {
     title: "AI chat interface",
