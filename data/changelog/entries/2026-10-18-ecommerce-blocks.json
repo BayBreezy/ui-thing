@@ -1,0 +1,14 @@
+{
+  "slug": "2026-10-18-ecommerce-blocks",
+  "date": "2026-10-18",
+  "title": "Ecommerce Blocks",
+  "category": "feature",
+  "tags": ["blocks", "mcp"],
+  "summary": "42 new ecommerce blocks covering storefront heroes, product grids, product pages, carts, checkout flows and customer orders, with matching MCP page plans.",
+  "body": "Added a full set of ecommerce blocks, available under **Blocks** in six new docs pages: Ecommerce - Hero, Product List, Product Detail, Cart, Checkout and Orders. Every block takes typed props, keeps its own cart, filter and form state, and uses a fictional store with placeholder photos so you can swap in your own data.\n\n#### Hero\n\n- Photo collage, category tiles, full bleed image, featured product spotlight, sale countdown and an auto rotating promo slider\n\n#### Product list\n\n- Product grid with wishlist and quick add, sidebar filters with sorting and pagination, a top filter bar, grid and list toggle, collection tiles, a quick view dialog, a recommendations carousel and a load more grid with skeletons\n\n#### Product detail\n\n- Thumbnail gallery with variant pickers, sticky buy box with accordion details, photo mosaic with tabs, quantity stepper with cart confirmation\n- Customer reviews with a rating breakdown and a validated review form, complete the look, frequently bought together and a size guide with a sticky mobile bar\n\n#### Cart\n\n- Cart drawer, full cart page, free shipping progress with promo codes, empty cart, header mini cart and add on suggestions\n\n#### Checkout\n\n- Single page and multi step checkouts, payment form with a live card preview, delivery method cards, express checkout with guest and sign in, a country aware address form, order review and a two column layout with a collapsible mobile summary\n- Forms use vee-validate with yup and masked card fields. They are demos and never send card data anywhere\n\n#### Orders\n\n- Order confirmation, tracking timeline, order history table and cards, order detail and a return request form\n\n#### MCP\n\n- New `storefront`, `product-page`, `checkout` and `orders` page plans, also picked up by `plan-app`\n- Block docs links and search keywords cover the six new categories\n",
+  "breaking": false,
+  "links": [
+    { "label": "Product list", "href": "/blocks/ecommerce-product-list" },
+    { "label": "Checkout", "href": "/blocks/ecommerce-checkout" }
+  ]
+}
