@@ -555,6 +555,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "delete confirmation",
     "checkbox table",
   ],
+  Board: [
+    "kanban",
+    "board",
+    "project management",
+    "tasks",
+    "drag and drop",
+    "swimlanes",
+    "wip limits",
+    "pipeline",
+    "trello",
+  ],
   InboxLayouts: [
     "inbox",
     "messaging app",
@@ -887,6 +898,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     test: (path) => path.startsWith("Chat/InboxLayouts/"),
     docsPath: "/blocks/chat-inbox-layouts",
   },
+  { test: (path) => path.startsWith("Tasks/Board/"), docsPath: "/blocks/tasks-board" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
