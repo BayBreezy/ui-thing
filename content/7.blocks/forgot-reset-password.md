@@ -70,3 +70,21 @@ A card version with a lock icon, instructions and a resend option below a divide
 Let users choose between email and SMS for their verification code. Selectable cards with check indicators reveal the matching field.
 
 :BlockShowcase{blockPath="ForgotPassword/BlockTwoStepVerification" containerClass="h-screen" component="BlockTwoStepVerification" iframeHeight="800px"}
+
+## OTP Verification with Resend Timer
+
+A code that is checked as soon as the sixth digit is typed. It shows how many attempts are left, locks after too many wrong codes and makes you wait before you can ask for a new code.
+
+:BlockShowcase{blockPath="OTP/BlockOTPVerification3" containerClass="h-screen" component="BlockOTPVerification3" iframeHeight="720px"}
+
+## OTP Verification Dialog
+
+Confirm it is you before a sensitive change. A security card opens a dialog with the code input and shows a verified badge on the page afterwards.
+
+:BlockShowcase{blockPath="OTP/BlockOTPVerification4" containerClass="h-screen" component="BlockOTPVerification4" iframeHeight="640px"}
+
+## Phone Verification
+
+Two steps in one card: a phone number with a country code, then the code that was texted to it. You can change the number, and a new code can be requested after a countdown.
+
+:BlockShowcase{blockPath="OTP/BlockOTPVerification5" containerClass="h-screen" component="BlockOTPVerification5" iframeHeight="720px"}
