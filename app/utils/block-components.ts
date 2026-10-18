@@ -314,6 +314,14 @@ export default {
   "Chat/InboxLayouts/BlockInboxLayouts4": "avatar badge bubble button input label message",
   "Settings/Integrations/BlockSettingsIntegrationsGrid": "badge button card input switch",
   "Settings/Integrations/BlockSettingsIntegrationsList": "alert-dialog button card",
+  "IntegrationsMarketing/IntegrationsGrid/BlockIntegrationsGrid1": "button container",
+  "IntegrationsMarketing/IntegrationsGrid/BlockIntegrationsGrid2": "badge button container input",
+  "IntegrationsMarketing/IntegrationsGrid/BlockIntegrationsGrid3": "badge button container",
+  "IntegrationsMarketing/IntegrationsGrid/BlockIntegrationsGrid4":
+    "alert-dialog badge button card container tabs",
+  "IntegrationsMarketing/IntegrationsGrid/BlockIntegrationsGrid5": "badge button container",
+  "IntegrationsMarketing/IntegrationsGrid/BlockIntegrationsGrid6":
+    "badge button card container input label textarea",
   "Settings/Layout/BlockSettingsLayoutSidebarNav":
     "avatar badge button container divider input label textarea",
   "Settings/Layout/BlockSettingsLayoutSplitSections":

@@ -732,6 +732,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "sticky header table",
     "checklist",
   ],
+  IntegrationsGrid: [
+    "integrations",
+    "integrations page",
+    "logo grid",
+    "logo cloud",
+    "works with",
+    "app directory",
+    "connected apps",
+    "request an integration",
+    "marketplace",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -1169,6 +1180,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     docsPath: "/blocks/changelog-status-page",
   },
   { test: (path) => path.startsWith("Comparison/"), docsPath: "/blocks/comparison" },
+  {
+    test: (path) => path.startsWith("IntegrationsMarketing/IntegrationsGrid/"),
+    docsPath: "/blocks/integrations-grid",
+  },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
