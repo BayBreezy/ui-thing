@@ -555,6 +555,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "delete confirmation",
     "checkbox table",
   ],
+  MonthViews: [
+    "calendar",
+    "month view",
+    "month calendar",
+    "events calendar",
+    "agenda",
+    "year view",
+    "mini calendar",
+    "schedule",
+    "multi day events",
+  ],
   Sprint: [
     "sprint",
     "agile",
@@ -955,6 +966,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     docsPath: "/blocks/tasks-project-overview",
   },
   { test: (path) => path.startsWith("Tasks/Sprint/"), docsPath: "/blocks/tasks-sprint" },
+  {
+    test: (path) => path.startsWith("Calendar/MonthViews/"),
+    docsPath: "/blocks/calendar-month-views",
+  },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [

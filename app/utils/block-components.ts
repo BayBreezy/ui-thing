@@ -317,6 +317,12 @@ export default {
   "Metric/BlockMetric7": "container",
   "Metric/BlockMetric8": "container fancy-icon",
   "Metric/BlockMetric9": "container",
+  "Calendar/MonthViews/BlockMonthViews1": "button container",
+  "Calendar/MonthViews/BlockMonthViews2": "avatar button calendar container",
+  "Calendar/MonthViews/BlockMonthViews3": "button container",
+  "Calendar/MonthViews/BlockMonthViews4": "button container",
+  "Calendar/MonthViews/BlockMonthViews5": "button container",
+  "Calendar/MonthViews/BlockMonthViews6": "button card container",
   "Navigation/BlockNavigation1":
     "badge button collapsible container fancy-icon navigation-menu sheet",
   "Navigation/BlockNavigation2": "button container fancy-icon navigation-menu sheet",
