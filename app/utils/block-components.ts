@@ -544,4 +544,14 @@ export default {
   "Onboarding/Wizard/BlockWizard5": "button card checkbox container label loader",
   "Onboarding/Wizard/BlockWizard6":
     "button checkbox container dialog input label native-select progress",
+  "Onboarding/WorkspaceSetup/BlockWorkspaceSetup1":
+    "button container input label loader native-select",
+  "Onboarding/WorkspaceSetup/BlockWorkspaceSetup2": "button card container dropfile input label",
+  "Onboarding/WorkspaceSetup/BlockWorkspaceSetup3":
+    "avatar button container input label native-select",
+  "Onboarding/WorkspaceSetup/BlockWorkspaceSetup4": "badge button container loader tabs",
+  "Onboarding/WorkspaceSetup/BlockWorkspaceSetup5":
+    "button container dropfile label loader native-select table",
+  "Onboarding/WorkspaceSetup/BlockWorkspaceSetup6":
+    "button card container input label radio-group switch",
 } as const;

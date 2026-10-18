@@ -555,6 +555,18 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "delete confirmation",
     "checkbox table",
   ],
+  WorkspaceSetup: [
+    "onboarding",
+    "workspace",
+    "create workspace",
+    "brand",
+    "logo upload",
+    "invite teammates",
+    "connect integrations",
+    "import data",
+    "csv import",
+    "notification preferences",
+  ],
   Wizard: [
     "onboarding",
     "wizard",
@@ -772,6 +784,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   {
     test: (path) => path.startsWith("Onboarding/Wizard/"),
     docsPath: "/blocks/onboarding-wizard",
+  },
+  {
+    test: (path) => path.startsWith("Onboarding/WorkspaceSetup/"),
+    docsPath: "/blocks/onboarding-workspace-setup",
   },
 ];
 
