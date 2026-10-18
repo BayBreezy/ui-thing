@@ -487,6 +487,12 @@ export default {
   "DataTable/TableLists/BlockTableLists6": "badge container table toggle-group",
   "DataTable/TableLists/BlockTableLists7": "alert badge button container progress table",
   "DataTable/TableLists/BlockTableLists8": "container table",
+  "DataTable/TableSelection/BlockTableSelection1": "badge button checkbox container table",
+  "DataTable/TableSelection/BlockTableSelection2": "badge button container dropdown-menu table",
+  "DataTable/TableSelection/BlockTableSelection3": "container editable input table",
+  "DataTable/TableSelection/BlockTableSelection4": "avatar badge button container select table",
+  "DataTable/TableSelection/BlockTableSelection5": "button checkbox container pagination table",
+  "DataTable/TableSelection/BlockTableSelection6": "alert-dialog button checkbox container table",
   "DataTable/TableToolbars/BlockTableToolbars1": "badge button container input label table",
   "DataTable/TableToolbars/BlockTableToolbars2":
     "avatar badge button checkbox container label popover table",

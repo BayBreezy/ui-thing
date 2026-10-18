@@ -544,6 +544,17 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "density",
     "export",
   ],
+  TableSelection: [
+    "data table",
+    "bulk actions",
+    "select all",
+    "row actions",
+    "inline edit",
+    "editable cells",
+    "status select",
+    "delete confirmation",
+    "checkbox table",
+  ],
   Team: [
     "people",
     "about us",
@@ -711,6 +722,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   {
     test: (path) => path.startsWith("DataTable/TableToolbars/"),
     docsPath: "/blocks/data-table-toolbars",
+  },
+  {
+    test: (path) => path.startsWith("DataTable/TableSelection/"),
+    docsPath: "/blocks/data-table-selection",
   },
 ];
 
