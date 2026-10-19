@@ -1,0 +1,32 @@
+{
+  "slug": "2026-10-18-utility-blocks",
+  "date": "2026-10-18",
+  "title": "Utility Page Blocks: Waitlist, Maintenance, Success, Profile Cards and Gallery",
+  "category": "feature",
+  "tags": ["blocks", "mcp"],
+  "summary": "26 new blocks for the pages around your product: waitlists, maintenance and offline screens, success pages, profile cards and galleries, with new waitlist, maintenance, confirmation and portfolio page plans for the MCP server.",
+  "body": "Added a set of utility blocks for the pages that sit around the main product, available under **Blocks** in five new docs pages: Utility - Waitlist, Maintenance, Success, Profile Cards and Gallery. Every block keeps its own state and takes typed props with fictional sample data.\n\n#### Waitlist (6)\n\n- A coming soon page, a live launch countdown, an early access form with interest chips, a referral waitlist with reward tiers, a progress to launch meter and a waitlist with social proof\n\n#### Maintenance (4)\n\n- A maintenance mode page, a scheduled downtime notice, an offline page that follows the connection and a rate limited page with a countdown ring\n\n#### Success (4)\n\n- A payment success page with a receipt, a form submitted page with next steps, an account verified page with an automatic redirect and an action completed page with a timed undo\n\n#### Profile cards (6)\n\n- A user card with a follow toggle, filterable team member cards, a public profile header with tabs, hover profile cards, a contact card with vCard download and a followers list with search\n\n#### Gallery (6)\n\n- A filterable masonry gallery, a lightbox grid with keyboard navigation, a portfolio grid, case study cards, a video gallery with a playlist and before and after sliders\n\n#### MCP\n\n- New `waitlist`, `maintenance`, `confirmation` and `portfolio` page plans, also picked up by `plan-app`\n- The `about` plan now suggests profile cards for the team section and the `landing` plan gets a case studies section\n- Block docs links and search keywords cover the new categories\n",
+  "breaking": false,
+  "links": [
+    {
+      "label": "Waitlist",
+      "href": "/blocks/utility-waitlist"
+    },
+    {
+      "label": "Maintenance",
+      "href": "/blocks/utility-maintenance"
+    },
+    {
+      "label": "Success",
+      "href": "/blocks/utility-success"
+    },
+    {
+      "label": "Profile Cards",
+      "href": "/blocks/utility-profile-cards"
+    },
+    {
+      "label": "Gallery",
+      "href": "/blocks/utility-gallery"
+    }
+  ]
+}
