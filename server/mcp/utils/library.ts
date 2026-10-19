@@ -1095,6 +1095,16 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "rate limit",
     "create key",
   ],
+  Waitlist: [
+    "coming soon",
+    "launch",
+    "countdown",
+    "early access",
+    "email capture",
+    "referral",
+    "pre launch",
+    "beta signup",
+  ],
 };
 
 const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string | null }> = [
@@ -1246,6 +1256,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   {
     test: (path) => path.startsWith("IntegrationsMarketing/IntegrationDetail/"),
     docsPath: "/blocks/integrations-detail",
+  },
+  {
+    test: (path) => path.startsWith("Utility/Waitlist/"),
+    docsPath: "/blocks/utility-waitlist",
   },
 ];
 
