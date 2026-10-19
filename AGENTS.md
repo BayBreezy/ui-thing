@@ -123,6 +123,55 @@ If you change markdown docs that embed example code, expect `automd` to refresh 
 - `scripts/create-blocks.js` derives required component names by scanning for `Ui*` usage inside block files.
 - `app/components/content/Block/BlockShowcase.vue` expects raw block source to be loadable from the file system and is tied to the docs experience.
 
+## Block Authoring Rules
+
+Conventions and pitfalls learned while building the Ecommerce, Calendar, Chat, Files, Utility and other block families. Follow them when adding or editing a block.
+
+### Structure
+- Path is `Block/<Category>/<SubPage>/Block<SubPage><N>.vue`, one docs page per sub page (`content/7.blocks/<category>-<subpage>.md`) with `## Style One`, `## Style Two` and so on, each with a `:BlockShowcase{blockPath component iframeHeight}`. The generator uses the immediate parent directory as the category, so avoid names that collide with an existing category (for example `IntegrationsMarketing` instead of a second `Integrations`).
+- The first thing in `<template>` is an HTML comment: line 1 is the title, line 2 is `Features: ...`. The generator turns it into the block description.
+- Root is `<UiContainer class="py-12 lg:py-20">` (settings blocks use a `UiCard` root instead). Put `<script lang="ts" setup>` after the template.
+- Use typed props, all optional, with `withDefaults` and factory defaults of fictional data (Pravatar `https://i.pravatar.cc/80?img=N`, Unsplash photos already used elsewhere). No network calls. Keep a local `ref` copy of prop data so interactions never mutate props.
+- `withDefaults(defineProps())` cannot reference a `const` declared in `<script setup>`. It is a compile error: the block then 404s as a module while eslint and fmt still pass. Declare shared data inside the default factory.
+- Add a `SEARCH_KEYWORDS` key (the sub page directory name) and a `BLOCK_DOC_PATHS` entry in `server/mcp/utils/library.ts`. After a family is finished, add or extend a `PAGE_PRESETS` entry (plus an `APP_FEATURES` entry for new presets) and a changelog entry in `data/changelog/entries/`.
+- Never hand edit `server/utils/block-examples.ts` or `app/utils/block-components.ts`. Run `bun run fmt` then `bun run generate:blocks` (fmt reformats the source that the generator embeds).
+
+### Quality bar
+- Compose existing `Ui*` components only (`scripts/create-blocks.js` throws on unknown tags), semantic tokens, Tailwind v4 class names (`bg-linear-to-br`), dark mode, 320px wide, reduced motion (`motion-safe:`, `motion-reduce:`), real labels or `aria-label`s, keyboard access.
+- Add a keyboard alternative to anything pointer only (drag and drop, hover cards, sliders).
+- Take a `today` or `now` prop (ISO strings, UTC) instead of reading the current date, so demos and screenshots are stable.
+- For countdowns and timers, derive elapsed time from `useNow({ interval: 1000 })` and a start timestamp, not from a tick counter, so they stay accurate in background tabs.
+- Charts are plain SVG plus a visually hidden data table. No chart library.
+- Pluralize counts ("1 event", "2 events"). Do not use color alone for status.
+- Verify each block in the browser (light, dark, mobile) and test every interaction (filters, tabs, dialogs, forms). Many failed tests were wrong locators, not block bugs.
+
+### Component gotchas
+- `UiCardHeader` is a CSS grid, so `flex-row` does nothing. Use a plain `<div class="flex ...">`. `UiCard` has `py-6 gap-6`: use `gap-0 py-0` for an edge to edge image or header.
+- `UiAlert` takes `icon`, `title`, `description` props. Add `role="alert"` or `role="status"` for alerts that appear after an action.
+- `UiBadge`: `variant="soft" :color="..." shape="pill"`. Valid colors are in `app/utils/badge-colors.ts`.
+- `UiTextarea` needs a numeric `:rows`, has no autosize and no exposed ref. `UiCheckbox` needs an `id` plus `<UiLabel :for>` (do not wrap it in a `<label>`) and freezes `aria-label` from the label text at mount, so keep the label constant.
+- `UiToggleGroup type="single"` items render as `button[aria-pressed]`. `UiRadioGroupItem` has its own background, so for swatches use a `peer` input with a sibling `<span>` styled by `peer-data-[state=checked]:`.
+- `UiCircularProgress` takes `progress` (0 to 1) or `current-step` and `total-steps`, plus `size`, `radius`, `stroke-width`.
+- `UiCalendar` wraps v-calendar (client only, no `v-model`): use `@dayclick` and a `highlight` attribute, or `UiDatepicker` for a real `v-model`.
+- `UiDraggable` drag is pointer only. `UiTimeline` items are `aria-hidden`, so build readable feeds with `<ol>`. `UiDropfile` has no keyboard access, so pair it with a real "Browse files" button (`useFileDialog` is enough for a file field).
+- `UiPinInput type="number"` emits numbers, so `0` is falsy. Use `code.join('').length`. Bump a `:key` to remount it when clearing.
+- `UiStepper` (vertical): the indicator is `size-6`, so a connector must be centered at `left-3` with `m-0`, not the default separator margin.
+- `@update:open` on `UiDialog` does not fire when you set `v-model:open` in code. Use `watch(open, ...)`.
+- `useSonner` is vue-sonner's `toast`: call `useSonner("msg", { description })` or `useSonner.success(...)`. Do not destructure it.
+- Popups that open upward need reserved space above them in the iframe (a `min-h-*` wrapper).
+- Tiptap 3: import from `@tiptap/vue-3` and `@tiptap/vue-3/menus` (not auto imported). `StarterKit` already includes Link and Underline. Call `unsetAllMarks()` after `clearContent`.
+- Iconify icons set `fill="none"` on the inner path, so use `[&_path]:fill-current` for filled stars. `logos:*` brand icons can be black, so put them on a light chip in dark mode.
+- A global style gives `<code>` a grey box inside the block renderer, so use `<span class="font-mono">` for plain monospace.
+
+### Accessibility and layout traps
+- Never nest interactive elements (no `UiButton` inside a `<button>`). Do not give a `<button>` `role="gridcell"` or `role="listitem"`; it replaces the button role.
+- `sr-only` is `position: absolute`: inside an `overflow-auto` wrapper that is not positioned it makes the page scroll sideways on mobile. Put `relative` on the scroll wrapper and never put `sr-only` on a `<table>`.
+- Prefer `aria-label` over sr-only spans for button names. Nuxt's route announcer renders `span[role=status]`, so scope `role=status` locators in tests.
+
+### MCP behavior to remember
+- MCP tools cache output on disk for 15 minutes (the `plan-page` key is `pageType` + `sections`), even across dev server restarts. After editing presets, re-query with a throwaway `sections` value (ignored for non custom presets) to see fresh output.
+- Block selection in a preset section uses `sourcePath.startsWith(selector)`, so `Team/BlockTeam1` also matches `BlockTeam10`. A section shows at most three blocks.
+
 ## Forms Rules
 
 - Form wrappers live in `app/components/Ui/Vee/**`.
