@@ -23,7 +23,7 @@
             </UiStepperTrigger>
             <UiStepperSeparator
               v-if="index < steps.length - 1"
-              class="absolute top-9 left-4 -translate-x-1/2"
+              class="absolute top-7 bottom-1 left-3 m-0 -translate-x-1/2 group-data-[orientation=vertical]/stepper:h-auto"
             />
           </UiStepperItem>
         </UiStepper>
