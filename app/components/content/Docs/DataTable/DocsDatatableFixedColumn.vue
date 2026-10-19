@@ -36,7 +36,7 @@
     const DataTable = await import("datatables.net").then((mod) => mod.default || mod);
 
     options.value = {
-      dom: `<'overflow-hidden rounded-lg border border-border bg-background'<'${tw`overflow-auto`}'t>>`,
+      layout: { topStart: null, topEnd: null, bottomStart: null, bottomEnd: null },
       paging: false,
       ordering: false,
       columns: [
@@ -80,7 +80,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="border-border bg-background overflow-hidden rounded-lg border">
     <UiDatatable v-if="options" :data="data" :options />
   </div>
 </template>

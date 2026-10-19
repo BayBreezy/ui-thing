@@ -25,7 +25,7 @@
   onMounted(async () => {
     const DataTable = await import("datatables.net").then((mod) => mod.default || mod);
     options.value = {
-      dom: `<'${tw`overflow-auto`}'t>`,
+      layout: { topStart: null, topEnd: null, bottomStart: null, bottomEnd: null },
       ordering: false,
       columns: [
         { data: null, searchable: false, orderable: false, render: DataTable?.render?.select() },

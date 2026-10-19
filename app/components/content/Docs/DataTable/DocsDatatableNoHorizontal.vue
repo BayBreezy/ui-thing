@@ -24,7 +24,7 @@
   };
 
   const options: Config = {
-    dom: `<'${tw`overflow-auto`}'t>`,
+    layout: { topStart: null, topEnd: null, bottomStart: null, bottomEnd: null },
     ordering: false,
     columns: [
       { title: "ID", data: "id", visible: false },

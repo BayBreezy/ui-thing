@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
+  import type { Config } from "datatables.net";
   import type DT from "datatables.net";
 
   const tableRef = shallowRef<InstanceType<typeof DT<any[]>> | undefined>();
@@ -24,28 +25,25 @@
       currency: "USD",
     }).format(value);
   };
-  const options = ref({});
-  onMounted(() => {
-    options.value = {
-      dom: `<'${tw`overflow-auto`}'t>`,
-      ordering: false,
-      paging: false,
-      colReorder: true,
-      columns: [
-        { title: "ID", data: "id", visible: false },
-        { title: "Name", data: "name" },
-        { title: "Email", data: "email" },
-        { title: "Location", data: "location" },
-        { title: "Status", data: "status" },
-        {
-          title: "Balance",
-          data: "balance",
-          className: `text-right`,
-          render: (data: number) => formatCurrency(data),
-        },
-      ],
-    };
-  });
+  const options: Config = {
+    layout: { topStart: null, topEnd: null, bottomStart: null, bottomEnd: null },
+    ordering: false,
+    paging: false,
+    colReorder: true,
+    columns: [
+      { title: "ID", data: "id", visible: false },
+      { title: "Name", data: "name" },
+      { title: "Email", data: "email" },
+      { title: "Location", data: "location" },
+      { title: "Status", data: "status" },
+      {
+        title: "Balance",
+        data: "balance",
+        className: `text-right`,
+        render: (data: number) => formatCurrency(data),
+      },
+    ],
+  };
 </script>
 
 <template>

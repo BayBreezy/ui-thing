@@ -19,7 +19,7 @@
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import type { Config, ConfigColumns } from "datatables.net";
+  import type { Config, ColumnOptions } from "datatables.net";
 
   const { data: users } = await useAsyncData(
     async () =>
@@ -38,7 +38,7 @@
 
   type Staff = (typeof users.value)[0];
 
-  const columns: ConfigColumns[] = [
+  const columns: ColumnOptions[] = [
     { data: "name", title: "Name" },
     { data: "position", title: "Position" },
     { data: "office", title: "Office" },
@@ -53,8 +53,9 @@
       orderable: false,
       name: "actions",
       render: "#actions",
+      // Responsive adds this option, but it is not in the DataTables 3 column types yet
       responsivePriority: 1,
-    },
+    } as ColumnOptions,
   ];
 
   const options: Config = {
@@ -70,9 +71,22 @@
       "print",
       "csv",
     ],
-    dom: "Q<'flex flex-col lg:flex-row w-full lg:items-start lg:justify-between gap-5 mb-5'Bf><'border rounded-lg't><'flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-between pt-3 p-5'li><''p>",
+    layout: {
+      top1: "searchBuilder",
+      topStart: "buttons",
+      topEnd: "search",
+      bottomStart: ["pageLength", "info"],
+      bottomEnd: "paging",
+    },
     responsive: true,
     autoWidth: true,
     select: true,
   };
 </script>
+
+<style scoped>
+  :deep(.dt-layout-table > .dt-layout-cell) {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+</style>

@@ -19,7 +19,7 @@
 
 <script lang="ts" setup>
   import { faker } from "@faker-js/faker";
-  import type { Config, ConfigColumns } from "datatables.net";
+  import type { Config, ColumnOptions } from "datatables.net";
 
   interface Staff {
     name: string;
@@ -50,7 +50,7 @@
     { default: () => [] }
   );
 
-  const columns: ConfigColumns[] = [
+  const columns: ColumnOptions[] = [
     { data: "name", title: "Name" },
     { data: "position", title: "Position" },
     { data: "office", title: "Office" },
@@ -65,8 +65,9 @@
       orderable: false,
       name: "actions",
       render: "#actions",
+      // Responsive adds this option, but it is not in the DataTables 3 column types yet
       responsivePriority: 1,
-    },
+    } as ColumnOptions,
   ];
 
   const options: Config = {
@@ -88,22 +89,13 @@
     select: true,
     layout: {
       top1: "searchBuilder",
-      top1Start: {
-        features: {
-          buttons: true,
-        },
-        className: tw`pb-5`,
-      },
+      top1Start: "buttons",
       topStart: null,
       topEnd: null,
       bottomStart: null,
       bottomEnd: {
-        features: [
-          {
-            paging: true,
-          },
-        ],
-        className: tw`pt-5`,
+        features: ["paging"],
+        className: "pt-5",
       },
     },
   };

@@ -47,7 +47,7 @@
     const DataTable = await import("datatables.net").then((mod) => mod.default || mod);
 
     options.value = {
-      dom: `<'overflow-hidden rounded-lg border border-border bg-background'<'${tw`overflow-auto`}'t>>`,
+      layout: { topStart: null, topEnd: null, bottomStart: null, bottomEnd: null },
       paging: false,
       columns: [
         { data: null, searchable: false, orderable: false, render: DataTable?.render?.select() },
@@ -109,26 +109,28 @@
       </div>
     </div>
 
-    <UiDatatable v-if="options" :data="filteredData" :options>
-      <template #intents="{ cellData }: { cellData: Item }">
-        <div class="flex gap-2">
-          <span
-            v-for="intent in cellData.intents"
-            :key="intent"
-            :class="[
-              styles[intent],
-              'flex size-5 items-center justify-center rounded text-xs font-medium',
-            ]"
-          >
-            {{ intent[0] }}
-          </span>
-        </div>
-      </template>
-      <template #link="{ cellData }: { cellData: Item }">
-        <a :href="cellData.link" target="_blank" class="hover:underline">
-          {{ cellData.link }}
-        </a>
-      </template>
-    </UiDatatable>
+    <div class="border-border bg-background overflow-hidden rounded-lg border">
+      <UiDatatable v-if="options" :data="filteredData" :options>
+        <template #intents="{ cellData }: { cellData: Item }">
+          <div class="flex gap-2">
+            <span
+              v-for="intent in cellData.intents"
+              :key="intent"
+              :class="[
+                styles[intent],
+                'flex size-5 items-center justify-center rounded text-xs font-medium',
+              ]"
+            >
+              {{ intent[0] }}
+            </span>
+          </div>
+        </template>
+        <template #link="{ cellData }: { cellData: Item }">
+          <a :href="cellData.link" target="_blank" class="hover:underline">
+            {{ cellData.link }}
+          </a>
+        </template>
+      </UiDatatable>
+    </div>
   </div>
 </template>

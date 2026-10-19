@@ -1,0 +1,16 @@
+{
+  "slug": "2026-10-18-datatables-v3",
+  "date": "2026-10-18",
+  "title": "Datatable: DataTables 3, self contained and themed",
+  "category": "update",
+  "tags": ["datatable"],
+  "summary": "The Datatable component now runs on DataTables 3 (no jQuery), loads its own plugins and CSS, uses the layout option, and ships ten new examples.",
+  "body": "The [`Datatable`](/components/datatable) component has been rebuilt on **DataTables 3**.\n\n#### What changed\n\n- Runs on DataTables 3 and every extension's latest major version. jQuery is no longer needed\n- The component file is self contained. It imports the DataTables CSS for the core and for each extension, so there is nothing to add to your CSS\n- The old hand copied stylesheet is gone. The official stylesheets are used and their CSS variables are mapped to your shadcn tokens, so light mode, dark mode and `theme-*` classes work out of the box\n- Sort and expand icons no longer load from the network\n- PDF export no longer needs the pdfmake CDN scripts in `nuxt.config.ts`. The library is loaded the first time a PDF is created\n- Added the **RowGroup** and **RowReorder** extensions\n- The examples use the `layout` option instead of `dom`\n\n#### New examples\n\nColumn search, row group, row reorder, child rows, export buttons, Ajax, reactive data and custom layout, plus two server-side examples that send search, sorting, paging and an external filter to an API (DummyJSON), with a note on mapping the same request to Strapi.\n\n#### Upgrading\n\n- Replace your copy of the component, then run `npx ui-thing@latest add datatable` to install the new packages\n- `dom` still works but is the legacy way to describe the layout. Use `layout` instead\n- If you wrote custom CSS, rename the selectors: `.dataTables_wrapper` is now `.dt-container`, `.dataTables_filter` is `.dt-search`, `.paginate_button` is `.dt-paging-button` and so on. The docs list them all\n- You can remove the pdfmake `<script>` tags the CLI added to your `nuxt.config.ts` and the `jquery` package if nothing else uses it\n- SearchPanes and StateRestore are not available for DataTables 3 yet\n\n```bash\nnpx ui-thing@latest add datatable\n```\n",
+  "breaking": true,
+  "links": [
+    {
+      "label": "Datatable docs",
+      "href": "/components/datatable"
+    }
+  ]
+}

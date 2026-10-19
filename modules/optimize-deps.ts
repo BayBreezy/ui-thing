@@ -69,17 +69,18 @@ export default defineNuxtModule({
         "vue-currency-input",
         "datatables.net",
         "datatables.net-buttons-dt",
-        "datatables.net-buttons/js/buttons.colVis.mjs",
-        "datatables.net-buttons/js/buttons.html5.mjs",
-        "datatables.net-buttons/js/buttons.print.mjs",
         "datatables.net-colreorder-dt",
         "datatables.net-fixedcolumns-dt",
         "datatables.net-fixedheader-dt",
         "datatables.net-responsive-dt",
+        "datatables.net-rowgroup-dt",
+        "datatables.net-rowreorder-dt",
         "datatables.net-searchbuilder-dt",
         "datatables.net-select-dt",
         "datatables.net-vue3",
         "jszip", // CJS
+        "pdfmake/build/pdfmake.min.js", // CJS, lazy loaded by the Datatable PDF button
+        "pdfmake/build/vfs_fonts.js", // CJS
         "vue3-apexcharts",
       ];
     });

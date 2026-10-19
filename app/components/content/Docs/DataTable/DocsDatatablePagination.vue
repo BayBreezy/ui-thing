@@ -43,7 +43,12 @@
     const DataTable = await import("datatables.net").then((mod) => mod.default || mod);
 
     options.value = {
-      dom: `<'relative'r<'flex flex-col gap-4 md:flex-row md:items-center justify-between mb-5'fB><'overflow-auto border rounded-md't><'mt-4 px-2 flex flex-col md:flex-row md:items-center md:justify-between gap-4'<l><'flex flex-col gap-4 md:flex-row md:items-center md:gap-8'<i><p>>>>`,
+      layout: {
+        topStart: "search",
+        topEnd: "buttons",
+        bottomStart: "pageLength",
+        bottomEnd: ["info", "paging"],
+      },
       pagingType: "full",
       language: {
         info: "<p class='inline-flex gap-1'><span class='font-medium text-foreground'>_START_-_END_</span> of <span class='font-medium text-foreground'>_TOTAL_</span></p>",

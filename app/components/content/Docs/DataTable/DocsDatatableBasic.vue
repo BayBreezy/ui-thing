@@ -9,7 +9,13 @@
   import type DataTableRef from "datatables.net";
 
   const options: Config = {
-    dom: "Q<'flex flex-col lg:flex-row w-full lg:items-start lg:justify-between gap-5 mb-5 lg:pr-1'Bf><'border rounded-lg't><'flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-between pt-3 p-5'li><''p>",
+    layout: {
+      top1: "searchBuilder",
+      topStart: "buttons",
+      topEnd: "search",
+      bottomStart: ["pageLength", "info"],
+      bottomEnd: "paging",
+    },
     select: true,
     autoWidth: true,
     responsive: true,
@@ -63,3 +69,10 @@
 
   const tableRef = shallowRef<InstanceType<typeof DataTableRef<any[]>> | undefined>();
 </script>
+
+<style scoped>
+  :deep(.dt-layout-table > .dt-layout-cell) {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+</style>
