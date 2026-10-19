@@ -503,6 +503,12 @@ export default {
   "Settings/Profile/BlockSettingsProfileCompany": "button card input label native-select textarea",
   "Settings/Profile/BlockSettingsProfileEditable": "button card input",
   "Settings/Profile/BlockSettingsProfileForm": "avatar button card vee-input vee-textarea",
+  "Utility/ProfileCards/BlockProfileCards1": "avatar button card container",
+  "Utility/ProfileCards/BlockProfileCards2": "button card container",
+  "Utility/ProfileCards/BlockProfileCards3": "avatar badge button container tabs",
+  "Utility/ProfileCards/BlockProfileCards4": "avatar button card container hover-card",
+  "Utility/ProfileCards/BlockProfileCards5": "avatar button card container",
+  "Utility/ProfileCards/BlockProfileCards6": "avatar badge button card container input tabs",
   "Tasks/ProjectOverview/BlockProjectOverview1": "avatar badge button container progress",
   "Tasks/ProjectOverview/BlockProjectOverview2":
     "avatar badge button card circular-progress container dropdown-menu select",

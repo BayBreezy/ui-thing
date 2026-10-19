@@ -1125,6 +1125,16 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "done",
     "undo",
   ],
+  ProfileCards: [
+    "user card",
+    "profile",
+    "team member",
+    "contact card",
+    "followers",
+    "hover card",
+    "vcard",
+    "avatar card",
+  ],
 };
 
 const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string | null }> = [
@@ -1286,6 +1296,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     docsPath: "/blocks/utility-maintenance",
   },
   { test: (path) => path.startsWith("Utility/Success/"), docsPath: "/blocks/utility-success" },
+  {
+    test: (path) => path.startsWith("Utility/ProfileCards/"),
+    docsPath: "/blocks/utility-profile-cards",
+  },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
