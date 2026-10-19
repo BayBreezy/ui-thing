@@ -378,6 +378,10 @@ export default {
   "Login/BlockLoginSplitCarousel": "button vee-checkbox vee-input vee-password-input",
   "Login/BlockLoginSplitMockup": "button divider vee-input vee-password-input",
   "Login/BlockLoginSplitQuote": "avatar button vee-checkbox vee-input vee-password-input",
+  "Utility/Maintenance/BlockMaintenance1": "button container input label",
+  "Utility/Maintenance/BlockMaintenance2": "badge button card container label switch",
+  "Utility/Maintenance/BlockMaintenance3": "button container",
+  "Utility/Maintenance/BlockMaintenance4": "button circular-progress container",
   "Settings/Members/BlockSettingsMembersInvite": "badge button dialog label native-select",
   "Settings/Members/BlockSettingsMembersRoles": "button card checkbox table",
   "Settings/Members/BlockSettingsMembersTable":

@@ -1105,6 +1105,16 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "pre launch",
     "beta signup",
   ],
+  Maintenance: [
+    "maintenance mode",
+    "downtime",
+    "scheduled maintenance",
+    "offline",
+    "rate limit",
+    "429",
+    "service unavailable",
+    "503",
+  ],
 };
 
 const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string | null }> = [
@@ -1260,6 +1270,10 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
   {
     test: (path) => path.startsWith("Utility/Waitlist/"),
     docsPath: "/blocks/utility-waitlist",
+  },
+  {
+    test: (path) => path.startsWith("Utility/Maintenance/"),
+    docsPath: "/blocks/utility-maintenance",
   },
 ];
 
