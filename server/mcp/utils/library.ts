@@ -1115,6 +1115,16 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "service unavailable",
     "503",
   ],
+  Success: [
+    "confirmation",
+    "thank you",
+    "order complete",
+    "payment success",
+    "form submitted",
+    "verified",
+    "done",
+    "undo",
+  ],
 };
 
 const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string | null }> = [
@@ -1275,6 +1285,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     test: (path) => path.startsWith("Utility/Maintenance/"),
     docsPath: "/blocks/utility-maintenance",
   },
+  { test: (path) => path.startsWith("Utility/Success/"), docsPath: "/blocks/utility-success" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
