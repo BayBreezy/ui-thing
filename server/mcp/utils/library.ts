@@ -1135,6 +1135,16 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
     "vcard",
     "avatar card",
   ],
+  Gallery: [
+    "photos",
+    "images",
+    "masonry",
+    "lightbox",
+    "portfolio",
+    "case study",
+    "video",
+    "before after",
+  ],
 };
 
 const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string | null }> = [
@@ -1300,6 +1310,7 @@ const BLOCK_DOC_PATHS: Array<{ test: (path: string) => boolean; docsPath: string
     test: (path) => path.startsWith("Utility/ProfileCards/"),
     docsPath: "/blocks/utility-profile-cards",
   },
+  { test: (path) => path.startsWith("Utility/Gallery/"), docsPath: "/blocks/utility-gallery" },
 ];
 
 const CHART_DOC_PATHS: Array<{ keyword: string; docsPath: string }> = [
