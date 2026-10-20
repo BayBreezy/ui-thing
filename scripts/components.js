@@ -1456,4 +1456,11 @@ export default [
     files: ["RetroGrid.vue"],
     docsPath: "/goodies/retro-grid",
   },
+  {
+    name: "Zigzag Rail",
+    value: "zigzag-rail",
+    components: ["scrollspy"],
+    files: ["ZigZagRail.vue"],
+    docsPath: "/components/zigzag-rail",
+  },
 ];

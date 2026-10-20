@@ -1,0 +1,16 @@
+{
+  "slug": "2026-10-20-zigzag-rail",
+  "date": "2026-10-20",
+  "title": "Zigzag Rail Component",
+  "category": "feature",
+  "tags": ["zigzag-rail", "scrollspy"],
+  "summary": "The zigzag table of contents rail from the docs is now a standalone component that follows nested links and highlights the ones in view.",
+  "body": "- [**Zigzag Rail**](/components/zigzag-rail): Added `UiZigZagRail`, the rail used by the docs table of contents. Wrap a list of links with `data-depth` and `data-active` (set for you by `UiScrollspy` in `mode=\"multiple\"`) and the rail draws a line that shifts with the nesting depth and highlights every active section. Supports a dashed track, a custom link selector and RTL.\n- [**Scrollspy**](/components/scrollspy): The active section is now recomputed right after the anchors change and after the first layout, so highlights are correct after route changes without waiting for a scroll event.\n",
+  "breaking": false,
+  "links": [
+    {
+      "label": "Zigzag Rail",
+      "href": "/components/zigzag-rail"
+    }
+  ]
+}

@@ -91,6 +91,9 @@ export function useScrollspy(options: UseScrollspyOptions = {}) {
     anchors.value = root.value
       ? Array.from(root.value.querySelectorAll<HTMLElement>(`[data-${dataAttribute}-anchor]`))
       : [];
+    // After any DOM change that updates anchors (e.g. route-driven re-render),
+    // recompute the active section without waiting for a scroll event.
+    void nextTick(() => handleScroll());
   }
   onMounted(queryAnchors);
   useMutationObserver(root, queryAnchors, { childList: true, subtree: true });
@@ -308,8 +311,9 @@ export function useScrollspy(options: UseScrollspyOptions = {}) {
       ) as HTMLElement | null;
       if (targetAnchor) scrollTo(targetAnchor, "auto");
     }
-    // Then compute the initial active anchor
-    setTimeout(() => onScroll(), 60);
+    // Compute initial active anchor after layout has settled (double-RAF is more
+    // reliable than a fixed timeout because it waits for two full paint frames).
+    requestAnimationFrame(() => requestAnimationFrame(() => handleScroll()));
   });
 
   return {

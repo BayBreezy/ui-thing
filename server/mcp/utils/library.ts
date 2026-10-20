@@ -234,6 +234,7 @@ const COMPONENT_CATEGORY_GROUPS: Array<{ category: string; values: string[] }> =
       "tabs",
       "timeline",
       "tree",
+      "zigzag-rail",
     ],
   },
   {
@@ -1517,7 +1518,14 @@ const PAGE_PRESETS: Record<string, PagePreset> = {
         title: "Docs shell",
         query: "sidebar navigation header",
         noBlocks: true,
-        componentValues: ["sidebar", "scrollspy", "breadcrumbs", "container", "card"],
+        componentValues: [
+          "sidebar",
+          "scrollspy",
+          "zigzag-rail",
+          "breadcrumbs",
+          "container",
+          "card",
+        ],
       },
       {
         id: "content",
