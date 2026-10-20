@@ -45,7 +45,7 @@
     trailingIcon?: string;
   }>();
   const styles = tv({
-    base: "peer border-input text-foreground focus-visible:border-ring focus-visible:ring-ring/50 has-[option[disabled]:checked]:text-muted-foreground aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:bg-input/30 dark:aria-invalid:ring-destructive/40 inline-flex w-full cursor-pointer appearance-none items-center rounded-md border bg-transparent text-sm shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
+    base: "peer [&_option]:bg-popover [&_option]:text-popover-foreground border-input text-foreground focus-visible:border-ring focus-visible:ring-ring/50 has-[option[disabled]:checked]:text-muted-foreground aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:bg-input/30 dark:aria-invalid:ring-destructive/40 inline-flex w-full cursor-pointer appearance-none items-center rounded-md border bg-transparent text-sm scheme-light shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:scheme-dark",
     variants: {
       multiple: {
         true: "[&_option:checked]:bg-accent py-1 *:px-3 *:py-1",

@@ -42,3 +42,8 @@
 [data-slot="code-block-content"] {
   max-height: revert-layer;
 }
+
+select,
+.dark select {
+  background-color: revert-layer;
+}
