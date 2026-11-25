@@ -32,7 +32,7 @@ bun run sync:skills
 
 ## MCP Server
 
-UI Thing has an MCP server at `https://uithing.com/mcp` that gives AI assistants component and block source, docs, install plans and page/app planning. See the [MCP docs](https://uithing.com/getting-started/mcp) for client setup.
+UI Thing has an MCP server at `https://uithing.com/mcp` that gives AI assistants component and block source, docs, install plans and page/app planning. Connect your editor with `npx ui-thing@latest mcp init`, or see the [MCP docs](https://uithing.com/getting-started/mcp) for every client.
 
 ## 🚀 Quick Start
 
@@ -68,15 +68,21 @@ See the [setup guide](https://uithing.com/getting-started/setup) and the [CLI re
 | Command     | Description                                                                         |
 | ----------- | ----------------------------------------------------------------------------------- |
 | `init`      | Install dependencies and configure your project.                                    |
+| `info`      | Show your setup: versions, folders, installed components and warnings.              |
 | `add`       | Add components by name, or from shadcn-style registries (URL or `@namespace/item`). |
 | `registry`  | List, search and configure third-party registries such as Vue Bits and NXUI.        |
 | `block`     | Add pre-built page sections (hero, pricing, dashboards, auth, settings and more).   |
 | `theme`     | Apply a color theme to your project.                                                |
 | `list`      | List available or installed components.                                             |
+| `view`      | Show a component's, block's or registry item's source without installing it.        |
+| `diff`      | Compare your installed components with the latest version.                          |
 | `update`    | Re-fetch installed components and overwrite them with the latest version.           |
 | `remove`    | Remove installed components.                                                        |
 | `prettier`  | Add Prettier config for consistent formatting.                                      |
 | `shortcuts` | Add keyboard shortcut composables.                                                  |
+| `mcp init`  | Connect Claude Code, Cursor or VS Code to the UI Thing MCP server.                  |
+
+Every command can run without prompts (`--yes` or names), and read-only commands print JSON with `--json`, so scripts and AI agents can drive the CLI.
 
 Prose components for Nuxt Content docs (callouts, steps, tabs and more) ship with the [docd](https://github.com/BayBreezy/docd) layer, not the CLI.
 

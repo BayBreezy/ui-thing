@@ -62,7 +62,7 @@ Use MCP `get-project-setup` for the same commands with the user's package manage
 
 Preview first: `npx ui-thing@latest add <names> --dry-run --json` lists the files, packages and Nuxt modules without writing anything.
 
-Collect every component and block you will use and run **one** install: MCP `get-install-plan` returns `addNuxtModules`, `installDependencies`, `addComponents`, `nuxtConfigModules` and `notes`. Run each, register `nuxtConfigModules` by hand in `nuxt.config.ts`, and apply the notes (for example defining `COMPANY_NAME`).
+Collect every component and block you will use and run **one** install: MCP `get-install-plan` returns the commands `addComponents` and `addBlocks` (both already include `--yes`), `installDependencies` and `addNuxtModules` (when needed), plus `nuxtConfigModules` and `notes`. Run each command, register `nuxtConfigModules` by hand in `nuxt.config.ts`, and apply the notes (for example defining `COMPANY_NAME`).
 
 Blocks compose existing `Ui*` components and may import packages (`motion-v`, `@nuxt/icon`, chart or editor libraries). Missing ones are the most common cause of "component not found" and build errors.
 
