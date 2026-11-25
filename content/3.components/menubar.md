@@ -20,6 +20,8 @@ Click :SourceCodeLink{component="Menubar"} to see the source code for this compo
 
 ## Usage
 
+Set `force-mount` on a standalone `UiMenubarItemIndicator` to keep its markup mounted while the item is unchecked. Style the unchecked state when using it for an animation.
+
 ### Full example
 
 ::prose-show-case

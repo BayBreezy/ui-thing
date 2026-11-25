@@ -39,6 +39,10 @@ Use the autocomplete when suggestions are only a convenience (search boxes, emai
 
 ## Usage
 
+Set `loop` on `UiAutocomplete` to wrap arrow-key navigation.
+
+Set `force-mount` on a standalone `UiAutocompleteItemIndicator` to keep its markup mounted while the item is unchecked. Style the unchecked state when using it for an animation.
+
 ### Basic
 
 The value of the autocomplete is the text in the input. Selecting a suggestion fills the input with that suggestion, but any other text is a perfectly valid value too. Suggestions are filtered as the user types.

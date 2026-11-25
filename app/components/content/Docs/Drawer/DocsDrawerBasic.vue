@@ -4,37 +4,39 @@
       <UiDrawerTrigger as-child>
         <UiButton variant="outline">Open Drawer</UiButton>
       </UiDrawerTrigger>
-      <UiDrawerContent>
-        <div class="mx-auto w-full max-w-sm rounded-t-lg p-4 pb-10">
-          <UiDrawerTitle class="mb-1.5">Drawer Title</UiDrawerTitle>
-          <UiDrawerDescription>
-            This is a basic drawer with a title and description.
-          </UiDrawerDescription>
+      <UiDrawerVirtualKeyboardProvider>
+        <UiDrawerContent viewport>
+          <div class="mx-auto w-full max-w-sm rounded-t-lg p-4 pb-10">
+            <UiDrawerTitle class="mb-1.5">Drawer Title</UiDrawerTitle>
+            <UiDrawerDescription>
+              This is a basic drawer with a title and description.
+            </UiDrawerDescription>
 
-          <div class="relative">
-            <form class="mt-7" @submit="submit">
-              <fieldset :disabled="isSubmitting" class="grid gap-6">
-                <UiVeeInput
-                  name="email"
-                  label="Email"
-                  type="email"
-                  model-value="baybreezy@example.com"
-                />
-                <UiVeeInput name="username" label="Username" model-value="baybreezy" />
-                <UiDrawerClose as-child>
-                  <UiButton type="submit">Update</UiButton>
-                </UiDrawerClose>
-              </fieldset>
-            </form>
+            <div class="relative">
+              <form class="mt-7" @submit="submit">
+                <fieldset :disabled="isSubmitting" class="grid gap-6">
+                  <UiVeeInput
+                    name="email"
+                    label="Email"
+                    type="email"
+                    model-value="baybreezy@example.com"
+                  />
+                  <UiVeeInput name="username" label="Username" model-value="baybreezy" />
+                  <UiDrawerClose as-child>
+                    <UiButton type="submit">Update</UiButton>
+                  </UiDrawerClose>
+                </fieldset>
+              </form>
+            </div>
+
+            <UiDrawerClose class="absolute top-3 right-4 h-7 w-7" as-child>
+              <UiButton variant="ghost" size="icon-sm" class="opacity-50 hover:opacity-100">
+                <Icon name="lucide:x" />
+              </UiButton>
+            </UiDrawerClose>
           </div>
-
-          <UiDrawerClose class="absolute top-3 right-4 h-7 w-7" as-child>
-            <UiButton variant="ghost" size="icon-sm" class="opacity-50 hover:opacity-100">
-              <Icon name="lucide:x" />
-            </UiButton>
-          </UiDrawerClose>
-        </div>
-      </UiDrawerContent>
+        </UiDrawerContent>
+      </UiDrawerVirtualKeyboardProvider>
     </UiDrawer>
   </div>
 </template>

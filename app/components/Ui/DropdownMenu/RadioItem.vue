@@ -1,5 +1,6 @@
 <template>
   <DropdownMenuRadioItem
+    v-slot="itemState"
     data-slot="dropdown-menu-radio-item"
     v-bind="forwarded"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
@@ -10,7 +11,7 @@
         <Icon v-else name="ph:circle-fill" class="size-2" />
       </UiDropdownMenuItemIndicator>
     </span>
-    <slot>{{ title }}</slot>
+    <slot v-bind="itemState">{{ title }}</slot>
   </DropdownMenuRadioItem>
 </template>
 

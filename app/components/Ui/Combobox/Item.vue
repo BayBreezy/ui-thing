@@ -1,10 +1,11 @@
 <template>
   <ComboboxItem
+    v-slot="itemState"
     data-slot="combobox-item"
     v-bind="forwarded"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
-    <slot />
+    <slot v-bind="itemState" />
     <UiComboboxItemIndicator class="ml-auto pl-2" :icon="icon" />
   </ComboboxItem>
 </template>

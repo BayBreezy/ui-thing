@@ -1,5 +1,6 @@
 <template>
   <DropdownMenuCheckboxItem
+    v-slot="itemState"
     data-slot="dropdown-menu-checkbox-item"
     v-bind="forwarded"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
@@ -7,7 +8,7 @@
     <span class="text-primary absolute left-2 flex size-3.5 items-center justify-center">
       <UiDropdownMenuItemIndicator icon="lucide:check" />
     </span>
-    <slot>
+    <slot v-bind="itemState">
       <span v-if="title">{{ title }}</span>
     </slot>
     <slot name="shortcut">

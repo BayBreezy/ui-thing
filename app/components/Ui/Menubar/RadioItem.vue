@@ -1,5 +1,6 @@
 <template>
   <MenubarRadioItem
+    v-slot="itemState"
     data-slot="menubar-radio-item"
     v-bind="forwarded"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
@@ -10,7 +11,7 @@
         <Icon v-else name="ph:circle-fill" class="size-2" />
       </UiMenubarItemIndicator>
     </span>
-    <slot>{{ title }}</slot>
+    <slot v-bind="itemState">{{ title }}</slot>
   </MenubarRadioItem>
 </template>
 

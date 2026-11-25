@@ -20,6 +20,10 @@ Click :SourceCodeLink{component="Listbox"} to see the source code for this compo
 
 ## Usage
 
+Set `loop` on `UiListbox` to wrap arrow-key navigation.
+
+Set `force-mount` on a standalone `UiListboxItemIndicator` to keep its markup mounted while the item is unchecked. Style the unchecked state when using it for an animation.
+
 ### Basic
 
 ::prose-show-case

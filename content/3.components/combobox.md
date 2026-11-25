@@ -41,6 +41,10 @@ Use a combobox when the user has to choose from a fixed list, or when you need o
 
 ## Usage
 
+Set `loop` on `UiCombobox` to wrap arrow-key navigation. Set `:unmount-on-hide="false"` on the same root to keep content mounted while closed.
+
+Set `force-mount` on a standalone `UiComboboxItemIndicator` to keep its markup mounted while the item is unchecked. Style the unchecked state when using it for an animation.
+
 ### Basic
 
 The model holds the selected item. The input searches the list and shows the selection once the list closes.

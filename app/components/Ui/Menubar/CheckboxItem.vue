@@ -1,5 +1,6 @@
 <template>
   <MenubarCheckboxItem
+    v-slot="itemState"
     data-slot="menubar-checkbox-item"
     v-bind="forwarded"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
@@ -9,7 +10,7 @@
         <Icon :name="icon || 'lucide:check'" />
       </UiMenubarItemIndicator>
     </span>
-    <slot>{{ title }}</slot>
+    <slot v-bind="itemState">{{ title }}</slot>
     <slot name="shortcut">
       <UiMenubarShortcut v-if="shortcut">{{ shortcut }}</UiMenubarShortcut>
     </slot>

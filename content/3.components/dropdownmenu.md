@@ -20,6 +20,8 @@ Click :SourceCodeLink{component="DropdownMenu"} to see the source code for this 
 
 ## Usage
 
+Set `force-mount` on a standalone `UiDropdownMenuItemIndicator` to keep its markup mounted while the item is unchecked. Style the unchecked state when using it for an animation.
+
 ### Menu Items w/ Submenu
 
 ::prose-show-case

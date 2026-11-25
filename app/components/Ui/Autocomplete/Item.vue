@@ -1,10 +1,11 @@
 <template>
   <AutocompleteItem
+    v-slot="itemState"
     data-slot="autocomplete-item"
     v-bind="forwarded"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
   >
-    <slot />
+    <slot v-bind="itemState" />
   </AutocompleteItem>
 </template>
 

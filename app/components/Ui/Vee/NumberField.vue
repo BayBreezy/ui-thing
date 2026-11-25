@@ -9,7 +9,7 @@
     >
     <div class="relative">
       <UiNumberField
-        v-bind="($attrs, props)"
+        v-bind="fieldProps"
         :id="inputId"
         v-model="value"
         :disabled="disabled"
@@ -80,13 +80,27 @@
     required?: boolean;
   }
   const props = defineProps<Props>();
+  defineEmits<{ "update:modelValue": [value: number | undefined] }>();
+  const fieldProps = reactiveOmit(
+    props,
+    "modelValue",
+    "label",
+    "labelHint",
+    "hint",
+    "rules",
+    "validateOnMount"
+  );
 
   const inputId = computed(() => props.id || useId());
 
-  const { errorMessage, value } = useField(() => props.name || inputId.value, props.rules, {
-    initialValue: props.modelValue,
-    label: props.label,
-    validateOnMount: props.validateOnMount,
-    syncVModel: true,
-  });
+  const { errorMessage, value } = useField<number | undefined>(
+    () => props.name || inputId.value,
+    props.rules,
+    {
+      initialValue: props.modelValue,
+      label: props.label,
+      validateOnMount: props.validateOnMount,
+      syncVModel: true,
+    }
+  );
 </script>

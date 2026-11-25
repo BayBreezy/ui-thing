@@ -20,6 +20,8 @@ Click :SourceCodeLink{component="Tree"} to see the source code for this componen
 
 ## Usage
 
+Set `loop` on `UiTree` to wrap arrow-key navigation in a non-virtualized tree.
+
 ### Basic
 
 The `Tree` component can be styled to look like anything you want. For that reason, I decided to not style the tree component at all. Instead, I provide a basic example of how to use the tree component.

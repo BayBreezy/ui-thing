@@ -1,29 +1,37 @@
 <template>
+  <DefineContent>
+    <DrawerContent
+      data-slot="drawer-content"
+      v-bind="{ ...forwarded, ...$attrs }"
+      :class="
+        styles({
+          translucent: props.translucent,
+          viewport: props.viewport,
+          class: normalizeClass(props.class) || undefined,
+        })
+      "
+    >
+      <slot name="knob">
+        <DrawerHandle
+          v-if="!hideKnob"
+          data-slot="drawer-knob"
+          class="bg-muted mx-auto mt-4 h-1.5 w-[60px] shrink-0 cursor-grab rounded-full active:cursor-grabbing"
+        />
+      </slot>
+
+      <slot />
+    </DrawerContent>
+  </DefineContent>
+
   <UiDrawerPortal>
     <slot name="overlay">
       <UiDrawerOverlay />
     </slot>
     <slot name="content">
-      <DrawerContent
-        data-slot="drawer-content"
-        v-bind="{ ...forwarded, ...$attrs }"
-        :class="
-          styles({
-            translucent: props.translucent,
-            class: normalizeClass(props.class) || undefined,
-          })
-        "
-      >
-        <slot name="knob">
-          <DrawerHandle
-            v-if="!hideKnob"
-            data-slot="drawer-knob"
-            class="bg-muted mx-auto mt-4 h-1.5 w-[60px] shrink-0 cursor-grab rounded-full active:cursor-grabbing"
-          />
-        </slot>
-
-        <slot />
-      </DrawerContent>
+      <UiDrawerViewport v-if="viewport">
+        <ReuseContent />
+      </UiDrawerViewport>
+      <ReuseContent v-else />
     </slot>
   </UiDrawerPortal>
 </template>
@@ -41,11 +49,17 @@
       class?: HTMLAttributes["class"];
       hideKnob?: boolean;
       translucent?: boolean;
+      /**
+       * Wrap the content in a `UiDrawerViewport` so it moves above the software keyboard. Use it
+       * with `UiDrawerVirtualKeyboardProvider` and a bottom drawer.
+       */
+      viewport?: boolean;
     }
   >();
   const emits = defineEmits<DrawerContentEmits>();
+  const [DefineContent, ReuseContent] = createReusableTemplate();
   const forwarded = useForwardPropsEmits(
-    reactiveOmit(props, "class", "hideKnob", "translucent"),
+    reactiveOmit(props, "class", "hideKnob", "translucent", "viewport"),
     emits
   );
 
@@ -63,6 +77,9 @@
     variants: {
       translucent: {
         true: getTranslucentFloatingPanelClasses("background"),
+      },
+      viewport: {
+        true: "pointer-events-auto relative w-full data-[swipe-direction=down]:mt-0 data-[swipe-direction=down]:max-h-full",
       },
     },
   });

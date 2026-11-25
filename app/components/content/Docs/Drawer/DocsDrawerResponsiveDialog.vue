@@ -29,22 +29,24 @@
       <UiDrawerTrigger as-child>
         <UiButton variant="outline" text="Edit Profile" />
       </UiDrawerTrigger>
-      <UiDrawerContent class="mx-2">
-        <UiDrawerHeader class="text-left">
-          <UiDrawerTitle>Edit profile</UiDrawerTitle>
-          <UiDrawerDescription>
-            Make changes to your profile here. Click save when you're done.
-          </UiDrawerDescription>
-        </UiDrawerHeader>
-        <div class="px-4">
-          <ReusableForm />
-        </div>
-        <UiDrawerFooter class="pt-2">
-          <UiDrawerClose as-child>
-            <UiButton variant="outline"> Cancel </UiButton>
-          </UiDrawerClose>
-        </UiDrawerFooter>
-      </UiDrawerContent>
+      <UiDrawerVirtualKeyboardProvider>
+        <UiDrawerContent viewport class="mx-2">
+          <UiDrawerHeader class="text-left">
+            <UiDrawerTitle>Edit profile</UiDrawerTitle>
+            <UiDrawerDescription>
+              Make changes to your profile here. Click save when you're done.
+            </UiDrawerDescription>
+          </UiDrawerHeader>
+          <div class="px-4">
+            <ReusableForm />
+          </div>
+          <UiDrawerFooter class="pt-2">
+            <UiDrawerClose as-child>
+              <UiButton variant="outline"> Cancel </UiButton>
+            </UiDrawerClose>
+          </UiDrawerFooter>
+        </UiDrawerContent>
+      </UiDrawerVirtualKeyboardProvider>
     </UiDrawer>
   </div>
 </template>

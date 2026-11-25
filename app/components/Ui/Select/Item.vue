@@ -1,5 +1,6 @@
 <template>
   <SelectItem
+    v-slot="itemState"
     data-slot="select-item"
     v-bind="forwarded"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
@@ -8,7 +9,7 @@
       <UiSelectItemIndicator :icon="icon" />
     </span>
     <UiSelectItemText>
-      <slot>{{ text }}</slot>
+      <slot v-bind="itemState">{{ text }}</slot>
     </UiSelectItemText>
   </SelectItem>
 </template>

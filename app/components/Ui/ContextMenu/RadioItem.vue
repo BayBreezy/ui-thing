@@ -1,5 +1,6 @@
 <template>
   <ContextMenuRadioItem
+    v-slot="itemState"
     data-slot="context-menu-radio-item"
     v-bind="forwarded"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
@@ -10,7 +11,7 @@
         <Icon v-else name="ph:circle-fill" class="size-2" />
       </UiContextMenuItemIndicator>
     </span>
-    <slot>{{ title }}</slot>
+    <slot v-bind="itemState">{{ title }}</slot>
   </ContextMenuRadioItem>
 </template>
 

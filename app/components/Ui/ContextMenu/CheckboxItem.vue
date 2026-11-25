@@ -1,5 +1,6 @@
 <template>
   <ContextMenuCheckboxItem
+    v-slot="itemState"
     data-slot="context-menu-checkbox-item"
     v-bind="forwarded"
     :class="styles({ class: normalizeClass(props.class) || undefined })"
@@ -7,7 +8,7 @@
     <span class="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
       <UiContextMenuItemIndicator icon="lucide:check" />
     </span>
-    <slot>
+    <slot v-bind="itemState">
       <span v-if="title">{{ title }}</span>
     </slot>
     <slot name="shortcut">
