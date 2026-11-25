@@ -20,6 +20,46 @@ Click :SourceCodeLink{component="Select"} to see the source code for this compon
 
 ## Usage
 
+Set `loop` on `UiSelectContent` to wrap arrow-key navigation.
+
+Set `force-mount` on a standalone `UiSelectItemIndicator` to keep its markup mounted while the item is unchecked. Style the unchecked state when using it for an animation.
+
+### Custom item state
+
+Use the `selected` slot prop to style custom item content.
+
+::prose-show-case
+
+:DocsSelectItemState
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/Select/DocsSelectItemState.vue" code lang="vue" -->
+
+```vue [DocsSelectItemState.vue]
+<template>
+  <div class="flex w-full justify-center">
+    <UiSelect default-value="standard">
+      <UiSelectTrigger class="w-48">
+        <UiSelectValue placeholder="Choose a plan" />
+      </UiSelectTrigger>
+      <UiSelectContent loop>
+        <UiSelectItem v-slot="{ selected }" value="standard" text-value="Standard">
+          <span :class="{ 'font-semibold': selected }">Standard</span>
+        </UiSelectItem>
+        <UiSelectItem v-slot="{ selected }" value="plus" text-value="Plus">
+          <span :class="{ 'font-semibold': selected }">Plus</span>
+        </UiSelectItem>
+      </UiSelectContent>
+    </UiSelect>
+  </div>
+</template>
+```
+
+<!-- /automd -->
+
+::
+
 ### Basic example
 
 ::prose-show-case

@@ -20,6 +20,46 @@ Click :SourceCodeLink{component="ContextMenu"} to see the source code for this c
 
 ## Usage
 
+Set `force-mount` on a standalone `UiContextMenuItemIndicator` to keep its markup mounted while the item is unchecked. Style the unchecked state when using it for an animation.
+
+### Controlled open state
+
+Use `v-model:open` to open or close the menu in code. Right-clicking the trigger still opens it at the pointer.
+
+::prose-show-case
+
+:DocsContextMenuControlled
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/ContextMenu/DocsContextMenuControlled.vue" code lang="vue" -->
+
+```vue [DocsContextMenuControlled.vue]
+<template>
+  <div class="mx-auto flex w-full max-w-sm flex-col items-center gap-3">
+    <UiButton variant="outline" @click="open = true">Open actions</UiButton>
+    <UiContextMenu v-model:open="open">
+      <UiContextMenuTrigger
+        class="grid h-28 w-full place-items-center rounded-md border border-dashed text-sm"
+      >
+        Right-click for actions
+      </UiContextMenuTrigger>
+      <UiContextMenuContent>
+        <UiContextMenuItem title="Close actions" @select="open = false" />
+      </UiContextMenuContent>
+    </UiContextMenu>
+  </div>
+</template>
+
+<script setup lang="ts">
+  const open = ref(false);
+</script>
+```
+
+<!-- /automd -->
+
+::
+
 ### Basic
 
 ::prose-show-case

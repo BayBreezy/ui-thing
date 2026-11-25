@@ -20,6 +20,44 @@ Click :SourceCodeLink{component="NumberField"} to see the source code for this c
 
 ## Usage
 
+The model is `number | undefined`. Clearing the input emits `undefined`. Set `startingValue` to choose the first value when stepping an empty field. Set `allowInvalid` to retain typed values outside the bounds or off the step. Stepping farther outside the range leaves the value unchanged.
+
+### Stepping from an empty value
+
+The first step in either direction sets the value to 10. Clear the input to try again.
+
+::prose-show-case
+
+:DocsNumberFieldStartingValue
+
+#code
+
+<!-- automd:file src="../../app/components/content/Docs/NumberField/DocsNumberFieldStartingValue.vue" code lang="vue" -->
+
+```vue [DocsNumberFieldStartingValue.vue]
+<template>
+  <div class="mx-auto max-w-xs space-y-2">
+    <UiLabel for="starting-quantity">Quantity</UiLabel>
+    <UiNumberField
+      id="starting-quantity"
+      v-model="quantity"
+      :starting-value="10"
+      :min="0"
+      :max="20"
+      :step="2"
+    />
+  </div>
+</template>
+
+<script setup lang="ts">
+  const quantity = ref<number>();
+</script>
+```
+
+<!-- /automd -->
+
+::
+
 ### Basic
 
 ::prose-show-case

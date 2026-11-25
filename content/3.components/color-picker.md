@@ -90,15 +90,9 @@ The color picker supports HEX, RGB, HSL, and HSV formats. Users can toggle betwe
   <div class="flex flex-col gap-4">
     <UiColorPicker v-model="color" :format="format" @update:format="format = $event" />
     <div class="text-muted-foreground flex flex-wrap gap-2 text-sm">
-      <div>
-        HEX: <span class="font-mono font-semibold">{{ hexColor }}</span>
-      </div>
-      <div>
-        RGB: <span class="font-mono font-semibold">{{ rgbColor }}</span>
-      </div>
-      <div>
-        HSL: <span class="font-mono font-semibold">{{ hslColor }}</span>
-      </div>
+      <div>HEX: <span class="font-mono font-semibold">{{ hexColor }}</span></div>
+      <div>RGB: <span class="font-mono font-semibold">{{ rgbColor }}</span></div>
+      <div>HSL: <span class="font-mono font-semibold">{{ hslColor }}</span></div>
     </div>
   </div>
 </template>

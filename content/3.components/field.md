@@ -316,8 +316,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
       <UiFieldDescription>
         Set your budget range ($
         <span class="font-medium tabular-nums">{{ value[0] }}</span> -
-        <span class="font-medium tabular-nums">{{ value[1] }}</span
-        >).
+        <span class="font-medium tabular-nums">{{ value[1] }}</span>).
       </UiFieldDescription>
       <UiSlider
         v-model="value"

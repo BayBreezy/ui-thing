@@ -88,8 +88,7 @@ Click :SourceCodeLink{component="Vee/Switch.vue"} to see the source code for thi
       />
       <p class="text-muted-foreground text-sm">
         Notifications are currently
-        <span class="text-foreground font-medium">{{ enabled ? "on" : "off" }}</span
-        >.
+        <span class="text-foreground font-medium">{{ enabled ? "on" : "off" }}</span>.
       </p>
     </form>
   </div>
