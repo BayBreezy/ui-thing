@@ -878,6 +878,7 @@ export default [
   {
     name: "QR Code",
     value: "qrcode",
+    deps: ["qr-code-styling"],
     files: ["QRCode/QRCode.vue", "QRCode/FrameHandle.vue", "QRCode/GradientScan.vue"],
     docsPath: "/components/qrcode",
   },
@@ -1121,7 +1122,7 @@ export default [
   {
     name: "Tanstack Table",
     value: "tanstacktable",
-    deps: ["@tanstack/vue-table"],
+    deps: ["@tanstack/vue-table", "lodash-es"],
     components: ["tooltip", "dropdown-menu", "table", "button", "select"],
     files: ["TanStackTable.vue"],
     docsPath: "/components/tanstacktable",
