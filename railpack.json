@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schema.railpack.com",
+  "packages": {
+    "node": "24"
+  },
+  "buildAptPackages": ["python3", "make", "g++"],
+  "steps": {
+    "install": {
+      "commands": ["npm install -g node-gyp", "..."]
+    }
+  }
+}

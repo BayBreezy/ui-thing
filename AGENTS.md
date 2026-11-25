@@ -210,7 +210,7 @@ Conventions and pitfalls learned while building the Ecommerce, Calendar, Chat, F
 - Runtime env vars visible in the repo:
   - `PUBLIC_URL`
   - `GA_ID`
-- Deploys build with Nixpacks (`nixpacks.toml` adds python3, gcc, make, and node-gyp for native deps such as `better-sqlite3`), then ship the Nuxt server output.
+- Deploys build with Railpack on Coolify (`railpack.json` adds python3, make, g++, and a global `node-gyp` before `bun install` so native deps such as `better-sqlite3` compile), then ship the Nuxt server output. `nixpacks.toml` is the legacy equivalent and is ignored by Railpack.
 
 ## Practical Editing Guidance
 
