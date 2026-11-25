@@ -1,0 +1,20 @@
+{
+  "slug": "2026-11-25-cli-0-4-0",
+  "date": "2026-11-25",
+  "title": "CLI 0.4.0: Registries and Unattended Installs",
+  "category": "dx",
+  "tags": ["cli", "registry", "vue-bits", "nxui"],
+  "summary": "The CLI installs components from any shadcn-style registry, such as Vue Bits and NXUI, and init, add and theme can run without prompts. The prose command is removed.",
+  "body": "- [**Registries**](/getting-started/cli#registries): `ui-thing add` accepts registry item URLs and `@namespace/item` references, for example `ui-thing add @vue-bits/HoloMosaic`. It lists every file and package before writing, places files in your configured folders, installs dependencies (including other registry items), merges `css`, `cssVars` and `envVars`, creates a `cn` helper when an item needs one, and records installs in `ui-thing.lock.json` so `list`, `update` and `remove` know about them. `@vue-bits` and `@nxui` are built in.\n- [**Registry command**](/getting-started/cli#registry): `ui-thing registry list`, `search` and `add-namespace` browse registries and add your own.\n- [**Unattended installs**](/getting-started/cli#init): `init --yes` detects your package manager from the lockfile and skips the Prettier question, `add --yes` and `--validator` install vee-validate components without asking, and `theme <name> --yes` replaces the theme without a confirmation.\n- **TypeScript 6**: `init` now installs `typescript@^6`. TypeScript 7 broke the build of every component (`No fs option provided to compileScript`). If an existing project shows that error, install `typescript@^6`.\n- **Smaller package**: only the built CLI is published.\n- **Breaking**: `ui-thing prose` is removed. Prose components (callouts, steps, tabs and more) ship with the [docd](https://github.com/BayBreezy/docd) layer: `npx create-docd my-docs`.\n",
+  "breaking": true,
+  "links": [
+    {
+      "label": "CLI",
+      "href": "/getting-started/cli"
+    },
+    {
+      "label": "Registries",
+      "href": "/getting-started/cli#registries"
+    }
+  ]
+}

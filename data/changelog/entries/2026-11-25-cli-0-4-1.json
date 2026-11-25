@@ -1,0 +1,24 @@
+{
+  "slug": "2026-11-25-cli-0-4-1",
+  "date": "2026-11-25",
+  "title": "CLI 0.4.1: Built for AI Agents",
+  "category": "dx",
+  "tags": ["cli", "ai", "mcp", "blocks"],
+  "summary": "New info, view, diff and mcp init commands, blocks by name without prompts, dry runs and JSON output, so scripts and AI agents can drive the whole CLI.",
+  "body": "- [**`ui-thing info`**](/getting-started/cli#info): shows your setup in one call (Nuxt, TypeScript and Tailwind versions, package manager, folders, installed components and registry items, Nuxt modules) plus warnings for known problems.\n- [**`ui-thing block <names> --yes`**](/getting-started/cli#block): add blocks by name without prompts. It installs the components and npm packages the blocks use and prints the tag to use. Browse with `--list` or `--json`.\n- [**`ui-thing view`**](/getting-started/cli#view): see a component's, block's or registry item's source and dependencies without installing it.\n- [**`ui-thing diff`**](/getting-started/cli#diff) and **`update --dry-run`**: compare your copies with the latest version before updating.\n- [**`add --dry-run`**](/getting-started/cli#add): list the files, packages and Nuxt modules `add` would change.\n- [**`ui-thing mcp init`**](/getting-started/cli#mcp): connect Claude Code, Cursor or VS Code to the [UI Thing MCP server](/getting-started/mcp) with one command.\n- **JSON everywhere**: `info`, `list`, `view`, `diff`, `block --list`, `registry list/search` and the dry runs print JSON with `--json`.\n- **No prompts**: `prettier --yes` and `shortcuts` no longer ask anything.\n- **Fixes**: `add` installs packages before registering Nuxt modules (fixes `datepicker` and `calendar` in projects that run `nuxt prepare` on install), resolves the full dependency tree, installs packages a component imports but forgot to declare, and works with pnpm 11+ when it skips build scripts.\n",
+  "breaking": false,
+  "links": [
+    {
+      "label": "CLI",
+      "href": "/getting-started/cli"
+    },
+    {
+      "label": "MCP",
+      "href": "/getting-started/mcp"
+    },
+    {
+      "label": "Setup",
+      "href": "/getting-started/setup"
+    }
+  ]
+}
