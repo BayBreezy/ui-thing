@@ -23,7 +23,9 @@ An agent cannot answer terminal prompts. A command that opens one will hang.
 | `add` | Always pass names: `add button card dialog`. Add `--yes` to skip the install confirmation (recent versions; older ones reject the flag, so omit it and install the packages yourself). With no names it opens a picker. |
 | `block` | Browse with `block --json --category <name>` (or `--list`), then add with names: `block BlockHero1 BlockPricing2 --yes`. With no names it opens a picker. Recent versions only; on older ones use MCP `get-block` and write the file yourself. |
 | `theme <name>` | `npx ui-thing@latest theme rose --yes` overwrites the Tailwind CSS file without asking. Always pass the name, or it opens a picker. Run it before customizing tokens ([customization.md](./customization.md)). |
-| `prettier`, `shortcuts` | Prompt for the package manager. Ask the user, or skip them. |
+| `prettier`, `shortcuts` | `prettier --yes` (merges into an existing `.prettierrc`); `shortcuts` never prompts. Both use the configured or detected package manager. |
+| `info`, `list`, `view`, `diff`, `registry list/search`, `block --list` | Read-only, never prompt; add `--json` for machine output. |
+| `update`, `remove` | Pass names. With no names they open a picker; `remove` also asks to confirm, so ask the user to run it. Preview `update` with `--dry-run`. |
 
 Install npm packages yourself with the project's package manager when a plan lists them.
 
@@ -48,7 +50,7 @@ Use MCP `get-project-setup` for the same commands with the user's package manage
 
 - Check `@nuxtjs/color-mode` and `@nuxt/icon` are in `nuxt.config.ts` `modules` (init adds them).
 - Render `<UiSonner />` once in `app.vue` if you use toasts (`add sonner`).
-- For existing projects, read `ui-thing.config.ts` and list the components folder instead.
+- For existing projects, run `npx ui-thing@latest info --json` instead and fix any `warnings` it reports.
 
 ### 2. Plan
 
@@ -57,6 +59,8 @@ Use MCP `get-project-setup` for the same commands with the user's package manage
 - Without MCP, decide routes, layouts and page types yourself using the lists below and `list-blocks`/the docs.
 
 ### 3. Install once
+
+Preview first: `npx ui-thing@latest add <names> --dry-run --json` lists the files, packages and Nuxt modules without writing anything.
 
 Collect every component and block you will use and run **one** install: MCP `get-install-plan` returns `addNuxtModules`, `installDependencies`, `addComponents`, `nuxtConfigModules` and `notes`. Run each, register `nuxtConfigModules` by hand in `nuxt.config.ts`, and apply the notes (for example defining `COMPANY_NAME`).
 
@@ -90,6 +94,7 @@ For each page:
 
 ### 7. Verify
 
+- Run `npx ui-thing@latest info --json` and fix any warnings.
 - Run `npx nuxi prepare` (look for warnings such as duplicate component names), then `npx nuxi build` and the dev server. Fix console errors and hydration warnings (client-only components: [rules/states-and-accessibility.md](./rules/states-and-accessibility.md)).
 - Check light and dark mode, 375px width, and keyboard navigation of the main flow.
 - Run the project's lint/type-check scripts if they exist.

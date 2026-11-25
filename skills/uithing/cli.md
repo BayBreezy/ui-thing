@@ -2,11 +2,11 @@
 
 Run commands with the project's package runner (`npx ui-thing@latest`, `pnpm dlx ui-thing@latest`, `bunx --bun ui-thing@latest`). `ui-thing <command> --help` is the source of truth for flags.
 
-> **IMPORTANT:** Document and use only commands that actually exist in the CLI source. Do not invent shadcn-style commands like `info` or `docs`. There is no `ui-thing prose` command: prose components for Nuxt Content docs ship with the `@baybreezy/docd` layer.
+> **IMPORTANT:** Document and use only commands that actually exist in the CLI source. Do not invent shadcn-style commands like `docs` or `search` (use `info`, `view` and `registry search`). There is no `ui-thing prose` command: prose components for Nuxt Content docs ship with the `@baybreezy/docd` layer.
 
 ## Interactive vs non-interactive
 
-An agent cannot answer terminal prompts, so a command that prompts will hang. See the table in [building-apps.md](./building-apps.md#rule-zero-avoid-interactive-prompts). In short: `init --yes`, `add <names> --yes`, `block <names> --yes` and `theme <name> --yes` run unattended (and `block --list`/`--json` never prompt); `prettier` and `shortcuts` prompt; `update` and `remove` ask for confirmation or a selection. `--yes` on `add` and `theme` requires a recent ui-thing version; `init --yes` also detects the package manager and skips the Prettier question in recent versions. `add vee-* --yes` installs yup unless `--validator` says otherwise.
+An agent cannot answer terminal prompts, so a command that prompts will hang. See the table in [building-apps.md](./building-apps.md#rule-zero-avoid-interactive-prompts). In short: `init --yes`, `add <names> --yes`, `block <names> --yes`, `theme <name> --yes`, `prettier --yes`, `shortcuts` and `mcp init --client <c> --yes` run unattended. Read-only commands never prompt and support `--json` (JSON on stdout only): `info`, `list`, `view`, `diff`, `block --list`, `registry list/search`, `add --dry-run`, `update --dry-run`. `update` and `remove` need names (with no names they open a picker), and `remove` asks for confirmation. `--yes` on `add` and `theme` requires a recent ui-thing version; `init --yes` also detects the package manager and skips the Prettier question in recent versions. `add vee-* --yes` installs yup unless `--validator` says otherwise.
 
 ## Commands
 
@@ -32,6 +32,18 @@ What it edits:
 
 Use this when the project has not been initialized yet or when the user needs the base UI Thing setup added cleanly.
 
+### `ui-thing info`
+
+Read-only project context. `--json` returns `initialized`, `framework` (Nuxt version), `packageManager` (`configured`, `detected`), `typescript`, `tailwind`, `paths`, `config`, `installed.components`, `installed.registryItems`, `nuxtModules`, `registries` and `warnings`. Run it first and fix its warnings (for example TypeScript 7, a missing Tailwind CSS file, `@nuxtjs/color-mode` missing).
+
+### `ui-thing view <names...>`
+
+Prints a component's (`button`), block's (`BlockHero1`) or registry item's (`@vue-bits/HoloMosaic`, URL) files with their target paths, dependencies, Nuxt modules and the components it uses, without installing. `--json` for machines. Unknown names exit with code 1.
+
+### `ui-thing diff [names...]`
+
+Compares installed components and registry items with upstream. Prints a unified diff per changed file (`-` local, `+` upstream). `--json` returns `items[].files[]` with `status` (`modified`, `missing`, `unchanged`) and `patch`, plus a `summary`.
+
 ### `ui-thing add [componentNames...]`
 
 Adds one or more components to the project. Each argument is a UI Thing component name, a registry item URL, or a `@namespace/item` reference.
@@ -43,6 +55,7 @@ Documented options:
 - `--package-manager <pm>`: package manager to use with `--skip-config`
 - `-y, --yes`: skip confirmation prompts (uses yup for vee-validate components)
 - `--validator <name>`: schema library to install for vee-validate components (`yup`, `zod`, `joi`, `valibot`)
+- `--dry-run`: print the plan (components incl. the full dependency tree, files with an `exists` flag, packages, Nuxt modules, validator) and write nothing; `--json` for machines
 
 Behavior for UI Thing components:
 
@@ -115,11 +128,11 @@ Use this when the user wants a predefined theme applied through UI Thing's theme
 
 ### `ui-thing list`
 
-Lists available components. `-i, --installed` shows only installed ones, including registry items from `ui-thing.lock.json`.
+Lists available components. `-i, --installed` shows only installed ones, including registry items from `ui-thing.lock.json`. `--json` returns `value`, `name`, `source` and `docs` for each.
 
 ### `ui-thing update [componentNames...]`
 
-Re-fetches components and overwrites the local copies without asking. Registry items are re-fetched from the source recorded in `ui-thing.lock.json`.
+Re-fetches components and overwrites the local copies without asking. Run `update <names> --dry-run` (or `diff`) first to see what would change; `--dry-run --json` for machines. Registry items are re-fetched from the source recorded in `ui-thing.lock.json`.
 
 ### `ui-thing remove [componentNames...]`
 
@@ -131,9 +144,9 @@ Adds shortcuts composables to the project.
 
 Behavior:
 
-- adds shortcut files
-- prompts for package manager
-- installs the VueUse Nuxt module
+- adds `shortcuts.ts` (`defineShortcuts`, `useKbd`) to the composables folder
+- installs `@vueuse/nuxt` only if missing and registers the module
+- never prompts
 
 ### `ui-thing prettier`
 
@@ -141,13 +154,17 @@ Adds prettier config for UI Thing projects.
 
 Behavior:
 
-- adds `.prettierrc` (merge, overwrite, or cancel if one exists)
-- prompts for package manager
+- adds `.prettierrc` (asks merge, overwrite or cancel if one exists; `--yes` merges)
+- uses the package manager from the config or lockfile (or `--package-manager`); never asks
 - installs the required prettier dev dependencies
 - does not reformat files
 
+### `ui-thing mcp init`
+
+Connects an editor to the UI Thing MCP server. `--client claude|cursor|vscode` merges the server into `.mcp.json`, `.cursor/mcp.json` or `.vscode/mcp.json` (other servers are kept). `--client codex|windsurf|claude-desktop` prints the command or snippet for their global config. `--url` overrides the server (for example `http://localhost:3000/mcp`). `--yes` requires `--client`.
+
 ## Important Constraints
 
-- There is no CLI equivalent of shadcn's `info` or `docs`. `registry search` only searches registry items.
+- `info` is the counterpart of shadcn's `info`; there is no `docs` command (use `view`, the MCP tools or `https://uithing.com/raw/<path>.md`). `registry search` only searches registry items.
 - For exact component lookup, docs lookup, and dependency-aware planning, use the UI Thing MCP tools and docs repo.
 - When the user is inside this repo, prefer repo source-of-truth files over assuming CLI behavior alone.

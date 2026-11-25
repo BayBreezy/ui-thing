@@ -4,7 +4,7 @@ UI Thing ships an MCP server that gives agents exact component and block source,
 
 ## Connect
 
-Hosted endpoint: `https://uithing.com/mcp` (HTTP). Example client config:
+Hosted endpoint: `https://uithing.com/mcp` (HTTP). Quickest setup: `npx ui-thing@latest mcp init --client claude --yes` (or `cursor`, `vscode`; for `codex`, `windsurf` and `claude-desktop` it prints what to run). Example client config:
 
 ```json
 { "mcpServers": { "ui-thing": { "type": "http", "url": "https://uithing.com/mcp" } } }
@@ -60,4 +60,4 @@ Inside a project, installed component source is also the documentation: read the
 
 ## Not available
 
-There is no `ui-thing info`, `docs` or `search` CLI command. `ui-thing registry search` only searches third-party registries ([registries.md](./registries.md)).
+There is no `ui-thing docs` or `search` CLI command. Use `ui-thing view <name>` for a component's or block's source, `ui-thing info` for project context, and `ui-thing registry search` for third-party registries ([registries.md](./registries.md)).

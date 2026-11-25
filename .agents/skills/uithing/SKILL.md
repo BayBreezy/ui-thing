@@ -13,7 +13,7 @@ A Nuxt-first, shadcn-inspired component system built on Vue 3, Reka UI, Tailwind
 
 ## Project Context
 
-Before changing anything, read what the project already has:
+Before changing anything, run `npx ui-thing@latest info --json`. It reports, without changing anything: whether UI Thing is initialized, the Nuxt and TypeScript versions, the package manager, the folders, installed components and registry items, the Nuxt modules and any warnings (fix those first). If the command is not available (older CLI), read the files yourself:
 
 1. `ui-thing.config.ts` (folders for components, composables, utils, plugins, the Tailwind CSS file, the package manager, `registries`). If it is missing, UI Thing is not initialized: run `npx ui-thing@latest init`.
 2. `nuxt.config.ts` (modules, `css`) and `package.json` (Nuxt version, installed packages).
@@ -130,7 +130,7 @@ Follow [building-apps.md](./building-apps.md): plan → set up → install once 
 1. Read the project context above.
 2. Find the component or block: MCP `resolve-library-item` / `search-components`, or `ui-thing list`.
 3. Read its docs and source: MCP `get-component` / `get-block`, or `https://uithing.com/raw/components/<name>.md`.
-4. Install: `npx ui-thing@latest add <name...>` (blocks: `npx ui-thing@latest block <names> --yes`, which also installs the components and packages a block uses; find names with `block --json --category <name>`).
+4. Preview, then install: `npx ui-thing@latest add <name...> --dry-run --json` shows the files, packages and Nuxt modules; then run it without `--dry-run` (add `--yes` when you cannot answer prompts). `npx ui-thing@latest view <name> --json` shows a component's or block's source without installing it. Install: (blocks: `npx ui-thing@latest block <names> --yes`, which also installs the components and packages a block uses; find names with `block --json --category <name>`).
 5. Compose with the rules above. **Read the added files** and check imports, missing parts and placeholders.
 
 ### Theme
@@ -159,16 +159,22 @@ npx ui-thing@latest add --all                  # everything
 npx ui-thing@latest block --list --category hero   # browse blocks (--json for machines)
 npx ui-thing@latest block BlockHero1 --yes      # add blocks by name
 npx ui-thing@latest theme zinc                 # apply a theme
-npx ui-thing@latest list --installed           # what is installed
+npx ui-thing@latest info --json                # project context (run first)
+npx ui-thing@latest list --installed --json    # what is installed
+npx ui-thing@latest view button --json         # source + deps, no install
+npx ui-thing@latest add card --dry-run --json  # what add would do
+npx ui-thing@latest diff button                # local vs upstream
+npx ui-thing@latest update button --dry-run    # what update would overwrite
 npx ui-thing@latest update button              # overwrite with latest (loses local edits)
 npx ui-thing@latest remove button
 npx ui-thing@latest registry search glass      # search Vue Bits, NXUI, ...
 npx ui-thing@latest add @vue-bits/HoloMosaic   # install from a registry
 npx ui-thing@latest shortcuts                  # defineShortcuts composable
-npx ui-thing@latest prettier                   # Prettier config
+npx ui-thing@latest prettier --yes             # Prettier config
+npx ui-thing@latest mcp init --client claude --yes  # connect the MCP server
 ```
 
-There is no `ui-thing prose`, `info` or `docs` command. Prose components for Nuxt Content docs ship with the `@baybreezy/docd` layer. Use the MCP tools or `https://uithing.com/raw/<path>.md` for docs.
+There is no `ui-thing prose` or `docs` command. Prose components for Nuxt Content docs ship with the `@baybreezy/docd` layer. Use the MCP tools or `https://uithing.com/raw/<path>.md` for docs.
 
 ## Detailed References
 

@@ -60,9 +60,9 @@
         "Runs `ui-thing init --yes` (not plain `ui-thing init`) so no prompts are shown",
         "Runs `ui-thing add button card input` with explicit component names (and --yes), not `ui-thing add` with no names",
         "Uses bun (or bunx) consistently and does not create or leave a package-lock.json",
-        "Does not run `ui-thing prettier` or `ui-thing shortcuts` unattended (they prompt); if it adds blocks it passes block names and --yes (`ui-thing block BlockHero1 --yes`), never bare `ui-thing block`",
+        "Never runs a command in a form that prompts: if it adds blocks it passes names and --yes (`ui-thing block BlockHero1 --yes`), uses `prettier --yes`, and never runs bare `ui-thing block`, `ui-thing add` or `ui-thing update`",
         "Does not install TypeScript 7; if the build fails with 'No fs option provided to compileScript' it installs typescript@^6",
-        "Reads or checks ui-thing.config.ts and lists the components folder before assuming what is installed"
+        "Checks the project with `ui-thing info --json` (or reads ui-thing.config.ts and lists the components folder) before assuming what is installed"
       ]
     },
     {
@@ -177,6 +177,33 @@
         "Sizes icons with size-* classes and does not nest a button inside a button",
         "Copy link gives feedback with useSonner (for example useSonner.success('Link copied'))",
         "Uses semantic tokens and built-in variants (variant=\"ghost\" size=\"icon\") instead of custom colors or borders"
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "I'm working in a Nuxt 4 project that already has UI Thing initialized. I edited app/components/Ui/Button.vue a while ago. Update the button, dialog and card components to the latest UI Thing versions without losing my changes.",
+      "expected_output": "Checks what would change with diff / update --dry-run, preserves the local Button.vue edits by merging by hand, and only overwrites files without local changes.",
+      "files": [],
+      "expectations": [
+        "Runs `ui-thing diff button dialog card` (or `diff --json`) or `ui-thing update ... --dry-run` before overwriting anything",
+        "Does not run `ui-thing update button` blindly, because update overwrites without merging",
+        "Updates components with no local changes (dialog, card) with `ui-thing update dialog card`",
+        "For Button.vue, applies the upstream changes from the diff by hand (or updates and re-applies the local edits) so the user's changes are kept, and explains what changed",
+        "Suggests committing first so the change can be reviewed",
+        "Re-runs `ui-thing diff` afterwards to confirm only the intended local differences remain"
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "Connect my editor (Cursor) to the UI Thing MCP server for this project and tell me what components are already installed. Do it without interactive prompts.",
+      "expected_output": "Runs `ui-thing mcp init --client cursor --yes` and `ui-thing info --json` (or list --installed --json) and reports the installed components.",
+      "files": [],
+      "expectations": [
+        "Runs `ui-thing mcp init --client cursor --yes` instead of hand-writing .cursor/mcp.json or running the command without --client",
+        "Does not overwrite other servers already in .cursor/mcp.json",
+        "Uses `ui-thing info --json` or `ui-thing list --installed --json` to find installed components, rather than guessing",
+        "Tells the user to reload Cursor so it picks up the server",
+        "Reports any warnings from `info` (for example TypeScript 7 or a missing color-mode module)"
       ]
     }
   ]
