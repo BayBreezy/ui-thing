@@ -98,8 +98,7 @@
             <h2 class="mt-4 text-2xl font-bold tracking-tight">You're subscribed</h2>
             <p class="text-muted-foreground mt-2">
               We'll send <span class="text-foreground font-medium">{{ summary }}</span> to
-              <span class="text-foreground font-medium">{{ email }}</span
-              >.
+              <span class="text-foreground font-medium">{{ email }}</span>.
             </p>
             <UiButton variant="ghost" class="mt-5" @click="restart"
               >Subscribe another email</UiButton

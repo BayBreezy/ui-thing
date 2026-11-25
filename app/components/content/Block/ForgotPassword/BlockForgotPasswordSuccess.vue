@@ -17,8 +17,7 @@
       <h1 class="text-2xl font-bold tracking-tight lg:text-3xl">{{ title }}</h1>
       <p class="text-muted-foreground mt-2">
         We sent password reset instructions to
-        <span class="text-foreground font-medium">{{ email }}</span
-        >.
+        <span class="text-foreground font-medium">{{ email }}</span>.
       </p>
 
       <div class="mt-8 grid gap-3">

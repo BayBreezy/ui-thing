@@ -50,8 +50,7 @@
         <h1 class="text-2xl font-bold tracking-tight lg:text-3xl">Check your inbox</h1>
         <p class="text-muted-foreground mt-2">
           We sent a login link to
-          <span class="text-foreground font-medium">{{ email }}</span
-          >. It expires in 15 minutes.
+          <span class="text-foreground font-medium">{{ email }}</span>. It expires in 15 minutes.
         </p>
         <div class="mt-8 grid gap-3">
           <UiButton variant="outline" :disabled="cooldown > 0" @click="resend()">

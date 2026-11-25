@@ -81,9 +81,7 @@
                 event.at.replace("T", " ")
               }}</UiTableCell>
               <UiTableCell class="whitespace-nowrap">{{ event.actor }}</UiTableCell>
-              <UiTableCell
-                ><code class="text-xs">{{ event.action }}</code></UiTableCell
-              >
+              <UiTableCell><code class="text-xs">{{ event.action }}</code></UiTableCell>
               <UiTableCell class="whitespace-nowrap">{{ event.target }}</UiTableCell>
             </UiTableRow>
             <UiTableRow v-if="!selected.length">

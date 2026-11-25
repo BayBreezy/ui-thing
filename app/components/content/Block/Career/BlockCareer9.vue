@@ -120,8 +120,8 @@
         <h2 class="text-2xl font-semibold">Application sent</h2>
         <p class="text-muted-foreground mx-auto max-w-md">
           Thanks, {{ firstName }}. We sent a confirmation to
-          <span class="text-foreground font-medium">{{ form.email.trim() }}</span
-          >. Expect a reply within five working days.
+          <span class="text-foreground font-medium">{{ form.email.trim() }}</span>. Expect a reply
+          within five working days.
         </p>
         <UiButton variant="outline" @click="reset">Apply for another role</UiButton>
       </UiCardContent>

@@ -11,8 +11,7 @@
           <UiBadge variant="secondary">Monthly</UiBadge>
         </div>
         <UiCardDescription>
-          Your plan renews on <span class="text-foreground font-medium">{{ props.renewsOn }}</span
-          >.
+          Your plan renews on <span class="text-foreground font-medium">{{ props.renewsOn }}</span>.
         </UiCardDescription>
         <UiCardAction class="text-right">
           <p class="text-2xl font-bold">

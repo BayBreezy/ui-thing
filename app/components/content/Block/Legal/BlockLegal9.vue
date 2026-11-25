@@ -91,8 +91,7 @@
               <h2 class="mt-4 text-xl font-semibold">Request received</h2>
               <p class="text-muted-foreground mt-1 text-sm">
                 We will email {{ email }} within 30 days. Your reference is
-                <span class="text-foreground font-mono">{{ reference }}</span
-                >.
+                <span class="text-foreground font-mono">{{ reference }}</span>.
               </p>
               <UiButton variant="ghost" size="sm" class="mt-4" @click="reset"
                 >Submit another request</UiButton

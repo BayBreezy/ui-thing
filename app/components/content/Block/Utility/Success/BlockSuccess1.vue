@@ -14,8 +14,7 @@
         <h1 class="mt-6 text-3xl font-bold tracking-tight lg:text-4xl">Payment successful</h1>
         <p class="text-muted-foreground mt-3">
           Thanks, {{ customer }}. We sent a receipt to
-          <span class="text-foreground font-medium">{{ email }}</span
-          >.
+          <span class="text-foreground font-medium">{{ email }}</span>.
         </p>
         <p class="mt-4 inline-flex items-center gap-2 text-sm">
           <span class="text-muted-foreground">Order</span>

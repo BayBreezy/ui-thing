@@ -45,10 +45,7 @@
       </UiNavbar>
       <UiContainer class="py-5">
         <UiPlaceholder class="h-[450px]">
-          <p>
-            The sidebar is currently <strong>{{ state ? "open" : "closed" }}</strong
-            >.
-          </p>
+          <p>The sidebar is currently <strong>{{ state ? "open" : "closed" }}</strong>.</p>
         </UiPlaceholder>
       </UiContainer>
     </UiSidebarInset>

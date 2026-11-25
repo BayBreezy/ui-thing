@@ -40,9 +40,7 @@
               <div v-if="peekedModel?.strengths" class="mt-4 grid gap-2">
                 <h5 class="text-sm leading-none font-medium">Strengths</h5>
                 <ul class="text-muted-foreground text-sm">
-                  {{
-                    peekedModel.strengths
-                  }}
+                  {{ peekedModel.strengths }}
                 </ul>
               </div>
             </div>

@@ -28,9 +28,7 @@
             </UiItemMedia>
             <UiItemContent>
               <UiItemTitle class="text-xs leading-snug font-normal">
-                <span
-                  ><span class="font-medium">{{ item.who }}</span> {{ item.text }}</span
-                >
+                <span><span class="font-medium">{{ item.who }}</span> {{ item.text }}</span>
               </UiItemTitle>
               <UiItemDescription class="text-xs">{{ item.when }}</UiItemDescription>
             </UiItemContent>

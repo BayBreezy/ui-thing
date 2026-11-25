@@ -36,8 +36,7 @@
           <h1 class="text-2xl font-bold tracking-tight">Check your inbox</h1>
           <p class="text-muted-foreground mt-2 text-sm">
             We sent a reset link to
-            <span class="text-foreground font-medium">{{ email }}</span
-            >. It expires in 24 hours.
+            <span class="text-foreground font-medium">{{ email }}</span>. It expires in 24 hours.
           </p>
           <div class="mt-8 grid gap-3">
             <UiButton variant="outline" :disabled="cooldown > 0" @click="resend()">

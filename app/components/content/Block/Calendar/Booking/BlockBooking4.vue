@@ -11,10 +11,9 @@
       /></span>
       <h1 class="mt-4 text-3xl font-bold tracking-tight">{{ title }}</h1>
       <p class="text-muted-foreground mt-2">
-        We sent the details to <span class="text-foreground font-medium">{{ booking.email }}</span
-        >. Your reference is
-        <span class="text-foreground font-mono font-medium">{{ booking.reference }}</span
-        >.
+        We sent the details to <span class="text-foreground font-medium">{{ booking.email }}</span>.
+        Your reference is
+        <span class="text-foreground font-mono font-medium">{{ booking.reference }}</span>.
       </p>
     </div>
 

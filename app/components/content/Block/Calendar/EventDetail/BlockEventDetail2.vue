@@ -29,9 +29,7 @@
               :fallback="event.host.name.slice(0, 1)"
               class="size-9"
             />
-            <p class="text-sm">
-              Hosted by <span class="font-medium">{{ event.host.name }}</span>
-            </p>
+            <p class="text-sm">Hosted by <span class="font-medium">{{ event.host.name }}</span></p>
           </div>
 
           <section class="mt-10">

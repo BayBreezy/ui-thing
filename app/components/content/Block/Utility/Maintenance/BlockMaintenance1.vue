@@ -35,9 +35,7 @@
       </ol>
 
       <div class="bg-muted/50 mt-8 rounded-xl p-4 text-sm">
-        <p>
-          Estimated return: <span class="font-semibold">{{ eta }}</span>
-        </p>
+        <p>Estimated return: <span class="font-semibold">{{ eta }}</span></p>
         <p class="text-muted-foreground mt-1" role="status">{{ lastChecked }}</p>
         <UiButton variant="outline" size="sm" class="mt-3" :disabled="checking" @click="check">
           <Icon

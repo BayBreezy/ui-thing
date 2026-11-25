@@ -10,8 +10,7 @@
       })
     "
     ><span data-slot="code-block-line-content" class="min-w-0"
-      ><template v-if="isEmpty()">{{ "\n" }}</template
-      ><slot v-else /></span
+      ><template v-if="isEmpty()">{{ "\n" }}</template><slot v-else /></span
   ></span>
 </template>
 

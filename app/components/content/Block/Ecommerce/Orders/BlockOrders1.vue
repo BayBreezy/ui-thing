@@ -29,8 +29,8 @@
         Thanks {{ order.firstName }}, your order is confirmed
       </h1>
       <p class="text-muted-foreground mt-3">
-        Order <strong class="text-foreground">{{ order.id }}</strong
-        >. We sent a receipt to {{ order.email }}.
+        Order <strong class="text-foreground">{{ order.id }}</strong>. We sent a receipt to
+        {{ order.email }}.
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-3">
         <UiButton>

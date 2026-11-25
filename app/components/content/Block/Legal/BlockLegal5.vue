@@ -54,9 +54,7 @@
           <UiTableBody>
             <UiTableRow v-for="c in cookies" :key="c.name">
               <UiTableCell class="font-mono text-xs">{{ c.name }}</UiTableCell>
-              <UiTableCell
-                ><UiBadge variant="secondary">{{ c.category }}</UiBadge></UiTableCell
-              >
+              <UiTableCell><UiBadge variant="secondary">{{ c.category }}</UiBadge></UiTableCell>
               <UiTableCell class="text-muted-foreground">{{ c.purpose }}</UiTableCell>
               <UiTableCell class="text-muted-foreground text-right">{{ c.duration }}</UiTableCell>
             </UiTableRow>

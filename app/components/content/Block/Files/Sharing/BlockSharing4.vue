@@ -65,9 +65,7 @@
                 class="size-7"
               />
               <div>
-                <p>
-                  <span class="font-medium">{{ item.who }}</span> {{ item.text }}
-                </p>
+                <p><span class="font-medium">{{ item.who }}</span> {{ item.text }}</p>
                 <p class="text-muted-foreground text-xs">{{ item.when }}</p>
               </div>
             </li>

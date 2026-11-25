@@ -61,8 +61,7 @@
         </div>
         <div class="mt-4">
           <div class="text-muted-foreground mb-1.5 flex justify-between text-xs">
-            <span class="capitalize">{{ project.status }}</span
-            ><span>{{ project.progress }}%</span>
+            <span class="capitalize">{{ project.status }}</span><span>{{ project.progress }}%</span>
           </div>
           <UiProgress
             :model-value="project.progress"

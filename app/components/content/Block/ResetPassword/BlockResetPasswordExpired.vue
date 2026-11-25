@@ -34,8 +34,8 @@
         <div v-else class="text-center" role="status">
           <h1 class="mb-2 text-2xl font-bold tracking-tight">Check your inbox</h1>
           <p class="text-muted-foreground text-sm">
-            We sent a new reset link to <span class="text-foreground font-medium">{{ sentTo }}</span
-            >.
+            We sent a new reset link to
+            <span class="text-foreground font-medium">{{ sentTo }}</span>.
           </p>
           <p class="text-muted-foreground mt-6 text-sm">
             Still nothing?
