@@ -40,7 +40,7 @@ Do not write \`bg-white\`, \`text-gray-500\`, \`border-slate-200\` or hex colors
 
 ## 3. Theming and dark mode
 
-- Pick the brand color with \`ui-thing@latest theme\` (Zinc, Slate, Stone, Gray, Neutral, Red, Rose, Orange, Green, Blue, Violet...). It rewrites the token block in \`tailwind.css\`. Run it once, early.
+- Pick the brand color with \`ui-thing@latest theme <name> --yes\` (Zinc, Slate, Stone, Gray, Neutral, Red, Rose, Orange, Green, Blue, Violet...). It rewrites the token block in \`tailwind.css\`. Run it once, early.
 - Change corner roundness through the \`--radius\` token in the theme block, not per-component classes, so every surface stays consistent.
 - Dark mode is the \`.dark\` class set by \`@nuxtjs/color-mode\` (components read \`$colorMode\`). Provide a toggle (\`useColorMode()\`) and test every screen in both modes.
 

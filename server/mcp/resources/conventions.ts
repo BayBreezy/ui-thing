@@ -49,9 +49,17 @@ export default defineMcpResource({
 ## Install workflow
 
 1. \`get-install-plan\` with every component and block you will use.
-2. Run \`addNuxtModules\`, \`installDependencies\` (block-imported packages), then \`addComponents\`.
+2. Run \`addComponents\` and \`addBlocks\` (both run without prompts and install the packages and Nuxt modules they need), plus \`installDependencies\` / \`addNuxtModules\` when the plan lists them. Preview with \`ui-thing add <names> --dry-run --json\`.
 3. Register any \`nuxtConfigModules\` by hand in \`nuxt.config.ts\`.
 4. Apply the plan's \`notes\` (for example defining \`COMPANY_NAME\`).
+
+## CLI for agents
+
+- \`ui-thing info --json\`: project context (versions, initialized, package manager, paths, installed components, Nuxt modules, warnings). Run it first.
+- \`ui-thing view <name> --json\`: a component's or block's source and dependencies without installing.
+- \`ui-thing block --json --category <name>\`, then \`ui-thing block <ids> --yes\`: browse and add blocks.
+- \`ui-thing diff\` / \`ui-thing update <names> --dry-run\`: check before overwriting local edits.
+- Every command has a non-interactive form (\`--yes\` or names); read-only commands print JSON with \`--json\`.
 
 ## Docs
 

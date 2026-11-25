@@ -67,6 +67,7 @@ export type InstallPlan = {
     installDevDependencies: string | null;
     addNuxtModules: string | null;
     addComponents: string | null;
+    addBlocks: string | null;
   };
 };
 
@@ -3699,6 +3700,7 @@ export function buildInstallPlan(
   const devDependencies = uniqueSorted(acc.devDependencies);
   const nuxtModules = uniqueSorted(acc.nuxtModules);
   const uiThingComponents = uniqueSorted(acc.uiThingComponents);
+  const blockValues = resolvedItems.filter((i) => i.kind === "block").map((i) => i.value);
 
   return {
     packageManager,
@@ -3716,10 +3718,10 @@ export function buildInstallPlan(
     utils: uniqueSorted(acc.utils),
     notes: [
       ...acc.notes,
-      "`addComponents` installs the listed components together with the npm packages they need (npmDependencies).",
-      ...(blockNpmDependencies.length > 0
+      "`addComponents` installs the listed components together with the npm packages they need (npmDependencies). It runs without prompts (`--yes`).",
+      ...(blockValues.length > 0
         ? [
-            "Blocks are copied from get-block, not installed by the CLI. Run `installDependencies` for the packages the block imports directly.",
+            "`addBlocks` writes the blocks to app/components/Blocks (components/Blocks in Nuxt 3), installs the components and npm packages they use, and prints the tag for each block (for example <BlocksHeroBlockHero1 />). It needs ui-thing 0.4.1 or later; with an older CLI, copy the source from get-block and run `installDependencies`.",
           ]
         : []),
       ...(nuxtModules.length > 0
@@ -3742,7 +3744,11 @@ export function buildInstallPlan(
         nuxtModules.length > 0 ? `${commands.moduleAdd} ${nuxtModules.join(" ")}` : null,
       addComponents:
         uiThingComponents.length > 0
-          ? `${commands.dlx} ui-thing@latest add ${uiThingComponents.join(" ")}`
+          ? `${commands.dlx} ui-thing@latest add ${uiThingComponents.join(" ")} --yes`
+          : null,
+      addBlocks:
+        blockValues.length > 0
+          ? `${commands.dlx} ui-thing@latest block ${blockValues.join(" ")} --yes`
           : null,
     },
   };
@@ -4235,12 +4241,12 @@ export function buildProjectSetup(projectName = "my-app", packageManager: Packag
       {
         title: "Initialize UI Thing",
         command: `${cd} && ${commands.dlx} ui-thing@latest init --yes`,
-        note: "`--yes` accepts the defaults (theme, paths, package manager). Without it the CLI asks questions and an agent will hang. Run `ui-thing@latest theme` afterwards to pick a different color theme.",
+        note: "`--yes` accepts the defaults (Zinc theme, standard paths), detects the package manager from the lockfile and skips the Prettier question. Without it the CLI asks questions and an agent will hang. Run `ui-thing@latest theme <name> --yes` afterwards to pick a different color theme.",
       },
       {
         title: "Add starter components",
-        command: `${cd} && ${commands.dlx} ui-thing@latest add button card input`,
-        note: "Always pass component names. With no arguments `add` opens an interactive picker.",
+        command: `${cd} && ${commands.dlx} ui-thing@latest add button card input --yes`,
+        note: "Always pass component names and `--yes`. With no names `add` opens an interactive picker, and without `--yes` it asks before installing packages.",
       },
     ],
     afterInit: [
@@ -4250,6 +4256,8 @@ export function buildProjectSetup(projectName = "my-app", packageManager: Packag
       "Components read `$colorMode`, so dark mode relies on `@nuxtjs/color-mode`. Check it is in `nuxt.config` modules after init and add it if not.",
     ],
     nextSteps: [
+      "Run `ui-thing@latest info --json` to check the setup (versions, installed components, warnings).",
+      "Connect your editor to this MCP server with `ui-thing@latest mcp init --client claude|cursor|vscode --yes`.",
       "Read resource://uithing/design-patterns before writing any UI.",
       "Call plan-app for a multi-page product, or plan-page / plan-form for a single screen.",
       "Use get-install-plan once you know which components or blocks you want.",
