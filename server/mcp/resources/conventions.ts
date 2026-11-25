@@ -43,7 +43,7 @@ export default defineMcpResource({
 ## Data display
 
 - Simple tables: \`UiTable\`. Rich tables (sorting, filtering, pagination): \`UiTanStackTable\` (headless, typed) or \`UiDatatable\` (DataTables.net, client only).
-- Charts: \`UiApexcharts\` (client only). See \`/apex-charts\` docs for each chart type.
+- Charts: \`UiApexchart\` (client only). See \`/apex-charts\` docs for each chart type.
 - Lists of settings or links: \`UiItem\`, \`UiDescriptionList\`.
 
 ## Install workflow

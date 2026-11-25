@@ -4225,8 +4225,8 @@ export function buildProjectSetup(projectName = "my-app", packageManager: Packag
     steps: [
       {
         title: "Create a Nuxt project",
-        command: `${commands.dlx} nuxi@latest init ${projectName} --packageManager ${packageManager} --no-install`,
-        note: "If nuxi prompts for official modules, accept the defaults; UI Thing adds what it needs.",
+        command: `${commands.dlx} nuxi@latest init ${projectName} --template minimal --packageManager ${packageManager} --no-install --gitInit=false`,
+        note: "`--template` is required in non-interactive terminals (nuxi exits without it). UI Thing adds the modules it needs.",
       },
       {
         title: "Install project dependencies",
