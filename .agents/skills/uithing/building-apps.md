@@ -21,7 +21,7 @@ An agent cannot answer terminal prompts. A command that opens one will hang.
 | --- | --- |
 | `init` | `npx ui-thing@latest init --yes` (accepts defaults: Zinc theme, standard paths; detects the package manager; skips the Prettier question) |
 | `add` | Always pass names: `add button card dialog`. Add `--yes` to skip the install confirmation (recent versions; older ones reject the flag, so omit it and install the packages yourself). With no names it opens a picker. |
-| `block` | **Interactive only** (category, selection and folder prompts). Do not run it. Use MCP `get-block` for the source and write the file into `app/components` yourself, or ask the user to run `block`. |
+| `block` | Browse with `block --json --category <name>` (or `--list`), then add with names: `block BlockHero1 BlockPricing2 --yes`. With no names it opens a picker. Recent versions only; on older ones use MCP `get-block` and write the file yourself. |
 | `theme <name>` | `npx ui-thing@latest theme rose --yes` overwrites the Tailwind CSS file without asking. Always pass the name, or it opens a picker. Run it before customizing tokens ([customization.md](./customization.md)). |
 | `prettier`, `shortcuts` | Prompt for the package manager. Ask the user, or skip them. |
 
@@ -64,7 +64,7 @@ Blocks compose existing `Ui*` components and may import packages (`motion-v`, `@
 
 ### 4. Layouts first
 
-Build the shells before pages, from blocks (`get-block` for exact source):
+Build the shells before pages, from blocks. Add them with `npx ui-thing@latest block <names> --yes` (it installs the components and packages they use and prints the tag, such as `<BlocksHeroBlockHero1 />`), or read the source with `get-block`:
 
 - **App shell** (dashboards, SaaS): Sidebar block + header. Put it in `layouts/default.vue` (under `app/` in Nuxt 4).
 - **Marketing**: Header/Navigation block + Footer block in `layouts/marketing.vue`.

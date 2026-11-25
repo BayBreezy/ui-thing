@@ -130,7 +130,7 @@ Follow [building-apps.md](./building-apps.md): plan → set up → install once 
 1. Read the project context above.
 2. Find the component or block: MCP `resolve-library-item` / `search-components`, or `ui-thing list`.
 3. Read its docs and source: MCP `get-component` / `get-block`, or `https://uithing.com/raw/components/<name>.md`.
-4. Install: `npx ui-thing@latest add <name...>` (blocks: `npx ui-thing@latest block`). The MCP `get-install-plan` lists npm packages and Nuxt modules a block needs; install those too.
+4. Install: `npx ui-thing@latest add <name...>` (blocks: `npx ui-thing@latest block <names> --yes`, which also installs the components and packages a block uses; find names with `block --json --category <name>`).
 5. Compose with the rules above. **Read the added files** and check imports, missing parts and placeholders.
 
 ### Theme
@@ -156,7 +156,8 @@ npx ui-thing@latest init                       # set up an existing Nuxt project
 npx ui-thing@latest init --yes                 # accept defaults
 npx ui-thing@latest add button card dialog     # add components
 npx ui-thing@latest add --all                  # everything
-npx ui-thing@latest block --category hero      # add blocks
+npx ui-thing@latest block --list --category hero   # browse blocks (--json for machines)
+npx ui-thing@latest block BlockHero1 --yes      # add blocks by name
 npx ui-thing@latest theme zinc                 # apply a theme
 npx ui-thing@latest list --installed           # what is installed
 npx ui-thing@latest update button              # overwrite with latest (loses local edits)

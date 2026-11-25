@@ -6,7 +6,7 @@ Run commands with the project's package runner (`npx ui-thing@latest`, `pnpm dlx
 
 ## Interactive vs non-interactive
 
-An agent cannot answer terminal prompts, so a command that prompts will hang. See the table in [building-apps.md](./building-apps.md#rule-zero-avoid-interactive-prompts). In short: `init --yes`, `add <names> --yes` and `theme <name> --yes` run unattended; `block`, `prettier` and `shortcuts` prompt; `update` and `remove` ask for confirmation or a selection. `--yes` on `add` and `theme` requires a recent ui-thing version; `init --yes` also detects the package manager and skips the Prettier question in recent versions. `add vee-* --yes` installs yup unless `--validator` says otherwise.
+An agent cannot answer terminal prompts, so a command that prompts will hang. See the table in [building-apps.md](./building-apps.md#rule-zero-avoid-interactive-prompts). In short: `init --yes`, `add <names> --yes`, `block <names> --yes` and `theme <name> --yes` run unattended (and `block --list`/`--json` never prompt); `prettier` and `shortcuts` prompt; `update` and `remove` ask for confirmation or a selection. `--yes` on `add` and `theme` requires a recent ui-thing version; `init --yes` also detects the package manager and skips the Prettier question in recent versions. `add vee-* --yes` installs yup unless `--validator` says otherwise.
 
 ## Commands
 
@@ -75,23 +75,27 @@ Subcommands:
 - `search <query> [source]`: search registry items by name or description (all configured registries if no source)
 - `add-namespace <namespace> <url>`: save a namespace such as `@acme https://acme.dev/r/{name}.json` to `ui-thing.config.ts`
 
-### `ui-thing block`
+### `ui-thing block [blockNames...]`
 
-Adds UI Thing blocks.
+Adds UI Thing blocks (page sections such as hero, pricing, dashboards, auth and settings).
 
 Documented options:
 
-- `-c, --category <category>`
+- `-l, --list`: list categories with counts, or the blocks in `--category`, and exit
+- `--json`: print the catalog (or one `--category`) as JSON (`id`, `name`, `category`, `description`, `components`) and exit
+- `-c, --category <category>`: filter by category (case-insensitive)
+- `-d, --dir <path>`: target folder (default `app/components/Blocks`, or `components/Blocks` in Nuxt 3)
+- `-y, --yes`: no prompts; requires block names; skips existing files
 
 Behavior:
 
-- fetches block categories and block definitions
-- prompts for block selection
-- asks where to place blocks
-- writes block files
-- may call `ui-thing add` for required UI components
+- block names match by id or display name: `BlockHero1`, `"Hero 1"` and `hero-1` all work; an unknown name fails before anything is written
+- writes each block to `<dir>/<Category>/<Block>.vue`
+- adds the UI Thing components the blocks use (in-process `add`, honoring `--yes`)
+- installs npm packages the blocks import directly (`dayjs`, `@faker-js/faker`, `gsap`, ...)
+- prints the Nuxt tag for each block, such as `<BlocksHeroBlockHero1 />`
 
-Use this when the user wants marketing sections, page sections, or larger copy-paste blocks.
+Unattended workflow: `ui-thing block --json --category hero` to choose, then `ui-thing block BlockHero1 --yes`.
 
 ### `ui-thing theme [themeName]`
 

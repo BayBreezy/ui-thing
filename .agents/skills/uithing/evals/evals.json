@@ -25,7 +25,7 @@
       "expected_output": "A page assembled from UI Thing blocks (one per section) inside a consistent layout, with placeholder content replaced, found via plan-page/list-blocks or the docs, not hand-built sections.",
       "files": [],
       "expectations": [
-        "Starts from UI Thing blocks for the hero, features, pricing, FAQ and footer sections (found with MCP plan-page / list-blocks / get-block or the blocks docs and API) instead of hand-writing those sections from scratch",
+        "Starts from UI Thing blocks for the hero, features, pricing, FAQ and footer sections (chosen with `ui-thing block --json --category <name>`, MCP plan-page / list-blocks, or the blocks docs, and added with `ui-thing block <names> --yes`) instead of hand-writing those sections from scratch",
         "Uses one block per section and keeps a consistent tone, rather than mixing many unrelated styles for the same section",
         "Installs the components and packages the chosen blocks need in one step (for example via get-install-plan or by checking each block's components) and registers any Nuxt modules they require",
         "Replaces placeholder copy, # links and the COMPANY_NAME constant with content for Tasklane; no lorem ipsum or generic template text is left",
@@ -60,7 +60,7 @@
         "Runs `ui-thing init --yes` (not plain `ui-thing init`) so no prompts are shown",
         "Runs `ui-thing add button card input` with explicit component names (and --yes), not `ui-thing add` with no names",
         "Uses bun (or bunx) consistently and does not create or leave a package-lock.json",
-        "Does not run `ui-thing block`, `ui-thing prettier` or `ui-thing shortcuts` unattended, because they prompt",
+        "Does not run `ui-thing prettier` or `ui-thing shortcuts` unattended (they prompt); if it adds blocks it passes block names and --yes (`ui-thing block BlockHero1 --yes`), never bare `ui-thing block`",
         "Does not install TypeScript 7; if the build fails with 'No fs option provided to compileScript' it installs typescript@^6",
         "Reads or checks ui-thing.config.ts and lists the components folder before assuming what is installed"
       ]
