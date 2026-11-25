@@ -1,6 +1,6 @@
 interface:
   display_name: "UI Thing"
-  short_description: "Guides UI Thing usage, authoring, MCP, and React conversion."
+  short_description: "Builds Nuxt apps with UI Thing: plan, install, compose blocks and components, forms, themes and registries."
   icon_small: "./assets/uithing-small.png"
   icon_large: "./assets/uithing-large.png"
-  default_prompt: "Use $uithing to add, author, or convert UI Thing components in a Nuxt project."
+  default_prompt: "Use $uithing to build or extend a Nuxt app with UI Thing components and blocks."

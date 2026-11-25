@@ -1,112 +1,82 @@
 # React/shadcn → UI Thing Conversion
 
-Use this reference when the user pastes React, JSX, TSX, shadcn/ui and wants the closest Vue/Nuxt/UI Thing version.
+Use this when the user pastes React, JSX, TSX or shadcn/ui code and wants the Vue/Nuxt/UI Thing version.
 
 ## Goal
 
-Convert the source into something that feels native to UI Thing and Nuxt.
-
-- preserve intent and semantics
-- do not preserve JSX syntax one-to-one
-- prefer existing UI Thing families first
-- only write custom Vue wrappers when no close UI Thing match exists
+Produce code that feels native to UI Thing and Nuxt. Preserve intent and semantics, not JSX syntax, and map to existing UI Thing components and blocks before writing anything custom.
 
 ## Workflow
 
-1. Inspect the pasted source carefully.
-2. Decide whether it is:
-   - a single primitive/component
-   - a composed interaction pattern
-   - a block or page section
-3. Use UI Thing MCP tools first:
-   - `resolve-library-item`
-   - `list-components`
-   - `list-blocks`
-   - `get-component`
-   - `get-block`
-   - `get-install-plan`
-4. Map the result to the closest native UI Thing composition.
-5. Rewrite the code idiomatically for Vue/Nuxt.
-6. If no close match exists, explain that and compose the nearest native Vue/REKA-compatible structure.
+1. Read the source and decide whether it is a primitive, a composed interaction pattern, or a page section/block.
+2. Find the closest UI Thing match: MCP `resolve-library-item`, `search-components`, `list-blocks`; or the docs (`https://uithing.com/raw/components/<name>.md`).
+3. Read the exact API: `get-component` / `get-block`. Do not carry React prop names over.
+4. Check what is installed (components folder, `package.json`) and install what is missing (`get-install-plan`, then `ui-thing add <names> --yes`).
+5. Rewrite for Vue/Nuxt using the rules in [../rules/](../rules/). Keep the original's behavior, copy and layout intent.
+6. If no close match exists, say so and compose the nearest UI Thing / Reka UI structure.
 
-## React → Vue Heuristics
+## React → Vue
 
-- `children` → default slot
-- named composition regions → named slots when the UI Thing family supports them
-- `className` → `class`
-- `onClick` → `@click`
-- `onOpenChange`, `onValueChange`, etc. → `v-model` or `@update:*`
-- React controlled state → Vue refs plus `v-model`
-- JSX conditionals → `v-if` / `v-else`
-- JSX list rendering → `v-for`
-- `forwardRef` usually disappears unless the primitive wrapper needs explicit forwarding behavior
-- React client-only behavior → Vue composables, `onMounted`, or Nuxt client-only boundaries where needed
+| React | Vue / Nuxt |
+| --- | --- |
+| `children` | default slot |
+| `className` | `class` |
+| `onClick` | `@click` |
+| `onOpenChange`, `onValueChange`, ... | `v-model` / `v-model:open` / `@update:*` |
+| `useState` | `ref` / `reactive` |
+| `useEffect` | `watch`, `watchEffect`, `onMounted` (client-only work) |
+| `useMemo` | `computed` |
+| JSX conditionals / `.map()` | `v-if` / `v-else` / `v-for` (with `:key`) |
+| `forwardRef` | usually disappears |
+| `"use client"` | remove; use `<ClientOnly>` / `.client.vue` only if the code needs the browser |
+| `next/link` | `NuxtLink` |
+| `next/image` | `<img>` (or `NuxtImg` if `@nuxt/image` is installed) |
+| `next/navigation` (`useRouter`) | `useRouter()`, `navigateTo()` |
+| `lucide-react` icons | `<Icon name="lucide:..." />` |
+| `sonner` / `toast()` | `useSonner()` with `<UiSonner />` in `app.vue` |
+| `cn(...)` | `class` (merged by `tv()`); `cn` only exists for registry code ([../registries.md](../registries.md)) |
+| `asChild` | `as-child` |
+| react-hook-form + `Form` / zod resolver | `useForm` + `toTypedSchema` + `UiVee*` ([../rules/forms.md](../rules/forms.md)) |
 
-## UI Thing Mapping Rules
+## Mapping rules
 
-### Use existing families first
+- **By intent, not by name:**
+  - dialogs → `UiDialog`, `UiAlertDialog`, `UiSheet`, `UiDrawer`
+  - menus → `UiDropdownMenu`, `UiContextMenu`, `UiMenubar`, `UiCommand`
+  - info overlays → `UiPopover`, `UiTooltip`, `UiHoverCard`
+  - forms → `UiVee*` for validated forms, base `Ui*` otherwise
+  - empty states → `UiEmpty`, callouts → `UiAlert`, loading → `UiSkeleton`
+- **Use shortcut props** when the component has them (`UiDialogContent title description`, `UiAlert icon title description`, `UiButton icon loading`).
+- **Landing/marketing sections** → check blocks first (`list-blocks`). **Reusable interactive widgets** → `Ui*` components first. **Docs/content styling** → prose components from the `@baybreezy/docd` layer.
+- **Tokens:** shadcn color classes already match UI Thing tokens (`bg-background`, `text-muted-foreground`). Convert raw colors to tokens.
+- **Client-only libraries** (charts, editors, canvas) need `<ClientOnly>` or the `.client` component.
 
-Map by intent, not by raw source name:
+## Acceptance standard
 
-- dialog-like UI → `UiDialog*`, `UiAlertDialog*`, `UiSheet*`, `UiDrawer*`
-- menus → `UiDropdownMenu*`, `UiContextMenu*`, `UiMenubar*`
-- info overlays → `UiPopover*`, `UiTooltip*`, `UiHoverCard*`
-- forms → `Ui*` or `Ui/Vee/*` depending on whether validation is part of the task
+The result is a Vue SFC (`<script setup lang="ts">`), uses auto-imported `Ui*` components and Nuxt conventions, semantic tokens, accessible Reka behavior, and reads as UI Thing code, not as JSX pasted into Vue.
 
-### Blocks vs primitives
+## Examples
 
-- If the source is a landing-page section or marketing layout, check blocks first.
-- If the source is a docs/content concern, check prose components.
-- If the source is a reusable interactive component, check `Ui*` families first.
-
-## Acceptance Standard
-
-The result should feel like native UI Thing code:
-
-- Vue SFC structure
-- Nuxt-friendly patterns
-- Reka-compatible composition
-- semantic tokens and `tv()`
-- copy-pasteable source code
-
-It should not feel like React syntax pasted into Vue.
-
-## Concise Examples
-
-### Primitive conversion
-
-React:
+Primitive:
 
 ```tsx
-<Button variant="outline" onClick={save}>
-  Save
-</Button>
+<Button variant="outline" onClick={save}>Save</Button>
 ```
-
-Vue/UI Thing:
 
 ```vue
 <UiButton variant="outline" @click="save">Save</UiButton>
 ```
 
-### Overlay conversion
-
-React/shadcn:
+Overlay:
 
 ```tsx
 <Dialog open={open} onOpenChange={setOpen}>
-  <DialogTrigger asChild>
-    <Button>Edit Profile</Button>
-  </DialogTrigger>
+  <DialogTrigger asChild><Button>Edit Profile</Button></DialogTrigger>
   <DialogContent>
-    <DialogHeader>
-      <DialogTitle>Edit profile</DialogTitle>
-    </DialogHeader>
+    <DialogHeader><DialogTitle>Edit profile</DialogTitle></DialogHeader>
   </DialogContent>
 </Dialog>
 ```
-
-Vue/UI Thing:
 
 ```vue
 <UiDialog v-model:open="open">
@@ -115,4 +85,19 @@ Vue/UI Thing:
   </UiDialogTrigger>
   <UiDialogContent title="Edit profile" />
 </UiDialog>
+```
+
+Form:
+
+```tsx
+<form onSubmit={form.handleSubmit(onSubmit)}>
+  <Input {...form.register("email")} />
+  {errors.email && <p>{errors.email.message}</p>}
+</form>
+```
+
+```vue
+<form @submit="onSubmit">
+  <UiVeeInput name="email" label="Email" type="email" />
+</form>
 ```

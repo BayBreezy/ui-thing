@@ -5,18 +5,16 @@
 Treat these as source-of-truth:
 
 - `app/components/Ui/**`
-- `app/components/content/prose/**`
 - `app/components/content/Block/**`
 - `app/components/content/Docs/**`
 - `content/**`
 - `scripts/components.js`
-- `scripts/prose.js`
-- block/prose/component generator scripts
+- `scripts/create-components.js`
+- `scripts/create-blocks.js`
 
 Treat these as generated:
 
 - `server/utils/comp.ts`
-- `server/utils/prose.ts`
 - `server/utils/block-examples.ts`
 
 ## Regeneration Rules
@@ -24,7 +22,6 @@ Treat these as generated:
 After changing source files:
 
 - components → `npm run generate:components`
-- prose → `npm run generate:prose`
 - blocks → `npm run generate:blocks`
 - broad changes → `npm run generate:all`
 

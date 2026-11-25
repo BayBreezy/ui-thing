@@ -1,0 +1,183 @@
+{
+  "skill_name": "uithing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm working in a Nuxt 4 project that already has UI Thing initialized (ui-thing.config.ts, components in app/components/Ui). Build a profile settings form with full name, email, role (Admin, Editor, Viewer) and a newsletter opt-in. Validate it, show a loading state while saving, and tell the user when it saved.",
+      "expected_output": "A Vue SFC using UiVee* fields inside a form with useForm and toTypedSchema, a loading UiButton, and a useSonner toast. The CLI is used to add the components.",
+      "files": [],
+      "expectations": [
+        "Uses UiVee* wrapper components (for example UiVeeInput, UiVeeSelect, UiVeeCheckbox or UiVeeSwitch) for the fields instead of raw UiInput or native inputs with hand-written error markup",
+        "Every field has a name and a label, and the names match the keys of the validation schema",
+        "Uses useForm with validationSchema: toTypedSchema(schema) and binds handleSubmit to the form's @submit",
+        "Does not render separate error elements (such as a p with v-if on errors); relies on the field wrapper's built-in error message",
+        "Disables the fields while submitting (fieldset :disabled or equivalent) and sets :loading on the submit UiButton",
+        "Calls useSonner (for example useSonner.success) after saving and does not destructure it",
+        "Uses UiVeeSelect with native option children (not an options prop) if it uses UiVeeSelect",
+        "Installs the components with `ui-thing add ...` passing explicit names, and does not hand-write the components or run `ui-thing add` with no names",
+        "Does not import Ui* components, useForm, toTypedSchema or useSonner manually (Nuxt auto-imports them)",
+        "Uses no raw color classes such as bg-white, text-gray-500 or text-red-500"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I'm working in a Nuxt 4 project that already has UI Thing initialized (ui-thing.config.ts, components in app/components/Ui). Create a landing page for a project-management SaaS called 'Tasklane': hero, social proof, features, pricing, FAQ and footer.",
+      "expected_output": "A page assembled from UI Thing blocks (one per section) inside a consistent layout, with placeholder content replaced, found via plan-page/list-blocks or the docs, not hand-built sections.",
+      "files": [],
+      "expectations": [
+        "Starts from UI Thing blocks for the hero, features, pricing, FAQ and footer sections (found with MCP plan-page / list-blocks / get-block or the blocks docs and API) instead of hand-writing those sections from scratch",
+        "Uses one block per section and keeps a consistent tone, rather than mixing many unrelated styles for the same section",
+        "Installs the components and packages the chosen blocks need in one step (for example via get-install-plan or by checking each block's components) and registers any Nuxt modules they require",
+        "Replaces placeholder copy, # links and the COMPANY_NAME constant with content for Tasklane; no lorem ipsum or generic template text is left",
+        "Uses NuxtLink for internal links and adds useSeoMeta with a title and description",
+        "Uses semantic tokens (bg-background, text-muted-foreground, text-primary) and UiContainer for page width, with no raw colors or hand-rolled max-w-7xl mx-auto wrappers",
+        "Has at most one default-variant primary UiButton per section/view; secondary actions use outline or ghost",
+        "Checks the result in light and dark mode and at 375px width, or says it needs to be checked"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I'm working in a Nuxt 4 project that already has UI Thing initialized (ui-thing.config.ts, components in app/components/Ui). Add a 'Delete project' button on the project page. Clicking it should ask the user to confirm, then delete the project and show a success message.",
+      "expected_output": "A UiAlertDialog confirmation with the trigger rendered via as-child, a destructive action, and a useSonner toast.",
+      "files": [],
+      "expectations": [
+        "Uses UiAlertDialog (with UiAlertDialogTrigger, UiAlertDialogContent, UiAlertDialogCancel and UiAlertDialogAction or the shortcut props the component documents) for the confirmation instead of window.confirm or a hand-built modal",
+        "Renders the trigger with as-child so there is no button nested inside a button",
+        "The confirm dialog has a title and a description",
+        "The destructive button uses variant=\"destructive\" (or the destructive styling the action supports), not custom red classes",
+        "Shows a success toast with useSonner.success after the delete completes",
+        "Handles failure (an error toast or UiAlert) and keeps the user on the page",
+        "Does not use manual imports for Ui* components"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Set up a brand new Nuxt app called 'orbit' with UI Thing and add a button, card and input. I'm using bun. You can't answer interactive terminal prompts.",
+      "expected_output": "Non-interactive commands only: nuxi init with --template, bun install, ui-thing init --yes, ui-thing add with explicit names and --yes, with TypeScript 6 respected.",
+      "files": [],
+      "expectations": [
+        "Creates the project with `nuxi init` passing --template (for example --template minimal) so it does not exit in a non-interactive terminal",
+        "Runs `ui-thing init --yes` (not plain `ui-thing init`) so no prompts are shown",
+        "Runs `ui-thing add button card input` with explicit component names (and --yes), not `ui-thing add` with no names",
+        "Uses bun (or bunx) consistently and does not create or leave a package-lock.json",
+        "Does not run `ui-thing block`, `ui-thing prettier` or `ui-thing shortcuts` unattended, because they prompt",
+        "Does not install TypeScript 7; if the build fails with 'No fs option provided to compileScript' it installs typescript@^6",
+        "Reads or checks ui-thing.config.ts and lists the components folder before assuming what is installed"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "I'm working in a Nuxt 4 project that already has UI Thing initialized (ui-thing.config.ts, components in app/components/Ui). I want the glass-liquid effect from https://nxui.geoql.in/docs/components/fluid-glass on my pricing page hero. Don't convert it by hand.",
+      "expected_output": "Installs the component with ui-thing add from the nxui registry, then reviews the result: component name, SSR, dependencies, cn helper, and placeholder content.",
+      "files": [],
+      "expectations": [
+        "Installs it with `ui-thing add` using the registry (`@nxui/fluid-glass` or https://nxui.geoql.in/r/fluid-glass.json) instead of rewriting the component by hand",
+        "Reads the file and package list the CLI prints (or passes --yes only after reviewing what the item is) because registry items are remote code",
+        "Checks the exact component name after install (for example in .nuxt/components.d.ts after nuxi prepare) instead of guessing the tag",
+        "Wraps the WebGL/canvas component in <ClientOnly> (or uses a .client.vue variant) to avoid SSR errors",
+        "Confirms the dependencies were installed (for example @vueuse/core, clsx) and that ~/lib/utils exports cn",
+        "Notices and resolves the duplicate component name warning (NUXT_B3011) caused by the item's index.ts barrel if it appears, for example by deleting the unused barrel",
+        "Uses it sparingly (one effect) and keeps text on top readable, with semantic tokens for the surrounding content"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Convert this shadcn/ui React component to Vue for my UI Thing project:\n\n```tsx\n'use client'\nimport { useState } from 'react'\nimport { toast } from 'sonner'\nimport { Plus } from 'lucide-react'\nimport { Button } from '@/components/ui/button'\nimport { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'\nimport { Input } from '@/components/ui/input'\n\nexport function NewProject() {\n  const [open, setOpen] = useState(false)\n  const [name, setName] = useState('')\n  return (\n    <Dialog open={open} onOpenChange={setOpen}>\n      <DialogTrigger asChild>\n        <Button><Plus className=\"mr-2 h-4 w-4\" />New project</Button>\n      </DialogTrigger>\n      <DialogContent>\n        <DialogHeader><DialogTitle>New project</DialogTitle></DialogHeader>\n        <Input value={name} onChange={(e) => setName(e.target.value)} placeholder=\"Name\" />\n        <Button onClick={() => { toast.success('Created'); setOpen(false) }}>Create</Button>\n      </DialogContent>\n    </Dialog>\n  )\n}\n```",
+      "expected_output": "A Vue SFC using UiDialog with v-model:open, as-child trigger, UiDialogContent shortcut props, the Icon component and useSonner.",
+      "files": [],
+      "expectations": [
+        "Uses UiDialog with v-model:open instead of open/onOpenChange props",
+        "Uses UiDialogTrigger with as-child (not asChild)",
+        "Uses UiDialogContent with the title prop (or the title slot) and ensures a dialog title exists",
+        "Uses UiButton with the icon prop or the Icon component with lucide:plus, not an imported lucide-react component",
+        "Uses ref and v-model for the input state instead of useState/onChange",
+        "Uses useSonner.success (or useSonner) instead of importing toast from sonner, and mentions rendering <UiSonner /> once in app.vue",
+        "Removes 'use client', className, cn() and the @/components/ui/* imports; uses class and auto-imported Ui* components",
+        "Writes a Vue SFC with <script setup lang=\"ts\">"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "I'm working in a Nuxt 4 project that already has UI Thing initialized (ui-thing.config.ts, components in app/components/Ui). Build a 'Projects' list page that loads projects from /api/projects. Handle the loading state, an empty list, and a failed request.",
+      "expected_output": "A page with UiSkeleton loading placeholders, a UiEmpty empty state with a call to action, and a UiAlert (destructive) error with a retry.",
+      "files": [],
+      "expectations": [
+        "Shows UiSkeleton placeholders shaped like the final rows while loading, not just a text 'Loading...'",
+        "Uses UiEmpty with its parts (for example UiEmptyHeader, UiEmptyTitle, UiEmptyDescription, UiEmptyContent) and a clear next action instead of a hand-styled div",
+        "Shows the error with UiAlert variant=\"destructive\" (with a title and description) and offers a retry",
+        "Fetches data with useFetch or useAsyncData and uses its pending/error/status state",
+        "Uses semantic tokens only; no raw colors like text-gray-500 or bg-red-100",
+        "Uses UiBadge with variant and color for status values instead of hand-colored spans",
+        "Icon-only controls (such as row actions) have aria-label, preferably with a UiTooltip"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "I'm working in a Nuxt 4 project that already has UI Thing initialized (ui-thing.config.ts, components in app/components/Ui). Add a revenue-over-time chart and a sortable, filterable, paginated customers table to the dashboard page.",
+      "expected_output": "UiApexchart rendered client-side and UiTanStackTable (or UiDatatable) for the table, using the right component names and client-only handling.",
+      "files": [],
+      "expectations": [
+        "Uses UiApexchart (not UiApexcharts or a hand-rolled chart) for the chart and makes sure it renders client-side (<ClientOnly> or the .client component)",
+        "Uses UiTanStackTable or UiDatatable for the sortable, filterable, paginated table instead of a hand-written table with custom sorting code",
+        "Installs them with `ui-thing add` using the exact registry values (apexcharts and tanstacktable, found via ui-thing list, resolve-library-item or the components API) and lets the CLI install their packages (apexcharts, vue3-apexcharts, @tanstack/vue-table) instead of guessing names like tan-stack-table",
+        "Reads the component docs (get-component, /raw/components/<name>.md, or the apex-charts docs) for exact props instead of guessing them",
+        "Chart colors come from tokens (such as the chart-1..5 variables or text-primary), not hardcoded hex colors that ignore dark mode",
+        "Provides an empty state and a loading state for both the chart and the table"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "I'm working in a Nuxt 4 project that already has UI Thing initialized (ui-thing.config.ts, components in app/components/Ui). Make the brand color a deep teal, add a 'success' color for positive states, and keep dark mode working.",
+      "expected_output": "Token changes in the Tailwind CSS file (and the theme command if appropriate), with success defined in :root, html.dark and @theme inline.",
+      "files": [],
+      "expectations": [
+        "Changes colors through CSS variables in the Tailwind CSS file (tailwindCSSLocation), not by adding raw color classes to components",
+        "Defines the new success token in :root and in html.dark, and maps it in an @theme inline block (--color-success: var(--success)), with a matching success-foreground",
+        "Updates --primary (and --primary-foreground) in both :root and html.dark with readable contrast",
+        "If it uses `ui-thing theme`, passes the theme name and --yes, runs it before customizing tokens, and knows it overwrites the whole CSS file",
+        "Uses the new tokens (bg-success, text-success-foreground) or UiBadge color=\"green\" in components instead of hardcoded greens",
+        "Does not add dark: overrides for tokens that already switch between modes"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Add a Callout and a Steps component to my Nuxt Content docs site using `ui-thing prose`.",
+      "expected_output": "Explains that ui-thing has no prose command and that these prose components ship with the @baybreezy/docd layer, instead of running a nonexistent command.",
+      "files": [],
+      "expectations": [
+        "Does not run or recommend `ui-thing prose` and states the command does not exist",
+        "Points to the @baybreezy/docd Nuxt layer (for example `npx create-docd` or extending the layer) as the source of prose components such as callouts and steps",
+        "Does not invent other CLI commands (such as `ui-thing info` or `ui-thing docs`) to get the components",
+        "Mentions the MDC usage syntax (::prose-callout and ::prose-steps / ::prose-step) or points to the docd docs for it"
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "I'm editing the UI Thing source repository itself. I changed the props of app/components/Ui/Badge.vue and want the docs, MCP data and API to reflect it.",
+      "expected_output": "Follows the maintainer workflow from AGENTS.md: update source and docs demos, regenerate registries with the generator scripts, and format with oxfmt.",
+      "files": [],
+      "expectations": [
+        "Reads AGENTS.md and the skill's maintainers/ notes before editing",
+        "Does not hand-edit generated files (server/utils/comp.ts, server/utils/block-examples.ts, app/utils/block-components.ts)",
+        "Regenerates the registries with `bun run generate:components` (or generate:all) after the change",
+        "Updates the docs demo SFC under app/components/content/Docs/** and lets automd keep the markdown snippets aligned, instead of pasting stale code into the markdown",
+        "Formats with oxfmt (`bun run fmt`) and does not run prettier on this repo",
+        "Keeps tv(), data-slot attributes, the class prop normalization (normalizeClass(props.class) || undefined) and Reka accessibility behavior intact"
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "I'm working in a Nuxt 4 project that already has UI Thing initialized (ui-thing.config.ts, components in app/components/Ui). Add a 'Share' icon button next to the page title that opens a menu with Copy link, Email and Download as PDF.",
+      "expected_output": "An accessible icon-only trigger with an aria-label and tooltip, a UiDropdownMenu with items, using Icon names from lucide.",
+      "files": [],
+      "expectations": [
+        "Uses UiDropdownMenu (with its trigger rendered via as-child) and UiDropdownMenuItem for the menu instead of a hand-built popover with divs",
+        "The icon-only trigger button has an aria-label and preferably a UiTooltip",
+        "Uses Icon with lucide:* names (or the icon prop) and does not mix icon families or import icon components from an icon package",
+        "Sizes icons with size-* classes and does not nest a button inside a button",
+        "Copy link gives feedback with useSonner (for example useSonner.success('Link copied'))",
+        "Uses semantic tokens and built-in variants (variant=\"ghost\" size=\"icon\") instead of custom colors or borders"
+      ]
+    }
+  ]
+}
