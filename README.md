@@ -34,6 +34,10 @@ bun run sync:skills
 
 UI Thing has an MCP server at `https://uithing.com/mcp` that gives AI assistants component and block source, docs, install plans and page/app planning. Connect your editor with `npx ui-thing@latest mcp init`, or see the [MCP docs](https://uithing.com/getting-started/mcp) for every client.
 
+## VS Code Extension
+
+The [UI Thing extension](https://github.com/BayBreezy/ui-thing-vscode-extension) adds a sidebar to VS Code, Cursor and Windsurf for browsing, adding, comparing and updating components and blocks. Download the `.vsix` from the [latest release](https://github.com/BayBreezy/ui-thing-vscode-extension/releases/latest) and install it with **Extensions → ··· → Install from VSIX…**. See the [extension docs](https://uithing.com/getting-started/vscode-extension).
+
 ## 🚀 Quick Start
 
 Create a Nuxt project (skip this if you have one):
